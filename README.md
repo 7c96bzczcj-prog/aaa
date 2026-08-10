@@ -110,25 +110,33 @@ from the paired contrast. 19 patients have their conditions built as
 **separate libraries**, where it does not cancel — and ambient pushes
 every lineage the same way at once.
 
-Power-matched (the separate group repeatedly subsampled to n = 8, since
-correlation rises with precision and an unmatched comparison would find
-the predicted gap whether or not ambient exists):
+Power-matched (the separate group repeatedly subsampled to the shared
+group's size, since correlation rises with precision and an unmatched
+comparison would find the predicted gap whether or not ambient exists).
+Patient 581 is excluded from both groups — it contributes libraries of
+*both* designs, so it cannot cleanly represent either:
 
 | | mean pairwise cross-lineage r | ≥4 lineages concordant |
 |---|---|---|
-| shared soup (n=8) | **0.299** | 0.46% |
-| separate libraries (matched n=8) | **0.502** [0.429, 0.591] | 2.21% |
+| shared soup (n=7) | **0.291** | 0.38% |
+| separate libraries (matched n) | **0.490** [0.393, 0.583] | 2.29% |
 
 0 of 25 matched draws fell at or below the shared-soup value. So roughly
 **40% of the apparent cross-lineage sharing in a conventional design is
 technical, not biological**, and the ≥4-lineage concordance rate — the
-Q3 rate — is inflated about 4.8-fold.
+Q3 rate — is inflated about six-fold.
 
-Two caveats, both real. The shared emulsion removes *all* technical
-differences between conditions, not only ambient, so this is an upper
-bound on ambient specifically. And the two groups are **different
-patients**, so biology is confounded with design; only one patient (581)
-has both designs, which is not enough for a within-patient test.
+A depth confounder was checked and runs the *wrong way* for an artefact
+explanation: shared-soup pseudobulks are about twice as deep (median
+1.13M vs 0.58M counts), and more depth means less attenuation and so
+*higher* correlation. The shared group is deeper and still less
+correlated, which strengthens rather than weakens the reading.
+
+Two caveats remain, both real. The shared emulsion removes *all*
+technical differences between conditions, not ambient alone, so this is
+an upper bound on ambient specifically. And the two groups are
+**different patients**, so biology is confounded with design; the single
+patient carrying both designs is not enough for a within-patient test.
 
 ### Phases 3–5 on real data, and why S4 fires
 

@@ -1,6 +1,9 @@
-genes 4525 | shared-soup n=8 | separate-library n=19
-shared soup   : r=0.2987 ge4concordant=0.0046
-separate full : r=0.5474 ge4concordant=0.0250
+genes 4525 | shared-soup n=7 | separate-library n=19 | excluded for mixed design: ['581']
+   group  n_patients  median_pseudobulk_total_counts      min        max
+  shared           7                       1133060.0 157709.0 14067632.0
+separate          19                        581692.0  62658.0  4035236.0
+shared soup   : r=0.2913 ge4concordant=0.0038
+separate full : r=0.5478 ge4concordant=0.0252
   matched draw 5/25
   matched draw 10/25
   matched draw 15/25
@@ -8,11 +11,11 @@ separate full : r=0.5474 ge4concordant=0.0250
   matched draw 25/25
 
 === POWER-MATCHED COMPARISON (n=8 vs n=8) ===
-  shared soup            mean pairwise r = 0.2987
-  separate (matched n=8) mean pairwise r = 0.5023 [0.4286, 0.5914]
-  difference (separate - shared)         = +0.2036
+  shared soup            mean pairwise r = 0.2913
+  separate (matched n=8) mean pairwise r = 0.4904 [0.3930, 0.5833]
+  difference (separate - shared)         = +0.1992
   draws not exceeding shared soup        = 0.000
-  frac >=4 concordant: shared 0.0046 vs separate 0.0221 (+0.0175)
-  r(NK, mean of others): shared 0.3007 vs separate 0.5598
+  frac >=4 concordant: shared 0.0038 vs separate 0.0229 (+0.0191)
+  r(NK, mean of others): shared 0.2850 vs separate 0.5434
 
 DONE

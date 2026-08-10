@@ -165,9 +165,9 @@ def main():
     # one-sided empirical p: how often does a power-matched separate draw
     # fail to exceed the shared-soup value?
     p_emp = float((r_m <= r_s).mean())
-    print("\n=== POWER-MATCHED COMPARISON (n=8 vs n=8) ===", flush=True)
+    print("\n=== POWER-MATCHED COMPARISON (matched on n) ===", flush=True)
     print(f"  shared soup            mean pairwise r = {r_s:.4f}", flush=True)
-    print(f"  separate (matched n=8) mean pairwise r = {r_m.mean():.4f} "
+    print(f"  separate (matched n)    mean pairwise r = {r_m.mean():.4f} "
           f"[{r_m.min():.4f}, {r_m.max():.4f}]", flush=True)
     print(f"  difference (separate - shared)         = {r_m.mean()-r_s:+.4f}", flush=True)
     print(f"  draws not exceeding shared soup        = {p_emp:.3f}", flush=True)
