@@ -1,0 +1,16 @@
+dataset,threshold,paired_patients,NK_only,all_5_lineages,A1_met_NKonly,A1_met_balanced
+GSE154826 Leader NSCLC,10,29,28,28,True,True
+GSE154826 Leader NSCLC,20,29,28,28,True,True
+GSE154826 Leader NSCLC,30,29,27,27,True,True
+GSE154826 Leader NSCLC,50,29,27,27,True,True
+GSE154826 Leader NSCLC,100,29,23,23,True,True
+GSE178341 Pelka CRC,10,36,22,22,True,True
+GSE178341 Pelka CRC,20,36,9,7,True,False
+GSE178341 Pelka CRC,30,36,5,5,False,False
+GSE178341 Pelka CRC,50,36,2,1,False,False
+GSE178341 Pelka CRC,100,36,0,0,False,False
+GSE131907 Kim NSCLC,10,10,10,10,True,True
+GSE131907 Kim NSCLC,20,10,9,8,True,True
+GSE131907 Kim NSCLC,30,10,8,6,True,False
+GSE131907 Kim NSCLC,50,10,5,1,False,False
+GSE131907 Kim NSCLC,100,10,2,0,False,False

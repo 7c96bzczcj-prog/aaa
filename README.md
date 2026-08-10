@@ -58,11 +58,29 @@ avoid circularity, is therefore available for 8 of 29 patients and
 cannot carry the main analysis. Lineage assignment is RNA-based, with
 every gating gene barred from testing via `excluded_genes.txt`.
 
-GSE178341 (Pelka CRC) is admitted as the Phase 7 replication cohort:
-**36 paired patients**, and the protocol's memory that it has no raw
-droplet matrices is confirmed. GSE131907 passes A1 with 10 paired
-patients. GSE176078 (Wu breast) is **rejected** — tumour-only, no paired
-normal, fails A1 outright. Full table: [`phase1_registry/registry.csv`](phase1_registry/registry.csv).
+### Stop rule S2 fires at the protocol's stated threshold
+
+A4 was then measured on the candidate replication cohorts too, and it
+changes the outlook. "Balanced" below means all five lineages clear the
+threshold in both conditions, which is what Phase 2.4 actually needs:
+
+| dataset | paired patients | NK ≥ 30 | balanced ≥ 30 | balanced ≥ 20 |
+|---|---|---|---|---|
+| GSE154826 (Leader, **CD45⁺**) | 29 | 27 | **27** | **28** |
+| GSE131907 (Kim, unsorted) | 10 | 8 | 6 | **8** |
+| GSE178341 (Pelka, unsorted) | 36 | 5 | 5 | 7 |
+
+**Only one dataset clears A1–A4 as written, so S2 fires.** At a relaxed
+20-cell threshold two qualify, but GSE131907 sits at exactly n = 8.
+
+The mechanism generalises: Pelka has the *most* paired patients (36) and
+is still the worst, because unsorted tissue leaves NK at 1.1% of cells.
+**CD45⁺ enrichment, not cohort size, is what delivers A4 for a rare
+lineage** — so a dataset search should filter on enrichment protocol
+first, which is the opposite of the intuitive order and the reason the
+protocol's own nomination of GSE178341 does not survive contact with the
+data. GSE176078 (Wu breast) is rejected outright — tumour only.
+Full table: [`phase1_registry/registry.csv`](phase1_registry/registry.csv).
 
 ### Phase 2 — A4 measured on real data
 
@@ -79,6 +97,36 @@ NK >= 100 in both conditions: 23/29 patients
 NK is the limiting lineage in **53 of 64** (patient × condition) groups,
 which is exactly why Phase 2.4 power balancing is not optional. Median
 limiting-lineage size is 242 cells, and 61 of 64 groups clear 30.
+
+### Phase 6.1 — the shared-soup contrast: ~40% of cross-lineage sharing is technical
+
+GSE154826 contains both designs at once, which makes this measurable
+with no decontamination tool. 8 patients have tumour and adjacent-normal
+cells pooled into **one droplet emulsion** and separated afterwards by
+hashing, so both conditions sit in the same ambient soup and it cancels
+from the paired contrast. 19 patients have their conditions built as
+**separate libraries**, where it does not cancel — and ambient pushes
+every lineage the same way at once.
+
+Power-matched (the separate group repeatedly subsampled to n = 8, since
+correlation rises with precision and an unmatched comparison would find
+the predicted gap whether or not ambient exists):
+
+| | mean pairwise cross-lineage r | ≥4 lineages concordant |
+|---|---|---|
+| shared soup (n=8) | **0.299** | 0.46% |
+| separate libraries (matched n=8) | **0.502** [0.429, 0.591] | 2.21% |
+
+0 of 25 matched draws fell at or below the shared-soup value. So roughly
+**40% of the apparent cross-lineage sharing in a conventional design is
+technical, not biological**, and the ≥4-lineage concordance rate — the
+Q3 rate — is inflated about 4.8-fold.
+
+Two caveats, both real. The shared emulsion removes *all* technical
+differences between conditions, not only ambient, so this is an upper
+bound on ambient specifically. And the two groups are **different
+patients**, so biology is confounded with design; only one patient (581)
+has both designs, which is not enough for a within-patient test.
 
 ### Phases 3–5 on real data — the pipeline has demonstrated Q4 power
 

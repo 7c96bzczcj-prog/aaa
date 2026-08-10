@@ -1,0 +1,18 @@
+genes 4525 | shared-soup n=8 | separate-library n=19
+shared soup   : r=0.2987 ge4concordant=0.0046
+separate full : r=0.5474 ge4concordant=0.0250
+  matched draw 5/25
+  matched draw 10/25
+  matched draw 15/25
+  matched draw 20/25
+  matched draw 25/25
+
+=== POWER-MATCHED COMPARISON (n=8 vs n=8) ===
+  shared soup            mean pairwise r = 0.2987
+  separate (matched n=8) mean pairwise r = 0.5023 [0.4286, 0.5914]
+  difference (separate - shared)         = +0.2036
+  draws not exceeding shared soup        = 0.000
+  frac >=4 concordant: shared 0.0046 vs separate 0.0221 (+0.0175)
+  r(NK, mean of others): shared 0.3007 vs separate 0.5598
+
+DONE

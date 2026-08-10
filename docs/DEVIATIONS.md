@@ -215,3 +215,44 @@ blocker. The witness set is left at the protocol's specification.
 look later — it is either real biology or ambient contamination from the
 abundant T compartment, which is precisely the question Phase 6.1 exists
 to answer, and it has not been run.)
+
+---
+
+## D8. Stop rule S2 fires at the protocol's stated threshold
+
+**Specified.** A1 requires ≥ 8 paired individuals; A4 requires ≥ 30 NK
+cells per (individual × condition); S2 says stop if fewer than **two**
+datasets clear A1–A4, because Phase 7 makes cross-dataset replication a
+hard gate.
+
+**Measured** (`results/A4_cross_dataset_scan.csv`; "balanced" = all five
+lineages clear the threshold in both conditions, which is what Phase 2.4
+actually requires):
+
+| dataset | paired patients | NK ≥ 30 | balanced ≥ 30 | balanced ≥ 20 |
+|---|---|---|---|---|
+| GSE154826 (Leader, CD45⁺) | 29 | 27 | **27** | **28** |
+| GSE131907 (Kim, unsorted) | 10 | 8 | 6 | **8** |
+| GSE178341 (Pelka, unsorted) | 36 | 5 | 5 | 7 |
+
+**At the protocol's own threshold, exactly one dataset qualifies, so S2
+fires.** At a relaxed 20-cell threshold two qualify — but GSE131907
+lands at exactly n = 8, the bare A1 minimum.
+
+**The mechanism, and it generalises.** Pelka has the *most* paired
+patients of the three (36) and is still the worst: it is unsorted, so NK
+is 3,924 of 370,115 cells (1.1%), and NK is the limiting lineage in 53
+of its 72 groups. **CD45⁺ enrichment, not patient count, is what
+delivers A4 for a rare lineage.** Any future dataset search should
+filter on enrichment protocol first and cohort size second — the
+opposite of the intuitive ordering, and the reason the protocol's own
+nomination of GSE178341 as a discovery cohort does not survive contact
+with the data.
+
+**Consequence for Phase 7.** Replication is possible only against
+GSE131907, at n = 8 and a relaxed NK threshold. That is enough to
+attempt, but not enough to interpret a *negative* result: a Q4 gene
+failing to replicate there would be ambiguous between a false original
+finding and insufficient power. Any replication analysis must report the
+Q1/Q3 baseline replication rates alongside Q4 (which the protocol
+already requires via S6) precisely so that this ambiguity is visible.
