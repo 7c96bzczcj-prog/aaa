@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+data/
+phase1_registry/raw_meta/*.tar.gz
+phase1_registry/raw_meta/ab48/
+*.mtx
