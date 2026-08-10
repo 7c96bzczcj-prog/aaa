@@ -42,7 +42,11 @@ from nkmine.quadrant import LINEAGES  # noqa: E402
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OUT = os.path.join(ROOT, "results")
-SHARED = {"581", "584", "593", "596", "626", "630", "695", "706"}
+# Patient 581 contributes BOTH a shared-emulsion library and two separate
+# libraries, so its pseudobulk mixes the two designs and it cannot serve as
+# a clean member of either group.  Excluded, leaving n=7 vs n=19.
+SHARED = {"584", "593", "596", "626", "630", "695", "706"}
+MIXED_DESIGN = {"581"}
 N_DRAWS = 25
 DELTA = 0.5
 
@@ -111,9 +115,23 @@ def main():
 
     pats = sorted(set(ps.patient.tolist()))
     shared = sorted(p for p in pats if p in SHARED)
-    separate = sorted(p for p in pats if p not in SHARED)
+    separate = sorted(p for p in pats if p not in SHARED and p not in MIXED_DESIGN)
     print(f"genes {ps.counts.shape[0]} | shared-soup n={len(shared)} "
-          f"| separate-library n={len(separate)}", flush=True)
+          f"| separate-library n={len(separate)} "
+          f"| excluded for mixed design: {sorted(MIXED_DESIGN)}", flush=True)
+
+    # Confounder check: the two groups must not differ systematically in the
+    # things that also drive cross-lineage correlation.
+    diag = []
+    for nm, grp in (("shared", shared), ("separate", separate)):
+        m = np.isin(ps.patient, list(grp))
+        tot = ps.counts[:, m].sum(axis=0)
+        diag.append({"group": nm, "n_patients": len(grp),
+                     "median_pseudobulk_total_counts": float(np.median(tot)),
+                     "min": float(tot.min()), "max": float(tot.max())})
+    dg = pd.DataFrame(diag)
+    dg.to_csv(os.path.join(OUT, "phase6_group_depth_check.csv"), index=False)
+    print(dg.to_string(index=False), flush=True)
 
     rows = []
     m_shared = concordance(fit(subset_patients(ps, set(shared))))

@@ -295,3 +295,72 @@ artefact.
 independent replications the protocol demands, and a continuous signal
 across a 64-gene set says nothing about which individual genes are real.
 Phase 8 has not been run.
+
+---
+
+## D10. The Phase 2.6 guard was never armed, and arming it retracts the TOX result
+
+Found by an independent adversarial audit of this repository, not by the
+author. Recorded in full because the correction reverses a headline claim.
+
+**The defect.** `pseudobulk.saturation_flags()` was implemented,
+documented, and unit-tested — and never called. Every `classify_table`
+call site omitted `saturated=`, so the argument defaulted to all-False
+and **no gene in any published result had ever been tested for the
+ceiling/floor conflation**. `is_equivalent`'s docstring asserted a
+protection that was not in force.
+
+**What arming it changed.** `TOX` is detected in **4.3%** of NK cells in
+tumour and **4.9%** in adjacent normal. It is floor-saturated: there is
+no room for it to move in NK. With the guard armed it is barred from
+equivalence, lands in `unclassified`, and **stop rule S4 fires again**.
+
+**The claim being retracted.** An earlier revision of the README stated
+that the pipeline "has demonstrated Q4 power" because `TOX` and `TIGIT`
+reached Q4. That rested on a guard that was not running. `TOX` does not
+reach Q4 once Phase 2.6 is enforced. The correct status is that **S4
+fires and the Q4 candidate list is not cleared for reading.**
+
+**The deeper problem, which is the protocol's and not the code's.** The
+Q4 positive control is self-defeating. TCR-proximal genes are
+T-restricted, so the Phase 2.5 detection floor removes them (D7); and
+they are barely expressed in NK, so the Phase 2.6 saturation guard
+excludes them. Both guards are correct. The conflict is that "NK does
+not respond to a TCR-driven programme" is not evidence of NK
+*resistance* — NK cells have no TCR, so it is mundane explanation **B3
+(receptor not expressed)**, which Phase 8 exists to rule out. The
+protocol nominates as its positive control an instance of the artefact
+it is designed to reject.
+
+**Consequence.** There is currently **no valid Q4 positive control**. A
+usable one must be a gene that NK cells demonstrably express and could
+in principle regulate, whose driver is nonetheless shared with the
+witness lineages. Until such a control exists and passes, S4 cannot be
+satisfied and no Q4 list from this pipeline should be read as biology.
+
+## D11. Other defects found in the same audit
+
+- **Q3 guarded on the noise-screened `equiv["NK"]` rather than raw
+  TOST**, so a gene demonstrably TOST-equivalent in NK — the exact Q4
+  signature — fell into Q3 whenever the Phase 3 screen happened to fail.
+  Observed on real data at the protocol's own `p50` default. Now guarded
+  on the raw TOST result.
+- **Q3 fired when NK was merely *indeterminate*** (neither changed nor
+  equivalent): 10 of 53 Q3 genes. Four positive demonstrations plus one
+  non-result is the "p > 0.05 therefore unchanged" inference this
+  protocol exists to refuse, applied at the Q3 end. Now labelled
+  `Q3_NK_indeterminate` and kept separate.
+- **"Equivalent" was reported as "equivalent to zero".** TOST
+  establishes only that an effect is smaller than δ; 8 of 64 Q4 calls
+  had an NK 90% CI *excluding* zero, and one (`RAB11FIP1`) moved
+  opposite to its witnesses. Split into `Q4` (indistinguishable from no
+  change) and `Q4_attenuated` (moves, but by less than δ).
+- **voom's mean-variance trend used `log2(mean(lib_size))` where limma
+  uses `mean(log2(lib_size))`.** The two differ by Jensen's inequality
+  and shift the trend x-axis, feeding into every precision weight.
+  Corrected.
+- **CI90 and the effective null thresholds were not written to the
+  output**, so an equivalence call could not be audited from the
+  artefact. Now emitted, along with `equiv_key`/`change_key`.
+- **A docstring pointed at `scripts/sensitivity_equiv_bound.py`, which
+  does not exist.** Corrected to point at D2 and `s4_diagnosis.py`.

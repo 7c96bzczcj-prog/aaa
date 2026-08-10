@@ -1,5 +1,5 @@
 gene,expected,observed,status
-TOX,Q4,Q4,pass
+TOX,Q4,unclassified,FAIL
 CD3D,Q4,,excluded_by_gating
 CD3E,Q4,,excluded_by_gating
 LAT,Q4,unclassified,FAIL

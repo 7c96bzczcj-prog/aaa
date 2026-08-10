@@ -139,6 +139,12 @@ def classify_gene(gene: str, stats_by_lineage: dict, delta: float,
         return QuadrantCall(gene, q, changed, equiv, why)
 
     changed_lineages = [l for l in LINEAGES if changed[l]]
+    nk = stats_by_lineage["NK"]
+    nk_tost_equiv = tost(nk.log2fc, nk.se, nk.df, delta)[1]
+    # NK is "indeterminate" when it is neither demonstrated to move nor
+    # demonstrated to be equivalent -- i.e. we do not know.  It must never
+    # be silently read as either.
+    nk_indeterminate = (not changed["NK"]) and (not nk_tost_equiv)
 
     # --- Q3: universal / environmental / technical -----------------
     # The protocol's summary table defines Q3 as "ALL lineages move in the
@@ -149,20 +155,49 @@ def classify_gene(gene: str, stats_by_lineage: dict, delta: float,
     # swallowed 25/25 Q4 genes.  A gene whose NK effect is demonstrably
     # equivalent to zero is not a universal shift by definition, so Q3 is
     # required not to fire when NK is TOST-equivalent.  See docs/DEVIATIONS.md.
+    # The guard is on the raw TOST result, NOT on `equiv["NK"]`.  `equiv`
+    # additionally requires passing the Phase 3 noise screen, so guarding on
+    # it let a gene that is demonstrably TOST-equivalent in NK -- the exact
+    # Q4 signature -- fall through to Q3 whenever that screen happened to
+    # fail.  Observed on real data at the protocol's default p50 setting.
     if (
         len(changed_lineages) >= 4
         and _same_sign([fc[l] for l in changed_lineages])
-        and not equiv["NK"]
+        and not nk_tost_equiv
     ):
+        # A universal shift means NK moved too.  If NK is merely
+        # indeterminate, four positive demonstrations plus one non-result
+        # is not evidence of universality -- that is the "p > 0.05 therefore
+        # unchanged" inference this protocol exists to refuse, applied at
+        # the Q3 end instead of the Q4 end.  Label it separately.
+        if nk_indeterminate:
+            return call("Q3_NK_indeterminate",
+                        f"{len(changed_lineages)} lineages moved concordantly, "
+                        "but NK is neither changed nor equivalent")
         return call("Q3", f"{len(changed_lineages)} lineages moved concordantly")
 
     # --- Q4: NK resistance (the primary target) --------------------
     if equiv["NK"]:
         moved = [l for l in witnesses if changed[l]]
         if len(moved) >= 2 and _same_sign([fc[l] for l in moved]):
+            # TOST equivalence establishes "the effect is smaller than delta",
+            # which is NOT the same as "the effect is zero": a gene can be
+            # significantly non-zero and still equivalent within the margin.
+            # Q4 claims NK resistance, so the two cases are separated -- 12%
+            # of the first real-data Q4 set had an NK 90% CI excluding zero,
+            # and one of those moved OPPOSITE to its witnesses, which is a
+            # different phenomenon (divergent response) than not responding.
+            nk_ci_excludes_zero = (nk.ci90[0] > 0) or (nk.ci90[1] < 0)
+            if nk_ci_excludes_zero:
+                return call(
+                    "Q4_attenuated",
+                    f"NK effect below delta but distinguishable from zero "
+                    f"({nk.log2fc:+.3f}); {'+'.join(moved)} moved concordantly",
+                )
             return call(
                 "Q4",
-                f"NK equivalent to zero; {'+'.join(moved)} moved concordantly",
+                f"NK indistinguishable from no change; "
+                f"{'+'.join(moved)} moved concordantly",
             )
 
     # --- Q1: NK-specific -------------------------------------------
@@ -212,6 +247,14 @@ def classify_table(de_by_lineage: dict, delta: float, null_stats: dict | None = 
         if list(de_by_lineage[l].genes) != genes:
             raise ValueError(f"gene order mismatch in lineage {l}")
 
+    if saturated is None:
+        warnings.warn(
+            "classify_table called without Phase 2.6 saturation flags; genes at "
+            "the detection ceiling or floor in NK can therefore be called "
+            "'equivalent', conflating 'no room to move' with 'did not move'.",
+            RuntimeWarning,
+            stacklevel=2,
+        )
     if null_stats is None:
         # Phase 3 is mandatory in the protocol; running without it is only
         # meaningful for unit tests, so make the fallback explicit and loud
@@ -246,12 +289,18 @@ def classify_table(de_by_lineage: dict, delta: float, null_stats: dict | None = 
                 detected=bool((detected or {}).get(l, np.ones(n_genes, bool))[i]),
             )
         c = classify_gene(g, sbl, delta, witnesses=witnesses)
-        row = {"gene": g, "quadrant": c.quadrant, "reason": c.reason, "delta": delta}
+        row = {"gene": g, "quadrant": c.quadrant, "reason": c.reason,
+               "delta": delta, "equiv_key": equiv_key, "change_key": change_key}
         for l in lineages:
             row[f"{l}_log2FC"] = sbl[l].log2fc
             row[f"{l}_SE"] = sbl[l].se
             row[f"{l}_CI95_lo"] = sbl[l].ci95[0]
             row[f"{l}_CI95_hi"] = sbl[l].ci95[1]
+            row[f"{l}_CI90_lo"] = sbl[l].ci90[0]
+            row[f"{l}_CI90_hi"] = sbl[l].ci90[1]
+            row[f"{l}_null_change"] = sbl[l].null_change
+            row[f"{l}_null_equiv"] = sbl[l].null_equiv
+            row[f"{l}_saturated"] = sbl[l].saturated
             row[f"{l}_changed"] = c.changed[l]
             row[f"{l}_equivalent"] = c.equivalent[l]
             row[f"{l}_TOST_p"] = tost(sbl[l].log2fc, sbl[l].se, sbl[l].df, delta)[0]

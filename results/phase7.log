@@ -13,14 +13,18 @@ matched 11968 of 11968 cells to matrix columns (208506 columns total)
 panel genes found in GSE131907: 4525 of 4525
 GSE131907 pseudobulk: 4525 genes x 80 samples (8 patients)
 S3: PASS - NK standard errors comparable to other lineages
+/home/user/aaa/scripts/phase7_replicate_kim.py:182: RuntimeWarning: classify_table called without Phase 2.6 saturation flags; genes at the detection ceiling or floor in NK can therefore be called 'equivalent', conflating 'no room to move' with 'did not move'.
+  res = classify_table(de, delta=DELTA, null_stats=null, equiv_key="p95")
 GSE131907 quadrants: {'unclassified': 4521, 'Q4': 3, 'Q1': 1}
 
 === replication by quadrant (GSE154826 -> GSE131907) ===
-    quadrant    n  n_replicated     rate
-          Q1   10             0 0.000000
-          Q3   53             0 0.000000
-          Q4   64             1 0.015625
-unclassified 4398          1107 0.251705
+           quadrant    n  n_replicated     rate
+                 Q1   10             0 0.000000
+                 Q3   43             0 0.000000
+Q3_NK_indeterminate   10             0 0.000000
+                 Q4   46             0 0.000000
+      Q4_attenuated    7             0 0.000000
+       unclassified 4409          1112 0.252211
 
-S5/S6: STOP - S5: only 1 Q4 genes replicated (< 10)
+S5/S6: STOP - S5: only 0 Q4 genes replicated (< 10)
 DONE

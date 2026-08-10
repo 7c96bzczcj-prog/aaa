@@ -170,7 +170,10 @@ def voom(
 
     sy = np.sqrt(np.sqrt(np.maximum(sigma2, 0.0)))  # sqrt of residual sd
     # mean log2 count (not CPM) — the x-axis of the mean-variance trend
-    sx = log_cpm.mean(axis=1) + np.log2(np.mean(lib_size + 1.0)) - np.log2(1e6)
+    # limma uses the mean of the logs, not the log of the mean; the two
+    # differ by Jensen's inequality and shift the trend's x-axis, which
+    # feeds straight into the precision weights.
+    sx = log_cpm.mean(axis=1) + np.mean(np.log2(lib_size + 1.0)) - np.log2(1e6)
 
     keep = np.isfinite(sx) & np.isfinite(sy) & (sy > 0)
     if keep.sum() < 10:

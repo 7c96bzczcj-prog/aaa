@@ -7,15 +7,17 @@ This repository contains a validated implementation of Phases 2–8, the
 completed record for Phase 0 (prior art) and Phase 1 (dataset
 admission), and executed results for Phases 2–5 on GSE154826.
 
-Phases 3–5 have now been executed on GSE154826, and the pipeline
-**passes its own Q4 positive control**: `TOX` and `TIGIT` land in Q4
-with NK demonstrably equivalent to zero while CD8 T, CD4 T and myeloid
-cells move.
+Phases 3–7 have been executed on GSE154826, then audited adversarially,
+and the audit reversed a headline claim. **Stop rule S4 fires: the
+pipeline has no valid Q4 positive control, so its 46 Q4 candidates are
+not cleared for reading.**
 
-**The resulting 58 Q4 candidates must not be quoted as findings.** They
-have not been through ambient correction (Phase 6), cross-dataset
-replication (Phase 7) or the mundane-explanation screen (Phase 8), and
-the protocol makes each of those a hard gate.
+An earlier revision of this file claimed the pipeline "has demonstrated
+Q4 power" because `TOX` reached Q4. That rested on the Phase 2.6
+ceiling/floor guard, which was implemented and documented but **never
+actually called**. With it armed, `TOX` — detected in 4.3% of NK cells
+in tumour and 4.9% in normal — is floor-saturated and excluded. The
+claim is retracted; see [D10](docs/DEVIATIONS.md).
 
 ---
 
@@ -128,7 +130,7 @@ bound on ambient specifically. And the two groups are **different
 patients**, so biology is confounded with design; only one patient (581)
 has both designs, which is not enough for a within-patient test.
 
-### Phases 3–5 on real data — the pipeline has demonstrated Q4 power
+### Phases 3–5 on real data, and why S4 fires
 
 Balanced pseudobulks: **4,525 genes × 270 samples from 27 patients**
 (27 × 2 conditions × 5 lineages). **Stop rule S3 passes** — after Phase
@@ -136,23 +138,23 @@ Balanced pseudobulks: **4,525 genes × 270 samples from 27 patients**
 other lineages (ratio 1.43, limit 2.0). "NK did not change" is
 falsifiable on this dataset.
 
-The first run failed stop rule S4, and the reason turned out to be a
-protocol-level conflict rather than a pipeline defect — see D7 below.
-After correcting it:
+Corrected quadrant counts at δ = 0.5, `p95`: **Q4 46, Q4_attenuated 7,
+Q3 43, Q3_NK_indeterminate 10, Q1 10, unclassified 4,409.**
 
-```
-TOX     NK +0.054 (TOST-equivalent)  CD8T +0.794  CD4T +0.691  Myeloid +0.689
-TIGIT   NK +0.083 (TOST-equivalent)  CD8T +1.116  CD4T +1.772  Myeloid +1.043
-```
+**S4 fires, and the reason is conceptual rather than mechanical.** The
+protocol's Q4 positive control is self-defeating. TCR-proximal genes are
+T-restricted, so the Phase 2.5 detection floor removes them ([D7](docs/DEVIATIONS.md));
+and they are barely expressed in NK, so the Phase 2.6 saturation guard
+excludes them ([D10](docs/DEVIATIONS.md)). Both guards are right. The
+conflict is that "NK does not respond to a TCR-driven programme" is not
+evidence of resistance — NK cells have no TCR, so it is mundane
+explanation **B3 (receptor not expressed)**, exactly what Phase 8 exists
+to rule out. **The protocol nominates as its positive control an
+instance of the artefact it is designed to reject.**
 
-TCR-driven exhaustion genes rise in T cells and sit still in NK — the
-exact pattern Phase 5.3 nominates as the Q4 positive control. Quadrant
-counts at δ = 0.5, `p95`: **Q4 58, Q3 53, Q1 10, unclassified 4,404.**
-
-Sensitivity across δ (protocol requires scanning three): Q4 counts are
-58 at δ = 0.25 (strict filter), 45–58 at δ = 0.5, and 4 at δ = 1.0, so
-the candidate set is strongly δ-dependent and no single number should be
-treated as "the" answer.
+A usable Q4 control has to be a gene NK demonstrably expresses and could
+in principle regulate, whose driver is shared with the witness lineages.
+Until one exists and passes, no Q4 list from this pipeline is biology.
 
 ### Phase 7 — categorical replication fails, the pattern replicates
 
@@ -161,8 +163,8 @@ available, at the relaxed threshold). Using the author's own published
 cell-type labels, so the replication is independent of this repo's
 gating.
 
-**Every quadrant fails categorical replication:** Q1 0/10, Q3 0/53,
-Q4 1/64. Read naively that kills the project. It should not be read
+**Every quadrant fails categorical replication:** Q1 0/10, Q3 0/43,
+Q4 0/46. Read naively that kills the project. It should not be read
 naively — the replication cohort's standard errors are 2–4× larger, and
 for CD8 T the 90% CI half-width is 0.507 against an equivalence margin
 of 0.5, so **a CD8T equivalence call is mathematically unattainable
@@ -176,16 +178,20 @@ independent cohort:
 
 | group | n | median \|NK log2FC\| | median \|witness log2FC\| | NK/witness |
 |---|---|---|---|---|
-| **Q4 candidates** | 64 | **0.145** | 0.494 | **0.29** |
-| Q3 genes | 53 | 0.569 | 0.740 | 0.77 |
-| background | 4,398 | 0.194 | 0.253 | 0.77 |
+| **Q4 candidates** | 46 | **0.146** | 0.498 | **0.29** |
+| Q3 genes | 43 | 0.573 | 0.900 | 0.64 |
+| background | 4,409 | 0.193 | 0.253 | 0.76 |
 
-Q4 candidates carry the Q4 signature into an independent cohort:
-NK moves ~30% as much as the witness lineages, where Q3 genes and the
-background both sit at 77%. `|NK log2FC|` for Q4 vs Q3 genes:
-**p = 1.3 × 10⁻⁶** (ratio-free test; Q3 is the right comparator because
-its witness effects are *larger*, so this is not a witness-magnitude
-artefact).
+Q4 candidates carry the pattern into an independent cohort: NK moves
+~29% as much as the witness lineages, against 64% for Q3 and 76% for
+background. `|NK log2FC|` for Q4 vs Q3: **p = 7.2 × 10⁻⁶** (ratio-free
+primary test; Q3 is the right comparator because its witness effects are
+*larger*, so this is not a witness-magnitude artefact).
+
+One honest qualification: Q4's absolute NK effect is **not** smaller than
+background (0.146 vs 0.193, p = 0.14). What replicates is the *contrast*
+— large witness effects alongside a small NK effect — not a uniquely
+quiet NK.
 
 The obvious mundane explanation is excluded: Q4 candidates are not
 merely underpowered in NK — their NK standard error in the replication
@@ -216,22 +222,32 @@ core design decision is correct and now has a number attached.
 
 ---
 
-## Three specification bugs found
+## Specification bugs and implementation defects found
 
 All are documented with evidence in [`docs/DEVIATIONS.md`](docs/DEVIATIONS.md).
 The first two were found by running planted ground truth through the
 classifier; the third only appeared on real data.
 
-**0. The detection floor deletes the positive control (D7).** Phase 2.5
+**0. The Phase 2.6 guard was never armed (D10).** `saturation_flags()`
+was implemented, documented and unit-tested — and never called, so no
+published result had ever been checked for the ceiling/floor
+conflation. Arming it retracts the TOX result and re-fires S4. Found by
+an adversarial audit of this repo, not by me. Four further defects
+(Q3 guarded on the noise-screened value rather than raw TOST; Q3 firing
+when NK was merely indeterminate; "equivalent" reported as "equivalent
+to zero"; voom using `log2(mean(lib))` where limma uses
+`mean(log2(lib))`) are in [D10–D11](docs/DEVIATIONS.md).
+
+**0b. The detection floor deletes the positive control (D7).** Phase 2.5
 keeps only genes detected in *all five* lineages. TCR-proximal genes are
 T-restricted, so `TOX`, `PDCD1`, `CTLA4`, `LAG3`, `TIGIT`, `ZAP70`,
 `CD28` and `TNFRSF9` — 11 of the 14 Q4 controls — are removed before
 testing, and stop rule S4 then fires for the only reason left: no
 control survives to reach Q4. **A healthy pipeline fails S4 as written.**
 Relaxing the filter to "detected in NK plus ≥ 2 lineages" (4,159 →
-4,525 genes) puts `TOX` and `TIGIT` in Q4 and S4 passes. This was
-invisible in simulation, where every gene is expressed in every lineage
-by construction.
+4,525 genes) brings them back into the panel. This was invisible in
+simulation, where every gene is expressed in every lineage by
+construction. It does not rescue S4, because of D10.
 
 **1. Q3 absorbed every Q4 gene.** The Q3 rule as written
 (`>= 4 lineages changed`) is satisfied by any Q4 gene, since a Q4 gene
@@ -267,7 +283,9 @@ null is implemented and used by default.
 Being explicit, because a half-run protocol that looks finished is worse
 than one that looks unfinished:
 
-- **The 58 Q4 candidates are candidates, not findings.** Phases 6–8 are
+- **S4 fires, so the 46 Q4 candidates are not cleared for reading at
+  all** — there is currently no valid Q4 positive control.
+- **The 46 Q4 candidates are candidates, not findings.** Phases 6–8 are
   the gates that decide whether any of them survive, and none has run.
 - **Phase 6 (ambient) not run.** CellBender has not been run. The
   shared-soup HTO contrast — the protocol's cleanest control, and the

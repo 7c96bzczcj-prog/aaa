@@ -1,5 +1,7 @@
 quadrant,n,n_replicated,rate
 Q1,10,0,0.0
-Q3,53,0,0.0
-Q4,64,1,0.015625
-unclassified,4398,1107,0.25170532060027284
+Q3,43,0,0.0
+Q3_NK_indeterminate,10,0,0.0
+Q4,46,0,0.0
+Q4_attenuated,7,0,0.0
+unclassified,4409,1112,0.2522113858017691

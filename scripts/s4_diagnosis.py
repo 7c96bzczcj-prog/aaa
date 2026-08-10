@@ -29,6 +29,7 @@ from nkmine.controls import control_check, evaluate_stop_rule_s4, Q4_CONTROLS  #
 from nkmine.de import paired_de  # noqa: E402
 from nkmine.null_calibration import calibrate  # noqa: E402
 from nkmine.pseudobulk import PseudobulkSet, detection_filter  # noqa: E402
+import pickle, glob  # noqa: E402
 from nkmine.quadrant import LINEAGES, classify_table  # noqa: E402
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -41,6 +42,48 @@ def load() -> PseudobulkSet:
                          d["lineage"], np.ones(len(d["patient"])))
 
 
+def nk_saturation(genes: np.ndarray) -> np.ndarray:
+    """Phase 2.6 flags, computed from the cached cell-level gating labels.
+
+    A gene whose NK detection rate is >90% or <5% in BOTH conditions has no
+    room to move, so an apparent "no change" there is uninformative and it
+    must not be eligible for a Q4 call.
+    """
+    cache = os.path.join(ROOT, "data", "nk_detection.npz")
+    if os.path.exists(cache):
+        d = np.load(cache, allow_pickle=True)
+        rate = {c: dict(zip(d["genes"], d[c])) for c in ("Tumor", "Normal")}
+    else:
+        from nkmine.gating import read_10x_tar
+        hits = {c: None for c in ("Tumor", "Normal")}
+        tot = {c: 0 for c in ("Tumor", "Normal")}
+        gnames = None
+        for pk in sorted(glob.glob(os.path.join(ROOT, "data", "labels", "*.pkl"))):
+            with open(pk, "rb") as fh:
+                lab = pickle.load(fh)
+            b = lab["batch"]
+            tar = os.path.join(ROOT, "data", "raw", f"GSE154826_amp_batch_ID_{b}.tar.gz")
+            if not os.path.exists(tar):
+                continue
+            lib = read_10x_tar(tar)
+            x = lib.rna.tocsc()
+            gnames = lib.gene_names
+            for c in ("Tumor", "Normal"):
+                m = np.flatnonzero((lab["lineage"] == "NK") & (lab["condition"] == c))
+                if len(m) == 0:
+                    continue
+                cnt = np.asarray((x[:, m] > 0).sum(axis=1)).ravel()
+                hits[c] = cnt if hits[c] is None else hits[c] + cnt
+                tot[c] += len(m)
+        rate = {c: dict(zip(gnames, hits[c] / max(tot[c], 1))) for c in hits}
+        np.savez_compressed(cache, genes=np.asarray(gnames),
+                            Tumor=hits["Tumor"] / max(tot["Tumor"], 1),
+                            Normal=hits["Normal"] / max(tot["Normal"], 1))
+    t = np.array([rate["Tumor"].get(g, 0.0) for g in genes])
+    n = np.array([rate["Normal"].get(g, 0.0) for g in genes])
+    return ((t > 0.90) & (n > 0.90)) | ((t < 0.05) & (n < 0.05))
+
+
 def run(ps: PseudobulkSet, keep: np.ndarray, label: str, witnesses, excl: set):
     sub = PseudobulkSet(ps.counts[keep], ps.genes[keep], ps.patient,
                         ps.condition, ps.lineage, ps.n_cells)
@@ -50,8 +93,12 @@ def run(ps: PseudobulkSet, keep: np.ndarray, label: str, witnesses, excl: set):
         de[l] = paired_de(s.counts, s.genes, s.patient, s.condition, "Tumor")
     null = calibrate(sub, case_label="Tumor", n_perm=100,
                      rng=np.random.default_rng(1))
+    sat = nk_saturation(sub.genes)
     res = classify_table(de, delta=0.5, null_stats=null, equiv_key="p95",
-                         witnesses=witnesses)
+                         witnesses=witnesses,
+                         saturated={l: (sat if l == "NK" else np.zeros(len(sat), bool))
+                                    for l in LINEAGES})
+    print(f"  NK saturated genes (Phase 2.6): {int(sat.sum())}", flush=True)
     chk = control_check(res, excluded=excl)
     ev = evaluate_stop_rule_s4(chk)
     present = [g for g in Q4_CONTROLS if g in set(res.gene)]
