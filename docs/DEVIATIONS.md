@@ -364,3 +364,43 @@ satisfied and no Q4 list from this pipeline should be read as biology.
   artefact. Now emitted, along with `equiv_key`/`change_key`.
 - **A docstring pointed at `scripts/sensitivity_equiv_bound.py`, which
   does not exist.** Corrected to point at D2 and `s4_diagnosis.py`.
+
+---
+
+## D12. A negative control, since the positive control is unavailable
+
+S4 fires because the protocol's Q4 positive control cannot work (D10),
+which leaves the pipeline's sensitivity unproven. Its *specificity* is
+still testable with the data in hand, and that is worth having on
+record.
+
+`scripts/q4_null_rate.py` flips the tumour/normal label **within each
+individual**, for all five lineages together, and re-runs the whole
+Phase 4–5 stack. Pairing, library sizes, lineage composition, gene
+abundance and the ambient structure are all preserved; only the
+condition assignment is randomised. Any quadrant call surviving that is
+manufactured.
+
+| quadrant | observed | null (12 permutations) |
+|---|---|---|
+| Q4 | 40 | **0.0** [0, 0] |
+| Q3 | 50 | **0.0** [0, 0] |
+| Q1 | 8 | 0.2 [0, 2] |
+
+0 of 12 permutations produced a single Q4 call. The pipeline does not
+generate Q4 calls out of noise.
+
+**What this does and does not establish.** It bounds the false-positive
+side only. A pipeline that reported nothing under the null *and* nothing
+under real signal would look identical here, which is exactly why a
+positive control is not optional and why S4 still stands. Combined with
+the independent continuous replication (D9), the aggregate evidence is
+that the Q4 set is not noise — but neither result validates any
+individual gene, and Phase 8 has not been run.
+
+**An instability worth recording.** The observed Q4 count is 40 here and
+46 in `s4_diagnosis.py`. The only difference is the number of Phase 3
+calibration permutations (60 vs 100), which moves the per-gene noise
+percentiles and therefore the classification boundary. A ±15% swing in
+the headline count from a calibration parameter is a reminder that the
+Q4 *count* is soft; the pattern-level results are what carry weight.

@@ -210,6 +210,28 @@ The protocol bans ratios in the decision path and that ban is respected:
 the ratio above is descriptive, and the primary test is the ratio-free
 comparison of `|NK log2FC|` between Q4 and Q3.
 
+### A negative control, since the positive control is unavailable
+
+S4 fires because the Q4 positive control cannot work, which leaves
+*sensitivity* unproven. *Specificity* is still testable: flip the
+tumour/normal label within each individual — preserving pairing, depth,
+composition and ambient structure — and re-run everything.
+
+| quadrant | observed | null (12 permutations) |
+|---|---|---|
+| Q4 | 40 | **0.0** [0, 0] |
+| Q3 | 50 | **0.0** [0, 0] |
+| Q1 | 8 | 0.2 [0, 2] |
+
+**0 of 12 permutations produced a single Q4 call.** The pipeline does
+not manufacture Q4 from noise. That bounds the false-positive side only
+— a pipeline that found nothing under the null *and* nothing under real
+signal would look the same — which is why S4 still stands.
+
+Note also that the Q4 count is soft: 40 here, 46 in `s4_diagnosis.py`,
+the only difference being 60 vs 100 Phase 3 calibration permutations.
+The pattern-level results carry the weight, not the count.
+
 ### The protocol's central premise, quantified
 
 Planted-truth simulation where **every gene is a true Q3** (all five

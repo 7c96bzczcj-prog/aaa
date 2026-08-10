@@ -1,0 +1,21 @@
+OBSERVED  : {'unclassified': 4410, 'Q3': 50, 'Q4': 40, 'Q3_NK_indeterminate': 11, 'Q1': 8, 'Q4_attenuated': 6}
+  perm 1/12: Q4=0 Q3=0 Q1=0
+  perm 2/12: Q4=0 Q3=0 Q1=1
+  perm 3/12: Q4=0 Q3=0 Q1=0
+  perm 4/12: Q4=0 Q3=0 Q1=0
+  perm 5/12: Q4=0 Q3=0 Q1=0
+  perm 6/12: Q4=0 Q3=0 Q1=0
+  perm 7/12: Q4=0 Q3=0 Q1=2
+  perm 8/12: Q4=0 Q3=0 Q1=0
+  perm 9/12: Q4=0 Q3=0 Q1=0
+  perm 10/12: Q4=0 Q3=0 Q1=0
+  perm 11/12: Q4=0 Q3=0 Q1=0
+  perm 12/12: Q4=0 Q3=0 Q1=0
+
+=== Q4 calls under a within-individual label flip ===
+  Q4  observed=  40   null mean=   0.0 [0, 0]   ratio=80.0x
+  Q3  observed=  50   null mean=   0.0 [0, 0]   ratio=100.0x
+  Q1  observed=   8   null mean=   0.2 [0, 2]   ratio=16.0x
+
+  permutations reaching the observed Q4 count: 0/12
+DONE
