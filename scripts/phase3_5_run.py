@@ -166,6 +166,9 @@ def main():
     ok = ~np.isin(ps.genes, list(excl))
     ps = PseudobulkSet(ps.counts[ok], ps.genes[ok], ps.patient, ps.condition,
                        ps.lineage, ps.n_cells)
+    np.savez_compressed(os.path.join(OUT, "pseudobulk_raw.npz"),
+                        counts=ps.counts, genes=ps.genes, patient=ps.patient,
+                        condition=ps.condition, lineage=ps.lineage)
     keep = detection_filter(ps)
     ps = PseudobulkSet(ps.counts[keep], ps.genes[keep], ps.patient, ps.condition,
                        ps.lineage, ps.n_cells)

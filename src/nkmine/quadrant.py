@@ -118,7 +118,8 @@ class QuadrantCall:
     reason: str = ""
 
 
-def classify_gene(gene: str, stats_by_lineage: dict, delta: float) -> QuadrantCall:
+def classify_gene(gene: str, stats_by_lineage: dict, delta: float,
+                  witnesses=Q4_WITNESSES) -> QuadrantCall:
     """Assign one gene to Q1 / Q2 / Q3 / Q4 / unclassified.
 
     Most genes land in `unclassified`; the protocol expects that and it
@@ -157,11 +158,11 @@ def classify_gene(gene: str, stats_by_lineage: dict, delta: float) -> QuadrantCa
 
     # --- Q4: NK resistance (the primary target) --------------------
     if equiv["NK"]:
-        witnesses = [l for l in Q4_WITNESSES if changed[l]]
-        if len(witnesses) >= 2 and _same_sign([fc[l] for l in witnesses]):
+        moved = [l for l in witnesses if changed[l]]
+        if len(moved) >= 2 and _same_sign([fc[l] for l in moved]):
             return call(
                 "Q4",
-                f"NK equivalent to zero; {'+'.join(witnesses)} moved concordantly",
+                f"NK equivalent to zero; {'+'.join(moved)} moved concordantly",
             )
 
     # --- Q1: NK-specific -------------------------------------------
@@ -183,7 +184,8 @@ def classify_gene(gene: str, stats_by_lineage: dict, delta: float) -> QuadrantCa
 
 def classify_table(de_by_lineage: dict, delta: float, null_stats: dict | None = None,
                    saturated: dict | None = None, detected: dict | None = None,
-                   change_key: str = "p99", equiv_key: str = "p50"):
+                   change_key: str = "p99", equiv_key: str = "p50",
+                   witnesses=Q4_WITNESSES):
     """Vectorised driver over a gene x lineage panel of DEResults.
 
     `de_by_lineage` maps lineage -> DEResult sharing a common gene
@@ -243,7 +245,7 @@ def classify_table(de_by_lineage: dict, delta: float, null_stats: dict | None = 
                 saturated=bool((saturated or {}).get(l, np.zeros(n_genes, bool))[i]),
                 detected=bool((detected or {}).get(l, np.ones(n_genes, bool))[i]),
             )
-        c = classify_gene(g, sbl, delta)
+        c = classify_gene(g, sbl, delta, witnesses=witnesses)
         row = {"gene": g, "quadrant": c.quadrant, "reason": c.reason, "delta": delta}
         for l in lineages:
             row[f"{l}_log2FC"] = sbl[l].log2fc

@@ -195,17 +195,39 @@ def simple_pseudobulk(
 
 
 def detection_filter(ps: PseudobulkSet, min_count: int = 10, min_frac: float = 0.5,
-                     lineages=("NK", "CD8T", "CD4T", "B", "Myeloid")) -> np.ndarray:
-    """Protocol 2.5: keep genes detected in *every* lineage.
+                     lineages=("NK", "CD8T", "CD4T", "B", "Myeloid"),
+                     require_nk: bool = False, min_lineages: int | None = None
+                     ) -> np.ndarray:
+    """Protocol 2.5: detection floor, so that "unchanged" is not "unexpressed".
 
-    Without this, "NK did not change" is frequently just "NK does not
-    express this gene", which is a different statement.
+    The protocol requires detection in *every* lineage.  That is the
+    right instinct for the NK side -- "NK did not change" must not mean
+    "NK does not express this gene" -- but applied to all five lineages
+    it also removes every lineage-restricted gene, including the entire
+    TCR-proximal panel that Phase 5.3 uses as the Q4 positive control.
+    On GSE154826 it cut 33,723 genes to 4,159 and took TOX, PDCD1,
+    CTLA4, LAG3, TIGIT, ZAP70, CD28 and TNFRSF9 with it.
+
+    `require_nk` + `min_lineages` express the weaker condition that
+    actually protects the inference: the gene must be measurable in NK
+    (whose non-response is the claim) and in enough other lineages to
+    supply witnesses.  See docs/DEVIATIONS.md D7.
     """
-    keep = np.ones(ps.counts.shape[0], bool)
+    detected = {}
     for l in lineages:
         sub = ps.subset_lineage(l)
-        frac = (sub.counts >= min_count).mean(axis=1)
-        keep &= frac >= min_frac
+        detected[l] = (sub.counts >= min_count).mean(axis=1) >= min_frac
+
+    if min_lineages is None:
+        keep = np.ones(ps.counts.shape[0], bool)
+        for l in lineages:
+            keep &= detected[l]
+        return keep
+
+    n_det = np.sum([detected[l] for l in lineages], axis=0)
+    keep = n_det >= min_lineages
+    if require_nk:
+        keep &= detected["NK"]
     return keep
 
 

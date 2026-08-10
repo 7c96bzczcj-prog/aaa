@@ -179,3 +179,41 @@ def test_unassessed_blocks_survival_rather_than_permitting_it():
     out = mundane_screen(cand, {}).set_index("gene")
     assert not out.loc["x", "survives"]
     assert out.loc["x", "n_unassessed"] == 6
+
+
+# ---------------------------------------------------------------- D7
+def test_detection_filter_can_keep_lineage_restricted_genes():
+    """Regression test for D7.
+
+    The strict all-lineage floor removes any T-restricted gene, which on
+    real data deleted the entire Q4 positive-control panel and made stop
+    rule S4 unsatisfiable. The relaxed form must keep a gene that is
+    well measured in NK and two other lineages but absent from a third.
+    """
+    import numpy as np
+    from nkmine.pseudobulk import PseudobulkSet, detection_filter
+
+    lineages = ["NK", "CD8T", "CD4T", "B", "Myeloid"]
+    counts, lin, pat, cond = [], [], [], []
+    for l in lineages:
+        for p in ("p1", "p2"):
+            for c in ("Tumor", "Normal"):
+                # gene 0 everywhere; gene 1 absent from B and Myeloid
+                g1 = 0 if l in ("B", "Myeloid") else 100
+                counts.append([100, g1])
+                lin.append(l); pat.append(p); cond.append(c)
+    ps = PseudobulkSet(np.array(counts).T.astype(float),
+                       np.array(["ubiquitous", "T_restricted"]),
+                       np.array(pat), np.array(cond), np.array(lin),
+                       np.ones(len(lin)))
+
+    strict = detection_filter(ps)
+    assert list(strict) == [True, False]
+
+    relaxed = detection_filter(ps, require_nk=True, min_lineages=3)
+    assert list(relaxed) == [True, True]
+
+    # a gene undetectable in NK must still be dropped: "NK did not
+    # change" must never be a restatement of "NK does not express it"
+    ps.counts[1, ps.lineage == "NK"] = 0
+    assert not detection_filter(ps, require_nk=True, min_lineages=2)[1]

@@ -1,16 +1,21 @@
-# 四格挖掘协议 — implementation and Phase 0–2 record
+# 四格挖掘协议 — implementation and Phase 0–5 record
 
 Mining "NK resistance" genes (Q4) and the shared cytotoxic-lymphocyte
 programme (Q2) from paired tumour / adjacent-normal single-cell data.
 
-This repository contains a validated implementation of Phases 2–8, plus
-the completed record for Phase 0 (prior art), Phase 1 (dataset
-admission) and Phase 2 (gating and cell counts) on GSE154826.
+This repository contains a validated implementation of Phases 2–8, the
+completed record for Phase 0 (prior art) and Phase 1 (dataset
+admission), and executed results for Phases 2–5 on GSE154826.
 
-**No Q4 gene list exists yet, and none should be quoted from this
-repository.** What is finished is the part that decides whether a Q4
-list would mean anything: the prior-art check, the dataset admission
-gate, and a statistical core tested against planted ground truth.
+Phases 3–5 have now been executed on GSE154826, and the pipeline
+**passes its own Q4 positive control**: `TOX` and `TIGIT` land in Q4
+with NK demonstrably equivalent to zero while CD8 T, CD4 T and myeloid
+cells move.
+
+**The resulting 58 Q4 candidates must not be quoted as findings.** They
+have not been through ambient correction (Phase 6), cross-dataset
+replication (Phase 7) or the mundane-explanation screen (Phase 8), and
+the protocol makes each of those a hard gate.
 
 ---
 
@@ -75,6 +80,32 @@ NK is the limiting lineage in **53 of 64** (patient × condition) groups,
 which is exactly why Phase 2.4 power balancing is not optional. Median
 limiting-lineage size is 242 cells, and 61 of 64 groups clear 30.
 
+### Phases 3–5 on real data — the pipeline has demonstrated Q4 power
+
+Balanced pseudobulks: **4,525 genes × 270 samples from 27 patients**
+(27 × 2 conditions × 5 lineages). **Stop rule S3 passes** — after Phase
+2.4 balancing, NK's median moderated SE is 0.113 against 0.079 for the
+other lineages (ratio 1.43, limit 2.0). "NK did not change" is
+falsifiable on this dataset.
+
+The first run failed stop rule S4, and the reason turned out to be a
+protocol-level conflict rather than a pipeline defect — see D7 below.
+After correcting it:
+
+```
+TOX     NK +0.054 (TOST-equivalent)  CD8T +0.794  CD4T +0.691  Myeloid +0.689
+TIGIT   NK +0.083 (TOST-equivalent)  CD8T +1.116  CD4T +1.772  Myeloid +1.043
+```
+
+TCR-driven exhaustion genes rise in T cells and sit still in NK — the
+exact pattern Phase 5.3 nominates as the Q4 positive control. Quadrant
+counts at δ = 0.5, `p95`: **Q4 58, Q3 53, Q1 10, unclassified 4,404.**
+
+Sensitivity across δ (protocol requires scanning three): Q4 counts are
+58 at δ = 0.25 (strict filter), 45–58 at δ = 0.5, and 4 at δ = 1.0, so
+the candidate set is strongly δ-dependent and no single number should be
+treated as "the" answer.
+
 ### The protocol's central premise, quantified
 
 Planted-truth simulation where **every gene is a true Q3** (all five
@@ -95,10 +126,22 @@ core design decision is correct and now has a number attached.
 
 ---
 
-## Two specification bugs found during validation
+## Three specification bugs found
 
-Both were found by running planted ground truth through the classifier,
-and both are documented with evidence in [`docs/DEVIATIONS.md`](docs/DEVIATIONS.md).
+All are documented with evidence in [`docs/DEVIATIONS.md`](docs/DEVIATIONS.md).
+The first two were found by running planted ground truth through the
+classifier; the third only appeared on real data.
+
+**0. The detection floor deletes the positive control (D7).** Phase 2.5
+keeps only genes detected in *all five* lineages. TCR-proximal genes are
+T-restricted, so `TOX`, `PDCD1`, `CTLA4`, `LAG3`, `TIGIT`, `ZAP70`,
+`CD28` and `TNFRSF9` — 11 of the 14 Q4 controls — are removed before
+testing, and stop rule S4 then fires for the only reason left: no
+control survives to reach Q4. **A healthy pipeline fails S4 as written.**
+Relaxing the filter to "detected in NK plus ≥ 2 lineages" (4,159 →
+4,525 genes) puts `TOX` and `TIGIT` in Q4 and S4 passes. This was
+invisible in simulation, where every gene is expressed in every lineage
+by construction.
 
 **1. Q3 absorbed every Q4 gene.** The Q3 rule as written
 (`>= 4 lineages changed`) is satisfied by any Q4 gene, since a Q4 gene
@@ -134,9 +177,8 @@ null is implemented and used by default.
 Being explicit, because a half-run protocol that looks finished is worse
 than one that looks unfinished:
 
-- **Phases 3–5 have not been run on real data.** They are implemented
-  and pass planted-truth validation; they have not been executed on
-  GSE154826 pseudobulks.
+- **The 58 Q4 candidates are candidates, not findings.** Phases 6–8 are
+  the gates that decide whether any of them survive, and none has run.
 - **Phase 6 (ambient) not run.** CellBender has not been run. The
   shared-soup HTO contrast — the protocol's cleanest control, and the
   strongest single asset of this dataset — is implemented but not
@@ -198,8 +240,9 @@ rather than as comments: `pseudobulk.se_balance_report` (S3),
 
 ## Suggested next step
 
-The single highest-value remaining action is the **shared-soup HTO
-contrast** (Phase 6.1) on the 20 hashed libraries covering 8 patients.
+With S3 and S4 both passing, the pipeline is cleared to produce
+candidates, so the next gate is artefact removal. The single
+highest-value action is the **shared-soup HTO contrast** (Phase 6.1) on the 20 hashed libraries covering 8 patients.
 It needs no decontamination tool, no parameter choices, and no external
 data: within those libraries both conditions share one ambient soup, so
 ambient contributes the same offset to both and largely cancels. Running
@@ -207,3 +250,8 @@ Phases 4–5 separately on the hashed and unhashed sets and comparing
 cross-lineage concordance gives a direct estimate of ambient's
 contribution — and it is a cheap, decisive check that can be done before
 committing to the full pipeline.
+
+It also has a specific question waiting for it: `TOX` and `TIGIT` move
+in **myeloid** cells, which is either real or ambient bleed-through from
+the abundant T compartment. The hashed libraries can settle that without
+any decontamination tool.

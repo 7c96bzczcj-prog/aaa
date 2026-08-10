@@ -147,3 +147,71 @@ here — counting cells per lineage to settle admission criterion A4, and
 assigning lineage — and the ambient modelling that would justify
 EmptyDrops' extra machinery is Phase 6's job, on the full droplet matrix
 that is retained on disk either way.
+
+---
+
+## D7. The Phase 2.5 detection floor deletes the Phase 5.3 positive control
+
+**This is the finding that mattered most on real data.** It was invisible
+in simulation, because simulated genes are expressed in every lineage by
+construction.
+
+**Specified.** Phase 2.5 keeps only genes that clear a detection floor
+in **all** lineages, so that "NK did not change" cannot be a restatement
+of "NK does not express this gene". Phase 5.3 then requires `TOX` and
+the TCR-proximal panel to land in Q4, as the positive control proving
+the pipeline can detect Q4 at all.
+
+**Problem.** These two requirements are not jointly satisfiable as
+written. TCR-proximal genes are T-restricted; they are not expressed by
+B or myeloid cells, so they cannot clear a detection floor imposed in
+all five lineages. On GSE154826 the strict filter cut 33,723 genes to
+**4,159**, and removed `TOX`, `PDCD1`, `CTLA4`, `LAG3`, `TIGIT`,
+`ZAP70`, `CD28` and `TNFRSF9` — 11 of the 14 Q4 controls. Stop rule S4
+then fired for the only possible reason: no positive control was left in
+the panel to reach Q4.
+
+A pipeline can therefore fail S4 while being perfectly healthy. The
+first real-data run produced 45 Q4 candidates and *correctly* refused to
+let them be read, for a reason that had nothing to do with the
+candidates.
+
+**Change.** `detection_filter` gains `require_nk` + `min_lineages`,
+expressing the weaker condition that actually protects the inference:
+the gene must be measurable **in NK** — whose non-response is the claim
+being made — and in enough other lineages to supply witnesses. It need
+not be measurable in lineages that are not being asked to witness
+anything.
+
+**Evidence** (`scripts/s4_diagnosis.py`, δ = 0.5, `p95`):
+
+| configuration | genes | Q4 controls in panel | S4 |
+|---|---|---|---|
+| strict filter (all 5 lineages) | 4,159 | 3/14 | **STOP** |
+| relaxed (NK + ≥ 2 lineages) | 4,525 | 6/14 | **PASS** |
+
+Under the relaxed filter, `TOX` and `TIGIT` both land in Q4 with the
+textbook pattern:
+
+```
+TOX     NK +0.054 (TOST-equivalent)  CD8T +0.794  CD4T +0.691  Myeloid +0.689  B +0.158 (equiv)
+TIGIT   NK +0.083 (TOST-equivalent)  CD8T +1.116  CD4T +1.772  Myeloid +1.043
+```
+
+TCR-driven exhaustion genes rise in T cells and do not move in NK, which
+is exactly what the protocol predicted for its own positive control.
+**The pipeline has demonstrated Q4 power.**
+
+**A prediction that was wrong, recorded because it was wrong.** Before
+running this, the expectation was that the Q4 witness rule would *also*
+block: witnesses are drawn from `{CD8T, B, Myeloid}`, and a TCR-driven
+gene should move only in T lineages, supplying at most one witness. The
+data refuted that — `TOX` and `TIGIT` also move in **myeloid** cells, so
+they reach two witnesses without needing CD4T. Adding CD4T to the
+witness set changes the Q4 count from 58 to 64 but was never the
+blocker. The witness set is left at the protocol's specification.
+
+(That myeloid cells move for `TOX` and `TIGIT` at all is worth a second
+look later — it is either real biology or ambient contamination from the
+abundant T compartment, which is precisely the question Phase 6.1 exists
+to answer, and it has not been run.)

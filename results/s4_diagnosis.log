@@ -1,0 +1,24 @@
+detection filter: strict(all 5 lineages)=4159 genes, relaxed(NK + >=2 lineages)=4525 genes
+
+--- A. protocol as written (strict filter, witnesses CD8T/B/Myeloid) ---
+  genes tested            : 4159
+  Q4 controls in panel    : 3/14 ['LAT', 'NR4A1', 'NR4A2']
+  quadrant counts         : {'unclassified': 4065, 'Q4': 45, 'Q3': 41, 'Q1': 8}
+  where they landed       : {'NR4A2': 'unclassified', 'NR4A1': 'unclassified', 'LAT': 'unclassified'}
+  S4                      : STOP (S4) - fix the pipeline before reading new results: no TCR-proximal control reached Q4 -- no demonstrated
+
+--- B. fix 1 only (relaxed filter, witnesses CD8T/B/Myeloid) ---
+  genes tested            : 4525
+  Q4 controls in panel    : 6/14 ['TOX', 'LAT', 'ZAP70', 'TIGIT', 'NR4A1', 'NR4A2']
+  quadrant counts         : {'unclassified': 4404, 'Q4': 58, 'Q3': 53, 'Q1': 10}
+  where they landed       : {'ZAP70': 'unclassified', 'NR4A2': 'unclassified', 'TIGIT': 'Q4', 'TOX': 'Q4', 'NR4A1': 'unclassified', 'LAT': 'unclassified'}
+  S4                      : PASS - controls behave as expected
+
+--- C. fix 1 + fix 2 (relaxed filter, witnesses CD8T/CD4T/B/Myeloid) ---
+  genes tested            : 4525
+  Q4 controls in panel    : 6/14 ['TOX', 'LAT', 'ZAP70', 'TIGIT', 'NR4A1', 'NR4A2']
+  quadrant counts         : {'unclassified': 4398, 'Q4': 64, 'Q3': 53, 'Q1': 10}
+  where they landed       : {'ZAP70': 'unclassified', 'NR4A2': 'unclassified', 'TIGIT': 'Q4', 'TOX': 'Q4', 'NR4A1': 'unclassified', 'LAT': 'unclassified'}
+  S4                      : PASS - controls behave as expected
+
+DONE

@@ -2,3 +2,21 @@ pass 1: gating 73 libraries
 pass 2: 61/64 groups clear 30 cells in every lineage
   summed 10/70 libraries
   summed 20/70 libraries
+  summed 30/70 libraries
+  summed 40/70 libraries
+  summed 50/70 libraries
+  summed 60/70 libraries
+  summed 70/70 libraries
+  1525 (rep x group x lineage) pseudobulks
+pseudobulk: 4159 genes x 270 samples (27 patients)
+S3: PASS - NK standard errors comparable to other lineages
+Phase 3: null calibration
+delta=0.25 p50:  {'unclassified': 3982, 'Q3': 133, 'Q4': 44}
+delta=0.25 p95:  {'unclassified': 3952, 'Q3': 132, 'Q4': 58, 'Q1': 15, 'Q2': 2}
+delta=0.5 p50:  {'unclassified': 4092, 'Q3': 44, 'Q4': 22, 'Q1': 1}
+  S4: STOP (S4) - fix the pipeline before reading new results: no TCR-proximal control reached Q4 -- no demonstrated Q4 power
+delta=0.5 p95:  {'unclassified': 4064, 'Q4': 45, 'Q3': 42, 'Q1': 8}
+  S4: STOP (S4) - fix the pipeline before reading new results: no TCR-proximal control reached Q4 -- no demonstrated Q4 power
+delta=1.0 p50:  {'unclassified': 4145, 'Q3': 11, 'Q1': 2, 'Q4': 1}
+delta=1.0 p95:  {'unclassified': 4141, 'Q3': 11, 'Q4': 4, 'Q1': 3}
+DONE
