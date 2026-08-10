@@ -1,4 +1,4 @@
-"""Check every quantitative claim in README.md against the result files.
+"""Check every quantitative claim in the prose docs against the result files.
 
 Written after an adversarial audit found a headline claim resting on a
 guard that was never armed. Numbers in prose drift from numbers in files
@@ -59,11 +59,34 @@ def main() -> int:
     chk("NK median SE", 0.113, round(float(pw.NK.iloc[0]), 3),
         abs(float(pw.NK.iloc[0]) - 0.113) < 0.002)
 
-    # the retracted claim must stay retracted
-    readme = open(os.path.join(ROOT, "README.md")).read()
-    chk("TOX-power claim absent", "absent",
-        "absent" if "demonstrated Q4 power" not in readme else "PRESENT",
-        "demonstrated Q4 power" not in readme)
+    # A retracted claim must stay retracted EVERYWHERE, not just in the
+    # README.  The first version of this check scanned README.md alone and
+    # reported "16/16 verified" while the retracted sentence was still live,
+    # unqualified and in bold, in docs/DEVIATIONS.md D7 -- the very document
+    # the README sends readers to for the argument.  An audit caught it, not
+    # this checker.  Scan every prose file, and require any surviving mention
+    # to sit inside an explicit retraction/supersession marker.
+    RETRACTED = ("demonstrated Q4 power", "S3 and S4 both passing",
+                 "cleared to produce candidates")
+    MARKERS = ("retract", "SUPERSEDED", "superseded", "earlier revision",
+               "earlier version")
+    prose = [os.path.join(ROOT, "README.md")]
+    docs = os.path.join(ROOT, "docs")
+    if os.path.isdir(docs):
+        prose += [os.path.join(docs, f) for f in sorted(os.listdir(docs))
+                  if f.endswith(".md")]
+
+    for path in prose:
+        text = open(path).read()
+        name = os.path.relpath(path, ROOT)
+        for phrase in RETRACTED:
+            bad = []
+            for para in text.split("\n\n"):
+                if phrase in para and not any(m in para for m in MARKERS):
+                    bad.append(para.strip().split("\n")[0][:60])
+            chk(f"retracted phrase in {name}",
+                f"absent or marked", "OK" if not bad else f"UNMARKED: {bad[0]}",
+                not bad)
 
     bad = [c for c in checks if not c[0]]
     for ok, label, claimed, actual in checks:

@@ -431,18 +431,36 @@ rather than as comments: `pseudobulk.se_balance_report` (S3),
 
 ## Suggested next step
 
-With S3 and S4 both passing, the pipeline is cleared to produce
-candidates, so the next gate is artefact removal. The single
-highest-value action is the **shared-soup HTO contrast** (Phase 6.1) on the 20 hashed libraries covering 8 patients.
-It needs no decontamination tool, no parameter choices, and no external
-data: within those libraries both conditions share one ambient soup, so
-ambient contributes the same offset to both and largely cancels. Running
-Phases 4–5 separately on the hashed and unhashed sets and comparing
-cross-lineage concordance gives a direct estimate of ambient's
-contribution — and it is a cheap, decisive check that can be done before
-committing to the full pipeline.
+**Find a Q4 positive control that can actually work.** S4 fires, and
+until it clears, nothing this pipeline reports about Q4 is readable as
+biology. D10 shows why the protocol's own choice cannot serve: a
+TCR-driven gene is both T-restricted and near-absent from NK, so NK's
+non-response is mundane explanation B3 rather than resistance.
 
-It also has a specific question waiting for it: `TOX` and `TIGIT` move
-in **myeloid** cells, which is either real or ambient bleed-through from
-the abundant T compartment. The hashed libraries can settle that without
-any decontamination tool.
+A valid control needs three properties at once:
+
+1. **NK demonstrably expresses it** — clear of the Phase 2.6 floor, so
+   there is room to move.
+2. **Its driver reaches NK** — a receptor or pathway NK actually
+   carries, so a non-response is informative rather than trivial.
+3. **The witness lineages measurably respond to that same driver** in
+   this contrast.
+
+Candidate families worth testing against those criteria: TGF-β target
+genes (NK carries TGFBR2 and is known to respond), type I/II interferon
+targets, and hypoxia/HIF targets — all shared drivers with NK-expressed
+receptors, unlike the TCR module. The test is cheap: each is a named
+gene set, and `scripts/s4_diagnosis.py` already has the machinery to
+check where a control set lands.
+
+If no such control passes, that is itself the answer — it would mean
+this design cannot demonstrate Q4 sensitivity on this data, and the
+protocol's stop rules should be honoured rather than worked around.
+
+**Second priority, if a control clears:** Phase 8's B1–B3, which are
+untouched. B3 (receptor not expressed) matters most, since D10 showed
+the protocol's own positive control failed precisely as a B3 case — the
+same trap will be waiting for individual candidates.
+
+**Not a priority:** more discovery. The bottleneck is not candidate
+count, it is that nothing validates the candidates already in hand.

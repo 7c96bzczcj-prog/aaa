@@ -183,38 +183,42 @@ being made — and in enough other lineages to supply witnesses. It need
 not be measurable in lineages that are not being asked to witness
 anything.
 
-**Evidence** (`scripts/s4_diagnosis.py`, δ = 0.5, `p95`):
+**Evidence** (`scripts/s4_diagnosis.py`, δ = 0.5, `p95`) — **current
+values, after the Phase 2.6 guard was armed (D10)**:
 
 | configuration | genes | Q4 controls in panel | S4 |
 |---|---|---|---|
 | strict filter (all 5 lineages) | 4,159 | 3/14 | **STOP** |
-| relaxed (NK + ≥ 2 lineages) | 4,525 | 6/14 | **PASS** |
+| relaxed (NK + ≥ 2 lineages) | 4,525 | 6/14 | **STOP** |
 
-Under the relaxed filter, `TOX` and `TIGIT` both land in Q4 with the
-textbook pattern:
+Relaxing the filter does what this entry claims — it returns the
+TCR-proximal panel to the testable set, 3/14 → 6/14 — and that much
+stands. **It does not make S4 pass.**
 
-```
-TOX     NK +0.054 (TOST-equivalent)  CD8T +0.794  CD4T +0.691  Myeloid +0.689  B +0.158 (equiv)
-TIGIT   NK +0.083 (TOST-equivalent)  CD8T +1.116  CD4T +1.772  Myeloid +1.043
-```
-
-TCR-driven exhaustion genes rise in T cells and do not move in NK, which
-is exactly what the protocol predicted for its own positive control.
-**The pipeline has demonstrated Q4 power.**
+> **⚠ SUPERSEDED BY [D10](#d10-the-phase-26-guard-was-never-armed-and-arming-it-retracts-the-tox-result).**
+> An earlier version of this entry reported that `TOX` and `TIGIT` both
+> reached Q4 under the relaxed filter and concluded, in bold, that "the
+> pipeline has demonstrated Q4 power". **That conclusion is retracted.**
+> It was produced with the Phase 2.6 ceiling/floor guard inactive. `TOX`
+> is detected in 4.3% of NK cells in tumour and 4.9% in normal, so it is
+> floor-saturated, barred from an equivalence call, and lands in
+> `unclassified`. Only `TIGIT` (8.9% / 9.4%, not saturated) still
+> reaches Q4, which is not enough for S4. The current verdict is **STOP
+> in all three configurations**, as `results/s4_diagnosis.log` shows.
 
 **A prediction that was wrong, recorded because it was wrong.** Before
 running this, the expectation was that the Q4 witness rule would *also*
 block: witnesses are drawn from `{CD8T, B, Myeloid}`, and a TCR-driven
 gene should move only in T lineages, supplying at most one witness. The
-data refuted that — `TOX` and `TIGIT` also move in **myeloid** cells, so
-they reach two witnesses without needing CD4T. Adding CD4T to the
-witness set changes the Q4 count from 58 to 64 but was never the
-blocker. The witness set is left at the protocol's specification.
+data refuted that — `TIGIT` also moves in **myeloid** cells, so it
+reaches two witnesses without needing CD4T. Adding CD4T to the witness
+set changes the Q4 count but was never the blocker. The witness set is
+left at the protocol's specification.
 
-(That myeloid cells move for `TOX` and `TIGIT` at all is worth a second
-look later — it is either real biology or ambient contamination from the
-abundant T compartment, which is precisely the question Phase 6.1 exists
-to answer, and it has not been run.)
+(That myeloid cells move for `TIGIT` at all is worth a second look — it
+is either real biology or ambient bleed-through from the abundant T
+compartment. Phase 6.1 has since been run: see the shared-soup contrast,
+which shows ambient inflating but not creating cross-lineage sharing.)
 
 ---
 
