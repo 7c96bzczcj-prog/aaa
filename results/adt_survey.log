@@ -1,0 +1,75 @@
+libraries: 73
+lib  cells  med_umi  n_adt  n_hto   CD3  CD4  CD8  CD19  CD14  CD56  CD16  CD45
+  1   3418   1926.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 10   6138   5449.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 11   4229   5269.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 14   3077   3293.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 15   4457   3464.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 16   4226   3124.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 17   5904   4204.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 18   5378   4356.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 19   6576   3031.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+  2   2309   2331.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 22    670   1569.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 23    936   1542.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+230   4685   1261.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+231   1297   1105.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 24   1031   2398.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+244   3886   3545.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+245   5719   4066.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 25    768   2230.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 26    415   2479.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 27    321   3979.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 28   3724   3092.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 29   3663   2817.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+292   3068   2836.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+293   2989   2663.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+  3   3859   2235.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 30   4153   2730.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+307   4860   1867.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+308   5854   2210.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+309   8301   3602.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 31   5840   3491.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 32   3253   1343.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 33   2301   1207.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+342  10301   2384.0     81      6  14.0  6.0  2.0   4.0   7.0   2.0   3.0  39.0
+343  10466   2554.5     81      6  11.0  5.0  2.0   4.0   6.0   2.0   2.0  32.0
+344  10393   2509.0     81      6  10.0  5.0  2.0   3.0   6.0   2.0   2.0  30.0
+345  10582   2525.5     81      6  11.0  5.0  2.0   3.0   6.0   2.0   2.0  31.0
+346  10446   2527.5     81      6  10.0  5.0  2.0   3.0   6.0   2.0   2.0  31.0
+347   9872   2533.0     81      6  11.0  5.0  2.0   3.0   6.0   2.0   2.0  32.0
+348  10644   2631.0     81      6  10.0  5.0  2.0   3.0   6.0   1.0   2.0  29.0
+ 36   4170   1016.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 37   7990   2803.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 38  11692   2074.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 39   3558   2109.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+  4   6613   2620.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 40   3764   2302.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 41   5240   2461.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 42   2779   3198.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 43   6628   1932.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 44   5211   2401.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 45   5923   2835.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 46   4077   2302.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 47   6484   2233.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 48   5488   2161.0     27      2  47.0 14.0  1.0   2.0  24.0   1.0   3.0  86.0
+ 49   6008   1910.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+  5   5049   2471.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 50   5243   1944.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 51   4727   2302.0     21      2 107.0 28.0  9.0   8.0  50.0   9.0  42.0   NaN
+ 52   4352   2455.5     21      2 101.0 30.0  9.0   8.0  54.0   9.0  45.0   NaN
+ 53  16415   1617.0     21     10  15.0  6.0  2.0   2.0   7.0   4.0   5.0   NaN
+ 54   8128   1935.0     21      2  50.5 19.0  3.0   5.0  12.0   9.0  33.0   NaN
+ 55   7538   1875.0     21      2  57.0 20.0  3.0   6.0  13.0  11.0  35.0   NaN
+ 56  16861   2192.0     58     10  20.0 13.0  9.0   6.0  11.0   4.0   8.0  10.0
+  6   2075   2115.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+668   4694   4284.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+  7  18241   1266.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+  8   5778   2200.5      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 88  17571   2927.0     58     10  12.0 46.0 10.0   2.0   7.0   1.0  18.0   4.0
+ 89   7415   3235.0     58     10  26.0 82.0 19.0   5.0  12.0   3.0  26.0   9.0
+  9   5395   3555.0      0      0   NaN  NaN  NaN   NaN   NaN   NaN   NaN   NaN
+ 90  14723   2605.0     81     11   6.0  6.0  1.0   3.0  10.0   3.0   1.0  17.0
+ 91  14467   2569.0     81     11   7.0  6.0  2.0   3.0  11.0   4.0   2.0  18.0
+ 92  14799   2572.0     81     11   7.0  5.0  2.0   3.0  12.0   4.0   1.0  17.0
+ 93  14413   2631.0     81     11   7.0  6.0  2.0   3.0  11.0   4.0   2.0  18.0
