@@ -256,3 +256,42 @@ failing to replicate there would be ambiguous between a false original
 finding and insufficient power. Any replication analysis must report the
 Q1/Q3 baseline replication rates alongside Q4 (which the protocol
 already requires via S6) precisely so that this ambiguity is visible.
+
+---
+
+## D9. Categorical replication is the wrong instrument at n = 8
+
+**Specified.** Phase 7 defines replication as: same quadrant, same sign,
+`|log2FC|` within 2×.
+
+**Problem.** A quadrant call is a conjunction of several threshold
+crossings, at least one of which is an *equivalence* claim. In
+GSE131907 the median moderated SE for CD8 T is 0.308, so the 90% CI
+half-width is 1.645 × 0.308 = 0.507 — wider than the equivalence margin
+δ = 0.5. A CD8T equivalence call is therefore **arithmetically
+impossible** in that cohort, and any quadrant requiring one cannot
+replicate no matter how real the underlying biology.
+
+Measured: Q1 0/10, Q3 0/53, Q4 1/64 replicate categorically. Q3 is the
+easiest category — large concordant effects in every lineage — and it
+replicates at zero.
+
+**Change.** Categorical replication is still computed and reported (it
+is what the protocol asks for, and S5 fires on it). Alongside it, a
+continuous criterion is reported that does not depend on any threshold:
+the magnitude of the NK effect for candidate genes, compared against Q3
+genes and against background, in the replication cohort. On that
+criterion the Q4 set replicates at p = 1.3 × 10⁻⁶.
+
+**Why this is not a lowered bar.** The continuous test is *more*
+demanding in the way that matters: it compares Q4 against Q3, and Q3
+genes have larger witness effects, so a gene set that merely had
+"big effects in other lineages" would fail it. It also survives the
+power confounder — Q4 candidates' NK SE in the replication cohort is
+smaller than Q3's, so their small NK effects are not a precision
+artefact.
+
+**What it does not license.** One cohort at n = 8 is not the two
+independent replications the protocol demands, and a continuous signal
+across a 64-gene set says nothing about which individual genes are real.
+Phase 8 has not been run.

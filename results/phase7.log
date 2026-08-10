@@ -1,0 +1,26 @@
+patients usable at >=20 cells in all five lineages: 8 -> ['06', '09', '18', '19', '20', '28', '30', '31']
+cells participating in >=1 subsample: 11968
+matched 11968 of 11968 cells to matrix columns (208506 columns total)
+  parsed 500 panel genes (3803 lines scanned)
+  parsed 1000 panel genes (6915 lines scanned)
+  parsed 1500 panel genes (9401 lines scanned)
+  parsed 2000 panel genes (12941 lines scanned)
+  parsed 2500 panel genes (14938 lines scanned)
+  parsed 3000 panel genes (17151 lines scanned)
+  parsed 3500 panel genes (24746 lines scanned)
+  parsed 4000 panel genes (27042 lines scanned)
+  parsed 4500 panel genes (29393 lines scanned)
+panel genes found in GSE131907: 4525 of 4525
+GSE131907 pseudobulk: 4525 genes x 80 samples (8 patients)
+S3: PASS - NK standard errors comparable to other lineages
+GSE131907 quadrants: {'unclassified': 4521, 'Q4': 3, 'Q1': 1}
+
+=== replication by quadrant (GSE154826 -> GSE131907) ===
+    quadrant    n  n_replicated     rate
+          Q1   10             0 0.000000
+          Q3   53             0 0.000000
+          Q4   64             1 0.015625
+unclassified 4398          1107 0.251705
+
+S5/S6: STOP - S5: only 1 Q4 genes replicated (< 10)
+DONE

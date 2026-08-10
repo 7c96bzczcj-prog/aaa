@@ -154,6 +154,48 @@ Sensitivity across δ (protocol requires scanning three): Q4 counts are
 the candidate set is strongly δ-dependent and no single number should be
 treated as "the" answer.
 
+### Phase 7 — categorical replication fails, the pattern replicates
+
+Replication was attempted against GSE131907 (n = 8, the only cohort
+available, at the relaxed threshold). Using the author's own published
+cell-type labels, so the replication is independent of this repo's
+gating.
+
+**Every quadrant fails categorical replication:** Q1 0/10, Q3 0/53,
+Q4 1/64. Read naively that kills the project. It should not be read
+naively — the replication cohort's standard errors are 2–4× larger, and
+for CD8 T the 90% CI half-width is 0.507 against an equivalence margin
+of 0.5, so **a CD8T equivalence call is mathematically unattainable
+there**. Q3, the easiest category, replicating at 0/53 is the tell: this
+is global power failure, not a verdict on Q4. This is exactly why the
+protocol requires the Q1/Q3 baselines alongside Q4 (S6) — without them
+the obvious and wrong conclusion is "Q4 is noise".
+
+A power-appropriate continuous test tells a different story. In the
+independent cohort:
+
+| group | n | median \|NK log2FC\| | median \|witness log2FC\| | NK/witness |
+|---|---|---|---|---|
+| **Q4 candidates** | 64 | **0.145** | 0.494 | **0.29** |
+| Q3 genes | 53 | 0.569 | 0.740 | 0.77 |
+| background | 4,398 | 0.194 | 0.253 | 0.77 |
+
+Q4 candidates carry the Q4 signature into an independent cohort:
+NK moves ~30% as much as the witness lineages, where Q3 genes and the
+background both sit at 77%. `|NK log2FC|` for Q4 vs Q3 genes:
+**p = 1.3 × 10⁻⁶** (ratio-free test; Q3 is the right comparator because
+its witness effects are *larger*, so this is not a witness-magnitude
+artefact).
+
+The obvious mundane explanation is excluded: Q4 candidates are not
+merely underpowered in NK — their NK standard error in the replication
+cohort is *smaller* than Q3's (0.249 vs 0.294), and their effects are
+not small everywhere (myeloid 0.665, B 0.495, NK 0.145).
+
+The protocol bans ratios in the decision path and that ban is respected:
+the ratio above is descriptive, and the primary test is the ratio-free
+comparison of `|NK log2FC|` between Q4 and Q3.
+
 ### The protocol's central premise, quantified
 
 Planted-truth simulation where **every gene is a true Q3** (all five
