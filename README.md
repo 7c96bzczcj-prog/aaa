@@ -1,14 +1,15 @@
-# 四格挖掘协议 — implementation and Phase 0–5 record
+# 四格挖掘协议 — implementation and Phase 0–8 record
 
 Mining "NK resistance" genes (Q4) and the shared cytotoxic-lymphocyte
 programme (Q2) from paired tumour / adjacent-normal single-cell data.
 
-This repository contains a validated implementation of Phases 2–8, the
-completed record for Phase 0 (prior art) and Phase 1 (dataset
-admission), and executed results for Phases 2–5 on GSE154826.
+This repository contains an implementation of Phases 2–8, the completed
+record for Phase 0 (prior art) and Phase 1 (dataset admission), and
+executed results for Phases 2–7 plus part of Phase 8 on GSE154826, with
+replication attempted against GSE131907.
 
-Phases 3–7 have been executed on GSE154826, then audited adversarially,
-and the audit reversed a headline claim. **Stop rule S4 fires: the
+The work was then audited adversarially, and the audit reversed a
+headline claim. **Stop rule S4 fires: the
 pipeline has no valid Q4 positive control, so its 46 Q4 candidates are
 not cleared for reading.**
 
@@ -18,6 +19,24 @@ ceiling/floor guard, which was implemented and documented but **never
 actually called**. With it armed, `TOX` — detected in 4.3% of NK cells
 in tumour and 4.9% in normal — is floor-saturated and excluded. The
 claim is retracted; see [D10](docs/DEVIATIONS.md).
+
+### Stop-rule status
+
+| rule | condition | status |
+|---|---|---|
+| S1 | someone already reported Q4-type results | **does not fire** — the class is undefined in the literature, and equivalence testing has never been applied to cross-lineage sharing |
+| S2 | fewer than 2 datasets clear A1–A4 | **FIRES** at the protocol's 30-cell threshold — only GSE154826 qualifies. Two qualify at a relaxed 20 cells, the second at exactly n = 8 |
+| S3 | NK SE > 2× the other lineages after balancing | does not fire — 0.113 vs 0.079, ratio 1.43 |
+| S4 | TOX misses Q4, or IEGs land in Q1/Q4 | **FIRES** — TOX is floor-saturated in NK, and the protocol's Q4 positive control cannot work in principle (D10) |
+| S5 | fewer than 10 Q4 genes replicate | **FIRES** — 0/46 replicate categorically, but so do Q1 (0/10) and Q3 (0/43); this is global power failure (D9) |
+| S6 | Q4 replication rate below the Q1/Q3 baseline | does not fire — the baseline is itself zero |
+| S7 | all survivors explained by B1–B6 | not reachable — Phase 8 incomplete |
+| S8 | Phase 0–5 exceeds one week on dataset 1 | not applicable |
+
+**Three stop rules fire.** The protocol's own instruction in that case is
+to record what was established and close the file, and the honest
+reading is that this is a negative-to-inconclusive result on the primary
+endpoint. What survives is listed under "What actually holds up" below.
 
 ---
 
@@ -37,7 +56,7 @@ cross-lineage control that would separate the two readings. Even if Q4
 comes back empty, showing that a widely-cited NK signature is Q3 rather
 than Q1 is a result.
 
-### Phase 1 — GSE154826 verified in full; stop rule S2 does not fire
+### Phase 1 — GSE154826 verified in full
 
 Everything the protocol remembered about GSE154826 was checked directly
 against GEO and the raw files, and all of it holds:
@@ -48,6 +67,7 @@ against GEO and the raw files, and all of it holds:
 | A2 condition ⟂ library | **Pass** — 20 libraries carry *both* conditions in one droplet emulsion |
 | A3 all lineages in one pool | **Pass** — CD45⁺ enrichment; 4 CD2⁺-enriched libraries excluded as instructed |
 | A4 NK ≥ 30 per group | **Pass — 27/29 patients** (measured, see below) |
+| Stop rule S2 | **Fires** — only this dataset clears A1–A4 as written |
 | Raw droplet matrices | **Yes** — `barcodes.tsv` = 737,280 lines = full 10x v2 whitelist |
 | HTO shared soup | **Yes** — 20 libraries, 8 patients, tumour + normal in one soup |
 | ADT | **Partial — 20 of 73 libraries only** (see correction below) |
@@ -344,6 +364,32 @@ than one that looks unfinished:
   against the reference implementation.
 
 ---
+
+## What actually holds up
+
+Ordered by how much weight the evidence bears.
+
+1. **The protocol's central statistical premise is correct and now
+   quantified.** Without equivalence testing, a rare lineage yields an
+   ~84% false Q4 rate; with TOST, the nominal 5%.
+2. **~40% of cross-lineage sharing in a conventional design is
+   technical** (shared-soup contrast, depth confounder ruled out).
+   This is a real, reusable measurement about scRNA-seq design, largely
+   independent of whether Q4 exists.
+3. **CD45⁺ enrichment, not cohort size, is what makes a dataset usable
+   for a rare lineage** — the 36-patient cohort is unusable and the
+   10-patient one is not.
+4. **The pipeline does not manufacture Q4 from noise** (0/12
+   permutations), and the Q4 pattern replicates continuously in an
+   independent cohort (p = 7 × 10⁻⁶) and survives ambient cancellation
+   (p = 2 × 10⁻⁸).
+5. **Five specification defects in the protocol**, each with the
+   evidence that exposed it (D1, D2, D7, D10, plus the D3 null mismatch).
+
+Against that: **S2, S4 and S5 all fire**, there is no valid Q4 positive
+control, no individual gene is validated, and B1–B3 of Phase 8 are
+untouched. The 46 Q4 candidates are a lead, not a finding — which is
+what the protocol said the realistic outcome would be.
 
 ## Layout
 
