@@ -323,7 +323,14 @@ than one that looks unfinished:
   executed.
 - **Phase 7 (replication) not run.** GSE178341 is admitted but not
   downloaded.
-- **Phase 8 not run.**
+- **Phase 8 is only partly run.** B4 (ceiling/floor) is now armed, B5
+  (power) is excluded for the Q4 set, and B6 (ambient) is partly
+  addressed — the Q4 pattern survives where ambient cancels
+  (p = 2.2 × 10⁻⁸, [D13](docs/DEVIATIONS.md)), though that test is not
+  independent of selection. **B1 (spatial exposure), B2 (NK turnover)
+  and B3 (missing receptor) are unaddressed**, and B3 is the one that
+  matters most: D10 showed the protocol's own positive control fails
+  precisely because it is a B3 case.
 - **NK gate purity is unresolved.** The independent T-probe panel
   (LCK/CD2/THEMIS/SKAP1/TRAT1/ITK) shows 57.6% positivity in the NK gate
   against 25% in the B gate (the soup floor). This is *not*

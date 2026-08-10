@@ -404,3 +404,37 @@ calibration permutations (60 vs 100), which moves the per-gene noise
 percentiles and therefore the classification boundary. A ±15% swing in
 the headline count from a calibration parameter is a reminder that the
 Q4 *count* is soft; the pattern-level results are what carry weight.
+
+---
+
+## D13. Phase 8 / B6 partially addressed: the Q4 pattern survives ambient cancellation
+
+Using the same shared-emulsion split as D-Phase 6.1, but asking about the
+Q4 candidate set specifically rather than about global concordance. In
+the shared-soup patients ambient largely cancels from the paired
+contrast, so an ambient-driven Q4 pattern should weaken there.
+
+| subset | Q4 NK/witness | background NK/witness | p (Q4 < background) |
+|---|---|---|---|
+| shared soup (ambient cancels, n=7) | 0.497 | 1.165 | 2.2 × 10⁻⁸ |
+| separate libraries (n=19) | 0.196 | 0.895 | 6.8 × 10⁻¹⁹ |
+
+The pattern is highly significant in **both** subsets, including where
+ambient cancels, so **B6 (ambient-driven) does not explain it**. It is
+attenuated in the shared-soup subset — the Q4-to-background separation
+is roughly half as large — which is consistent with ambient *inflating*
+a real pattern rather than creating it.
+
+**Two caveats that keep this from being decisive.** First, the Q4 set
+was selected using all 27 patients, including the 7 shared-soup ones, so
+this is not an independent test of those genes; it is a comparison of
+how the same selected set behaves under two designs. The independent
+test is the GSE131907 replication (D9). Second, the attenuation could
+equally reflect n = 7 versus n = 19 and different patients rather than
+ambient — the background ratio exceeding 1.0 in the shared subset shows
+how noise-dominated it is. A clean version would select on the 19
+separate-library patients and test on the 7 shared ones, which the
+current n does not support.
+
+**B1 (spatial exposure), B2 (NK turnover) and B3 (missing receptor)
+remain unaddressed**, and B3 is the one that matters most given D10.
