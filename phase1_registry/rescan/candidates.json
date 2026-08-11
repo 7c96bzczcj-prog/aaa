@@ -1,0 +1,145 @@
+[
+ {
+  "acc": "GSE140228",
+  "title": "Landscape and Dynamics of Single Immune Cells in Hepatocellular Carcinoma",
+  "summary": "The immune microenvironment of hepatocellular carcinoma (HCC) is poorly characterized. Combining two single-cell RNA sequencing technologies, we produced transcriptomes of CD45+ immune cells for HCC patients from five immune-relevant sites: tumor, adjacent liver, hepatic lymph node (LN), blood, and ascites.A cluster of LAMP3+ dendritic cells (DCs) appeared to be the mature form of conventional DCs and possessed the potential to migrate from tumors to LNs. LAMP3+ DCs also expressed diverse immune-relevant ligands and exhibited potential to regulate multiple subtypes of lymphocytes. Of the macrophages in tumors that exhibited distinct transcriptional states, tumor-associated macrophages (TAMs) were associated with poor prognosis, and we established the inflammatory role of SLC40A1 and GPNMB in these cells. Further, myeloid and lymphoid cells in ascites were predominantly linked to tumor and blood origins, respectively. The dynamic properties of diverse CD45+ cell types revealed by this study add new dimensions to the immune landscape of HCC.",
+  "n": 41,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": true,
+  "pair": true,
+  "score": 4
+ },
+ {
+  "acc": "GSE151537",
+  "title": "T cell receptor repertoire analysis of tumor-infiltrating T cells in non-small cell lung cancer [tumor_T_cells]",
+  "summary": "We analyzed 778,938 T cell receptor (TCR) CDR3b sequences from 178 non-small cell lung cancer (NSCLC) patients using GLIPH2 (Grouping of Lymphocyte Interactions with Paratope Hotspots 2). We identified over 66,000 TCR shared specificity groups, of which over 400 were enriched in tumor vs. adjacent lung. We focused on one tumor-enriched specificity group and used a yeast display library to identify the peptide epitopes. These include peptides from TMEM161A, which is an overexpressed antigen in NSCLC, and homologous peptides from Epstein-Barr virus (EBV) and E. coli, aligning with recent reports of virus-specific T cells in tumor infiltrates. Overall, we analyzed a very large dataset of TCR sequences from NSCLC patients and found thousands of specificities shared by three or more patients. This creates a database of TCR shared specificity groups in NSCLC, and also a template for mining and understanding the specificity of infiltrating T cells for any cancer.",
+  "n": 2950,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE151531",
+  "title": "T cell receptor repertoire analysis of tumor-infiltrating T cells in non-small cell lung cancer [tet_sorted_PBLT_cells]",
+  "summary": "We analyzed 778,938 T cell receptor (TCR) CDR3b sequences from 178 non-small cell lung cancer (NSCLC) patients using GLIPH2 (Grouping of Lymphocyte Interactions with Paratope Hotspots 2). We identified over 66,000 TCR shared specificity groups, of which over 400 were enriched in tumor vs. adjacent lung. We focused on one tumor-enriched specificity group and used a yeast display library to identify the peptide epitopes. These include peptides from TMEM161A, which is an overexpressed antigen in NSCLC, and homologous peptides from Epstein-Barr virus (EBV) and E. coli, aligning with recent reports of virus-specific T cells in tumor infiltrates. Overall, we analyzed a very large dataset of TCR sequences from NSCLC patients and found thousands of specificities shared by three or more patients. This creates a database of TCR shared specificity groups in NSCLC, and also a template for mining and understanding the specificity of infiltrating T cells for any cancer.",
+  "n": 623,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE295028",
+  "title": "NNMT inhibition in cancer-associated fibroblasts restores antitumor immunity.",
+  "summary": "Cancer-associated fibroblasts (CAFs) play a pivotal cancer-supportive role, yet CAF-targeted therapies remain elusive. Through spatial transcriptomics and single-cell RNA sequencing, we investigated the role of nicotinamide N-methyltransferase (NNMT) in high-grade serous ovarian cancer (HGSOC). Mechanistically, NNMT-induced H3K27me3 hypomethylation drives complement secretion from CAFs, attracting immunosuppressive myeloid-derived suppressor cells (MDSCs) to the tumor. NNMT knockout in immunocompetent mice impaired tumor growth in syngeneic ovarian, breast, and colon tumor models through enhanced CD8+ T cell activation. Using high-throughput screening, we developed a potent and specific NNMT inhibitor that reduces tumor burden and metastasis in multiple murine cancer models and restores immune checkpoint blockade efficacy by decreasing CAF-mediated MDSC recruitment and reinvigorating CD8\u207a T cell activation. Our findings establish NNMT as a central CAF regulator and promising therapeutic target to mitigate immunosuppression in the tumor microenvironment.",
+  "n": 181,
+  "taxon": "Homo sapiens",
+  "gdstype": "Other",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE253013",
+  "title": "Single-cell RNA sequencing identifies dysregulated NOTCH3 signaling in tumor stroma of lung adenocarcinoma",
+  "summary": "Cancer immunotherapy has revolutionized the treatment of lung adenocarcinoma (LUAD); however, a significant fraction of patients fails to respond. Recent studies to understand transcriptomic determinants of immunotherapy response have pinpointed stroma-mediated resistance mechanisms. To gain a better understanding of the stromal biology at the cellular and molecular levels in LUAD, we obtained the transcriptomes of 256,379 single cells with 13,857 mesenchymal cells from 9 treatment-na\u00efve patients. Among the mesenchymal cells, we identify subsets of FAP+PDPN+ cancer-associated fibroblasts (CAFs) and ACTA2+MCAM+ pericytes, which enrich in tumors, differentiate from lung resident fibroblasts and possess a myofibroblast phenotype. By utilizing imaging-mass cytometry, we found that both subsets are topographically adjacent to the perivascular niche and have close spatial interaction with endothelial cells (ECs). Modelling of ligand and receptor interactomes between mesenchymal and ECs identifies that NOTCH3/NOTCH signaling drives the cell-cell interaction in tumors, with pericytes and CAFs as the signal receivers and arterial and PLVAPhigh immature neovascular ECs as the signal senders. Either pharmacologically blocking NOTCH signaling or tuning down NOTCH3 level in mesenchymal cells reduced collagen production and suppressed cell invasion. By evaluating the clinical relevance of NOTCH signaling using bulk-RNA sequencing data, we demonstrate that NOTCH3 correlates with poor survival in stroma-rich patients and that a T-cell inflammation gene signature predicts survival only in low-NOTCH3 expressing patients. Our study underscores the importance of NOTCH3 in regulating tumor stroma biology and may serve as a potential target for immunotherapy combination strategies.",
+  "n": 89,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE123813",
+  "title": "Clonal replacement of tumor-specific T cells following PD-1 blockade [single cells]",
+  "summary": "Immunotherapies that block inhibitory checkpoint receptors on T cells have transformed the clinical care of cancer patients. However, the clonal origin of tumor-specific T cells following checkpoint blockade in patients remains unclear. Here, we performed paired single-cell RNA- and T cell receptor (TCR)- sequencing on site-matched tumors from patients with basal cell carcinoma (BCC) pre- and post-anti-PD-1 therapy. Tracking TCR clonotypes and transcriptome phenotypes revealed a coupling of tumor-recognition, clonal expansion, and T cell dysfunction: the response to treatment was accompanied by a clonal expansion of CD8+CD39+ T cells, which co-expressed markers of chronic T cell activation and exhaustion. However, this response was not accompanied by an expansion of pre-existing tumor-specific T cell clonotypes; rather, expanded T cell clones post-therapy comprised novel clonotypes, which were not previously observed in the same tumor. Clonal replacement of T cells was preferentially observed in tumor-specific exhausted CD8+ T cells, compared to other distinct T cell phenotypes, and was more evident in patients who exhibited a clinical response to treatment. These results, enabled by single-cell multi-omic profiling of clinical samples, demonstrate that the chronic activation of pre-existing tumor-infiltrating T cells may limit their re-invigoration following checkpoint blockade, and that a successful response relies on the expansion of a distinct repertoire of tumor-specific T cell clones.",
+  "n": 86,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing; Other",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE235863",
+  "title": "T cell populations correlate with response and resistance to anti-PD-1 plus lenvatinib combination therapy in hepatocellular carcinoma",
+  "summary": "The combination of immune checkpoint blockade and tyrosine kinase inhibitors has shown promising clinical benefits, but the underlying mechanisms driving response and resistance are poorly understood. Here, we performed single-cell RNA- and TCR-sequencing, together with a HBV-peptide-barcoded single-cell RNA-sequencing approach, on paired tumor and blood samples to track the dynamic changes of T cells in HBV+ hepatocellular carcinoma (HCC) patients before or after anti-PD-1 plus lenvatinib combination therapy.",
+  "n": 69,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing; Other",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE114725",
+  "title": "Single-cell Map of Diverse Immune Phenotypes in the Breast Tumor Microenvironment 3' RNA Sequencing",
+  "summary": "Knowledge of immune cell phenotypes in the tumor microenvironment is essential for understanding mechanisms of cancer progression and immunotherapy response. We created an immune map of breast cancer using single-cell RNA-seq data from 45,000 immune cells from eight breast carcinomas, as well as matched normal breast tissue, blood, and lymph node. We developed a preprocessing pipeline, SEQC, and a Bayesian clustering and normalization method, Biscuit, to address computational challenges inherent to single-cell data. Despite significant similarity between normal and tumor tissue-resident immune cells, we observed continuous phenotypic expansions specific to the tumor microenvironment. Analysis of paired single-cell RNA and T cell receptor (TCR) sequencing data from 27,000 additional T cells revealed the combinatorial impact of TCR utilization on phenotypic diversity. Our results support a model of continuous activation in T cells and do not comport with the macrophage polarization model in cancer, with important implications for characterizing tumor-infiltrating immune cells.\u00a0",
+  "n": 56,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE221776",
+  "title": "Intra-tumoral T cells in pediatric brain tumors display clonal expansion and effector properties",
+  "summary": "T cell responses within pediatric brain tumors (PBT) remain poorly understood. We performed single-cell RNA-seq (scRNA-seq) and paired T cell receptor sequencing (TCR-Seq) of patient-derived brain tumor-infiltrating T cells to map T cell molecular profile with TCR repertoire and clonality. We demonstrate marked clonal expansion of intra-tumoral T cells and reveal their differential phenotype, transcriptional state and functional properties within brain tumors. To understand T cell responses within highly immunogenic tumors that respond to checkpoint blockers, we undertook analysis of human non-small cell lung cancer (NSCLC). We performed single-cell RNA-seq (scRNA-seq) and paired T cell receptor sequencing (TCR-Seq) of patient-derived lung tumor-infiltrating T cells to map T cell molecular profile with clonality.",
+  "n": 54,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE181061",
+  "title": "A single-cell map of dynamic chromatin landscapes of\u00a0immune\u00a0cells in renal cell carcinoma (scRNA-Seq and TCR-Seq)",
+  "summary": "A complete chart of the chromatin regulatory elements of immune cells in patients\u00a0with cancer\u00a0and their dynamic behavior is necessary to understand the developmental\u00a0fates\u00a0and\u00a0to\u00a0guide therapeutic strategies. Here, we map, at the single-cell level, the chromatin landscape of immune cells from blood, normal adjacent kidney, and malignant tissue from patients with\u00a0early-stage\u00a0clear cell renal cell carcinoma (ccRCC).\u00a0Specifically\u00a0in T cells, we catalogue the various cell states dictated by tissue- and developmental stage-specific chromatin accessibility patterns and\u00a0we\u00a0infer key chromatin regulators of these states. In the CD8+\u00a0T cells\u00a0progression to\u00a0dysfunction, we observe an extensive rewiring of the regulatory networks.\u00a0Unexpectedly, we find\u00a0that\u00a0among the transcription factors that orchestrate the path to dysfunction,\u00a0NFkB,\u00a0a transcription factor with an established\u00a0prosurvival\u00a0role during TCR-mediated activation,\u00a0is associated\u00a0with\u00a0a proapoptotic program in late stages\u00a0of dysfunction\u00a0in\u00a0ccRCC\u00a0infiltrating CD8+\u00a0T cells.\u00a0Importantly, the epigenomic profiling\u00a0can stratify RCC patients based on a\u00a0NFkB-driven proapoptotic signature\u00a0which was\u00a0also\u00a0validated\u00a0at the gene expression and protein level. Our study provides a rich resource for understanding the functional states and regulatory dynamics of immune cells in RCC.\u00a0",
+  "n": 44,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing; Other",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE139555",
+  "title": "Peripheral clonal expansion of T lymphocytes associates with tumour infiltration and response to cancer immunotherapy",
+  "summary": "We performed single-cell RNA sequencing (scRNA-seq) and deep analysis of T cell receptor (TCR) clonotypes (scTCR-seq) in cancer patients across several indications, assessing the profiles of TCRs in the various populations of T cells in tumours, normal adjacent tissue (NAT), and peripheral blood. In a subset of patients, we find clear evidence of clonotypic expansion of T effector-like cells not only within the tumour but also in NAT.",
+  "n": 32,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing; Other",
+  "imm": false,
+  "pair": true,
+  "score": 2
+ },
+ {
+  "acc": "GSE289849",
+  "title": "Ontogeny Dictates Oncogenic Potential, Lineage Hierarchy, and Therapy Response in Pediatric Leukemia [scRNA-seq]",
+  "summary": "Pediatric cancers are increasingly linked to transformation events before birth, yet how ontogeny influences oncogenesis remains poorly understood. Using a humanized model of NUP98-NSD1-driven pediatric acute myeloid leukemia, particularly aggressive when accompanied by WT1 mutations, we investigated how the developmental stage of hematopoietic stem cells impacts leukemic transformation, disease progression and therapy response. Fetal-derived hematopoietic stem cells readily transform into leukemia, with WT1 mutations enhancing stemness and alter lineage hierarchy, while stem cells from later developmental stages progressively withstand transformation. Single-cell analyses revealed that fetal-origin versus postnatal leukemic stem cells exhibit greater quiescence and metabolic reliance on oxidative phosphorylation. Notably, therapeutic responses markedly differed between fetal- and postnatal-origin leukemias, even when driven by the same oncogenic mutations. In patients, onco-fetal transcriptional programs were associated with worse outcomes. We identified tailored combination therapies that specifically diminished aggressive fetal-origin leukemia, underscoring the need to consider ontogeny in treatment of pediatric cancers.",
+  "n": 23,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": true,
+  "pair": false,
+  "score": 2
+ },
+ {
+  "acc": "GSE221553",
+  "title": "Response to tumor- infiltrating lymphocyte adoptive therapy is associated with preexisting CD8+T- myeloid cell networks in melanoma [CD45 scRNAseq]",
+  "summary": "Adoptive cell therapy (ACT) using ex vivo\u2013expanded tumor-infiltrating lymphocytes (TILs) can eliminate or shrink metastatic melanoma, but its long-term efficacy remains limited to a fraction of patients. Using longitudinal samples from 13 patients with metastatic melanoma treated with TIL-ACT in a phase 1 clinical study, we interrogated cellular states within the tumor microenvironment (TME) and their interactions. We performed bulk and single-cell RNA sequencing, whole-exome sequencing, and spatial proteomic analyses in pre- and post-ACT tumor tissues, finding that ACT responders exhibited higher basal tumor cell\u2013intrinsic immunogenicity and mutational burden. Compared with nonresponders, CD8+ TILs exhibited increased cytotoxicity, exhaustion, and costimulation, whereas myeloid cells had increased type I interferon signaling in responders. Cell-cell interaction prediction analyses corroborated by spatial neighborhood analyses revealed that responders had rich baseline intratumoral and stromal tumor\u2013reactive T cell networks with activated myeloid populations. Successful TIL-ACT therapy further reprogrammed the myeloid compartment and increased TIL-myeloid networks. Our systematic target discovery study identifies potential T-myeloid cell network\u2013based biomarkers that could improve patient selection and guide the design of ACT clinical trials.",
+  "n": 22,
+  "taxon": "Homo sapiens",
+  "gdstype": "Expression profiling by high throughput sequencing",
+  "imm": true,
+  "pair": false,
+  "score": 2
+ }
+]

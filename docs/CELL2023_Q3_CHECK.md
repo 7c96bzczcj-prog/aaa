@@ -4,6 +4,12 @@
 in full because it was the most attractive lead in the project and it did
 not survive.
 
+**Do not read the refutation as support for the published claim.** It
+eliminates the Q3 explanation only. A lineage-specific (Q1-shaped)
+dissociation artefact explains the same observation equally well and is
+**untestable within this protocol** — see the two-statement record
+below.
+
 ## The hypothesis
 
 Pan-cancer single-cell NK papers report tumour-infiltrating NK cells as
@@ -71,8 +77,35 @@ the same droplet pools, δ = 0.5:
 
 **NK moves for all eight. B and myeloid mostly do not.** Not one is
 classified Q3. The signature is NK-predominant in this dataset, which is
-the opposite of the hypothesis and is consistent with the published
-interpretation.
+the opposite of the hypothesis.
+
+**But "NK-predominant" is not "NK biology", and the record needs two
+statements rather than one:**
+
+1. **The original hypothesis — that this is a universal Q3 artefact — is
+   dead.** ✓ Falsified on this data.
+2. **The alternative — a *lineage-specific* differential dissociation
+   artefact — is not excluded. It is untestable under this protocol.**
+
+The second reading is concrete: tumour tissue may require harsher
+dissociation than adjacent normal, and NK cells may be more fragile or
+more stress-responsive than B or myeloid cells, so the *differential*
+stress response concentrates in NK. That produces exactly the observed
+pattern, and it is **Q1-shaped**. Section "Why the protocol expected
+otherwise" below establishes that this protocol contains no test that
+separates a Q1-shaped artefact from real Q1 biology. So the honest
+status is *not assessed*, not *ruled out* — and it is not evidence for
+the published interpretation either, only the absence of evidence
+against it.
+
+**What would settle it:** a readout that never underwent dissociation
+and still resolves NK as a lineage — spatial transcriptomics with
+NK-level resolution, or snRNA-seq carrying all five lineages from one
+preparation. The Nat Immunol 2024 spatial control answers "did this come
+from dissociation?" but cannot answer "is this specific to NK?", because
+it does not compare NK against the other lineages. **The intersection of
+those two questions is, as far as this search found, unoccupied.**
+Recorded, not pursued.
 
 The effect is not a power artefact in the convenient direction: NK
 carries the *largest* standard error of the five lineages (0.113 vs
@@ -122,6 +155,13 @@ purity check that Phase 2.1 asks for and that has not been run.
 
 The falsification is clean and cheap, and the reasoning transfers: any
 claim that a lineage-restricted tumour signature is real should be
-checked against the other lineages in the same droplet pool, which is
-one query once the pseudobulks exist. Here it argued *for* the published
-interpretation rather than against it.
+checked against the other lineages in the same droplet pool, which is one
+query once the pseudobulks exist.
+
+But note precisely what the check bought here. It **removed one
+explanation** (universal Q3 artefact) and **left two standing** — real
+NK biology, and a Q1-shaped differential dissociation artefact — with no
+means in this protocol to choose between them. A cross-lineage check
+is a good instrument against Q3-shaped confounders and a useless one
+against Q1-shaped confounders. That is worth knowing before anyone
+reaches for it expecting more.

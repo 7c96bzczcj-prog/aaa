@@ -525,3 +525,60 @@ Stop rule S4 as *literally written* still fires, because `TOX` still does
 not reach Q4 and never can. But the question S4 exists to ask has now
 been answered by a valid instrument. Those are different statements and
 both belong in the record.
+
+### D14 addendum — the construction slightly overestimates recall, and by how much
+
+Dividing out the *fitted* effect leaves the constructed genes with
+`beta_new ≈ 0` and almost no sampling spread, whereas a genuine Q4 gene
+has a true effect of zero and an estimate distributed as `N(0, SE²)`.
+The construction is therefore optimistic.
+
+The magnitude is negligible and worth writing down rather than
+re-running. With δ = 0.5 and NK's median SE of 0.113, falling out of the
+TOST region needs `|beta| > 0.5 − 1.645 × 0.113 ≈ 0.31`, i.e. **2.75
+standard errors, about 0.6% of draws**. So 76% is inflated by well under
+one percentage point.
+
+Making it exact would mean adding an `N(0, SE²)` draw back after the
+division. By the arithmetic above that is not worth a re-run, but the
+option is recorded so the choice is visible rather than assumed.
+
+---
+
+## D15. Prior-art check on the construction principle itself
+
+The transferable claim from D14 is not the 76%. It is:
+
+> **Naive label permutation cannot serve as the null construction for an
+> equivalence test, because it converts the effect being removed into
+> residual variance.**
+
+That statement is independent of NK, of tumours, and of this dataset,
+and it bears on anyone running TOST or interval-null tests on
+pseudobulk. It was pre-registered here in the sense that matters: the
+prediction was written into the module docstring *before* the run, and
+the run returned 0% against 76% for the alternative construction, on the
+same pipeline and the same data.
+
+**Searched, and reported as adjacent-prior-art-exists rather than novel.**
+
+- The general fact that permutation is sensitive to heteroscedasticity
+  and breaks exchangeability under the alternative is **well
+  established** (the PERMANOVA / permutation-testing literature is
+  explicit that rejection can be driven by unequal dispersion rather
+  than unequal means). The mechanism here is a special case of that.
+- Permutation-based *equivalence tests* exist — e.g. an
+  intersection-union permutation solution for equivalence
+  (arXiv:1802.01877). That is a different object: a way to build a
+  **test**, not a way to build a **semi-synthetic truth set**.
+- The scRNA-seq DE benchmarking literature builds null sets by
+  **mock comparison** (same-condition subjects contrasted against each
+  other) or by simulation with fold-change fixed to 1 (muscat and
+  similar). Neither permutes a *real* effect, so neither meets this
+  failure mode.
+
+**No direct precedent was found** for using permutation to construct an
+equivalence/TOST truth set, nor for the resulting variance-absorption
+failure. Given the general principle is known, the contribution is the
+application plus the measured contrast, not a new statistical fact.
+Treat it as "not found in this search", not as "does not exist".

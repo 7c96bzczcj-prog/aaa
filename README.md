@@ -428,7 +428,15 @@ Ordered by how much weight the evidence bears.
 5. **The pipeline does not manufacture Q4 from noise**, and the Q4
    pattern replicates continuously in an independent cohort
    (p = 7 × 10⁻⁶) and survives ambient cancellation (p = 2 × 10⁻⁸).
-6. **Specification defects in the protocol**, each with the evidence
+6. **A hole the protocol cannot close**: it has no control for a
+   *Q1-shaped* artefact. Its whole defensive architecture assumes
+   technical effects are universal (Q3) and therefore discardable, so a
+   lineage-specific differential artefact is indistinguishable from real
+   NK-specific biology by any test it contains. This directly limits the
+   stress-gene result above: the Q3 reading is dead, but the
+   Q1-shaped-artefact reading is **untestable**, not excluded
+   ([CELL2023_Q3_CHECK.md](docs/CELL2023_Q3_CHECK.md)).
+7. **Specification defects in the protocol**, each with the evidence
    that exposed it: D1 (Q3 absorbs Q4), D2 (`p50` costs the power),
    D3 (null/estimator mismatch), D7 + D14 (the Q4 positive control is
    unsatisfiable in principle), D10 (guard never armed), and the Q3
@@ -478,38 +486,51 @@ rather than as comments: `pseudobulk.se_balance_report` (S3),
 
 ---
 
+## The dataset landscape, rescanned under the corrected criterion
+
+Phase 1 originally screened by intuition — cohort size first. The
+measured result inverts that: **enrichment protocol, not cohort size,
+decides whether a dataset can test a rare lineage.** So GEO was
+rescanned with enrichment as the first filter (114 unique series,
+individuals counted rather than samples — [`RESCAN.md`](phase1_registry/RESCAN.md)).
+
+| dataset | enrichment | paired | **individuals** |
+|---|---|---|---|
+| **GSE154826** NSCLC | **CD45⁺** | ✓ | **29** ← the only qualifier |
+| GSE140228 HCC | CD45⁺ | ✓ | ~10 |
+| GSE131907 NSCLC | unsorted | ✓ | 10 (measured: cannot test Q4) |
+| GSE114725 breast | CD45⁺ | ✓ | 8 |
+| GSE178341 CRC | unsorted | ✓ | 36 → **5 usable** |
+| GSE181061 RCC | CD45⁺ | ✓ | 2 |
+
+**CD45⁺ + paired + ≥20 individuals is met by exactly one public dataset,
+and it is the one already in use.** So Q4 is unreplicated for a reason
+that is now attributable: not an analysis failure, but the absence of a
+second dataset with the required design. Scope limit: GEO only, keyword
+matching — it cannot see ArrayExpress, EGA, dbGaP, HCA, or controlled
+access.
+
 ## Suggested next step
 
-**Find a Q4 positive control that can actually work.** S4 fires, and
-until it clears, nothing this pipeline reports about Q4 is readable as
-biology. D10 shows why the protocol's own choice cannot serve: a
-TCR-driven gene is both T-restricted and near-absent from NK, so NK's
-non-response is mundane explanation B3 rather than resistance.
+**Nothing further on this dataset.** Q4 sensitivity is measured (76%),
+the null rate is measured (0/12), the candidate list exists, and the
+binding constraint is now known to be external: no second public cohort
+has the design needed to test it. More analysis on GSE154826 cannot
+change that.
 
-A valid control needs three properties at once:
+Three things could, in descending order of value:
 
-1. **NK demonstrably expresses it** — clear of the Phase 2.6 floor, so
-   there is room to move.
-2. **Its driver reaches NK** — a receptor or pathway NK actually
-   carries, so a non-response is informative rather than trivial.
-3. **The witness lineages measurably respond to that same driver** in
-   this contrast.
-
-Candidate families worth testing against those criteria: TGF-β target
-genes (NK carries TGFBR2 and is known to respond), type I/II interferon
-targets, and hypoxia/HIF targets — all shared drivers with NK-expressed
-receptors, unlike the TCR module. The test is cheap: each is a named
-gene set, and `scripts/s4_diagnosis.py` already has the machinery to
-check where a control set lands.
-
-If no such control passes, that is itself the answer — it would mean
-this design cannot demonstrate Q4 sensitivity on this data, and the
-protocol's stop rules should be honoured rather than worked around.
-
-**Second priority, if a control clears:** Phase 8's B1–B3, which are
-untouched. B3 (receptor not expressed) matters most, since D10 showed
-the protocol's own positive control failed precisely as a B3 case — the
-same trap will be waiting for individual candidates.
-
-**Not a priority:** more discovery. The bottleneck is not candidate
-count, it is that nothing validates the candidates already in hand.
+1. **A second CD45⁺, paired, ≥20-individual cohort.** That is a study
+   design, not an analysis. It would make the 46 candidates testable
+   immediately.
+2. **A dissociation-free readout that still resolves NK** — spatial at
+   NK resolution, or snRNA-seq carrying all five lineages. This is what
+   would separate real NK-specific biology from a Q1-shaped
+   dissociation artefact, the gap this protocol cannot close on its own
+   ([CELL2023_Q3_CHECK.md](docs/CELL2023_Q3_CHECK.md)).
+3. **Writing up the method results**, which stand independently of
+   whether Q4 exists: the permutation-null failure (0% vs 76%), the
+   shared-soup ambient measurement (0.291 vs 0.490), the equivalence-vs-
+   naive false-positive contrast (49/58 vs 0), and the enrichment-beats-
+   cohort-size finding. Prior-art status for the first of these is
+   recorded in D15 — adjacent work exists, no direct precedent found.
