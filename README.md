@@ -270,6 +270,42 @@ GSE131907 yields only **6** genes with moving witnesses alongside a
 moving NK. So its zero replication is uninformative — **Q4 is
 unreplicated, not refuted.**
 
+### The output itself — 46 Q4 genes, and Q2 = 0
+
+Printed at last ([Q4_AND_Q2_OUTPUT.md](docs/Q4_AND_Q2_OUTPUT.md),
+`results/Q4_gene_list.csv`). The instrument was audited exhaustively and
+its output never appeared in any report; neither did the fact that Q2 is
+empty.
+
+**Q4's top genes are exhaustion genes.** `TIGIT` (+1.12 CD8T, +1.77
+CD4T, NK +0.08), `CD38`, `PRDM1` — i.e. "NK does not upregulate the
+exhaustion programme the other lymphocytes do". A second visible block
+is cytoskeletal (`SEPT11`, `PDLIM1`, `TAGLN2`, `ANXA2`, `S100A10`,
+`STX11`, `TUBA4A`) going *down* in the witnesses while NK holds. Both
+are eyeballed, not enrichment-tested — no pathway database offline.
+
+**Q2 = 0**, and not for the expected reason. The funnel is
+4,525 → 345 (NK moves) → 63 (CD8T concordant) → 4 (B equivalent) → **0**.
+The block is not equivalence *power* in the abundant lineages: 49/63 of
+the candidates have a genuine |B log2FC| ≥ δ. B and myeloid really move.
+
+**Why they move is ambient, and immunoglobulin proves it.** `IGKC`,
+`IGHG1`, `IGLC3`, `MZB1` show +2 to +4.7 log2FC **in NK and myeloid** —
+lineages that cannot make immunoglobulin, so the entire signal is soup.
+Calibrated against the shared-emulsion design, median |log2FC| over
+those genes drops from **5.67 → 1.68 in NK** and **4.68 → 0.21 in
+myeloid**. That is a cleaner ambient measurement than the correlation
+estimate above, because its true value is known to be zero.
+
+**So ambient specifically destroys Q2**: Q2 is the only quadrant
+requiring two *abundant* lineages to be TOST-equivalent, and ambient
+pushes every lineage off zero at once. The protocol's own Q2 control
+confirms it — `GZMB`, `PRF1`, `GZMA` all fail on **B cells being
+non-equivalent for perforin and granzymes**, which B cells do not
+express. **Q2 is untestable under ambient, not empty of biology** — the
+same shape of problem as Q4's positive control, by a different
+mechanism.
+
 ### A negative control, on the false-positive side
 
 S4 fires because the Q4 positive control cannot work, which leaves
@@ -520,15 +556,22 @@ change that.
 
 Three things could, in descending order of value:
 
-1. **A second CD45⁺, paired, ≥20-individual cohort.** That is a study
+1. **Run CellBender on the raw droplet matrices, then re-run the
+   quadrant assignment.** The matrices are already on disk and this is
+   the one analysis step that could change a conclusion: ambient is
+   demonstrably destroying Q2, and immunoglobulin genes give a free
+   absolute-scale check of whether the correction worked (their true
+   within-NK value is zero). This supersedes "no more analysis" — that
+   judgement was made before the ambient magnitude was known.
+2. **A second CD45⁺, paired, ≥20-individual cohort.** That is a study
    design, not an analysis. It would make the 46 candidates testable
    immediately.
-2. **A dissociation-free readout that still resolves NK** — spatial at
+3. **A dissociation-free readout that still resolves NK** — spatial at
    NK resolution, or snRNA-seq carrying all five lineages. This is what
    would separate real NK-specific biology from a Q1-shaped
    dissociation artefact, the gap this protocol cannot close on its own
    ([CELL2023_Q3_CHECK.md](docs/CELL2023_Q3_CHECK.md)).
-3. **Writing up the method results**, which stand independently of
+4. **Writing up the method results**, which stand independently of
    whether Q4 exists: the permutation-null failure (0% vs 76%), the
    shared-soup ambient measurement (0.291 vs 0.490), the equivalence-vs-
    naive false-positive contrast (49/58 vs 0), and the enrichment-beats-
