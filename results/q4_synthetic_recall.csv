@@ -1,0 +1,6 @@
+construction,n_source,recall_Q4,recall_Q4_or_attenuated,false_Q4_outside_source,source_Q3,source_unclassified,lambda,max_libsize_shift
+rescale lambda=0.0,75,0.76,0.76,40,0,10,0.0,0.12635603507408066
+rescale lambda=0.25,75,0.49333333333333335,0.49333333333333335,40,0,24,0.25,0.09799705374214318
+rescale lambda=0.5,75,0.0,0.02666666666666667,39,13,51,0.5,0.07543360955813394
+rescale lambda=0.75,75,0.0,0.0,40,30,43,0.75,0.04399336237340612
+permute (lambda=0),75,0.0,0.0,39,1,55,0.0,

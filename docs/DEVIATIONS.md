@@ -442,3 +442,86 @@ current n does not support.
 
 **B1 (spatial exposure), B2 (NK turnover) and B3 (missing receptor)
 remain unaddressed**, and B3 is the one that matters most given D10.
+
+---
+
+## D14. Q4 sensitivity, measured at last — by construction rather than by finding an instance
+
+**The specification defect.** Phase 5.3 asked for a gene guaranteed to
+land in Q4 and nominated `TOX` — chosen *because* NK has no TCR. That is
+the definition of mundane explanation B3, i.e. the opposite of the
+required property. A Q4 positive control must be a gene NK **could**
+have changed (expresses it, carries the receptor, receives the signal)
+**and did not**. And Phase 0 established that no such gene is described
+anywhere in the literature. **A biological Q4 positive control is
+therefore unavailable in principle, not merely hard to choose.** The
+specification was self-contradictory.
+
+**The fix: build the truth set instead of hunting for it.** Take real
+genes whose witness lineages demonstrably move *and* whose NK also
+moves, then remove NK's condition effect while leaving NK's variance
+structure, cell counts, depth and dispersion untouched. Those genes are
+Q4 by construction, and recall on them is the missing number.
+
+### Result — discovery cohort (GSE154826, n = 27, 75 constructed genes)
+
+| λ (NK effect retained) | ≈ residual NK log2FC | recall (Q4) |
+|---|---|---|
+| 0.00 | 0 | **76.0%** |
+| 0.25 | ≈ 0.19 | 49.3% |
+| 0.50 | ≈ 0.37 | 0.0% |
+| 0.75 | ≈ 0.56 | 0.0% |
+
+**Recall 76% at λ = 0 clears the pre-registered 50% threshold. The
+design has Q4 power.** The dose curve gives the detection floor as an
+effect size: Q4 is callable while NK's residual effect stays below
+roughly **0.19 log2FC**, and is essentially uncallable by 0.37. That
+matches the arithmetic — δ = 0.5 with NK's median SE of 0.113 puts the
+90% CI half-width at 0.19, so an effect of 0.37 pushes the interval past
+the equivalence margin.
+
+### The construction matters, and the obvious one is wrong
+
+Removing the effect by **permuting the condition label within individual**
+(the originally specified construction) gives **0% recall**. That is a
+construction artefact, not a property of the pipeline: for a gene with
+true NK effect *d*, sign-flipping the within-pair differences leaves
+realised values of ±*d*, so *d*² is absorbed into the residual variance,
+the standard error inflates, and TOST fails. A genuine Q4 gene carries no
+such inflation.
+
+**Had the permutation construction been used, this project would have
+concluded "no Q4 power" — the opposite of the truth, from an artefact of
+the test rather than of the pipeline.** Both are reported.
+
+### Result — replication cohort (GSE131907, n = 8): the test cannot be run
+
+Applying the identical construction to the replication cohort's own
+pseudobulk finds only **6 genes** where witnesses move alongside a moving
+NK. A synthetic Q4 case cannot be built there in useful numbers, which is
+itself the answer: **that cohort cannot present the pipeline with a
+detectable Q4 gene.**
+
+### Consequence — the pre-registered rule needed one correction
+
+As written, the rule read "recall ≥ 50% → the 46 candidates' zero
+replication is a TRUE NEGATIVE". That inference crosses two cohorts:
+recall was measured where the candidates were **found** (n = 27, which
+did not find zero — it found 46), while the zero occurred in a different
+and much weaker cohort (n = 8). Recall in the discovery design says
+nothing about whether the replication design could have reproduced
+anything.
+
+Measuring recall in **both** designs resolves it:
+
+- **Discovery: Q4 is now TESTED, and the design works** (76% recall).
+  S4's open question — "does this pipeline have Q4 sensitivity?" — is
+  answered yes. The 46 candidates come from a design that demonstrably
+  detects Q4 when Q4 is present.
+- **Replication: still UNTESTED.** Its zero is uninformative, so **Q4 is
+  unreplicated, not refuted.**
+
+Stop rule S4 as *literally written* still fires, because `TOX` still does
+not reach Q4 and never can. But the question S4 exists to ask has now
+been answered by a valid instrument. Those are different statements and
+both belong in the record.

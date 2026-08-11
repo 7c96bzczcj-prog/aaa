@@ -1,0 +1,3 @@
+recall_lambda0	0.7600
+n_source	75
+verdict	DESIGN HAS Q4 POWER -> the 46 candidates' zero replication is a TRUE NEGATIVE: Q4 is rare or absent in this contrast

@@ -1,0 +1,3 @@
+n_source	6
+recall_lambda0	NA
+verdict	cannot test Q4; zero replication uninformative

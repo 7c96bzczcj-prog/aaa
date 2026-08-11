@@ -13,12 +13,12 @@ headline claim. **Stop rule S4 fires: the
 pipeline has no valid Q4 positive control, so its 46 Q4 candidates are
 not cleared for reading.**
 
-An earlier revision of this file claimed the pipeline "has demonstrated
-Q4 power" because `TOX` reached Q4. That rested on the Phase 2.6
-ceiling/floor guard, which was implemented and documented but **never
-actually called**. With it armed, `TOX` — detected in 4.3% of NK cells
-in tumour and 4.9% in normal — is floor-saturated and excluded. The
-claim is retracted; see [D10](docs/DEVIATIONS.md).
+An earlier revision claimed this was demonstrated by `TOX` reaching Q4.
+That rested on the Phase 2.6 guard, which was implemented and documented
+but **never actually called**; armed, `TOX` is floor-saturated (4.3% /
+4.9% NK detection) and excluded. That claim is retracted
+([D10](docs/DEVIATIONS.md)) and the present one rests on the synthetic
+truth set instead.
 
 ### Stop-rule status
 
@@ -27,16 +27,23 @@ claim is retracted; see [D10](docs/DEVIATIONS.md).
 | S1 | someone already reported Q4-type results | **does not fire** — the class is undefined in the literature, and equivalence testing has never been applied to cross-lineage sharing |
 | S2 | fewer than 2 datasets clear A1–A4 | **FIRES** at the protocol's 30-cell threshold — only GSE154826 qualifies. Two qualify at a relaxed 20 cells, the second at exactly n = 8 |
 | S3 | NK SE > 2× the other lineages after balancing | does not fire — 0.113 vs 0.079, ratio 1.43 |
-| S4 | TOX misses Q4, or IEGs land in Q1/Q4 | **FIRES** — TOX is floor-saturated in NK, and the protocol's Q4 positive control cannot work in principle (D10) |
-| S5 | fewer than 10 Q4 genes replicate | **FIRES** — 0/46 replicate categorically, but so do Q1 (0/10) and Q3 (0/43); this is global power failure (D9) |
+| S4 | TOX misses Q4, or IEGs land in Q1/Q4 | **fires as written** — TOX is floor-saturated and can never qualify (D10). But the question S4 exists to ask is now answered by a valid instrument: **76% recall on a constructed truth set** (D14) |
+| S5 | fewer than 10 Q4 genes replicate | **fires, and is uninformative** — 0/46 replicate, but so do Q1 (0/10) and Q3 (0/43), and the replication cohort yields only **6** genes from which a synthetic Q4 case could even be built. That cohort cannot test Q4 (D14) |
 | S6 | Q4 replication rate below the Q1/Q3 baseline | does not fire — the baseline is itself zero |
 | S7 | all survivors explained by B1–B6 | not reachable — Phase 8 incomplete |
 | S8 | Phase 0–5 exceeds one week on dataset 1 | not applicable |
 
-**Three stop rules fire.** The protocol's own instruction in that case is
-to record what was established and close the file, and the honest
-reading is that this is a negative-to-inconclusive result on the primary
-endpoint. What survives is listed under "What actually holds up" below.
+**Three stop rules fire, but they no longer mean the same thing.** S2 is
+a dataset-availability fact. S4 fires only in its literal wording — its
+substance is answered. S5 fires on a cohort now shown incapable of
+testing Q4 at all.
+
+The primary endpoint therefore reads: **Q4 is tested and detectable in
+the discovery cohort (76% recall), and unreplicated rather than refuted**
+— because no available second cohort can test it. That is a materially
+different record from "Q4 is rare or absent", which is what the
+pre-registered rule would have concluded had recall been measured in
+only one of the two designs.
 
 ---
 
@@ -230,7 +237,40 @@ The protocol bans ratios in the decision path and that ban is respected:
 the ratio above is descriptive, and the primary test is the ratio-free
 comparison of `|NK log2FC|` between Q4 and Q3.
 
-### A negative control, since the positive control is unavailable
+### Q4 sensitivity — measured by construction (D14)
+
+The protocol's positive control was unavailable in principle, so the
+truth set was built: take real genes whose witness lineages move *and*
+whose NK moves, then divide out NK's fitted effect symmetrically,
+leaving its variance, cell counts and depth untouched. Those genes are
+Q4 by construction.
+
+| λ (NK effect retained) | ≈ residual NK log2FC | recall (Q4) |
+|---|---|---|
+| **0.00** | 0 | **76.0%** |
+| 0.25 | ≈ 0.19 | 49.3% |
+| 0.50 | ≈ 0.37 | 0.0% |
+| 0.75 | ≈ 0.56 | 0.0% |
+
+n = 75 constructed genes. **76% clears the pre-registered 50% bar: the
+design has Q4 power.** The dose curve gives the detection floor as an
+effect size — Q4 stays callable while NK's residual effect is under
+about **0.19 log2FC**, which matches the arithmetic (δ = 0.5, NK median
+SE 0.113 → 90% CI half-width 0.19).
+
+**The construction matters.** Removing the effect by *permuting* the
+condition label within individual — the obvious approach — gives **0%
+recall**, because sign-flipping a real effect *d* absorbs *d*² into the
+residual variance and inflates the SE. Had that construction been used,
+this project would have concluded "no Q4 power", the opposite of the
+truth, from an artefact of the test.
+
+**And the same test in the replication cohort cannot be run at all**:
+GSE131907 yields only **6** genes with moving witnesses alongside a
+moving NK. So its zero replication is uninformative — **Q4 is
+unreplicated, not refuted.**
+
+### A negative control, on the false-positive side
 
 S4 fires because the Q4 positive control cannot work, which leaves
 *sensitivity* unproven. *Specificity* is still testable: flip the
@@ -333,9 +373,10 @@ null is implemented and used by default.
 Being explicit, because a half-run protocol that looks finished is worse
 than one that looks unfinished:
 
-- **S4 fires, so the 46 Q4 candidates are not cleared for reading at
-  all** — there is currently no valid Q4 positive control.
-- **The 46 Q4 candidates are candidates, not findings.** Phases 6–8 are
+- **The 46 Q4 candidates are candidates, not findings.** The design is
+  now shown to detect Q4 (76% recall), so they come from a working
+  pipeline — but no individual gene is validated, and no second cohort
+  capable of testing them exists. Phases 6–8 are
   the gates that decide whether any of them survive, and none has run.
 - **Phase 6 (ambient) not run.** CellBender has not been run. The
   shared-soup HTO contrast — the protocol's cleanest control, and the
@@ -379,17 +420,25 @@ Ordered by how much weight the evidence bears.
 3. **CD45⁺ enrichment, not cohort size, is what makes a dataset usable
    for a rare lineage** — the 36-patient cohort is unusable and the
    10-patient one is not.
-4. **The pipeline does not manufacture Q4 from noise** (0/12
-   permutations), and the Q4 pattern replicates continuously in an
-   independent cohort (p = 7 × 10⁻⁶) and survives ambient cancellation
-   (p = 2 × 10⁻⁸).
-5. **Five specification defects in the protocol**, each with the
-   evidence that exposed it (D1, D2, D7, D10, plus the D3 null mismatch).
+4. **Q4 sensitivity is measured, not assumed: 76% recall** on a
+   constructed truth set, with a detection floor of ≈ 0.19 log2FC
+   residual NK effect. Paired with the null control (0/12 permutations
+   produce any Q4), the pipeline is shown to be both sensitive and
+   specific for Q4.
+5. **The pipeline does not manufacture Q4 from noise**, and the Q4
+   pattern replicates continuously in an independent cohort
+   (p = 7 × 10⁻⁶) and survives ambient cancellation (p = 2 × 10⁻⁸).
+6. **Specification defects in the protocol**, each with the evidence
+   that exposed it: D1 (Q3 absorbs Q4), D2 (`p50` costs the power),
+   D3 (null/estimator mismatch), D7 + D14 (the Q4 positive control is
+   unsatisfiable in principle), D10 (guard never armed), and the Q3
+   positive control being mis-specified for a paired design
+   ([CELL2023_Q3_CHECK.md](docs/CELL2023_Q3_CHECK.md)).
 
-Against that: **S2, S4 and S5 all fire**, there is no valid Q4 positive
-control, no individual gene is validated, and B1–B3 of Phase 8 are
-untouched. The 46 Q4 candidates are a lead, not a finding — which is
-what the protocol said the realistic outcome would be.
+Against that: **no individual gene is validated**, no second cohort can
+test the candidates, and B1–B3 of Phase 8 are untouched. The 46 Q4
+candidates are a lead, not a finding — but the design behind them is now
+measured rather than assumed.
 
 ## Layout
 

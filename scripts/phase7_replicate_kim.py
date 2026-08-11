@@ -170,6 +170,12 @@ def main():
                        np.ones(len(final_keys))).complete_pairs()
     print(f"GSE131907 pseudobulk: {ps.counts.shape[0]} genes x "
           f"{ps.counts.shape[1]} samples ({len(set(ps.patient))} patients)", flush=True)
+    # persist so the synthetic-recall test can be repeated in THIS cohort's
+    # design; recall measured in the discovery cohort says nothing about
+    # whether the replication cohort could have detected anything.
+    np.savez_compressed(os.path.join(OUT, "pseudobulk_kim.npz"),
+                        counts=ps.counts, genes=ps.genes, patient=ps.patient,
+                        condition=ps.condition, lineage=ps.lineage)
 
     de = {}
     for l in LINEAGES:

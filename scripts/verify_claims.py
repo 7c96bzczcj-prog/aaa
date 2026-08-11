@@ -55,6 +55,15 @@ def main() -> int:
     nul = pd.read_csv(os.path.join(OUT, "q4_null_rate.csv"))
     chk("null Q4 max", 0, int(nul.Q4.max()), nul.Q4.max() == 0)
 
+    rc = pd.read_csv(os.path.join(OUT, "q4_synthetic_recall.csv"))
+    r0 = float(rc[rc.construction == "rescale lambda=0.0"].recall_Q4.iloc[0])
+    chk("synthetic recall lambda=0", 0.760, round(r0, 3), abs(r0 - 0.760) < 0.005)
+    perm = float(rc[rc.construction == "permute (lambda=0)"].recall_Q4.iloc[0])
+    chk("permutation construction", 0.0, round(perm, 3), perm == 0.0)
+    kimv = open(os.path.join(OUT, "q4_synthetic_recall_kim_verdict.txt")).read()
+    chk("kim source genes", 6, kimv.split("n_source\t")[1].split("\n")[0],
+        "n_source\t6" in kimv)
+
     pw = pd.read_csv(os.path.join(OUT, "power_check.csv"))
     chk("NK median SE", 0.113, round(float(pw.NK.iloc[0]), 3),
         abs(float(pw.NK.iloc[0]) - 0.113) < 0.002)

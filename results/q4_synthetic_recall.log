@@ -9,3 +9,10 @@ source genes (witnesses>=2 moved concordantly AND NK moved): 75
   rescale lambda=0.75        recall(Q4)=  0.0%  (+attenuated)=  0.0%  false-Q4 outside=40
 
 === secondary construction (label permutation, NK only) ===
+  permute (lambda=0)         recall(Q4)=  0.0%  (+attenuated)=  0.0%  false-Q4 outside=39
+
+==================================================================
+PRIMARY RESULT: recall at lambda=0 = 76.0% (n=75 known-true Q4 genes)
+VERDICT: DESIGN HAS Q4 POWER -> the 46 candidates' zero replication is a TRUE NEGATIVE: Q4 is rare or absent in this contrast
+==================================================================
+DONE

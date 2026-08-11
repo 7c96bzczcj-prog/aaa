@@ -1,0 +1,10 @@
+GSE131907 panel: 4525 genes x 80 samples (8 individuals)
+NOTE: Phase 2.6 saturation flags unavailable for this cohort (computed from GSE154826 cells); recall here is therefore an UPPER bound.
+source genes in GSE131907 (witnesses>=2 moved concordantly AND NK moved): 6
+
+==================================================================
+RESULT: only 6 genes in the replication cohort even have moving witnesses alongside a moving NK.
+A synthetic Q4 gene cannot be constructed there in useful numbers, which is itself the answer: the cohort cannot present the pipeline with a detectable Q4 case.
+VERDICT: replication cohort CANNOT TEST Q4 -> its zero is UNINFORMATIVE. Q4 is unreplicated, not refuted.
+==================================================================
+DONE
