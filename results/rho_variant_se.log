@@ -1,0 +1,49 @@
+shared panel fixed on uncorrected counts: 4676 genes
+  baseline done
+  rho_per_sample done
+  rho_pooled done
+  rho_wide_markers done
+
+=== median SE by arm ===
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('NK', 'CD8T', 'CD4T', 'B', 'Myeloid')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/aaa/scripts/rho_variant_se.py", line 90, in <module>
+    main()
+  File "/home/user/aaa/scripts/rho_variant_se.py", line 81, in main
+    print(r.pivot(index="arm", columns="lineage", values="median_SE")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: ('NK', 'CD8T', 'CD4T', 'B', 'Myeloid')
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+ModuleNotFoundError: No module named 'nkmine'
+=== median SE by arm ===
+lineage              NK   CD8T   CD4T      B  Myeloid
+arm                                                  
+baseline          0.120  0.071  0.059  0.088    0.071
+rho_per_sample    0.199  0.096  0.091  0.286    0.075
+rho_pooled        0.193  0.095  0.091  0.270    0.075
+rho_wide_markers  0.238  0.133  0.079  0.516    0.234
+
+=== known-zero controls |log2FC| (Ig; granzymes in B) ===
+lineage              NK   CD8T   CD4T      B  Myeloid
+arm                                                  
+baseline          3.985  3.185  2.925  0.862    3.422
+rho_per_sample    4.216  4.201  1.088  1.314    3.089
+rho_pooled        5.145  4.385  1.108  1.497    3.572
+rho_wide_markers  5.612  4.234  1.556  0.787    1.780

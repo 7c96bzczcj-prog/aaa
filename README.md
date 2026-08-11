@@ -553,34 +553,63 @@ second dataset with the required design. Scope limit: GEO only, keyword
 matching — it cannot see ArrayExpress, EGA, dbGaP, HCA, or controlled
 access.
 
+## The result: the framework's core assumption is falsified on this dataset
+
+The four-quadrant design rests on one assumption. Technical effects —
+dissociation, ambient RNA, capture efficiency — are assumed to hit every
+lineage alike, so they land in **Q3 and can be discarded**. That is what
+licenses reading Q4 as biology rather than as artefact.
+
+Three **independent, NK-specific** technical effects were measured here:
+
+| effect | NK | the other lineages | evidence |
+|---|---|---|---|
+| ambient soup burden, and how badly it is characterised | ρ = 0.151 (2nd highest); soup fraction at known-zero genes only 0.291 | B ρ = 0.205 but soup fraction 1.000 | [AMBIENT_CORRECTION_ATTEMPT.md](docs/AMBIENT_CORRECTION_ATTEMPT.md) §9 |
+| **differential** ambient — ρ differing between tumour and normal in the same library | SD 0.120 on a mean of 0.151 | CD4T SD 0.005 | §8 |
+| RNA content lost on the tumour side | median UMI 1611 → 1156, log2 −0.323 | CD8T +0.061, B +0.612, Myeloid +0.212 | **p = 6.0 × 10⁻⁸** |
+
+All three are lineage-specific, all three are NK-specific, and all three
+are therefore **Q4-shaped by construction** — they change other lineages'
+relative position while moving NK differently. On this dataset the
+assumption is not merely unverified, it is falsified in the exact
+direction that manufactures the target class.
+
+This is the project's actual finding. It came from the method's own
+controls, it is a negative result about the method, and it is worth more
+than the 46-gene Q4 list it invalidates. The candidate list stays on
+disk as a record, not as a claim.
+
 ## Suggested next step
 
-**Nothing further on this dataset.** Q4 sensitivity is measured (76%),
-the null rate is measured (0/12), the candidate list exists, and the
-binding constraint is now known to be external: no second public cohort
-has the design needed to test it. More analysis on GSE154826 cannot
-change that.
+**The ambient line is closed.** Both repair routes were run and both are
+recorded: subtracting counts fails its own acceptance test and no ρ
+estimator rescues it (the per-sample-noise diagnosis was tested and was
+wrong); regressing ambient out of log2FC has the right structure, leaves
+the standard errors untouched, and corrects the known-zero controls by
+77% in the one lineage where the soup fraction is estimated correctly
+and by ~0% where it is not. The blocker is now identified precisely:
+**the per-gene soup fraction**, because empty droplets are not a
+faithful sample of the soup inside cell-containing droplets. CellBender
+infers exactly that quantity and is not affordable in this container
+(322 s/epoch → ~300 h for 73 libraries).
 
-Three things could, in descending order of value:
+What is worth doing, in descending order:
 
-1. **Run CellBender on the raw droplet matrices, then re-run the
-   quadrant assignment.** The matrices are already on disk and this is
-   the one analysis step that could change a conclusion: ambient is
-   demonstrably destroying Q2, and immunoglobulin genes give a free
-   absolute-scale check of whether the correction worked (their true
-   within-NK value is zero). This supersedes "no more analysis" — that
-   judgement was made before the ambient magnitude was known.
-2. **A second CD45⁺, paired, ≥20-individual cohort.** That is a study
-   design, not an analysis. It would make the 46 candidates testable
-   immediately.
-3. **A dissociation-free readout that still resolves NK** — spatial at
-   NK resolution, or snRNA-seq carrying all five lineages. This is what
-   would separate real NK-specific biology from a Q1-shaped
-   dissociation artefact, the gap this protocol cannot close on its own
-   ([CELL2023_Q3_CHECK.md](docs/CELL2023_Q3_CHECK.md)).
-4. **Writing up the method results**, which stand independently of
-   whether Q4 exists: the permutation-null failure (0% vs 76%), the
-   shared-soup ambient measurement (0.291 vs 0.490), the equivalence-vs-
-   naive false-positive contrast (49/58 vs 0), and the enrichment-beats-
-   cohort-size finding. Prior-art status for the first of these is
-   recorded in D15 — adjacent work exists, no direct precedent found.
+1. **Write up the method results.** They stand regardless of whether Q4
+   exists, and one of them is the falsification above. Also: the
+   permutation-null failure (0% vs 76% recall), the shared-soup ambient
+   measurement (0.291 vs 0.490), the equivalence-vs-naive false-positive
+   contrast (49/58 vs 0), and enrichment-beats-cohort-size. Prior-art
+   status for the first is in D15 — adjacent work, no direct precedent.
+2. **A dissociation-free readout that still resolves NK** — spatial at
+   NK resolution, or snRNA-seq carrying all five lineages. This is now
+   the *only* route that could separate NK-specific biology from the
+   three NK-specific technical effects above, and it is a study design,
+   not an analysis.
+3. **A second CD45⁺, paired, ≥20-individual cohort.** Also a study
+   design; the GEO rescan found none exists publicly.
+4. **CellBender on a GPU**, if one is free. Its acceptance test is
+   already written and would validate or reject it in one run. It is
+   listed last on purpose: it would repair Q2's measurement, but it
+   cannot repair items 1–3 of the falsification, two of which are not
+   ambient effects at all.

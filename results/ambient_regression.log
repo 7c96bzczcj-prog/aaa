@@ -1,0 +1,15 @@
+genes 4676  patients 29
+
+=== known-zero controls, |log2FC| before vs after (fit excluded them, so this is out of sample) ===
+lineage  soup_frac_zero_truth  before_median_abs  after_median_abs  background_before  background_after
+     NK                 0.291              3.982             3.608              0.153             0.137
+   CD8T                 0.286              3.192             3.338              0.101             0.098
+   CD4T                 0.408              2.928             3.128              0.099             0.096
+      B                 1.000              0.861             0.200              0.243             0.198
+Myeloid                 0.767              3.422             3.025              0.151             0.142
+
+reduction in the known-zero controls: NK=9%  CD8T=-5%  CD4T=-7%  B=77%  Myeloid=12%
+change in background |log2FC|: NK=-10.9%  CD8T=-2.2%  CD4T=-2.4%  B=-18.7%  Myeloid=-5.9%
+
+SE is untouched by construction (counts are never modified): NK=0.122  CD8T=0.071  CD4T=0.058  B=0.088  Myeloid=0.071
+DONE

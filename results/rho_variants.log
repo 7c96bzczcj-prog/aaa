@@ -1,0 +1,28 @@
+rho variants over 73 libraries
+  15/73
+  30/73
+  45/73
+  60/73
+  wrote pseudobulk_per_sample.npz (33694, 320)
+  wrote pseudobulk_pooled_cond.npz (33694, 320)
+  wrote pseudobulk_wide_markers.npz (33694, 320)
+
+=== rho by estimator (median) ===
+         rho_per_sample  rho_pooled  rho_wide
+lineage                                      
+NK               0.1509      0.1489    0.2953
+CD8T             0.0578      0.0543    0.1141
+CD4T             0.0642      0.0696    0.0998
+B                0.2050      0.2149    0.4757
+Myeloid          0.0763      0.0787    0.1672
+
+=== within-(library,lineage) SD of rho across the two conditions ===
+         rho_per_sample  rho_wide
+lineage                          
+NK               0.1196    0.1941
+CD8T             0.0217    0.0429
+CD4T             0.0047    0.0069
+B                0.0376    0.4849
+Myeloid          0.0155    0.0481
+  (this is the per-sample noise that gets injected into every gene)
+DONE

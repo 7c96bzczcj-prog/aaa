@@ -121,3 +121,159 @@ A decontamination method can remove the soup's *level* convincingly and
 still corrupt the *contrast*, which is the only thing a differential
 analysis reads. **The acceptance test has to be stated in the same units
 as the claim.**
+
+---
+
+# Addendum: the two authorised follow-up runs
+
+Two runs were pre-registered and executed after the failure above, on
+the explicit condition that the line closes afterwards regardless of
+outcome. Both are recorded here in full.
+
+## 8. Run 1 — is ρ's per-sample noise the binding constraint?
+
+Section 4 offered diagnosis (a): ρ is fitted per sample from three
+markers, so subtraction injects a sample-level random effect into every
+gene. The test written before the run:
+
+> ρ pooled across conditions within a library, so ρ is no longer a
+> per-sample quantity.
+> **SE returns to baseline** → (a) is fixed, (b) is binding, move to the
+> regression approach.
+> **SE does not return** → diagnosis (a) was wrong, stop the line.
+
+`scripts/rho_variants.py` computed three estimators in one pass over the
+73 libraries; `scripts/rho_variant_se.py` read out the standard errors
+on a gene panel fixed on the uncorrected counts, so the arms differ only
+in the counts.
+
+**Median SE** (`results/rho_variant_se.csv`):
+
+| arm | NK | CD8T | CD4T | B | Myeloid |
+|---|---|---|---|---|---|
+| baseline (no correction) | 0.120 | 0.071 | 0.059 | 0.088 | 0.071 |
+| ρ per sample (the failed arm) | 0.199 | 0.096 | 0.091 | 0.286 | 0.075 |
+| **ρ pooled across conditions** | **0.193** | 0.095 | 0.091 | **0.270** | 0.075 |
+| ρ from ~20 markers | 0.238 | 0.133 | 0.079 | 0.516 | 0.234 |
+
+**Pooling ρ changed essentially nothing** — NK 0.199 → 0.193, B 0.286 →
+0.270, against a baseline of 0.120 and 0.088. The pre-registered branch
+that fires is the second one: **diagnosis (a) was wrong.**
+
+The real mechanism is arithmetic, not statistical. Subtracting
+`ρ × total × soup` moves soup-dominated genes into a lower-expression
+regime, and voom assigns variance as a function of expression level, so
+those genes get larger precision-weighted standard errors. The variance
+inflation is not noise imported from ρ; it is the honest consequence of
+the counts being smaller. No ρ estimator fixes that.
+
+Three further things the run showed, none of which were the question
+asked:
+
+- **ρ estimated from ~20 lineage-foreign genes is roughly double the
+  three-marker estimate** (NK 0.151 → 0.295, B 0.205 → 0.476). Two
+  defensible marker panels disagree by 2×, so **a single scalar ρ does
+  not describe this contamination.** Some "foreign" genes are more
+  soup-loaded than others, which is exactly what the regression in §9
+  assumes and the subtraction model denies.
+- **The wide-marker arm passes S3 while being the worst arm.** Its
+  NK:CD4T SE ratio is 1.30 against baseline's 1.69 — better-looking —
+  because every lineage degraded together. A ratio-based stop rule is
+  blind to uniform degradation. Recorded as a limitation of S3.
+- **NK's ρ varies between the two conditions within a library far more
+  than any other lineage does**: within-(library × lineage) SD of ρ
+  across conditions is 0.120 for NK against a median ρ of 0.151, versus
+  0.005 for CD4T. Ambient's *differential* component — the only part
+  that distorts a paired contrast — is concentrated in NK. This is the
+  third NK-specific technical effect (see §10).
+
+## 9. Run 2 — regress ambient out of log2FC instead of subtracting counts
+
+The alternative, and the better idea: never modify a count. Model the
+observed log2FC as a function of each gene's **soup fraction** in that
+lineage,
+
+    f_g = ρ × total × soup_g / observed_g   (clipped to [0,1])
+
+fit a monotone binned curve across genes, and take residuals. Structural
+advantages: nothing is floored at zero, no per-sample quantity enters,
+and the standard errors are untouched by construction.
+
+The acceptance test is stated in the units of the claim — differential,
+out of sample. The known-zero genes (immunoglobulin in NK/CD8T/CD4T/
+Myeloid, granzymes in B) are **excluded from the fit**, so their
+residuals are a genuine held-out check.
+
+**SE, as predicted, is identical to baseline**: NK 0.122, CD8T 0.071,
+CD4T 0.058, B 0.088, Myeloid 0.071. The variance problem that killed
+subtraction is gone.
+
+**The controls** (`results/ambient_regression_summary.csv`):
+
+| lineage | estimated soup fraction of the control genes | \|log2FC\| before | after | change |
+|---|---|---|---|---|
+| **B** (granzymes) | **1.000** | 0.861 | **0.200** | **−77%** |
+| Myeloid (Ig) | 0.767 | 3.422 | 3.025 | −12% |
+| CD4T (Ig) | 0.408 | 2.928 | 3.128 | **+7%** |
+| **NK** (Ig) | **0.291** | 3.982 | 3.608 | −9% |
+| CD8T (Ig) | 0.286 | 3.192 | 3.338 | **+5%** |
+
+Read the first column against the last. These genes are known to be
+**pure soup — their true soup fraction is 1.0 in every row.** The method
+corrects them almost perfectly in the one lineage where the estimate is
+right (B, f = 1.000, −77%) and does nothing or slightly harms where the
+estimate is badly low (NK f = 0.291, CD8T f = 0.286). The correction is
+doing what it should; it is being told the wrong thing.
+
+**So the binding constraint is neither the regression nor ρ's noise: it
+is the per-gene soup fraction.** `f_g` is computed from the empty-droplet
+profile, and that profile under-represents immunoglobulin's share of
+what leaks into cell-containing droplets — the empty droplets are not a
+faithful sample of the soup the cells actually swim in. This is precisely
+the quantity CellBender infers jointly instead of assuming, and it is
+now the single identified blocker.
+
+Background |log2FC| across all other genes moved down modestly in every
+lineage (NK −11%, B −19%, CD8T −2%), which is consistent with removing a
+real component rather than shrinking everything.
+
+**Verdict: the regression is the right shape and cannot be validated
+here.** `results/ambient_regression_genes.csv` is retained as a method
+record. It is **not** used to recompute quadrants — a correction that
+demonstrably works in one lineage out of five would silently
+re-differentiate the lineage comparison, which is the exact failure
+mode this project is trying to detect.
+
+## 10. Closing the ambient line — and what it did to the framework
+
+CellBender was killed at epoch 7/50 (322 s/epoch → ~300 h for the
+cohort). No GPU is waited for: the ambient line closes here.
+
+The line closes, but it did not end empty, and its finding is not about
+ambient. Three **independent, NK-specific** technical effects were
+measured in this dataset:
+
+1. **Immunoglobulin soup fraction** — NK carries the second-highest ρ of
+   any lineage (0.151, behind B's 0.205), and its estimated soup fraction
+   at known-zero genes is the *lowest* (0.291), i.e. NK's contamination
+   is both large and the worst-characterised.
+2. **Differential dissociation stress** — NK's ρ differs between tumour
+   and adjacent-normal within the same library by an SD of 0.120 on a
+   mean of 0.151, versus 0.005 for CD4T. Only NK's ambient burden is
+   condition-dependent, and only the condition-dependent part biases a
+   paired contrast.
+3. **RNA content loss on the tumour side, in NK alone** — median UMI
+   1611 → 1156, log2 ratio −0.323, against +0.061 CD8T, +0.612 B,
+   +0.212 myeloid. NK vs the others, **p = 6.0 × 10⁻⁸**.
+
+The four-quadrant framework rests on one assumption: that technical
+effects hit all lineages alike, land in Q3, and are therefore
+discardable — which is what licenses reading Q4 as biology. **All three
+effects above are lineage-specific and NK-specific. They are Q4-shaped
+by construction.** On this dataset the assumption is not merely
+unverified; it is falsified in the direction that manufactures the
+project's target class.
+
+That is the project's actual result. It is a negative result about the
+method, obtained from the method's own controls, and it is worth more
+than the 46-gene Q4 list it invalidates.

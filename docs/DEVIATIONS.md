@@ -582,3 +582,53 @@ equivalence/TOST truth set, nor for the resulting variance-absorption
 failure. Given the general principle is known, the contribution is the
 application plus the measured contrast, not a new statistical fact.
 Treat it as "not found in this search", not as "does not exist".
+
+## D16. The ambient repair line: two pre-registered runs, then closure
+
+Both repair routes for the failed decontamination (D-prev, recorded in
+[AMBIENT_CORRECTION_ATTEMPT.md](AMBIENT_CORRECTION_ATTEMPT.md)) were run
+under thresholds fixed before launch. Both are recorded, including the
+one that overturned my own diagnosis.
+
+**Run 1 falsified my stated mechanism.** §4 of that document blamed the
+variance blow-up on ρ being a noisy *per-sample* quantity. Pooling ρ
+across conditions removes exactly that noise and changed nothing (NK
+0.199 → 0.193, against a baseline of 0.120). The pre-registered branch
+for "SE does not return" was *stop the line*, and it fired. The real
+mechanism is that subtraction moves genes into a lower-expression
+regime where voom legitimately assigns larger variance — not imported
+noise, but the honest cost of smaller counts.
+
+**Run 1 also exposed a limitation of stop rule S3.** The wide-marker arm
+has the *best* NK:CD4T SE ratio of any corrected arm (1.30 vs baseline
+1.69) while being the worst arm on every absolute measure — every
+lineage degraded together, and a ratio cannot see that. S3 detects
+*differential* power loss only. Any future use of it needs an absolute
+companion check.
+
+**Run 2 relocated the blocker.** Regressing log2FC on each gene's soup
+fraction leaves the standard errors untouched by construction (NK 0.122
+vs baseline 0.120) and reduces the known-zero controls by 77% in B,
+where their estimated soup fraction is correct (1.000), and by ~0% in
+NK and CD8T, where it is badly low (0.291, 0.286) despite the true value
+being 1.0 in every case. The method is sound; the input is wrong. **The
+binding constraint is the per-gene soup fraction** — the empty-droplet
+profile under-represents immunoglobulin's share of what leaks into
+cell-containing droplets.
+
+**Why the run-2 output is not used to recompute quadrants.** It
+demonstrably works in one lineage out of five. Applying it would
+correct B far more than NK and thereby *re-differentiate* the very
+cross-lineage comparison the project is trying to read — manufacturing
+Q4 rather than measuring it. `results/ambient_regression_genes.csv` is
+a method record only.
+
+**Closure.** CellBender was killed at epoch 7/50 (322 s/epoch, ~300 h
+for the cohort) and no GPU is waited for. What the line produced is not
+an ambient correction but a measurement: three independent NK-specific
+technical effects (soup burden and its mis-estimation; between-condition
+ρ variation, SD 0.120 for NK vs 0.005 for CD4T; RNA content loss on the
+tumour side, p = 6.0 × 10⁻⁸). Each is Q4-shaped. Together they falsify
+the framework's assumption that technical effects are Q3-shaped and
+discardable, which is the assumption that licensed reading Q4 as
+biology. That is recorded in the README as the project's result.

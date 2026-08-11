@@ -68,6 +68,44 @@ def main() -> int:
     chk("NK median SE", 0.113, round(float(pw.NK.iloc[0]), 3),
         abs(float(pw.NK.iloc[0]) - 0.113) < 0.002)
 
+    # --- the two authorised ambient follow-up runs -----------------------
+    # Run 1: the pre-registered branch turns on whether pooling rho brings
+    # NK's SE back to baseline.  It does not, and that is the claim.
+    se = pd.read_csv(os.path.join(OUT, "rho_variant_se.csv"))
+    sev = se.set_index(["arm", "lineage"]).median_SE
+    for arm, lin, want in [("baseline", "NK", 0.120), ("rho_per_sample", "NK", 0.199),
+                           ("rho_pooled", "NK", 0.193), ("rho_pooled", "B", 0.270),
+                           ("rho_wide_markers", "B", 0.516)]:
+        got = float(sev[(arm, lin)])
+        chk(f"SE {arm}/{lin}", want, round(got, 3), abs(got - want) < 0.002)
+    chk("pooling rho does not restore baseline SE", "True",
+        str(float(sev[("rho_pooled", "NK")]) > 1.5 * float(sev[("baseline", "NK")])),
+        float(sev[("rho_pooled", "NK")]) > 1.5 * float(sev[("baseline", "NK")]))
+
+    rv = pd.read_csv(os.path.join(OUT, "rho_variants.csv"))
+    sd = (rv.groupby(["batch", "lineage"]).rho_per_sample.std()
+            .groupby("lineage").median())
+    chk("NK between-condition SD of rho", 0.120, round(float(sd["NK"]), 3),
+        abs(float(sd["NK"]) - 0.120) < 0.002)
+    chk("CD4T between-condition SD of rho", 0.005, round(float(sd["CD4T"]), 3),
+        abs(float(sd["CD4T"]) - 0.005) < 0.002)
+
+    # Run 2: the whole claim is that the correction tracks the estimated
+    # soup fraction -- it works where f is right and not where f is wrong.
+    ar = pd.read_csv(os.path.join(OUT, "ambient_regression_summary.csv")
+                     ).set_index("lineage")
+    for lin, f_want, drop_want in [("B", 1.000, 0.77), ("NK", 0.291, 0.09),
+                                   ("Myeloid", 0.767, 0.12)]:
+        f_got = float(ar.soup_frac_zero_truth[lin])
+        drop = 1 - float(ar.after_median_abs[lin]) / float(ar.before_median_abs[lin])
+        chk(f"soup fraction {lin}", f_want, round(f_got, 3),
+            abs(f_got - f_want) < 0.002)
+        chk(f"control reduction {lin}", drop_want, round(drop, 2),
+            abs(drop - drop_want) < 0.01)
+    for lin in ("CD8T", "CD4T"):
+        drop = 1 - float(ar.after_median_abs[lin]) / float(ar.before_median_abs[lin])
+        chk(f"control got worse in {lin}", "<0", f"{drop:+.2f}", drop < 0)
+
     # A retracted claim must stay retracted EVERYWHERE, not just in the
     # README.  The first version of this check scanned README.md alone and
     # reported "16/16 verified" while the retracted sentence was still live,
