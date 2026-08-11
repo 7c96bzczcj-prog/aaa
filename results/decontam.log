@@ -1,0 +1,31 @@
+decontaminating 73 libraries
+  10/73
+  20/73
+  30/73
+  40/73
+  50/73
+  60/73
+  70/73
+
+wrote corrected + matched-uncorrected: 33694 genes x 320 samples
+
+=== contamination fraction rho, by lineage ===
+          n  rho_med  removed_med
+lineage                          
+NK       93   0.1509       0.1481
+CD8T     93   0.0578       0.0573
+CD4T     93   0.0642       0.0638
+B        93   0.2050       0.2017
+Myeloid  93   0.0763       0.0755
+
+=== ACCEPTANCE TEST (held-out markers, never used for fitting) ===
+         val_before  val_after  est_before  est_after  val_drop  est_drop
+lineage                                                                  
+NK          0.00021    0.00000     0.00249    0.00029   0.98556   0.88549
+CD8T        0.00017    0.00001     0.00114    0.00007   0.94960   0.93481
+CD4T        0.00014    0.00001     0.00102    0.00007   0.96031   0.93336
+B           0.00015    0.00000     0.00010    0.00002   1.00000   0.80799
+Myeloid     0.00018    0.00000     0.00118    0.00007   1.00000   0.93723
+
+held-out markers fell by >50% in every lineage: True
+DONE

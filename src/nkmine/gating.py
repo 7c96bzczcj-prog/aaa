@@ -382,3 +382,95 @@ def demux_hto(lib: Library, min_ratio: float = 3.0) -> np.ndarray:
     call[ratio < np.log1p(min_ratio)] = "doublet"
     call[top <= 0] = "negative"
     return call.astype(str)
+
+
+# --------------------------------------------------------------------------
+# Ambient soup profile and marker-based decontamination
+# --------------------------------------------------------------------------
+# Genes each lineage should NOT express.  Their entire signal in that lineage
+# is soup, so they estimate the contamination fraction directly.  This is the
+# SoupX "non-expressed gene" estimator, made concrete by the observation that
+# immunoglobulin transcripts appear at +3 to +4.7 log2FC in NK and myeloid
+# cells, which cannot produce them.
+SOUP_ESTIMATION_MARKERS = {
+    "NK":      ["IGKC", "IGHG1", "IGHA1"],
+    "CD8T":    ["IGKC", "IGHG1", "IGHA1"],
+    "CD4T":    ["IGKC", "IGHG1", "IGHA1"],
+    "Myeloid": ["IGKC", "IGHG1", "IGHA1"],
+    "B":       ["GZMB", "GZMA", "GZMH"],
+}
+# Disjoint sets, never used for estimation, reserved for acceptance testing.
+SOUP_VALIDATION_MARKERS = {
+    "NK":      ["MS4A1", "CD79A", "LYZ"],
+    "CD8T":    ["MS4A1", "CD79A", "LYZ"],
+    "CD4T":    ["MS4A1", "CD79A", "LYZ"],
+    "Myeloid": ["MS4A1", "CD79A", "IGLC2"],
+    "B":       ["NKG7", "KLRD1", "LYZ"],
+}
+
+
+def soup_profile(path: str, max_umi: int = 20, min_umi: int = 1):
+    """Ambient expression profile, estimated from empty droplets.
+
+    Droplets holding between `min_umi` and `max_umi` counts contain no cell,
+    so their pooled profile *is* the soup.  CellBender's own estimate on
+    library 48 put the empty-droplet prior at 23 counts, which is where this
+    default comes from.
+
+    Returns (profile summing to 1, gene names, number of droplets used).
+    """
+    import tarfile
+
+    with tarfile.open(path, "r:gz") as tf:
+        members = {os.path.basename(m.name): m for m in tf.getmembers() if m.isfile()}
+        ft = pd.read_csv(tf.extractfile(next(v for k, v in members.items()
+                                             if k.endswith("features.tsv"))),
+                         sep="\t", header=None, names=["id", "name", "type"])
+        fh = tf.extractfile(next(v for k, v in members.items()
+                                 if k.endswith("matrix.mtx")))
+        fh.readline()
+        while True:
+            pos = fh.tell()
+            if not fh.readline().startswith(b"%"):
+                fh.seek(pos)
+                break
+        dims = fh.readline().split()
+        n_feat, n_bc = int(dims[0]), int(dims[1])
+        trip = pd.read_csv(fh, sep=r"\s+", header=None, dtype=np.int64,
+                           names=["f", "b", "v"])
+
+    mat = sp.coo_matrix((trip.v.values, (trip.f.values - 1, trip.b.values - 1)),
+                        shape=(n_feat, n_bc)).tocsc()
+    is_rna = (ft.type == "Gene Expression").values
+    rna = mat[is_rna]
+    umi = np.asarray(rna.sum(axis=0)).ravel()
+    empty = (umi >= min_umi) & (umi <= max_umi)
+    prof = np.asarray(rna[:, empty].sum(axis=1)).ravel().astype(float)
+    total = prof.sum()
+    if total <= 0:
+        raise ValueError(f"{path}: no counts in empty droplets")
+    return prof / total, ft.name.values[is_rna].astype(str), int(empty.sum())
+
+
+def estimate_contamination(observed: np.ndarray, genes: np.ndarray,
+                           profile: np.ndarray, markers: list) -> float:
+    """Fraction of a profile's counts attributable to soup.
+
+    rho = (counts of marker genes observed) / (counts expected if the whole
+    profile were soup).  Markers must be genes the lineage does not express,
+    so their observed counts are entirely ambient.
+    """
+    idx = {g: i for i, g in enumerate(genes)}
+    rows = [idx[m] for m in markers if m in idx]
+    if not rows:
+        return 0.0
+    obs = float(observed[rows].sum())
+    expected_if_all_soup = float(observed.sum()) * float(profile[rows].sum())
+    if expected_if_all_soup <= 0:
+        return 0.0
+    return float(np.clip(obs / expected_if_all_soup, 0.0, 1.0))
+
+
+def decontaminate(observed: np.ndarray, profile: np.ndarray, rho: float) -> np.ndarray:
+    """Subtract rho x total x soup, flooring at zero."""
+    return np.maximum(observed - rho * float(observed.sum()) * profile, 0.0)
