@@ -277,9 +277,16 @@ Printed at last ([Q4_AND_Q2_OUTPUT.md](docs/Q4_AND_Q2_OUTPUT.md),
 its output never appeared in any report; neither did the fact that Q2 is
 empty.
 
-**Q4's top genes are exhaustion genes.** `TIGIT` (+1.12 CD8T, +1.77
-CD4T, NK +0.08), `CD38`, `PRDM1` — i.e. "NK does not upregulate the
-exhaustion programme the other lymphocytes do". A second visible block
+**Q4's top genes are exhaustion genes — but the interpretation is
+withdrawn.** `TIGIT`, `CD38` and `PRDM1` are constitutively high on NK:
+their NK baseline sits **1.1–1.5 log2 units above where the witnesses
+end up** ([BASELINE_AND_AMBIENT_CHECKS.md](docs/BASELINE_AND_AMBIENT_CHECKS.md)).
+So the reading is "NK already expresses these", not "NK resists". The
+*category* survives the same objection though: Q4 genes are not
+specifically genes where NK is high relative to the other lineages
+(p = 0.64), and genome-wide, NK baseline does not predict a small NK
+effect (r = −0.017). The count of 46 does not need discounting; the
+top three genes' interpretation does. A second visible block
 is cytoskeletal (`SEPT11`, `PDLIM1`, `TAGLN2`, `ANXA2`, `S100A10`,
 `STX11`, `TUBA4A`) going *down* in the witnesses while NK holds. Both
 are eyeballed, not enrichment-tested — no pathway database offline.

@@ -1,0 +1,10 @@
+         n_lib    med_T    med_N  med_log2ratio
+lin                                            
+NK          20  1155.75  1610.75         -0.323
+CD8T        20  2088.75  2069.00          0.061
+B           20  2917.25  2037.50          0.612
+Myeloid     20  4015.75  3422.50          0.212
+
+NK 总 UMI 肿瘤/癌旁 log2 比 = -0.323
+NK vs 其它谱系 (Mann-Whitney, NK 更低): p = 5.969e-08
+DONE
