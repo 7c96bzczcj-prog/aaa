@@ -1,0 +1,79 @@
+
+=== detection rate (fraction of pseudobulk samples with any count) ===
+lineage     NK   CD8T   CD4T      B  Myeloid
+gene                                        
+C3       0.690  0.655  0.845  0.862    1.000
+C3AR1    0.914  0.948  1.000  0.966    1.000
+C5AR1    0.879  0.879  0.897  0.914    1.000
+CD46     0.983  1.000  1.000  1.000    1.000
+CTSL     0.897  0.983  0.983  1.000    1.000
+CFB      0.276  0.172  0.224  0.655    0.845
+KLRD1    1.000  1.000  0.983  0.931    1.000
+NKG7     1.000  1.000  1.000  1.000    1.000
+GNLY     1.000  0.948  1.000  0.983    1.000
+C1QA     0.914  0.931  0.983  0.948    1.000
+LYZ      0.966  0.983  1.000  1.000    1.000
+IGKC     0.966  0.983  1.000  1.000    0.983
+
+=== mean CPM ===
+lineage       NK     CD8T     CD4T         B  Myeloid
+gene                                                 
+C3         16.18     2.97     3.15     26.42    36.99
+C3AR1      20.72    13.42    15.89     12.40    99.84
+C5AR1      21.66     7.55     8.27     17.55   163.52
+CD46       68.45    60.36    60.14     57.40    73.69
+CTSL       90.58    30.02    42.62     44.60   481.74
+CFB         0.71     0.11     0.13      0.97     1.82
+KLRD1    1049.81   160.94    29.43     27.79     4.97
+NKG7     3614.67   701.30   181.91    117.32    32.41
+GNLY     5188.38   367.66   199.94    117.03    23.92
+C1QA      325.78   112.58   127.21    179.06  2770.01
+LYZ       377.74   183.40   204.44    284.61  5372.86
+IGKC     8338.04  3687.53  3091.26  87469.39  2530.58
+
+=== estimated soup fraction (1.0 = signal fully explained by ambient) ===
+lineage     NK   CD8T   CD4T      B  Myeloid
+gene                                        
+C3       0.191  0.325  0.500  0.276    0.054
+C3AR1    0.388  0.245  0.249  1.000    0.043
+C5AR1    0.471  0.500  0.574  1.000    0.036
+CD46     0.148  0.068  0.074  0.325    0.069
+CTSL     0.476  0.555  0.456  1.000    0.042
+CFB      0.252  0.314  0.573  0.363    0.047
+KLRD1    0.013  0.033  0.236  1.000    1.000
+NKG7     0.013  0.026  0.137  1.000    0.857
+GNLY     0.012  0.092  0.197  1.000    1.000
+C1QA     0.586  0.697  0.831  1.000    0.032
+LYZ      1.000  0.959  1.000  1.000    0.047
+IGKC     0.402  0.345  0.441  0.038    0.877
+
+=== VERDICT ===
+  C3     NK det=0.69 CPM=   16.18 soup=0.19  NK/Myeloid= 0.437  -> expressed
+  C3AR1  NK det=0.91 CPM=   20.72 soup=0.39  NK/Myeloid= 0.208  -> expressed
+  C5AR1  NK det=0.88 CPM=   21.66 soup=0.47  NK/Myeloid= 0.132  -> expressed
+  CD46   NK det=0.98 CPM=   68.45 soup=0.15  NK/Myeloid= 0.929  -> expressed
+  CTSL   NK det=0.90 CPM=   90.58 soup=0.48  NK/Myeloid= 0.188  -> expressed
+  CFB    NK det=0.28 CPM=    0.71 soup=0.25  NK/Myeloid= 0.390  -> below detection
+DONE
+CTSL     0.476  0.555  0.456  1.000    0.042
+CFB      0.252  0.314  0.573  0.363    0.047
+KLRD1    0.013  0.033  0.236  1.000    1.000
+NKG7     0.013  0.026  0.137  1.000    0.857
+GNLY     0.012  0.092  0.197  1.000    1.000
+C1QA     0.586  0.697  0.831  1.000    0.032
+LYZ      1.000  0.959  1.000  1.000    0.047
+IGKC     0.402  0.345  0.441  0.038    0.877
+
+=== calibration inside NK ===
+  genuinely-NK genes read up to soup_frac 0.013
+  known-ambient genes read down to soup_frac 0.402 (their true value is 1.0)
+  NK/Myeloid CPM for myeloid-only genes (pure pickup): 0.118  0.070
+
+=== VERDICT ===
+  C3     det=0.69 CPM=  16.18 soup=0.191 NK/Mye= 0.437 -> above ambient on both scales
+  C3AR1  det=0.91 CPM=  20.72 soup=0.388 NK/Mye= 0.208 -> above ambient on both scales
+  C5AR1  det=0.88 CPM=  21.66 soup=0.471 NK/Mye= 0.132 -> INDISTINGUISHABLE FROM AMBIENT
+  CD46   det=0.98 CPM=  68.45 soup=0.148 NK/Mye= 0.929 -> above ambient on both scales
+  CTSL   det=0.90 CPM=  90.58 soup=0.476 NK/Mye= 0.188 -> INDISTINGUISHABLE FROM AMBIENT
+  CFB    det=0.28 CPM=   0.71 soup=0.252 NK/Mye= 0.390 -> BELOW DETECTION
+DONE

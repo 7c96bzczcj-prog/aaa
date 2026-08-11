@@ -579,6 +579,17 @@ controls, it is a negative result about the method, and it is worth more
 than the 46-gene Q4 list it invalidates. The candidate list stays on
 disk as a record, not as a claim.
 
+## Deferred leads: all three closed
+
+Deferred items consume attention silently, so the list is now empty
+([LEADS_CLOSED.md](docs/LEADS_CLOSED.md)):
+
+| lead | resolution |
+|---|---|
+| **NK-CHIP** | **Closed.** The supposed methodological wall — that NK clonal genotyping needs clonal expansion, which NK cannot do — does not exist. Mission Bio Tapestri genotypes single cells directly, and Rodriguez-Sevilla et al., *Nat Commun* 2025 already report NK cells carrying DNMT3A/TET2-class drivers at single-cell resolution with matched immunophenotype. Death by novelty, not by feasibility. |
+| **NK complosome** | **Closed as a direction; `C3`/`C3AR1` promoted to the Aim 2 candidate panel.** The premise check finally ran on data already on disk: `C3` clears the ambient calibration on two independent scales (soup fraction 0.191 against a fully-ambient reading of 0.402; NK/Myeloid CPM 0.437 against a pure-pickup band of 0.070–0.118). Weakly supported, low abundance, and enough to justify a candidate node on the granule/secretory-lysosome overlap — not a turn into complement immunology. |
+| **Over-dispersion axis** | **Dead.** Killed by this project's own data, by the same mechanism that killed the four-quadrant framework: ambient is additive and NK's burden is 2.6× CD8T's, depressing NK's apparent dispersion; and NK's RNA content differs between conditions (log2 −0.323, p = 6.0 × 10⁻⁸), so the dispersion contrast is partly a depth contrast. Both confounders are NK-specific and both point toward the wanted answer. |
+
 ## Suggested next step
 
 **The ambient line is closed.** Both repair routes were run and both are

@@ -106,6 +106,38 @@ def main() -> int:
         drop = 1 - float(ar.after_median_abs[lin]) / float(ar.before_median_abs[lin])
         chk(f"control got worse in {lin}", "<0", f"{drop:+.2f}", drop < 0)
 
+    # --- the complosome premise check (docs/LEADS_CLOSED.md) -------------
+    # The whole verdict turns on C3 clearing an ambient calibration that is
+    # measured inside NK rather than assumed, so both ends of that scale are
+    # checked, not just C3's number.
+    cp = pd.read_csv(os.path.join(OUT, "complosome_premise.csv"))
+    nk = cp[cp.lineage == "NK"].set_index("gene")
+    my = cp[cp.lineage == "Myeloid"].set_index("gene")
+    for g, want in [("C3", 0.191), ("C3AR1", 0.388), ("IGKC", 0.402)]:
+        got = float(nk.soup_frac[g])
+        chk(f"NK soup_frac {g}", want, round(got, 3), abs(got - want) < 0.002)
+    ceiling = float(nk.loc[["C1QA", "LYZ", "IGKC"], "soup_frac"].min())
+    floor = float(nk.loc[["KLRD1", "NKG7", "GNLY"], "soup_frac"].max())
+    chk("ambient calibration ceiling in NK", 0.402, round(ceiling, 3),
+        abs(ceiling - 0.402) < 0.002)
+    chk("genuine-NK calibration floor", 0.013, round(floor, 3),
+        abs(floor - 0.013) < 0.002)
+    chk("C3 below the fully-ambient reading", "True",
+        str(float(nk.soup_frac["C3"]) < ceiling),
+        float(nk.soup_frac["C3"]) < ceiling)
+    ratio = float(nk.mean_CPM["C3"] / my.mean_CPM["C3"])
+    band = max(float(nk.mean_CPM[g] / my.mean_CPM[g]) for g in ("C1QA", "LYZ"))
+    chk("C3 NK/Myeloid CPM", 0.437, round(ratio, 3), abs(ratio - 0.437) < 0.002)
+    chk("pure-pickup band max", 0.118, round(band, 3), abs(band - 0.118) < 0.002)
+    chk("C3 above the pickup band", "True", str(ratio > band), ratio > band)
+    chk("C3 detected in NK", 0.690, round(float(nk.detection["C3"]), 3),
+        abs(float(nk.detection["C3"]) - 0.690) < 0.002)
+
+    # over-dispersion death certificate: NK's rho vs CD8T's
+    rr = float(rv.groupby("lineage").rho_per_sample.median()["NK"] /
+               rv.groupby("lineage").rho_per_sample.median()["CD8T"])
+    chk("NK rho / CD8T rho", 2.6, round(rr, 1), abs(rr - 2.6) < 0.05)
+
     # A retracted claim must stay retracted EVERYWHERE, not just in the
     # README.  The first version of this check scanned README.md alone and
     # reported "16/16 verified" while the retracted sentence was still live,
