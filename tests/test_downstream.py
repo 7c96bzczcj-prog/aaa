@@ -217,3 +217,59 @@ def test_detection_filter_can_keep_lineage_restricted_genes():
     # change" must never be a restatement of "NK does not express it"
     ps.counts[1, ps.lineage == "NK"] = 0
     assert not detection_filter(ps, require_nk=True, min_lineages=2)[1]
+
+
+# ------------------------------------------------- end-to-end output invariants
+# Rule learned the hard way: test the CLAIM end to end, not the component.
+# `saturation_flags()` had a passing unit test while never being called by any
+# pipeline, so no output was ever screened. A test that asserts a property of
+# the *published artefacts* cannot pass while the guard is unwired.
+RESULTS = Path(__file__).resolve().parents[1] / "results"
+
+
+def _quadrant_files():
+    return sorted(RESULTS.glob("quadrants_*.csv")) + \
+        sorted(RESULTS.glob("synth_*_quadrants.csv"))
+
+
+def test_no_saturated_gene_occupies_a_quadrant_in_any_output():
+    """Phase 2.6, asserted on outputs rather than on the function.
+
+    A gene at the NK detection ceiling or floor has no room to move, so
+    'NK did not change' is uninformative and it must never appear in Q4
+    or Q4_attenuated in any file this repo publishes.
+    """
+    files = _quadrant_files()
+    assert files, "no quadrant outputs found; this test must not pass vacuously"
+
+    checked_any = False
+    for f in files:
+        df = pd.read_csv(f)
+        if "NK_saturated" not in df.columns:
+            continue  # produced before the column existed
+        checked_any = True
+        sat = df[df.NK_saturated.astype(bool)]
+        bad = sat[sat.quadrant.isin(["Q4", "Q4_attenuated"])]
+        assert bad.empty, (
+            f"{f.name}: {len(bad)} saturated gene(s) in a Q4 quadrant, "
+            f"e.g. {bad.gene.tolist()[:5]}"
+        )
+    assert checked_any, (
+        "no output carried an NK_saturated column, so the Phase 2.6 guard "
+        "was not exercised -- this is the vacuous pass the test exists to "
+        "prevent"
+    )
+
+
+def test_saturation_guard_actually_has_something_to_catch():
+    """Guard against the other vacuous pass: if nothing is ever flagged
+    saturated, the invariant above is trivially true."""
+    files = [f for f in _quadrant_files()
+             if "NK_saturated" in pd.read_csv(f, nrows=1).columns]
+    assert files, "no output carries saturation flags"
+    total = sum(int(pd.read_csv(f).NK_saturated.astype(bool).sum())
+                for f in files)
+    assert total > 0, (
+        "no gene was flagged NK-saturated in any output; either the data "
+        "changed or the flags are not being computed"
+    )
