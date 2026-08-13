@@ -1,0 +1,69 @@
+gene_symbol	ensembl_id	category	role	notes
+CCL2	ENSG00000108691	ligand	primary_target	
+CCL3	ENSG00000277632	ligand	primary_target	paralogue CCL3L1 kept separate; never summed
+CCL4	ENSG00000275302	ligand	primary_target	paralogue CCL4L2 kept separate; never summed
+CCL5	ENSG00000271503	ligand	primary_target	
+CCL20	ENSG00000115009	ligand	primary_target	
+XCL1	ENSG00000143184	ligand	primary_target	
+XCL2	ENSG00000143185	ligand	primary_target	
+CXCL8	ENSG00000169429	ligand	primary_target	aka IL8
+CXCL10	ENSG00000169245	ligand	primary_target	
+CXCL12	ENSG00000107562	ligand	primary_target	
+CXCL16	ENSG00000161921	ligand	primary_target	
+CCL1	ENSG00000108702	ligand	primary_target	
+CCL3L1	ENSG00000276085	ligand	primary_target	multimapping risk vs CCL3; report alone, never summed; symbol resolves to 3 Ensembl gene IDs on GRCh38 (ENSG00000276085/ENSG00000277336/ENSG00000277768) - the ambiguity is itself the hazard, so a miss here is expected and must not be repaired by summing into CCL3
+CCL4L2	ENSG00000276070	ligand	primary_target	multimapping risk vs CCL4; report alone, never summed
+PPBP	ENSG00000163736	ligand	primary_target	aka CXCL7; also platelet-high => major blood-compartment soup source
+CCR1	ENSG00000163823	receptor	primary_target	
+CCR2	ENSG00000121807	receptor	primary_target	
+CCR5	ENSG00000160791	receptor	primary_target	
+CCR9	ENSG00000173585	receptor	primary_target	
+CXCR3	ENSG00000186810	receptor	primary_target	
+CXCR4	ENSG00000121966	receptor	primary_target	
+CXCR6	ENSG00000172215	receptor	primary_target	
+CX3CR1	ENSG00000168329	receptor	primary_target	
+S1PR1	ENSG00000170989	receptor	primary_target	
+S1PR5	ENSG00000180739	receptor	primary_target	
+SELL	ENSG00000188404	receptor	primary_target	adhesion/homing, treated as receptor panel member
+ACKR2	ENSG00000144648	receptor	primary_target	atypical/scavenger receptor
+XCR1	ENSG00000173578	receptor	negative_control	NK-negative; decidual cDC1 only. Detection in NK gate = direct soup readout
+KLRD1	ENSG00000134539	control_nk	soup_floor	
+NKG7	ENSG00000105374	control_nk	soup_floor	
+GNLY	ENSG00000115523	control_nk	soup_floor	
+PRF1	ENSG00000180644	control_nk	soup_floor	
+GZMB	ENSG00000100453	control_nk	soup_floor	
+NCR1	ENSG00000189430	control_nk	soup_floor	
+IGKC	ENSG00000211592	control_ambient	soup_ceiling_generic	
+LYZ	ENSG00000090382	control_ambient	soup_ceiling_generic	
+C1QA	ENSG00000173372	control_ambient	soup_ceiling_generic	
+PAEP	ENSG00000122133	control_ambient	soup_ceiling_decidua	glycodelin; extreme endometrial/decidual abundance
+DCN	ENSG00000011465	control_ambient	soup_ceiling_decidua	stromal; high_stromal_background=TRUE
+COL1A1	ENSG00000108821	control_ambient	soup_ceiling_decidua	stromal; high_stromal_background=TRUE
+IGFBP1	ENSG00000146678	control_ambient	soup_ceiling_decidua	decidualised stroma; high_stromal_background=TRUE
+HLA-G	ENSG00000204632	control_ambient	soup_ceiling_decidua	trophoblast (EVT)
+CSH1	ENSG00000136488	control_ambient	soup_ceiling_decidua	trophoblast
+HBB	ENSG00000244734	control_ambient	soup_ceiling_blood	erythroid
+CD3E	ENSG00000198851	control_purity	t_sentinel	triple-positive gate member
+CD3D	ENSG00000167286	control_purity	t_sentinel	triple-positive gate member
+TRBC2	ENSG00000211772	control_purity	t_sentinel	triple-positive gate member; TRBC1 explicitly NOT used
+TRAC	ENSG00000277734	control_purity	t_sentinel	reported, not part of the triple-positive gate
+ENTPD1	ENSG00000138185	marker_subset	annotation_check	dNK1
+ITGAE	ENSG00000083457	marker_subset	annotation_check	dNK3
+ITGB2	ENSG00000160255	marker_subset	annotation_check	dNK2/dNK3
+CD160	ENSG00000117281	marker_subset	annotation_check	dNK3
+KLRB1	ENSG00000111796	marker_subset	annotation_check	dNK3
+ITGA1	ENSG00000213949	marker_subset	annotation_check	dNK1
+CD9	ENSG00000010278	marker_subset	annotation_check	dNK1
+EOMES	ENSG00000163508	marker_subset	annotation_check	
+TBX21	ENSG00000073861	marker_subset	annotation_check	
+MKI67	ENSG00000148773	marker_subset	annotation_check	dNKp proliferation
+PTN	ENSG00000105894	prospective	carried_no_conclusion	stromal/fibroblast-high in tissue; high_stromal_background=TRUE
+OGN	ENSG00000106809	prospective	carried_no_conclusion	SLRP family with DCN/LUM; stromal-high in tissue; high_stromal_background=TRUE
+SPP1	ENSG00000118785	prospective	carried_no_conclusion	
+VEGFA	ENSG00000112715	prospective	carried_no_conclusion	
+PGF	ENSG00000119630	prospective	carried_no_conclusion	
+IGF2	ENSG00000167244	prospective	carried_no_conclusion	
+ITGAD	ENSG00000156886	prospective	carried_no_conclusion	
+ANGPT2	ENSG00000091879	prospective	carried_no_conclusion	
+ANG	ENSG00000214274	prospective	carried_no_conclusion	
+IL10	ENSG00000136634	prospective	carried_no_conclusion	
