@@ -416,9 +416,17 @@ counted as donors (an R1 violation, and the reading that best fits a
 suspiciously round 11/11); values from another accession entirely mean the
 conflict dissolves and both results stand.
 
-**Until then the OXPHOS result is neither confirmed nor withdrawn here.** What
-is established is the constraint it must satisfy: no donor-level statistic
-from E-MTAB-6701 can have n > 7, or n > 6 restricted to decidua.
+**Addendum.** No library-level count listed above *equals* 11 — but 11 sits
+between "decidual runs containing any dNK1-3" (12) and "runs with >= 30
+dNK1-3 cells" (8), so a different cell-count threshold lands on it exactly.
+The libraries-as-donors reading is therefore **not** excluded by the absence
+of a literal 11 in that list, and it remains the most economical explanation
+of a clean 11/11 with a p at the n=11 sign-test floor.
+
+**Until then the OXPHOS result is neither confirmed nor withdrawn here, and
+should not be cited.** What is established is the constraint it must satisfy:
+no donor-level statistic from E-MTAB-6701 can have n > 7, or n > 6 restricted
+to decidua.
 
 ---
 
@@ -505,3 +513,148 @@ largest expected contributor. Since ruler A returns 1.000 for five other
 tissue-specific controls, the ceiling is anchored — but a genuinely higher
 ambient plateau cannot be ruled out from this matrix. Recovering PAEP would
 require re-quantifying from FASTQ, which is outside this round.
+
+---
+
+## D18 — Circularity test: the ranking of the eight positives is inverted by it.
+
+**The problem.** dNK1/dNK2/dNK3 are Vento-Tormo's own **unsupervised
+whole-transcriptome** clusters, characterised afterwards by differential
+expression — verified against the published methods, so the contamination is
+*partial*, not total. Nobody thresholded on CCL5. But the cluster boundary came
+from a transcriptome containing CCL5, CXCR4 and XCL1, and those are among the
+genes the characterisation named. Measuring them across the same labels partly
+restates the clustering.
+
+**Test** (`src/circularity_test.py`, authorised by v1.2 A4). Discard the
+labels; re-group the same cells on CD39/CD103 equivalents (ENTPD1/ITGAE) —
+markers no target gene informs — and re-run. CD160 and KLRB1 are barred as
+gating genes, being dNK3 characterisation genes themselves.
+
+**Gate composition** (this matters for reading the result):
+
+| published | gate1 CD39⁺ | gate2 CD39⁻CD103⁻ | gate3 CD39⁻CD103⁺ |
+|---|---|---|---|
+| dNK1 | 1218 | 1965 | 155 |
+| dNK2 | 99 | 4500 | 384 |
+| dNK3 | 48 | 1483 | 291 |
+
+Concordance 59.2%. **gate1 is 89.2% dNK1 — clean. gate3 is only 35.1% dNK3 —
+badly diluted**, because single-gene dropout makes CD103⁺ a sparse gate in
+scRNA where it is not in CyTOF protein.
+
+**Result — effect retained versus the label-based effect:**
+
+| gene | gate1→2 | gate1→3 | gate2→3 | median retained |
+|---|---|---|---|---|
+| XCL1 | +24.3 (4/4 donors) | +27.7 (4/4) | +5.5 | **0.62×** |
+| XCL2 | +17.6 (4/4) | +22.9 (4/4) | +4.5 | **0.53×** |
+| CCL5 | +17.1 (4/4) | +26.3 (4/4) | +6.8 | **0.46×** |
+| CXCR4 | +8.6 (4/4) | +17.6 (4/4) | +8.7 (5/5) | **0.30×** |
+
+n falls to 4–5, so `min_achievable_p` is 0.125 and **no p value here is
+interpretable**. Direction and effect size are the readable quantities.
+
+**Dilution is a competing explanation for shrinkage, and it is not sufficient.**
+Impure gates shrink every effect. But dilution is gene-agnostic: it should
+shrink all four genes by a similar factor. Observed shrinkage spans **0.62×
+to 0.30×, a 2-fold spread**, ordered exactly as the circularity prior predicts
+— XCL1 least affected, CXCR4 most.
+
+**The within-label test settles it.** A gate contrast computed *inside a single
+published cluster* cannot restate how that cluster was drawn, and is immune to
+between-gate dilution:
+
+| inside | contrast | gene | n | effect (pp) | donors concordant |
+|---|---|---|---|---|---|
+| dNK1 | CD39⁺ → CD39⁻ | **XCL1** | 3 | **+6.7** | 3/3 |
+| dNK1 | CD39⁺ → CD39⁻ | **XCL2** | 3 | **+5.7** | 3/3 |
+| dNK1 | CD39⁺ → CD39⁻ | CCL5 | 3 | +2.5 | 3/3 |
+| dNK1 | CD39⁺ → CD39⁻ | **CXCR4** | 3 | **−3.5** | 3/3 |
+| dNK2 | CD103⁻ → CD103⁺ | **CCL5** | 3 | **+6.0** | 3/3 |
+| dNK2 | CD103⁻ → CD103⁺ | XCL1 | 3 | −5.2 | 3/3 |
+| dNK2 | CD103⁻ → CD103⁺ | CXCR4 | 3 | +3.1 | 0/3 |
+
+n = 3 throughout, so `min_achievable_p` = 0.25 — **no p value is meaningful
+here either**. Sign concordance and magnitude are all that is claimed.
+
+**Conclusions.**
+
+1. **XCL1/XCL2 survive inside dNK1** (+6.7/+5.7 pp, all 3 donors), so the
+   CD39⁻-over-CD39⁺ direction is real structure, not a restatement of the
+   clustering.
+2. **CCL5 survives inside dNK2** (+6.0 pp, all 3 donors) along the CD103 axis.
+3. **CXCR4 REVERSES inside dNK1** (−3.5 pp, all 3 donors concordant) while the
+   between-cluster effect is strongly positive. Its between-cluster gradient
+   does not reproduce when the cluster is held fixed. **CXCR4 is the most
+   circular of the four**, which is exactly the row that carried the study's
+   largest z (+14.56).
+4. Within-label effects are ~17% of between-cluster ones. **The direction is
+   established as non-circular; the magnitude is not.**
+
+**Consequence for RESULTS.** The eight positives are re-ranked. The strongest
+claim is **XCL1/XCL2, dNK2 > dNK1** — it survives both the marker regrouping
+and the within-label test, and it is a cross-modality reproduction of Huhn
+2020's CyTOF protein result. The weakest is **CXCR4 in the dNK3 contrasts**,
+despite its z. The z ordering and the credibility ordering are inverted.
+
+---
+
+## D19 — The dNK1 residual is not explained by library T-cell content.
+
+D16 left three candidates for the 6.6% depth-matched dNK1 triple-positive
+residual. Only one is decidable from this data: that dNK1 is enriched in
+T-rich libraries.
+
+Per decidual library with ≥ 30 dNK1 cells (n = 7), triple-positive rate at
+matched depth against the library's T-cell fraction:
+
+| library | T fraction | dNK1 triple-pos |
+|---|---|---|
+| FCA7474062 | 4.7% | 4.2% |
+| FCA7196218 | 4.9% | 10.0% |
+| FCA7167219 | 9.6% | 4.7% |
+| FCA7196224 | 10.6% | 4.5% |
+| FCA7167223 | 12.0% | 3.7% |
+| FCA7167221 | 12.8% | 2.1% |
+| FCA7511881 | 14.5% | 13.2% |
+
+**Pearson r = +0.061 (p = 0.90); Spearman r = −0.036 (p = 0.94).** No
+relationship. Figure: `out/VT2018/residual_vs_library_Tfrac.png`.
+
+**Decision.** The library-composition candidate is **excluded**. At n = 7
+libraries this excludes a strong relationship, not a weak one. The remaining
+two candidates — annotation-boundary cells, and genuine low-level CD3D/CD3E
+transcription in NK — are not decidable from this dataset, and the residual
+stays flagged as unexplained. It does not block anything: the purged arm gives
+the same eight positives.
+
+---
+
+## D20 — Reporting corrections carried into v1.2.
+
+Three items raised against the v1.1 report, all fixed in code rather than
+in prose:
+
+- **BH family (v1.2 A5).** v1.0's "correct across the panel" did not say
+  whether three pairwise contrasts are one family or three. Now one family of
+  81. Effect: all 8 rows still clear, but two land at **q = 0.0499**, inside
+  by 0.0001 — reported as the knife-edge it is.
+- **Empirical-p resolution (v1.2 A6).** `q < 0.0001` was unsupportable: a
+  rank-based p over 405 nulls cannot resolve below 1/406 = 0.0025. Now
+  computed as `(n_ge+1)/(N+1)`, floored, with the floor emitted per row. Six
+  rows are reported as "≤ 0.0025, at the resolution limit". z is kept as a
+  standardised effect size and **not** converted to a p.
+- **Ruler B denominator (v1.2 A7).** Ranking sources by per-cell CPM let a
+  184-cell ILC3 population own XCL1's denominator. Now ranked by **total
+  counts contributed**, and NK being the largest contributor forces
+  `unmeasurable`. Effect: XCL1, XCL2, CCL5, CXCR4 and CCL4 all move from
+  ruler-B positive to `unmeasurable`, so **no headline gene meets the
+  "both rulers positive" bar any more**. Their ambient evidence rests on
+  ruler A alone plus the `no_competing_source_NK_is_largest_contributor`
+  reason code.
+
+PAEP's absence (D17) is downgraded to a limitation: ruler A is already
+saturated at 1.000 on five tissue controls, so a sixth cannot raise the
+ceiling. The residual risk is confined to ruler B's band upper edge, now set
+by LYZ/Myeloid at 0.0538, which PAEP could in principle raise.

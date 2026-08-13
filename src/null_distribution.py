@@ -151,12 +151,20 @@ def main():
         for _, row in tt.iterrows():
             if not np.isfinite(row.mean_diff_pp):
                 continue
-            emp_p = float((np.abs(obs_eff - mu) >= abs(row.mean_diff_pp - mu)).mean())
+            # rank-based empirical p with the standard +1 correction: with N
+            # null genes it cannot resolve below 1/(N+1). Reporting anything
+            # smaller (e.g. a normal-tail p from z) would claim precision the
+            # resampling cannot support.
+            n_ge = int((np.abs(obs_eff - mu) >= abs(row.mean_diff_pp - mu)).sum())
+            emp_p = (n_ge + 1) / (len(obs_eff) + 1)
             z = float((row.mean_diff_pp - mu) / sd) if sd > 0 else np.nan
             out_rows.append({"dataset_id": mf.dataset_id, "comparison_id": cid,
                              "gene": row.gene, "observed_diff_pp": row.mean_diff_pp,
                              "null_mean_diff_pp": mu, "null_sd_diff_pp": sd,
                              "n_null_genes": len(E), "empirical_p": emp_p,
+                             "empirical_p_resolution_floor": 1.0 / (len(obs_eff) + 1),
+                             "empirical_p_at_resolution_floor":
+                                 bool(n_ge == 0),
                              "empirical_z": z})
 
     T4 = pd.DataFrame(out_rows)
@@ -168,18 +176,33 @@ def main():
     # the multiplicity correction that actually has power here.
     panel_primary = set(panel[panel.role == "primary_target"]["gene_symbol"])
     T4["q_bh_empirical"] = np.nan
+    T4["q_bh_empirical_per_comparison"] = np.nan
     if len(T4):
         fam = T4.gene.isin(panel_primary)
+        # v1.2: the multiplicity family is EVERY analysis-A test at once
+        # (27 genes x 3 pairwise contrasts). The three contrasts are not
+        # independent hypothesis families -- they are three views of one set
+        # of cells -- so correcting within each separately understates
+        # multiplicity by up to 3x. The per-comparison version is retained
+        # alongside so the difference is visible rather than assumed away.
+        T4.loc[fam, "q_bh_empirical"] = benjamini_hochberg(
+            T4.loc[fam, "empirical_p"].to_numpy())
         for cid, g in T4[fam].groupby("comparison_id"):
-            T4.loc[g.index, "q_bh_empirical"] = benjamini_hochberg(
+            T4.loc[g.index, "q_bh_empirical_per_comparison"] = benjamini_hochberg(
                 g["empirical_p"].to_numpy())
+        m_fam = int(fam.sum())
+        print(f"[null] empirical-p BH, ONE family of {m_fam} tests "
+              f"({len(panel_primary)} genes x {T4[fam].comparison_id.nunique()} contrasts)")
         n_sig = int((T4["q_bh_empirical"] <= 0.05).sum())
-        print(f"[null] empirical-p BH over the {len(panel_primary)}-gene primary "
-              f"family: {n_sig} rows reach q <= 0.05")
-        for _, r in T4[T4.q_bh_empirical <= 0.05].sort_values("q_bh_empirical").iterrows():
+        n_sig_pc = int((T4["q_bh_empirical_per_comparison"] <= 0.05).sum())
+        print(f"[null] rows at q <= 0.05: {n_sig} (pooled family) vs "
+              f"{n_sig_pc} (per-comparison family)")
+        for _, r in T4[T4.q_bh_empirical_per_comparison <= 0.05].sort_values(
+                "empirical_p").iterrows():
+            mark = "" if r.q_bh_empirical <= 0.05 else "   <- drops out under the pooled family"
             print(f"       {r.comparison_id:26s} {r.gene:7s} "
                   f"diff={r.observed_diff_pp:+7.2f}pp z={r.empirical_z:+6.2f} "
-                  f"emp_p={r.empirical_p:.4f} q={r.q_bh_empirical:.4f}")
+                  f"emp_p={r.empirical_p:.4f} q_pooled={r.q_bh_empirical:.4f}{mark}")
     T4.to_csv(os.path.join(outdir, "null_distribution.tsv"), sep="\t", index=False)
     pd.DataFrame(summary_rows).to_csv(
         os.path.join(outdir, "null_distribution_summary.tsv"), sep="\t", index=False)

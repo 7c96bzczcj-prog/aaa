@@ -114,3 +114,53 @@ source assignment.
   donors, not 11. No donor-level statistic from this accession can have
   n > 7, or n > 6 for decidua.
 - `docs/RESULTS.md` rewritten under v1.1, and now reports dNK3 in full.
+
+## v1.2 — 2026-08-13 — circularity test, and four corrections that tighten the reading
+
+v1.0's preregistration is still untouched (one commit). v1.1 stands as written.
+Amendments in `docs/PREREGISTRATION_v1.2.md`. Unlike v1.1, **three of these
+four make the results weaker or narrower**; none was chosen to promote a gene.
+
+- **A4 — authorised exception to the no-re-clustering bar**, for a circularity
+  test only. `src/circularity_test.py` re-groups decidual NK on CD39/CD103
+  equivalents (ENTPD1/ITGAE); CD160 and KLRB1 are barred as gating genes,
+  being dNK3 characterisation genes. No output feeds the main analysis.
+- **A5 — one BH family of 81** (27 genes × 3 contrasts), not three of 27. All
+  8 rows still clear, two at **q = 0.0499**.
+- **A6 — the empirical p is floored at 1/(N+1)**. `q < 0.0001` was
+  unsupportable over 405 nulls; six rows now read "≤ 0.0025, at the resolution
+  limit". z is kept as an effect size and never converted to a p.
+- **A7 — ruler B ranks sources by total pool contribution**, not per-cell CPM,
+  and NK being the largest contributor forces `unmeasurable`. XCL1, XCL2,
+  CCL5, CXCR4 and CCL4 all leave ruler-B positive; **no headline gene meets
+  the "both rulers positive" bar any more.** Band 1.253 → 0.0441 → **0.0538**.
+
+### The circularity result (D18)
+
+Vento-Tormo's subsets are unsupervised whole-transcriptome clusters
+characterised by differential expression, and CCL5/CXCR4/XCL1 are among the
+characterising genes — so the contamination is partial. Marker-based
+regrouping retains 0.62× (XCL1), 0.53× (XCL2), 0.46× (CCL5), 0.30× (CXCR4).
+Dilution cannot explain a 2-fold spread ordered that way, and the within-label
+test — a gate contrast inside one fixed cluster, where circularity is
+impossible — separates them:
+
+- XCL1/XCL2 survive inside dNK1 (+6.7/+5.7 pp, 3/3 donors)
+- CCL5 survives inside dNK2 along CD103 (+6.0 pp, 3/3)
+- **CXCR4 reverses inside dNK1** (−3.5 pp, 3/3)
+
+**The study's largest z (CXCR4, +14.56) is its least trustworthy row; XCL1
+dNK2 > dNK1 is its strongest, and is a cross-modality reproduction of Huhn
+2020.** All within-label n = 3 (`min_achievable_p` 0.25), so only direction
+and magnitude are claimed.
+
+### Also
+
+- **D19** — the dNK1 triple-positive residual is not library T-cell content:
+  Pearson r = +0.061 (p = 0.90) over 7 libraries. Candidate excluded; the
+  other two remain undecidable here.
+- **D15 addendum** — no library-level count equals 11, but 11 falls between
+  "runs containing any dNK1-3" (12) and "runs with ≥30 dNK1-3" (8), so a
+  different cell-count threshold reaches it. The libraries-as-donors reading
+  stays live and remains the most economical explanation of a clean 11/11.
+  **The OXPHOS result should not be cited until the donor column is printed.**

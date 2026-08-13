@@ -134,13 +134,37 @@ def main():
             c, d_ = cpm_profile(X, rws, cols)
             lineage_cpm[lin], lineage_det[lin], lineage_n[lin] = c, d_, int(rws.size)
 
+        # v1.2: the ambient pool's composition is set by TOTAL transcript
+        # output -- CPM x cells x depth -- not by per-cell CPM. Ranking by CPM
+        # lets a small, highly-expressing population hijack the denominator
+        # (v1.1 assigned XCL1's source to ILC3, 184 cells, which cannot
+        # plausibly dominate any ambient pool).
+        lineage_total = {}
+        for lin in CANDIDATE_SOURCES:
+            rws = crows[subs[crows] == lin]
+            if rws.size < 30:
+                continue
+            lineage_total[lin] = np.asarray(X[rws][:, cols].sum(axis=0)).ravel().astype(float)
+        nk_total = np.asarray(X[nk_rows][:, cols].sum(axis=0)).ravel().astype(float)
+
         def dominant_source(i):
-            """Lineage with the highest CPM for gene i -- its ambient source."""
-            best, best_cpm = None, -1.0
-            for lin, c in lineage_cpm.items():
-                if np.isfinite(c[i]) and c[i] > best_cpm:
-                    best, best_cpm = lin, float(c[i])
-            return best, best_cpm
+            """Lineage contributing the most total counts of gene i to the pool.
+
+            Returns (lineage, its CPM, its share of the non-NK pool). If NK
+            itself is the largest contributor, the ambient argument does not
+            apply to this gene at all and the caller must record `unmeasurable`
+            rather than `positive`.
+            """
+            best, best_tot = None, -1.0
+            for lin, t in lineage_total.items():
+                if np.isfinite(t[i]) and t[i] > best_tot:
+                    best, best_tot = lin, float(t[i])
+            if best is None:
+                return None, np.nan, np.nan, False
+            nk_dominates = bool(nk_total[i] > best_tot)
+            pool = sum(float(t[i]) for t in lineage_total.values())
+            share = best_tot / pool if pool > 0 else np.nan
+            return best, float(lineage_cpm[best][i]), share, nk_dominates
 
         # --- rho, leave-one-out over the ambient control set ---------------
         ratios = {}
@@ -200,7 +224,7 @@ def main():
         band_v11, band_v11_detail = [], []
         for g in ambient_ctrl:
             i = gidx[g]
-            lin, lcpm = dominant_source(i)
+            lin, lcpm, _share, _nkdom = dominant_source(i)
             # A calibrator whose own source barely expresses it cannot measure
             # a pickup band; the same power gate that governs the verdicts must
             # govern the calibration, or one low-abundance control sets the band.
@@ -241,8 +265,8 @@ def main():
               f"controls [prior 0.118]")
         print(f"           restricted to controls the reference lineage actually "
               f"sources ({','.join(band_genes) or 'none'}): {band_hi_ref:.4f}")
-        print(f"  ruler B v1.1 (each control against its OWN dominant source): "
-              f"{band_hi_v11:.4f}")
+        print(f"  ruler B v1.2 (each control against its own dominant source, "
+              f"ranked by TOTAL counts contributed): {band_hi_v11:.4f}")
         for d_ in band_v11_detail:
             print(f"             {d_}")
         if np.isfinite(band_hi) and np.isfinite(band_hi_ref) and band_hi > 5 * band_hi_ref:
@@ -272,15 +296,25 @@ def main():
                 a_verdict = "above_ambient"
 
             # --- ruler B, v1.1: denominator is this gene's dominant source ---
-            dom_lin, dom_cpm = dominant_source(i)
+            dom_lin, dom_cpm, dom_share, nk_dominates = dominant_source(i)
             dom_ratio = (nk_cpm[i] / dom_cpm
                          if dom_lin and dom_cpm > 0 and np.isfinite(nk_cpm[i]) else np.nan)
             dom_det = (lineage_det[dom_lin][i] if dom_lin else np.nan)
             dom_powered = (dom_lin is not None and np.isfinite(dom_cpm)
                            and dom_cpm >= REF_MIN_CPM
                            and np.isfinite(dom_det) and dom_det >= REF_MIN_DETECTION)
-            if not dom_powered or not np.isfinite(dom_ratio) or not np.isfinite(band_hi_v11):
+            b_reason = ""
+            if nk_dominates:
+                # NK is the largest contributor of this gene to the pool, so
+                # "is NK's signal explainable as pickup from lineage L?" has no
+                # competing L. The ambient argument does not apply.
                 b_verdict = "unmeasurable"
+                # NOT a neutral result: it means no competing source exists,
+                # which supports genuine expression. Ruler A carries the call.
+                b_reason = "no_competing_source_NK_is_largest_contributor"
+            elif not dom_powered or not np.isfinite(dom_ratio) or not np.isfinite(band_hi_v11):
+                b_verdict = "unmeasurable"
+                b_reason = "source_lineage_does_not_express_it_enough"
             elif dom_ratio > band_hi_v11:
                 b_verdict = "above_pickup_band"
             else:
@@ -317,6 +351,9 @@ def main():
                 "_nk_detection": nk_det[i], "_stromal_cpm": str_cpm[i],
                 "_nk_stromal_cpm_ratio": str_ratio,
                 "_dominant_source_lineage": dom_lin,
+                "_dominant_source_pool_share": dom_share,
+                "_nk_is_largest_contributor": nk_dominates,
+                "_scale_b_unmeasurable_reason": b_reason,
                 "_dominant_source_cpm": dom_cpm,
                 "_nk_dominant_source_cpm_ratio": dom_ratio,
                 "_scale_b_verdict_v10_myeloid_only": b_verdict_v10,
