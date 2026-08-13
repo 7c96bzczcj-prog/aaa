@@ -1,0 +1,106 @@
+dataset_id: VT2018
+citation: "Vento-Tormo R, Efremova M, Botting RA, et al. Single-cell reconstruction of the early maternal-fetal interface in humans. Nature 2018;563:347-353"
+accession: "E-MTAB-6701"
+local_path: "data/VT2018/VT2018.h5ad"
+file_format: "h5ad"
+species: "human"
+
+source:
+  # Ingest reads from here; src/ingest.py writes the canonical h5ad at local_path.
+  path: "data/VT2018/raw_data_10x.txt"
+  format: "dense_tsv_genes_by_cells"
+  obs_table: "data/VT2018/meta_10x.txt"
+
+gene_id:
+  # var names look like "CCL5_ENSG00000271503": symbol and Ensembl id joined.
+  # The symbol itself may contain the separator (HLA-G, HLA-DRA), so the
+  # Ensembl id is anchored to the LAST field and the symbol is everything
+  # before it.
+  var_index_type: "symbol_ensembl_concat"
+  id_separator: "_"
+  symbol_field: 0
+  ensembl_field: -1
+  symbol_column: null
+  genome_build: "GRCh38"
+
+obs_columns:
+  donor: "Fetus"          # despite the column name this is the donor/pregnancy id (D6-D12)
+  compartment: "location" # Decidua | Blood | Placenta
+  celltype: "annotation"
+  library: null           # not published per cell; see notes
+  sex: null
+  gestational_week: null
+  cycle_phase: null
+
+fixed_values:
+  compartment: null
+  tissue_state: "first_trimester_decidua"
+  library: "unspecified"
+
+celltype_map:
+  dNK1: "dNK1"
+  dNK2: "dNK2"
+  dNK3: "dNK3"
+  dNK p: "dNKp"           # note the space in the published label
+  NK CD16-: "pbNK_CD56bright"
+  NK CD16+: "pbNK_CD56dim"
+  # reference lineages: soup calibration (ruler B) and the R8 noise check
+  Tcells: "T"
+  dM1: "Myeloid"
+  dM2: "Myeloid"
+  dM3: "Myeloid"
+  MO: "Myeloid"
+  DC1: "cDC1"             # the only decidual XCR1+ population; kept separate
+  DC2: "Myeloid"
+  Granulocytes: "Granulocyte"
+  dS1: "Stromal"
+  dS2: "Stromal"
+  dS3: "Stromal"
+  fFB1: "Stromal"
+  fFB2: "Stromal"
+  dP1: "Perivascular"
+  dP2: "Perivascular"
+  Endo (m): "Endothelial"
+  Endo (f): "Endothelial"
+  Endo L: "Endothelial"
+  EVT: "Trophoblast"
+  VCT: "Trophoblast"
+  SCT: "Trophoblast"
+  Epi1: "Epithelial"
+  Epi2: "Epithelial"
+  Plasma: "Plasma"
+  ILC3: "ILC3"
+  HB: "Hofbauer"
+
+counts_layer: "X"
+raw_counts_verified: false
+
+notes: |
+  Anchor dataset. First-trimester decidua + placenta + MATCHED maternal
+  peripheral blood, 10x Genomics v2, CD45+ sorted (plus unsorted fractions).
+
+  Measured structure (from meta_10x.txt, before any expression was read):
+    64,734 cells; 7 donors (D6-D12); Decidua 36,186 / Placenta 18,547 /
+    Blood 10,001.
+    Decidua dNK: dNK1 3,803 | dNK2 5,412 | dNK3 1,987 | dNKp 730.
+    Donors with decidua: D6 D7 D8 D9 D10 D12  (n = 6)
+    Donors with blood:   D6 D7 D8 D9          (n = 4)
+    D11 contributes placenta only.
+
+  KNOWN DEFECTS AND LIMITS
+  - The specification recalled "~70k cells / 11,927 dNK1-3 / 11 donors".
+    Measured: 64,734 cells, 11,202 dNK1-3 (11,932 including dNKp), 7 donors.
+    The 11-donor figure spans the companion Smart-seq2 experiment
+    (E-MTAB-6678), a different platform. R9 bars merging the two matrices.
+  - n is small enough to bound every test in the study; see
+    docs/PREREGISTRATION.md section 2. Analysis B runs at n = 4, where a
+    two-sided signed-rank test cannot return p < 0.05 at all.
+  - dNK3 in donor D12 has 29 cells, below the 30-cell admission threshold,
+    before QC. Expect dNK3 contrasts to run at n = 4-5.
+  - Per-cell library/batch id is not published in meta_10x.txt. The cell
+    barcode prefix (FCA*) identifies the 10x run and is used as the library
+    surrogate at ingest; R6 retention is reported against it.
+  - A handful of dNK-labelled cells appear in Blood and Placenta (1-4 cells
+    per unit). They fall far below the 30-cell threshold and are excluded by
+    the standard rule, not by a special case.
+  - Matrix is a dense genes x cells TSV of raw integer counts (4.1 GB).
