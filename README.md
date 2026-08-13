@@ -1,3 +1,22 @@
+> **This repository now holds two projects.**
+>
+> **dNK chemokine profile** (v1.0, 2026-08-13) — donor-level, soup-calibrated
+> chemokine ligand/receptor profiling of human decidual NK subsets, on a
+> manifest-driven pipeline that takes a new dataset without a code change.
+> Start at [`docs/RESULTS.md`](docs/RESULTS.md); the criteria were frozen in
+> [`docs/PREREGISTRATION.md`](docs/PREREGISTRATION.md) before any expression
+> value was read, and every judgement call is in
+> [`docs/DECISIONS.md`](docs/DECISIONS.md).
+> Code in `src/dnkchem/` + `src/*.py`, manifests in `manifests/`, panel in
+> `panel/`, outputs in `out/<dataset_id>/`.
+> To add a dataset: [`docs/ADDING_A_DATASET.md`](docs/ADDING_A_DATASET.md).
+>
+> **四格挖掘协议 (Q4 mining)** — the earlier project, documented below.
+> Code in `src/nkmine/` and `scripts/`, outputs in `results/`. The two share
+> nothing but the repository and some hard-won methodological rules.
+
+---
+
 # 四格挖掘协议 — implementation and Phase 0–8 record
 
 Mining "NK resistance" genes (Q4) and the shared cytotoxic-lymphocyte
