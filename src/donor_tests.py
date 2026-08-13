@@ -95,16 +95,17 @@ def main():
     ap.add_argument("--panel", default="panel/chemokine_panel_v1.tsv")
     ap.add_argument("--min-cells", type=int, default=30)
     ap.add_argument("--seed", type=int, default=20260813)
+    ap.add_argument("--outdir", default=None)
     args = ap.parse_args()
 
     mf = load_manifest(args.manifest)
     panel = load_panel(args.panel)
-    outdir = os.path.join("out", mf.dataset_id)
+    outdir = args.outdir or os.path.join("out", mf.dataset_id)
     meta = json.load(open(os.path.join(outdir, "detection_meta.json")))
     depth = meta["primary_depth_floor"]
 
-    T1 = pd.read_csv(os.path.join(outdir, "detection_rates.tsv"), sep="\t")
-    T1 = T1[T1.depth_floor == depth]
+    T1_all = pd.read_csv(os.path.join(outdir, "detection_rates.tsv"), sep="\t")
+    T1 = T1_all[T1_all.depth_floor == depth]
 
     # BH is applied across the primary-target set only. XCR1 is a control, not
     # a hypothesis; markers, ambient controls and prospective genes are not
@@ -170,6 +171,45 @@ def main():
                   f"-> B is {'READABLE' if delta_pp < 2.0 else 'NOT readable; report only'}")
     with open(os.path.join(outdir, "analysis_b_gate.json"), "w") as fh:
         json.dump(gate, fh, indent=2)
+
+    # --- R6 sensitivity: repeat every comparison at all depth floors -------
+    # Mandatory whenever downsampling retention differs by >10 percentage
+    # points across compared groups, which it does here.
+    sens = []
+    for d in sorted(T1_all.depth_floor.unique()):
+        Td = T1_all[T1_all.depth_floor == d]
+        blocks_d = []
+        for sa, sb in itertools.combinations(DNK_TRIO, 2):
+            blocks_d.append(run_comparison(Td, f"A_decidua_{sa}_vs_{sb}", decidua, sa,
+                                           decidua, sb, genes, args.min_cells,
+                                           False, args.seed))
+        for sa in DNK_TRIO:
+            for sb in BLOOD_NK:
+                blocks_d.append(run_comparison(Td, f"B_{sa}_vs_blood_{sb}", decidua, sa,
+                                               "Blood", sb, genes, args.min_cells,
+                                               True, args.seed))
+        b = pd.concat(blocks_d, ignore_index=True)
+        b["depth_floor"] = d
+        b["is_primary_floor"] = (d == depth)
+        sens.append(b)
+    S = pd.concat(sens, ignore_index=True)
+    S["dataset_id"] = mf.dataset_id
+    S = S[["dataset_id", "depth_floor", "is_primary_floor", "comparison_id",
+           "group_a", "group_b", "gene", "n_donors", "mean_diff_pp", "ci_low",
+           "ci_high", "p_raw", "min_achievable_p", "on_test_floor",
+           "uninterpretable_ceiling", "uninterpretable_floor",
+           "cross_compartment_soup_caveat"]]
+    S.to_csv(os.path.join(outdir, "donor_level_tests_depth_sensitivity.tsv"),
+             sep="\t", index=False)
+    print(f"[R6] depth sensitivity: {len(S)} rows across floors "
+          f"{sorted(T1_all.depth_floor.unique())} -> "
+          f"{outdir}/donor_level_tests_depth_sensitivity.tsv")
+    # does any conclusion flip sign across floors?
+    flip = (S[S.n_donors > 0].groupby(["comparison_id", "gene"])["mean_diff_pp"]
+            .agg(lambda v: (v > 0).any() and (v < 0).any()))
+    nflip = int(flip.sum())
+    print(f"[R6] gene x comparison cells whose effect changes SIGN across floors: "
+          f"{nflip} / {len(flip)}")
 
     sig = T2[(T2.q_bh <= 0.05) & T2.gene.isin(primary)]
     print(f"\n[summary] rows with q_bh <= 0.05 in the primary family: {len(sig)}")

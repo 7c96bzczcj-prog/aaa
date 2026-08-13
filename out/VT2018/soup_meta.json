@@ -1,0 +1,45 @@
+{
+  "reference_lineage": "Myeloid",
+  "ref_min_cpm": 10.0,
+  "ref_min_detection": 0.05,
+  "calibration": [
+    {
+      "dataset_id": "VT2018",
+      "compartment": "Blood",
+      "n_nk_cells": 1585,
+      "n_ref_cells": 1168,
+      "rho_ambient_load": 0.16086508803606506,
+      "ruler_a_ceiling": 0.0722643730858053,
+      "ruler_a_held_out_min": 0.0722643730858053,
+      "ruler_a_held_out_max": 1.0,
+      "ruler_a_nk_gene_floor_min": 0.020311727979158242,
+      "ruler_a_nk_gene_floor_max": 0.027709400965763256,
+      "ruler_b_band_upper": 1.8982151523707962,
+      "ruler_b_band_upper_ref_sourced": 1.8982151523707962,
+      "ruler_b_ref_sourced_calibrators": "LYZ,C1QA,HLA-G,HBB",
+      "prior_ruler_a_ceiling": 0.402,
+      "prior_ruler_b_band": 0.118,
+      "prior_nk_floor_lo": 0.012,
+      "prior_nk_floor_hi": 0.013
+    },
+    {
+      "dataset_id": "VT2018",
+      "compartment": "Decidua",
+      "n_nk_cells": 12021,
+      "n_ref_cells": 5375,
+      "rho_ambient_load": 0.0989390555499301,
+      "ruler_a_ceiling": 0.09196885272906219,
+      "ruler_a_held_out_min": 0.09196885272906219,
+      "ruler_a_held_out_max": 1.0,
+      "ruler_a_nk_gene_floor_min": 0.02078835941384616,
+      "ruler_a_nk_gene_floor_max": 0.021078582520366665,
+      "ruler_b_band_upper": 1.25298415181166,
+      "ruler_b_band_upper_ref_sourced": 0.05376556666626573,
+      "ruler_b_ref_sourced_calibrators": "LYZ,C1QA",
+      "prior_ruler_a_ceiling": 0.402,
+      "prior_ruler_b_band": 0.118,
+      "prior_nk_floor_lo": 0.012,
+      "prior_nk_floor_hi": 0.013
+    }
+  ]
+}

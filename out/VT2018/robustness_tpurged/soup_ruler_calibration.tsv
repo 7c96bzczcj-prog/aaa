@@ -1,0 +1,3 @@
+dataset_id	compartment	n_nk_cells	n_ref_cells	rho_ambient_load	ruler_a_ceiling	ruler_a_held_out_min	ruler_a_held_out_max	ruler_a_nk_gene_floor_min	ruler_a_nk_gene_floor_max	ruler_b_band_upper	ruler_b_band_upper_ref_sourced	ruler_b_ref_sourced_calibrators	prior_ruler_a_ceiling	prior_ruler_b_band	prior_nk_floor_lo	prior_nk_floor_hi
+VT2018	Blood	1585	1168	0.16086508803606506	0.0722643730858053	0.0722643730858053	1.0	0.020311727979158242	0.027709400965763256	1.8982151523707962	1.8982151523707962	LYZ,C1QA,HLA-G,HBB	0.402	0.118	0.012	0.013
+VT2018	Decidua	12021	5375	0.0989390555499301	0.09196885272906219	0.09196885272906219	1.0	0.02078835941384616	0.021078582520366665	1.25298415181166	0.05376556666626573	LYZ,C1QA	0.402	0.118	0.012	0.013

@@ -28,3 +28,40 @@ Measured from `meta_10x.txt` of E-MTAB-6701, before analysis:
 The donor-count difference is the consequential one: it sets the ceiling
 on every test in the study. Recorded in `docs/PREREGISTRATION.md` §2 and
 `docs/DECISIONS.md`.
+
+## v1.0 — 2026-08-13 — VT2018 executed
+
+Pipeline built (`src/`, manifest-driven, no dataset branches) and run on the
+anchor dataset. Outputs T1–T6 in `out/VT2018/`, robustness arm in
+`out/VT2018/robustness_tpurged/`.
+
+- Ingest: 64,734 cells × 31,764 genes, 694,826,706 counts, verified integer,
+  round-tripped through the canonical h5ad.
+- Panel match 98.5% (67/68). `PAEP` is absent from the published matrix
+  entirely (D11); `CCL3L1` matched via Ensembl only (D9).
+- **The purity stop fired** (dNK1 triple-positive 17.35% > 15%). Diagnosed
+  before continuing: depth confounding plus NK–T doublets, not mislabelled
+  T cells (D10). Both arms run and retained.
+- **R6 sensitivity became mandatory** — retention differs by 43.1 pp between
+  dNK1 and dNK3 in donor D8 (D13). All comparisons repeated at three depth
+  floors.
+- Rulers re-calibrated in-dataset: ambient ceiling 0.092 (prior 0.402),
+  true-NK floor 0.021 (prior 0.012–0.013), pickup band 1.253 (prior 0.118).
+  Ruler B is shown to have little power in decidua; the conservative band was
+  kept (D12).
+- Empirical null measured, not assumed: +0.47 ± 4.05 pp over 405
+  expression-matched genes.
+- **No gene reaches q ≤ 0.05**, as the pre-registration established was
+  near-impossible at n = 6 (D14). Results are reported as effect sizes,
+  sign concordance and empirical-null z.
+
+No change was made to `docs/PREREGISTRATION.md` at any point after freezing.
+
+### Pipeline additions beyond the original six scripts
+
+- `src/ingest.py` — source → canonical h5ad, so analysis code never parses a
+  source format and every script sees identical input.
+- `src/purity_diagnosis.py` — what the purity stop requires: diagnose before
+  proceeding. Reports only; re-labelling stays barred.
+- `--drop-triple-positive` / `--outdir` on the analysis scripts, for the
+  both-ways robustness run the specification's step 4 requires.

@@ -1,0 +1,12 @@
+{
+  "dataset_id": "VT2018",
+  "worst_dnk_triple_positive_frac": 0.17351237493417587,
+  "purity_stop_threshold": 0.15,
+  "purity_stop_fires": true,
+  "panel_match_rate": 0.9852941176470589,
+  "panel_unmatched": [
+    "PAEP"
+  ],
+  "cells_pre_qc": 64734,
+  "cells_post_qc": 64734
+}

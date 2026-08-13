@@ -1,0 +1,20 @@
+{
+  "dataset_id": "VT2018",
+  "primary_depth_floor": 2137,
+  "sensitivity_floors": [
+    1808,
+    2137,
+    2784
+  ],
+  "seed": 20260813,
+  "min_cells": 30,
+  "ceiling": 0.85,
+  "floor": 0.05,
+  "panel_match_rate": 0.9852941176470589,
+  "panel_unmatched": [
+    "PAEP"
+  ],
+  "retention_sensitivity_triggered": true,
+  "drop_triple_positive": false,
+  "n_cells_purged_triple_positive": 0
+}

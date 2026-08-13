@@ -73,7 +73,7 @@ celltype_map:
   HB: "Hofbauer"
 
 counts_layer: "X"
-raw_counts_verified: false
+raw_counts_verified: true
 
 notes: |
   Anchor dataset. First-trimester decidua + placenta + MATCHED maternal

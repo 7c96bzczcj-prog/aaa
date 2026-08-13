@@ -183,3 +183,166 @@ ENSG00000277336, ENSG00000277768). That is not an annotation nuisance to be
 cleaned up — it is precisely the multi-mapping hazard §4.1 names. The primary
 ID is recorded; if the gene misses in a dataset, that stands as a result and
 must not be repaired by folding its reads into `CCL3`.
+
+---
+
+## D10 — The purity stop fired. Diagnosis: depth and doublets, not mislabelled T cells.
+
+**What fired.** `qc_report.py` exits 3: raw triple-positive
+`TRBC2⁺CD3E⁺CD3D⁺` is **17.35% in dNK1** and 16.92% in dNKp, above the
+pre-registered 15% stop (`PREREGISTRATION.md` §6.1). dNK2 4.90%, dNK3 3.32%.
+
+Per the stop, the main analysis was halted and `src/purity_diagnosis.py` was
+run first. It reports; it re-labels nothing.
+
+**Finding 1 — the raw metric is depth-confounded.** Requiring three genes at
+≥1 count each is strongly depth-dependent, and step 4 of the pipeline runs
+*before* depth matching. Median UMI: dNK1 4,159, dNK2 3,903, dNK3 3,563 —
+dNK1 is the deepest of the trio. Re-measured at a common 2,348 UMI floor:
+
+| subset | median UMI | raw triple-pos | depth-matched |
+|---|---|---|---|
+| T | 3,608 | 63.5% | 44.7% |
+| **dNK1** | 4,159 | **17.4%** | **6.6%** |
+| dNKp | 9,103 | 16.9% | 3.2% |
+| dNK2 | 3,903 | 4.9% | 1.9% |
+| dNK3 | 3,563 | 3.3% | 1.3% |
+| Myeloid | 3,502 | 2.5% | 0.6% |
+| Stromal | 12,784 | 0.08% | 0.01% |
+
+Depth explains most of the level but not the ranking: dNK1 stays ~10× above
+myeloid and ~500× above stromal after matching.
+
+**Finding 2 — the flagged cells are not T cells.** In flagged dNK1 cells the
+T-gate signal is substantial (median 8 counts; 79% carry ≥6), so this is not
+one-count ambient pickup. But those same cells carry **more** NK signal than
+the unflagged dNK1 cells (median 618 vs 407 counts over NKG7/KLRD1/GNLY/PRF1)
+and higher total UMI (5,605 vs 3,873). A mislabelled T cell would be NK-low.
+Both programmes at once, at elevated depth, is the **doublet** signature.
+The same pattern holds in every subset with flagged cells, including Myeloid
+(7,742 vs 3,448 UMI) and Stromal (15,852 vs 12,784).
+
+**Finding 3 — not donor-specific.** dNK1 ranges 10.6%–34.3% across all six
+donors, so it is not one bad library.
+
+**Decision.** The published annotation is not wrong, so there is nothing to
+"resolve" in the sense of re-labelling — and re-labelling is barred anyway.
+The pre-specified remedy for contamination already exists in the plan
+(§5 step 4: remove the flagged cells, re-run, keep both versions), so both
+arms were run:
+
+- `out/VT2018/` — all cells (primary)
+- `out/VT2018/robustness_tpurged/` — triple-positive cells removed
+
+Every conclusion in `RESULTS.md` holds in both. The headline CCL5 effect moves
+from +23.3 to +22.5 pp with p unchanged at 0.03125.
+
+**The stop is recorded as FIRED, not waived.** It is reported at the top of
+`RESULTS.md`, and the differential doublet rate across the trio
+(17.4% / 4.9% / 3.3%) is itself a caveat on any dNK1-versus-other contrast,
+which is why the purged arm is a required companion rather than an appendix.
+
+**Alternative considered.** Running a doublet caller (Scrublet, DoubletFinder)
+to remove doublets properly. Rejected for this round: both depend on numba or
+on re-clustering, which R10 and the no-re-clustering rule exclude. The
+triple-positive purge is a blunter instrument that removes strictly more than
+the doublets, which is the conservative direction.
+
+---
+
+## D11 — PAEP is absent from the published matrix.
+
+The specification requires `PAEP` (glycodelin) as the decidua-specific
+ambient ceiling gene, warning that without it the ceiling is underestimated.
+It is **not in E-MTAB-6701's matrix at all**: no `gene_symbol` containing
+"PAEP" and no `ENSG00000122133`, among 31,764 genes. This is the single panel
+miss on the symbol route (match rate 98.5%, above the 90% bar).
+
+**Decision.** Proceed with the remaining decidual ceiling genes — `DCN`,
+`COL1A1`, `IGFBP1`, `HLA-G`, `CSH1`. All five return soup fraction **1.000**,
+the correct value for a pure ambient gene, so the ceiling is anchored by five
+independent tissue-specific transcripts rather than one. Recorded because the
+specification's stated reason for adding PAEP (ceiling underestimation)
+cannot be checked against PAEP itself here.
+
+**Alternative considered.** Substituting another glycodelin-class transcript.
+Rejected — the panel is frozen, and adding a gene after seeing the data is
+exactly what the freeze exists to prevent.
+
+---
+
+## D12 — Ruler B has almost no power in decidua, and the conservative reading was kept.
+
+Re-calibrated inside this dataset as the specification requires, ruler B's
+pickup band runs to **1.253** in decidua (prior work: ≤ 0.118).
+
+The reason is visible per gene. Ruler B asks whether NK signal is explainable
+as pickup from the reference lineage (myeloid). That question only has an
+answer for genes myeloid actually sources:
+
+| ambient control | NK/myeloid ratio | myeloid CPM | compartment CPM |
+|---|---|---|---|
+| LYZ | 0.054 | 1,690 | 187 |
+| C1QA | 0.044 | 3,962 | 387 |
+| DCN | 1.078 | 54 | 3,290 |
+| IGFBP1 | 1.136 | 79 | 1,510 |
+| COL1A1 | 1.226 | 5 | 337 |
+| IGKC | 1.253 | 16 | 23 |
+
+Stroma- and trophoblast-sourced genes are picked up about equally by NK and
+by myeloid cells, so their ratio sits near 1 and carries no information about
+pickup. Restricted to controls the reference lineage actually sources
+(myeloid CPM above the compartment average — a generic, data-driven test, not
+a dataset branch), the band is **0.0538**, close to the prior 0.118.
+
+**Decision.** Verdicts use the **wider** band (1.253), which is the
+conservative choice: a wider band makes it *harder* for a gene to be called
+positive. Both numbers are reported in `soup_ruler_calibration.tsv`
+(`ruler_b_band_upper` and `ruler_b_band_upper_ref_sourced`). Switching to the
+narrower band would only add positives, so no conclusion in `RESULTS.md`
+depends on the choice.
+
+---
+
+## D13 — Differential cell loss is severe, and the sensitivity analysis is mandatory here.
+
+R6 triggers. At the primary 2,137 UMI floor, retention within the tested trio:
+
+| donor | dNK1 | dNK2 | dNK3 | gap |
+|---|---|---|---|---|
+| D6 | 0.878 | 0.907 | 0.960 | 8.3 pp |
+| D7 | 0.880 | 1.000 | 1.000 | 12.0 pp |
+| **D8** | 0.859 | 0.809 | **0.428** | **43.1 pp** |
+| D9 | 1.000 | 0.999 | 0.998 | 0.2 pp |
+| D10 | 0.998 | 1.000 | 1.000 | 0.2 pp |
+| **D12** | 0.560 | 0.334 | — | **22.6 pp** |
+
+Three donors exceed the 10 pp trigger, and D8 loses 57% of its dNK3 cells.
+This is the exact failure mode the rule was written for — differential loss
+whose direction can align with the conclusion.
+
+**Decision.** `donor_tests.py` now repeats every comparison at all three
+depth floors and writes `donor_level_tests_depth_sensitivity.tsv`. Result:
+the dNK1-vs-dNK2 findings are stable (CCL5 +20.0/+23.3/+21.3 pp, p = 0.03125
+at every floor; XCL1 +42.7/+39.3/+37.1 pp, p = 0.03125 at every floor), while
+the dNK3 contrasts weaken at the deepest floor as D8's dNK3 falls below the
+admission threshold. Reported in `RESULTS.md` §3.2.
+
+---
+
+## D14 — No gene reaches q ≤ 0.05, and that was known before the data.
+
+6 of 27 primary-target genes sit exactly on the test floor in dNK1-vs-dNK2
+(expected by chance: 0.84), 15 of 27 in dNK1-vs-dNK3, 10 of 27 in
+dNK2-vs-dNK3. BH would need ≥ 17 of 27 simultaneously at the n = 6 floor, and
+≥ 34 of 27 — an impossibility — at the n = 5 floor.
+
+**Decision.** Report effect sizes, sign concordance, empirical-null z, and
+dual-ruler verdicts; report `q_bh` truthfully as failing; and do **not**
+retitle any result as "significant". The pre-registration fixed this reading
+in advance (§2.2, §3 n-floor clause) precisely so that the outcome could not
+be renegotiated once the effects turned out to be large.
+
+The empirical null is what carries the weight instead: CCL5 at z = +5.6 and
+XCL1 at z = +9.6 against 405 expression-matched genes, with the baseline
+measured rather than assumed (+0.47 ± 4.05 pp — not zero, as §6.5 warned).

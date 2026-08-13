@@ -60,11 +60,12 @@ def main():
     ap.add_argument("--min-genes", type=int, default=200)
     ap.add_argument("--max-mito", type=float, default=0.10)
     ap.add_argument("--seed", type=int, default=20260813)
+    ap.add_argument("--outdir", default=None)
     args = ap.parse_args()
 
     mf = load_manifest(args.manifest)
     panel = load_panel(args.panel)
-    outdir = os.path.join("out", mf.dataset_id)
+    outdir = args.outdir or os.path.join("out", mf.dataset_id)
     meta = json.load(open(os.path.join(outdir, "detection_meta.json")))
     depth = meta["primary_depth_floor"]
 

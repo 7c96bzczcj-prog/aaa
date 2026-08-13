@@ -73,11 +73,12 @@ def main():
     ap.add_argument("--panel", default="panel/chemokine_panel_v1.tsv")
     ap.add_argument("--min-genes", type=int, default=200)
     ap.add_argument("--max-mito", type=float, default=0.10)
+    ap.add_argument("--outdir", default=None)
     args = ap.parse_args()
 
     mf = load_manifest(args.manifest)
     panel = load_panel(args.panel)
-    outdir = os.path.join("out", mf.dataset_id)
+    outdir = args.outdir or os.path.join("out", mf.dataset_id)
     os.makedirs(outdir, exist_ok=True)
 
     ds = load_dataset(mf)
@@ -148,12 +149,26 @@ def main():
                 floor_vals.append(min(1.0, rho_loo(g) * amb_cpm[i] / nk_cpm[i]))
 
         # --- ruler B calibration: pickup band from the same controls ------
-        band = []
+        # Pre-registered band: every ambient control. This is the conservative
+        # choice (a wider band makes it HARDER for a gene to pass), and it is
+        # what the primary verdicts below use.
+        band, band_ref_sourced, band_genes = [], [], []
         for g in ambient_ctrl:
             i = gidx[g]
             if np.isfinite(ref_cpm[i]) and ref_cpm[i] > 0 and np.isfinite(nk_cpm[i]):
-                band.append(nk_cpm[i] / ref_cpm[i])
+                r = nk_cpm[i] / ref_cpm[i]
+                band.append(r)
+                # A calibrator only measures "pickup from the reference lineage"
+                # if the reference lineage is actually that gene's ambient
+                # source, i.e. it is enriched over the compartment average.
+                # Tissue-sourced controls (stroma, trophoblast) are picked up
+                # equally by NK and myeloid, so their ratio sits near 1 and
+                # says nothing about pickup.
+                if ref_cpm[i] > amb_cpm[i]:
+                    band_ref_sourced.append(r)
+                    band_genes.append(g)
         band_hi = float(np.max(band)) if band else np.nan
+        band_hi_ref = float(np.max(band_ref_sourced)) if band_ref_sourced else np.nan
 
         calib_rows.append({
             "dataset_id": mf.dataset_id, "compartment": comp,
@@ -165,6 +180,8 @@ def main():
             "ruler_a_nk_gene_floor_min": float(np.min(floor_vals)) if floor_vals else np.nan,
             "ruler_a_nk_gene_floor_max": float(np.max(floor_vals)) if floor_vals else np.nan,
             "ruler_b_band_upper": band_hi,
+            "ruler_b_band_upper_ref_sourced": band_hi_ref,
+            "ruler_b_ref_sourced_calibrators": ",".join(band_genes),
             "prior_ruler_a_ceiling": 0.402, "prior_ruler_b_band": 0.118,
             "prior_nk_floor_lo": 0.012, "prior_nk_floor_hi": 0.013})
 
@@ -175,7 +192,16 @@ def main():
         if floor_vals:
             print(f"           true-NK genes span {np.min(floor_vals):.4f}-"
                   f"{np.max(floor_vals):.4f} [prior 0.012-0.013]")
-        print(f"  ruler B: pickup band upper edge {band_hi:.4f} [prior 0.118]")
+        print(f"  ruler B: pickup band upper edge {band_hi:.4f} over all ambient "
+              f"controls [prior 0.118]")
+        print(f"           restricted to controls the reference lineage actually "
+              f"sources ({','.join(band_genes) or 'none'}): {band_hi_ref:.4f}")
+        if np.isfinite(band_hi) and np.isfinite(band_hi_ref) and band_hi > 5 * band_hi_ref:
+            print(f"           NOTE: the two differ by {band_hi / band_hi_ref:.0f}x. "
+                  f"Tissue-sourced ambient genes are picked up about equally by NK "
+                  f"and by {REF_LINEAGE}, so they sit near ratio 1 and carry no "
+                  f"information about pickup. Ruler B has little power here; "
+                  f"verdicts use the wider (conservative) band.")
 
         # --- per-gene verdicts --------------------------------------------
         for g in genes:

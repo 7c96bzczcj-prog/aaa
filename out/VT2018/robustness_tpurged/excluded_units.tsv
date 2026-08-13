@@ -1,0 +1,6 @@
+dataset_id	donor	compartment	subset	n_cells_post_qc	stage	reason
+VT2018	D12	Decidua	ILC3	15	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2093 UMI
+VT2018	D12	Decidua	Plasma	24	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2093 UMI
+VT2018	D6	Blood	Plasma	26	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2093 UMI
+VT2018	D7	Blood	Myeloid	21	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2093 UMI
+VT2018	D7	Blood	T	5	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2093 UMI

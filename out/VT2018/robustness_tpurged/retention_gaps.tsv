@@ -1,0 +1,9 @@
+donor_id	compartment	retention_gap	worst_subset	best_subset	triggers_sensitivity
+D10	Decidua	0.0025062656641604564	dNK1	dNK2	False
+D12	Decidua	0.5998159337361451	dNK2	dNKp	True
+D6	Decidua	0.13321947053800176	dNK1	dNKp	True
+D7	Decidua	0.15492957746478875	dNK1	dNK2	True
+D8	Blood	0.15859392832686603	pbNK_CD56dim	pbNK_CD56bright	True
+D8	Decidua	0.5207971769061668	dNK3	dNKp	True
+D9	Blood	0.0020949921079064238	pbNK_CD56bright	pbNK_CD56dim	False
+D9	Decidua	0.0003061849357011148	dNK2	dNK1	False

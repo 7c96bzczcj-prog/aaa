@@ -33,6 +33,7 @@ from dnkchem.manifest import load_manifest  # noqa: E402
 CEILING = 0.85
 FLOOR = 0.05
 RETENTION_GAP_TRIGGER = 0.10
+T_GATE = ["TRBC2", "CD3E", "CD3D"]
 
 
 def compute_table(ds, panel, hits, keep_mask, depth, min_cells, seed, subsets=None):
@@ -91,17 +92,33 @@ def main():
     ap.add_argument("--max-mito", type=float, default=0.10)
     ap.add_argument("--min-cells", type=int, default=30)
     ap.add_argument("--seed", type=int, default=20260813)
+    ap.add_argument("--outdir", default=None)
+    ap.add_argument("--drop-triple-positive", action="store_true",
+                    help="exclude TRBC2+CD3E+CD3D+ cells; the robustness arm "
+                         "required by the specification's step 4")
     args = ap.parse_args()
 
     mf = load_manifest(args.manifest)
     panel = load_panel(args.panel)
-    outdir = os.path.join("out", mf.dataset_id)
+    outdir = args.outdir or os.path.join("out", mf.dataset_id)
     os.makedirs(outdir, exist_ok=True)
 
     ds = load_dataset(mf)
     hits, misses, rate, _ = ds.panel_columns(panel)
-    keep, qc = cell_qc(as_csr(ds.X), ds.symbols, args.min_genes, args.max_mito)
+    X = as_csr(ds.X)
+    keep, qc = cell_qc(X, ds.symbols, args.min_genes, args.max_mito)
     obs = ds.obs
+
+    n_purged = 0
+    if args.drop_triple_positive:
+        gate = [hits[g] for g in T_GATE if g in hits]
+        if len(gate) != len(T_GATE):
+            raise SystemExit(f"triple-positive gate needs {T_GATE}; matrix has {gate}")
+        tp = np.asarray((X[:, gate] >= 1).sum(axis=1)).ravel() == len(gate)
+        n_purged = int((keep & tp).sum())
+        keep = keep & ~tp
+        print(f"[purge] dropped {n_purged} TRBC2+CD3E+CD3D+ cells "
+              f"({n_purged / max(1, len(tp)):.2%} of all cells)")
 
     # depth floor from the NK cells that carry the analysis
     nk = keep & obs["subset"].fillna("").str.startswith(("dNK", "pbNK")).to_numpy()
@@ -175,7 +192,9 @@ def main():
             "sensitivity_floors": [int(f) for f in floors], "seed": args.seed,
             "min_cells": args.min_cells, "ceiling": CEILING, "floor": FLOOR,
             "panel_match_rate": rate, "panel_unmatched": misses,
-            "retention_sensitivity_triggered": triggered}
+            "retention_sensitivity_triggered": triggered,
+            "drop_triple_positive": bool(args.drop_triple_positive),
+            "n_cells_purged_triple_positive": n_purged}
     with open(os.path.join(outdir, "detection_meta.json"), "w") as fh:
         json.dump(meta, fh, indent=2)
     return 0
