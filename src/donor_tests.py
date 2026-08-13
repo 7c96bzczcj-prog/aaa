@@ -37,6 +37,8 @@ from dnkchem.stats import (benjamini_hochberg, bootstrap_ci,  # noqa: E402
 
 DNK_TRIO = ["dNK1", "dNK2", "dNK3"]
 BLOOD_NK = ["pbNK_CD56bright", "pbNK_CD56dim"]
+CEILING = 0.85   # must match detection_rates.CEILING
+FLOOR = 0.05     # must match detection_rates.FLOOR
 
 
 def paired_frame(T1, comp_a, sub_a, comp_b, sub_b, gene, min_cells):
@@ -58,7 +60,9 @@ def run_comparison(T1, comparison_id, comp_a, sub_a, comp_b, sub_b, genes,
             out.append(dict(gene=gene, n_donors=0, mean_diff_pp=np.nan,
                             ci_low=np.nan, ci_high=np.nan, p_raw=np.nan,
                             min_achievable_p=np.nan, on_test_floor=False,
-                            uninterpretable_ceiling=False, uninterpretable_floor=False))
+                            uninterpretable_ceiling=False, uninterpretable_floor=False,
+                            ceiling_arm_a=False, ceiling_arm_b=False,
+                            magnitude_is_lower_bound=False))
             continue
         ra = a["detection_rate"].to_numpy()
         rb = b["detection_rate"].to_numpy()
@@ -69,18 +73,34 @@ def run_comparison(T1, comparison_id, comp_a, sub_a, comp_b, sub_b, genes,
         _, p, n_used = exact_wilcoxon_signed_rank(lb - la)
         minp = min_achievable_p(n_used)
         lo, hi = bootstrap_ci(diffs_pp, seed=seed)
-        flags_a = set(a["qc_flag"])
-        flags_b = set(b["qc_flag"])
+        eff = float(np.mean(diffs_pp))
+
+        # --- R5, v1.1: the ceiling rule is per ARM ---------------------------
+        # v1.0 flagged a contrast uninterpretable when EITHER arm exceeded 0.85.
+        # That is right when both arms saturate (a null is then unreadable, the
+        # lesson from the 93.75% case). It is wrong when only the HIGH arm
+        # saturates: saturation compresses the difference toward zero, so a
+        # large observed difference is a LOWER BOUND, not an unreadable number.
+        ceil_a = float(np.mean(ra)) > CEILING
+        ceil_b = float(np.mean(rb)) > CEILING
+        floor_a = float(np.mean(ra)) < FLOOR
+        floor_b = float(np.mean(rb)) < FLOOR
+        # one arm at the ceiling, and the effect points TOWARD that arm
+        one_sided_ceiling = ((ceil_b and not ceil_a and eff > 0) or
+                             (ceil_a and not ceil_b and eff < 0))
+        one_sided_floor = ((floor_b and not floor_a and eff < 0) or
+                           (floor_a and not floor_b and eff > 0))
+
         out.append(dict(
             gene=gene, n_donors=n,
-            mean_diff_pp=float(np.mean(diffs_pp)), ci_low=lo, ci_high=hi,
+            mean_diff_pp=eff, ci_low=lo, ci_high=hi,
             p_raw=float(p), min_achievable_p=float(minp),
             on_test_floor=bool(np.isfinite(p) and np.isfinite(minp)
                                and abs(p - minp) < 1e-12),
-            uninterpretable_ceiling=("uninterpretable_ceiling" in flags_a or
-                                     "uninterpretable_ceiling" in flags_b),
-            uninterpretable_floor=("uninterpretable_floor" in flags_a or
-                                   "uninterpretable_floor" in flags_b)))
+            uninterpretable_ceiling=bool(ceil_a and ceil_b),
+            uninterpretable_floor=bool(floor_a and floor_b),
+            ceiling_arm_a=bool(ceil_a), ceiling_arm_b=bool(ceil_b),
+            magnitude_is_lower_bound=bool(one_sided_ceiling or one_sided_floor)))
     df = pd.DataFrame(out)
     df.insert(0, "comparison_id", comparison_id)
     df.insert(1, "group_a", f"{comp_a}:{sub_a}")
@@ -150,7 +170,9 @@ def main():
     T2 = T2[["dataset_id", "comparison_id", "group_a", "group_b", "gene", "n_donors",
              "mean_diff_pp", "ci_low", "ci_high", "p_raw", "q_bh",
              "min_achievable_p", "on_test_floor", "uninterpretable_ceiling",
-             "uninterpretable_floor", "cross_compartment_soup_caveat"]]
+             "uninterpretable_floor", "cross_compartment_soup_caveat",
+             # v1.1 additions, appended after the frozen v1.0 schema
+             "ceiling_arm_a", "ceiling_arm_b", "magnitude_is_lower_bound"]]
     T2.to_csv(os.path.join(outdir, "donor_level_tests.tsv"), sep="\t", index=False)
     print(f"\n[T2] {len(T2)} rows -> {outdir}/donor_level_tests.tsv")
 
@@ -198,7 +220,7 @@ def main():
            "group_a", "group_b", "gene", "n_donors", "mean_diff_pp", "ci_low",
            "ci_high", "p_raw", "min_achievable_p", "on_test_floor",
            "uninterpretable_ceiling", "uninterpretable_floor",
-           "cross_compartment_soup_caveat"]]
+           "cross_compartment_soup_caveat", "magnitude_is_lower_bound"]]
     S.to_csv(os.path.join(outdir, "donor_level_tests_depth_sensitivity.tsv"),
              sep="\t", index=False)
     print(f"[R6] depth sensitivity: {len(S)} rows across floors "
@@ -212,7 +234,12 @@ def main():
           f"{nflip} / {len(flip)}")
 
     sig = T2[(T2.q_bh <= 0.05) & T2.gene.isin(primary)]
-    print(f"\n[summary] rows with q_bh <= 0.05 in the primary family: {len(sig)}")
+    print(f"\n[summary] rows with q_bh <= 0.05 in the primary family: {len(sig)} "
+          f"(v1.1: BH is reported, not adjudicating -- see PREREGISTRATION_v1.1.md)")
+    print(f"[summary] contrasts with BOTH arms saturated (uninterpretable): "
+          f"{int(T2.uninterpretable_ceiling.sum())}")
+    print(f"[summary] contrasts with ONE arm saturated (direction kept, "
+          f"magnitude is a lower bound): {int(T2.magnitude_is_lower_bound.sum())}")
     floored = T2[T2.on_test_floor & T2.gene.isin(primary)]
     print(f"[summary] rows sitting exactly on the test floor: {len(floored)}")
     return 0

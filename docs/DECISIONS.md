@@ -346,3 +346,162 @@ be renegotiated once the effects turned out to be large.
 The empirical null is what carries the weight instead: CCL5 at z = +5.6 and
 XCL1 at z = +9.6 against 405 expression-matched genes, with the baseline
 measured rather than assumed (+0.47 ± 4.05 pp — not zero, as §6.5 warned).
+
+---
+
+## D15 — n = 11 is unreachable in VT2018 by any route. The 10x donor parse is correct.
+
+**Challenge.** A July metabolic result recorded `S_oxphos B−A −0.041, 11/11
+donors negative, p = 0.001`. A two-sided sign test at n = 11 has a floor of
+2×(1/2)¹¹ = 0.00098 ≈ 0.001, so that p value is the n = 11 floor exactly — it
+implies 11 donors. Against this study's n = 6, that is impossible. Two
+candidate explanations were put: a donor-column parse error here, or a
+cross-platform merge there.
+
+**Audit — the parse is not the problem.**
+
+`E-MTAB-6701.sdrf.txt` has 30 rows (= 30 libraries) and exactly **one**
+donor-like column, `Characteristics[individual]`, with **7** values (D6–D12).
+There is no second identity column that could have been missed.
+
+| donor | libraries | compartments | cells in matrix | runs in matrix |
+|---|---|---|---|---|
+| D6 | 5 | blood, decidua | 8,340 | 5 |
+| D7 | 4 | blood, decidua | 6,820 | 4 |
+| D8 | 4 | blood, decidua, placenta | 17,591 | 4 |
+| D9 | 4 | blood, decidua, placenta | 13,327 | 4 |
+| D10 | 5 | decidua, placenta | 10,430 | 4 |
+| D11 | 2 | placenta | 2,502 | 1 |
+| D12 | 6 | decidua, placenta | 5,724 | 3 |
+
+Decisively: **libraries mapping to more than one donor = 0**, and **matrix
+runs mapping to more than one donor = 0**. Neither collapsing several
+libraries into one donor nor splitting one donor across runs is possible
+here. 25 of the 30 libraries appear in the published matrix; no run in the
+matrix is absent from the SDRF.
+
+**Audit — a cross-platform merge cannot produce 11 either.**
+
+`E-MTAB-6678` (Smart-seq2, decidua only) carries donors **D3, D5, D6, D7, D8,
+D9** plus a `not available` group (4,136 rows).
+
+| set | n | donors |
+|---|---|---|
+| 10x | 7 | D6–D12 |
+| Smart-seq2 | 6 | D3, D5, D6–D9 |
+| intersection | 4 | D6, D7, D8, D9 |
+| **union** | **9** | D3, D5, D6–D12 |
+| union, decidua only | 8 | D3, D5, D6–D10, D12 |
+
+**Merging both platforms reaches 9 donors, not 11** (8 for decidua). So the
+"it was a cross-platform analysis" explanation does not reconstruct 11 either.
+
+No library-level count reproduces 11 as cleanly: decidual libraries = 15,
+decidual runs in the matrix = 14, decidual runs containing any dNK1-3 = 12,
+runs with ≥ 30 dNK1-3 cells = 8, donor × compartment units = 10.
+
+**What this does and does not settle.** It settles that **if the July result
+used E-MTAB-6701, its n = 11 is wrong** — under every grouping available in
+that accession, alone or merged with its Smart-seq2 companion. It does not
+identify where 11 came from, because **this repository contains no record of
+that analysis**: a full-text search for `oxphos`, `S_oxphos`, `metabolic`,
+`glycoly`, `n = 11` and `11 donors` across every `.md`, `.py` and `.csv` here
+returns nothing. That work lives in another workspace and cannot be audited
+from here.
+
+**Recommended next check, and it is one lookup.** Print the distinct values of
+the donor column used in the July analysis. `D1…D11` or anything containing
+`D3`/`D5` means a cross-platform merge; `FCA…` values mean libraries were
+counted as donors (an R1 violation, and the reading that best fits a
+suspiciously round 11/11); values from another accession entirely mean the
+conflict dissolves and both results stand.
+
+**Until then the OXPHOS result is neither confirmed nor withdrawn here.** What
+is established is the constraint it must satisfy: no donor-level statistic
+from E-MTAB-6701 can have n > 7, or n > 6 restricted to decidua.
+
+---
+
+## D16 — CORRECTION: the doublet explanation in D10 is not supported by measurement.
+
+**D10 concluded** that the fired purity stop was "depth confounding plus NK–T
+doublets". The doublet half of that was an inference from a pattern
+(flagged cells carry more NK signal *and* more UMI), not a measurement. It
+was challenged on exactly that ground, correctly: depth-driven ambient pickup
+produces the same pattern.
+
+**The two measurements that separate them** (`src/doublet_evidence.py`):
+
+| prediction | doublets | depth-driven pickup |
+|---|---|---|
+| total UMI, flagged / unflagged | ≈ 2.0 (two cells in one droplet) | ≈ 1.0–1.4 (one deeper cell) |
+| NK:T count-ratio distribution | bimodal (NK mode + doublet mode) | unimodal with a tail |
+
+**Measured, decidua:**
+
+| subset | flagged | UMI ratio | NK:T bimodality coef. |
+|---|---|---|---|
+| dNK1 | 659 | **1.45** | 0.332 |
+| dNK2 | 265 | **1.31** | 0.236 |
+| dNK3 | 66 | **1.67** | 0.466 |
+| dNKp | 123 | **1.36** | 0.387 |
+| T | 1,173 | 1.39 | 0.300 |
+
+Every UMI ratio is 1.31–1.67, far from 2.0. Every bimodality coefficient is
+below the 5/9 = 0.555 bimodality threshold, i.e. **unimodal**. The figure
+(`out/VT2018/doublet_evidence.png`) shows the flagged distribution sitting
+inside the unflagged one and shifted slightly right — not a second population.
+
+**Corrected conclusion.** The flagged cells are **not** mislabelled T cells
+(D10's first finding stands: they carry more NK signal, not less), and they
+are **not** predominantly NK–T doublets either. The evidence supports
+**depth-driven ambient pickup**: deeper cells are more likely to register
+≥ 1 count on each of three genes. This is consistent with the raw 17.4% →
+6.6% collapse under depth matching.
+
+**What remains unexplained, and is not being explained away.** After depth
+matching dNK1 is still 6.6% against myeloid 0.57% and stromal 0.01%. Depth
+alone does not account for a dNK1-specific residual an order of magnitude
+above other lineages. Candidate causes — annotation-boundary cells between
+dNK1 and T, genuine low-level CD3D/CD3E transcription in NK, or dNK1 being
+enriched in T-rich libraries — are **not** adjudicated by anything measured
+here, and no further inference is offered.
+
+The `modes` column in `doublet_evidence.tsv` is retained but is not evidence:
+smoothed-histogram peak counting is noise-sensitive at these sample sizes
+(66 flagged dNK3 cells yield 9 spurious "modes"). The bimodality coefficient
+is the statistic to read.
+
+**Consequence for the results: none.** Both arms were run and both are
+retained. The v1.1 positive set is identical in the purged arm.
+
+---
+
+## D17 — PAEP verified absent in the source file, not lost at ingest.
+
+D11 recorded PAEP as missing. That was checked against the ingested h5ad
+only, so it could have been an ingest bug. Verified directly against the
+4.1 GB published matrix:
+
+```
+grep -o -E "^(PAEP|PP14|CSH1|DCN|IGFBP1|GNLY)_ENSG[0-9]+" raw_data_10x.txt | sort -u
+  CSH1_ENSG00000136488
+  DCN_ENSG00000011465
+  GNLY_ENSG00000115523
+  IGFBP1_ENSG00000146678
+```
+
+PAEP is absent from the source; the four comparators are present. No alias
+(`PP14`, `GdA`, `glycodelin`) and no `ENSG00000122133` appears anywhere in the
+gene list.
+
+The matrix carries 31,764 genes against the 33,694 of the CellRanger
+GRCh38-1.2.0 reference — a filtered subset, missing 1,930 genes. It is not a
+regional dropout: PAEP's chromosome-9 neighbours (GLIPR2, CNTFR, DCTN3, SIT1,
+RMRP, KIF24, NPR2, SPAG8, HINT2) are all present.
+
+**Consequence.** The decidual ambient ceiling is estimated without its single
+largest expected contributor. Since ruler A returns 1.000 for five other
+tissue-specific controls, the ceiling is anchored — but a genuinely higher
+ambient plateau cannot be ruled out from this matrix. Recovering PAEP would
+require re-quantifying from FASTQ, which is outside this round.

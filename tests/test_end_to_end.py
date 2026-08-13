@@ -159,10 +159,28 @@ def test_pipeline_end_to_end(synth):
     r = run("donor_tests.py", manifest, cwd, extra=["--min-cells", "20"])
     assert r.returncode == 0, r.stdout + r.stderr
     T2 = pd.read_csv(os.path.join(cwd, "out", "SYNTH", "donor_level_tests.tsv"), sep="\t")
-    assert {"dataset_id", "comparison_id", "group_a", "group_b", "gene", "n_donors",
-            "mean_diff_pp", "ci_low", "ci_high", "p_raw", "q_bh", "min_achievable_p",
-            "on_test_floor", "uninterpretable_ceiling", "uninterpretable_floor",
-            "cross_compartment_soup_caveat"} == set(T2.columns)
+    frozen_v10 = ["dataset_id", "comparison_id", "group_a", "group_b", "gene",
+                  "n_donors", "mean_diff_pp", "ci_low", "ci_high", "p_raw", "q_bh",
+                  "min_achievable_p", "on_test_floor", "uninterpretable_ceiling",
+                  "uninterpretable_floor", "cross_compartment_soup_caveat"]
+    # the v1.0 schema is frozen: same columns, same order, at the front
+    assert list(T2.columns)[:len(frozen_v10)] == frozen_v10
+    # v1.1 appends, never reorders or removes
+    assert set(T2.columns) - set(frozen_v10) == {
+        "ceiling_arm_a", "ceiling_arm_b", "magnitude_is_lower_bound"}
+
+    # v1.1 A1: the ceiling rule is per arm
+    both = T2.uninterpretable_ceiling
+    assert (T2.loc[both, "ceiling_arm_a"] & T2.loc[both, "ceiling_arm_b"]).all(), \
+        "uninterpretable_ceiling must require BOTH arms saturated"
+    lb = T2[T2.magnitude_is_lower_bound & T2.n_donors.gt(0)]
+    assert not lb["uninterpretable_ceiling"].any(), \
+        "a one-sided ceiling is a lower bound, not uninterpretable"
+    for _, r in lb.iterrows():
+        if r.ceiling_arm_b and not r.ceiling_arm_a:
+            assert r.mean_diff_pp > 0, "effect must point toward the saturated arm"
+        elif r.ceiling_arm_a and not r.ceiling_arm_b:
+            assert r.mean_diff_pp < 0
 
     # R2 travels with every test
     tested = T2[T2.n_donors > 0]
@@ -181,6 +199,17 @@ def test_pipeline_end_to_end(synth):
     # dNKp is never tested against the trio
     assert not T2.comparison_id.str.contains("dNKp").any()
 
+    # v1.1 A2: the empirical null carries the inference and gets its own BH
+    r = run("null_distribution.py", manifest, cwd,
+            extra=["--min-genes", "5", "--min-cells", "20", "--n-null", "60"])
+    assert r.returncode == 0, r.stdout + r.stderr
+    T4 = pd.read_csv(os.path.join(cwd, "out", "SYNTH", "null_distribution.tsv"), sep="\t")
+    assert "q_bh_empirical" in T4.columns
+    assert (T4["empirical_p"].dropna() >= 0).all() and (T4["empirical_p"].dropna() <= 1).all()
+    # the planted XCL1 effect should stand out against the matched null
+    x = T4[(T4.comparison_id == "A_decidua_dNK1_vs_dNK2") & (T4.gene == "XCL1")]
+    assert len(x) == 1 and x.iloc[0]["empirical_z"] > 2
+
     r = run("soup_calibration.py", manifest, cwd, extra=["--min-genes", "5"])
     assert r.returncode == 0, r.stdout + r.stderr
     T3 = pd.read_csv(os.path.join(cwd, "out", "SYNTH", "soup_calibration.tsv"), sep="\t")
@@ -189,6 +218,19 @@ def test_pipeline_end_to_end(synth):
                                 "scale_a_verdict", "scale_b_verdict", "combined_verdict"]
     assert set(T3.combined_verdict) <= {"positive", "weak",
                                         "indistinguishable_from_ambient", "unmeasurable"}
+    # v1.1 A3: ruler B denominator is per gene
+    sup = pd.read_csv(os.path.join(cwd, "out", "SYNTH",
+                                   "soup_calibration_supplement.tsv"), sep="\t")
+    for c in ("dominant_source_lineage", "nk_dominant_source_cpm_ratio",
+              "scale_b_verdict_v10_myeloid_only"):
+        assert c in sup.columns, c
+    dec = sup[sup.compartment == "Decidua"].set_index("gene")
+    # DCN is planted in the stromal population only, so its source must be Stromal
+    if "DCN" in dec.index:
+        assert dec.loc["DCN", "dominant_source_lineage"] == "Stromal"
+    if "LYZ" in dec.index:
+        assert dec.loc["LYZ", "dominant_source_lineage"] == "Myeloid"
+
     # XCR1 is expressed only by cDC1 here, so NK pickup must not read as real
     x = T3[(T3.gene == "XCR1") & (T3.compartment == "Decidua")]
     if len(x):

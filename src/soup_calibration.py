@@ -47,8 +47,16 @@ from dnkchem.counts import as_csr, cell_qc  # noqa: E402
 from dnkchem.dataset import load_dataset, load_panel, unit_indices  # noqa: E402
 from dnkchem.manifest import load_manifest  # noqa: E402
 
-REF_LINEAGE = "Myeloid"
+REF_LINEAGE = "Myeloid"        # v1.0 fixed reference, kept for the frozen column
 STROMAL_LINEAGE = "Stromal"
+# v1.1: ruler B is per-gene. The denominator is the lineage that actually
+# dominates that gene's ambient contribution, chosen from these candidates by
+# measured CPM. A single fixed denominator is a concept error: NK/myeloid only
+# tests pickup when myeloid is the competing source. For a stromal gene both
+# gates pick up equally and the ratio is ~1 whatever the truth is.
+CANDIDATE_SOURCES = ["Myeloid", "Stromal", "Trophoblast", "T", "Endothelial",
+                     "Perivascular", "Epithelial", "Plasma", "cDC1", "ILC3",
+                     "Granulocyte", "Hofbauer"]
 # ruler B is powered only if the reference lineage really expresses the gene.
 REF_MIN_CPM = 10.0
 REF_MIN_DETECTION = 0.05
@@ -117,6 +125,23 @@ def main():
         str_rows = crows[subs[crows] == STROMAL_LINEAGE]
         str_cpm, str_det = cpm_profile(X, str_rows, cols)
 
+        # --- v1.1: per-lineage profiles, for per-gene denominator choice -----
+        lineage_cpm, lineage_det, lineage_n = {}, {}, {}
+        for lin in CANDIDATE_SOURCES:
+            rws = crows[subs[crows] == lin]
+            if rws.size < 30:
+                continue
+            c, d_ = cpm_profile(X, rws, cols)
+            lineage_cpm[lin], lineage_det[lin], lineage_n[lin] = c, d_, int(rws.size)
+
+        def dominant_source(i):
+            """Lineage with the highest CPM for gene i -- its ambient source."""
+            best, best_cpm = None, -1.0
+            for lin, c in lineage_cpm.items():
+                if np.isfinite(c[i]) and c[i] > best_cpm:
+                    best, best_cpm = lin, float(c[i])
+            return best, best_cpm
+
         # --- rho, leave-one-out over the ambient control set ---------------
         ratios = {}
         for g in ambient_ctrl:
@@ -170,6 +195,24 @@ def main():
         band_hi = float(np.max(band)) if band else np.nan
         band_hi_ref = float(np.max(band_ref_sourced)) if band_ref_sourced else np.nan
 
+        # v1.1 band: each ambient control judged against ITS OWN dominant
+        # source. This is the band that actually measures pickup.
+        band_v11, band_v11_detail = [], []
+        for g in ambient_ctrl:
+            i = gidx[g]
+            lin, lcpm = dominant_source(i)
+            # A calibrator whose own source barely expresses it cannot measure
+            # a pickup band; the same power gate that governs the verdicts must
+            # govern the calibration, or one low-abundance control sets the band.
+            if lin and lcpm >= REF_MIN_CPM and np.isfinite(nk_cpm[i]):
+                r = nk_cpm[i] / lcpm
+                band_v11.append(r)
+                band_v11_detail.append(f"{g}:{lin}(cpm={lcpm:.0f})={r:.4f}")
+            elif lin:
+                band_v11_detail.append(f"{g}:{lin}(cpm={lcpm:.1f}) EXCLUDED, below "
+                                       f"the {REF_MIN_CPM:.0f} CPM power gate")
+        band_hi_v11 = float(np.max(band_v11)) if band_v11 else np.nan
+
         calib_rows.append({
             "dataset_id": mf.dataset_id, "compartment": comp,
             "n_nk_cells": int(nk_rows.size), "n_ref_cells": int(ref_rows.size),
@@ -181,6 +224,8 @@ def main():
             "ruler_a_nk_gene_floor_max": float(np.max(floor_vals)) if floor_vals else np.nan,
             "ruler_b_band_upper": band_hi,
             "ruler_b_band_upper_ref_sourced": band_hi_ref,
+            "ruler_b_band_upper_per_gene_source": band_hi_v11,
+            "ruler_b_per_gene_calibrators": "; ".join(band_v11_detail),
             "ruler_b_ref_sourced_calibrators": ",".join(band_genes),
             "prior_ruler_a_ceiling": 0.402, "prior_ruler_b_band": 0.118,
             "prior_nk_floor_lo": 0.012, "prior_nk_floor_hi": 0.013})
@@ -196,6 +241,10 @@ def main():
               f"controls [prior 0.118]")
         print(f"           restricted to controls the reference lineage actually "
               f"sources ({','.join(band_genes) or 'none'}): {band_hi_ref:.4f}")
+        print(f"  ruler B v1.1 (each control against its OWN dominant source): "
+              f"{band_hi_v11:.4f}")
+        for d_ in band_v11_detail:
+            print(f"             {d_}")
         if np.isfinite(band_hi) and np.isfinite(band_hi_ref) and band_hi > 5 * band_hi_ref:
             print(f"           NOTE: the two differ by {band_hi / band_hi_ref:.0f}x. "
                   f"Tissue-sourced ambient genes are picked up about equally by NK "
@@ -222,14 +271,30 @@ def main():
             else:
                 a_verdict = "above_ambient"
 
-            ref_powered = (np.isfinite(ref_cpm[i]) and ref_cpm[i] >= REF_MIN_CPM
-                           and np.isfinite(ref_det[i]) and ref_det[i] >= REF_MIN_DETECTION)
-            if not ref_powered or not np.isfinite(ratio) or not np.isfinite(band_hi):
+            # --- ruler B, v1.1: denominator is this gene's dominant source ---
+            dom_lin, dom_cpm = dominant_source(i)
+            dom_ratio = (nk_cpm[i] / dom_cpm
+                         if dom_lin and dom_cpm > 0 and np.isfinite(nk_cpm[i]) else np.nan)
+            dom_det = (lineage_det[dom_lin][i] if dom_lin else np.nan)
+            dom_powered = (dom_lin is not None and np.isfinite(dom_cpm)
+                           and dom_cpm >= REF_MIN_CPM
+                           and np.isfinite(dom_det) and dom_det >= REF_MIN_DETECTION)
+            if not dom_powered or not np.isfinite(dom_ratio) or not np.isfinite(band_hi_v11):
                 b_verdict = "unmeasurable"
-            elif ratio > band_hi:
+            elif dom_ratio > band_hi_v11:
                 b_verdict = "above_pickup_band"
             else:
                 b_verdict = "within_pickup_band"
+
+            # v1.0 verdict retained for comparison
+            ref_powered = (np.isfinite(ref_cpm[i]) and ref_cpm[i] >= REF_MIN_CPM
+                           and np.isfinite(ref_det[i]) and ref_det[i] >= REF_MIN_DETECTION)
+            if not ref_powered or not np.isfinite(ratio) or not np.isfinite(band_hi):
+                b_verdict_v10 = "unmeasurable"
+            elif ratio > band_hi:
+                b_verdict_v10 = "above_pickup_band"
+            else:
+                b_verdict_v10 = "within_pickup_band"
 
             if a_verdict == "unmeasurable" or b_verdict == "unmeasurable":
                 combined = "unmeasurable"
@@ -251,6 +316,10 @@ def main():
                 "_ref_cpm": ref_cpm[i], "_ref_detection": ref_det[i],
                 "_nk_detection": nk_det[i], "_stromal_cpm": str_cpm[i],
                 "_nk_stromal_cpm_ratio": str_ratio,
+                "_dominant_source_lineage": dom_lin,
+                "_dominant_source_cpm": dom_cpm,
+                "_nk_dominant_source_cpm_ratio": dom_ratio,
+                "_scale_b_verdict_v10_myeloid_only": b_verdict_v10,
                 "_high_stromal_background": bool(
                     "high_stromal_background=TRUE" in str(
                         panel.loc[panel.gene_symbol == g, "notes"].iloc[0]))})

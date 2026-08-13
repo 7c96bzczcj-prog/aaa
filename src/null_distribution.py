@@ -27,7 +27,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dnkchem.counts import as_csr, cell_qc, detection_and_cpm, downsample_columns  # noqa: E402
 from dnkchem.dataset import load_dataset, load_panel, unit_indices  # noqa: E402
 from dnkchem.manifest import load_manifest  # noqa: E402
-from dnkchem.stats import continuity_rate, exact_wilcoxon_signed_rank, logit  # noqa: E402
+from dnkchem.stats import (benjamini_hochberg, continuity_rate,  # noqa: E402
+                           exact_wilcoxon_signed_rank, logit)
 
 DNK_TRIO = ["dNK1", "dNK2", "dNK3"]
 
@@ -159,6 +160,26 @@ def main():
                              "empirical_z": z})
 
     T4 = pd.DataFrame(out_rows)
+
+    # --- v1.1: BH across the primary-target family, on the EMPIRICAL p -------
+    # At these donor counts the signed-rank p is floor-limited and BH over it
+    # can never reject. The empirical p against the matched null is not
+    # floor-limited in the same way (its resolution is 1/n_null), so this is
+    # the multiplicity correction that actually has power here.
+    panel_primary = set(panel[panel.role == "primary_target"]["gene_symbol"])
+    T4["q_bh_empirical"] = np.nan
+    if len(T4):
+        fam = T4.gene.isin(panel_primary)
+        for cid, g in T4[fam].groupby("comparison_id"):
+            T4.loc[g.index, "q_bh_empirical"] = benjamini_hochberg(
+                g["empirical_p"].to_numpy())
+        n_sig = int((T4["q_bh_empirical"] <= 0.05).sum())
+        print(f"[null] empirical-p BH over the {len(panel_primary)}-gene primary "
+              f"family: {n_sig} rows reach q <= 0.05")
+        for _, r in T4[T4.q_bh_empirical <= 0.05].sort_values("q_bh_empirical").iterrows():
+            print(f"       {r.comparison_id:26s} {r.gene:7s} "
+                  f"diff={r.observed_diff_pp:+7.2f}pp z={r.empirical_z:+6.2f} "
+                  f"emp_p={r.empirical_p:.4f} q={r.q_bh_empirical:.4f}")
     T4.to_csv(os.path.join(outdir, "null_distribution.tsv"), sep="\t", index=False)
     pd.DataFrame(summary_rows).to_csv(
         os.path.join(outdir, "null_distribution_summary.tsv"), sep="\t", index=False)

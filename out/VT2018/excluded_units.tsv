@@ -73,3 +73,7 @@ VT2018	D12	Decidua	ILC3	16	post_downsample	cleared 30 cells after QC but fell be
 VT2018	D12	Decidua	Plasma	22	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2137 UMI
 VT2018	D6	Blood	Plasma	28	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2137 UMI
 VT2018	D7	Blood	Myeloid	25	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2137 UMI
+VT2018	D12	Decidua	ILC3	16	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2137 UMI
+VT2018	D12	Decidua	Plasma	22	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2137 UMI
+VT2018	D6	Blood	Plasma	28	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2137 UMI
+VT2018	D7	Blood	Myeloid	25	post_downsample	cleared 30 cells after QC but fell below it after depth matching to 2137 UMI
