@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from dnkchem.counts import (as_csr, cell_qc, choose_depth_floor,  # noqa: E402
                             detection_and_cpm, downsample_columns)
-from dnkchem.dataset import load_dataset, load_panel  # noqa: E402
+from dnkchem.dataset import load_dataset, load_panel, unit_indices  # noqa: E402
 from dnkchem.manifest import load_manifest  # noqa: E402
 
 CEILING = 0.85
@@ -47,11 +47,8 @@ def compute_table(ds, panel, hits, keep_mask, depth, min_cells, seed, subsets=No
         sel = sel & obs["subset"].isin(subsets).to_numpy()
 
     rows, retention = [], []
-    idx_all = np.arange(len(obs))
-    sub_obs = obs.loc[sel]
-    for (donor, comp, ss), idx in sub_obs.groupby(
-            ["donor", "compartment", "subset"], observed=True).groups.items():
-        rows_idx = idx_all[sel][sub_obs.index.get_indexer(idx)]
+    for (donor, comp, ss), rows_idx in unit_indices(
+            obs, sel, ["donor", "compartment", "subset"]):
         Xu = X[rows_idx]
         n_pre = Xu.shape[0]
         counts, kept = downsample_columns(Xu, cols, depth, seed=seed)

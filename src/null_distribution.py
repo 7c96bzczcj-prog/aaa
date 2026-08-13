@@ -25,7 +25,7 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from dnkchem.counts import as_csr, cell_qc, detection_and_cpm, downsample_columns  # noqa: E402
-from dnkchem.dataset import load_dataset, load_panel  # noqa: E402
+from dnkchem.dataset import load_dataset, load_panel, unit_indices  # noqa: E402
 from dnkchem.manifest import load_manifest  # noqa: E402
 from dnkchem.stats import continuity_rate, exact_wilcoxon_signed_rank, logit  # noqa: E402
 
@@ -98,8 +98,7 @@ def main():
 
     # per donor x subset detection rates for the null genes, same depth, same seed
     recs = []
-    for (donor, ss), idx in obs_s.groupby(["donor", "subset"], observed=True).groups.items():
-        r = obs_s.index.get_indexer(idx)
+    for (donor, ss), r in unit_indices(obs_s, np.ones(len(obs_s), bool), ["donor", "subset"]):
         counts, kept = downsample_columns(Xs[r], null_cols, depth, seed=args.seed)
         n_post = int(kept.sum())
         if n_post < args.min_cells:

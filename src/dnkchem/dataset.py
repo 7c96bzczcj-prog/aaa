@@ -1,7 +1,17 @@
-"""Manifest -> in-memory dataset, with the unified obs schema every script uses.
+"""Manifest -> in-memory dataset.
 
-The canonical obs columns produced here are: donor, compartment, subset,
-library, celltype_raw. Downstream code names only these.
+Two entry points, deliberately separate:
+
+  load_source_dataset()  reads the ORIGINAL published files and applies the
+                         manifest's column and label mapping. Used only by
+                         src/ingest.py.
+  load_dataset()         reads the canonical h5ad written by ingest. Used by
+                         every analysis script.
+
+Every dataset passes through ingest, so analysis code never re-parses a
+source format and never sees a dataset-specific column name. The canonical
+obs schema is: donor, compartment, celltype, celltype_raw, subset, library
+(+ sex, gestational_week, cycle_phase where published).
 """
 from __future__ import annotations
 
@@ -16,6 +26,7 @@ from .manifest import Manifest, ManifestError, match_panel, split_var_names
 
 CANON_FIELDS = ["donor", "compartment", "celltype", "library",
                 "sex", "gestational_week", "cycle_phase"]
+OPTIONAL_FIELDS = ["sex", "gestational_week", "cycle_phase"]
 
 
 class Dataset:
@@ -53,20 +64,25 @@ def _resolve_obs_field(obs_raw, manifest: Manifest, field_name, n_cells):
     return None
 
 
-def load_dataset(manifest: Manifest, progress=None) -> Dataset:
+def load_source_dataset(manifest: Manifest, progress=None) -> Dataset:
+    """Read the original published files. Only src/ingest.py should call this."""
     src = manifest.get("source") or {}
     fmt = src.get("format", manifest.raw["file_format"])
     path = manifest.resolve_path(src.get("path", manifest.raw["local_path"]))
     if not os.path.exists(path):
-        raise FileNotFoundError(f"{manifest.dataset_id}: data file not found at {path}")
+        raise FileNotFoundError(f"{manifest.dataset_id}: source not found at {path}")
 
     X, cell_ids, gene_ids, adata = loaders.read_source(
         fmt, path, counts_layer=manifest.raw.get("counts_layer", "X"), progress=progress)
 
-    # --- obs -------------------------------------------------------------
     obs_path = src.get("obs_table")
     if obs_path:
         obs_raw = loaders.read_obs_table(manifest.resolve_path(obs_path))
+        if obs_raw.index.duplicated().any():
+            n = int(obs_raw.index.duplicated().sum())
+            raise ManifestError(
+                f"{manifest.dataset_id}: obs table {obs_path} has {n} duplicate cell "
+                f"ids; the matrix-to-metadata join would be ambiguous.")
         obs_raw = obs_raw.reindex(pd.Index(cell_ids))
         n_missing = int(obs_raw.isna().all(axis=1).sum())
         if n_missing:
@@ -79,7 +95,7 @@ def load_dataset(manifest: Manifest, progress=None) -> Dataset:
         raise ManifestError(f"{manifest.dataset_id}: no obs table available")
 
     n = len(cell_ids)
-    obs = pd.DataFrame(index=pd.Index(cell_ids, name="cell_id"))
+    obs = pd.DataFrame(index=pd.Index([str(c) for c in cell_ids], name="cell_id"))
     for f in CANON_FIELDS:
         v = _resolve_obs_field(obs_raw, manifest, f, n)
         if v is not None:
@@ -88,11 +104,7 @@ def load_dataset(manifest: Manifest, progress=None) -> Dataset:
     obs["subset"] = obs["celltype_raw"].map(manifest.celltype_map)
     if "library" not in obs.columns:
         obs["library"] = "unspecified"
-    for f in ("sex", "gestational_week", "cycle_phase"):
-        if f not in obs.columns:
-            obs[f] = pd.NA
 
-    # --- var -------------------------------------------------------------
     gid = manifest.raw["gene_id"]
     sym_col_vals = None
     if gid["var_index_type"] == "ensembl":
@@ -104,6 +116,50 @@ def load_dataset(manifest: Manifest, progress=None) -> Dataset:
     symbols, ensembl = split_var_names(gene_ids, manifest, sym_col_vals)
 
     return Dataset(X, obs, symbols, ensembl, manifest)
+
+
+def load_dataset(manifest: Manifest) -> Dataset:
+    """Read the canonical h5ad produced by src/ingest.py."""
+    import anndata as ad
+    import scipy.sparse as sp
+
+    path = manifest.local_path
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"{manifest.dataset_id}: canonical h5ad missing at {path}. "
+            f"Run:  python src/ingest.py {manifest.path}")
+    a = ad.read_h5ad(path)
+    obs = a.obs.copy()
+    for c in obs.columns:
+        if str(obs[c].dtype) == "category":
+            obs[c] = obs[c].astype(object)
+    # ingest stores unmapped cells as an empty subset; restore the NaN so that
+    # `.notna()` continues to mean "has a mapped subset" everywhere downstream.
+    if "subset" in obs.columns:
+        obs["subset"] = obs["subset"].replace("", np.nan)
+    for f in OPTIONAL_FIELDS:
+        if f not in obs.columns:
+            obs[f] = np.nan
+    return Dataset(sp.csr_matrix(a.X), obs,
+                   a.var["gene_symbol"].to_numpy(),
+                   a.var["ensembl_id"].to_numpy(), manifest)
+
+
+def unit_indices(obs, mask, by):
+    """Yield (key_tuple, positional row indices) for each group under `mask`.
+
+    Positional throughout: label-based lookup silently breaks when cell ids
+    are not unique, and a published obs table is not guaranteed to have unique
+    ids. Groups are yielded in sorted key order for reproducible output.
+    """
+    cols = [obs[c].astype(object).where(obs[c].notna(), "").astype(str).to_numpy()
+            for c in by]
+    keys = list(zip(*cols)) if cols else []
+    groups = {}
+    for i in np.flatnonzero(np.asarray(mask, dtype=bool)):
+        groups.setdefault(keys[i], []).append(i)
+    for k in sorted(groups):
+        yield k, np.asarray(groups[k], dtype=int)
 
 
 def load_panel(path):

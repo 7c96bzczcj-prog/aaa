@@ -23,7 +23,7 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from dnkchem.counts import as_csr, cell_qc, triple_positive_fraction  # noqa: E402
-from dnkchem.dataset import load_dataset, load_panel  # noqa: E402
+from dnkchem.dataset import load_dataset, load_panel, unit_indices  # noqa: E402
 from dnkchem.manifest import load_manifest  # noqa: E402
 
 T_GATE = ["TRBC2", "CD3E", "CD3D"]
@@ -96,12 +96,11 @@ def main():
     mk = panel[panel["category"] == "marker_subset"]["gene_symbol"].tolist()
     mk_cols = [hits[g] for g in mk if g in hits]
     mk_names = [g for g in mk if g in hits]
+    mapped_keep = keep & obs["subset"].notna().to_numpy()
     if mk_cols:
-        sub = X[:, mk_cols]
-        det = (sub >= 1).astype(np.int8)
-        for (comp, ss), idx in post.groupby(["compartment", "subset"], observed=True).groups.items():
-            pos = post.index.get_indexer(idx)
-            rows_idx = obs.index.get_indexer(idx)
+        det = (X[:, mk_cols] >= 1).astype(np.int8)
+        for (comp, ss), rows_idx in unit_indices(obs, mapped_keep,
+                                                 ["compartment", "subset"]):
             d = np.asarray(det[rows_idx].sum(axis=0)).ravel() / max(1, len(rows_idx))
             for g, v in zip(mk_names, d):
                 marker_rows.append({"dataset_id": mf.dataset_id, "compartment": comp,
@@ -122,8 +121,7 @@ def main():
     if missing_gate:
         raise SystemExit(f"purity gate genes missing from matrix: {missing_gate}")
     pur_rows = []
-    for (comp, ss), idx in post.groupby(["compartment", "subset"], observed=True).groups.items():
-        rows_idx = obs.index.get_indexer(idx)
+    for (comp, ss), rows_idx in unit_indices(obs, mapped_keep, ["compartment", "subset"]):
         frac, nhit = triple_positive_fraction(X[rows_idx], gate_cols)
         pur_rows.append({"dataset_id": mf.dataset_id, "compartment": comp, "subset": ss,
                          "n_cells": len(rows_idx), "n_triple_positive": nhit,

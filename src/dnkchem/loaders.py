@@ -26,8 +26,12 @@ def read_dense_tsv_genes_by_cells(path, chunk_rows=256, dtype=np.int32,
 
     gene_ids = []
     blocks = []
+    # dtype must be given per column: a bare dtype= is applied to the index
+    # column too, and the gene-id column is not an integer.
+    dtypes = {c: dtype for c in header[1:]}
+    dtypes[header[0]] = str
     reader = pd.read_csv(path, sep="\t", header=0, index_col=0,
-                         chunksize=chunk_rows, dtype=dtype, engine="c")
+                         chunksize=chunk_rows, dtype=dtypes, engine="c")
     seen = 0
     for chunk in reader:
         gene_ids.extend(chunk.index.astype(str).tolist())

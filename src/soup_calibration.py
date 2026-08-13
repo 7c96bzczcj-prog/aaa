@@ -44,7 +44,7 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from dnkchem.counts import as_csr, cell_qc  # noqa: E402
-from dnkchem.dataset import load_dataset, load_panel  # noqa: E402
+from dnkchem.dataset import load_dataset, load_panel, unit_indices  # noqa: E402
 from dnkchem.manifest import load_manifest  # noqa: E402
 
 REF_LINEAGE = "Myeloid"
@@ -95,23 +95,25 @@ def main():
     print(f"[calib] ambient controls: {ambient_ctrl}")
     print(f"[calib] NK controls:      {nk_ctrl}")
 
-    idx_all = np.arange(len(obs))
+    subs = obs["subset"].astype(object).where(obs["subset"].notna(), "").astype(str).to_numpy()
+    is_nk = np.array([s.startswith(("dNK", "pbNK")) for s in subs])
     rows_out, calib_rows = [], []
 
-    for comp, cobs in obs[keep].groupby("compartment", observed=True):
-        crows = idx_all[keep][obs[keep].index.get_indexer(cobs.index)]
-        # ambient profile: every cell in the compartment, abundance-weighted
+    for (comp,), crows in unit_indices(obs, keep, ["compartment"]):
+        # ambient profile: every cell in the compartment, abundance-weighted.
+        # This is what free RNA in a droplet looks like when no empty droplets
+        # are available to measure it directly.
         amb_cpm, _ = cpm_profile(X, crows, cols)
 
-        nk_mask = cobs["subset"].fillna("").str.startswith(("dNK", "pbNK")).to_numpy()
-        nk_rows = crows[nk_mask]
+        nk_rows = crows[is_nk[crows]]
         if nk_rows.size < 30:
+            print(f"[calib] {comp}: only {nk_rows.size} NK cells; skipping")
             continue
         nk_cpm, nk_det = cpm_profile(X, nk_rows, cols)
 
-        ref_rows = crows[(cobs["subset"] == REF_LINEAGE).to_numpy()]
+        ref_rows = crows[subs[crows] == REF_LINEAGE]
         ref_cpm, ref_det = cpm_profile(X, ref_rows, cols)
-        str_rows = crows[(cobs["subset"] == STROMAL_LINEAGE).to_numpy()]
+        str_rows = crows[subs[crows] == STROMAL_LINEAGE]
         str_cpm, str_det = cpm_profile(X, str_rows, cols)
 
         # --- rho, leave-one-out over the ambient control set ---------------
