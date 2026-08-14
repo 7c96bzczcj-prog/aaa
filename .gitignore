@@ -8,3 +8,4 @@ phase1_registry/rescan/*.xml
 phaseC/dl/
 phaseC/gs/
 phaseC/bc/
+phaseC/meta/gencode.v32.gtf.gz
