@@ -197,3 +197,27 @@ tuned — BH over the signed-rank p, ruler B's fixed denominator, the FDR
 criterion, z as a standalone ranking — each because its output was set by a
 nuisance parameter instead of by the effect. **What survived is exactly what
 never needed a null distribution.**
+
+## v1.4 — 2026-08-13 — the effect scale is fixed before any further result
+
+- **A10 — percentage points are primary; z is auxiliary and never read alone.**
+  Settled now, before more results exist, because with two scales and no rule
+  every later result could be reported on whichever flatters it. No
+  transformation fixes this: a logit would push the reading *further* toward
+  low-baseline genes. No table in RESULTS is sorted by z.
+- **A11 — the measurable band is declared.** 14 of 27 primary targets sit below
+  5% detection (no power in points), 12 in 5–85%, 1 above 85%. **The two
+  failure modes close on the same genes:** four of the 14 floor-band genes —
+  S1PR5, SELL, CCR9, CXCR6 — are exactly those that produced v1.3's largest and
+  most misleading z values. No power in points and false power in z, together.
+- **A12 — a flat result now carries its band**: untested (<5%), a real null
+  (5–85%), or uninterpretable (>85%).
+- **Correction.** The reading that CCL3's flat result "may be no power rather
+  than no difference" is not supported and not adopted: CCL3 is at 0.817,
+  inside the measurable band. CCL4 (0.944) is ceiling-limited, a different
+  problem whose remedy is opposite (more depth worsens it).
+- **D26 — CXCR4's ceiling margin quantified.** 3 of 56 haematopoietic controls
+  fall below its 0.048; adding 5 more has a ~24% chance of flipping its ruler-A
+  verdict. 0 of 56 fall below XCL1's 0.021. CXCR4 is now negative on all three
+  measured axes (regrouping 0.30×, within-label reversal, ceiling margin);
+  XCL1 passes all three.

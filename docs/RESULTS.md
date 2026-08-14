@@ -18,6 +18,11 @@ v1.2's four tightened it.
 > donor-unanimous direction, effect size in percentage points, and
 > reproduction inside a fixed cluster. No p value or q value in this document
 > adjudicates anything.
+>
+> **The effect scale is fixed** (v1.4 A10): percentage points are primary, z is
+> auxiliary and never appears without the points beside it. And **14 of the 27
+> primary targets have no power on that scale at this depth** (v1.4 A11) — a
+> flat result for those is *untested*, not *no difference*.
 
 Primary depth floor **2137 UMI**; sensitivity floors 1808 and 2784. Every rate
 is a detection rate at matched depth (R3). Every test consumes one number per
@@ -356,7 +361,12 @@ shrink as the floor rises and D8's dNK3 disappears, but never reverse.
    between 0.048 and 0.092, the ceiling drops below CXCR4's 0.0484 and CXCR4's
    ruler-A verdict flips to `indistinguishable_from_ambient`. XCL1 (0.021) and
    CCL5 (0.025) keep a wide margin.
-4. **Ruler B now ranks sources by total pool contribution**
+4. **CXCR4's ruler-A margin is thin and quantified** ([D26](DECISIONS.md)):
+   3 of 56 data-derived haematopoietic controls fall below its 0.048, so
+   adding 5 more such controls has a ~24% chance of dropping the ceiling below
+   it. No control in 56 falls below XCL1's 0.021. Together with the two
+   circularity axes, CXCR4 is negative on every axis measured.
+5. **Ruler B now ranks sources by total pool contribution**
    ([A7](PREREGISTRATION_v1.2.md)), after v1.1's per-cell-CPM ranking assigned
    XCL1's source to a 184-cell ILC3 population. Consequence: for every headline
    gene NK is itself the largest contributor, so ruler B returns

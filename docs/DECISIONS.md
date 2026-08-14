@@ -861,3 +861,72 @@ lineage, the null-set size, the baseline rate — instead of by the effect.
 **What survived all four withdrawals is the evidence that never used any of
 them:** donor-unanimous direction, effect size in points, and reproduction
 within a fixed cluster.
+
+---
+
+## D26 — CXCR4's ceiling margin is now a probability, and it is negative on every axis tested.
+
+The ruler-A ceiling is a **minimum** over ambient controls, and D23 showed it
+is set entirely by the haematopoietic class, whose median soup fraction is
+0.250. So 0.092 is an extreme lower tail of 56 draws, and adding controls can
+only lower it.
+
+Empirical distribution of the 56 data-derived haematopoietic controls:
+
+| threshold | P(a single haematopoietic control falls below) |
+|---|---|
+| 0.092 — the current ceiling (IGKC) | 0.107 (6/56) |
+| **0.048 — CXCR4** | **0.054 (3/56)** |
+| **0.021 — XCL1** | **0.000 (0/56)** |
+
+Probability the ceiling drops below a gene after adding k more haematopoietic
+controls:
+
+| k | below CXCR4 (0.048) | below XCL1 (0.021) |
+|---|---|---|
+| 1 | 5.4% | 0.0% |
+| 3 | 15.2% | 0.0% |
+| 5 | **24.1%** | 0.0% |
+| 10 | **42.3%** | 0.0% |
+
+Only 4 of the panel's 9 ambient controls are haematopoietic, so "a few more"
+is an ordinary scenario, not a contrived one. **XCL1's margin is stable under
+any k; CXCR4's is not.**
+
+**CXCR4 is now negative on every axis this project has measured:**
+
+| axis | result |
+|---|---|
+| circularity — marker regrouping | retains **0.30×**, the worst of the four |
+| circularity — within-label | **reverses**, −3.5 pp, 3/3 donors |
+| ruler-A ceiling margin | ~24% chance of flipping after 5 more controls |
+
+Three independent axes agreeing in direction is also a positive result *about
+the pipeline*: the axes were built to answer different questions and were not
+tuned to agree.
+
+**XCL1 passes all three**: survives regrouping at 0.62×, survives within dNK1
+at +6.7 pp (3/3), and no haematopoietic control in 56 falls below its 0.021.
+
+---
+
+## D27 — More than half the primary panel has no power on the primary scale.
+
+Measured, pooled over decidual dNK1–3 at the primary depth floor: **14 of 27**
+primary targets sit below 5% detection, 12 in the measurable 5–85% band, and
+1 above 85%. Full lists in `PREREGISTRATION_v1.4.md` A11.
+
+**The two failure modes close on the same genes.** Four of the 14 floor-band
+genes — S1PR5, SELL, CCR9, CXCR6 — are precisely those that produced the
+largest z values in v1.3 (S1PR5 z = +10.34 on +1.5 pp). The floor band has
+**no power in percentage points and false power in z, simultaneously**. That
+is why the remedy is a declared scale rule (v1.4 A10) rather than an
+after-the-fact effect-size filter.
+
+**A correction.** The suggested reading that CCL3's flat result "may be no
+power rather than no difference" is **not supported**: CCL3 is at 0.817,
+inside the measurable band, so its flat and sign-inconsistent result carries
+power behind it. CCL4 (0.944) is ceiling-limited, which is a different problem
+with the opposite remedy — more depth makes saturation worse, not better. The
+power-limited genes are the 14 listed, and neither CCL3 nor CCL4 is among
+them.
