@@ -221,3 +221,21 @@ never needed a null distribution.**
   verdict. 0 of 56 fall below XCL1's 0.021. CXCR4 is now negative on all three
   measured axes (regrouping 0.30×, within-label reversal, ceiling margin);
   XCL1 passes all three.
+
+## v1.4.1 — 2026-08-13 — transferable findings extracted; two corrections
+
+- **`docs/TRANSFERABLE.md`** added: the failure form that recurred four times
+  (output determined by a nuisance parameter, not by the effect), the
+  bounded-readout pathology and its three-step pre-emption, the same pathology
+  in flow-cytometry %positive, and the one-number band check.
+- **D28 — CCR5 is in the floor band** at 0.67% (68/10,130 decidual dNK1–3
+  cells). Flagged because any archived analysis resting on a CCR5 detection
+  rate from a droplet platform was operating in the band that has no power in
+  points and false power in z. **The number is explicitly not transferable
+  across species/tissue**; the check is. MC38 data is not in this workspace.
+- **Correction to D26.** XCL1's "0.0% chance" was a point estimate presented
+  as zero. Rule of three gives ~5.4% per control, ~24% over five — the same as
+  CXCR4. XCL1's real defence is the 4.4× gap to the observed minimum (0.043)
+  versus CXCR4's 1.1×. Also noted: treating "add a control" as random sampling
+  is a communication device, not a fix; the lower-prediction-bound
+  construction remains the repair.

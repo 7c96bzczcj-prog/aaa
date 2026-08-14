@@ -877,7 +877,7 @@ Empirical distribution of the 56 data-derived haematopoietic controls:
 |---|---|
 | 0.092 — the current ceiling (IGKC) | 0.107 (6/56) |
 | **0.048 — CXCR4** | **0.054 (3/56)** |
-| **0.021 — XCL1** | **0.000 (0/56)** |
+| **0.021 — XCL1** | 0/56 — see the correction below |
 
 Probability the ceiling drops below a gene after adding k more haematopoietic
 controls:
@@ -890,8 +890,20 @@ controls:
 | 10 | **42.3%** | 0.0% |
 
 Only 4 of the panel's 9 ambient controls are haematopoietic, so "a few more"
-is an ordinary scenario, not a contrived one. **XCL1's margin is stable under
-any k; CXCR4's is not.**
+is an ordinary scenario, not a contrived one.
+
+**Correction to the 0.0% figure.** 0/56 is a point estimate, not zero. By the
+rule of three the 95% upper bound on a single control falling below 0.021 is
+about 3/56 = 5.4%, so the worst case over five added controls is ~24% — the
+same as CXCR4's. **XCL1's real defence is not that probability; it is the
+4.4-fold gap between 0.021 and the observed minimum of 0.043**, against
+CXCR4's 1.1-fold gap. Stating it as "0.0%" overstated the asymmetry.
+
+**And treating "add a control" as random sampling is itself a heuristic.**
+Controls are specific genes, not exchangeable draws. The probability framing
+communicates the instability of a minimum-over-controls ceiling; it is not a
+fix. The lower-prediction-bound construction (v1.3, deferred) remains the
+actual repair.
 
 **CXCR4 is now negative on every axis this project has measured:**
 
@@ -930,3 +942,44 @@ power behind it. CCL4 (0.944) is ceiling-limited, which is a different problem
 with the opposite remedy — more depth makes saturation worse, not better. The
 power-limited genes are the 14 listed, and neither CCL3 nor CCL4 is among
 them.
+
+---
+
+## D28 — CCR5 is in the floor band. The check transfers; the number does not.
+
+`CCR5` sits at **68 detected of 10,130** depth-matched decidual dNK1–3 cells =
+**0.67%**, deep inside the floor band declared in v1.4 A11 — the band shown to
+have *no power in percentage points and false power in z simultaneously*.
+
+Per-subset, at the 2,137-UMI floor: dNK1 0.15%, dNK2 0.91%, dNK3 1.43%,
+Myeloid 2.51%, T 4.00%. At p ≈ 0.007 and n ≈ 2,000 cells the binomial
+resolution is about 0.4 percentage points, so a detection-rate contrast on
+CCR5 in this dataset can only see effects far larger than any plausible
+biological difference at that abundance.
+
+**This matters beyond this project** because any archived analysis whose
+conclusion rests on a CCR5/Ccr5 detection rate from a droplet platform was
+operating in that band, and would carry both failure modes at once.
+
+**But the number does not transfer, and saying otherwise would repeat the
+exact error this project has now made twice.** 0.67% is a fact about human
+first-trimester decidual NK on 10x v2 at a 2,137-UMI floor. Chemokine-receptor
+expression is not conserved across species, tissue or activation state, so it
+implies nothing about *Ccr5* in mouse tumour-infiltrating NK. Both prior
+errors here — the PAEP ceiling argument and the CCL3 band assignment — had the
+same shape: **a correct general principle applied straight to a specific
+number without checking that number.**
+
+**What transfers is the check**, and it is one number:
+
+1. compute the gene's mean detection rate in the **reference** condition at
+   matched depth;
+2. **< 5%** → floor band: no power in points, inflated standardised
+   statistics; any published effect from that band needs re-reading;
+3. **> 85%** → ceiling: compressed, and a null there is uninterpretable;
+4. in between → usable; report in points.
+
+Written up for reuse in [`TRANSFERABLE.md`](TRANSFERABLE.md) §4. **The data
+needed to run it on the MC38/Kaede cohort is not in this workspace** — the
+same workspace that holds the donor column blocking D15. Both are one lookup
+each and can be done in the same sitting.
