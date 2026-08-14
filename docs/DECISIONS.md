@@ -983,3 +983,88 @@ Written up for reuse in [`TRANSFERABLE.md`](TRANSFERABLE.md) §4. **The data
 needed to run it on the MC38/Kaede cohort is not in this workspace** — the
 same workspace that holds the donor column blocking D15. Both are one lookup
 each and can be done in the same sitting.
+
+---
+
+## D29 — The ceiling definition set is declared. Two margins had been computed against two different sets.
+
+**The error.** D26 stated "XCL1's real defence is the 4.4-fold gap to the
+observed minimum of 0.043, against CXCR4's 1.1-fold." Those two multiples come
+from **different minima**: 0.021 × 4.4 = 0.092 (the panel controls' minimum),
+while 0.048 ÷ 0.043 = 1.1 (the class-structure markers' minimum). One sentence,
+two definition sets. Same failure class as the two errors before it.
+
+**And the consequence was larger than a wrong multiple.** If 0.043 were the
+operative ceiling, CXCR4 (0.0484) would already sit **above** it — its verdict
+would be `indistinguishable_from_ambient` *today*, not at some future 24%
+probability. The probability framing in D26 was also invalid on its own terms:
+those 56 controls already exist, so "adding five more" describes nothing.
+
+**The decision, which had never been made explicitly.**
+
+| definition set | ceiling | XCL1 (0.021) | CXCR4 (0.048) | CXCR4 verdict |
+|---|---|---|---|---|
+| **A — the 9 pre-registered panel ambient controls** | **0.0920** (IGKC) | **4.4×** | **1.9×** | `above_ambient` |
+| B — the 56 data-derived haematopoietic markers | 0.0430 (**CCL3**) | 2.1× | 0.89× | `indistinguishable_from_ambient` |
+
+**Set A is operative, and the reason is structural, not convenient.** The 56
+markers of set B were auto-selected *after the fact* to characterise the
+estimator's class behaviour (D23), and the three that fall below CXCR4 are
+`CCL3` (0.0430), `LINC00861` (0.0438) and `IFNG` (0.0452). **`CCL3` is a
+primary target of this study.** Letting set B define the ceiling would let a
+gene under test set the threshold that judges genes under test — circular in
+exactly the way the whole project has been guarding against. Set B is a
+diagnostic set; it was never an ambient-control set and must not become one.
+
+Note the direction: choosing A is the choice that lets CXCR4 *pass* ruler A.
+It is not being chosen to strengthen the case against CXCR4.
+
+**What this changes in the record.**
+
+- Both margins are now quoted against set A: **XCL1 4.4×, CXCR4 1.9×.**
+- **D26's probability table is withdrawn.** "P(the ceiling drops below gene X
+  after adding k controls)" was never a well-posed quantity: controls are
+  specific genes, not exchangeable draws, and the draws in question already
+  existed.
+- Replacing it is a sharper and simpler statement: **CXCR4's ruler-A verdict
+  depends on which set defines the ceiling, and XCL1's does not.** XCL1 clears
+  both (4.4× and 2.1×); CXCR4 clears one and fails the other (1.9× and 0.89×).
+
+**So CXCR4 is negative on a fourth axis** — not "at risk in future", but
+*conditional on a definition that was only settled today*:
+
+| axis | CXCR4 | XCL1 |
+|---|---|---|
+| circularity, marker regrouping | 0.30× retained, worst of four | 0.62×, best |
+| circularity, within-label | **reverses**, −3.5 pp, 3/3 donors | survives, +6.7 pp, 3/3 |
+| ruler-A margin, set A | 1.9× | 4.4× |
+| ruler-A verdict under set B | **flips to indistinguishable** | holds |
+
+The deferred repair is unchanged and now better motivated: a minimum over
+controls is set by whichever control the estimator handles worst, and the
+lower-prediction-bound construction within lineage class replaces it.
+
+---
+
+## D30 — On the decidual side, CCR5 is not detectably expressed at all.
+
+The per-subset breakdown says more than "CCR5 is in the floor band". At the
+2,137-UMI floor: dNK1 **0.15%**, dNK2 0.91%, dNK3 1.43%, dNKp 0.64% — against
+**T cells 4.00%** and **Myeloid 2.51%**. Every dNK subset is below both
+lineages that actually express it.
+
+Ruler B agrees on the source: CCR5's dominant pool contributor is **Myeloid**
+(57.5% of the non-NK pool), NK is *not* the largest contributor, and the
+NK/Myeloid ratio is 0.388 — but the verdict is `unmeasurable`, because 0.388
+is above the 0.0538 pickup band while ruler A returns 0.0575, just below the
+0.092 ceiling. The two rulers disagree, which at this abundance is what
+"no signal to adjudicate" looks like.
+
+**The stronger and better-supported statement for the decidual side is
+therefore: in this dataset, CCR5 expression is not detectable in dNK at
+transcript level** — the signal present is at or below what the two
+higher-expressing lineages would deposit as pickup.
+
+**This does not transfer to mouse tumour NK** (D28), and the point of stating
+it is narrower: if a CCR5-based line were ever to be extended to the decidual
+side, this dataset offers no starting point for it.

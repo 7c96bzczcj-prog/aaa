@@ -239,3 +239,26 @@ never needed a null distribution.**
   versus CXCR4's 1.1×. Also noted: treating "add a control" as random sampling
   is a communication device, not a fix; the lower-prediction-bound
   construction remains the repair.
+
+## v1.4.2 — 2026-08-13 — the ceiling definition set is declared; D26's probabilities withdrawn
+
+- **D29.** Two ruler-A margins had been quoted against two different minima in
+  one sentence (0.092 for XCL1, 0.043 for CXCR4). The **definition set is now
+  declared: the 9 pre-registered panel ambient controls, ceiling 0.0920.**
+  Both margins recomputed against it: **XCL1 4.4×, CXCR4 1.9×**.
+  The 56 data-derived haematopoietic markers are a *diagnostic* set and may not
+  define the ceiling — the three of them below CXCR4 include **`CCL3`, a primary
+  target of this study**, and a gene under test cannot set the threshold that
+  judges genes under test. Note the direction: this is the choice that lets
+  CXCR4 pass.
+  **D26's probability table is withdrawn** — controls are specific genes, not
+  exchangeable draws, and the draws it imagined adding already existed. It is
+  replaced by a sharper statement: CXCR4's ruler-A verdict is
+  definition-dependent (1.9× under set A, 0.89× under set B) and XCL1's is not
+  (4.4× and 2.1×). That is a fourth axis on which CXCR4 is negative.
+- **D30.** On the decidual side CCR5 is not merely floor-band: every dNK subset
+  (0.15–1.43%) sits below both T (4.00%) and Myeloid (2.51%), its dominant pool
+  contributor is Myeloid at 57.5%, and NK is not the largest contributor. The
+  supported statement is **CCR5 expression is not detectable in dNK at
+  transcript level in this dataset**. Explicitly not transferable to mouse
+  tumour NK.

@@ -361,12 +361,15 @@ shrink as the floor rises and D8's dNK3 disappears, but never reverse.
    between 0.048 and 0.092, the ceiling drops below CXCR4's 0.0484 and CXCR4's
    ruler-A verdict flips to `indistinguishable_from_ambient`. XCL1 (0.021) and
    CCL5 (0.025) keep a wide margin.
-4. **CXCR4's ruler-A margin is thin** ([D26](DECISIONS.md)): 3 of 56
-   data-derived haematopoietic controls fall below its 0.048. The decisive
-   comparison is the **gap to the observed minimum (0.043)**: CXCR4 sits 1.1×
-   above it, XCL1 sits 4.4× above it. (0/56 for XCL1 is a point estimate,
-   not zero — the rule-of-three upper bound is ~5.4% per control.) Together
-   with the two circularity axes, CXCR4 is negative on every axis measured.
+4. **CXCR4's ruler-A verdict depends on which set defines the ceiling; XCL1's
+   does not** ([D29](DECISIONS.md)). Against the operative set — the 9
+   pre-registered panel ambient controls, ceiling 0.0920 — XCL1 has a 4.4×
+   margin and CXCR4 1.9×. Against the 56 data-derived haematopoietic markers
+   (ceiling 0.0430) XCL1 still clears at 2.1× while **CXCR4 fails at 0.89×**.
+   Set A is operative because set B contains `CCL3`, a primary target of this
+   study, and a gene under test may not set the threshold that judges genes
+   under test. D26's probability table is withdrawn: controls are specific
+   genes, not exchangeable draws, and those draws already existed.
 5. **Ruler B now ranks sources by total pool contribution**
    ([A7](PREREGISTRATION_v1.2.md)), after v1.1's per-cell-CPM ranking assigned
    XCL1's source to a 184-cell ILC3 population. Consequence: for every headline
