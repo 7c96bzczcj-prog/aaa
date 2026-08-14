@@ -1,0 +1,538 @@
+[
+ {
+  "acc": "GSE66390",
+  "title": "The landscape of accessible chromatin in mammalian pre-implantation embryos",
+  "taxon": "Mus musculus",
+  "n": 51,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2016/06/15"
+ },
+ {
+  "acc": "GSE66581",
+  "title": "The landscape of accessible chromatin in mammalian pre-implantation embryos (ATAC-Seq)",
+  "taxon": "Mus musculus",
+  "n": 17,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2016/06/15"
+ },
+ {
+  "acc": "GSE66582",
+  "title": "The landscape of accessible chromatin in mammalian pre-implantation embryos (RNA-Seq)",
+  "taxon": "Mus musculus",
+  "n": 32,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2016/06/15"
+ },
+ {
+  "acc": "GSE79935",
+  "title": "The landscape of accessible chromatin in mammalian pre-implantation embryos (ChIP -Seq)",
+  "taxon": "Mus musculus",
+  "n": 2,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2016/06/15"
+ },
+ {
+  "acc": "GSE115208",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [TF1_clones_ATAC]",
+  "taxon": "Homo sapiens",
+  "n": 69,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115209",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [TF1_clones_RNA]",
+  "taxon": "Homo sapiens",
+  "n": 3,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115210",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [TF1_clones_scRNA]",
+  "taxon": "Homo sapiens",
+  "n": 81,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115211",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [TF1_clones_scATAC]",
+  "taxon": "Homo sapiens",
+  "n": 96,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115212",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [TF1_clones_scMito]",
+  "taxon": "Homo sapiens",
+  "n": 94,
+  "type": "Other",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115213",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [Colonies_ATAC]",
+  "taxon": "Homo sapiens",
+  "n": 40,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115214",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [Colonies_scRNA]",
+  "taxon": "Homo sapiens",
+  "n": 1016,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115215",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [CC100_ATAC]",
+  "taxon": "Homo sapiens",
+  "n": 2,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115216",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [CC100_scATAC]",
+  "taxon": "Homo sapiens",
+  "n": 192,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE115217",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [CC100_scRNA]",
+  "taxon": "Homo sapiens",
+  "n": 480,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE118202",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [TF1_barcoding_ATAC]",
+  "taxon": "Homo sapiens",
+  "n": 1,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE118203",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [TF1_barcoding_scRNA]",
+  "taxon": "Homo sapiens",
+  "n": 384,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE122576",
+  "title": "Single cell lineage tracing by endogenous mitochondrial DNA mutations in ATAC-seq data [stem cells and blasts]",
+  "taxon": "Homo sapiens",
+  "n": 384,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/04/12"
+ },
+ {
+  "acc": "GSE122577",
+  "title": "Single cell lineage tracing by endogenous mitochondrial DNA mutations in ATAC-seq data [HSC]",
+  "taxon": "Homo sapiens",
+  "n": 384,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/04/11"
+ },
+ {
+  "acc": "GSE122578",
+  "title": "Single cell lineage tracing by endogenous mitochondrial DNA mutations in ATAC-seq data",
+  "taxon": "Homo sapiens",
+  "n": 768,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2019/04/11"
+ },
+ {
+  "acc": "GSE122582",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [CRC_scRNA]",
+  "taxon": "Homo sapiens",
+  "n": 272,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE122583",
+  "title": "Human lineage tracing enabled by mitochondrial mutations and single cell genomics [CRC_ATAC]",
+  "taxon": "Homo sapiens",
+  "n": 3,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2019/02/28"
+ },
+ {
+  "acc": "GSE142740",
+  "title": "High-throughput single-cell mitochondrial DNA genotyping reveals properties of clonal variation in human contexts [HumanMix]",
+  "taxon": "Homo sapiens",
+  "n": 8,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/07/13"
+ },
+ {
+  "acc": "GSE142741",
+  "title": "High-throughput single-cell mitochondrial DNA genotyping reveals properties of clonal variation in human contexts [MERRF-C1]",
+  "taxon": "Homo sapiens",
+  "n": 96,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/07/13"
+ },
+ {
+  "acc": "GSE142742",
+  "title": "High-throughput single-cell mitochondrial DNA genotyping reveals properties of clonal variation in human contexts [CD34-invitro]",
+  "taxon": "Homo sapiens",
+  "n": 5,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/07/13"
+ },
+ {
+  "acc": "GSE142743",
+  "title": "High-throughput single-cell mitochondrial DNA genotyping reveals properties of clonal variation in human contexts [CLL-scATAC]",
+  "taxon": "Homo sapiens",
+  "n": 6,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/07/13"
+ },
+ {
+  "acc": "GSE142744",
+  "title": "High-throughput single-cell mitochondrial DNA genotyping reveals properties of clonal variation in human contexts [CLL-scRNA]",
+  "taxon": "Homo sapiens",
+  "n": 4,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2020/07/13"
+ },
+ {
+  "acc": "GSE148508",
+  "title": "High-throughput single-cell mitochondrial DNA genotyping reveals properties of clonal variation in human contexts [CD34-PBMC-invivo-scATAC]",
+  "taxon": "Homo sapiens",
+  "n": 4,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/07/13"
+ },
+ {
+  "acc": "GSE148509",
+  "title": "High-throughput single-cell mitochondrial DNA genotyping reveals properties of clonal variation in human contexts [CRC_scATACseq]",
+  "taxon": "Homo sapiens",
+  "n": 1,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/07/13"
+ },
+ {
+  "acc": "GSE156473",
+  "title": "High throughput joint profiling of chromatin accessibility and protein levels in single cells [PBMC stimulation]",
+  "taxon": "Homo sapiens",
+  "n": 8,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+  "date": "2020/09/08"
+ },
+ {
+  "acc": "GSE156474",
+  "title": "High throughput joint profiling of chromatin accessibility and protein levels in single cells [PBMCs]",
+  "taxon": "Homo sapiens",
+  "n": 14,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/09/08"
+ },
+ {
+  "acc": "GSE156475",
+  "title": "High throughput joint profiling of chromatin accessibility and protein levels in single cells [Species mix]",
+  "taxon": "Mus musculus; Homo sapiens",
+  "n": 4,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/09/08"
+ },
+ {
+  "acc": "GSE156476",
+  "title": "High throughput joint profiling of chromatin accessibility and protein levels in single cells [Tcell KO]",
+  "taxon": "Homo sapiens",
+  "n": 5,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/09/08"
+ },
+ {
+  "acc": "GSE156477",
+  "title": "High throughput joint profiling of chromatin accessibility and protein levels in single cells [marrow]",
+  "taxon": "Homo sapiens",
+  "n": 3,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2020/09/08"
+ },
+ {
+  "acc": "GSE163579",
+  "title": "Longitudinal single-cell dynamics of mitochondrial mutations in chronic lymphocytic leukemia mirror disease history",
+  "taxon": "Homo sapiens",
+  "n": 34,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2021/06/09"
+ },
+ {
+  "acc": "GSE165397",
+  "title": "Co-evolving JAK2V617F+ relapsed AML and donor T cells with PD-1 blockade after stem cell transplantation: an index case [ATAC-seq]",
+  "taxon": "Homo sapiens",
+  "n": 6,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2021/08/26"
+ },
+ {
+  "acc": "GSE166188",
+  "title": "High throughput joint profiling of chromatin accessibility and protein levels in single cells [PBMC_Stim_Multiome]",
+  "taxon": "Homo sapiens",
+  "n": 12,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing; Other",
+  "date": "2021/05/14"
+ },
+ {
+  "acc": "GSE166191",
+  "title": "High throughput joint profiling of chromatin accessibility and protein levels in single cells [Tcell_Intra]",
+  "taxon": "Homo sapiens",
+  "n": 6,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2021/05/14"
+ },
+ {
+  "acc": "GSE173936",
+  "title": "Single-cell multi-omics of mitochondrial DNA disorders reveals dynamics of purifying selection across human immune cells",
+  "taxon": "Homo sapiens",
+  "n": 52,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+  "date": "2023/04/13"
+ },
+ {
+  "acc": "GSE182685",
+  "title": "Mitochondrial variant enrichment from high-throughput single-cell RNA-seq resolves clonal populations",
+  "taxon": "Homo sapiens",
+  "n": 22,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2021/12/08"
+ },
+ {
+  "acc": "GSE186137",
+  "title": "Dissection of Richter\u2019s syndrome pathogenesis and treatment through multiplexed CRISPR-based mouse models",
+  "taxon": "Mus musculus; Mus",
+  "n": 35,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2022/12/05"
+ },
+ {
+  "acc": "GSE194028",
+  "title": "Systematic benchmarking of single-cell ATAC sequencing protocols",
+  "taxon": "Homo sapiens",
+  "n": 56,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+  "date": "2023/05/22"
+ },
+ {
+  "acc": "GSE197008",
+  "title": "Clonal expansion and epigenetic inheritance shape long-lasting NK cell memory [scATAC ex vivo]",
+  "taxon": "Homo sapiens",
+  "n": 6,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2022/09/05"
+ },
+ {
+  "acc": "GSE216911",
+  "title": "Synonymous mitochondrial DNA variation impairs CD8 T cell fate via codon affinity [Tcell Culture scATAC]",
+  "taxon": "Homo sapiens",
+  "n": 2,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2024/10/31"
+ },
+ {
+  "acc": "GSE217448",
+  "title": "Cellular states, clonal dynamics, and evolution in Pearson syndrome revealed via single-cell multi-omics [NAMDC_scATAC]",
+  "taxon": "Homo sapiens",
+  "n": 3,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2023/04/14"
+ },
+ {
+  "acc": "GSE217450",
+  "title": "Cellular states, clonal dynamics, and evolution in Pearson syndrome revealed via single-cell multi-omics [DOGMAseq_PT1]",
+  "taxon": "Homo sapiens",
+  "n": 10,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2023/04/14"
+ },
+ {
+  "acc": "GSE219014",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Aged 1]",
+  "taxon": "Homo sapiens",
+  "n": 6,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2023/11/18"
+ },
+ {
+  "acc": "GSE219015",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics",
+  "taxon": "Mus musculus; Homo sapiens",
+  "n": 56,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2023/11/18"
+ },
+ {
+  "acc": "GSE219057",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Aged 2]",
+  "taxon": "Homo sapiens",
+  "n": 6,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2023/11/18"
+ },
+ {
+  "acc": "GSE219106",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Young 1]",
+  "taxon": "Homo sapiens",
+  "n": 9,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2023/11/18"
+ },
+ {
+  "acc": "GSE219167",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Young1_T2]",
+  "taxon": "Homo sapiens",
+  "n": 9,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2023/11/18"
+ },
+ {
+  "acc": "GSE219248",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Young2]",
+  "taxon": "Homo sapiens",
+  "n": 9,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2023/11/18"
+ },
+ {
+  "acc": "GSE235675",
+  "title": "Systematic investigation of mitochondrial transfer between cancer cells and T cells at single-cell resolution",
+  "taxon": "Mus musculus",
+  "n": 9,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2024/06/21"
+ },
+ {
+  "acc": "GSE256495",
+  "title": "Convergent Epigenetic Evolution Drives Relapse in Acute Myeloid Leukemia",
+  "taxon": "Homo sapiens",
+  "n": 195,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2024/04/17"
+ },
+ {
+  "acc": "GSE259284",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Crispr_Mouse_Batch1]",
+  "taxon": "Mus musculus",
+  "n": 4,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2024/02/26"
+ },
+ {
+  "acc": "GSE259285",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Crispr_Mouse_Batch2]",
+  "taxon": "Mus musculus",
+  "n": 4,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2024/02/26"
+ },
+ {
+  "acc": "GSE261078",
+  "title": "Deciphering cell states and genealogies of human hematopoiesis with single-cell multi-omics [Extended donors]",
+  "taxon": "Homo sapiens",
+  "n": 9,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2024/03/09"
+ },
+ {
+  "acc": "GSE274263",
+  "title": "Single cell ATAC sequencing in Skeletal cells",
+  "taxon": "Mus musculus",
+  "n": 9,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing; Other",
+  "date": "2025/02/01"
+ },
+ {
+  "acc": "GSE276283",
+  "title": "A functional subpopulation of human glioma associated macrophages linked to malignant glioma progression [mtscATAC-seq]",
+  "taxon": "Homo sapiens",
+  "n": 6,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2025/08/01"
+ },
+ {
+  "acc": "GSE282115",
+  "title": "Age-dependent accumulation of mitochondrial tRNA mutations in mouse kidneys linked to mitochondrial kidney diseases [mtscATAC-Seq]",
+  "taxon": "Mus musculus",
+  "n": 3,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2025/06/16"
+ },
+ {
+  "acc": "GSE282116",
+  "title": "Age-dependent accumulation of mitochondrial tRNA mutations in mouse kidneys linked to mitochondrial kidney diseases",
+  "taxon": "Mus musculus",
+  "n": 13,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2025/06/16"
+ },
+ {
+  "acc": "GSE291877",
+  "title": "Single-cell mitochondrial genotyping of exonuclease-deficient DNA polymerase \u03b3 (POLGD274A) knock-in HEK293 cell lines",
+  "taxon": "Homo sapiens",
+  "n": 7,
+  "type": "Expression profiling by high throughput sequencing; Other; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2026/02/01"
+ },
+ {
+  "acc": "GSE297418",
+  "title": "MitoPerturb-Seq identifies gene-specific single-cell responses to mitochondrial DNA depletion and heteroplasmy [multiome]",
+  "taxon": "Mus musculus",
+  "n": 8,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2026/01/27"
+ },
+ {
+  "acc": "GSE318902",
+  "title": "Mitochondrial DNA mutation triggers early-onset intestinal epithelial cell dysfunction during acute colitis [scRNA-Seq]",
+  "taxon": "Mus musculus",
+  "n": 4,
+  "type": "Expression profiling by high throughput sequencing",
+  "date": "2026/07/30"
+ },
+ {
+  "acc": "GSE318904",
+  "title": "Mitochondrial DNA mutation triggers early-onset intestinal epithelial cell dysfunction during acute colitis [scMultiome]",
+  "taxon": "Mus musculus",
+  "n": 2,
+  "type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2026/07/30"
+ },
+ {
+  "acc": "GSE318907",
+  "title": "Mitochondrial DNA mutation triggers early-onset intestinal epithelial cell dysfunction during acute colitis [mtscATAC-seq]",
+  "taxon": "Mus musculus",
+  "n": 8,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2026/07/30"
+ },
+ {
+  "acc": "GSE338520",
+  "title": "Somatic mutations reveal the ontogeny of microglia in human aging [mtscATAC-seq]",
+  "taxon": "Homo sapiens",
+  "n": 7,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2026/07/13"
+ },
+ {
+  "acc": "GSE338956",
+  "title": "mtDNA transfer dynamics in vivo can induce dose-dependent tumor cell dedifferentiation and heterogeneity",
+  "taxon": "Mus musculus",
+  "n": 9,
+  "type": "Genome binding/occupancy profiling by high throughput sequencing",
+  "date": "2026/08/03"
+ }
+]

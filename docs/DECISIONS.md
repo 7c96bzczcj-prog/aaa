@@ -355,3 +355,41 @@ overclaiming absence of evidence; here it caught an overconfident absence claim 
 our own audit. That is the rule working in the direction it is least often applied.
 
 ---
+
+## DEC-14 — P1 occupancy: found independently, and it also tests my own threshold
+
+**What.** While building the C.1 dataset inventory I found, independently of the Phase B
+occupancy agent, that the exact instrument P1 would need has already been applied to P1's
+population: **Rückert T, Lareau CA, et al., "Clonal expansion and epigenetic inheritance
+of long-lasting NK cell memory", *Nat Immunol* 2022, PMID 36289449** (GEO GSE197037 /
+GSE197008; code at github.com/timorueckert/Clonal_NK).
+
+**Methods, read not skimmed.** Human, 4 HCMV+ and 3 HCMV− donors, mtscATAC-seq/ASAP-seq
+with ADT and HTO capture; mgatk in tenx mode; informative variants filtered at strand
+concordance > 65%, variance-to-mean ratio > 0.01, detected in ≥ 3 cells; clonotypes built
+by clustering a neighbourhood graph on mtDNA mutation frequency. Result: substantial clonal
+expansion of adaptive NK cells, with clonotypes associated not only with the adaptive
+compartment as a whole but with specific adaptive subclusters, and mutations "specifically
+enriched in the adaptive NK cell compartment" in HCMV+ donors.
+
+**Why this is recorded here rather than left to the agent.** B4 is the criterion most
+likely to be answered from memory, and a wrong FALSE there is what corrupts a shortlist
+(the preregistration says so explicitly). Finding the occupant independently gives a check
+on the agent's answer rather than a substitute for it; the two are compared in RESULTS.
+
+**Scope caution before this is used to kill P1.** Rückert establishes clonal expansion and
+persistence *within* the adaptive compartment. P1 as written asserts a *descent* relation,
+cNK → adaptive NKG2C+. Whether adaptive-restricted clonotypes settle that descent question,
+or only the expansion question, is a real distinction and is left to the Phase B occupancy
+verdict rather than resolved by assertion here.
+
+**It also tests my own preregistered threshold, and I am not moving it.** Rückert operate at
+a **median chrM coverage of 11–20×**, below the 20× floor I preregistered in DEC-04, arguing
+that sensitivity for high-heteroplasmy mutations is relatively coverage-independent. So a
+published, peer-reviewed, field-defining application of exactly this method would be
+**refused by my own admissibility rule**. That is worth stating plainly: my threshold is
+conservative relative to accepted practice. It stays as preregistered — loosening it now,
+after seeing that it excludes a dataset I would like to use, is precisely the post-hoc
+adjustment C.2 forbids. The consequence is recorded as a limitation, not repaired.
+
+---
