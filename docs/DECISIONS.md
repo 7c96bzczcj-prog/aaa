@@ -681,11 +681,12 @@ ruler B only.
 | true-NK floor | 0.021 | KLRD1/NKG7/GNLY/PRF1/GZMB/NCR1 |
 | target genes | 0.021–0.048 | XCL1 0.021, CCL5 0.025, CXCR4 0.048 |
 
-**But checking it exposed a real error in the v1.1 report, which is retracted
-here.** That report argued PAEP's absence was harmless because "ruler A is
-already saturated at 1.000 on five tissue controls, so a sixth cannot raise
-the ceiling". **The ceiling is the MINIMUM, not the maximum.** Those five
-1.000s do not set it; IGKC's 0.092 does.
+**But checking it exposed an error in the v1.2 CHANGELOG, retracted here.**
+That entry argued PAEP's absence was harmless because "ruler A is already
+saturated at 1.000 on five tissue controls, so a sixth cannot raise the
+ceiling". **The ceiling is the MINIMUM, not the maximum.** Those five 1.000s
+do not set it; IGKC's 0.092 does. The argument was written into the record
+without checking the one line of code that defines the ceiling.
 
 The correct risk statement: PAEP matters only if it would return a value
 **below** 0.092, and then it lowers the ceiling. **If PAEP would return
@@ -753,3 +754,110 @@ accordingly.
 
 Under the correct version, XCL1 dNK1→dNK2 sits at **q = 0.0463**, and CCL5
 dNK1→dNK2 at 0.0318.
+
+---
+
+## D23 — Ruler A's soup fraction splits by lineage CLASS. PAEP's absence is low-risk after all.
+
+The nine panel ambient controls split perfectly: the four that do **not**
+saturate (IGKC 0.092, LYZ 0.164, C1QA 0.176, HBB 0.408) are all
+haematopoietic; the five that saturate at 1.000 (DCN, COL1A1, IGFBP1, HLA-G,
+CSH1) are all non-haematopoietic. Tested by pulling marker genes for every
+mapped lineage **straight from the data** and running them through the same
+leave-one-out estimator (`src/ceiling_class_structure.py`).
+
+| class | n | median soup fraction | saturated at 1.000 |
+|---|---|---|---|
+| haematopoietic | 56 | 0.250 | **1.8%** |
+| non-haematopoietic | 60 | **1.000** | **90%** |
+
+Mann–Whitney p = 3.1e-19. Gene-level, not donor-level: it characterises the
+estimator, not a biological claim, so R1 does not apply and nothing from it
+enters T2.
+
+**A first pass got this wrong and the fix matters.** Ranking candidate markers
+by lineage CPM alone made Stromal look like an exception (0% saturated). The
+cause was selection, not biology: the lineage with the most cells (Stromal,
+12,583) owns the total counts of every housekeeping gene too, so the top-CPM
+list filled with ribosomal genes that NK also expresses, dragging their soup
+fraction down. Requiring 5× specificity over the next-highest lineage put
+Stromal at 100% saturated, in line with the panel's own DCN/COL1A1/IGFBP1.
+
+**Consequence for PAEP.** Glandular-epithelial/stromal markers are 92%
+saturated with median 1.000. PAEP is glandular epithelial / decidualised
+stroma, so it would be expected to return 1.000 and **leave the ceiling
+untouched** — the ceiling being a *minimum*. **The CXCR4 risk from PAEP's
+absence, raised in D21, is therefore small.** D21's risk statement is
+downgraded accordingly; its correction of the *mechanism* (ceiling = minimum,
+not maximum) still stands.
+
+**And it exposes a deeper defect.** The ceiling of 0.092 is set entirely by
+the haematopoietic class — which is the class the estimator handles worst,
+because NK cells are themselves haematopoietic and rho's single-load
+assumption fails for same-class genes. A minimum over controls is therefore
+set by the estimator's worst case and falls monotonically as controls are
+added. Recorded in `PREREGISTRATION_v1.3.md` as known and deferred.
+
+---
+
+## D24 — The FDR criterion is withdrawn, not adjusted.
+
+Walk the arithmetic: with N nulls per target the rank floor is 1/(N+1), and BH
+at m = 81 needs `0.05 × k / 81` for k rows tied at that floor — 15 rows at
+N = 112, 6 at N = 317, 5 at N = 371. **Only 8 rows are candidates in the whole
+study.** The same data gave 6 passes, then 0, then 8, as N alone changed.
+
+The pass count is a function of the null-set size, not of the effects. That is
+not a rule needing a tuned parameter; it is a rule that does not hold at this
+n — the same failure as ruler B's fixed denominator (v1.2 A7) and BH over the
+signed-rank p (v1.1 A2), both of which were also withdrawn rather than tuned.
+
+**Decision.** No q value, no pass/fail list, no replacement rule. Rows carry
+`fdr_estimable = FALSE` with the reason. Descriptive quantities are reported:
+effect in points, z as a standardised effect size never converted to a p,
+donor sign concordance, ruler-A margin, and the observed effect's rank within
+its own null set.
+
+Retaining BH as a "reported but non-adjudicating" column, as v1.1 A2 did, was
+a half-measure: a number printed beside a result is read as a verdict whatever
+the caption says.
+
+---
+
+## D25 — Matching nulls on detection rate was the right diagnosis and did not fix it.
+
+The readout is a detection rate, bounded in [0,1], with sampling variance
+p(1−p)/n set by the rate rather than by CPM. Matching nulls on CPM therefore
+gave low-detection targets a null set compressed against the zero floor for
+unrelated reasons — which is how a **+1.5 pp** S1PR5 effect reached the top of
+the v1.2 list. Matching was moved to the reference arm's **baseline detection
+rate**, computed over the whole transcriptome at matched depth, per contrast.
+
+**It made the problem sharper, not smaller.**
+
+| baseline detection | n | median null SD (pp) | median abs effect (pp) |
+|---|---|---|---|
+| < 0.5% | 29 | 0.33 | 0.17 |
+| 2–10% | 8 | 2.06 | 2.07 |
+| > 30% | 17 | 6.41 | 10.15 |
+
+**A z of 5 buys a 32.1-point effect at >30% baseline detection and a
+1.63-point effect at <0.5% — 20-fold.** S1PR5 went from z = +5.01 to
+**+10.34** on the same +1.5 pp; SELL entered at z = +10.55 on +4.8 pp.
+
+**Conclusion, recorded as a limit rather than patched.** The defect is not the
+matching axis. **z is not comparable across genes on a bounded scale near its
+boundary, however the nulls are chosen.** So z may never be read without the
+percentage-point effect beside it; both are emitted in `null_descriptive.tsv`,
+and no z-alone ranking appears in `RESULTS.md`. No effect-size threshold was
+added after the fact to suppress S1PR5 or SELL — they are left in as evidence
+about the instrument.
+
+**The pattern across v1.1–v1.3.** Four instruments have now been withdrawn
+rather than tuned: BH over the signed-rank p, ruler B's fixed denominator,
+the FDR criterion, and z as a standalone ranking. In each case the failure was
+that the output was determined by a nuisance parameter — n, the denominator
+lineage, the null-set size, the baseline rate — instead of by the effect.
+**What survived all four withdrawals is the evidence that never used any of
+them:** donor-unanimous direction, effect size in points, and reproduction
+within a fixed cluster.

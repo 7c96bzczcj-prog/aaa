@@ -1,4 +1,4 @@
-dataset_id	comparison_id	n_null_genes	null_mean_diff_pp	null_sd_diff_pp	null_q025	null_q975	n_donors_median
-VT2018	A_decidua_dNK1_vs_dNK2	405	0.48954860361632885	4.040177772684631	-9.117674695027969	10.48244339680203	6.0
-VT2018	A_decidua_dNK1_vs_dNK3	405	0.5202869707551436	5.094480172650792	-10.866377586914934	11.527833793461332	5.0
-VT2018	A_decidua_dNK2_vs_dNK3	405	0.03732491222868746	3.567990463711488	-7.887544016520408	7.841736038496026	5.0
+dataset_id	comparison_id	reference_arm	n_null_genes	matching_axis	null_mean_diff_pp	null_sd_diff_pp
+VT2018	A_decidua_dNK1_vs_dNK2	dNK1	6374	baseline_detection_rate	0.13415098588928373	2.6173438511799665
+VT2018	A_decidua_dNK1_vs_dNK3	dNK1	6433	baseline_detection_rate	0.25071595763135934	4.109537081384707
+VT2018	A_decidua_dNK2_vs_dNK3	dNK2	6638	baseline_detection_rate	0.11442194377930073	3.0895867555034986

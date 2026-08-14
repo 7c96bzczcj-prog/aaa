@@ -164,3 +164,36 @@ and magnitude are claimed.
   different cell-count threshold reaches it. The libraries-as-donors reading
   stays live and remains the most economical explanation of a clean 11/11.
   **The OXPHOS result should not be cited until the donor column is printed.**
+
+## v1.3 — 2026-08-13 — the FDR criterion is withdrawn; z is shown never to be comparable
+
+- **A8 — no FDR, no replacement rule.** With N nulls per target the rank floor
+  is 1/(N+1), and BH at m = 81 needs 15 rows tied at it when N = 112, 6 when
+  N = 317, 5 when N = 371 — against 8 candidate rows in the whole study. The
+  same data gave 6, then 0, then 8 passes as N alone changed. Rows carry
+  `fdr_estimable = FALSE`. Descriptive quantities replace it: effect in
+  points, z as a standardised effect size never converted to a p, donor sign
+  concordance, ruler-A margin, and the observed effect's rank in its null set.
+  Keeping BH as a "reported but non-adjudicating" column (v1.1 A2) was a
+  half-measure — a number printed beside a result is read as a verdict.
+- **A9 — nulls matched on the reference arm's baseline detection rate**, not
+  CPM, computed over the whole transcriptome at matched depth per contrast.
+  **It did not fix the S1PR5 problem; it sharpened it** (z +5.01 → +10.34 on
+  the same +1.5 pp). A z of 5 buys 32.1 points at >30% baseline detection and
+  1.63 points at <0.5% — 20-fold. Recorded as a limit of z on a bounded scale,
+  not patched, and no effect-size filter was added afterwards.
+- **D23 — ruler A splits by lineage class**, tested on data-derived markers:
+  haematopoietic median 0.250 / 1.8% saturated, non-haematopoietic 1.000 / 90%
+  (p = 3.1e-19). So PAEP, being glandular epithelial, would be expected to
+  return 1.000 and leave the ceiling untouched — **the CXCR4 risk raised in
+  D21 is downgraded**. A first pass got this wrong by ranking markers on
+  lineage CPM alone, which selects housekeeping genes owned by the largest
+  lineage; 5× specificity fixed it.
+- Attribution in D21/RESULTS made factual: the retracted PAEP argument is
+  attributed to the v1.2 CHANGELOG entry, not to a person.
+
+**The pattern across v1.1–v1.3.** Four instruments withdrawn rather than
+tuned — BH over the signed-rank p, ruler B's fixed denominator, the FDR
+criterion, z as a standalone ranking — each because its output was set by a
+nuisance parameter instead of by the effect. **What survived is exactly what
+never needed a null distribution.**

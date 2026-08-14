@@ -201,12 +201,29 @@ def test_pipeline_end_to_end(synth):
 
     # v1.1 A2: the empirical null carries the inference and gets its own BH
     r = run("null_distribution.py", manifest, cwd,
-            extra=["--min-genes", "5", "--min-cells", "20", "--n-null", "60"])
+            extra=["--min-genes", "5", "--min-cells", "20", "--n-null", "270",
+                   "--min-null-per-target", "5"])
     assert r.returncode == 0, r.stdout + r.stderr
     T4 = pd.read_csv(os.path.join(cwd, "out", "SYNTH", "null_distribution.tsv"), sep="\t")
-    assert "q_bh_empirical" in T4.columns
-    assert (T4["empirical_p"].dropna() >= 0).all() and (T4["empirical_p"].dropna() <= 1).all()
-    # the planted XCL1 effect should stand out against the matched null
+
+    # v1.3 A8: no FDR is reported, and no q column survives
+    assert "q_bh_empirical" not in T4.columns
+    assert "q_bh_empirical_per_comparison" not in T4.columns
+    assert "empirical_p" not in T4.columns, "a rank p would be read as a verdict"
+    assert (T4["fdr_estimable"] == False).all()  # noqa: E712
+    assert T4["fdr_not_estimable_reason"].notna().all()
+    assert "NO FDR REPORTED" in r.stdout
+
+    # v1.3 A9: nulls are matched on baseline detection, and both the
+    # standardised and the raw effect must be present so neither is read alone
+    for c in ("baseline_detection_ref_arm", "empirical_z", "observed_diff_pp",
+              "reference_arm", "rank_of_observed"):
+        assert c in T4.columns, c
+    # the reference arm of a contrast is its group_a
+    assert (T4.loc[T4.comparison_id == "A_decidua_dNK1_vs_dNK2",
+                   "reference_arm"] == "dNK1").all()
+
+    # the planted XCL1 effect should stand out against its matched null
     x = T4[(T4.comparison_id == "A_decidua_dNK1_vs_dNK2") & (T4.gene == "XCL1")]
     assert len(x) == 1 and x.iloc[0]["empirical_z"] > 2
 

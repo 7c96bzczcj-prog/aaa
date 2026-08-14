@@ -1,9 +1,24 @@
 #!/usr/bin/env python
 """T4 null_distribution.tsv — an empirical null from expression-matched genes.
 
-R6.5: >= 400 random genes matched to the panel on expression level, pushed
-through the identical donor-level pipeline. The resulting distribution of
-effect sizes is the baseline against which target effects are read.
+R6.5: random genes matched to the panel, pushed through the identical
+donor-level pipeline. The resulting distribution of effect sizes is the
+baseline against which target effects are read.
+
+MATCHING AXIS (v1.3). Null genes are matched on the REFERENCE ARM'S BASELINE
+DETECTION RATE, not on CPM. The readout is a detection rate, which is bounded
+in [0,1]: a gene detected in 2% of cells cannot move more than 2 points down,
+and its sampling variance is p(1-p)/n, set by the rate and not by CPM. Matching
+on CPM therefore hands a low-detection target a null set whose variance is
+compressed against the zero floor for a different reason than the target's own,
+and inflates its z. That is what produced a "significant" 1.5-point S1PR5
+effect under CPM matching.
+
+NO FDR IS REPORTED. See docs/PREREGISTRATION_v1.3.md: at this n the number of
+rows passing BH is a function of the null-set size, not of the effects, so the
+pre-registered FDR criterion is not estimable. Descriptive quantities are
+reported instead: standardised effect (z) against the matched null, the effect
+in percentage points, donor sign concordance, and ruler-A margin.
 
 The baseline is NOT assumed to sit at zero. Earlier work in this project
 measured baselines ranging from -0.002 +/- 0.037 to -0.184 +/- 0.252 depending
@@ -34,13 +49,18 @@ from dnkchem.stats import (benjamini_hochberg, continuity_rate,  # noqa: E402
 DNK_TRIO = ["dNK1", "dNK2", "dNK3"]
 
 
-def match_expression(mean_expr, target_cols, n_per_target, rng, exclude, window=0):
-    """Pick genes whose pooled expression brackets each target gene.
+def match_on_axis(axis, target_cols, n_per_target, rng, exclude, window=0):
+    """Pick null genes whose value on `axis` brackets each target gene.
 
-    The window is auto-sized when not given: a 10,000-gene null needs a wider
-    rank neighbourhood than a 400-gene one, and silently returning fewer genes
-    would cap the empirical-p resolution without saying so.
+    `axis` is the reference arm's baseline detection rate (v1.3), so the null
+    set for a target shares the target's position on the bounded scale the
+    effect is measured on.
+
+    The window is auto-sized when not given: a larger null needs a wider rank
+    neighbourhood, and silently returning fewer genes would cap the resolution
+    without saying so.
     """
+    mean_expr = axis
     order = np.argsort(mean_expr)
     rank = np.empty_like(order)
     rank[order] = np.arange(len(order))
@@ -72,6 +92,9 @@ def main():
                     help="rank half-width for expression matching; "
                          "0 = auto-size to satisfy --n-null")
     ap.add_argument("--min-cells", type=int, default=30)
+    ap.add_argument("--min-null-per-target", type=int, default=30,
+                    help="a target with fewer matched nulls than this is not "
+                         "reported: its null spread would be unestimable")
     ap.add_argument("--min-genes", type=int, default=200)
     ap.add_argument("--max-mito", type=float, default=0.10)
     ap.add_argument("--seed", type=int, default=20260813)
@@ -96,61 +119,84 @@ def main():
     obs_s = obs.loc[sel]
     print(f"[null] decidual dNK1-3 cells after QC: {Xs.shape[0]}")
 
-    pooled = np.asarray(Xs.sum(axis=0)).ravel()
-    mean_expr = pooled / max(1.0, pooled.sum()) * 1e6
-
     target_cols = [hits[g] for g in panel[panel.role == "primary_target"]["gene_symbol"]
                    if g in hits]
-    n_per = max(1, int(np.ceil(args.n_null / max(1, len(target_cols)))))
-    rng = np.random.default_rng(args.seed)
-    per_target = match_expression(mean_expr, target_cols, n_per, rng,
-                                  exclude=set(hits.values()),
-                                  window=args.match_window)
-    null_cols = sorted({c for v in per_target.values() for c in v})
     col_to_gene = {hits[g]: g for g in hits}
-    # each target gets its OWN expression-matched null set: a gene at 2300 CPM
-    # must not be judged against a null pool with median 5 CPM, or the null's
-    # variance is understated and every z is inflated.
-    gene_to_nulls = {col_to_gene[c]: v for c, v in per_target.items() if c in col_to_gene}
-    print(f"[null] {len(null_cols)} expression-matched null genes "
-          f"({n_per} per target, target CPM range "
-          f"{mean_expr[target_cols].min():.2f}-{mean_expr[target_cols].max():.2f})")
-    if len(null_cols) < args.n_null:
-        print(f"[null] WARNING: only {len(null_cols)} null genes available "
-              f"(requested {args.n_null}); empirical-p resolution is "
-              f"1/{len(null_cols)+1} = {1/(len(null_cols)+1):.5f}")
-    # expression matching quality, reported rather than assumed
-    tq = np.quantile(mean_expr[target_cols], [0.1, 0.5, 0.9])
-    nq = np.quantile(mean_expr[null_cols], [0.1, 0.5, 0.9])
-    print(f"[null] CPM q10/q50/q90 -- targets {tq.round(3)} | nulls {nq.round(3)}")
-    sizes = {col_to_gene[c]: len(v) for c, v in per_target.items() if c in col_to_gene}
-    thin = {g: n for g, n in sizes.items() if n < n_per}
-    print(f"[null] per-target null-set size: min {min(sizes.values())}, "
-          f"median {int(np.median(list(sizes.values())))}, max {max(sizes.values())}")
-    if thin:
-        print(f"[null] targets with a THIN null set (resolution 1/(n+1) is worse "
-              f"for these): {dict(sorted(thin.items(), key=lambda kv: kv[1])[:8])}")
+    n_per = max(1, int(np.ceil(args.n_null / max(1, len(target_cols)))))
+    subs_arr = obs_s["subset"].astype(str).to_numpy()
+    n_genes = Xs.shape[1]
 
-    # per donor x subset detection rates for the null genes, same depth, same seed
-    recs = []
-    for (donor, ss), r in unit_indices(obs_s, np.ones(len(obs_s), bool), ["donor", "subset"]):
-        counts, kept = downsample_marginal(Xs[r], null_cols, depth, seed=args.seed)
-        n_post = int(kept.sum())
-        if n_post < args.min_cells:
-            continue
-        n_det, det, _ = detection_and_cpm(counts, depth)
-        for j in range(len(null_cols)):
-            recs.append({"donor": donor, "subset": ss, "col": null_cols[j],
-                         "n_cells": n_post, "n_detected": int(n_det[j]),
-                         "detection_rate": float(det[j])})
-    D = pd.DataFrame(recs)
-    if D.empty:
-        raise SystemExit("[null] no admissible units")
+    def baseline_detection(subset_name):
+        """Pooled detection rate of EVERY gene in one subset, at matched depth.
 
+        This is the axis null genes are matched on (v1.3). Computed in column
+        blocks so the whole transcriptome never has to be densified at once.
+        """
+        r = np.flatnonzero(subs_arr == subset_name)
+        if r.size == 0:
+            return np.zeros(n_genes)
+        det = np.zeros(n_genes)
+        n_kept = None
+        for start in range(0, n_genes, 4000):
+            cc = list(range(start, min(start + 4000, n_genes)))
+            counts, kept = downsample_marginal(Xs[r], cc, depth, seed=args.seed)
+            if n_kept is None:
+                n_kept = max(1, int(kept.sum()))
+            if counts.shape[0]:
+                det[start:start + len(cc)] = (counts >= 1).sum(axis=0) / n_kept
+        return det
+
+    print("[null] computing whole-transcriptome baseline detection per subset "
+          "(the v1.3 matching axis)", flush=True)
+    baseline = {ss: baseline_detection(ss) for ss in DNK_TRIO}
+    for ss in DNK_TRIO:
+        b = baseline[ss]
+        print(f"       {ss}: median {np.median(b):.4f}, "
+              f"targets span {b[target_cols].min():.4f}-{b[target_cols].max():.4f}")
+
+    rng = np.random.default_rng(args.seed)
+
+    T2 = pd.read_csv(os.path.join(outdir, "donor_level_tests.tsv"), sep="\t")
     T2 = pd.read_csv(os.path.join(outdir, "donor_level_tests.tsv"), sep="\t")
     out_rows, summary_rows = [], []
     for sa, sb in itertools.combinations(DNK_TRIO, 2):
         cid = f"A_decidua_{sa}_vs_{sb}"
+        # match on the REFERENCE arm's baseline detection rate
+        axis = baseline[sa]
+        per_target = match_on_axis(axis, target_cols, n_per, rng,
+                                   exclude=set(hits.values()),
+                                   window=args.match_window)
+        null_cols = sorted({c for v in per_target.values() for c in v})
+        gene_to_nulls = {col_to_gene[c]: v for c, v in per_target.items()
+                         if c in col_to_gene}
+        sizes = {g: len(v) for g, v in gene_to_nulls.items()}
+        print(f"\n[{cid}] reference arm {sa}: {len(null_cols)} null genes, "
+              f"per-target min {min(sizes.values())} / median "
+              f"{int(np.median(list(sizes.values())))}")
+        tq = np.quantile(axis[target_cols], [0.1, 0.5, 0.9])
+        nq = np.quantile(axis[null_cols], [0.1, 0.5, 0.9])
+        print(f"[{cid}] baseline-detection q10/q50/q90 -- targets {tq.round(3)} "
+              f"| nulls {nq.round(3)}")
+
+        # detection rates for this comparison's null genes
+        recs = []
+        for (donor, ss), r in unit_indices(obs_s, np.ones(len(obs_s), bool),
+                                           ["donor", "subset"]):
+            if ss not in (sa, sb):
+                continue
+            counts, kept = downsample_marginal(Xs[r], null_cols, depth, seed=args.seed)
+            n_post = int(kept.sum())
+            if n_post < args.min_cells:
+                continue
+            n_det, det, _ = detection_and_cpm(counts, depth)
+            for j, c in enumerate(null_cols):
+                recs.append({"donor": donor, "subset": ss, "col": c,
+                             "n_cells": n_post, "n_detected": int(n_det[j]),
+                             "detection_rate": float(det[j])})
+        D = pd.DataFrame(recs)
+        if D.empty:
+            continue
+
         effects = []
         for col, g in D.groupby("col"):
             a = g[g.subset == sa].set_index("donor")
@@ -161,93 +207,104 @@ def main():
             a, b = a.loc[donors], b.loc[donors]
             diff_pp = float(np.mean((b.detection_rate.to_numpy() -
                                      a.detection_rate.to_numpy()) * 100))
-            la = logit(continuity_rate(a.n_detected, a.n_cells))
-            lb = logit(continuity_rate(b.n_detected, b.n_cells))
-            _, p, _ = exact_wilcoxon_signed_rank(lb - la)
-            effects.append({"col": int(col), "mean_diff_pp": diff_pp, "p_raw": p,
+            effects.append({"col": int(col), "mean_diff_pp": diff_pp,
                             "n_donors": len(donors)})
         E = pd.DataFrame(effects)
         if E.empty:
             continue
-        mu_all = float(E.mean_diff_pp.mean())
-        sd_all = float(E.mean_diff_pp.std(ddof=1))
         summary_rows.append({"dataset_id": mf.dataset_id, "comparison_id": cid,
-                             "n_null_genes": len(E), "null_mean_diff_pp": mu_all,
-                             "null_sd_diff_pp": sd_all,
-                             "null_q025": float(E.mean_diff_pp.quantile(0.025)),
-                             "null_q975": float(E.mean_diff_pp.quantile(0.975)),
-                             "n_donors_median": float(E.n_donors.median())})
-        print(f"[null] {cid}: pooled baseline {mu_all:+.3f} +/- {sd_all:.3f} pp over "
-              f"{len(E)} genes (NOT assumed to be zero; per-gene sets used below)")
+                             "reference_arm": sa, "n_null_genes": len(E),
+                             "matching_axis": "baseline_detection_rate",
+                             "null_mean_diff_pp": float(E.mean_diff_pp.mean()),
+                             "null_sd_diff_pp": float(E.mean_diff_pp.std(ddof=1))})
+        print(f"[{cid}] pooled null baseline {E.mean_diff_pp.mean():+.3f} +/- "
+              f"{E.mean_diff_pp.std(ddof=1):.3f} pp (per-gene sets used below)")
 
         by_col = dict(zip(E.col, E.mean_diff_pp))
         tt = T2[T2.comparison_id == cid]
         for _, row in tt.iterrows():
             if not np.isfinite(row.mean_diff_pp):
                 continue
-            # THIS gene's own expression-matched null set, not the pooled one
             own = [by_col[c] for c in gene_to_nulls.get(row.gene, []) if c in by_col]
-            if len(own) >= 30:
-                obs_eff = np.asarray(own)
-                matched = True
-            else:
-                obs_eff = E.mean_diff_pp.to_numpy()
-                matched = False
-            mu = float(obs_eff.mean())
-            sd = float(obs_eff.std(ddof=1))
-            # rank-based empirical p with the standard +1 correction: with N
-            # null genes it cannot resolve below 1/(N+1). Reporting anything
-            # smaller (e.g. a normal-tail p from z) would claim precision the
-            # resampling cannot support.
+            if len(own) < args.min_null_per_target:
+                continue
+            obs_eff = np.asarray(own)
+            mu, sd = float(obs_eff.mean()), float(obs_eff.std(ddof=1))
             n_ge = int((np.abs(obs_eff - mu) >= abs(row.mean_diff_pp - mu)).sum())
-            emp_p = (n_ge + 1) / (len(obs_eff) + 1)
-            z = float((row.mean_diff_pp - mu) / sd) if sd > 0 else np.nan
-            out_rows.append({"dataset_id": mf.dataset_id, "comparison_id": cid,
-                             "gene": row.gene, "observed_diff_pp": row.mean_diff_pp,
-                             "null_mean_diff_pp": mu, "null_sd_diff_pp": sd,
-                             "n_null_genes": len(obs_eff),
-                             "null_set_is_expression_matched": matched,
-                             "empirical_p": emp_p,
-                             "empirical_p_resolution_floor": 1.0 / (len(obs_eff) + 1),
-                             "empirical_p_at_resolution_floor": bool(n_ge == 0),
-                             "empirical_z": z})
+            out_rows.append({
+                "dataset_id": mf.dataset_id, "comparison_id": cid,
+                "reference_arm": sa, "gene": row.gene,
+                "observed_diff_pp": row.mean_diff_pp,
+                "baseline_detection_ref_arm": float(axis[hits[row.gene]])
+                    if row.gene in hits else np.nan,
+                "null_mean_diff_pp": mu, "null_sd_diff_pp": sd,
+                "n_null_genes": len(obs_eff),
+                "null_set_is_matched": True,
+                "empirical_z": float((row.mean_diff_pp - mu) / sd) if sd > 0 else np.nan,
+                "n_null_at_least_as_extreme": n_ge,
+                "rank_of_observed": n_ge + 1})
 
-    T4 = pd.DataFrame(out_rows)
+    T4 = pd.DataFrame(out_rows, columns=[
+        "dataset_id", "comparison_id", "reference_arm", "gene",
+        "observed_diff_pp", "baseline_detection_ref_arm", "null_mean_diff_pp",
+        "null_sd_diff_pp", "n_null_genes", "null_set_is_matched",
+        "empirical_z", "n_null_at_least_as_extreme", "rank_of_observed"])
+    if T4.empty:
+        print("[null] no target had enough matched null genes to report "
+              f"(threshold {args.min_null_per_target}); writing an empty table")
+        T4["fdr_estimable"] = pd.Series(dtype=bool)
+        T4["fdr_not_estimable_reason"] = pd.Series(dtype=str)
 
-    # --- v1.1: BH across the primary-target family, on the EMPIRICAL p -------
-    # At these donor counts the signed-rank p is floor-limited and BH over it
-    # can never reject. The empirical p against the matched null is not
-    # floor-limited in the same way (its resolution is 1/n_null), so this is
-    # the multiplicity correction that actually has power here.
-    panel_primary = set(panel[panel.role == "primary_target"]["gene_symbol"])
-    T4["q_bh_empirical"] = np.nan
-    T4["q_bh_empirical_per_comparison"] = np.nan
+    # --- v1.3: NO FDR. The pre-registered criterion is not estimable here. ---
+    #
+    # Walk the arithmetic. BH at m = 81 needs the smallest p to reach
+    # 0.05 * k / 81 for k rows tied at the resolution floor 1/(N+1):
+    #     N = 112 -> floor 0.00885 -> needs k >= 15
+    #     N = 317 -> floor 0.00314 -> needs k >=  6
+    #     N = 399 -> floor 0.00251 -> needs k >=  5
+    # There are only 8 candidate rows. So the number of rows that "pass" is a
+    # function of the null-set size, not of the effects. That is not a rule
+    # needing a tuned parameter; it is a rule that does not hold at this n.
+    #
+    # Reported instead: standardised effect against the matched null, the
+    # effect in percentage points, donor sign concordance, and ruler-A margin.
+    # No replacement decision rule is invented -- see docs/PREREGISTRATION_v1.3.md.
     if len(T4):
-        fam = T4.gene.isin(panel_primary)
-        # v1.2: the multiplicity family is EVERY analysis-A test at once
-        # (27 genes x 3 pairwise contrasts). The three contrasts are not
-        # independent hypothesis families -- they are three views of one set
-        # of cells -- so correcting within each separately understates
-        # multiplicity by up to 3x. The per-comparison version is retained
-        # alongside so the difference is visible rather than assumed away.
-        T4.loc[fam, "q_bh_empirical"] = benjamini_hochberg(
-            T4.loc[fam, "empirical_p"].to_numpy())
-        for cid, g in T4[fam].groupby("comparison_id"):
-            T4.loc[g.index, "q_bh_empirical_per_comparison"] = benjamini_hochberg(
-                g["empirical_p"].to_numpy())
-        m_fam = int(fam.sum())
-        print(f"[null] empirical-p BH, ONE family of {m_fam} tests "
-              f"({len(panel_primary)} genes x {T4[fam].comparison_id.nunique()} contrasts)")
-        n_sig = int((T4["q_bh_empirical"] <= 0.05).sum())
-        n_sig_pc = int((T4["q_bh_empirical_per_comparison"] <= 0.05).sum())
-        print(f"[null] rows at q <= 0.05: {n_sig} (pooled family) vs "
-              f"{n_sig_pc} (per-comparison family)")
-        for _, r in T4[T4.q_bh_empirical_per_comparison <= 0.05].sort_values(
-                "empirical_p").iterrows():
-            mark = "" if r.q_bh_empirical <= 0.05 else "   <- drops out under the pooled family"
-            print(f"       {r.comparison_id:26s} {r.gene:7s} "
-                  f"diff={r.observed_diff_pp:+7.2f}pp z={r.empirical_z:+6.2f} "
-                  f"emp_p={r.empirical_p:.4f} q_pooled={r.q_bh_empirical:.4f}{mark}")
+        T4["fdr_estimable"] = False
+        T4["fdr_not_estimable_reason"] = (
+            "pass count is a function of null-set size, not of effect size, at "
+            "this n; see PREREGISTRATION_v1.3.md")
+        n_min = int(T4.n_null_genes.min())
+        print(f"\n[null] NO FDR REPORTED. Null-set size {n_min}-"
+              f"{int(T4.n_null_genes.max())} per target; the rank floor "
+              f"1/{n_min + 1} = {1 / (n_min + 1):.4f} would require "
+              f"{int(np.ceil(81 * (1 / (n_min + 1)) / 0.05))} of 81 rows tied at "
+              f"it before any could clear q <= 0.05, and only 8 rows are "
+              f"candidates. The criterion is not estimable, not merely unmet.")
+
+        T2f = T2.set_index(["comparison_id", "gene"])
+        rows = []
+        for _, r in T4.iterrows():
+            key = (r.comparison_id, r.gene)
+            src = T2f.loc[key] if key in T2f.index else None
+            rows.append({
+                "comparison": r.comparison_id.replace("A_decidua_", ""),
+                "gene": r.gene,
+                "effect_pp": r.observed_diff_pp,
+                "z_vs_matched_null": r.empirical_z,
+                "n_donors": int(src.n_donors) if src is not None else np.nan,
+                "all_donors_same_sign": bool(src.on_test_floor) if src is not None else False,
+                "baseline_det_ref": r.baseline_detection_ref_arm,
+                "n_nulls": int(r.n_null_genes),
+                "null_rank": int(r.rank_of_observed)})
+        R = pd.DataFrame(rows)
+        R = R.reindex(R.z_vs_matched_null.abs().sort_values(ascending=False).index)
+        print("\n[null] descriptive readout, primary targets, |z| >= 3 "
+              "(z is a standardised effect size and is NOT converted to a p):")
+        show = R[(R.z_vs_matched_null.abs() >= 3)]
+        print(show.round(3).to_string(index=False))
+        R.to_csv(os.path.join(outdir, "null_descriptive.tsv"), sep="\t", index=False)
+
     T4.to_csv(os.path.join(outdir, "null_distribution.tsv"), sep="\t", index=False)
     pd.DataFrame(summary_rows).to_csv(
         os.path.join(outdir, "null_distribution_summary.tsv"), sep="\t", index=False)

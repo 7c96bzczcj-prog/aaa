@@ -8,6 +8,17 @@ Criteria: [`PREREGISTRATION.md`](PREREGISTRATION.md) (v1.0, frozen at commit
 amendment discloses its direction of effect; v1.1's three loosened the reading,
 v1.2's four tightened it.
 
+> **The methodological result of this project, stated first because it frames
+> everything below.** Four statistical instruments were withdrawn across
+> v1.1–v1.3 — BH over the signed-rank p, ruler B's fixed denominator, the FDR
+> criterion, and z as a standalone ranking. Each failed the same way: its
+> output was determined by a nuisance parameter (n, the denominator lineage,
+> the null-set size, the baseline detection rate) rather than by the effect.
+> **What survived is exactly what never needed a null distribution:**
+> donor-unanimous direction, effect size in percentage points, and
+> reproduction inside a fixed cluster. No p value or q value in this document
+> adjudicates anything.
+
 Primary depth floor **2137 UMI**; sensitivity floors 1808 and 2784. Every rate
 is a detection rate at matched depth (R3). Every test consumes one number per
 donor (R1). Inference is against the empirical null (v1.1 A2).
@@ -34,68 +45,64 @@ dNK3).
 
 ---
 
-## 1. The positive set, and how unstable it is
+## 1. What the primary targets do, with no decision rule applied
 
-Inference is the empirical null: the same donor-level effect over
-**expression-matched random genes**, BH-corrected across **all 81 analysis-A
-tests** (27 genes × 3 contrasts, v1.2 A5). The methodologically correct
-construction — each target against **its own** matched null set, at the
-highest resolution this dataset supports (317 nulls per target, resolution
-1/318 = 0.0031) — gives:
+The pre-registered FDR criterion is **withdrawn** (v1.3 A8): the number of rows
+it passes is set by the null-set size, not by the effects — the same data gave
+6, then 0, then 8 passes as N alone changed. No q value appears below.
 
-| contrast | gene | n | effect (pp) | z | q (81-family) | ceiling | ruler A |
-|---|---|---|---|---|---|---|---|
-| dNK1→dNK3 | **CXCR4** | 5 | +57.9 | +6.24 | 0.0318 | clean | 0.048 |
-| dNK1→dNK3 | **CCL5** | 5 | +57.3 | +6.65 | 0.0318 | lower bound | 0.025 |
-| dNK2→dNK3 | **CXCR4** | 5 | +52.5 | +8.07 | 0.0318 | clean | 0.048 |
-| dNK2→dNK3 | **CCL5** | 5 | +35.5 | +5.23 | 0.0318 | lower bound | 0.025 |
-| dNK1→dNK2 | **CCL5** | 6 | +23.3 | +4.71 | 0.0318 | clean | 0.025 |
-| dNK1→dNK2 | **XCL1** | 6 | +39.3 | +5.67 | **0.0463** | lower bound | 0.021 |
-| dNK1→dNK3 | *S1PR5* | 5 | **+1.5** | +4.91 | 0.0318 | clean | — |
-| dNK2→dNK3 | *S1PR5* | 5 | **+1.5** | +5.01 | 0.0318 | clean | — |
+Descriptive quantities only, sorted by effect. `z` is against each gene's own
+null set, matched on the **reference arm's baseline detection rate** (v1.3 A9),
+and is a standardised effect size that is **never converted to a p**.
 
-**Read the two S1PR5 rows as a warning, not a result.** A 1.5-percentage-point
-effect passes because S1PR5's own null set is made of low-expression genes
-whose detection rates are compressed against zero, giving a null SD of 0.30.
-Statistically significant, biologically meaningless. No effect-size filter was
-added afterwards to remove it — it stands as evidence about the method.
+| contrast | gene | n | effect (pp) | z | donors concordant | baseline det. (ref arm) | ceiling | ruler A |
+|---|---|---|---|---|---|---|---|---|
+| dNK1→dNK3 | **CXCR4** | 5 | **+57.9** | +7.97 | 5/5 | 0.176 | clean | 0.048 |
+| dNK1→dNK3 | **CCL5** | 5 | **+57.3** | +6.72 | 5/5 | 0.413 | lower bound | 0.025 |
+| dNK2→dNK3 | **CXCR4** | 5 | **+52.5** | +10.04 | 5/5 | 0.194 | clean | 0.048 |
+| dNK1→dNK2 | **XCL1** | 6 | **+39.3** | +7.74 | 6/6 | 0.405 | lower bound | 0.021 |
+| dNK2→dNK3 | **CCL5** | 5 | **+35.5** | +5.72 | 5/5 | 0.483 | lower bound | 0.025 |
+| dNK1→dNK2 | **XCL2** | 6 | **+32.9** | +5.75 | 6/6 | 0.583 | lower bound | 0.021 |
+| dNK1→dNK3 | **XCL1** | 5 | **+31.2** | +4.09 | 5/5 | 0.405 | lower bound | 0.021 |
+| dNK1→dNK2 | **CCL5** | 6 | **+23.3** | +4.36 | 6/6 | 0.413 | clean | 0.025 |
+| dNK1→dNK2 | *SELL* | 6 | *+4.8* | *+10.55* | 6/6 | **0.005** | floor | — |
+| dNK2→dNK3 | *CXCR6* | 5 | *+2.3* | *+4.78* | 5/5 | **0.002** | floor | — |
+| dNK2→dNK3 | *S1PR5* | 5 | *+1.5* | *+10.34* | 5/5 | **0.000** | floor | — |
+| dNK1→dNK3 | *S1PR5* | 5 | *+1.5* | *+5.81* | 5/5 | **0.001** | floor | — |
+| dNK2→dNK3 | *CCR9* | 5 | *+1.0* | *+5.45* | 5/5 | **0.001** | floor | — |
 
-### The pass list depends on how the null is built
+**The italicised rows are why z may not be read alone.** SELL and S1PR5 carry
+the two largest z values in the study on effects of 4.8 and 1.5 percentage
+points, because their reference-arm baseline detection is 0.5% and 0.0% and
+their null sets are correspondingly narrow. Measured across all targets:
 
-| null construction | matched? | resolution | rows at q ≤ 0.05 |
-|---|---|---|---|
-| pooled, 399 nulls | no | 0.0025 | 6 |
-| per-target, 112 nulls | yes | 0.0088 | **0** |
-| per-target, 317 nulls | yes | 0.0031 | 8 |
+| baseline detection | median null SD (pp) | what z = 5 buys |
+|---|---|---|
+| > 30% | 6.41 | **32.1 pp** |
+| 2–10% | 2.06 | 10.3 pp |
+| < 0.5% | 0.33 | **1.63 pp** |
 
-**No row passes under every construction tried.** The middle row's zero is
-pure resolution starvation — 112 nulls cannot produce a p small enough to
-survive BH over 81 tests — not weaker effects. Full table in
-`out/VT2018/null_sensitivity/`; the defects that produced the earlier numbers
-(one pooled null for all targets; null genes consumed rather than shared, which
-left XCL1 with 98 nulls and CXCR4 with none) are in
-[D22](DECISIONS.md).
-
-**Precision and matching trade off and this dataset cannot have both**: asking
-for 10,000 nulls yields 8,537 unique genes but only ~317 per target, because
-widening the window to find more degrades the expression matching it exists to
-provide.
+**A 20-fold difference in the effect that the same z represents.** Matching the
+nulls on detection rate rather than CPM — the methodologically correct axis —
+made this sharper rather than milder (S1PR5 went from z = +5.01 to +10.34), so
+it is a property of a bounded scale near its boundary, not of the matching
+(D25). No effect-size filter was added afterwards to remove those rows.
 
 ### Ruler B is `unmeasurable` for every headline gene
 
 Not for lack of signal: **NK is itself the largest total contributor** of each
-to the decidual ambient pool (v1.2 A7), so an ambient argument has no
-competing source to run against. That is *supportive* — but the
-**pre-registered "both rulers positive" bar is not met by any headline gene**,
-and the alternative reading below (ruler A plus the circularity test) is
-**post hoc** and labelled as such. The rule was not reinterpreted to rescue it.
+to the decidual ambient pool (v1.2 A7), so an ambient argument has no competing
+source to run against. That is supportive — but the pre-registered "both rulers
+positive" bar **is not met by any headline gene**, and the alternative reading
+(ruler A plus the circularity test) is **post hoc** and labelled as such.
 
-Note also that "largest contributor to the pool" is a statement about **total
-counts**, and NK is roughly 70% of decidual leukocytes here — it does **not**
-mean highest per-cell expression.
+"Largest contributor to the pool" is a statement about **total counts**; NK is
+roughly 70% of decidual leukocytes here, so it does **not** mean highest
+per-cell expression.
 
-Ruler A ceiling 0.092 (the **minimum** over ambient controls, not the maximum),
-true-NK floor 0.021, ruler B band 0.0538.
+Ruler A ceiling 0.092 — the **minimum** over ambient controls, and set entirely
+by the haematopoietic class, which is the class the estimator handles worst
+(D23). True-NK floor 0.021; ruler B band 0.0538.
 
 ---
 
@@ -342,9 +349,9 @@ shrink as the floor rises and D8's dNK3 disappears, but never reverse.
 2. **Differential cell loss is severe** (§3). Three donors exceed the 10 pp
    R6 trigger; D8's dNK1-vs-dNK3 gap is 43.1 pp.
 3. **PAEP is absent from the published matrix** — verified against the 4.1 GB
-   source file ([D17](DECISIONS.md)). The v1.1 report claimed this was harmless
-   because five tissue controls already return 1.000; **that was wrong and is
-   retracted** ([D21](DECISIONS.md)). The ceiling is the *minimum* over ambient
+   source file ([D17](DECISIONS.md)). The v1.2 CHANGELOG called this harmless
+   because five tissue controls already return 1.000; **that argument was
+   wrong and is retracted** ([D21](DECISIONS.md)). The ceiling is the *minimum* over ambient
    controls (IGKC, 0.092), not the maximum. If PAEP would return anything
    between 0.048 and 0.092, the ceiling drops below CXCR4's 0.0484 and CXCR4's
    ruler-A verdict flips to `indistinguishable_from_ambient`. XCL1 (0.021) and
