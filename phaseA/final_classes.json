@@ -1,0 +1,177 @@
+{
+ "D1": {
+  "evidence_type_strongest": "OBS_TRANSFER",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "D2": {
+  "evidence_type_strongest": "OBS_TRANSFER",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "D3": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "adversarial_downgrade",
+  "resolution_note": "INF_INVITRO \u2014 this is the strongest class supported by a Methods section actually read by anyone in this audit chain (Keskin 2007 Methods read via PMC1805591; Domaica 2012 Methods read via PMC3519873). OBS_TRANSFER should be recorded as CLAIMED-BUT-UNVERIFIED: the Chan 2007 NOD-SCID arm matches the spec's OBS_TRANSFER definition (\"A transferred, B recovered from the recipient\") as DESCRIBED in its",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "D4": {
+  "evidence_type_strongest": "OBS_TRANSFER",
+  "resolution_source": "adversarial_upgrade",
+  "resolution_note": "OBS_TRANSFER (xenogeneic, bulk, non-clonal) \u2014 Freud AG et al., Cell Rep 2016;16:379-391, PMID 27373165 / PMC4970225: 5e3-1e5 FACS-sorted (>99% pure) human tonsil stage 3 or stage 4a cells injected IV into busulfan-conditioned NSG mice + hIL-15 IP twice weekly, harvested at 5 wk, human CD45+ progeny re-phenotyped by flow in spleen/blood/BM, yielding Lin-CD94+NKp80+CD16+ \"stage 5\" (Fig 7A n=4). SEGM",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "P1": {
+  "evidence_type_strongest": "INF_KINETIC",
+  "resolution_source": "adjudicated",
+  "resolution_note": "The reviewer gave two answers conditional on scope: INF_KINETIC for the human NKG2C/HCMV claim, OBS_DIRECT for the mouse Ly49H/MCMV homolog (Flommersfeld 2021 single-cell colour-barcode fate mapping). The claim as written in spec section 1 is 'cNK -> adaptive NKG2C+ NK, HCMV-driven'. NKG2C and HCMV are human-specific; the mouse homolog uses a different receptor (Ly49H), a different virus (MCMV) and a different species. Under DEC-05 that is a neighbouring but different transition, so it is recorded as adjacent evidence and does not set this row's class. Human strongest = INF_KINETIC.",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "INF_KINETIC"
+ },
+ "P2": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "adversarial_downgrade",
+  "resolution_note": "INF_INVITRO (for the claimed conversion step: resting NK + IL-12/IL-15/IL-18 -> CIML NK, which occurs entirely in vitro in Cooper 2009, Romee 2012, Ni 2012, Romee 2016 and every manufacturing protocol). OBS_TRANSFER survives ONLY for the narrower proposition \"the recall-IFN-gamma property persists and is cell-intrinsically heritable in a bulk mouse NK population\" (Keppel 2013 CD45.1/CD45.2 congeni",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "P3": {
+  "evidence_type_strongest": "OBS_DIRECT",
+  "resolution_source": "adversarial_upgrade",
+  "resolution_note": "OBS_DIRECT \u2014 but scope-qualified, and the row must be decomposed to avoid averaging. (a) ORIGIN/IDENTITY of the liver group-1 memory compartment: OBS_DIRECT exists \u2014 Flommersfeld 2021 (PMID 34437840), single-cell retroviral colour-barcode clonal fate mapping of Ly49H+ NK cells, 82 clones / 6-12 recipient mice per experiment / 7 independent experiments, MCMV primary and secondary challenge, liver i",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "R1": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "LOW",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "R2": {
+  "evidence_type_strongest": "OBS_TRANSFER",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "R3": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "LOW",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "R4": {
+  "evidence_type_strongest": "INF_MARKER",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "INF_MARKER"
+ },
+ "S1": {
+  "evidence_type_strongest": "INF_MARKER",
+  "resolution_source": "adversarial_downgrade",
+  "resolution_note": "INF_MARKER (strongest class that actually bears on an ordering among dNK1/dNK2/dNK3, from methods I read myself). ALL PRESENT, ranked: INF_MARKER (Huhn 2020 PMID 31959757 - CyTOF protein Eomes-int/Tbet-int in dNK2 vs Eomes-hi dNK1 and Tbet-hi dNK3, 41-marker panel, n = 28 first-trimester women); INF_TRAJECTORY (Guo 2021 PMID 33390590 Palantir + velocyto rooted on an imputed pseudo-cell built from ",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "S2": {
+  "evidence_type_strongest": "INF_MARKER",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "INF_MARKER"
+ },
+ "S3": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "adversarial_upgrade",
+  "resolution_note": "INF_INVITRO (provisional; from Manaster 2008 PMID 18641324, the originating primary source, whose IL-15 conversion culture is confirmed by MeSH methods-indexing but whose Methods text is unreadable in this environment \u2014 see challenge_reason). Full set present: INF_INVITRO, INF_MARKER, INF_TRAJECTORY. The auditor's INF_MARKER is correct for their chosen paper (Feyaerts 2024) but wrong for the claim",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "INF_MARKER"
+ },
+ "T1": {
+  "evidence_type_strongest": "INF_MARKER",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "INF_MARKER"
+ },
+ "T2": {
+  "evidence_type_strongest": "OBS_TRANSFER",
+  "resolution_source": "adversarial_downgrade",
+  "resolution_note": "OBS_TRANSFER \u2014 retained as strongest class, but downgraded in weight: congenic (CD45.1/CD45.2) adoptive transfer with donor recovery, endpoint defined ONLY by CD49a+CD49b-Eomes+ surface/intranuclear staining, with residency of donor cells never tested (no intravascular label applied to transfer recipients), no conversion frequency reported, n=4 dams, single 10-day interval. Revised evidence_types_",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "T3": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "T4": {
+  "evidence_type_strongest": "OBS_TRANSFER",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "OBS_TRANSFER"
+ },
+ "T5": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "LOW",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "T6": {
+  "evidence_type_strongest": "INF_INVITRO",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "LOW",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "X1": {
+  "evidence_type_strongest": "INF_MARKER",
+  "resolution_source": "adjudicated",
+  "resolution_note": "The reviewer found a real experiment the audit had wrongly declared non-existent (Dadi et al., Cell 2016, PMID 26806130: CD45.1/CD45.2 congenic parabiosis in tumour-bearing MMTV-PyMT mice with pre-transformation enumeration of the same population), and correctly made the class CONDITIONAL on which entity 'trNK' denotes. Under an operational trNK definition (CD49a+CD103+ NK1.1+) Dadi's ILC1-like cells are the claim's subject and the class upgrades to OBS_TRANSFER; under a strict Eomes+ conventional-NK definition the same figure is COUNTER-evidence, because cNK showed HIGH non-host chimerism, i.e. conventional NK in tumour-bearing tissue are continuously exchanged with the circulation. RESOLUTION: this registry's own ontology treats ILC1 as distinct from NK - claim T4 is 'NK -> ILC1' and claim P3 turns on whether liver memory cells are NK or ILC1. Both presuppose the distinction, so 'trNK' in X1 must mean NK-lineage tissue-resident NK, not ILC1-like cells. Dadi's population is explicitly not conventional NK (Nfil3-independent, 'gene expression signature distinct from conventional NK cells'), so under DEC-05 it addresses a neighbouring but different transition. X1 keeps INF_MARKER, and Dadi's cNK chimerism data is recorded as counter-evidence.",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "INF_MARKER"
+ },
+ "X2": {
+  "evidence_type_strongest": "OBS_DIRECT",
+  "resolution_source": "adversarial_upgrade",
+  "resolution_note": "OBS_DIRECT (Dean 2024, PMID 38267402: in vivo Kaede photo-labelling of the tumour compartment alone, t0 defined, 5/24/48/72 h chase, phenotype and function read on time-stamped Kaede-Green vs Kaede-Red intratumoural NK, n = 5-11 mice per timepoint). Also present, in descending strength: OBS_TRANSFER (splenic Kaede NK i.v. into MC38-bearing WT hosts, CD49a and granzyme C acquired only in tumour), I",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "OBS_GENETIC"
+ },
+ "X3": {
+  "evidence_type_strongest": "INF_MARKER",
+  "resolution_source": "adversarial_downgrade",
+  "resolution_note": "INF_MARKER\n\nevidence_types_all present for X3: INF_MARKER (dominant and load-bearing: cross-sectional flow-cytometric phenotype similarity between NSCLC-infiltrating NK and published dNK markers, in 31 patients at a single surgical timepoint) + a weak INF_INVITRO fragment that supports only the sub-proposition \"TGF-beta1 raises intracellular VEGF/PlGF staining in bulk healthy-donor NK cultures\", N",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "INF_INVITRO"
+ },
+ "X4": {
+  "evidence_type_strongest": "INF_TRAJECTORY",
+  "resolution_source": "upheld",
+  "resolution_note": "",
+  "load_bearing": "MEDIUM",
+  "audit_evidence_type": "INF_TRAJECTORY"
+ },
+ "X5": {
+  "evidence_type_strongest": "INF_KINETIC",
+  "resolution_source": "adversarial_downgrade",
+  "resolution_note": "INF_KINETIC (population-mean decline over time in a congenically traced donor pool, measured along a demonstrated-reversible tuning axis). Full set present, in descending design weight: OBS_TRANSFER (provenance only \u2014 CD45.1/CD45.2 congenic re-identification proves donor origin, not arrival at a destination state), INF_KINETIC (the actual claim-bearing readout), INF_MARKER (the destination label i",
+  "load_bearing": "HIGH",
+  "audit_evidence_type": "OBS_TRANSFER"
+ }
+}

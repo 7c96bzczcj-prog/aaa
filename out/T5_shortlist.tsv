@@ -1,0 +1,26 @@
+claim_id	claim_text	load_bearing	evidence_type_strongest	lineage_decidable	both_answers_actionable	already_traced	occupancy_unverified	on_shortlist	failed_criteria
+D1	HSC -> NKP -> immature NK -> mature NK	HIGH	OBS_TRANSFER	n/a	n/a	n/a	FALSE	FALSE	criterion2 evidence=OBS_TRANSFER
+D2	Mouse NK maturation CD27+CD11b- -> CD27+CD11b+ -> CD27-CD11b+	HIGH	OBS_TRANSFER	n/a	n/a	n/a	FALSE	FALSE	criterion2 evidence=OBS_TRANSFER
+D3	Human CD56bright NK -> CD56dim NK	MEDIUM	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3/4 Phase B not returned
+D4	Human NK development through stages 1-5 in secondary lymphoid tissue (Freud/Caligiuri)	HIGH	OBS_TRANSFER	n/a	n/a	n/a	FALSE	FALSE	criterion2 evidence=OBS_TRANSFER
+P1	Conventional NK -> adaptive NKG2C+ NK, HCMV-driven	HIGH	INF_KINETIC	n/a	n/a	n/a	FALSE	FALSE	criterion3/4 Phase B not returned
+P2	IL-12/15/18 preactivation -> cytokine-induced memory-like NK	HIGH	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion3/4 Phase B not returned
+P3	Liver memory NK: existence and origin	HIGH	OBS_DIRECT	n/a	n/a	n/a	FALSE	FALSE	criterion2 evidence=OBS_DIRECT
+R1	dNK -> cytotoxic (IL-15/IL-18 rescue)	LOW	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=LOW; criterion3/4 Phase B not returned
+R2	Tumour NK dysfunction reversible vs fixed	MEDIUM	OBS_TRANSFER	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion2 evidence=OBS_TRANSFER
+R3	After TGF-beta withdrawal residency reverts, effector function does not	LOW	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=LOW; criterion3/4 Phase B not returned
+R4	dNK -> PTdNK (postpartum persistence)	HIGH	INF_MARKER	n/a	n/a	n/a	FALSE	FALSE	criterion3/4 Phase B not returned
+S1	A differentiation ordering exists among dNK1 / dNK2 / dNK3	MEDIUM	INF_MARKER	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3/4 Phase B not returned
+S2	Endometrial uNK1/2/3 -> decidual dNK1/2/3	HIGH	INF_MARKER	n/a	n/a	n/a	FALSE	FALSE	criterion3/4 Phase B not returned
+S3	eNK -> dNK (menstrual cycle to pregnancy transition)	HIGH	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion3/4 Phase B not returned
+T1	cNK -> trNK (acquisition of a residency phenotype)	MEDIUM	INF_MARKER	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3/4 Phase B not returned
+T2	cNK -> uterine trNK	MEDIUM	OBS_TRANSFER	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion2 evidence=OBS_TRANSFER
+T3	Peripheral blood NK -> decidual NK-like	MEDIUM	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3/4 Phase B not returned
+T4	NK -> ILC1 within tumours	HIGH	OBS_TRANSFER	n/a	n/a	n/a	FALSE	FALSE	criterion2 evidence=OBS_TRANSFER
+T5	Glycodelin-A -> dNK-like phenotype	LOW	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=LOW; criterion3/4 Phase B not returned
+T6	IL-35 -> CD9+CD103+CD49a+ ILC1-like	LOW	INF_INVITRO	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=LOW; criterion3/4 Phase B not returned
+X1	Organ-resident trNK -> functional intratumoural NK	MEDIUM	INF_MARKER	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3/4 Phase B not returned
+X2	Newly infiltrating NK -> dysfunctional tumour NK	MEDIUM	OBS_DIRECT	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion2 evidence=OBS_DIRECT
+X3	Tumour NK -> decidual-like / pro-angiogenic phenotype	MEDIUM	INF_MARKER	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3/4 Phase B not returned
+X4	GZMK+ NK -> ENTPD1+ ISG-high effector state	MEDIUM	INF_TRAJECTORY	n/a	n/a	n/a	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3/4 Phase B not returned
+X5	NK -> exhausted NK	HIGH	INF_KINETIC	n/a	n/a	n/a	FALSE	FALSE	criterion3/4 Phase B not returned

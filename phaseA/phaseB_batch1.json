@@ -1,0 +1,65 @@
+[
+ {
+  "claim_id": "D3",
+  "claim_text": "Human CD56bright NK -> CD56dim NK",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "MEDIUM",
+  "notes": "A PRE-EXISTING CD56dim SUBSET IS SELECTED AND EXPANDED, NOT CONVERTED. CD56dim cells are ~90% of blood NK cells, so even a 1-2% CD56dim carry-over in a sorted CD56bright inoculum is, in absolute terms, a substantial CD56dim population. Over 10 days in a NOD-SCID xenograft \u2014 a severe survival bottleneck with no human IL-15 and no HLA-matched stroma \u2014 preferential survival/homeostatic expansion of that contaminant would reproduce the exact reported readout (\"almost uniformly CD56dimCD16+ in blood, spleen and lymph node\") with zero conversion of any cell. Chan 2007 used no clonal marking, so the "
+ },
+ {
+  "claim_id": "P1",
+  "claim_text": "Conventional NK -> adaptive NKG2C+ NK, HCMV-driven",
+  "evidence_type_strongest": "INF_KINETIC",
+  "load_bearing": "HIGH",
+  "notes": "HCMV SELECTS and clonally expands a PRE-EXISTING NKG2C+ subset rather than converting conventional NKG2C- NK cells \u2014 and this alternative is supported by the claim's own best papers. (1) R\u00fcckert 2022 shows \"naive\" NKG2C+ NK cells are present in HCMV- donors at frequencies comparable to HCMV+ donors, distributed across CD56bright and CD56dim, and that NKG2C+ vs NKG2C- cells in HCMV- donors are transcriptionally and epigenetically near-identical apart from KLRC2 itself. The paper's own stated hypothesis is \"the expansion of individual naive NKG2C+ cells with unique accessible chromatin regions\" "
+ },
+ {
+  "claim_id": "P2",
+  "claim_text": "IL-12/15/18 preactivation -> cytokine-induced memory-like NK",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "HIGH",
+  "notes": "SELECTION OF A PRE-EXISTING HYPER-RESPONSIVE SUBSET RATHER THAN CONVERSION. Every experiment in this literature tracks a BULK population with a non-clonal label \u2014 a dilutable dye (CFSE, Cooper 2009), a congenic allele shared by millions of cells (CD45.1/CD45.2, Keppel 2013 / Ni 2012), or an HLA mismatch shared by the whole graft (Romee 2016). None of these can distinguish \"each NK cell converted\" from \"the responsive minority survived, homed and expanded\". Three independent lines make selection concrete: (1) IL-12/15/18 preactivation itself kills NK cells \u2014 Terren et al. 2023 Front Immunol (PM"
+ },
+ {
+  "claim_id": "R1",
+  "claim_text": "dNK -> cytotoxic (IL-15/IL-18 rescue)",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "LOW",
+  "notes": "The 36-h ex vivo culture, not IL-15, does the work \u2014 and the paper itself offers this. Kopcow's own Discussion states the alternative verbatim: \"the immunosuppressive environment of the decidua might be responsible for blocking MTOC and granule polarization. Regain of cytotoxicity may result from the removal of dNK from this environment, for example, by in vitro incubation in the presence of IL-15.\" Because there is no 36-h medium-only arm, nothing in the data separates \"IL-15 signals a state change\" from \"release from tissue-imposed suppression plus 36 h of recovery from collagenase digestion"
+ },
+ {
+  "claim_id": "R3",
+  "claim_text": "After TGF-beta withdrawal residency reverts, effector function does not",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "LOW",
+  "notes": "The dissociation may be a difference in RECOVERY TIME CONSTANT, not a difference in reversibility, confounded by differential proliferative history. (1) Only ONE withdrawal duration was tested (10 days), so \"effector function does not revert\" strictly means \"had not yet reverted by day 10.\" Surface integrins CD103/CD9/CD49a are short-lived, directly SMAD-driven transcripts whose protein turns over fast, so they necessarily decay quickly once signal stops; granule content, IFN-\u03b3 competence and chromatin state re-accumulate on intrinsically slower timescales. Two molecule classes with different "
+ },
+ {
+  "claim_id": "R4",
+  "claim_text": "dNK -> PTdNK (postpartum persistence)",
+  "evidence_type_strongest": "INF_MARKER",
+  "load_bearing": "HIGH",
+  "notes": "Four alternatives, each individually sufficient, none excluded by the design. (1) AGE / CUMULATIVE HCMV EXPOSURE CONFOUND: the multigravid group is ~12 years older than the primigravid group (mean 34 vs 22). NKG2C-hi expansion is the canonical HCMV imprint and keeps accumulating with age and with duration of HCMV carriage even among seropositives, so restricting to HCMV-seropositive women controls serostatus but not exposure duration or reactivation history. The entire Figure 1 effect (2.93% vs 17.0%) is reproducible by age alone with zero pregnancy memory. (2) THE PAPER'S OWN NUVARING DATA RE"
+ },
+ {
+  "claim_id": "S1",
+  "claim_text": "A differentiation ordering exists among dNK1 / dNK2 / dNK3",
+  "evidence_type_strongest": "INF_MARKER",
+  "load_bearing": "MEDIUM",
+  "notes": "Two alternatives are each sufficient and neither is excluded. (1) MARKER INDUCTION, NOT LINEAGE CONVERSION: CD39/ENTPD1 is an activation-inducible ectonucleotidase. Sorted CD39-CD18- dNK cells acquiring CD39 over 2 days in culture is fully explained by activation-induced upregulation of a single marker on the SAME cells \u2014 a state change of the readout, not conversion into \"dNK1\", which is a multi-marker transcriptional identity (KIR-high, LILRB1+, granule-high, glycolytic) that was never re-measured after culture. Dissociation and culture are themselves known to induce activation programmes. ("
+ },
+ {
+  "claim_id": "S2",
+  "claim_text": "Endometrial uNK1/2/3 -> decidual dNK1/2/3",
+  "evidence_type_strongest": "INF_MARKER",
+  "load_bearing": "HIGH",
+  "notes": "The correspondence is circular by construction, not observed. The endometrial subsets were never independently named: Garcia-Alonso 2021, the paper Whettlock cites for \"uNK1/2/3 are present in non-pregnant endometrium\", states that subclustering of endometrial immune cells identified \"the three uterine natural killer cell subsets WE HAVE PREVIOUSLY DEFINED IN THE EARLY PREGNANT UTERUS\", annotated \"by manual inspection of marker genes and interpretation of these based on the literature\"; Whettlock then assigned labels with FindConservedMarkers \"confirmed by the metadata column 'annotation' from"
+ },
+ {
+  "claim_id": "S3",
+  "claim_text": "eNK -> dNK (menstrual cycle to pregnancy transition)",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "HIGH",
+  "notes": "SELECTION/EXPANSION OF A PRE-EXISTING SUBSET, plus local proliferation \u2014 and it is not a hypothetical. All three uNK subsets (uNK1/uNK2/uNK3) are already present in non-pregnant endometrium at menstrual, proliferative and secretory phase (Whettlock 2022), so every reported \"pregnancy-induced adaptation\" is fully explained by differential expansion/attrition of pre-existing states under progesterone and IL-15 with no cell changing identity: the frequency of a state can rise without any cell converting into it. The mouse experiment that can actually distinguish these \u2014 Sojka 2018, Ncr1-iCre x Ro"
+ }
+]

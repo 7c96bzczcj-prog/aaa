@@ -1,0 +1,58 @@
+[
+ {
+  "claim_id": "T1",
+  "claim_text": "cNK -> trNK (acquisition of a residency phenotype)",
+  "evidence_type_strongest": "INF_MARKER",
+  "load_bearing": "MEDIUM",
+  "notes": "A pre-existing, developmentally distinct trNK/ILC1 population is SELECTED and EXPANDED IN SITU rather than converted from cNK, and the marker overlap is read backwards as conversion. Three converging lines make this the leading alternative. (1) Direct positive demonstration of the alternative: Sojka et al. J Immunol 2018 (PMID 30275046) used an NK-specific reporter mouse plus parabiosis with experimentally induced deciduomata and found that the uterine NK accumulation during decidualization is LOCAL PROLIFERATION of pre-existing CD49a+ trNK \u2014 \"migrating NK cells made no contribution.\" That is "
+ },
+ {
+  "claim_id": "T3",
+  "claim_text": "Peripheral blood NK -> decidual NK-like",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "MEDIUM",
+  "notes": "A PRE-EXISTING SUBSET IS SELECTED / DIFFERENTIALLY EXPANDED, NOT CONVERTED - and the primary source itself supplies the ammunition. Keskin's own control arm states that IL-15 + SCF alone already increases the CD56+CD16- percentage, and the authors attribute this to \"a greater proliferation of CD16- pNK cells, which are known to respond to these cytokines with greater proliferation, compared with CD16+ pNK cells\". Over 2-3 weeks in IL-15/SCF, a 1-2% CD16- contaminant surviving the CD16+ sort needs only a modest proliferative advantage to dominate the well; TGF-beta1 is independently anti-prolif"
+ },
+ {
+  "claim_id": "T5",
+  "claim_text": "Glycodelin-A -> dNK-like phenotype",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "LOW",
+  "notes": "SELECTION/EXPANSION OF A PRE-EXISTING SUBSET, which this design cannot exclude. Peripheral-blood CD56bright NK cells are not uniform for CD9 or CD49a; GdA binds via sialylated glycans to L-selectin, which the paper itself shows is expressed on CD56bright but not CD56dim cells, and L-selectin ligation plus 5 days of 500 IU/mL IL-2 and IL-15 is a potent survival/proliferation signal. A GdA-driven survival or proliferative advantage for the CD9+CD49a+ fraction already present at day 0 would produce exactly the observed bulk shift with no cell ever changing identity. Nothing in the methods discrim"
+ },
+ {
+  "claim_id": "T6",
+  "claim_text": "IL-35 -> CD9+CD103+CD49a+ ILC1-like",
+  "evidence_type_strongest": "INF_INVITRO",
+  "load_bearing": "LOW",
+  "notes": "Selection/outgrowth of a pre-existing CD9+CD103+CD49a+ subset, plus a culture artefact of supraphysiological cytokine exposure. The paper argues against pure selection reasonably well but not decisively: IL-35 SUPPRESSES proliferation and does not alter survival, so neither preferential expansion nor preferential death of the CD49a- majority is an easy explanation, and \"nearly all cells\" are marker-positive by day 8, which is arithmetically hard to reach by selecting a near-absent blood precursor without proliferation; both >98%-pure NKG2C+ and NKG2C- sorted subsets converted, so it is not one"
+ },
+ {
+  "claim_id": "X1",
+  "claim_text": "Organ-resident trNK -> functional intratumoural NK",
+  "evidence_type_strongest": "INF_MARKER",
+  "load_bearing": "MEDIUM",
+  "notes": "De novo acquisition of residency markers by newly recruited circulating NK \u2014 i.e. the intratumoural \"trNK\" was never in the organ before the tumour. Circulating cNK recruited into a tissue acquire a bona fide residency phenotype in situ: Torcellan et al., Immunity 2024 (PMID 38157853, PMC10783803) showed viral and bacterial skin infection recruits cNK that differentiate into Tcf1-hi CD69-hi trNK transcriptionally resembling human tissue CD56bright TCF1-hi NK, Blimp1-dependent. TGF-beta in the TME is sufficient to drive CD49a+CD103+ trNK differentiation from peripheral NK ex vivo (Horowitz et a"
+ },
+ {
+  "claim_id": "X3",
+  "claim_text": "Tumour NK -> decidual-like / pro-angiogenic phenotype",
+  "evidence_type_strongest": "INF_MARKER",
+  "load_bearing": "MEDIUM",
+  "notes": "SELECTIVE RECRUITMENT/RETENTION OF A PRE-EXISTING SUBSET, not conversion \u2014 and this alternative is affirmatively supported, not merely unexcluded. (1) Carrega et al., J Immunol 2014 (PMID 24646734) \u2014 co-authored by Guido Ferlazzo, who is also a co-author on Bruno 2013 \u2014 mapped NK subsets across a wide array of human tissues and found CD56bright-perforin-low non-cytotoxic NK cells are \"abundant in BOTH healthy AND neoplastic solid tissues\", that subset distribution \"appeared in accordance with tissue gene expression of chemotactic factors\", and that \"chemokine expression pattern of tissues was "
+ },
+ {
+  "claim_id": "X4",
+  "claim_text": "GZMK+ NK -> ENTPD1+ ISG-high effector state",
+  "evidence_type_strongest": "INF_TRAJECTORY",
+  "load_bearing": "MEDIUM",
+  "notes": "NK3_GZMK and NK3_ENTPD1 are two independently seeded/maintained states that sit adjacent in expression space, not a precursor and its product. Concretely: (a) GZMK marks CD56bright NK \u2014 Bratke 2005 (PMID 16106370) shows ALL CD56bright NK are GZMK+ while GZMB is confined to CD56dim, and the paper itself annotates NK3_GZMK by CD56bright genes (CD44, GZMK, CXCR4) \u2014 so NK3_GZMK is plausibly recently-immigrated circulating CD56bright NK, while NK3_ENTPD1 is a locally imprinted (TGF-beta/IL-15) tissue-resident state, or a pre-existing adaptive-like CD49a+CD103+NKG2C+ lung trNK population that expand"
+ },
+ {
+  "claim_id": "X5",
+  "claim_text": "NK -> exhausted NK",
+  "evidence_type_strongest": "INF_KINETIC",
+  "load_bearing": "HIGH",
+  "notes": "Three alternatives, in increasing order of damage. (1) THE END STATE IS NOT A STATE \u2014 the primary alternative. Gill et al. state verbatim: \"We have termed this phenomenon 'NK-cell exhaustion' by analogy with similar findings in CD8+ T cell biology.\" The destination B is constituted by an analogy, not by an observation. If \"exhausted NK\" just means \"an NK cell whose IFN-gamma/cytotoxicity is lower than an arbitrary comparator (usually autologous blood NK)\", then \"NK -> exhausted NK\" is not a lineage transition at all; it is a restatement of a functional measurement with an arrow drawn through i"
+ }
+]
