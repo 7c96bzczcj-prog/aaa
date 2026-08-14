@@ -1,0 +1,8 @@
+
+1. Clonal lineage tracing of innate immune cells in human cancer
+(Submitter supplied) Innate immune cells constitute the majority of the tumor microenvironment (TME), where they mediate both natural anti-tumor immunity and immunotherapy responses. While single-cell T- and B-cell receptor sequencing has provided fundamental insights into the clonal dynamics of human adaptive immunity, the lack of appropriate tools has precluded similar analysis of innate immune cells. Here, we developed a method leveraging somatic mitochondrial DNA (mtDNA) mutations to reconstruct clonal lineage relationships between single cells across native human tissues. more...
+Organism:	Homo sapiens
+Type:		Genome binding/occupancy profiling by high throughput sequencing
+Platform: GPL24676 38 Samples
+FTP download: GEO (TSV) ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE302nnn/GSE302113/
+Series		Accession: GSE302113	ID: 200302113

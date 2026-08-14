@@ -1,0 +1,415 @@
+{
+ "LCK": {
+  "lineage": "T",
+  "chrom": "chr1",
+  "start": 32249239,
+  "end": 32286165,
+  "strand": "+"
+ },
+ "CD160": {
+  "lineage": "NK",
+  "chrom": "chr1",
+  "start": 145717471,
+  "end": 145739288,
+  "strand": "+"
+ },
+ "CD1C": {
+  "lineage": "DC",
+  "chrom": "chr1",
+  "start": 158287923,
+  "end": 158294774,
+  "strand": "+"
+ },
+ "SH2D1B": {
+  "lineage": "NK",
+  "chrom": "chr1",
+  "start": 162395268,
+  "end": 162414138,
+  "strand": "-"
+ },
+ "EPCAM": {
+  "lineage": "Epithelial",
+  "chrom": "chr2",
+  "start": 47343158,
+  "end": 47387601,
+  "strand": "+"
+ },
+ "GNLY": {
+  "lineage": "NK",
+  "chrom": "chr2",
+  "start": 85683175,
+  "end": 85698854,
+  "strand": "+"
+ },
+ "CD8A": {
+  "lineage": "T",
+  "chrom": "chr2",
+  "start": 86784610,
+  "end": 86810396,
+  "strand": "-"
+ },
+ "MERTK": {
+  "lineage": "Myeloid",
+  "chrom": "chr2",
+  "start": 111896607,
+  "end": 112029561,
+  "strand": "+"
+ },
+ "MARCO": {
+  "lineage": "Myeloid",
+  "chrom": "chr2",
+  "start": 118940166,
+  "end": 118994660,
+  "strand": "+"
+ },
+ "CD28": {
+  "lineage": "T",
+  "chrom": "chr2",
+  "start": 203704475,
+  "end": 203738912,
+  "strand": "+"
+ },
+ "EOMES": {
+  "lineage": "NK",
+  "chrom": "chr3",
+  "start": 27715949,
+  "end": 27724711,
+  "strand": "-"
+ },
+ "TXK": {
+  "lineage": "NK",
+  "chrom": "chr4",
+  "start": 48066393,
+  "end": 48136250,
+  "strand": "-"
+ },
+ "BANK1": {
+  "lineage": "B",
+  "chrom": "chr4",
+  "start": 101409286,
+  "end": 102074812,
+  "strand": "+"
+ },
+ "IL7R": {
+  "lineage": "T",
+  "chrom": "chr5",
+  "start": 35850695,
+  "end": 35879603,
+  "strand": "+"
+ },
+ "VCAN": {
+  "lineage": "Myeloid",
+  "chrom": "chr5",
+  "start": 83469618,
+  "end": 83582303,
+  "strand": "+"
+ },
+ "CD14": {
+  "lineage": "Myeloid",
+  "chrom": "chr5",
+  "start": 140631728,
+  "end": 140635701,
+  "strand": "-"
+ },
+ "CSF1R": {
+  "lineage": "Myeloid",
+  "chrom": "chr5",
+  "start": 150053291,
+  "end": 150115372,
+  "strand": "-"
+ },
+ "ITK": {
+  "lineage": "T",
+  "chrom": "chr5",
+  "start": 157140933,
+  "end": 157255191,
+  "strand": "+"
+ },
+ "EBF1": {
+  "lineage": "B",
+  "chrom": "chr5",
+  "start": 158695916,
+  "end": 159101916,
+  "strand": "-"
+ },
+ "THEMIS": {
+  "lineage": "T",
+  "chrom": "chr6",
+  "start": 127708072,
+  "end": 127920631,
+  "strand": "-"
+ },
+ "SFTPC": {
+  "lineage": "Epithelial",
+  "chrom": "chr8",
+  "start": 22154913,
+  "end": 22164479,
+  "strand": "+"
+ },
+ "PAX5": {
+  "lineage": "B",
+  "chrom": "chr9",
+  "start": 36833269,
+  "end": 37036268,
+  "strand": "-"
+ },
+ "FCN1": {
+  "lineage": "Myeloid",
+  "chrom": "chr9",
+  "start": 134903232,
+  "end": 134919912,
+  "strand": "-"
+ },
+ "MRC1": {
+  "lineage": "Myeloid",
+  "chrom": "chr10",
+  "start": 17807348,
+  "end": 17911164,
+  "strand": "+"
+ },
+ "PRF1": {
+  "lineage": "NK",
+  "chrom": "chr10",
+  "start": 70597348,
+  "end": 70604759,
+  "strand": "-"
+ },
+ "SPI1": {
+  "lineage": "Myeloid",
+  "chrom": "chr11",
+  "start": 47354860,
+  "end": 47380576,
+  "strand": "-"
+ },
+ "MS4A1": {
+  "lineage": "B",
+  "chrom": "chr11",
+  "start": 60453752,
+  "end": 60470760,
+  "strand": "+"
+ },
+ "CD6": {
+  "lineage": "T",
+  "chrom": "chr11",
+  "start": 60969680,
+  "end": 61020377,
+  "strand": "+"
+ },
+ "CD5": {
+  "lineage": "T",
+  "chrom": "chr11",
+  "start": 61100489,
+  "end": 61127852,
+  "strand": "+"
+ },
+ "NCAM1": {
+  "lineage": "NK",
+  "chrom": "chr11",
+  "start": 112959247,
+  "end": 113278436,
+  "strand": "+"
+ },
+ "CD3E": {
+  "lineage": "T",
+  "chrom": "chr11",
+  "start": 118302545,
+  "end": 118316175,
+  "strand": "+"
+ },
+ "CD3D": {
+  "lineage": "T",
+  "chrom": "chr11",
+  "start": 118338954,
+  "end": 118344744,
+  "strand": "-"
+ },
+ "CD3G": {
+  "lineage": "T",
+  "chrom": "chr11",
+  "start": 118342344,
+  "end": 118355161,
+  "strand": "+"
+ },
+ "VWF": {
+  "lineage": "Stromal",
+  "chrom": "chr12",
+  "start": 5948874,
+  "end": 6126770,
+  "strand": "-"
+ },
+ "CD4": {
+  "lineage": "T",
+  "chrom": "chr12",
+  "start": 6784858,
+  "end": 6820799,
+  "strand": "+"
+ },
+ "KLRF1": {
+  "lineage": "NK",
+  "chrom": "chr12",
+  "start": 9825481,
+  "end": 9845007,
+  "strand": "+"
+ },
+ "CLEC9A": {
+  "lineage": "DC",
+  "chrom": "chr12",
+  "start": 10028678,
+  "end": 10066031,
+  "strand": "+"
+ },
+ "KLRD1": {
+  "lineage": "NK",
+  "chrom": "chr12",
+  "start": 10224058,
+  "end": 10329608,
+  "strand": "+"
+ },
+ "KLRC1": {
+  "lineage": "NK",
+  "chrom": "chr12",
+  "start": 10442264,
+  "end": 10456685,
+  "strand": "-"
+ },
+ "KRT8": {
+  "lineage": "Epithelial",
+  "chrom": "chr12",
+  "start": 52897187,
+  "end": 52951954,
+  "strand": "-"
+ },
+ "KRT18": {
+  "lineage": "Epithelial",
+  "chrom": "chr12",
+  "start": 52946871,
+  "end": 52952906,
+  "strand": "+"
+ },
+ "LYZ": {
+  "lineage": "Myeloid",
+  "chrom": "chr12",
+  "start": 69346341,
+  "end": 69354234,
+  "strand": "+"
+ },
+ "LUM": {
+  "lineage": "Stromal",
+  "chrom": "chr12",
+  "start": 91102629,
+  "end": 91113494,
+  "strand": "-"
+ },
+ "DCN": {
+  "lineage": "Stromal",
+  "chrom": "chr12",
+  "start": 91140484,
+  "end": 91184824,
+  "strand": "-"
+ },
+ "FLT3": {
+  "lineage": "DC",
+  "chrom": "chr13",
+  "start": 28003274,
+  "end": 28102592,
+  "strand": "-"
+ },
+ "NKX2-1": {
+  "lineage": "Epithelial",
+  "chrom": "chr14",
+  "start": 36516392,
+  "end": 36523149,
+  "strand": "-"
+ },
+ "ITGAM": {
+  "lineage": "Myeloid",
+  "chrom": "chr16",
+  "start": 31257967,
+  "end": 31332892,
+  "strand": "+"
+ },
+ "CDH1": {
+  "lineage": "Epithelial",
+  "chrom": "chr16",
+  "start": 68735292,
+  "end": 68835541,
+  "strand": "+"
+ },
+ "IRF8": {
+  "lineage": "DC",
+  "chrom": "chr16",
+  "start": 85897162,
+  "end": 85922606,
+  "strand": "+"
+ },
+ "CD68": {
+  "lineage": "Myeloid",
+  "chrom": "chr17",
+  "start": 7577491,
+  "end": 7582111,
+  "strand": "+"
+ },
+ "SKAP1": {
+  "lineage": "T",
+  "chrom": "chr17",
+  "start": 48133442,
+  "end": 48432275,
+  "strand": "-"
+ },
+ "COL1A1": {
+  "lineage": "Stromal",
+  "chrom": "chr17",
+  "start": 50183289,
+  "end": 50203632,
+  "strand": "-"
+ },
+ "CD79B": {
+  "lineage": "B",
+  "chrom": "chr17",
+  "start": 63928740,
+  "end": 63934354,
+  "strand": "-"
+ },
+ "PECAM1": {
+  "lineage": "Stromal",
+  "chrom": "chr17",
+  "start": 64319415,
+  "end": 64415776,
+  "strand": "-"
+ },
+ "CD79A": {
+  "lineage": "B",
+  "chrom": "chr19",
+  "start": 41875120,
+  "end": 41881372,
+  "strand": "+"
+ },
+ "NKG7": {
+  "lineage": "NK",
+  "chrom": "chr19",
+  "start": 51371606,
+  "end": 51374701,
+  "strand": "-"
+ },
+ "KIR2DL4": {
+  "lineage": "NK",
+  "chrom": "chr19",
+  "start": 54801535,
+  "end": 54814517,
+  "strand": "+"
+ },
+ "NCR1": {
+  "lineage": "NK",
+  "chrom": "chr19",
+  "start": 54904148,
+  "end": 54916140,
+  "strand": "+"
+ },
+ "ZBTB46": {
+  "lineage": "DC",
+  "chrom": "chr20",
+  "start": 63743666,
+  "end": 63834038,
+  "strand": "-"
+ }
+}

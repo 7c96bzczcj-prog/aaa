@@ -78,3 +78,75 @@ transition, it is recorded in `strongest_alternative_explanation` or
 `counter_evidence`, not used to grade the row's primary evidence.
 
 ---
+## DEC-06 — GSE302113 profiled; the spec's description of it needed two corrections
+
+**What.** Spec C.1 nominates `GSE302113` (Liu et al., *Cancer Cell* 2026) as the
+known starting point, described as "约 4 对配对病人" NSCLC mtscATAC-seq.
+
+**Measured.** The series is 38 libraries / 218,715 cells over **10 donors**:
+5 NSCLC (SU-L-001…005: lung tumour + lung normal + PBMC each) and 5 ovarian
+(SU-O-001…005: tumour + PBMC, plus one omentum metastasis). Published as
+Liu VV et al., *Cancer Cell* 2026;44(7):1509-1521.e4, PMID 42242233.
+
+**Two corrections to the spec.** (1) It is 5 paired NSCLC donors, not ~4, and the
+ovarian arm was not mentioned at all. (2) The compartment structure is better than
+the spec assumed for X1: lung tumour **and** matched non-involved lung **and** blood
+are present for all 5 NSCLC donors, and the NK-containing fraction (CD45+CD3−) was
+separately sorted in both tissue compartments.
+
+**chrM retention (the spec's explicit trap).** Every library retains chrM: the
+fragments are aligned to a NUMT-masked reference (`hg38_v20-mtMask`,
+cellranger-atac 2.0.0), and mgatk output is deposited per library
+(`variant_stats.tsv.gz` over all 16,566 chrM positions, `cell_heteroplasmic_df.tsv.gz`
+per cell). **All 38/38 libraries clear the preregistered 20× floor**; median chrM
+coverage ranges 23.8× – 158.9×. Table: `out/T4_power_GSE302113_libraries.tsv`.
+
+**What is NOT deposited: cell type annotations.** This is the binding constraint on
+the power check, not coverage — see DEC-07.
+
+---
+
+## DEC-07 — First NK-typing attempt FAILED its own control; reported, not patched
+
+**What.** With no deposited annotations, NK counts had to be derived. First attempt:
+count fragments over marker gene bodies + 2 kb promoters (59 genes, 7 lineages) per
+cell, convert to enrichment over background, z-score each lineage across cells, and
+assign each cell the argmax lineage.
+
+**The control.** GSE302113 contains its own positive/negative control pair:
+GSM9096509 is **CD56+ sorted** PBMC and GSM9096510 is the matched **CD56−** fraction
+from the same donor (SU-L-003). The CD56+ library must come out NK-high.
+
+**Result: the control failed.** CD56+ = 2.9% NK, CD56− = 5.3% NK — a ratio of
+**0.5×, i.e. backwards** — and 70% of cells were unclassifiable. The non-ambiguous
+calls were near-uniform across the seven lineages (134/133/128/111/108/90), which is
+the signature of noise rather than of biology.
+
+**Diagnosis (measured, not guessed).** Median total fragments per cell is 7,538, but
+the marker windows are 4.26 Mb = 0.14% of the genome, so a cell carries a **median of
+4 NK-marker fragments and 4 T-marker fragments**. Per-cell argmax over counts of ~4 is
+noise. The instrument was underpowered, and z-scoring guaranteed each lineage would
+claim ~1/7 of the tail regardless of content.
+
+**The panel itself is fine — the same data proves it in aggregate.** Pooling the same
+counts to library level, CD56+ vs CD56− gives NK **+1.70 log2FC** with the eight
+top-ranked genes all NK (SH2D1B +3.18, KIR2DL4 +3.05, NCR1 +3.04, KLRF1 +2.58,
+GNLY +2.56, NKG7 +2.43, PRF1 +2.24, KLRD1 +2.12) and T/B markers depleted
+(IL7R −1.90, CD4 −1.59, CD5 −1.51, CD3G −1.40, MS4A1 −1.27). Marker choice and
+fragment counting are correct; only per-cell assignment was.
+
+**Decision.** Do not tune thresholds until the control passes — that would be fitting
+the classifier to the answer. Replace the instrument with the standard scATAC
+approach (genome-tiled LSI → clustering → annotate *clusters*, where marker counts
+aggregate over hundreds of cells and are reliable), and re-run the same CD56+/CD56−
+control as the acceptance test. If the control fails again, the NK counts are
+reported as underivable rather than reported anyway.
+
+**Alternative rejected.** Estimating an NK *fraction* per library by bulk
+deconvolution and multiplying by cell count. It would have produced a number for
+every cell of the power table, but the preregistered threshold (≥30 NK cells per
+donor per compartment) consumes a count of cells that can actually be carried into a
+clone-sharing analysis, and G6 requires the summary quantity to be computed on the
+same basis as the rule that consumes it. A fraction estimate is not that.
+
+---
