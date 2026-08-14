@@ -658,3 +658,98 @@ PAEP's absence (D17) is downgraded to a limitation: ruler A is already
 saturated at 1.000 on five tissue controls, so a sixth cannot raise the
 ceiling. The residual risk is confined to ruler B's band upper edge, now set
 by LYZ/Myeloid at 0.0538, which PAEP could in principle raise.
+
+---
+
+## D21 — Ruler A did not drift. Three different quantities were reported as one.
+
+**Challenge.** The v1.1 report said the tissue ambient controls "all return
+soup fraction 1.000"; the v1.2 report said ruler A is "0.021–0.048 against a
+0.092 ceiling". Same estimator or a silent definition change?
+
+**Same estimator, verified by history, not by memory.** The ruler-A block and
+the `soup_fraction` formula appear in exactly one commit — `bcf1947`, the
+original pipeline commit — and have never been edited. v1.1 and v1.2 changed
+ruler B only.
+
+**Three quantities, not one:**
+
+| quantity | value | what it is |
+|---|---|---|
+| ambient controls' soup fraction | DCN/COL1A1/IGFBP1/HLA-G/CSH1 = **1.000**; IGKC 0.092, LYZ 0.164, C1QA 0.176, HBB 0.408 | pure-ambient genes, true value 1.0 |
+| **conservative ceiling** | **0.092** | the **minimum** of the row above |
+| true-NK floor | 0.021 | KLRD1/NKG7/GNLY/PRF1/GZMB/NCR1 |
+| target genes | 0.021–0.048 | XCL1 0.021, CCL5 0.025, CXCR4 0.048 |
+
+**But checking it exposed a real error in the v1.1 report, which is retracted
+here.** That report argued PAEP's absence was harmless because "ruler A is
+already saturated at 1.000 on five tissue controls, so a sixth cannot raise
+the ceiling". **The ceiling is the MINIMUM, not the maximum.** Those five
+1.000s do not set it; IGKC's 0.092 does.
+
+The correct risk statement: PAEP matters only if it would return a value
+**below** 0.092, and then it lowers the ceiling. **If PAEP would return
+anything between 0.048 and 0.092, the ceiling drops below CXCR4's 0.0484 and
+CXCR4's ruler-A verdict flips to `indistinguishable_from_ambient`.** XCL1
+(0.021) and CCL5 (0.025) have far more margin. This is a third independent
+line pointing at CXCR4 as the weakest of the headline genes, and it was
+concealed by the earlier wrong argument.
+
+---
+
+## D22 — The empirical null is not robust to how it is constructed. This is the round's most consequential negative.
+
+Raising the null from 405 to ~10,000 genes was meant to be a precision fix.
+Implementing it exposed two defects in the v1.1 null and then a limit that no
+implementation removes.
+
+**Defect 1 — one pooled null for all targets.** v1.1 pooled every null gene
+into a single distribution and judged all 27 targets against the same mu/sd.
+That is not expression matching: a target at 2,315 CPM was being judged
+against a pool with median 5.5 CPM, whose variance is far smaller, inflating
+every z. Fixed: each target now gets its own matched null set
+(`null_set_is_expression_matched`).
+
+**Defect 2 — null genes were consumed, not shared.** Each target banned the
+genes it took, starving whichever targets came later — worst exactly at the
+extremes of expression, where the headline genes live. Measured before the
+fix: **XCL1 received only 98 null genes** (so its empirical p of 0.0101 *was*
+its resolution floor, 1/99), and **XCL2 and CXCR4 received none at all** and
+silently fell back to the pooled distribution. Fixed: null sets are shared
+between targets, since each is evaluated independently.
+
+**The limit that remains.** With per-target matching, the null size per target
+is bounded by how many genes of comparable expression exist. Requesting 10,000
+yields 8,537 unique genes but only ~317 per target — **resolution 1/318 =
+0.0031, not 1/10001**. Widening the window to get more genes degrades the
+matching it exists to provide. Precision and matching trade off, and this
+dataset cannot have both.
+
+**Consequence — the pass list moves:**
+
+| version | matched? | resolution | rows at q ≤ 0.05 |
+|---|---|---|---|
+| pooled, 399 nulls | no | 0.0025 | 6 |
+| per-target, 112 nulls | yes | 0.0088 | **0** |
+| per-target, 317 nulls | yes | 0.0031 | 8 |
+
+The middle row has zero passes purely because 112 nulls cannot resolve a p
+small enough to survive BH over 81 tests — not because the effects weakened.
+
+**And a new failure mode appeared.** Under per-target matching, `S1PR5` passes
+at q = 0.032 on an effect of **+1.5 pp**, because its own null set consists of
+low-expression genes whose detection rates are compressed against the zero
+floor, giving a null SD of 0.30. **Statistically significant, biologically
+meaningless.** No effect-size threshold was added after the fact to remove it;
+it is reported as it stands, as a warning about the method.
+
+**Decision.** Report the per-target, 317-null version as the methodologically
+correct one, publish the sensitivity table beside it
+(`out/VT2018/null_sensitivity/`), and state plainly: **no row passes under
+every construction tried.** The empirical null is the best instrument
+available at n = 5–6, and it is not a stable one. Weight the
+construction-independent evidence — the within-label circularity test —
+accordingly.
+
+Under the correct version, XCL1 dNK1→dNK2 sits at **q = 0.0463**, and CCL5
+dNK1→dNK2 at 0.0318.

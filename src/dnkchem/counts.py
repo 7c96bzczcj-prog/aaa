@@ -96,6 +96,51 @@ def downsample_columns(X, cols, depth, seed=0):
     return out, keep
 
 
+def downsample_marginal(X, cols, depth, seed=0, block=2000):
+    """Per-gene MARGINAL of full-transcriptome downsampling to `depth`.
+
+    For a cell with total T and c_g copies of gene g, thinning the whole cell
+    to D reads gives g the marginal Hypergeometric(c_g, T - c_g, D). That
+    marginal is the same for every gene regardless of ordering, so when only
+    per-gene detection rates are needed -- as in the null distribution, where
+    each gene is evaluated independently -- the genes can be drawn
+    independently instead of sequentially.
+
+    Identical per-gene distribution to `downsample_columns`, but blockable and
+    without the O(n_cols) sequential state, which is what makes a 10,000-gene
+    null affordable. It does NOT preserve the joint constraint that the drawn
+    counts sum to `depth`, so it must NOT be used where cross-gene structure
+    matters.
+
+    Returns (counts[n_kept, len(cols)], keep_mask).
+    """
+    X = as_csr(X)
+    total = np.asarray(X.sum(axis=1)).ravel().astype(np.int64)
+    keep = total >= depth
+    if keep.sum() == 0:
+        return np.zeros((0, len(cols)), dtype=np.int64), keep
+    Xk = X[keep]
+    T = total[keep]
+    rng = np.random.default_rng(seed)
+    cols = np.asarray(cols, dtype=int)
+    out = np.zeros((Xk.shape[0], cols.size), dtype=np.int64)
+    for start in range(0, cols.size, block):
+        cc = cols[start:start + block]
+        sub = Xk[:, cc]
+        sub = np.asarray(sub.todense(), dtype=np.int64) if sp.issparse(sub) else \
+            np.asarray(sub, dtype=np.int64)
+        ngood = sub
+        nbad = T[:, None] - ngood
+        active = (ngood > 0) & (nbad >= 0)
+        blk = np.zeros_like(ngood)
+        if active.any():
+            blk[active] = rng.hypergeometric(
+                ngood[active], nbad[active],
+                np.broadcast_to(np.minimum(depth, T)[:, None], ngood.shape)[active])
+        out[:, start:start + block] = blk
+    return out, keep
+
+
 def detection_and_cpm(counts, depth):
     """Detection rate (count >= 1) and mean CPM from depth-matched counts."""
     if counts.shape[0] == 0:

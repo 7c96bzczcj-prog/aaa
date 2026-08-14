@@ -165,3 +165,47 @@ def test_verify_integer_counts_rejects_normalised_matrix():
     assert not ok
     ok2, _, _ = verify_integer_counts(sp.csr_matrix(np.array([[1, 2], [0, 3]])))
     assert ok2
+
+
+# --- marginal downsampler (used by the 10k-gene null) ----------------------
+def test_marginal_downsampler_matches_sequential_marginals():
+    """The whole point: same per-gene distribution, different joint."""
+    from dnkchem.counts import downsample_marginal
+    c = np.array([[400, 100, 500]], dtype=np.int64)
+    X = sp.csr_matrix(np.repeat(c, 6000, axis=0))
+    seq, _ = downsample_columns(X, [0, 1, 2], depth=100, seed=11)
+    mar, _ = downsample_marginal(X, [0, 1, 2], depth=100, seed=11)
+    want = 100 * c[0] / c[0].sum()
+    assert np.allclose(seq.mean(axis=0), want, rtol=0.05)
+    assert np.allclose(mar.mean(axis=0), want, rtol=0.05), mar.mean(axis=0)
+    # detection rates agree, which is what the null actually consumes
+    assert np.allclose((seq >= 1).mean(axis=0), (mar >= 1).mean(axis=0), atol=0.02)
+    # the joint differs by construction: sequential sums to exactly D
+    assert np.all(seq.sum(axis=1) == 100)
+    assert not np.all(mar.sum(axis=1) == 100)
+
+
+def test_marginal_downsampler_block_size_changes_draws_not_distribution():
+    """Block size changes the RNG call sequence, so per-gene draws differ.
+
+    What must NOT differ is the distribution they come from. Asserting
+    per-gene equality would be asserting something false; assert the pooled
+    detection rate instead, which is what the null consumes.
+    """
+    from dnkchem.counts import downsample_marginal
+    rng = np.random.default_rng(4)
+    X = sp.csr_matrix(rng.poisson(2.0, size=(800, 60)).astype(np.int64))
+    a, _ = downsample_marginal(X, list(range(60)), 20, seed=7, block=60)
+    b, _ = downsample_marginal(X, list(range(60)), 20, seed=7, block=7)
+    assert a.shape == b.shape
+    assert abs((a >= 1).mean() - (b >= 1).mean()) < 0.02
+    assert abs(a.mean() - b.mean()) < 0.05
+
+
+def test_marginal_downsampler_is_seed_reproducible_at_fixed_block():
+    from dnkchem.counts import downsample_marginal
+    rng = np.random.default_rng(9)
+    X = sp.csr_matrix(rng.poisson(2.0, size=(200, 30)).astype(np.int64))
+    a, _ = downsample_marginal(X, list(range(30)), 15, seed=3, block=10)
+    b, _ = downsample_marginal(X, list(range(30)), 15, seed=3, block=10)
+    assert np.array_equal(a, b)

@@ -34,45 +34,68 @@ dNK3).
 
 ---
 
-## 1. The positive set
+## 1. The positive set, and how unstable it is
 
-**Eight contrasts reach `q_bh_empirical` ≤ 0.05** in the pooled 81-test family
-(27 genes × 3 contrasts, v1.2 A5). All are donor-unanimous. Evidence:
-`donor_level_tests.tsv`, `null_distribution.tsv`, `soup_calibration.tsv`.
+Inference is the empirical null: the same donor-level effect over
+**expression-matched random genes**, BH-corrected across **all 81 analysis-A
+tests** (27 genes × 3 contrasts, v1.2 A5). The methodologically correct
+construction — each target against **its own** matched null set, at the
+highest resolution this dataset supports (317 nulls per target, resolution
+1/318 = 0.0031) — gives:
 
-| contrast | gene | n | effect (pp) | 95% CI | z vs null | q (81-family) | ceiling | ruler A | ruler B |
-|---|---|---|---|---|---|---|---|---|---|
-| dNK1→dNK2 | **XCL1** | 6 | **+39.3** | 26.9–53.4 | +9.59 | 0.0333 | lower bound | 0.021 | unmeasurable |
-| dNK1→dNK2 | **XCL2** | 6 | **+32.9** | 20.9–45.5 | +8.00 | 0.0333 | lower bound | 0.021 | unmeasurable |
-| dNK1→dNK3 | **CCL5** | 5 | **+57.3** | 41.0–71.9 | +10.87 | 0.0333 | lower bound | 0.025 | unmeasurable |
-| dNK1→dNK3 | **CXCR4** | 5 | **+57.9** | 45.3–69.6 | +10.98 | 0.0333 | clean | 0.048 | unmeasurable |
-| dNK2→dNK3 | **CXCR4** | 5 | **+52.5** | 37.3–66.1 | +14.56 | 0.0333 | clean | 0.048 | unmeasurable |
-| dNK2→dNK3 | **CCL5** | 5 | **+35.5** | 19.9–52.9 | +9.84 | 0.0333 | lower bound | 0.025 | unmeasurable |
-| dNK1→dNK2 | **CCL5** | 6 | **+23.3** | 17.1–30.1 | +5.65 | **0.0499** | clean | 0.025 | unmeasurable |
-| dNK1→dNK3 | **XCL1** | 5 | **+31.2** | 19.5–44.8 | +5.87 | **0.0499** | lower bound | 0.021 | unmeasurable |
+| contrast | gene | n | effect (pp) | z | q (81-family) | ceiling | ruler A |
+|---|---|---|---|---|---|---|---|
+| dNK1→dNK3 | **CXCR4** | 5 | +57.9 | +6.24 | 0.0318 | clean | 0.048 |
+| dNK1→dNK3 | **CCL5** | 5 | +57.3 | +6.65 | 0.0318 | lower bound | 0.025 |
+| dNK2→dNK3 | **CXCR4** | 5 | +52.5 | +8.07 | 0.0318 | clean | 0.048 |
+| dNK2→dNK3 | **CCL5** | 5 | +35.5 | +5.23 | 0.0318 | lower bound | 0.025 |
+| dNK1→dNK2 | **CCL5** | 6 | +23.3 | +4.71 | 0.0318 | clean | 0.025 |
+| dNK1→dNK2 | **XCL1** | 6 | +39.3 | +5.67 | **0.0463** | lower bound | 0.021 |
+| dNK1→dNK3 | *S1PR5* | 5 | **+1.5** | +4.91 | 0.0318 | clean | — |
+| dNK2→dNK3 | *S1PR5* | 5 | **+1.5** | +5.01 | 0.0318 | clean | — |
 
-Three things about this table must be read together with it.
+**Read the two S1PR5 rows as a warning, not a result.** A 1.5-percentage-point
+effect passes because S1PR5's own null set is made of low-expression genes
+whose detection rates are compressed against zero, giving a null SD of 0.30.
+Statistically significant, biologically meaningless. No effect-size filter was
+added afterwards to remove it — it stands as evidence about the method.
 
-**The q values are not small.** Six rows sit at the empirical-p resolution
-floor — 405 null genes cannot resolve below 1/406 = 0.0025 — so their p is
-reported as **"≤ 0.0025, at the resolution limit"**, never smaller (v1.2 A6).
-The earlier `q < 0.0001` was unsupportable. The last two rows are at
-**q = 0.0499**, inside 0.05 by 0.0001; treat them as marginal, not as
-established.
+### The pass list depends on how the null is built
 
-**Ruler B is `unmeasurable` for every one of these genes** (v1.2 A7), because
-**NK is itself the largest total contributor** of each to the decidual ambient
-pool. That is `no_competing_source_NK_is_largest_contributor`: an ambient
-argument has no competing source to run against. It is not evidence of
-contamination — but neither can ruler B be used as evidence of reality. **The
-pre-registered "both rulers positive" bar is therefore not met by any headline
-gene.** Their ambient evidence rests on ruler A alone (0.021–0.048 against a
-0.092 ceiling and a 0.021 true-NK floor).
+| null construction | matched? | resolution | rows at q ≤ 0.05 |
+|---|---|---|---|
+| pooled, 399 nulls | no | 0.0025 | 6 |
+| per-target, 112 nulls | yes | 0.0088 | **0** |
+| per-target, 317 nulls | yes | 0.0031 | 8 |
 
-**The credibility ordering is not the z ordering.** See §3.
+**No row passes under every construction tried.** The middle row's zero is
+pure resolution starvation — 112 nulls cannot produce a p small enough to
+survive BH over 81 tests — not weaker effects. Full table in
+`out/VT2018/null_sensitivity/`; the defects that produced the earlier numbers
+(one pooled null for all targets; null genes consumed rather than shared, which
+left XCL1 with 98 nulls and CXCR4 with none) are in
+[D22](DECISIONS.md).
 
-Ruler A ceiling 0.092, true-NK floor 0.021; ruler B band 0.0538. "lower bound"
-= high arm saturated, so the effect understates the truth (v1.1 A1).
+**Precision and matching trade off and this dataset cannot have both**: asking
+for 10,000 nulls yields 8,537 unique genes but only ~317 per target, because
+widening the window to find more degrades the expression matching it exists to
+provide.
+
+### Ruler B is `unmeasurable` for every headline gene
+
+Not for lack of signal: **NK is itself the largest total contributor** of each
+to the decidual ambient pool (v1.2 A7), so an ambient argument has no
+competing source to run against. That is *supportive* — but the
+**pre-registered "both rulers positive" bar is not met by any headline gene**,
+and the alternative reading below (ruler A plus the circularity test) is
+**post hoc** and labelled as such. The rule was not reinterpreted to rescue it.
+
+Note also that "largest contributor to the pool" is a statement about **total
+counts**, and NK is roughly 70% of decidual leukocytes here — it does **not**
+mean highest per-cell expression.
+
+Ruler A ceiling 0.092 (the **minimum** over ambient controls, not the maximum),
+true-NK floor 0.021, ruler B band 0.0538.
 
 ---
 
@@ -216,10 +239,13 @@ themselves dNK3 characterisation genes.
 n falls to 4–5, so `min_achievable_p` is 0.125 and **no p value in this section
 is interpretable**. Direction and effect size are all that is claimed.
 
-Shrinkage alone would not settle it — the gates are impure (gate3 is only 35%
-dNK3), and dilution shrinks everything. But dilution is gene-agnostic, and the
-observed shrinkage spans **0.62× to 0.30×**, ordered exactly as the circularity
-prior predicts.
+Shrinkage alone does **not** settle it. The gates are impure (gate3 is only
+35% dNK3) and dilution shrinks everything. It is tempting to argue that
+dilution is gene-agnostic, so a 0.62×–0.30× spread must mean circularity —
+**that argument is too weak to use.** Detection rates are bounded in [0,1], so
+dilution compresses each gene by an amount depending on where the
+contaminating cells' rate sits between the two arms; it is not proportional.
+The within-label test is what carries the conclusion.
 
 **The within-label test settles it.** A gate contrast computed *inside one
 published cluster* cannot restate how that cluster was drawn, and is immune to
@@ -235,6 +261,14 @@ between-gate dilution:
 | dNK2 | CD103⁻→CD103⁺ | XCL1 | 3 | −5.2 pp | 3/3 |
 
 n = 3, `min_achievable_p` = 0.25 — again, **no p value here means anything**.
+
+**The single strongest observation in this study is in that table's first and
+fourth rows.** Within the *same* contrast, on the *same* cells, XCL1 moves
+**+6.7 pp** while CXCR4 moves **−3.5 pp**, both with all three donors
+concordant. A depth or dropout artefact in the gate pushes every gene the same
+way — if CD39⁻ cells were merely shallower, every detection rate would fall
+together. **Opposite signs within one contrast exclude that common artefact**,
+which no single effect size and no z score can do.
 
 **Resulting tiers:**
 
@@ -308,8 +342,13 @@ shrink as the floor rises and D8's dNK3 disappears, but never reverse.
 2. **Differential cell loss is severe** (§3). Three donors exceed the 10 pp
    R6 trigger; D8's dNK1-vs-dNK3 gap is 43.1 pp.
 3. **PAEP is absent from the published matrix** — verified against the 4.1 GB
-   source file, not an ingest artefact ([D17](DECISIONS.md)). The decidual
-   ambient ceiling is estimated without its largest expected contributor.
+   source file ([D17](DECISIONS.md)). The v1.1 report claimed this was harmless
+   because five tissue controls already return 1.000; **that was wrong and is
+   retracted** ([D21](DECISIONS.md)). The ceiling is the *minimum* over ambient
+   controls (IGKC, 0.092), not the maximum. If PAEP would return anything
+   between 0.048 and 0.092, the ceiling drops below CXCR4's 0.0484 and CXCR4's
+   ruler-A verdict flips to `indistinguishable_from_ambient`. XCL1 (0.021) and
+   CCL5 (0.025) keep a wide margin.
 4. **Ruler B now ranks sources by total pool contribution**
    ([A7](PREREGISTRATION_v1.2.md)), after v1.1's per-cell-CPM ranking assigned
    XCL1's source to a 184-cell ILC3 population. Consequence: for every headline

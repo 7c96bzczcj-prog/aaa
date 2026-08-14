@@ -28,6 +28,20 @@ test exists to break.
 READING IT. Gradient survives -> the effect is not an artefact of the
 clustering. Gradient collapses -> it was circular.
 
+THE STRONGEST SINGLE OBSERVATION here is not any one effect size: it is that
+within the SAME contrast on the SAME cells, XCL1 moves +6.7 pp while CXCR4
+moves -3.5 pp, both with all 3 donors concordant. A depth or dropout artefact
+in the gate would push every gene the same way -- if CD39- cells were merely
+shallower, every detection rate would fall together. Opposite signs in one
+contrast rule out that common artefact in a way no single effect size can.
+
+A WEAKER ARGUMENT, deliberately not relied on: that between-gate shrinkage is
+"gene-agnostic", so a 2-fold spread in retained effect implies circularity.
+Detection rates are bounded in [0,1], so dilution compresses each gene by an
+amount that depends on where the contaminating cells' rate sits relative to
+the two arms -- it is NOT proportional. The direction of that argument is
+right but it cannot carry weight. The within-label test is what carries it.
+
 This does NOT re-label anything: the published annotation is untouched, the
 gates are a parallel grouping written to their own table. No output of this
 script feeds the main analysis.

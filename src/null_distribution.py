@@ -24,7 +24,8 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from dnkchem.counts import as_csr, cell_qc, detection_and_cpm, downsample_columns  # noqa: E402
+from dnkchem.counts import (as_csr, cell_qc, detection_and_cpm,  # noqa: E402
+                            downsample_marginal)
 from dnkchem.dataset import load_dataset, load_panel, unit_indices  # noqa: E402
 from dnkchem.manifest import load_manifest  # noqa: E402
 from dnkchem.stats import (benjamini_hochberg, continuity_rate,  # noqa: E402
@@ -33,30 +34,43 @@ from dnkchem.stats import (benjamini_hochberg, continuity_rate,  # noqa: E402
 DNK_TRIO = ["dNK1", "dNK2", "dNK3"]
 
 
-def match_expression(mean_expr, target_cols, n_per_target, rng, exclude):
-    """Pick genes whose pooled expression brackets each target gene."""
+def match_expression(mean_expr, target_cols, n_per_target, rng, exclude, window=0):
+    """Pick genes whose pooled expression brackets each target gene.
+
+    The window is auto-sized when not given: a 10,000-gene null needs a wider
+    rank neighbourhood than a 400-gene one, and silently returning fewer genes
+    would cap the empirical-p resolution without saying so.
+    """
     order = np.argsort(mean_expr)
     rank = np.empty_like(order)
     rank[order] = np.arange(len(order))
+    if window <= 0:
+        window = max(250, int(n_per_target * 3))
+    # Null genes are SHARED between targets, not consumed. Banning a gene once
+    # it is used starves whichever targets are processed last -- and starves
+    # them worst exactly where the neighbourhood is thin, i.e. at the extremes
+    # of expression, which is where the headline genes live. Each target's null
+    # set is evaluated on its own, so overlap between sets is harmless.
     banned = set(exclude)
-    chosen = []
+    per_target = {}
     for c in target_cols:
         r = rank[c]
-        lo, hi = max(0, r - 250), min(len(order), r + 250)
+        lo, hi = max(0, r - window), min(len(order), r + window)
         pool = [int(order[k]) for k in range(lo, hi)
                 if int(order[k]) not in banned and mean_expr[int(order[k])] > 0]
         rng.shuffle(pool)
-        take = pool[:n_per_target]
-        chosen.extend(take)
-        banned.update(take)
-    return sorted(set(chosen))
+        per_target[int(c)] = pool[:n_per_target]
+    return per_target
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("manifest")
     ap.add_argument("--panel", default="panel/chemokine_panel_v1.tsv")
-    ap.add_argument("--n-null", type=int, default=400)
+    ap.add_argument("--n-null", type=int, default=10000)
+    ap.add_argument("--match-window", type=int, default=0,
+                    help="rank half-width for expression matching; "
+                         "0 = auto-size to satisfy --n-null")
     ap.add_argument("--min-cells", type=int, default=30)
     ap.add_argument("--min-genes", type=int, default=200)
     ap.add_argument("--max-mito", type=float, default=0.10)
@@ -89,19 +103,38 @@ def main():
                    if g in hits]
     n_per = max(1, int(np.ceil(args.n_null / max(1, len(target_cols)))))
     rng = np.random.default_rng(args.seed)
-    null_cols = match_expression(mean_expr, target_cols, n_per, rng,
-                                 exclude=set(hits.values()))
+    per_target = match_expression(mean_expr, target_cols, n_per, rng,
+                                  exclude=set(hits.values()),
+                                  window=args.match_window)
+    null_cols = sorted({c for v in per_target.values() for c in v})
+    col_to_gene = {hits[g]: g for g in hits}
+    # each target gets its OWN expression-matched null set: a gene at 2300 CPM
+    # must not be judged against a null pool with median 5 CPM, or the null's
+    # variance is understated and every z is inflated.
+    gene_to_nulls = {col_to_gene[c]: v for c, v in per_target.items() if c in col_to_gene}
     print(f"[null] {len(null_cols)} expression-matched null genes "
           f"({n_per} per target, target CPM range "
           f"{mean_expr[target_cols].min():.2f}-{mean_expr[target_cols].max():.2f})")
     if len(null_cols) < args.n_null:
         print(f"[null] WARNING: only {len(null_cols)} null genes available "
-              f"(requested {args.n_null})")
+              f"(requested {args.n_null}); empirical-p resolution is "
+              f"1/{len(null_cols)+1} = {1/(len(null_cols)+1):.5f}")
+    # expression matching quality, reported rather than assumed
+    tq = np.quantile(mean_expr[target_cols], [0.1, 0.5, 0.9])
+    nq = np.quantile(mean_expr[null_cols], [0.1, 0.5, 0.9])
+    print(f"[null] CPM q10/q50/q90 -- targets {tq.round(3)} | nulls {nq.round(3)}")
+    sizes = {col_to_gene[c]: len(v) for c, v in per_target.items() if c in col_to_gene}
+    thin = {g: n for g, n in sizes.items() if n < n_per}
+    print(f"[null] per-target null-set size: min {min(sizes.values())}, "
+          f"median {int(np.median(list(sizes.values())))}, max {max(sizes.values())}")
+    if thin:
+        print(f"[null] targets with a THIN null set (resolution 1/(n+1) is worse "
+              f"for these): {dict(sorted(thin.items(), key=lambda kv: kv[1])[:8])}")
 
     # per donor x subset detection rates for the null genes, same depth, same seed
     recs = []
     for (donor, ss), r in unit_indices(obs_s, np.ones(len(obs_s), bool), ["donor", "subset"]):
-        counts, kept = downsample_columns(Xs[r], null_cols, depth, seed=args.seed)
+        counts, kept = downsample_marginal(Xs[r], null_cols, depth, seed=args.seed)
         n_post = int(kept.sum())
         if n_post < args.min_cells:
             continue
@@ -136,21 +169,32 @@ def main():
         E = pd.DataFrame(effects)
         if E.empty:
             continue
-        mu, sd = float(E.mean_diff_pp.mean()), float(E.mean_diff_pp.std(ddof=1))
+        mu_all = float(E.mean_diff_pp.mean())
+        sd_all = float(E.mean_diff_pp.std(ddof=1))
         summary_rows.append({"dataset_id": mf.dataset_id, "comparison_id": cid,
-                             "n_null_genes": len(E), "null_mean_diff_pp": mu,
-                             "null_sd_diff_pp": sd,
+                             "n_null_genes": len(E), "null_mean_diff_pp": mu_all,
+                             "null_sd_diff_pp": sd_all,
                              "null_q025": float(E.mean_diff_pp.quantile(0.025)),
                              "null_q975": float(E.mean_diff_pp.quantile(0.975)),
                              "n_donors_median": float(E.n_donors.median())})
-        print(f"[null] {cid}: baseline {mu:+.3f} +/- {sd:.3f} pp over {len(E)} genes "
-              f"(NOT assumed to be zero)")
+        print(f"[null] {cid}: pooled baseline {mu_all:+.3f} +/- {sd_all:.3f} pp over "
+              f"{len(E)} genes (NOT assumed to be zero; per-gene sets used below)")
 
-        obs_eff = E.mean_diff_pp.to_numpy()
+        by_col = dict(zip(E.col, E.mean_diff_pp))
         tt = T2[T2.comparison_id == cid]
         for _, row in tt.iterrows():
             if not np.isfinite(row.mean_diff_pp):
                 continue
+            # THIS gene's own expression-matched null set, not the pooled one
+            own = [by_col[c] for c in gene_to_nulls.get(row.gene, []) if c in by_col]
+            if len(own) >= 30:
+                obs_eff = np.asarray(own)
+                matched = True
+            else:
+                obs_eff = E.mean_diff_pp.to_numpy()
+                matched = False
+            mu = float(obs_eff.mean())
+            sd = float(obs_eff.std(ddof=1))
             # rank-based empirical p with the standard +1 correction: with N
             # null genes it cannot resolve below 1/(N+1). Reporting anything
             # smaller (e.g. a normal-tail p from z) would claim precision the
@@ -161,10 +205,11 @@ def main():
             out_rows.append({"dataset_id": mf.dataset_id, "comparison_id": cid,
                              "gene": row.gene, "observed_diff_pp": row.mean_diff_pp,
                              "null_mean_diff_pp": mu, "null_sd_diff_pp": sd,
-                             "n_null_genes": len(E), "empirical_p": emp_p,
+                             "n_null_genes": len(obs_eff),
+                             "null_set_is_expression_matched": matched,
+                             "empirical_p": emp_p,
                              "empirical_p_resolution_floor": 1.0 / (len(obs_eff) + 1),
-                             "empirical_p_at_resolution_floor":
-                                 bool(n_ge == 0),
+                             "empirical_p_at_resolution_floor": bool(n_ge == 0),
                              "empirical_z": z})
 
     T4 = pd.DataFrame(out_rows)
