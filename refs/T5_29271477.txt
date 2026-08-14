@@ -1,0 +1,61 @@
+# status=ABSTRACT_ONLY pmid=29271477 pmcid= ident=29271477
+
+29271477 2019 04 18 2019 05 01 1365-2249 192 2 2018 May Clinical and experimental immunology Clin Exp Immunol Immunomodulatory activity of glycodelin: implications in allograft rejection. 213 223 213-223 10.1111/cei.13096 Glycodelin is an immunomodulator, indispensable for the maintenance of pregnancy in humans. The glycoprotein induces apoptosis in activated CD4 + T cells, monocytes and natural killer (NK) cells, and suppresses the activity of cytotoxic T cells, macrophages and dendritic cells. This study explores the immunosuppressive property of glycodelin for its possible use in preventing graft rejection. Because glycodelin is found only in certain primates, the hypothesis was investigated in an allograft nude mouse model. It is demonstrated that treatment of alloactivated mononuclear cells with glycodelin thwarts graft rejection. Glycodelin decreases the number of activated CD4 + and CD8 + cells and down-regulates the expression of key proteins known to be involved in graft demise such as granzyme-B, eomesodermin (EOMES), interleukin (IL)-2 and proinflammatory cytokines [tumour necrosis factor (TNF)-&#x3b1; and IL-6], resulting in a weakened cell-mediated immune response. Immunosuppressive drugs for treating allograft rejection are associated with severe side effects. Glycodelin, a natural immunomodulator in humans, would be an ideal alternative candidate. &#xa9; 2017 British Society for Immunology. Dixit A A Department of Biochemistry, Indian Institute of Science, Bengaluru, Karnataka, India. Balakrishnan B B Department of Biochemistry, Indian Institute of Science, Bengaluru, Karnataka, India. Karande A A AA 0000-0002-5737-8085 Department of Biochemistry, Indian Institute of Science, Bengaluru, Karnataka, India. eng Journal Article Research Support, Non-U.S. Gov't 2018 01 18 England Clin Exp Immunol 0057202 0009-9104 0 Eomes protein, mouse 0 Glycodelin 0 Immunologic Factors 0 Immunosuppressive Agents 0 Interleukin-2 0 Interleukin-6 0 T-Box Domain Proteins 0 Tumor Necrosis Factor-alpha EC 3.4.21.- Granzymes IM Animals Down-Regulation Glycodelin pharmacology Graft Rejection prevention & control Granzymes metabolism Hep G2 Cells Humans Immunity, Cellular Immunologic Factors pharmacology Immunosuppressive Agents pharmacology Interleukin-2 metabolism Interleukin-6 metabolism Jurkat Cells Male Mice Mice, Nude Monocytes drug effects T-Box Domain Proteins metabolism Tumor Necrosis Factor-alpha metabolism Xenograft Model Antitumor Assays IL-2 T cells granzyme-B immunosuppression 2017 11 17 2017 12 14 2017 12 18 2017 12 23 6 0 2019 4 19 6 0 2017 12 23 6 0 2019 5 1 ppublish 29271477 PMC5904719 10.1111/cei.13096 Arck PC, Hecher K. Fetomaternal immune cross&#x2010;talk and its consequences for maternal and offspring's health. Nat Med 2013; 19:548&#x2013;56. 23652115 Clark GF, Schust DJ. Manifestations of immune tolerance in the human female reproductive tract. Front Immunol 2013; 4:26. PMC3570961 23407606 Julkunen M, Rutanen EM, Koskimies A, Ranta T, Bohn H, Sepp&#xe4;l&#xe4; M. Distribution of placental protein 14 in tissues and body fluids during pregnancy. Br J Obstet Gynaecol 1985; 92:1145&#x2013;51. 4063232 Dalton CF, Laird SM, Estdale SE, Saravelos HG, Li TC. Endometrial protein PP14 and CA&#x2010;125 in recurrent miscarriage patients; correlation with pregnancy outcome. Hum Reprod 1998; 13:3197&#x2013;202. 9853880 Mukhopadhyay D, Sundereshan S, Rao C, Karande AA. Placental protein 14 induces apoptosis in T cells but not in monocytes. J Biol Chem 2001; 276:28268&#x2013;73. 11325960 SundarRaj S, Mukhopadhyay D, Karande AA. Glycodelin A triggers mitochondrial stress and apoptosis in T cells by a mechanism distinct and independent of TCR signaling. Mol Immunol 2008; 45:2391&#x2013;400. 18155767 
+Lee C&#x2010;L, 
+Chiu PCN, 
+Lam KKW
+ et al 
+Differential actions of glycodelin&#x2010;A on Th&#x2010;1 and Th&#x2010;2 cells: a paracrine mechanism that could produce the Th&#x2010;2 dominant environment during pregnancy. Hum Reprod
+2011; 26:517&#x2013;26.
+ 21227941 Alok A, Mukhopadhyay D, Karande AA. Glycodelin A, an immunomodulatory protein in the endometrium, inhibits proliferation and induces apoptosis in monocytic cells. Int J Biochem Cell Biol 2009; 41:1138&#x2013;47. 18996219 Tee MK, Vigne JL, Yu J, Taylor RN. Natural and recombinant human glycodelin activate a proapoptotic gene cascade in monocyte cells. J Leukoc Biol 2008; 83:843&#x2013;52. 18203874 Alok A, Karande AA. The role of glycodelin as an immune&#x2010;modulating agent at the feto&#x2010;maternal interface. J Reprod Immunol 2009; 83:124&#x2013;7. 19896207 Yaniv E, Borovsky Z, Mishan&#x2010;Eisenberg G, Rachmilewitz J. Placental protein 14 regulates selective B cell responses. Cell Immunol 2003; 222:156&#x2013;63. 12826085 
+Scholz C, 
+Toth B, 
+Brunnhuber R
+ et al 
+Glycodelin A induces a tolerogenic phenotype in monocyte&#x2010;derived dendritic cells in vitro 
+. Am J Reprod Immunol
+2008; 60:501&#x2013;12.
+ 19032611 Soni C, Karande AA. Glycodelin A suppresses the cytolytic activity of CD8+ T lymphocytes. Mol Immunol 2010; 47:2458&#x2013;66. 20638131 
+Lee CL, 
+Pang PC, 
+Yeung WS
+ et al 
+Effects of differential glycosylation of glycodelins on lymphocyte survival. J Biol Chem
+2009; 284:15084&#x2013;96.
+ PMC2685690 19240032 Jayachandran R, Shaila MS, Karande AA. Analysis of the role of oligosaccharides in the apoptotic activity of glycodelin A. J Biol Chem 2004; 279:8585&#x2013;91. 14679202 
+Jayachandran R, 
+Radcliffe CM, 
+Royle L
+ et al 
+Oligosaccharides modulate the apoptotic activity of glycodelin. Glycobiology
+2006; 16:1052&#x2013;63.
+ 16854946 Afzali B, Lechler RI, Hernandez&#x2010;Fuentes MP. Allorecognition and the alloresponse: clinical implications. Tissue Antigens 2007; 69:545&#x2013;56. 17498264 Bueno V, Pestana JO. The role of CD8+ T cells during allograft rejection. Braz J Med Biol Res 2002; 35:1247&#x2013;58. 12426623 Sanchez&#x2010;Fueyo A, Strom TB. Immunologic basis of graft rejection and tolerance following transplantation of liver or other solid organs. Gastroenterology 2011; 140:51&#x2013;64. PMC3866688 21073873 Schenk AD, Nozaki T, Rabant M, Valujskikh A, Fairchild RL. Donor&#x2010;reactive CD8 memory T cells infiltrate cardiac allografts within 24&#x2010;h posttransplant in naive recipients. Am J Transplant 2008; 8:1652&#x2013;61. PMC2625311 18557725 Schiefner A, Rodewald F, Neumaier I, Skerra A. The dimeric crystal structure of the human fertility lipocalin glycodelin reveals a protein scaffold for the presentation of complex glycans. Biochem J 2015; 466:95&#x2013;104. 25422905 
+Inaba N, 
+Sato N, 
+Fukazawa I
+ et al 
+The immunocytochemical localization of new soluble placental tissue proteins (PP14, 16, 17, 19, 20 and PP21) in human and Cynomolgus monkey placentae. Arch Gynecol
+1987; 240:13&#x2013;9.
+ 3548605 
+Fazleabas AT, 
+Donnelly KM, 
+Hild&#x2010;Petito S, 
+Hausermann HM, 
+Verhage HG.
+Secretory proteins of the baboon ( Papio anubis ) endometrium: regulation during the menstrual cycle and early pregnancy. Hum Reprod Update
+1997; 3:553&#x2013;9.
+ 9584945 van Dam PA, Watson JV, Lowe DG, Chard T, Shepherd JH. Comparative evaluation of fresh, fixed, and cryopreserved solid tumour cells for reliable flow cytometry of DNA and tumour associated antigen. Cytometry 1992; 13:722&#x2013;9. 1451602 Griny&#xf3; JM, Cruzado JM. Mycophenolate mofetil and calcineurin&#x2010;inhibitor reduction: recent progress. Am J Transplant 2009; 9:2447&#x2013;52. 19775321 
+Baum LG, 
+Blackall DP, 
+Arias&#x2010;Magallano S
+ et al 
+Amelioration of graft versus host disease by galectin&#x2010;1. Clin Immunol
+2003; 109:295&#x2013;307.
+ 14697744 Dixit A, Karande AA. Glycodelin A and galectin&#x2010;1: role in foetal tolerance. J Reprod Health Med 2016; 2:S1&#x2013;8. Seppala M, Taylor RN, Koistinen H, Koistinen R, Milgrom E. Glycodelin: a major lipocalin protein of the reproductive axis with diverse actions in cell recognition and differentiation. Endocr Rev 2002; 23:401&#x2013;30. 12202458 Soni C, Karande AA. Glycodelin&#x2010;A interferes with IL&#x2010;2/IL&#x2010;2R signalling to induce cell growth arrest, loss of effector functions and apoptosis in T&#x2010;lymphocytes. Hum Reprod 2012; 27:1005&#x2013;15. 22313865 Oflazoglu E, Elliott M, Takita H, Ferrone S, Henderson RA, Repasky EA. Adoptively transferred human lung tumour specific cytotoxic T cells can control autologous tumour growth and shape tumour phenotype in a SCID mouse xenograft model. J Transl Med 2007; 5:29. PMC1933531 17592641 Crowley NJ, Vervaert CE, Seigler HF. Human xenograft&#x2013;nude mouse model of adoptive immunotherapy with human melanoma&#x2010;specific cytotoxic T&#x2010;cells. Cancer Res 1992; 52:394&#x2013;9. 1728411 Wood KJ, Goto R. Mechanisms of rejection: current perspectives. Transplantation 2012; 93:1&#x2013;10. 22138818 Nelson BH. IL&#x2010;2, regulatory T cells, and tolerance. J Immunol 2004; 172:3983&#x2013;8. 15034008 Pockley AG, Bolton AE. Placental protein 14 (PP14) inhibits the synthesis of interleukin&#x2010;2 and the release of soluble interleukin&#x2010;2 receptors from phytohaemagglutinin&#x2010;stimulated lymphocytes. Clin Exp Immunol 1989; 77:252&#x2013;6. PMC1542003 2789118 Janas ML, Groves P, Kienzle N, Kelso A. IL&#x2010;2 regulates perforin and granzyme gene expression in CD8+ T cells independently of its effects on survival and proliferation. J Immunol 2005; 175:8003&#x2013;10. 16339537 Voskoboinik I, Whisstock JC, Trapani JA. Perforin and granzymes: function, dysfunction and human pathology. Nat Rev Immunol 2015; 15:388&#x2013;400. 25998963 Ferrara JL, Cooke KR, Teshima T. The pathophysiology of acute graft&#x2010;versus&#x2010;host disease. Int J Hematol 2003; 78:181&#x2013;7. 14604275 
+Fujii N, 
+Hiraki A, 
+Aoe K
+ et al 
+Serum cytokine concentrations and acute graft&#x2010;versus&#x2010;host disease after allogeneic peripheral blood stem cell transplantation: concurrent measurement of ten cytokines and their respective ratios using cytometric bead array. Int J Mol Med
+2006; 17:881&#x2013;5.
+ 16596275 Schneider M, Meister M, Muley T. Glycodelin as diagnostic and prognostic marker and for monitoring treatment of lung diseases. Google Patents 2016.
