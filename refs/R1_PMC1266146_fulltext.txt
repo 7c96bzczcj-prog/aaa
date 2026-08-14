@@ -1,0 +1,224 @@
+# status=OA_FULLTEXT_SCRAPED pmid=16230631 pmcid=PMC1266146 src=pmc.ncbi.nlm.nih.gov tag=R1
+
+
+ Human decidual NK cells form immature activating synapses and are not cytotoxic - PMC
+ Skip to main content
+ An official website of the United States government
+ Here's how you know 
+ Here's how you know 
+ Official websites use .gov 
+ A
+ .gov website belongs to an official
+ government organization in the United States.
+ Secure .gov websites use HTTPS 
+ A lock (
+ Lock 
+ Locked padlock icon
+ ) or https:// means you've safely
+ connected to the .gov website. Share sensitive
+ information only on official, secure websites.
+ Search
+ Log in 
+ Dashboard
+ Publications
+ Account settings
+ Log out
+ Search…
+ Search NCBI
+ Primary site navigation
+ Search
+ Logged in as:
+ Dashboard
+ Publications
+ Account settings
+ Log in
+ Search PMC Full-Text Archive 
+ Search in PMC 
+ Journal List
+ User Guide
+ PERMALINK 
+ Copy 
+ As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+ the contents by NLM or the National Institutes of Health. 
+ Learn more:
+ PMC Disclaimer 
+ |
+ PMC Copyright Notice
+ Proc Natl Acad Sci U S A . 2005 Oct 17;102(43):15563–15568. doi: 10.1073/pnas.0507835102 
+ Search in PMC 
+ Search in PubMed 
+ View in NLM Catalog 
+ Add to search 
+ Human decidual NK cells form immature activating synapses and are not cytotoxic 
+ Hernan D Kopcow 
+ Hernan D Kopcow 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ Find articles by Hernan D Kopcow 
+ 1, * , David S J Allan 
+ David S J Allan 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ Find articles by David S J Allan 
+ 1 , Xi Chen 
+ Xi Chen 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ Find articles by Xi Chen 
+ 1 , Basya Rybalov 
+ Basya Rybalov 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ Find articles by Basya Rybalov 
+ 1 , Milena M Andzelm 
+ Milena M Andzelm 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ Find articles by Milena M Andzelm 
+ 1 , Baoxue Ge 
+ Baoxue Ge 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ Find articles by Baoxue Ge 
+ 1 , Jack L Strominger 
+ Jack L Strominger 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ Find articles by Jack L Strominger 
+ 1, * 
+ Author information 
+ Article notes 
+ Copyright and License information 
+ 1 Department of Molecular and Cellular Biology, Harvard University, Cambridge, MA 02138 
+ * To whom correspondence may be addressed. E-mail: hkopcow@fas.harvard.edu or jlstrom@fas.harvard.edu . 
+ Contributed by Jack L. Strominger, September 8, 2005 
+ Issue date 2005 Oct 25. 
+ Copyright © 2005, The National Academy of Sciences 
+ PMC Copyright notice 
+ PMCID: PMC1266146  PMID: 16230631 
+ Abstract 
+ In early pregnancy invading fetal trophoblasts encounter abundant maternal decidual natural killer cells (dNK). dNK express perforin, granzymes A and B and the activating receptors NKp30, NKp44, NKp46, NKG2D, and 2B4 as well as LFA-1. Even though they are granular and express the essential molecules required for lysis, fresh dNK displayed very reduced lytic activity on classical MHC I negative targets K562 and 721.221, ≈15% of that of peripheral NK cells. dNK formed conjugates and activating immune synapses with 721.221 and K562 cells in which CD2, LFA-1 and actin were polarized toward the contact site. However, in contrast to peripheral NK cells, they failed to polarize their microtubule organizing centers and perforin-containing granules to the synapse, accounting for their lack of cytotoxicity. 
+ Keywords: lymphocytes, microtubule organizing center, perforin, pregnancy, uterus 
+ In human pregnancy, the implanted embryo constitutes a hemiallograft but remains spared from attack by the maternal immune system ( 1 ). Fetal extravillous trophoblasts that invade the maternal decidua are in close contact with decidual natural killer cells (dNK), which constitute 50–90% of the resident lymphocytes in early gestation ( 2 ). The invading extravillous trophoblasts lack expression of classical class I MHC HLA-A and -B antigens ( 3 ), a characteristic associated with susceptibility of target cells to NK cell-mediated cytotoxicity ( 4 ), yet they are not rejected by dNK. They express HLA-C and the nonclassical HLA-E, -G, and CD1d MHC I molecules ( 5 – 8 ), which led to the proposal that these MHC antigens on trophoblasts interact with NK cell receptors ( 2 , 6 , 9 ). Both the missing self-hypothesis ( 4 ) and the observation that HLA-E and HLA-G expression protects MHC I-negative NK cell targets from cytotoxicity of peripheral blood NK cells (pNK) and pNK lines ( 9 , 10 ) led to the idea that expression of nonclassical MHC I molecules by trophoblasts was necessary to prevent lysis by NK cells. 
+ pNK constitute up to 15% of circulating lymphocytes and are defined by their CD56 + CD3 – phenotype. They are represented by two different subsets, the CD56 dim CD16 + NK cell subset and the CD56 bright CD16 – NK cell subset, constituting 95% and 5% of pNK, respectively ( 11 ). CD56 dim pNK are granular and known to be cytotoxic. In contrast, CD56 bright pNK do not contain granules and are noncytotoxic, but have greater cytokine production capacity ( 12 ). 
+ dNK resemble the CD56 bright pNK subset in their CD56 bright CD16 neg phenotype but, like CD56 dim pNK, they contain cytotoxic granules ( 13 ). Transcriptional gene expression profiling has shown that dNK constitute a subset distinct from CD56 bright and CD56 dim pNK cells ( 14 ). Among the genes selectively overexpressed in dNK are secreted proteins with known immunosuppressive activity, suggesting that dNK might contribute to the generation of an immunosuppressive environment at the maternal fetal interface. On the other hand, perforin and granzymes A and B are expressed by dNK to a similar or higher level than by CD56 dim pNK cells ( 13 , 14 ), suggesting that dNK may have cytotoxic potential. Different reports have produced conflicting interpretations of the cytotoxic capacity of dNK ( 6 , 15 – 17 ). 
+ NK cytotoxic activity results from a balance between inhibitory and activating signaling originated from the interaction of cell surface activating and inhibitory receptors with ligands expressed on the surface of the target cell ( 4 , 18 , 19 ). The balance between activating and inhibitory signaling also controls the supramolecular organization of proteins at the NK cell–target cell contact ( 20 – 22 ), defining the formation of activating and inhibitory NK immunological synapses (NKIS). At the activating NKIS, surface molecules, including CD2 and LFA-1, and intracellular molecules, among them filamentous actin (F-actin), accumulate in a time-dependent manner ( 22 ), followed by the mobilization of perforin-containing granules toward the target cell contact site ( 21 ). 
+ On the other hand, at the inhibitory NKIS, killer cell Ig-like receptors accumulate on the NK side and HLA-C accumulates on the target cell side of the cell–cell contact in an ATP-independent and cytochalsins B- and D- and colchicine-insensitive manner. Interestingly, F-actin does not accumulate at the inhibitory NKIS ( 20 , 23 ). 
+ Here, the cytotoxic activity of human dNK on MHC I-negative targets and the formation of NKIS were carefully evaluated. Freshly isolated dNK displayed severely reduced cytotoxic activity, but surprisingly, the synapses they formed were activating NKIS, in that they accumulated F-actin at the cell–cell contact. The lack of cytotoxic activity stemmed from the inability of dNK to mature the activating synapses by polarization of the microtubule organizing center (MTOC) together with perforin-containing cytotoxic granules toward the target cell. 
+ Materials and Methods 
+ dNK Cells. dNK cells were isolated from decidua basalis obtained from patients undergoing first-trimester elective abortions as described ( 14 ), except that dNK enrichment was achieved by depletion of CD3 + cells and CD16 + cells with immuno-magnetic beads (Miltenyi Biotech). dNK were then used for confocal microscopy or were further purified with anti-CD56 coated magnetic beads for cytotoxicity experiments or for culture in the presence of 12 ng/ml IL-15 (PeproTech). 
+ pNK Cells. pNK cells were isolated from peripheral blood as described ( 14 ) but immuno-magnetic beads were used for removal of CD3 + cells for confocal microscopy experiments. For cytotoxicity assays, pNK were further purified by the subsequent use of anti-CD56-coated magnetic beads. 
+ Mock Isolation of pNK. Mock isolation of pNK as if they were dNK was achieved by subjecting RosetteSep (Stem Cell Technologies) enriched pNK to the same isolation protocol used for dNK isolation. 
+ Flow Cytometry. The following fluorophore-conjugated murine monoclonal antibodies were used in FACS analysis: anti-CD56Cy5, anti-CD16-phycoerythrin (PE), anti-CD3-FITC (all from BD Pharmingen), anti-NKG2D-PE (R & D Systems); anti-NKp30-PE, anti NKp44-PE, anti-NKp46-PE, and purified anti-2B4 (all from Beckman Coulter); purified FITC, PE, and Cy5-conjugated IgG isotype controls (BD Biosciences); and PE-conjugated goat anti-mouse IgG (Caltag Laboratories). Histograms shown were obtained by applying a gate on CD56 bright CD3 – cells for dNK and on CD56 dim CD3 – cells for pNK. 
+ Cytotoxicity Assay. The cytotoxic activity of dNK, pNK, or IL-15-treated dNK on 721.221 or K562 cells was assessed by 4-h 51 Cr-release assays ( 24 ). 
+ Confocal Imaging. Antibodies and fluorescent probes used for confocal imaging were as follows: FITC-conjugated anti-CD2 (RPA-2.10), anti-CD11a (HI111), IgG1k control (MOPC-21) (all from BD Biosciences); anti-γ tubulin (GTU-88) (Sigma); biotinylated anti α-tubulin, Alexa Fluor 568- or Alexa Fluor 647-conjugated goat anti-mouse and Alexa Fluor 568-conjugated streptavidin were all from Invitrogen. F actin was detected with Alexa Fluor 647- or Alexa Fluor 568-conjugated phalloidin (Invitrogen). FITC-conjugated or purified anti-perforin (G9) and IgG2b were from BD Biosciences. 
+ Cell Conjugation and Analysis. dNK and pNK were conjugated to 721.221, 721.221/4C4 HLA-G transfectant ( 9 ), K562, BeWo, and Jeg3 cells, or YTS cells were conjugated to 721.221 cells at a 2:1 ratio in suspension in RPMI medium 1640/10% FCS media for 15 min at 37°C. When microtubules were stained, 721.221 cells or K562 cells were pretreated with 10 mM colchicine (Sigma) for 30 min at room temperature, before conjugation, to facilitate the visualization of the NK cell microtubule cytoskeleton. After conjugation, cells were adhered to poly( l -lysine)-coated slides (Sigma) for 15 min at 37°C and then fixed with 4% formaldehyde. When LFA-1 was stained, conjugates were exposed to the respective primary and secondary antibodies before cell permeabilization. Cells were permeabilized and intracellularly stained as described ( 24 ). Stainings were done in the following order: first, unlabeled primary antibodies against LFA1, γ-tubulin, or perforin (only on slides stained with both perforin and CD2), followed by the corresponding secondary antibody. Bound secondary antibodies were saturated with 20% mouse serum (Sigma). When microtubules were stained, slides were then exposed to biotinylated anti-α-tubulin antibodies, and finally to fluorophore-conjugated streptavidin, flurophore-conjugated phalloidin, and/or FITC-conjugated anti-perforin or anti-CD2 antibodies. Antibodies were used in a range of 1–20 μg/ml. A Zeiss LSM 510 laser-scanning confocal microscope was used for image acquisition. dNK, pNK, or YTS cells were identified as perforin-positive cells. Perforin-positive cells, 70 or more per slide, from randomly selected fields were counted to estimate the percentage of dNK and pNK involved in conjugate formation. 
+ Accumulation of molecules at the NKIS and perforin and MTOC polarization were calculated from at least 50 conjugates per slide that involved dNK, pNK, or YTS cells, which were identified in the conjugate as perforin-positive cells. 
+ All percentages presented are the average of at least three independent experiments. For 3D analysis and pSMAC visualization images were acquired as described ( 21 ). All colors displayed in Figs. 2 , 3 , 4 , 5 are pseudocolors. 
+ Fig. 2. 
+ Open in a new tab 
+ dNK form conjugates but fail to polarize perforin granules toward the target cell contact site. ( A ) Conjugate formation by dNK visualized under the microscope. dNK were identified as perforin-positive cells. Bars represent the percentage of perforin positive cells ( n ≥ 70 per slide) involved in conjugates with K562, 721.221, BeWo, or Jeg3 targets (average of three independent experiments). ( B ) Confocal micrographs showing a typical pNK-721.221 conjugate with polarized perforin granules ( Left ) and a typical dNK-721.221 conjugate with unpolarized perforin granules ( Right ). Perforin granules are visualized in green. ( C ) Perforin polarization in dNK (black bars) or pNK (gray bars) conjugated with different target cells as visualized by confocal microscopy. The percentage of conjugates with perforin containing granules polarized toward the target cell is shown (average of three independent experiments). Fig. 3. 
+ Open in a new tab 
+ dNK form immature activating immune synapses. LFA-1, CD2, and F-actin, but not perforin, polarize to the target cell contact site in dNK. dNKs are shown conjugated with 721.221 cells ( A – C ) and K562 cells ( D ) in four different conjugates. Differential interference contrast (DIC) images are shown at Left . LFA-1, CD2, or F-actin (blue) are shown in Center Left . Numbers indicate the percentage of conjugates with polarized LFA-1, CD2, or F-actin respectively. Perforin granules (green) are shown in Center Right . Merged overlays of all fluorescent and DIC channels at Right . ( E ) F-actin forming a pSMAC ring at the NKIS of a dNK-K562 conjugate. Fig. 4. 
+ Open in a new tab 
+ Perforin containing granules are clustered around the MTOC in resting NK cells. ( A ) Confocal image of a YTS cell showing the microtubule cytoskeleton stained with anti α-tubulin antibodies (red). γ-tubulin staining (blue dot) locates the MTOC in the center of an α-tubulin dense area. A dotted line circle highlights the location of γ-tubulin staining. ( B ) Confocal images of unconjugated YTS cells ( Left ), pNK ( Center ), and dNK ( Right ). α-tubulin (red), perforin (green) and F-actin (blue in Left ) are shown. The MTOC is located at the center of the red dense area. Numbers at the top indicate the percentage of cells of each NK cell type showing perforin containing granules clustered around the MTOC. Fig. 5. 
+ Open in a new tab 
+ Fresh noncytotoxic dNK fail to polarize the MTOC and perforin containing granules to the target cell contact site, as is done by the cytotoxic pNK, YTS, and IL-15-activated dNK. Confocal images of conjugates of a YTS cell ( Left ) a pNK cell ( center left ), a dNK cell ( Center Right ), and a dNK cell incubated 36 h in IL-15 ( Right ) with 721.221 cells. Staining shows α-tubulin (red), perforin (green), and F-actin (blue). Numbers at the bottom indicate the percentage of conjugates showing the MTOC polarized toward the target cell contact site. Results 
+ dNK Express Activating Receptors but Display Severely Reduced Cytotoxicity. The cytotoxic capacity of freshly isolated dNK was carefully evaluated. dNK showed severely reduced cytotoxic activity on the MHC I-negative classical NK cell targets K562 and 721.221 when compared to pNK ( Fig. 1 A ). This finding was not due to a reduction of dNK cell viability, because dNK cytotoxic capacity was regained upon incubation of the cells with IL-15 for 12 h (data not shown) or 36 h ( Fig. 1 B ) as described ( 15 ). Subjecting pNK to a mock isolation procedure, similar to the one used to obtain dNK, did not affect pNK cytotoxic activity on either target cell, ruling out that different isolation protocols used to obtain dNK and pNK was the cause of their differential killing capacity. 
+ Fig. 1. 
+ Open in a new tab 
+ Freshly isolated dNK fail to lyse classical NK cell targets, although they express activating receptors. ( A ) Chromium release assays evaluating the lytic activity of dNK (filled squares) and pNK (open circles) cells on the classical NK cell target cell lines 721.221 ( Left ) and K562 ( Right ) (average of four independent experiments). ( B ) Cytotoxic activity of dNK (filled squares) and dNK from the same preparation incubated for 36 h with IL-15 (12 ng/ml) in RPMI medium 1640 plus 10% FCS (open squares) on 721.221 targets (one representative experiment of three). ( C ) FACS analysis of the expression of activating receptors by dNK and pNK (IgG isotype controls in gray). The lack of cytotoxic activity of dNK is particularly intriguing as these cells, often called large granular lymphocytes, contain cytotoxic granules and express perforin and granzymes A and B at similar or higher levels than the cytotoxic CD56 dim pNK ( 13 , 14 ). dNK also express the activating receptors 2B4, NKp30, NKp44, NKp46, NKG2D, and LFA-1 as do their peripheral counterparts ( Fig. 1 C ). pNK cell cytotoxic activity on 721.221 cells is partially mediated by NKG2D, because it can be partially blocked with anti-NKG2D antibodies. Thus, the lack of activating receptors is ruled out as the cause for the reduced dNK cytotoxicity. dNK are loaded to kill, but some mechanism prevented them from doing so. 
+ dNK Form Conjugates with Target Cells but Fail to Polarize Perforin Containing Granules Toward the Target Cell Contact Site. To establish whether dNK are capable of initiating the killing process, conjugates between dNK and different target cells were analyzed. To kill, cytotoxic pNK cells must first form conjugates with their targets and then develop an activating NKIS at the contact site. This structure involves, on the NK side, clustering of filamentous actin as well as other cytoskeleton-related proteins and surface molecules, including CD2 and LFA-1, in a peripheral ring (pSMAC) ( 21 , 22 ). Subsequently, cytolytic granules are polarized toward the target cell contact site accumulating at the center of the ring (cSMAC), resulting in a mature lytic synapse ( 21 ) that can locally release their cytotoxic contents and directionally kill the target cell. 
+ The capacity to form conjugates and mature lytic synapses by dNK has been evaluated by confocal microscopy. Sixty to 80% of the dNK formed conjugates with the pNK-susceptible K562 and 721.221 cell lines, as well as the pNK-resistant BeWo and JEG3 trophoblast cell lines ( Fig. 2 A ). However, the cells in these conjugates failed to polarize cytolytic perforin-containing granules toward the target cell contact site. Perforin polarization was evident in only 21.9% of the conjugates between dNK and 721.221 cells, as opposed to 55.4% of the conjugates formed by pNK and the same target cells ( Fig. 2 B and C ). The number of polarized cells in dNK cell conjugates may be due to random positioning of granules in the cell quadrant adjacent to the target cell, or may correlate with the low cytotoxicity observed ( Fig. 1 A ). The proportion of conjugates with polarized granules formed by dNK with other pNK-susceptible (K562 cells) and pNK-resistant (BeWo, Jeg3) targets was also reduced when compared to conjugates formed by pNK with the same targets ( Fig. 2 C ), irrespective of the expression of HLA-G by the target cells. Conjugates with 721.221 and with 721.221/HLA-G transfectants showed a similar reduction in the polarization of perforin granules. Thus, HLA-G expression did not significantly change the degree of polarization in either dNK or pNK. 
+ dNK Form an Immature Activating NKIS. In the formation of a mature pNK-activating synapse, perforin-containing granule polarization follows the accumulation of F-actin and surface molecules to the NKIS. Actin polymerization is necessary for the polarization of CD2 and LFA-1, as well as perforin-containing granules, because the whole process is blocked by preincubation of pNK with cytochalsin D ( 21 ). To evaluate whether dNK were able to start the formation of an activating NKIS in the conjugates formed with pNK-susceptible targets, the accumulation of NK cell-surface receptors CD2 and LFA-1 and F-actin at the dNK-target cell interface was examined. CD2 was found to accumulate at the interface of 85% of the conjugates between dNK and 721.221 cells, most of which displayed unpolarized perforin-containing granules ( Fig. 3 B ). LFA-1 accumulated at the interface in 90% of the conjugates and actin polarization occurred in 91% of the conjugates between dNK and 721.221 cells ( Fig. 3 A and C ). Because 721.221 cells have a high F-actin content, F-actin accumulation in dNK at the NKIS was also evaluated in conjugates formed by dNK and K562 cells, where it could be easily visualized due to the lower F-actin content of K562. In 85% of dNK conjugates with K562, F-actin was polarized toward the K562 target cell, where it formed an empty actin ring ( Fig. 3 D and E ). Thus, dNK developed the first steps in the formation of an activating NKIS, i.e., the polarization of surface receptors and F-actin, but were incapable of forming mature synapses with polarized perforin-containing granules. 
+ The arrival of cytotoxic granules to the cSMAC is a microtubule-dependent process, because it can be blocked by preincubation of the effector cells with colchicine ( 21 ). In murine cytotoxic T cells synapses, the MTOC vectorially polarizes toward the formed synapse at the target cell contact site ( 25 ), and cytolytic granules presumably move along the microtubules toward the polarized MTOC concentrating on a particular target. In NK cells, the MTOC has been shown to localize at the activating NKIS ( 26 ). In this context, the failure of dNK to polarize perforin-containing granules toward the target cell may be due to the failure of either dNK to polarize the MTOC, and thus perforin-containing granules, or perforin-containing granules to move toward the polarized MTOC. To address this question, the microtubule cytoskeleton and perforin-containing granules of resting and 721.221-conjugated dNK, pNK, and YTS cells (an NK tumor cell line with cytotoxic activity on 721.221 cells) were analyzed by confocal microscopy. Staining with anti-α tubulin antibodies revealed the microtubule cytoskeleton as a spider with the MTOC located in the body of the spider visualized as a dense staining area (Figs. 4 and 5 ). Costaining with anti-γ tubulin antibodies confirmed the MTOC location within this structure ( Fig. 4 A ). 
+ In 55% of the cytotoxic pNK conjugated with 721.221 cells, as well as in 74% of the conjugated cytotoxic YTS cells, the MTOC was polarized toward the target cell, as were perforin-containing granules ( Fig. 5 ). Interestingly, 98% of resting YTS cells and 95% of resting pNK not exposed to susceptible target cells had perforin granules already clustered around the unpolarized MTOC ( Fig. 4 B ). Thus, in NK cells, polarization of perforin-containing granules toward the target cell contact site is most likely simultaneous to and driven by the vectorial MTOC polarization. 
+ In resting dNK not exposed to target cells, 97% of the cells also had perforin-containing granules clustered around the MTOC ( Fig. 4 B ). About 80% of dNK cells conjugated with 721.221 cells polarized neither the MTOC nor perforin granules ( Fig. 5 ). Only 19% of the dNK polarized the MTOC together with perforin. 
+ The gain of cytolytic capacity upon stimulation of dNK with IL-15 ( Fig. 1 B ) was paralleled by an increase in the percentage of conjugates with polarized MTOC and perforin-containing granules to 66% in IL-15 stimulated dNK cells conjugated with 721.221 ( Fig. 5 ). Thus, freshly isolated dNK have reduced cytotoxicity because they fail to polarize the MTOC and perforin granules toward the target cell. Discussion 
+ In dNK, a physiological mechanism of cytotoxicity suppression decouples MTOC and cytotoxic granule polarization from the polarization of surface receptors and F-actin accumulation, thus preventing synapse maturation. Lack of cytotoxicity due to a failure to polarize the MTOC has been reported for murine CD8 + tumor-infiltrating lymphocytes (TIL), which are typified by the inability to lyse cognate tumor cells in vitro ( 27 ); this may be a more general phenomena characteristic of infiltrating cytolytic lymphocytes, or, alternatively, tumor cells may use immune evasion mechanisms similar to those used by placental cells to evade maternal immune rejection. However, in the case of TIL, F-actin polarization, which precedes MTOC polarization in synapse maturation, was also impaired ( 28 ), indicating that the mechanisms that govern cytotoxicity suppression should differ in the two cases. 
+ A proposed additional mechanism for inhibition of the potential cytotoxicity of dNK may be the interaction of HLA-G, HLA-C, and HLA-E, all of which are expressed on trophoblasts, with their respective inhibitory receptors. However, trophoblasts and trophoblast cell lines are not lysed by dNK or pNK cells, even in the presence of blocking antibodies against HLA class I molecules or their proposed cytotoxicity inhibitory receptors CD94/NKG2A, Ig like transcript receptors (ILT), or killer cell Ig-like receptors ( 6 , 29 ). Reduced perforin granule polarization by dNK, when compared to pNK, was not affected by the expression of HLA-G in class I-negative transfectants or by the exposure of NK cells to trophoblast cell lines known to express HLA-C and HLA-G, such as Jeg-3 and BeWo ( Fig. 2 C ). The reduced cytotoxicity of fresh dNK on MHC I-negative targets ( Fig. 1 A ) indicates that the failure to polarize the MTOC and cytotoxic granules is, by itself, sufficient to inhibit dNK cytotoxicity. 
+ The mechanism that prevents polarization of the MTOC and cytotoxic granules is presently unknown. Because dNK and pNK are transcriptionally distinct ( 14 ), one possibility is that dNK fail to produce a factor or protein required for efficient polarization. In this hypothesis, in vitro culture with IL-15 would actively relieve the defect by inducing expression of this factor or protein. Alternatively, the immunosuppressive environment of the decidua might be responsible for blocking MTOC and granule polarization. Regain of cytotoxicity may result from the removal of dNK from this environment, for example, by in vitro incubation in the presence of IL-15. 
+ Another interesting question is: why do dNK have cytotoxic granules if they are not cytotoxic? These granules could exist as a cryptic cytotoxic mechanism that could be brought into play under appropriate circumstances, for example, the infection of the placental barrier by CMV or some other virus. CMV proteins US3 and US6 have been shown to down-regulate the surface expression of trophoblast MHC I molecules ( 30 ). Under such circumstances, nonclassical MHC I expression may become important to protect noninfected trophoblasts from the activity of activated dNK. Acknowledgments 
+ This research was supported by National Institutes of Health Grant AI053330. 
+ Author contributions: H.D.K. and J.L.S. designed research; H.D.K., D.S.A., B.R., and M.M.A. performed research; H.D.K., D.S.A., X.C., B.G., and J.L.S. analyzed data; and H.D.K. and J.L.S. wrote the paper. 
+ Conflict of interest statement: No conflicts declared. 
+ Abbreviations: NK, natural killer; dNK, decidual NK cells; pNK, peripheral blood NK cells; NKIS, NK immunological synapses; MTOC, microtubule organizing center. 
+ References 
+ 1. Billingham, R. E., Brent, L. & Medawar, P. B. (1953) Nature 172 , 603–606. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 2. Moffett-King, A. (2002) Nat. Rev. Immunol. 2 , 656–663. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 3. Faulk, W. P. & Temple, A. (1976) Nature 262 , 799–802. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 4. Ljunggren, H. G. & Karre, K. (1990) Immunol. Today 11 , 237–244. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 5. King, A., Boocock, C., Sharkey, A. M., Gardner, L., Beretta, A., Siccardi, A. G. & Loke, Y. W. (1996) J. Immunol. 156 , 2068–2076. [ PubMed ] [ Google Scholar ] 
+ 6. King, A., Allan, D. S., Bowen, M., Powis, S. J., Joseph, S., Verma, S., Hiby, S. E., McMichael, A. J., Loke, Y. W. & Braud, V. M. (2000) Eur. J. Immunol. 30 , 1623–1631. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 7. Boyson, J. E., Rybalov, B., Koopman, L. A., Exley, M., Balk, S. P., Racke, F. K., Schatz, F., Masch, R., Wilson, S. B. & Strominger, J. L. (2002) Proc. Natl. Acad. Sci. USA 99 , 13741–13746. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 8. Kovats, S., Main, E. K., Librach, C., Stubblebine, M., Fisher, S. J. & DeMars, R. (1990) Science 248 , 220–223. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 9. Mandelboim, O., Pazmany, L., Davis, D. M., Vales-Gomez, M., Reyburn H. T., Rybalov, B. & Strominger, J. L. (1997) Proc. Natl. Acad. Sci. USA 94 , 14666–14670. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 10. Braud, V. M., Allan, D. S., O'Callaghan, C. A., Soderstrom, K., D'Andrea, A., Ogg, G. S., Lazetic, S., Young, N. T., Bell, J. I., Phillips, J. H., et al. (1998) Nature 391 , 740–743. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 11. Cooper, M. A., Fehniger, T. A. & Caligiuri, M. A. (2001) Trends Immunol. 22 , 633–640. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 12. Cooper, M. A., Fehniger, T. A., Turner, S. C., Chen, K. S., Ghaheri, B. A., Ghayur, T., Carson, W. E.,& Caligiuri, M. A. (2001) Blood 97 , 3146–3151. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 13. King, A., Wooding, P., Gardner, L. & Loke, Y. W. (1993) Hum. Reprod. 8 , 2061–2067. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 14. Koopman, L. A., Kopcow, H. D., Rybalov, B., Boyson, J. E., Orange, J. S., Schatz, F., Masch, R, Lockwood, C., J., Schachter, A. D., Park, P. J., et al. (2003) J. Exp. Med. 198 , 1201–1212. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 15. Verma, S., Hiby, S. E., Loke, Y. W. & King, A. (2000) Biol. Reprod. 62 , 959–968. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 16. Ponte, M., Cantoni, C., Biassoni, R., Tradori-Cappai, A., Bentivoglio, G., Vitale, C., Bertone, S., Moretta, A., Moretta, L. & Mingari, M. C. (1999) Proc. Natl. Acad. Sci. USA 96 , 5674–5679. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 17. Deniz, G., Christmas, S. E., Brew, R. & Johnson, P. M. (1994) J. Immunol. 152 , 4255–4261. [ PubMed ] [ Google Scholar ] 
+ 18. Moretta, A., Biassoni, R., Bottino, C., Mingari, M. C. & Moretta, L. (2000). Immunol. Today 21 , 228–234. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 19. Long, E. O. (1999) Annu. Rev. Immunol. 17 , 875–904. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 20. Davis, D. M., Chiu, I., Fassett, M., Cohen, G. B., Mandelboim, O. & Strominger, J. L. (1999) Proc. Natl. Acad. Sci. USA 96 , 15062–15067. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 21. Orange, J. S., Harris, K. E., Andzelm, M. M., Valter, M. M., Geha, R. S. & Strominger, J. L., (2003) Proc. Natl. Acad. Sci. USA 100 , 14151–14156. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 22. Vyas, Y. M., Maniar, H. & Dupont, B. (2002) Immunol. Rev. 189 , 161–178. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 23. McCann, F. E., Vanherberghen, B., Eleme, K., Carlin, L. M., Newsam, R. J., Goulding, D. & Davis, D. M. (2003) J. Immunol. 170 , 2862–2870. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 24. Orange, J. S., Rameshm N., Remold-O'Donnellm E., Sasaharam Y., Koopman, L., Byrne, M., Bonilla, F. A., Rosen, F. S., Geha, R. S. & Strominger, J. L. (2002) Proc. Natl. Acad. Sci. USA 99 , 11351–11356. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 25. Kuhn, J. R. & Poenie, M. (2002) Immunity 16 , 111–121. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 26. Kupfer, A., Dennert, G. & Singer, S. J. (1983) Proc. Natl. Acad. Sci. USA 80 , 7224–7228. [ DOI ] [ PMC free article ] [ PubMed ] [ Google Scholar ] 
+ 27. Radoja, S., Saio, M., Schaer, D., Koneru, M., Vukmanovic, S. & Frey, A. B. (2001) J. Immunol. 167 , 5042–5051. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 28. Koneru, M., Schaer, D., Monu, N., Ayala, A. & Frey, A. B. (2005) J. Immunol. 174 , 1830–1840. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ 29. Avril, T., Jarousseau, A. C., Watier, H., Boucraut, J., Le Bouteiller, P., Bardos, P. & Thibault, G. (1999) J. Immunol. 162 , 5902–5909. [ PubMed ] [ Google Scholar ] 
+ 30. Jun, Y., Kim, E., Jin, M., Sung, H. C., Han, H., Geraghty, D. E. & Ahn, K. (2000) J. Immunol. 164 , 805–811. [ DOI ] [ PubMed ] [ Google Scholar ] 
+ Articles from Proceedings of the National Academy of Sciences of the United States of America are provided here courtesy of National Academy of Sciences 
+ ACTIONS 
+ View on publisher site 
+ PDF (713.6 KB) 
+ Cite 
+ Collections 
+ Permalink 
+ PERMALINK 
+ Copy 
+ RESOURCES 
+ Similar articles
+ Cited by other articles
+ Links to NCBI Databases
+ Cite 
+ Copy 
+ Download .nbib 
+ .nbib 
+ Format: 
+ AMA
+ APA
+ MLA
+ NLM
+ Add to Collections 
+ Create a new collection 
+ Add to an existing collection 
+ Name your collection
+ * 
+ Choose a collection
+ Unable to load your collection due to an error 
+ Please try again 
+ Add
+ Cancel
+ Follow NCBI
+ NCBI on X (formerly known as Twitter) 
+ NCBI on Facebook 
+ NCBI on LinkedIn 
+ NCBI on GitHub 
+ NCBI RSS feed 
+ Connect with NLM
+ NLM on X (formerly known as Twitter) 
+ NLM on Facebook 
+ NLM on YouTube 
+ National Library of Medicine
+ 8600 Rockville Pike Bethesda, MD 20894 
+ Web Policies
+ FOIA
+ HHS Vulnerability Disclosure
+ Help
+ Accessibility
+ Careers
+ NLM
+ NIH
+ HHS
+ USA.gov
+ Back to Top 
