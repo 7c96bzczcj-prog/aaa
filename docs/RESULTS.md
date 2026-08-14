@@ -176,19 +176,26 @@ between-cluster magnitude as biology: **a large part of it is a restatement of
 how the dNK3 cluster was drawn.** A z of +14.56 measured across labels is not
 evidence against that; the within-label reversal is evidence for it.
 
-### C4. CCL3 and CCL4 do not reproduce a subset difference; CCL4 is unanswerable at this depth.
+### C4. CCL3's dNK1-vs-dNK2 null is real; its dNK3 contrasts are ceiling-limited. CCL4 is unanswerable at this depth.
 
-- **Evidence:** `donor_level_tests.tsv` lines 3, 4, 41, 42, 79, 80.
-- CCL4: 92.9–96.2% detection in all four subsets — the only genes flagged
-  `uninterpretable_ceiling` under v1.1's stricter both-arms rule. Effects
-  +0.5 to +2.9 pp, p = 0.44–0.81.
-- CCL3: 77.7–88.4%; largest effect +10.1 pp (dNK2 vs dNK3, z = +2.80,
-  q_emp = 0.38), sign inconsistent across contrasts (−2.3 pp for dNK1 vs
-  dNK2). Ruler B `weak`.
+- **Evidence:** `donor_level_tests.tsv` lines 3, 4, 41, 42, 79, 80;
+  [D34](DECISIONS.md).
+- **CCL3 must be split** — per-arm detection is dNK1 0.800, dNK2 0.777,
+  **dNK3 0.884, above the 0.85 ceiling**:
+  - dNK1 vs dNK2: **−2.3 pp with both arms measurable — a powered true
+    negative.**
+  - dNK1 vs dNK3 **+8.8 pp** and dNK2 vs dNK3 **+10.1 pp**, both flagged
+    `magnitude_is_lower_bound`. Same direction, saturated dNK3 arm. **Not a
+    null**: direction readable, magnitude a lower bound, "no difference" not
+    adjudicable.
+- CCL4: 92.9–96.2% in all four subsets, the only gene with **both** arms
+  saturated. Effects +0.5 to +2.9 pp.
 
-**This does not support:** "dNK subsets do not differ in CCL3/CCL4". For CCL4
-this dataset has no resolving power at all — the pre-registered
-**A-uninterpretable** outcome, not a negative result.
+**This does not support:** "dNK subsets do not differ in CCL3". That was
+written in an earlier draft on a cross-subset mean of 0.817, a statistic the
+per-arm ceiling rule does not use, and it is withdrawn (D34). Nor does it
+support a CCL3 dNK3 magnitude. For CCL4 the dataset has no resolving power at
+all — the pre-registered **A-uninterpretable** outcome, not a negative result.
 
 ### C5. PTN and OGN in the NK gate are entirely stromal pickup.
 

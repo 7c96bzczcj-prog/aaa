@@ -169,6 +169,16 @@ The isotype or fluorescence-minus-one control is chosen because the biology
 says the signal cannot be there — **never because a channel happened to be
 quiet in the data.**
 
+**The loading-control case is the one most likely to bite in metabolic work.**
+`GAPDH` is a glycolytic enzyme. Using it to normalise an experiment that
+manipulates the glycolysis/OXPHOS balance is this error in its purest form:
+it is chosen *because it looks stable*, and whether it is stable is the very
+quantity being perturbed. `ACTB` moves under metabolic and hypoxic conditions
+too. The same applies to the **normalisation basis** of a flux assay — if the
+perturbation changes cell size or protein content, normalising per protein
+subtracts the effect. Commit the basis before the first plate is read, not
+after comparing which one looks cleaner.
+
 Carry that straight into an experiment: **the negative control must be a
 pathway that should not respond, or a readout that should not move, named in
 advance for a biological reason.** Choosing "whichever readout came out flat"
@@ -176,13 +186,15 @@ is the wet-lab form of the circularity in §6 — the selection statistic is the
 measurement, so the control is guaranteed to look clean and guarantees
 nothing.
 
-Same shape, three settings:
+Same shape, five settings:
 
 | setting | the wrong move | the right move |
 |---|---|---|
 | ambient RNA | pick controls a statistic says are quiet in the target gate | pick genes the target lineage cannot transcribe |
 | flow cytometry | pick the channel with least signal as "background" | isotype/FMO chosen from the staining biology |
 | perturbation | call whichever readout stayed flat the negative control | name a should-not-respond pathway before unblinding |
+| **Western / qPCR loading control** | pick the housekeeper that happens to be **flattest across your lanes** | pick one the perturbation **cannot** affect, on biological grounds |
+| **Seahorse / assay normaliser** | choose cells vs protein vs DNA after seeing which looks cleanest | commit the basis before the first plate is read |
 
 ---
 

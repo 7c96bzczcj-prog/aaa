@@ -317,3 +317,29 @@ never needed a null distribution.**
   every setting. Naming "whichever readout stayed flat" as the negative control
   is the wet-lab form of §6's circularity — the selection statistic is the
   measurement.
+
+## v1.4.5 — 2026-08-13 — "CCL3 does not reproduce" split and half withdrawn
+
+- **D34.** v1.4 A11 assigned CCL3 to the measurable band on a **cross-subset
+  mean (0.817)** — a statistic the per-arm ceiling rule does not use. Per arm:
+  dNK1 0.800, dNK2 0.777, **dNK3 0.884, above the 0.85 ceiling.**
+  The pipeline had already flagged both dNK3 contrasts
+  `magnitude_is_lower_bound`; the prose had not. **The claim is split:**
+  dNK1-vs-dNK2 (−2.3 pp, both arms measurable) is a powered true negative;
+  the dNK3 contrasts (+8.8 and +10.1 pp, saturated dNK3 arm) are **not nulls**
+  — direction readable, magnitude a lower bound, "no difference" not
+  adjudicable. Not a revival of the rejected floor-band argument: that was the
+  opposite end of the scale and was refuted by 0.817.
+  **Process fix:** band assignment is reported per arm, matching the rule that
+  consumes it.
+- **D35.** The `>= 10 CPM` source-lineage power gate independently caught two
+  unrelated failures — CCR5 (myeloid source at 9.37 CPM, a genuinely
+  low-abundance receptor) and HBB (source assigned to Stromal at 8.3 CPM, a
+  gene whose real source lineage is absent from the tissue). One untuned rule,
+  two different scenarios.
+- **`TRANSFERABLE.md` §7 extended to five settings**, adding Western/qPCR
+  loading controls and assay normalisation bases. `GAPDH` is a glycolytic
+  enzyme: normalising a glycolysis/OXPHOS experiment to it is this error in its
+  purest form — chosen because it looks stable, when its stability is the
+  perturbed quantity. Same for choosing cells vs protein vs DNA after seeing
+  which looks cleanest.

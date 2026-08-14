@@ -1217,3 +1217,71 @@ the drift was in not stamping them.
 Neither affects a conclusion: CCL3 is inside the measurable band on both
 readings, and every ruler-B verdict in the current output was computed against
 0.0538.
+
+---
+
+## D34 — "CCL3 does not reproduce" was too broad. The pipeline had it right; the prose did not.
+
+**Trigger.** v1.4 A11 assigned CCL3 to the measurable band on a **cross-subset
+mean of 0.817**, only 3.3 points below the 0.85 ceiling threshold. A mean is
+compatible with one arm sitting above it, and R5 (as amended by v1.1 A1) is a
+**per-arm** rule. Checked:
+
+| subset | per-donor mean | cell-weighted |
+|---|---|---|
+| dNK1 | 0.8003 | 0.8161 |
+| dNK2 | 0.7772 | 0.7536 |
+| **dNK3** | **0.8837** | 0.8646 |
+
+**dNK3 is above the ceiling.** The band assignment used a statistic the
+decision rule does not use.
+
+**The pipeline was already correct.** T2 flags exactly what v1.1 A1 requires:
+
+| contrast | effect | ceiling arm | flag |
+|---|---|---|---|
+| dNK1 vs dNK2 | −2.31 pp | none | clean |
+| dNK1 vs dNK3 | **+8.79 pp** | dNK3 | `magnitude_is_lower_bound = TRUE` |
+| dNK2 vs dNK3 | **+10.15 pp** | dNK3 | `magnitude_is_lower_bound = TRUE` |
+
+**So the claim must be split, and half of it withdrawn.**
+
+- **dNK1 vs dNK2: a real null.** −2.3 pp with both arms inside the measurable
+  band. This is a powered true negative, and D27's wording holds here.
+- **Both dNK3 contrasts: not a null at all.** +8.8 and +10.1 pp, both pointing
+  the same way (dNK3 higher), against a saturated dNK3 arm that compresses the
+  difference toward zero. **A one-sided-ceiling null is not evidence of
+  absence** — direction is readable, magnitude is a lower bound, and "no
+  difference" cannot be adjudicated.
+
+**"CCL3 does not reproduce a subset difference" is therefore withdrawn as
+stated.** The supported version: *CCL3 shows no dNK1-vs-dNK2 difference
+(−2.3 pp, both arms measurable), and its dNK3 contrasts are ceiling-limited
+lower bounds of +8.8 and +10.1 pp that this dataset cannot adjudicate.*
+
+**Not a revival of the earlier claim.** The suggestion rejected in D27 — that
+CCL3's flat result might be a power problem — was argued from the **floor**
+band and was wrong; 0.817 refuted it. This is the opposite end: **the ceiling**,
+and it was triggered by this project's own R5 line rather than by judgement.
+
+**Process fix.** Band assignment must be reported **per arm**, matching the
+rule that consumes it. A cross-subset mean can place a gene in the measurable
+band while one arm is saturated, which is exactly what happened. The
+per-contrast flags in T2 remain authoritative.
+
+---
+
+## D35 — The same power gate caught two unrelated failures.
+
+Worth one line as evidence of internal consistency. The `>= 10 CPM` gate on a
+source lineage caught, independently:
+
+- **CCR5** (D32): dominant source Myeloid at **9.37 CPM** → ruler B
+  `unmeasurable`, correctly, since myeloid barely expresses it either;
+- **HBB** (D33): dominant source assigned to Stromal at **8.3 CPM** →
+  excluded from ruler B calibration, correctly, since decidua has no erythroid
+  population for it to come from.
+
+Two different scenarios — a genuinely low-abundance receptor, and a gene whose
+source lineage is absent from the tissue — caught by one rule that was not
+tuned for either.
