@@ -361,15 +361,17 @@ shrink as the floor rises and D8's dNK3 disappears, but never reverse.
    between 0.048 and 0.092, the ceiling drops below CXCR4's 0.0484 and CXCR4's
    ruler-A verdict flips to `indistinguishable_from_ambient`. XCL1 (0.021) and
    CCL5 (0.025) keep a wide margin.
-4. **CXCR4's ruler-A verdict depends on which set defines the ceiling; XCL1's
-   does not** ([D29](DECISIONS.md)). Against the operative set — the 9
-   pre-registered panel ambient controls, ceiling 0.0920 — XCL1 has a 4.4×
-   margin and CXCR4 1.9×. Against the 56 data-derived haematopoietic markers
-   (ceiling 0.0430) XCL1 still clears at 2.1× while **CXCR4 fails at 0.89×**.
-   Set A is operative because set B contains `CCL3`, a primary target of this
-   study, and a gene under test may not set the threshold that judges genes
-   under test. D26's probability table is withdrawn: controls are specific
-   genes, not exchangeable draws, and those draws already existed.
+4. **Ruler A uses one declared set: the 9 pre-registered panel ambient
+   controls, ceiling 0.0920. XCL1's margin is 4.4×, CXCR4's 1.9×**
+   ([D29](DECISIONS.md), [D31](DECISIONS.md)). Earlier drafts reported an
+   adverse second reading from 56 data-derived haematopoietic markers; **that
+   is withdrawn** — all three markers below CXCR4 (`CCL3`, `IFNG`,
+   `LINC00861`) are genes NK expresses itself, so their low soup fractions are
+   correct readings that carry no ceiling information, and screening them out
+   raises that set's minimum to 0.0821, above CXCR4. D26's probability table
+   is withdrawn too. **On the haematopoietic side ambient controls cannot be
+   chosen from data at all**, since separating "NK expresses it" from "NK picks
+   it up" is the very quantity ruler A measures.
 5. **Ruler B now ranks sources by total pool contribution**
    ([A7](PREREGISTRATION_v1.2.md)), after v1.1's per-cell-CPM ranking assigned
    XCL1's source to a 184-cell ILC3 population. Consequence: for every headline

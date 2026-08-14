@@ -866,6 +866,11 @@ within a fixed cluster.
 
 ## D26 — CXCR4's ceiling margin is now a probability, and it is negative on every axis tested.
 
+> **SUPERSEDED by [D29](#d29) and [D31](#d31).** The probability table below is
+> withdrawn (controls are specific genes, not exchangeable draws) and the
+> "every axis" claim is retracted: CXCR4 is negative on **two** axes, not four.
+> Kept unedited as the record of what was concluded and when.
+
 The ruler-A ceiling is a **minimum** over ambient controls, and D23 showed it
 is set entirely by the haematopoietic class, whose median soup fraction is
 0.250. So 0.092 is an extreme lower tail of 56 draws, and adding controls can
@@ -1033,6 +1038,10 @@ It is not being chosen to strengthen the case against CXCR4.
 **So CXCR4 is negative on a fourth axis** — not "at risk in future", but
 *conditional on a definition that was only settled today*:
 
+> **RETRACTED by [D31](#d31).** The three set-B markers below CXCR4 are all
+> genes NK expresses itself, so set B never carried a verdict here. The table
+> below keeps only its first two rows; the ruler-A rows are withdrawn.
+
 | axis | CXCR4 | XCL1 |
 |---|---|---|
 | circularity, marker regrouping | 0.30× retained, worst of four | 0.62×, best |
@@ -1068,3 +1077,96 @@ higher-expressing lineages would deposit as pickup.
 **This does not transfer to mouse tumour NK** (D28), and the point of stating
 it is narrower: if a CCR5-based line were ever to be extended to the decidual
 side, this dataset offers no starting point for it.
+
+---
+
+## D31 — Set B never carried a verdict on CXCR4. Retracting the fourth axis.
+
+D29 excluded set B (the 56 data-derived haematopoietic markers) because it
+contained `CCL3`, a primary target. **That reason was too narrow and the
+conclusion drawn from it was wrong in CXCR4's disfavour.**
+
+**All three markers below CXCR4 are genes NK expresses itself:**
+
+| gene | NK CPM | NK detection | NK / source lineage | |
+|---|---|---|---|---|
+| CCL3 | 2223.6 | **90.9%** | 0.38 | NK expresses it heavily |
+| IFNG | 27.3 | 6.5% | 0.11 | an NK effector gene |
+| LINC00861 | 7.0 | 3.0% | 0.11 | a T/NK-lineage lncRNA |
+| — the panel's real controls — | | | | |
+| IGKC | 19.9 | 5.2% | **0.002** | plasma-cell Ig |
+| LYZ | 91.0 | 19.4% | **0.05** | myeloid |
+| C1QA | 174.1 | 42.1% | **0.04** | macrophage |
+
+**Their low soup fractions are correct readings, not estimator failures.** NK
+really does express them, so a low "ambient fraction" is the right answer —
+and it carries **no information about an ambient ceiling.** Set B never
+delivered an adverse verdict on CXCR4 that could be discounted; it delivered
+none at all.
+
+**Confirmed by recomputation.** Imposing NK/source ≤ 0.05, the criterion the
+three real controls meet, leaves 49 of 56 markers, and the set's minimum rises
+from 0.043 to **0.0821 — above CXCR4's 0.0484, with zero markers below it.**
+Both readings agree: the original set is inadmissible, and the filtered set is
+not adverse.
+
+**Why this is not repairable by a better filter.** That NK/source screen uses
+`nk_cpm`, and `soup_fraction = rho x amb_cpm / nk_cpm` has the same
+denominator, so screening on low NK expression necessarily selects high soup
+fractions. **In the haematopoietic class there is no data-driven way to
+separate "NK expresses it" from "NK picks it up" — that separation is
+precisely what ruler A exists to measure.** Selecting ambient controls from
+data works on the non-haematopoietic side only, where prior lineage knowledge
+guarantees NK cannot transcribe stromal or trophoblast genes.
+
+**Corrections that follow.**
+
+1. **The fourth axis against CXCR4 is withdrawn.** The ruler-A statement is
+   set A alone: ceiling 0.0920, **CXCR4 margin 1.9×, XCL1 4.4×**.
+2. **CXCR4 is negative on TWO axes, not four:** circularity retention 0.30×
+   (worst of four genes), and within-label sign reversal (−3.5 pp, 3/3
+   donors). The conclusion is unchanged — the within-label reversal alone is
+   decisive — but "negative on every axis measured" overstated it and must not
+   be written that way.
+3. **D23's haematopoietic quantification is qualified.** Median 0.250, 1.8%
+   saturated and p = 3.1e-19 were computed over a set containing NK-expressed
+   genes, so they are not a clean estimate of the estimator's behaviour on
+   true haematopoietic ambient genes. Under the (circular) NK/source ≤ 0.05
+   screen the median moves only 0.250 → 0.270 and saturation 1.8% → 2%, so the
+   quantities are insensitive to it — but insensitivity is not cleanliness.
+   **The class effect itself stands**, resting on the panel's three
+   prior-selected controls (IGKC 0.092, LYZ 0.164, C1QA 0.176, none saturated)
+   against five non-haematopoietic controls (all 1.000).
+4. **HBB should not have been counted as a fourth haematopoietic control.**
+   Its nominal source, Myeloid, has a CCR5-like problem: myeloid CPM for HBB is
+   **1.9**, and decidua contains no erythroid population, so HBB has no source
+   lineage here and its 0.408 is uninterpretable.
+5. **The PAEP downgrade (D23) stands**, since it rests entirely on the
+   non-haematopoietic side, which this contamination does not touch.
+
+**This correction moves in CXCR4's favour, and is made for that reason:** the
+whole review had been accumulating evidence against CXCR4, and this piece of it
+does not survive checking.
+
+---
+
+## D32 — Two corrections to the CCR5 statements.
+
+**The "rulers disagree" claim was wrong.** Ruler A returns 0.0575, below the
+0.092 ceiling → `above_ambient`. Ruler B returns 0.388, above the 0.0538 band.
+**Both point the same way**; there is no contradiction. The `unmeasurable`
+verdict comes from the power gate, not from a conflict: CCR5's dominant pool
+contributor is Myeloid, whose own CCR5 detection is **4.0%**, below the 5%
+gate, and whose CPM is 9.37, below the 10 CPM gate. The verdict means *the
+source lineage does not express it enough for the ratio to have power* — which
+is the gate working, not the rulers fighting.
+
+**And "CCR5 expression is not detectable in dNK at transcript level" is
+withdrawn as overstated.** The floor band means the **readout has no
+comparative power**, not that the gene is absent; 0.67% is entirely compatible
+with genuine expression in a rare subpopulation.
+
+The defensible version: **CCR5 detection in dNK is 0.67%, below myeloid (2.51%)
+and T (4.00%) in the same tissue, and inside the band where this study has no
+power. This dataset establishes neither expression nor its absence.** The
+lineage ordering is suggestive of pickup, and that is all it is.

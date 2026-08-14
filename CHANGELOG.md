@@ -262,3 +262,34 @@ never needed a null distribution.**
   supported statement is **CCR5 expression is not detectable in dNK at
   transcript level in this dataset**. Explicitly not transferable to mouse
   tumour NK.
+
+## v1.4.3 — 2026-08-13 — the fourth axis against CXCR4 is retracted
+
+- **D31.** All three set-B markers below CXCR4 — `CCL3` (90.9% detected in NK),
+  `IFNG`, `LINC00861` — are genes **NK expresses itself**. Their low soup
+  fractions are correct readings carrying no ceiling information, so set B never
+  delivered an adverse verdict on CXCR4 at all. Confirmed by recomputation:
+  screening on NK/source ≤ 0.05 (the criterion IGKC/LYZ/C1QA meet) raises set
+  B's minimum from 0.043 to **0.0821, above CXCR4's 0.0484, with zero markers
+  below it**.
+  **CXCR4 is negative on two axes, not four** — circularity retention 0.30× and
+  the within-label sign reversal. The conclusion is unchanged (the reversal
+  alone is decisive) but "negative on every axis" overstated it.
+  Also: D23's haematopoietic quantification is qualified (insensitive to the
+  screen, 0.250 → 0.270, but not clean); `HBB` should not have counted as a
+  control (no erythroid population in decidua, myeloid CPM 1.9); the PAEP
+  downgrade stands, resting on the untouched non-haematopoietic side.
+  **This correction moves in CXCR4's favour and is made for that reason** — the
+  review had been accumulating evidence against it, and this piece does not
+  survive checking.
+- **D32.** Two CCR5 statements corrected. The rulers do **not** disagree — both
+  point away from pure ambient; `unmeasurable` comes from the power gate
+  (myeloid detects CCR5 at 4.0%, below the 5% gate). And **"CCR5 is not
+  detectable in dNK" is withdrawn as overstated**: the floor band means the
+  readout has no comparative power, not that the gene is absent. The
+  defensible version establishes neither expression nor its absence.
+- **`TRANSFERABLE.md` §6** added: ambient controls cannot be chosen from data on
+  the target's own side of the lineage tree, because separating "expresses" from
+  "picks up" is the quantity the estimator measures. Prior exclusivity knowledge
+  is required. Wet-lab analogue: isotype/FMO controls are chosen by biology, not
+  by which channel was quiet.

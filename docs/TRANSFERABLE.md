@@ -123,3 +123,36 @@ again** — the cost is minutes and the outcome is binary.
 
 Derived from `docs/DECISIONS.md` D22–D27 and `PREREGISTRATION_v1.1`–`v1.4`,
 which carry the measurements behind every claim above.
+
+---
+
+## 6. Ambient controls cannot be chosen from data on the target's own side
+
+Late addition, and the most portable single rule in the file.
+
+An ambient control must be a gene the target population **cannot transcribe**,
+so that its entire signal in the target gate is pickup. Choosing such genes
+from the data — "high and specific in some other lineage" — works only where
+prior knowledge already guarantees exclusivity.
+
+**It fails on the target's own side of the lineage tree**, and the failure is
+structural: separating *"the target expresses it"* from *"the target picks it
+up"* is exactly the quantity the ambient estimator is trying to measure. Any
+screen for the first uses the same numerator or denominator as the second, and
+is circular.
+
+Concretely here: auto-selecting haematopoietic ambient controls for an **NK**
+gate returned `IFNG` (an NK effector), `CCL3` (a study target, 90.9% detected
+in NK) and a T/NK lncRNA. Their soup fractions were low, correctly, because NK
+expresses them — and they were briefly allowed to set an ambient ceiling. The
+non-haematopoietic side had no such problem, because no prior belief permits an
+NK cell to transcribe collagen.
+
+**Rule.** Ambient controls come from prior lineage-exclusivity knowledge, and
+data-driven selection is admissible only across a lineage boundary the target
+cannot cross. When both sides are needed, the target-side controls must be
+named in advance and defended by biology, not by a filter.
+
+The wet-lab analogue: an isotype or fluorescence-minus-one control is chosen
+because the biology says the signal cannot be there — never because a channel
+happened to be quiet in the data.
