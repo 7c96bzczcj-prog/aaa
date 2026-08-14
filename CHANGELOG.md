@@ -293,3 +293,27 @@ never needed a null distribution.**
   "picks up" is the quantity the estimator measures. Prior exclusivity knowledge
   is required. Wet-lab analogue: isotype/FMO controls are chosen by biology, not
   by which channel was quiet.
+
+## v1.4.4 — 2026-08-13 — scope correction to D31; numeric provenance stamped
+
+- **D33 corrects D31's scope.** What fails is *auto-expanding the control set
+  with a statistic*, not the haematopoietic side as such. IGKC/LYZ/C1QA are
+  chosen from prior exclusivity knowledge — "NK does not transcribe
+  immunoglobulin/lysozyme/C1q" is as hard as "…collagen" — so **ruler A remains
+  usable for haematopoietic target genes**, ceiling 0.0920, and XCL1's 0.021
+  reading is not withdrawn. XCL1 never depended on it, but a layer of standing
+  evidence should not be discarded by over-correction.
+- **HBB, secondary.** "No source lineage" voids **ruler B** (confirmed: current
+  calibration assigns HBB to Stromal at 8.3 CPM and excludes it below the
+  10 CPM gate) but does not automatically void **ruler A** — free haemoglobin
+  from never-captured red cells is a different contamination route from RNA
+  shed by captured cells, and 0.408 may be reporting it. Low priority.
+- **Two quantities stamped with their provenance**, after each appeared at two
+  values: CCL3 detection **0.817** (depth-matched, dNK1–3, per-subset mean — the
+  band assignment) vs 0.909 (raw, incl. dNKp); ruler B band **0.0538** (v1.2,
+  source by total counts — current) vs 0.0441 (v1.1, source by per-cell CPM).
+  Neither changes a conclusion. `TRANSFERABLE.md` §8 carries the table.
+- **`TRANSFERABLE.md` §7** added: negative controls are chosen by biology in
+  every setting. Naming "whichever readout stayed flat" as the negative control
+  is the wet-lab form of §6's circularity — the selection statistic is the
+  measurement.

@@ -1170,3 +1170,50 @@ The defensible version: **CCR5 detection in dNK is 0.67%, below myeloid (2.51%)
 and T (4.00%) in the same tissue, and inside the band where this study has no
 power. This dataset establishes neither expression nor its absence.** The
 lineage ordering is suggestive of pickup, and that is all it is.
+
+---
+
+## D33 — Scope correction to D31, and two numeric-provenance stamps.
+
+**D31 over-corrected.** It said "in the haematopoietic class there is no
+data-driven way to separate NK-expresses from NK-picks-up", and then let that
+read as though ruler A were unusable on the haematopoietic side. **The second
+part is wrong.**
+
+What fails is **auto-expanding the control set with a statistic**. What does
+*not* fail is a control chosen from prior exclusivity knowledge, and the
+panel's three are exactly that: "NK does not transcribe immunoglobulin"
+(IGKC), "…lysozyme" (LYZ), "…complement C1q" (C1QA) are as hard a prior as
+"…collagen". **Ruler A remains usable for haematopoietic target genes**, on
+those three controls, ceiling 0.0920.
+
+The practical consequence: XCL1's ruler-A reading (0.021 against 0.092) is not
+withdrawn. XCL1's conclusion never depended on it — it rests on donor
+unanimity, marker regrouping and the within-label test — but there is no
+reason to discard a layer of evidence that stands.
+
+**HBB, secondary correction.** D31 said HBB should not have counted as a
+control because decidua contains no erythroid population. That is right for
+**ruler B**, which needs a source lineage — and the current calibration
+confirms it, assigning HBB's dominant source to Stromal at 8.3 CPM and
+excluding it below the 10 CPM power gate. But it does **not** automatically
+void its **ruler A** reading: in a well-perfused tissue, free haemoglobin
+transcript comes from red cells never captured as cells at all, which is a
+different contamination route from RNA shed by captured cells. HBB's
+non-saturated 0.408 may be reporting that route rather than failing. Low
+priority; recorded so it is not silently treated as settled.
+
+**Two numeric-provenance stamps.** Both quantities below appeared at two
+values across these documents. Both readings are correct at their own stage;
+the drift was in not stamping them.
+
+| quantity | value | reading |
+|---|---|---|
+| CCL3 detection in dNK | **0.817** | dNK1–3, depth-matched to 2137 UMI, per-subset mean — **the v1.4 A11 band assignment uses this** |
+| | 0.909 | all dNK incl. dNKp, raw counts, no depth matching — the figure quoted in D31 |
+| ruler B pickup band | **0.0538** | v1.2 onward, source ranked by **total counts** (LYZ→Myeloid) — **current** |
+| | 0.0441 | v1.1, source ranked by **per-cell CPM** (LYZ→cDC1) — superseded; `PREREGISTRATION_v1.1.md` keeps it as the record and should not be edited |
+
+Neither affects a conclusion: CCL3 is inside the measurable band on both
+readings, and every ruler-B verdict in the current output was computed against
+0.0538.

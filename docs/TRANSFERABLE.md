@@ -126,33 +126,79 @@ which carry the measurements behind every claim above.
 
 ---
 
-## 6. Ambient controls cannot be chosen from data on the target's own side
+## 6. Ambient controls must come from prior knowledge, not from a statistic
 
 Late addition, and the most portable single rule in the file.
 
 An ambient control must be a gene the target population **cannot transcribe**,
-so that its entire signal in the target gate is pickup. Choosing such genes
-from the data — "high and specific in some other lineage" — works only where
-prior knowledge already guarantees exclusivity.
+so that its entire signal in the target gate is pickup.
 
-**It fails on the target's own side of the lineage tree**, and the failure is
-structural: separating *"the target expresses it"* from *"the target picks it
-up"* is exactly the quantity the ambient estimator is trying to measure. Any
-screen for the first uses the same numerator or denominator as the second, and
-is circular.
+**What fails is data-driven selection, not a region of the lineage tree.**
+Prior-selected controls remain valid wherever the exclusivity claim is solid,
+including on the target's own side: "NK does not transcribe immunoglobulin"
+(IGKC), "NK does not transcribe lysozyme" (LYZ), "NK does not transcribe
+complement C1q" (C1QA) are as hard as "NK does not transcribe collagen". Those
+three carry ruler A on the haematopoietic side and it remains usable there.
 
-Concretely here: auto-selecting haematopoietic ambient controls for an **NK**
-gate returned `IFNG` (an NK effector), `CCL3` (a study target, 90.9% detected
-in NK) and a T/NK lncRNA. Their soup fractions were low, correctly, because NK
+**What fails is auto-expanding the control set with a statistic**, and on the
+target's own side it fails *always*, because separating *"the target expresses
+it"* from *"the target picks it up"* is exactly the quantity the ambient
+estimator measures. Any screen for the first shares a term with the second:
+here `soup_fraction = rho × amb_cpm / nk_cpm`, and the obvious screen
+"NK/source is low" divides by that same `nk_cpm`, so screening for low NK
+expression necessarily selects high soup fractions.
+
+Concretely: auto-selecting haematopoietic ambient controls for an **NK** gate
+returned `IFNG` (an NK effector), `CCL3` (a study target, ~90% detected in NK)
+and a T/NK lncRNA. Their soup fractions were low, correctly, because NK
 expresses them — and they were briefly allowed to set an ambient ceiling. The
 non-haematopoietic side had no such problem, because no prior belief permits an
-NK cell to transcribe collagen.
+NK cell to transcribe collagen: there, auto-selection crosses a boundary the
+target cannot cross, and is admissible.
 
-**Rule.** Ambient controls come from prior lineage-exclusivity knowledge, and
-data-driven selection is admissible only across a lineage boundary the target
-cannot cross. When both sides are needed, the target-side controls must be
-named in advance and defended by biology, not by a filter.
+**Rule.** Ambient controls come from prior exclusivity knowledge. Data-driven
+selection is admissible only across a boundary the target cannot cross. Do not
+over-correct this into "the estimator is unusable on the target's side" — the
+prior-selected controls are unaffected.
 
-The wet-lab analogue: an isotype or fluorescence-minus-one control is chosen
-because the biology says the signal cannot be there — never because a channel
-happened to be quiet in the data.
+---
+
+## 7. The same rule in the wet lab: negative controls are chosen by biology
+
+The isotype or fluorescence-minus-one control is chosen because the biology
+says the signal cannot be there — **never because a channel happened to be
+quiet in the data.**
+
+Carry that straight into an experiment: **the negative control must be a
+pathway that should not respond, or a readout that should not move, named in
+advance for a biological reason.** Choosing "whichever readout came out flat"
+is the wet-lab form of the circularity in §6 — the selection statistic is the
+measurement, so the control is guaranteed to look clean and guarantees
+nothing.
+
+Same shape, three settings:
+
+| setting | the wrong move | the right move |
+|---|---|---|
+| ambient RNA | pick controls a statistic says are quiet in the target gate | pick genes the target lineage cannot transcribe |
+| flow cytometry | pick the channel with least signal as "background" | isotype/FMO chosen from the staining biology |
+| perturbation | call whichever readout stayed flat the negative control | name a should-not-respond pathway before unblinding |
+
+---
+
+## 8. Provenance and versioning of the numbers above
+
+Derived from `docs/DECISIONS.md` D22–D32 and `PREREGISTRATION_v1.1`–`v1.4`.
+
+**Two quantities appear at more than one value across those documents. Both
+are correct at their own stage; check the stamp before quoting.**
+
+| quantity | value | which reading |
+|---|---|---|
+| CCL3 detection in dNK | **0.817** | dNK1–3, depth-matched to 2137 UMI, per-subset mean — **the band assignment uses this** |
+| | 0.909 | all dNK including dNKp, raw counts, no depth matching — quoted in D31 |
+| ruler B pickup band | **0.0538** | v1.2 onward: source lineage ranked by **total counts** (LYZ→Myeloid) — **current** |
+| | 0.0441 | v1.1: source ranked by **per-cell CPM** (LYZ→cDC1) — superseded, retained in `PREREGISTRATION_v1.1.md` as the record |
+
+Depth matching lowers a detection rate and it is not optional for anything
+comparative; the raw figure is only ever a sanity check.
