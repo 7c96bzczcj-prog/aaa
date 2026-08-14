@@ -184,7 +184,10 @@ analysis answers the temporal clause of X1.
 
 ## 5. Rule G8 — where the spec's own initial calls were overturned
 
-The adversarial pass changed **10 of 25** classifications, in both directions.
+The adversarial pass changed **9 of 25** classifications, in both directions, and
+re-examined three more (P1, T2, X1) without changing the class — T2's weight was
+downgraded within `OBS_TRANSFER`, and P1 and X1 were conditional verdicts resolved
+by adjudication (DEC-15).
 
 **Every citation the spec flagged as possibly misremembered is real**: Picant
 *Nat Commun* 2025 (PMID 40610398), Serger *Sci Immunol* 2026 (PMID 42247486),
@@ -261,7 +264,7 @@ applied to this population, not that the arrow has been drawn.
    dispute. The passing rows clear threshold by 1–3 orders of magnitude, so the
    verdicts survive large classification error.
 4. **`fulltext_available = FALSE` on P3 only** (O'Leary 2006, no PMC deposit,
-   Nature paywall). 5 claims are TRUE, 19 PARTIAL. No row's class was asserted
+   Nature paywall). 10 claims are TRUE, 14 PARTIAL. No row's class was asserted
    from an abstract; where the decisive paper was unreadable the row says so
    (D3 is the worked example).
 5. **Two shortlist entries rest on MEDIUM-confidence occupancy searches** (§1).
