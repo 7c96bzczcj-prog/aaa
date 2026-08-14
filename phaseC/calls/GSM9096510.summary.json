@@ -1,0 +1,34 @@
+{
+ "gsm": "GSM9096510",
+ "status": "OK",
+ "n_cells": 2255,
+ "n_typed": 2109,
+ "n_clusters": 15,
+ "nk": 382,
+ "counts": {
+  "T": 609,
+  "NK": 382,
+  "Myeloid": 266,
+  "Stromal": 165,
+  "B": 223,
+  "ambiguous": 282,
+  "Epithelial": 182
+ },
+ "cluster_calls": {
+  "0": "T",
+  "1": "Myeloid",
+  "2": "Epithelial",
+  "3": "ambiguous",
+  "4": "NK",
+  "5": "Stromal",
+  "6": "B",
+  "7": "ambiguous",
+  "8": "T",
+  "9": "NK",
+  "10": "T",
+  "11": "Myeloid",
+  "12": "NK",
+  "13": "Epithelial",
+  "14": "B"
+ }
+}

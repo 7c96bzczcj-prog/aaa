@@ -1,0 +1,25 @@
+{
+ "GSM9096509": {
+  "n_typed": 2612,
+  "nk": 1622,
+  "counts": {
+   "T": 141,
+   "NK": 1622,
+   "Myeloid": 212,
+   "ambiguous": 254,
+   "Stromal": 161,
+   "B": 222
+  }
+ },
+ "GSM9096510": {
+  "n_typed": 2109,
+  "nk": 0,
+  "counts": {
+   "T": 1197,
+   "Epithelial": 246,
+   "Myeloid": 269,
+   "B": 221,
+   "ambiguous": 176
+  }
+ }
+}

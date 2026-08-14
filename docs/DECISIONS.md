@@ -150,3 +150,37 @@ clone-sharing analysis, and G6 requires the summary quantity to be computed on t
 same basis as the rule that consumes it. A fraction estimate is not that.
 
 ---
+
+## DEC-08 — Second attempt also failed; the fix was the baseline, not the algorithm
+
+**What.** Replacing per-cell argmax with the standard scATAC route (5 kb tiles →
+TF-IDF → LSI → KMeans → annotate clusters) still failed the control:
+CD56+ 23.2% NK vs CD56− 18.1% NK, ratio 1.3×.
+
+**Diagnosis.** Same statistical error as DEC-07, one level up. Cluster annotation
+z-scored each lineage's enrichment **across the clusters of its own library**. That
+silently assumes every library is a mixture of lineages. For a CD56+ *sorted*
+library most clusters really are NK, so centring on the library's own mean forces
+about half of them below zero and re-labels them as something else. The procedure
+could not report a homogeneous library as homogeneous.
+
+**Fix.** Separate clustering from annotation, and z-score each lineage across the
+**pooled cluster set from all libraries** instead. The pool genuinely spans all
+lineages, so the baseline is no longer a function of the library being scored.
+Enrichment is log-transformed before z-scoring, since enrichment is multiplicative
+and a few very pure clusters would otherwise set the scale for their lineage.
+
+**Result: control PASSES.** CD56+ = **62.1% NK**, CD56− = **0.0% NK** (that library
+resolves as T-dominated, 1197/2109 cells, which is what depleting CD56 from PBMC
+should leave). Acceptance test was fixed in the script before the run:
+`NK_fraction(CD56+) > 0.5 AND > 3 × NK_fraction(CD56−)`.
+
+**What this control does and does not license.** It shows the pipeline can tell
+NK-rich from NK-free *blood* libraries at this depth. It does not validate NK calls
+in tumour or lung tissue, where NK is rarer and ILC1/tissue-NK boundaries are
+exactly what claims T1/T4/X1 are about. Tissue NK counts are therefore reported as
+what they are — a power estimate for admitting or refusing a dataset cell, not a
+biological result — and the residual 62.1% (rather than ~90%) is a reminder that
+these counts are conservative-to-noisy, not exact.
+
+---
