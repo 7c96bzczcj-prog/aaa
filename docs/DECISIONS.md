@@ -219,3 +219,34 @@ sufficient: these counts are over *all* cells, not NK cells. Whether enough NK c
 carry them is exactly what the power table decides.
 
 ---
+
+## DEC-10 — Early-termination gate does NOT fire; Phase A continues
+
+**Rule** (preregistered §5.2): if more than 3 of the first six claims (D1, D2, D3, D4, P1, P2)
+come back `fulltext_available = FALSE`, Phase A halts and a literature-access report is
+delivered instead of a grading table.
+
+**Result.** Of the first four returned (D1, D2, D3, D4): **zero** are FALSE; all four are
+PARTIAL, meaning the principal primary source was read in full and one or more secondary or
+corroborating sources were not. Under the preregistered wording only FALSE counts toward the
+threshold, so the gate cannot fire on the remaining two. Phase A proceeds to all 25 claims.
+
+**Note on PARTIAL.** PARTIAL is doing real work here and is not a fudge: for these claims the
+literature is a chain of papers, and the rule that matters is G1 — the classification must rest
+on a methods section actually read. Every PARTIAL row carries the methods quote it was graded
+from. Rows where the *decisive* paper was unreadable are marked FALSE, not PARTIAL.
+
+---
+
+## DEC-11 — Remaining Phase A batches launched in parallel before the gate fully closed
+
+**What.** Batches for T/P3, S/X and R claims were launched while the gate batch was still
+finishing.
+
+**Why this does not violate §5.2.** The rule's purpose is to prevent *delivering* a grading
+table built on abstracts. Running audits concurrently does not deliver anything; had the gate
+fired, every parallel row would have been discarded and the access report delivered instead.
+The cost of being wrong was wasted compute, not a compromised table. With four of six gate rows
+already back and none FALSE, the risk was already resolved when the last two batches launched.
+
+---
