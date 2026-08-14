@@ -343,3 +343,35 @@ never needed a null distribution.**
   purest form — chosen because it looks stable, when its stability is the
   perturbed quantity. Same for choosing cells vs protein vs DNA after seeing
   which looks cleanest.
+
+## v1.4.6 — 2026-08-13 — CCL3's dNK3 effect closes negative; the run's last follow-up
+
+- **D36.** CCL3 was already in `circularity_test.py`'s target list — only the
+  printout filtered it out — so this is read from existing outputs, not a
+  rerun. CCL3 is **not** a Vento-Tormo dNK3 characterisation gene, so its dNK3
+  effect belonged in the low-circularity tier with XCL1 and was expected to
+  survive. **It does not:** retention **0.28×, the lowest of the five genes**,
+  and all three gate contrasts return `all_donors_same_sign = FALSE`.
+  Circularity cannot explain it; gate dilution on a gene whose arms are both
+  high (0.78–0.88), plus a ceiling-limited label effect of unknown size, can.
+  **Status is a third category:** the dNK3 contrasts are **unresolved** — the
+  ceiling prevents adjudicating a null and the gate test does not support the
+  effect. D34's "direction readable" is withdrawn along with it.
+  **A tempting inference is withdrawn before being made:** that CCL3, CCL5 and
+  XCL1 show three distinct subset patterns, implying distinct chemokine
+  combinations rather than differing amounts of one programme. That needs
+  CCL3's pattern to be established. It is not. The pattern claim rests on CCL5
+  and XCL1 alone.
+  This was the last open scientific follow-up in the run, and it closes
+  negative.
+- **D37.** Stamp: CCL3's cross-subset summary is **0.8167** (donor×subset rows
+  equally weighted — what v1.4 A11 used) or 0.8204 (subsets equally weighted);
+  the gap is that dNK3 clears the threshold in 5 donors against 6. Neither
+  enters a decision.
+- **`TRANSFERABLE.md` §7b** added, on the second instance of one failure form:
+  **a reported summary must share its definition with the rule that consumes
+  it, or it will be read as that rule.** Instances: BH demoted to
+  "informational" and still read as a verdict; a cross-subset mean placing a
+  gene in the measurable band while the per-arm rule saw a saturated arm.
+  If a rule is withdrawn, delete its number rather than demoting it; if a rule
+  is per-arm, report per arm.

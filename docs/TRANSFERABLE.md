@@ -198,6 +198,33 @@ Same shape, five settings:
 
 ---
 
+## 7b. A reported summary must share its definition with the rule that consumes it
+
+Second instance of one failure form, so it earns its own rule.
+
+> **Any summary you report must be computed on the same definition as the rule
+> that acts on it — otherwise it will be read *as* that rule.**
+
+Both instances in this project:
+
+| what was reported | what the rule actually used | result |
+|---|---|---|
+| BH q "reported but not adjudicating" | nothing — the criterion had been withdrawn | the number was still read as a verdict, so it had to be deleted, not demoted |
+| a gene's **cross-subset mean** detection (0.817) placing it in the measurable band | the ceiling rule is **per arm**, and one arm was at 0.884 | a conclusion was archived as a "powered true negative" when one arm was saturated |
+
+The two look unrelated and are the same mistake: **a reporting layer and a
+decision layer computed on different definitions.** A summary printed beside a
+result acquires that result's authority whatever the caption says.
+
+Two practical forms:
+
+- if a rule is withdrawn, **delete its number**, do not demote it to
+  "informational";
+- if a rule is per-arm / per-group / per-replicate, **report it that way**, not
+  as an average across the very units it distinguishes.
+
+---
+
 ## 8. Provenance and versioning of the numbers above
 
 Derived from `docs/DECISIONS.md` D22–D32 and `PREREGISTRATION_v1.1`–`v1.4`.
@@ -211,6 +238,12 @@ are correct at their own stage; check the stamp before quoting.**
 | | 0.909 | all dNK including dNKp, raw counts, no depth matching — quoted in D31 |
 | ruler B pickup band | **0.0538** | v1.2 onward: source lineage ranked by **total counts** (LYZ→Myeloid) — **current** |
 | | 0.0441 | v1.1: source ranked by **per-cell CPM** (LYZ→cDC1) — superseded, retained in `PREREGISTRATION_v1.1.md` as the record |
+| CCL3 cross-subset summary | 0.8167 | every donor×subset row equally weighted — what v1.4 A11 used |
+| | 0.8204 | each subset averaged first, then subsets equally weighted (dNK3 clears in 5 donors, dNK1/dNK2 in 6) |
+
+Neither CCL3 summary enters a decision: the ceiling rule consumes the per-arm
+figures (0.800 / 0.777 / **0.884**). See §7b — that is exactly why the summary
+should not have been quoted as if it did.
 
 Depth matching lowers a detection rate and it is not optional for anything
 comparative; the raw figure is only ever a sanity check.

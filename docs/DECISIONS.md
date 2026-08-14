@@ -1285,3 +1285,69 @@ source lineage caught, independently:
 Two different scenarios — a genuinely low-abundance receptor, and a gene whose
 source lineage is absent from the tissue — caught by one rule that was not
 tuned for either.
+
+---
+
+## D36 — CCL3's dNK3 effect does not survive the circularity test either, and circularity cannot explain it.
+
+The follow-up was already computed: `CCL3` has been in `circularity_test.py`'s
+target list from the start, and only the printout filtered it out. Read from
+the existing outputs, no rerun.
+
+**Prior expectation, and why it was reasonable.** `CCL3` is **not** among
+Vento-Tormo's dNK3 characterisation genes (CCL5, CXCR4, XCL1, CD160, KLRB1,
+GZMK, IFNG, TNFSF14, TIGIT), so its dNK3 effect sat in the *low*-circularity
+tier alongside XCL1, not with CCL5/CXCR4. The test was expected to support it.
+
+**It does not.**
+
+| gene | retained under marker regrouping | within-label |
+|---|---|---|
+| XCL1 | **0.62×**, 4/4 donors concordant | dNK1: +6.7 pp, 3/3 |
+| XCL2 | 0.53×, 4/4 | dNK1: +5.7 pp, 3/3 |
+| CCL5 | 0.46×, 4/4 | dNK2: +6.0 pp, 3/3 |
+| CXCR4 | 0.30× | dNK1: **−3.5 pp**, 3/3 (reversal) |
+| **CCL3** | **0.28× — the lowest of the five** | dNK1: −2.3 pp; dNK2: +0.25 pp, **0/3 concordant** |
+
+All three of CCL3's gate contrasts return `all_donors_same_sign = FALSE`,
+which none of the other four do in the contrasts that carry them.
+
+**Circularity cannot be the explanation**, since CCL3 is not a dNK3
+characterisation gene. The available explanations are ordinary ones: gate
+dilution bites hardest on a gene whose arms are *both* high (0.78–0.88), where
+mixing compresses an already small difference; and the +8.8 pp label-based
+effect was itself a ceiling-limited lower bound of unknown size.
+
+**Status, which is a third category and not either of the earlier two.**
+D34 corrected "CCL3 does not reproduce" to "the dNK3 contrasts are not nulls —
+direction readable, magnitude a lower bound". The gate test now removes the
+*direction* claim as well: **CCL3's dNK3 contrasts are unresolved.** The
+ceiling prevents adjudicating a null, and the marker-gated test does not
+support the effect. Neither established nor excluded.
+
+**Consequence for a reading that is now withdrawn before it was made.** The
+attractive inference — that CCL3 (dNK1 ≈ dNK2 < dNK3), CCL5 (monotonic) and
+XCL1 (dNK1 < dNK2 ≈ dNK3) show three *different* patterns, implying subsets
+carry distinct chemokine combinations rather than different amounts of one
+programme — **requires CCL3's pattern to be established, and it is not.**
+The pattern claim rests on CCL5 and XCL1 alone, which differ from each other,
+and that much is unchanged.
+
+This was the last open scientific follow-up in the run. It closes negative.
+
+---
+
+## D37 — Provenance stamp: 0.817 vs 0.8204.
+
+Same quantity, two weightings, neither wrong:
+
+| value | weighting |
+|---|---|
+| **0.8167** | every `donor × subset` row equally weighted (17 rows) — **what v1.4 A11 used** |
+| 0.8204 | each subset averaged first, then the three subsets equally weighted |
+
+The gap exists because **dNK3 clears the admission threshold in 5 donors while
+dNK1 and dNK2 clear it in 6**, so row-weighting gives dNK3 — the highest and
+the saturated arm — slightly less weight. Stamped rather than reconciled; the
+per-arm figures (0.800 / 0.777 / 0.884) are what the ceiling rule consumes and
+neither summary enters a decision.
