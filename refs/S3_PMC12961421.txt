@@ -1,4 +1,4 @@
-# status=OA_FULLTEXT pmid=41782473 pmcid=PMC12961421 ident=PMC12961421
+# status=OA_FULLTEXT pmid=41782473 pmcid=PMC12961421 ident=41782473
 
 379 blackwellopen American Journal of Reproductive Immunology Am J Reprod Immunol PMC12961421 12961421 12961421 41782473 10.1111/aji.70220 
 

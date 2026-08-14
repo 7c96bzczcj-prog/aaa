@@ -32,7 +32,8 @@ T2_COLS = ["claim_id", "lineage_decidable", "why", "action_if_yes", "action_if_n
 
 T5_COLS = ["claim_id", "claim_text", "load_bearing", "evidence_type_strongest",
            "lineage_decidable", "both_answers_actionable", "already_traced",
-           "occupancy_unverified", "on_shortlist", "failed_criteria"]
+           "occupancy_search_confidence", "occupancy_unverified", "mouse_only",
+           "on_shortlist", "failed_criteria"]
 
 
 def clean(v):
@@ -142,7 +143,9 @@ def build_t5(recs, claims, phaseb):
             "load_bearing": lb, "evidence_type_strongest": ev,
             "lineage_decidable": ld or "n/a", "both_answers_actionable": ba or "n/a",
             "already_traced": at or "n/a",
+            "occupancy_search_confidence": o.get("search_confidence", "n/a"),
             "occupancy_unverified": "TRUE" if at == "NOT_SEARCHED" else "FALSE",
+            "mouse_only": b.get("mouse_only", "n/a"),
             "on_shortlist": "TRUE" if not fails else "FALSE",
             "failed_criteria": "; ".join(fails) or "none",
         })

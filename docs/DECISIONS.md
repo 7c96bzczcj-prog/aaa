@@ -393,3 +393,53 @@ after seeing that it excludes a dataset I would like to use, is precisely the po
 adjustment C.2 forbids. The consequence is recorded as a limitation, not repaired.
 
 ---
+
+## DEC-15 — Normalising the adversarial verdicts; two conditional cases adjudicated
+
+**Problem.** The Phase A adversarial schema left `revised_evidence_type_strongest`
+as a free string. Several reviewers returned a reasoned paragraph instead of a
+token, so the field was not machine-readable.
+
+**Rule applied** (`scripts/normalize_verdicts.py`):
+1. If the reviewer led with a class token, lift it.
+2. If the reviewer challenged the class but supplied no token, **keep the audit
+   class** rather than guess.
+3. If the verdict was genuinely conditional on a reading of the claim, adjudicate
+   explicitly under DEC-05 (spec §1 claim text is authoritative) and record why.
+
+**Two conditional cases:**
+
+- **P1** — reviewer gave `INF_KINETIC` for the human NKG2C/HCMV claim and
+  `OBS_DIRECT` for the mouse Ly49H/MCMV homolog. NKG2C and HCMV are human-specific;
+  the mouse work uses a different receptor, virus and species. Neighbouring but
+  different transition → `INF_KINETIC`.
+- **X1** — reviewer gave `OBS_TRANSFER` under an operational trNK definition and
+  `INF_MARKER` under a strict Eomes+ conventional-NK definition, where the same
+  figure becomes counter-evidence. Resolved against the registry's own ontology:
+  T4 ("NK → ILC1") and P3 (NK-or-ILC1 identity dispute) both presuppose ILC1 ≠ NK,
+  so trNK means NK-lineage tissue-resident NK → `INF_MARKER`.
+
+**Alternative rejected.** Re-running the adversarial agents with a constrained
+enum. It would have produced cleaner fields but would have re-rolled verdicts
+already returned, after I had seen which ones were inconvenient. Normalising the
+existing output with a stated rule keeps the record auditable.
+
+---
+
+## DEC-16 — MEDIUM-confidence FALSE on occupancy is surfaced, not reclassified
+
+**What.** Both shortlist entries (S2, S3) carry `already_traced = FALSE` at
+`search_confidence = MEDIUM`. The preregistration told B4 agents to prefer
+`NOT_SEARCHED` over a thin `FALSE`.
+
+**Decision.** Apply §5 criterion 4 exactly as written — a `FALSE` admits the claim
+without the `occupancy_unverified` flag — and add `occupancy_search_confidence` as
+a column in T5 plus an explicit paragraph in RESULTS §1.
+
+**Why not reclassify to NOT_SEARCHED.** That would be me overriding the agent's own
+assessment of its search in the direction that weakens my only two shortlist
+entries, after seeing the result. The preregistered rule keys on the recorded
+value; the confidence is reported alongside so a reader can discount it. Changing
+the value would be a post-hoc edit of §5 by the back door.
+
+---
