@@ -1417,3 +1417,135 @@ its own.
 This is the same discipline as the opposite-sign argument (XCL1 +6.7 while
 CXCR4 −3.5 in one contrast): what carries the evidence is a relationship
 between observations, not the magnitude of any one.
+
+---
+
+## D40 — "Free, and on your disk" was wrong on both counts. The atlas carries one ruler, not two.
+
+**Claim under check.** That the Netskar 2024 pan-tissue NK atlas (89,216 NK,
+14 tissues) was already archived here and could answer the PTN/OGN question at
+no cost.
+
+**Measured.** `data/` holds VT2018 and nothing else. What was read from the
+atlas, in D1, was its `obs` table only — 8.8 MB of a 1,765 MB file over HTTP
+range requests. No expression value from it has ever been on this disk.
+
+**And the instrument does not transfer whole.** `all_nk_cells.h5ad` is
+NK-only. Ruler B's denominator is the source lineage's own expression, and
+there are no stromal cells in the file to measure — so ruler B is unavailable,
+and so is per-tissue stromal content as an in-dataset covariate. The
+per-tissue all-cells h5ads on the same Zenodo record do carry stroma but total
+41 GB against 25 GB free.
+
+**Decision.** Check 1 runs with **ruler A only, in its prior-selected form**:
+COL1A1/COL1A2/COL3A1/DCN/LUM cannot be transcribed by an NK cell, so their
+signal inside an NK barcode is pickup, measured in the NK cells themselves.
+Admissible under `TRANSFERABLE.md` §5 — prior exclusivity, and a boundary the
+target cannot cross. Stated as a property of the file, not as a choice.
+
+**Cost, measured before committing to it.** CSR, 89,216 × 11,866, 70,466,919
+non-zeros: two gene columns cannot be sliced out of a row-major index, so the
+matrix must be walked once. ~560 MB streamed, no disk
+(`src/netskar_probe_stream.py`, `src/remote_h5.py`).
+
+---
+
+## D41 — Contamination in sorted dNK is measured, not hypothesised — in the authors' own deposit.
+
+**What was done.** GSE184719, the bulk RNA-seq behind Du et al. Front Immunol
+2022, contains four sorted decidual NK libraries alongside four blood NK.
+
+**Result.** Stromal transcripts an NK cell cannot make are present in every
+dNK library: COL1A1+COL1A2+COL3A1+DCN+LUM sums to **404.7 / 4409.3 / 323.7 /
+189.9 CPM** in dNK1–4, against **3.04 CPM** in blood NK — 60–1450×. PAEP
+(glandular epithelium) adds a second contaminating compartment at
+138–1866 CPM.
+
+**Why this was the right question.** Sorting purity is measured on surface
+markers. Protein sticks to cells and free RNA rides along; neither is visible
+to the sorter. The transcriptome is where carryover shows, and it shows.
+
+---
+
+## D42 — PTN and OGN sit inside the carryover envelope. SPP1 does not. The claim separates by gene.
+
+**Instrument.** Ruler B, platform-matched, entirely inside VT2018: a gene's
+level in the dNK gate as a percentage of its level in the 14,872 decidual
+stromal cells of the same matrix. Five genes NK cannot transcribe fix the
+envelope at **0.54 % – 3.64 %**.
+
+| gene | dNK1 | dNK2 | dNK3 | |
+|---|---|---|---|---|
+| PTN | 0.67 | 0.97 | 0.21 | inside |
+| OGN | 1.52 | 1.61 | 1.83 | inside |
+| SPP1 | 8593 | 5437 | 11350 | far above |
+| VIM | 22.9 | 35.9 | 35.7 | above — why it is never a control |
+
+**The positive control is the load-bearing part.** SPP1 — the third factor of
+Fu 2017 — comes out three orders of magnitude above the envelope on the same
+cells with the same instrument. This is not a method that returns
+"contamination" for whatever it is asked about. It separates the three genes,
+and R3's detection rate separates them the same way (SPP1 29–63 % of dNK
+cells; PTN 0.10–0.39 %; OGN 0.50–0.68 %).
+
+**Quantitatively coherent.** DCN and LUM are detected 20–50× more often than
+PTN/OGN in dNK, and in stroma they are 50–60× more abundant. Carryover
+predicts that spread and that is what is there.
+
+**What this is not.** PTN and OGN are in the **floor band** (< 5 %), so on the
+primary scale there is no power in points (v1.4 A12). "Inside the envelope"
+means *not distinguishable from carryover*, never *demonstrated absent*. Same
+label as CCL3: neither established nor excluded — with the one difference that
+here a positive control in the same table shows the instrument can see the
+thing when it is present.
+
+**Withdrawn before use.** The cross-platform version of this — VT2018 stromal
+ratios predicting the GSE184719 bulk libraries — is written to
+`ptn_ogn_carryover_prediction.csv` and **adjudicates nothing**: the implied
+stromal fraction runs from 0.77 % to 154 % depending only on the anchor gene,
+and a fraction above 100 % is not a quantity. `TRANSFERABLE.md` §1's failure
+form, caught before it was leaned on rather than after. No matrices were
+merged (R9).
+
+---
+
+## D43 — The decisive experiment for check 3 was already deposited, and it is negative with power.
+
+**Gate 4 of check 3** asked whether PTN/OGN mRNA was measured in the
+stroma-free induced-NK cultures. It was — GSE184719 holds twelve of them.
+
+**PTN, raw reads across all twelve libraries: 0,0,0,0,1,0,0,0,0,0,2,0 —
+three in total.** 0.00–0.11 CPM against 1.72–15.08 CPM in the sorted dNK from
+the same submission. OGN: 0.00–0.47 CPM, indistinguishable from blood NK
+(0.16–0.32), the very group the paper contrasts these cells against.
+
+**Powered, not floor-limited.** Libraries run 12.6–24.7 M reads, so one read
+is ≈ 0.04–0.08 CPM — two orders below the dNK level, and the same assay sees
+PTN in the dNK libraries without difficulty. Absence here is a measurement.
+
+**The contradiction that follows.** The paper reports PTN/OGN *protein* in
+these same cultures by intracellular staining (Fig. 4A–D) while its own
+RNA-seq of the same cultures shows no message. Monensin was used correctly
+(2.5 μg/mL, 4 h) so gate 1 passes; there is no supernatant ELISA at all, so
+the secretion claim rests entirely on intracellular signal; and the
+antibodies (LS-C162291, LS-B10948) are validated by isotype control alone —
+no knockout, no blocking peptide. **Protein without message, with an
+isotype-only antibody: gate 2 is where it breaks.** The paper's own
+growth-factor heatmap (Fig. 4E) shows VEGFA, LIF, IL-32, CSF2 — not PTN, not
+OGN.
+
+**Mouse arm, with its uncertainty marked.** From the abstracts of Fu 2017 and
+Sci Transl Med 2020 (PMID 32238574), the genetics are `Nfil3`^−/−,
+`Tbx21`^−/−, adoptive transfer, and inactivation of `Pbx1` — transcription
+factor and subset level throughout. No `Ptn`^fl/fl or `Ogn`^fl/fl NK-conditional
+allele appears in the literature. That design can show the subset matters; it
+cannot show the two factors come from NK. **Both papers are paywalled with no
+PMC deposit and could not be read** — this is inference from abstracts plus a
+negative search, and it is labelled as such in `docs/PTN_OGN.md` §2.
+
+**The open item is named rather than omitted.** Sci Transl Med 2020 states
+that PBX1 *drives PTN and OGN transcription* in dNK. If that rests on ChIP, a
+reporter assay, or overexpression in a stroma-free NK line with an mRNA
+readout, it outranks everything above. It is paywalled and was not read.
+Leaving out the strongest contrary evidence is how a review becomes an
+argument.

@@ -401,3 +401,27 @@ never needed a null distribution.**
   observations — two genes moving in opposite directions in one contrast
   excludes any artefact that pushes everything one way.
 - Sections renumbered 1–9 after a stale provenance stub was removed.
+
+## v1.5.0 — 2026-08-14 — PTN/OGN: three checks
+
+New question, outside the chemokine panel: do decidual NK cells transcribe
+`PTN` and `OGN`, or is that carryover from decidual stroma?
+
+- `docs/PTN_OGN.md` — the three checks and what each decided.
+- `src/remote_h5.py` — HTTP-range reader for remote HDF5. Every part is
+  size-verified; exit status is never trusted (the D8 failure mode).
+- `src/netskar_probe_stream.py` — one pass over the Netskar 2024 NK atlas
+  counts layer, ~560 MB streamed, no disk.
+- `src/gse184719_ptn_ogn.py` — contamination and in-vitro mRNA, from the
+  authors' own deposited bulk RNA-seq.
+- `src/stromal_ruler.py` — ruler B rebuilt inside VT2018, where the source
+  lineage actually exists.
+- `docs/DECISIONS.md` D40–D43.
+
+Findings: contamination is measured rather than hypothesised (D41); PTN and
+OGN sit inside the carryover envelope while SPP1 sits three orders of
+magnitude above it (D42); and the decisive stroma-free mRNA experiment was
+already deposited and is negative with power (D43). One paywalled paper that
+could overturn this is named in `PTN_OGN.md` §5.
+
+R1–R11 unchanged. No scanpy. No matrices merged.
