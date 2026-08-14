@@ -33,6 +33,23 @@ ADJUDICATED = {
            "different species. Under DEC-05 that is a neighbouring but different transition, so "
            "it is recorded as adjacent evidence and does not set this row's class. "
            "Human strongest = INF_KINETIC."),
+    "X1": ("INF_MARKER",
+           "The reviewer found a real experiment the audit had wrongly declared non-existent "
+           "(Dadi et al., Cell 2016, PMID 26806130: CD45.1/CD45.2 congenic parabiosis in "
+           "tumour-bearing MMTV-PyMT mice with pre-transformation enumeration of the same "
+           "population), and correctly made the class CONDITIONAL on which entity 'trNK' "
+           "denotes. Under an operational trNK definition (CD49a+CD103+ NK1.1+) Dadi's "
+           "ILC1-like cells are the claim's subject and the class upgrades to OBS_TRANSFER; "
+           "under a strict Eomes+ conventional-NK definition the same figure is COUNTER-evidence, "
+           "because cNK showed HIGH non-host chimerism, i.e. conventional NK in tumour-bearing "
+           "tissue are continuously exchanged with the circulation. "
+           "RESOLUTION: this registry's own ontology treats ILC1 as distinct from NK - claim T4 "
+           "is 'NK -> ILC1' and claim P3 turns on whether liver memory cells are NK or ILC1. "
+           "Both presuppose the distinction, so 'trNK' in X1 must mean NK-lineage tissue-resident "
+           "NK, not ILC1-like cells. Dadi's population is explicitly not conventional NK "
+           "(Nfil3-independent, 'gene expression signature distinct from conventional NK cells'), "
+           "so under DEC-05 it addresses a neighbouring but different transition. "
+           "X1 keeps INF_MARKER, and Dadi's cNK chimerism data is recorded as counter-evidence."),
 }
 
 
