@@ -1351,3 +1351,69 @@ dNK1 and dNK2 clear it in 6**, so row-weighting gives dNK3 — the highest and
 the saturated arm — slightly less weight. Stamped rather than reconciled; the
 per-arm figures (0.800 / 0.777 / 0.884) are what the ceiling rule consumes and
 neither summary enters a decision.
+
+---
+
+## D38 — CCL3's within-label null is itself ceiling-limited. The negative is uninformative, not informative.
+
+D36 said the gate test "does not support the effect". That is true but
+incomplete, and the missing half matters: **the within-label test has no power
+on CCL3 either.**
+
+Reference-arm baseline detection inside each gene's within-label contrast:
+
+| gene | inside | reference arm baseline |
+|---|---|---|
+| CXCR4 | dNK1 | 0.191 |
+| XCL1 | dNK1 | 0.300 |
+| CCL5 | dNK2 | 0.472 |
+| XCL2 | dNK1 | 0.503 |
+| **CCL3** | dNK1 / dNK2 | **0.821 / 0.759** |
+
+**CCL3 is the only gene whose within-label reference arm sits above 0.75.**
+CCL5 was measured at +6.0 pp from a baseline of 0.47; CCL3 is being asked for
+the same from 0.82, where the same underlying difference is compressed toward
+zero.
+
+So its 0/3 non-concordant flat result is **the ceiling again**, one level
+down — the same failure that blocked the label-based contrasts blocks the test
+brought in to adjudicate them. **It carries no adverse information; it carries
+none at all.** "Neither established nor excluded" (D36) is exactly the right
+label, and this is why.
+
+Note the shape: CCL3 is ceiling-limited at the label level (dNK3 at 0.884),
+*and* ceiling-limited at the gate level (reference arms 0.82/0.76). A gene can
+be beyond this design's reach at more than one level at once.
+
+---
+
+## D39 — The within-label evidence is strong as a set and weak line by line. Cite it that way.
+
+**Calibration.** At n = 3, a single 3/3 sign concordance has a null probability
+of 2/2³ = **0.25**. No individual row stands on its own — including the ones
+this project's conclusions rest on.
+
+**What the set is worth.** XCL1 and XCL2 are paralogues and not independent,
+so they count once. The independent observations are:
+
+1. (XCL1, XCL2) surviving inside dNK1
+2. CCL5 surviving inside dNK2
+3. CXCR4 **reversing** inside dNK1
+
+Three independent observations, each 3/3: **0.25³ ≈ 1.6%**.
+
+**Citation rule, binding from here.** Do **not** quote a single line as "3/3
+donors concordant" as though it carried weight. The correct form is:
+
+> *four gate contrasts form a mutually consistent set — XCL1/XCL2 and CCL5
+> surviving, CXCR4 reversing — of which CCL3 is the sole exception, and that
+> exception is itself ceiling-limited (D38).*
+
+**The weight is in the set's internal consistency, not in any row.** And
+CCL3's departure from the pattern is informative *only* under that same
+premise — which is a further reason it cannot be read as a negative result on
+its own.
+
+This is the same discipline as the opposite-sign argument (XCL1 +6.7 while
+CXCR4 −3.5 in one contrast): what carries the evidence is a relationship
+between observations, not the magnitude of any one.

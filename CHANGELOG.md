@@ -375,3 +375,29 @@ never needed a null distribution.**
   gene in the measurable band while the per-arm rule saw a saturated arm.
   If a rule is withdrawn, delete its number rather than demoting it; if a rule
   is per-arm, report per arm.
+
+## v1.4.7 — 2026-08-13 — CCL3's within-label null is itself ceiling-limited; evidence-set citation rule
+
+- **D38.** D36 said the gate test "does not support" CCL3's effect. Incomplete:
+  **the gate test has no power on CCL3 either.** Its within-label reference
+  arms sit at **0.821 / 0.759**, against 0.191–0.503 for every other gene
+  tested — CCL3 is the only one above 0.75. CCL5 was measured at +6.0 pp from
+  a baseline of 0.47; CCL3 is asked for the same from 0.82. So the 0/3 flat
+  result is the ceiling again, one level down, and **carries no adverse
+  information — it carries none.** A gene can be beyond this design's reach at
+  the label level and at the gate level simultaneously.
+- **D39 — citation rule, binding.** At n = 3 a single 3/3 sign concordance has
+  null probability 2/2³ = **0.25**; no row stands alone. XCL1 and XCL2 are
+  paralogues and count once, leaving three independent observations —
+  (XCL1, XCL2) surviving inside dNK1, CCL5 surviving inside dNK2, CXCR4
+  **reversing** inside dNK1 — jointly **0.25³ ≈ 1.6%**.
+  **Do not quote a single line as "3/3 donors concordant".** Quote the set and
+  name its exception. CCL3's departure is informative only under that same
+  premise, which is a further reason it cannot be read as a negative on its own.
+- **`TRANSFERABLE.md` §8** generalises it: count independence honestly
+  (paralogues, correlated readouts, repeated measures are one observation);
+  never quote a member as if it were the set; an exception is informative only
+  if it had the power to conform. The stronger form is a *relationship* between
+  observations — two genes moving in opposite directions in one contrast
+  excludes any artefact that pushes everything one way.
+- Sections renumbered 1–9 after a stale provenance stub was removed.

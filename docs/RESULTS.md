@@ -281,6 +281,17 @@ between-gate dilution:
 
 n = 3, `min_achievable_p` = 0.25 — again, **no p value here means anything**.
 
+**Cite this table as a set, never line by line** ([D39](DECISIONS.md)). A
+single 3/3 concordance has a null probability of 0.25, so no row stands alone.
+XCL1 and XCL2 are paralogues and count once, leaving three independent
+observations — (XCL1, XCL2) surviving inside dNK1, CCL5 surviving inside dNK2,
+CXCR4 **reversing** inside dNK1 — jointly **0.25³ ≈ 1.6%**. The weight is in
+the set's internal consistency. `CCL3` is the sole exception to the pattern,
+and that exception is itself ceiling-limited: its within-label reference arms
+sit at 0.82 and 0.76, against 0.19–0.50 for every other gene here, so its flat
+0/3 result carries no information rather than adverse information
+([D38](DECISIONS.md)).
+
 **The single strongest observation in this study is in that table's first and
 fourth rows.** Within the *same* contrast, on the *same* cells, XCL1 moves
 **+6.7 pp** while CXCR4 moves **−3.5 pp**, both with all three donors

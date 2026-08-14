@@ -119,14 +119,7 @@ again** — the cost is minutes and the outcome is binary.
 
 ---
 
-## 5. Provenance
-
-Derived from `docs/DECISIONS.md` D22–D27 and `PREREGISTRATION_v1.1`–`v1.4`,
-which carry the measurements behind every claim above.
-
----
-
-## 6. Ambient controls must come from prior knowledge, not from a statistic
+## 5. Ambient controls must come from prior knowledge, not from a statistic
 
 Late addition, and the most portable single rule in the file.
 
@@ -163,7 +156,7 @@ prior-selected controls are unaffected.
 
 ---
 
-## 7. The same rule in the wet lab: negative controls are chosen by biology
+## 6. The same rule in the wet lab: negative controls are chosen by biology
 
 The isotype or fluorescence-minus-one control is chosen because the biology
 says the signal cannot be there — **never because a channel happened to be
@@ -182,7 +175,7 @@ after comparing which one looks cleaner.
 Carry that straight into an experiment: **the negative control must be a
 pathway that should not respond, or a readout that should not move, named in
 advance for a biological reason.** Choosing "whichever readout came out flat"
-is the wet-lab form of the circularity in §6 — the selection statistic is the
+is the wet-lab form of the circularity in §5 — the selection statistic is the
 measurement, so the control is guaranteed to look clean and guarantees
 nothing.
 
@@ -198,7 +191,7 @@ Same shape, five settings:
 
 ---
 
-## 7b. A reported summary must share its definition with the rule that consumes it
+## 7. A reported summary must share its definition with the rule that consumes it
 
 Second instance of one failure form, so it earns its own rule.
 
@@ -225,7 +218,39 @@ Two practical forms:
 
 ---
 
-## 8. Provenance and versioning of the numbers above
+## 8. Weak observations combine; report the set, not the line
+
+When each observation is individually weak — small n, a sign count, a bounded
+readout — the evidence lives in **whether the observations are mutually
+consistent**, not in any one of them.
+
+Worked instance. Each within-label contrast here had n = 3, so a 3/3 sign
+concordance has null probability 2/2³ = 0.25 — nothing on its own. But the
+paralogue pair counts once, leaving three independent observations, two
+surviving and one *reversing* in the predicted place: 0.25³ ≈ 1.6%.
+
+Three practical consequences:
+
+1. **Count independence honestly.** Paralogues, correlated readouts and
+   repeated measures on the same subject are one observation, not several.
+   Inflating the count here is the same error as counting wells as n.
+2. **Never quote a member as if it were the set.** "3/3 donors agreed" invites
+   the reader to weigh one line at 0.25. Quote the pattern and name its
+   exceptions.
+3. **An exception is informative only under the same premise.** If the set is
+   what carries weight, a member that breaks the pattern is meaningful only
+   when it had the power to conform. Check that before reading a departure as
+   a negative — here the one exception turned out to be ceiling-limited, so it
+   carried no information at all.
+
+The stronger version of the same idea is a *relationship* between observations
+rather than a tally: two genes moving in **opposite** directions in one
+contrast on one set of cells excludes any artefact that pushes everything one
+way. Design for relationships that a nuisance parameter cannot produce.
+
+---
+
+## 9. Provenance and versioning of the numbers above
 
 Derived from `docs/DECISIONS.md` D22–D32 and `PREREGISTRATION_v1.1`–`v1.4`.
 
@@ -242,7 +267,7 @@ are correct at their own stage; check the stamp before quoting.**
 | | 0.8204 | each subset averaged first, then subsets equally weighted (dNK3 clears in 5 donors, dNK1/dNK2 in 6) |
 
 Neither CCL3 summary enters a decision: the ceiling rule consumes the per-arm
-figures (0.800 / 0.777 / **0.884**). See §7b — that is exactly why the summary
+figures (0.800 / 0.777 / **0.884**). See §7 — that is exactly why the summary
 should not have been quoted as if it did.
 
 Depth matching lowers a detection rate and it is not optional for anything
