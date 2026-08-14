@@ -1,25 +1,418 @@
 {
+ "GSM9096478": {
+  "n_typed": 8969,
+  "nk": 819,
+  "counts": {
+   "T": 4847,
+   "DC": 758,
+   "Stromal": 159,
+   "NK": 819,
+   "B": 869,
+   "Epithelial": 836,
+   "Myeloid": 681
+  }
+ },
+ "GSM9096479": {
+  "n_typed": 6615,
+  "nk": 0,
+  "counts": {
+   "Epithelial": 4091,
+   "T": 1094,
+   "Myeloid": 1430
+  }
+ },
+ "GSM9096480": {
+  "n_typed": 15694,
+  "nk": 2332,
+  "counts": {
+   "T": 11718,
+   "B": 587,
+   "NK": 2332,
+   "Myeloid": 1057
+  }
+ },
+ "GSM9096481": {
+  "n_typed": 2109,
+  "nk": 0,
+  "counts": {
+   "Epithelial": 1294,
+   "Stromal": 362,
+   "T": 334,
+   "Myeloid": 119
+  }
+ },
+ "GSM9096482": {
+  "n_typed": 7579,
+  "nk": 0,
+  "counts": {
+   "Epithelial": 5698,
+   "Myeloid": 999,
+   "T": 527,
+   "Stromal": 355
+  }
+ },
+ "GSM9096483": {
+  "n_typed": 12277,
+  "nk": 0,
+  "counts": {
+   "Epithelial": 6331,
+   "B": 4518,
+   "Myeloid": 457,
+   "T": 549,
+   "Stromal": 422
+  }
+ },
+ "GSM9096484": {
+  "n_typed": 13529,
+  "nk": 2320,
+  "counts": {
+   "B": 4665,
+   "NK": 2320,
+   "Myeloid": 4036,
+   "T": 2069,
+   "Stromal": 439
+  }
+ },
+ "GSM9096485": {
+  "n_typed": 7137,
+  "nk": 222,
+  "counts": {
+   "Myeloid": 3413,
+   "T": 3202,
+   "NK": 222,
+   "Stromal": 209,
+   "B": 91
+  }
+ },
+ "GSM9096486": {
+  "n_typed": 5642,
+  "nk": 2254,
+  "counts": {
+   "NK": 2254,
+   "Stromal": 2756,
+   "DC": 138,
+   "B": 150,
+   "T": 157,
+   "Epithelial": 187
+  }
+ },
+ "GSM9096487": {
+  "n_typed": 9107,
+  "nk": 286,
+  "counts": {
+   "B": 2548,
+   "T": 5263,
+   "Stromal": 581,
+   "Myeloid": 429,
+   "NK": 286
+  }
+ },
+ "GSM9096488": {
+  "n_typed": 10797,
+  "nk": 572,
+  "counts": {
+   "T": 8813,
+   "NK": 572,
+   "Myeloid": 885,
+   "B": 527
+  }
+ },
+ "GSM9096489": {
+  "n_typed": 7353,
+  "nk": 0,
+  "counts": {
+   "T": 7161,
+   "Myeloid": 192
+  }
+ },
+ "GSM9096490": {
+  "n_typed": 4501,
+  "nk": 446,
+  "counts": {
+   "Epithelial": 1263,
+   "Myeloid": 650,
+   "T": 668,
+   "NK": 446,
+   "Stromal": 410,
+   "DC": 461,
+   "ambiguous": 243,
+   "B": 360
+  }
+ },
+ "GSM9096491": {
+  "n_typed": 5236,
+  "nk": 454,
+  "counts": {
+   "T": 3993,
+   "B": 697,
+   "NK": 454,
+   "Epithelial": 92
+  }
+ },
+ "GSM9096492": {
+  "n_typed": 5127,
+  "nk": 1113,
+  "counts": {
+   "DC": 735,
+   "NK": 1113,
+   "T": 1086,
+   "Myeloid": 1156,
+   "Epithelial": 101,
+   "B": 936
+  }
+ },
+ "GSM9096493": {
+  "n_typed": 6985,
+  "nk": 0,
+  "counts": {
+   "Epithelial": 3858,
+   "T": 170,
+   "B": 914,
+   "Stromal": 1895,
+   "DC": 148
+  }
+ },
+ "GSM9096494": {
+  "n_typed": 15499,
+  "nk": 2716,
+  "counts": {
+   "T": 12783,
+   "NK": 2716
+  }
+ },
+ "GSM9096495": {
+  "n_typed": 7695,
+  "nk": 4997,
+  "counts": {
+   "NK": 4997,
+   "Stromal": 433,
+   "B": 1141,
+   "Myeloid": 841,
+   "DC": 203,
+   "ambiguous": 80
+  }
+ },
+ "GSM9096496": {
+  "n_typed": 1659,
+  "nk": 0,
+  "counts": {
+   "Epithelial": 879,
+   "T": 330,
+   "Stromal": 99,
+   "B": 135,
+   "Myeloid": 216
+  }
+ },
+ "GSM9096497": {
+  "n_typed": 2170,
+  "nk": 281,
+  "counts": {
+   "B": 724,
+   "Myeloid": 966,
+   "DC": 174,
+   "NK": 281,
+   "Epithelial": 25
+  }
+ },
+ "GSM9096498": {
+  "n_typed": 2982,
+  "nk": 0,
+  "counts": {
+   "Epithelial": 1009,
+   "Myeloid": 841,
+   "Stromal": 257,
+   "T": 754,
+   "ambiguous": 121
+  }
+ },
+ "GSM9096499": {
+  "n_typed": 2099,
+  "nk": 394,
+  "counts": {
+   "Myeloid": 1011,
+   "Epithelial": 81,
+   "B": 62,
+   "NK": 394,
+   "DC": 466,
+   "T": 85
+  }
+ },
+ "GSM9096500": {
+  "n_typed": 2769,
+  "nk": 707,
+  "counts": {
+   "DC": 186,
+   "T": 757,
+   "B": 680,
+   "NK": 707,
+   "Myeloid": 439
+  }
+ },
+ "GSM9096501": {
+  "n_typed": 2150,
+  "nk": 120,
+  "counts": {
+   "T": 1714,
+   "NK": 120,
+   "B": 235,
+   "Epithelial": 81
+  }
+ },
+ "GSM9096502": {
+  "n_typed": 2455,
+  "nk": 176,
+  "counts": {
+   "B": 762,
+   "T": 627,
+   "Stromal": 74,
+   "DC": 205,
+   "Myeloid": 475,
+   "NK": 176,
+   "Epithelial": 136
+  }
+ },
+ "GSM9096503": {
+  "n_typed": 4537,
+  "nk": 1447,
+  "counts": {
+   "NK": 1447,
+   "T": 2569,
+   "B": 371,
+   "Epithelial": 150
+  }
+ },
+ "GSM9096504": {
+  "n_typed": 6168,
+  "nk": 2516,
+  "counts": {
+   "B": 307,
+   "NK": 2516,
+   "Myeloid": 2381,
+   "DC": 418,
+   "T": 358,
+   "Epithelial": 188
+  }
+ },
+ "GSM9096505": {
+  "n_typed": 11065,
+  "nk": 1488,
+  "counts": {
+   "T": 3449,
+   "Myeloid": 3213,
+   "NK": 1488,
+   "B": 2568,
+   "DC": 347
+  }
+ },
+ "GSM9096506": {
+  "n_typed": 6476,
+  "nk": 0,
+  "counts": {
+   "B": 997,
+   "Epithelial": 3647,
+   "T": 735,
+   "Myeloid": 480,
+   "DC": 214,
+   "Stromal": 403
+  }
+ },
+ "GSM9096507": {
+  "n_typed": 7327,
+  "nk": 4017,
+  "counts": {
+   "B": 1661,
+   "NK": 4017,
+   "DC": 447,
+   "Myeloid": 943,
+   "T": 259
+  }
+ },
+ "GSM9096508": {
+  "n_typed": 10223,
+  "nk": 2954,
+  "counts": {
+   "B": 1569,
+   "T": 4431,
+   "Myeloid": 374,
+   "Epithelial": 461,
+   "NK": 2954,
+   "Stromal": 434
+  }
+ },
  "GSM9096509": {
   "n_typed": 2612,
-  "nk": 1622,
+  "nk": 1948,
   "counts": {
    "T": 141,
-   "NK": 1622,
-   "Myeloid": 212,
-   "ambiguous": 254,
-   "Stromal": 161,
-   "B": 222
+   "NK": 1948,
+   "B": 476,
+   "DC": 47
   }
  },
  "GSM9096510": {
   "n_typed": 2109,
+  "nk": 117,
+  "counts": {
+   "T": 1200,
+   "Myeloid": 98,
+   "B": 605,
+   "NK": 117,
+   "DC": 89
+  }
+ },
+ "GSM9096511": {
+  "n_typed": 2590,
+  "nk": 509,
+  "counts": {
+   "Myeloid": 1002,
+   "DC": 474,
+   "B": 506,
+   "NK": 509,
+   "Epithelial": 99
+  }
+ },
+ "GSM9096512": {
+  "n_typed": 2480,
   "nk": 0,
   "counts": {
-   "T": 1197,
-   "Epithelial": 246,
-   "Myeloid": 269,
-   "B": 221,
-   "ambiguous": 176
+   "Epithelial": 1431,
+   "B": 130,
+   "T": 699,
+   "Stromal": 195,
+   "Myeloid": 25
+  }
+ },
+ "GSM9096513": {
+  "n_typed": 1814,
+  "nk": 1333,
+  "counts": {
+   "NK": 1333,
+   "Myeloid": 215,
+   "T": 135,
+   "B": 131
+  }
+ },
+ "GSM9096514": {
+  "n_typed": 2693,
+  "nk": 81,
+  "counts": {
+   "T": 1489,
+   "B": 155,
+   "Epithelial": 709,
+   "Myeloid": 119,
+   "NK": 81,
+   "Stromal": 140
+  }
+ },
+ "GSM9096515": {
+  "n_typed": 2665,
+  "nk": 803,
+  "counts": {
+   "NK": 803,
+   "B": 428,
+   "Myeloid": 1092,
+   "T": 305,
+   "Epithelial": 37
   }
  }
 }

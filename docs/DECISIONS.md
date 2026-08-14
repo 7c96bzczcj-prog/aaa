@@ -250,3 +250,47 @@ The cost of being wrong was wasted compute, not a compromised table. With four o
 already back and none FALSE, the risk was already resolved when the last two batches launched.
 
 ---
+
+## DEC-12 — Power check result, and what the zeros do and do not mean
+
+**Acceptance control re-run on the final pooled annotation** (mandatory, because the pooled
+baseline changes as libraries are added): CD56+ = **74.6% NK** (1948/2612), CD56− = **5.5%**
+(117/2109), ratio **13.4×**. PASS, and better than the 2-library pool.
+
+**Independent corroboration.** The typing reproduces, without being told, a qualitative claim
+the source paper makes in prose: NK is scarce in most tumours, and one ovarian tumour
+(SU-O-005) is the exception with substantial NK infiltration. Measured here: SU-O-005 tumour
+**2,476 NK**, while SU-O-002/003/004 tumours return none at cluster resolution. That is a second
+validation, on a different axis from the sorted control.
+
+**Preregistered verdicts** (>= 30 NK per donor per compartment; >= 3 donors with two comparable
+compartments). Full table: `out/T4_power.tsv`.
+
+| question | compartments | donors passing | verdict |
+|---|---|---|---|
+| **X1** | adjacent normal lung vs tumour | **4** (SU-L-001, -002, -004, -005) | **PASS** |
+| X2 (lung) | blood vs tumour | **4** (same) | **PASS** |
+| X2 (ovarian) | blood vs tumour | 1 (SU-O-005) | **FAIL** |
+
+Coverage passes everywhere (23.8×–158.9× median, floor 20×), and informative variants per donor
+range 51–1067, so neither is limiting.
+
+**The zeros are a detection floor, not a measurement of zero.** Annotation is at cluster level,
+so an NK population smaller than roughly one cluster can be missed entirely. For the libraries
+returning no NK the floor is ~324 cells (SU-L-003 tumour), ~331 (SU-O-002), ~124 (SU-O-003) and
+~379/~614 (SU-O-004). Every one of those floors is **above** the 30-cell threshold the rule
+tests. So those rows must be read as "no NK population detectable at cluster resolution", and
+they are **not** evidence that fewer than 30 NK cells are present. The FAIL verdicts are
+therefore conservative in the direction of *excluding* donors that might in fact be usable —
+they may under-count available power, never over-count it.
+
+**Why this does not weaken the X1 PASS.** The passing rows clear the threshold by one to three
+orders of magnitude (tumour NK 281–509; adjacent-normal NK 394–6,971), so the verdict survives
+even large classification error. The counts are a power estimate for admitting or refusing a
+dataset cell, exactly as DEC-08 scoped them, and are not offered as biological quantities.
+
+**Not fixed post hoc.** Raising cluster count to lower the floor would change the instrument
+after seeing which donors fail, which is precisely what C.2 forbids. The floor is reported
+instead.
+
+---

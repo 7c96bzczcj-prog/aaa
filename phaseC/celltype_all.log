@@ -34,3 +34,43 @@
 [GSM9096508] clustered typed=10223 k=20
 [GSM9096513] clustered typed=1814 k=15
 [GSM9096512] clustered typed=2480 k=20
+[GSM9096514] clustered typed=2693 k=20
+[GSM9096515] clustered typed=2665 k=20
+GSM9096478 typed=  8969 NK=   819 ( 9.1%)  T=4847 B=869 Epithelial=836 NK=819 DC=758 Myeloid=681 Stromal=159
+GSM9096479 typed=  6615 NK=     0 ( 0.0%)  Epithelial=4091 Myeloid=1430 T=1094
+GSM9096480 typed= 15694 NK=  2332 (14.9%)  T=11718 NK=2332 Myeloid=1057 B=587
+GSM9096481 typed=  2109 NK=     0 ( 0.0%)  Epithelial=1294 Stromal=362 T=334 Myeloid=119
+GSM9096482 typed=  7579 NK=     0 ( 0.0%)  Epithelial=5698 Myeloid=999 T=527 Stromal=355
+GSM9096483 typed= 12277 NK=     0 ( 0.0%)  Epithelial=6331 B=4518 T=549 Myeloid=457 Stromal=422
+GSM9096484 typed= 13529 NK=  2320 (17.1%)  B=4665 Myeloid=4036 NK=2320 T=2069 Stromal=439
+GSM9096485 typed=  7137 NK=   222 ( 3.1%)  Myeloid=3413 T=3202 NK=222 Stromal=209 B=91
+GSM9096486 typed=  5642 NK=  2254 (40.0%)  Stromal=2756 NK=2254 Epithelial=187 T=157 B=150 DC=138
+GSM9096487 typed=  9107 NK=   286 ( 3.1%)  T=5263 B=2548 Stromal=581 Myeloid=429 NK=286
+GSM9096488 typed= 10797 NK=   572 ( 5.3%)  T=8813 Myeloid=885 NK=572 B=527
+GSM9096489 typed=  7353 NK=     0 ( 0.0%)  T=7161 Myeloid=192
+GSM9096490 typed=  4501 NK=   446 ( 9.9%)  Epithelial=1263 T=668 Myeloid=650 DC=461 NK=446 Stromal=410 B=360 ambiguous=243
+GSM9096491 typed=  5236 NK=   454 ( 8.7%)  T=3993 B=697 NK=454 Epithelial=92
+GSM9096492 typed=  5127 NK=  1113 (21.7%)  Myeloid=1156 NK=1113 T=1086 B=936 DC=735 Epithelial=101
+GSM9096493 typed=  6985 NK=     0 ( 0.0%)  Epithelial=3858 Stromal=1895 B=914 T=170 DC=148
+GSM9096494 typed= 15499 NK=  2716 (17.5%)  T=12783 NK=2716
+GSM9096495 typed=  7695 NK=  4997 (64.9%)  NK=4997 B=1141 Myeloid=841 Stromal=433 DC=203 ambiguous=80
+GSM9096496 typed=  1659 NK=     0 ( 0.0%)  Epithelial=879 T=330 Myeloid=216 B=135 Stromal=99
+GSM9096497 typed=  2170 NK=   281 (12.9%)  Myeloid=966 B=724 NK=281 DC=174 Epithelial=25
+GSM9096498 typed=  2982 NK=     0 ( 0.0%)  Epithelial=1009 Myeloid=841 T=754 Stromal=257 ambiguous=121
+GSM9096499 typed=  2099 NK=   394 (18.8%)  Myeloid=1011 DC=466 NK=394 T=85 Epithelial=81 B=62
+GSM9096500 typed=  2769 NK=   707 (25.5%)  T=757 NK=707 B=680 Myeloid=439 DC=186
+GSM9096501 typed=  2150 NK=   120 ( 5.6%)  T=1714 B=235 NK=120 Epithelial=81
+GSM9096502 typed=  2455 NK=   176 ( 7.2%)  B=762 T=627 Myeloid=475 DC=205 NK=176 Epithelial=136 Stromal=74
+GSM9096503 typed=  4537 NK=  1447 (31.9%)  T=2569 NK=1447 B=371 Epithelial=150
+GSM9096504 typed=  6168 NK=  2516 (40.8%)  NK=2516 Myeloid=2381 DC=418 T=358 B=307 Epithelial=188
+GSM9096505 typed= 11065 NK=  1488 (13.4%)  T=3449 Myeloid=3213 B=2568 NK=1488 DC=347
+GSM9096506 typed=  6476 NK=     0 ( 0.0%)  Epithelial=3647 B=997 T=735 Myeloid=480 Stromal=403 DC=214
+GSM9096507 typed=  7327 NK=  4017 (54.8%)  NK=4017 B=1661 Myeloid=943 DC=447 T=259
+GSM9096508 typed= 10223 NK=  2954 (28.9%)  T=4431 NK=2954 B=1569 Epithelial=461 Stromal=434 Myeloid=374
+GSM9096509 typed=  2612 NK=  1948 (74.6%)  NK=1948 B=476 T=141 DC=47
+GSM9096510 typed=  2109 NK=   117 ( 5.5%)  T=1200 B=605 NK=117 Myeloid=98 DC=89
+GSM9096511 typed=  2590 NK=   509 (19.7%)  Myeloid=1002 NK=509 B=506 DC=474 Epithelial=99
+GSM9096512 typed=  2480 NK=     0 ( 0.0%)  Epithelial=1431 T=699 Stromal=195 B=130 Myeloid=25
+GSM9096513 typed=  1814 NK=  1333 (73.5%)  NK=1333 Myeloid=215 T=135 B=131
+GSM9096514 typed=  2693 NK=    81 ( 3.0%)  T=1489 Epithelial=709 B=155 Stromal=140 Myeloid=119 NK=81
+GSM9096515 typed=  2665 NK=   803 (30.1%)  Myeloid=1092 NK=803 B=428 T=305 Epithelial=37
