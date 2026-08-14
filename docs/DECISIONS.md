@@ -184,3 +184,38 @@ biological result — and the residual 62.1% (rather than ~90%) is a reminder th
 these counts are conservative-to-noisy, not exact.
 
 ---
+
+## DEC-09 — The mtDNA substrate for a cross-compartment question exists; NK counts are the open question
+
+**What.** Before counting NK cells it is worth knowing whether GSE302113 has
+informative mtDNA variants *shared between compartments within a donor* at all. A
+dataset can pass a coverage threshold and still be useless for clone sharing if each
+compartment's informative variants are disjoint.
+
+**Measured** (preregistered mgatk filters, per donor by union across libraries,
+chrM:307-314 excluded as the authors do):
+
+| donor | compartments | union informative | present in >= 2 compartments |
+|---|---|---|---|
+| SU-L-001 | normal, tumour, PBMC | 199 | 54 |
+| SU-L-002 | normal, tumour, PBMC | 642 | 178 |
+| SU-L-003 | normal, tumour, PBMC | 215 | 32 |
+| SU-L-004 | normal, tumour, PBMC | 232 | 52 |
+| SU-L-005 | normal, tumour, PBMC | 1067 | 319 |
+| SU-O-002 | tumour, PBMC | 632 | 43 |
+| SU-O-004 | tumour, PBMC | 573 | 109 |
+| SU-O-005 | omentum met, tumour, PBMC | 733 | 250 |
+| SU-O-001 | tumour only | 204 | 0 |
+| SU-O-003 | tumour only | 51 | 0 |
+
+**Reading.** All 5 NSCLC donors carry the three compartments X1 needs and 32–319
+cross-compartment informative variants each, so the barcode substrate is not the
+limiting factor. SU-O-001 and SU-O-003 have a single compartment and cannot
+contribute to any cross-compartment claim; they are excluded from those rows rather
+than counted as donors.
+
+**Caveat carried forward.** Variant sharing across compartments is necessary, not
+sufficient: these counts are over *all* cells, not NK cells. Whether enough NK cells
+carry them is exactly what the power table decides.
+
+---
