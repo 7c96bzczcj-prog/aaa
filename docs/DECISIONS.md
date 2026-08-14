@@ -294,3 +294,64 @@ after seeing which donors fail, which is precisely what C.2 forbids. The floor i
 instead.
 
 ---
+
+## DEC-13 — Rule G8: where the spec's initial calls were wrong, and how
+
+Phase A ran 25 audits plus 25 independent adversarial re-examinations (48 agents
+across four batches, 0 errors, ~1,690 tool calls). The adversarial pass changed
+**10 of 25** classifications, in both directions, so it was not a rubber stamp.
+
+**Citations first.** Every citation the spec flagged as possibly misremembered turned
+out to be **real and correctly attributed to a real paper**:
+
+| spec citation | verdict |
+|---|---|
+| Picant, *Nat Commun* 2025 (T6) | real — PMID 40610398 |
+| Serger 2026 snRNA+snATAC (X4) | real — *Sci Immunol* 2026, PMID 42247486 |
+| Schmid/Wiedemann ATAC (R3) | real — bioRxiv 2026.02.11.705354 |
+| Barahona/Yokoyama (T2) | real — *eLife* 2026, PMID 42417504 |
+| Gamliel 2018 (R4) | real — *Immunity* 2018 |
+
+**But three of those four carried the wrong evidence class**, which is precisely what
+G1 exists to catch:
+
+- **T6** — spec said TRANSFER. There is no adoptive transfer anywhere in Picant et al.;
+  a search of the archived full text returns zero hits for "adoptive transfer",
+  "congenic", "CD45.1", "NSG" or "NOD scid". Human in vitro throughout. → `INF_INVITRO`.
+- **R3** — spec said OBSERVATION. TGF-β genuinely was withdrawn and chromatin and
+  function genuinely were measured separately, exactly as the spec described, but the
+  entire withdrawal experiment is in vitro. → `INF_INVITRO`, no `OBS_*` class.
+- **T2** — classification upheld (`OBS_TRANSFER`), attribution corrected: the author is
+  Josselyn D. Barahona (Yokoyama lab), not "Barahona Ponce", who is a different
+  researcher working on gallbladder cancer genetics.
+- **X4** — spec's call confirmed on every element; the audit sharpened it to
+  `INF_TRAJECTORY` under G2.
+
+**The largest single overturn is S1.** The spec called it "pseudotime only = pure
+inference". The audit found something stronger: **Vento-Tormo 2018, the paper that
+defines dNK1/2/3, makes no ordering claim at all** — its methods state verbatim that
+"only cells that were identified as trophoblast were considered for trajectory
+analysis". The ordering is a later accretion, and the three papers that do assert one
+give three **mutually incompatible topologies** (Wang 2021: dNK1→dNK2→dNK3 with dNK1
+*immature*; Huhn 2020: dNK3→dNK2→dNK1 with dNK1 the *mature* endpoint — opposite
+polarity for the same subset; Guo 2021: three parallel sibling branches with no
+ordering among dNK1/2/3 at all).
+
+**Two claims changed kind, not just class.**
+
+- **P3** — the issue is not a false transition but an **entity misassignment**. Paust
+  2010 gated CD45+NK1.1+CD3− with no CD49a and no DX5, a gate that pools conventional
+  NK with liver ILC1. Wang 2018, sorting cNK, IL-7Rα− LrNK and IL-7Rα+ ILC1 from the
+  same donors, found only the ILC1 fraction conferred hapten recall. The memory cell
+  may never have been an NK cell, and so never "became" anything.
+- **X5** — downgraded `OBS_TRANSFER` → `INF_KINETIC`, consistent with the spec's own
+  suspicion that the end state is undefined.
+
+**Where an audit was wrong in the *negative* direction.** X1's audit asserted a
+universal negative — that no parabiosis, fate map, photoconversion or barcode exists
+"anywhere in this or any other study for this transition". The adversarial pass
+falsified it by producing Dadi et al., *Cell* 2016. G3 is usually invoked against
+overclaiming absence of evidence; here it caught an overconfident absence claim inside
+our own audit. That is the rule working in the direction it is least often applied.
+
+---
