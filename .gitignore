@@ -10,3 +10,6 @@ phase1_registry/rescan/*.xml
 data/
 *.h5ad
 .venv/
+
+# run logs are progress output, not results
+out/*.log
