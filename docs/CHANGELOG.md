@@ -27,3 +27,33 @@ needed. The §5 decision rule applied is byte-identical to the one committed at
   from the result files. It caught three wrong counts in the first draft
   (adversarial changes 10→9, fulltext TRUE 5→10, PARTIAL 19→14); those are
   corrected and all checks now pass.
+
+## v1.1 — 2026-08-15 — bidirectional load-bearing
+
+**Amendment**, authorised by the spec's author after the v1.0 run.
+
+**Reason.** The v1.0 `load_bearing` definition asked only what presupposes a
+claim is TRUE. A claim is equally load-bearing when the field presupposes its
+NEGATION: work built on the claim being false must be re-read if it turns out
+true. The v1.0 definition was written too narrowly; this is a defect in the
+criterion, not in its execution.
+
+**Change.** `load_bearing = HIGH` if EITHER a positive dependency OR a negation
+dependency exists (`docs/PREREGISTRATION.md` §A1.2).
+
+**Scope.** Re-applied to **X1 and S1 only**, deliberately and on instruction.
+All other rows retain their v1.0 grade and are marked
+`load_bearing_basis = v1.0_positive_only`.
+
+**Effect.** X1 MEDIUM → HIGH, and X1 enters the shortlist (it already passed
+criteria 2, 3 and 4). S1 MEDIUM → HIGH with no change to its status, because it
+fails criterion 3 on both decidability gates independently of load-bearing.
+
+**Not changed.** The four shortlist criteria, the evidence taxonomy, the
+decidability gates, and every Phase C threshold including the 20× chrM floor —
+which is separately known to be uncalibrated (DEC-14) and whose recalibration is
+deferred to a future round so that it is not adjusted alongside a result it
+would affect.
+
+**The v1.0 result remains on the record** in `docs/RESULTS.md` next to the v1.1
+result; it is not overwritten.

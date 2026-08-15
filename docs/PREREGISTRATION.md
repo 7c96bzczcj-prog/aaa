@@ -228,3 +228,65 @@ Violating any of these voids the affected result.
 - modifying §5 after the fact
 - opining on the scientific value of any claim
 - loosening any criterion in order to make the shortlist non-empty
+
+---
+
+# AMENDMENT v1.1 — 2026-08-15
+
+**Status of everything above: unchanged and still binding.** This amendment adds
+to §5's `load_bearing` definition; it does not alter §2, §3, §4, §6, §7, the four
+shortlist criteria themselves, or any threshold. The v1.0 result stands on the
+record in `docs/RESULTS.md` alongside the v1.1 result.
+
+**Authorised by**: the spec's author, after the v1.0 run, on the ground that the
+v1.0 definition was written too narrowly. Reason and timestamp recorded in
+`docs/CHANGELOG.md`.
+
+## A1.1 What changed
+
+v1.0 §2/§A.5 defined load-bearing in one direction only:
+
+> 该断言下游有什么？有没有其他论文的结论以它为前提；有没有治疗策略以它为前提
+
+— i.e. it asked only **what presupposes the claim is TRUE**.
+
+**A claim is equally load-bearing when the field presupposes its NEGATION.** If a
+body of work is built on the assumption that the claim is false, then the claim
+turning out true forces that work to be re-read, and that is load in exactly the
+sense §5 criterion 1 is meant to capture.
+
+## A1.2 The revised criterion (operative from v1.1)
+
+`load_bearing = HIGH` if **either** direction holds:
+
+- **(a) positive dependency** — other papers' conclusions, or a therapeutic /
+  biomarker / manufacturing strategy, presuppose the claim is **TRUE**; or
+- **(b) negation dependency** — other papers' conclusions, or a therapeutic /
+  biomarker / manufacturing strategy, presuppose the claim is **FALSE**, and
+  would have to be re-read or re-rooted if it were true.
+
+MEDIUM and LOW are graded on the same union. Every grade must name at least one
+concrete dependency and state which direction it sits on. A dependency that
+survives the claim being either true or false counts for neither direction.
+
+## A1.3 Scope of the re-run
+
+Applied to **X1 and S1 only**, at the spec author's instruction; all other rows
+keep their v1.0 grade. This is a deliberate, recorded partial application, not an
+oversight: re-grading all 25 rows under a changed criterion after seeing the v1.0
+outcome would let the amendment reshape the whole result set retrospectively.
+Rows not re-run are marked `load_bearing_basis = v1.0_positive_only` so no reader
+mistakes a stale grade for a bidirectional one.
+
+## A1.4 What is explicitly NOT changed
+
+- The four §5 shortlist criteria and their conjunction.
+- The §2 evidence taxonomy and G2's bar on `INF_TRAJECTORY`.
+- The §3 decidability gates. **S1 fails criterion 3 on both B1 and B2
+  independently of load-bearing**, so its re-grade cannot alter its shortlist
+  status, and it is re-run for the record only.
+- The §4/C.2 power thresholds, **including the 20× median chrM coverage floor**.
+  That floor is separately known to be uncalibrated (DEC-14: it would exclude
+  Rückert 2022 at 11–20×). Recalibrating it against mgatk's measured performance
+  is deferred to a future round, on the spec author's instruction, precisely so
+  that it is not adjusted in the same motion as a result it would affect.
