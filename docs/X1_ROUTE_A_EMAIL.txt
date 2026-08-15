@@ -1,0 +1,46 @@
+To:  satpathy@stanford.edu, lareauc@mskcc.org
+Cc:  liuv@stanford.edu
+Subject: Data request re GSE302113 — per-donor union heteroplasmy matrices / Mitotrek clone assignments
+
+Dear Prof. Satpathy and Dr. Lareau,
+
+I am [NAME], [POSITION, INSTITUTION]. I am re-analysing GSE302113 (Liu et al.,
+Cancer Cell 2026) and would be very grateful for two items if they are easy to
+share.
+
+1) The per-donor union heteroplasmy matrices, or equivalently the Mitotrek clone
+   assignments (cell barcode -> clone ID) used in the paper.
+
+2) The numeric source data behind Figures 2E, 2F and S6C (the clone-sharing
+   heatmaps).
+
+On (1): GSE302113 deposits one heteroplasmy matrix per library, each restricted
+to that library's own mgatk-selected variants. The Methods describe building "a
+cell by variant heteroplasmy matrix combining all samples for each donor", and it
+is that union matrix a cross-compartment analysis needs. A variant selected in
+tumour and NILT but not in blood has no column in the blood library, so absence
+from blood cannot be distinguished from absence of ascertainment. Restricting to
+variants selected in all three compartments does not solve it, because that set is
+blood-present by construction (for SU-L-005, 0 of 507 such variants have zero
+blood carriers).
+
+On (2): the heatmap panels include NK/ILC as an annotated cell type, but the NK
+entries are not quantified in the text, and the deposited supplementary file is
+the patient table. We would rather use your values than re-derive numbers that
+already exist.
+
+What we are asking: whether intratumoural NK are clonally closer to NK of the
+matched non-involved lung than to circulating NK — the NK counterpart of the
+myeloid result you report for monocytes, macrophages and DC3, which is not broken
+out for NK.
+
+We are happy to take whatever form is most convenient, including just a barcode ->
+clone table. I appreciate that mitotrek is already public; the request is only for
+the intermediate the pipeline produces.
+
+Thank you for making the dataset available, and for considering this.
+
+Best regards,
+[NAME]
+[POSITION, INSTITUTION]
+[EMAIL]
