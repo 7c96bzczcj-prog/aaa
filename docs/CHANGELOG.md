@@ -104,3 +104,16 @@ three-way statistic would answer its own question. No substitute was run
 
 `docs/X1_DESIGN.md` §3 corrected in place — Tier 1 is expensive, not nearly free.
 The error is left visible.
+
+## Route D + transferable rule — 2026-08-15
+
+- **Route D closed**: no alternative dataset exists. Variant-level re-audit of all
+  T3 candidates (`out/T3b_datasets_variant_level.tsv`). Rückert deposits the
+  un-lossy mgatk object but is PBMC-only; every other candidate deposits fragments
+  only, from which mtDNA is unrecoverable.
+- **Route E** recorded as available but not run; it would need its own
+  preregistration.
+- `docs/TRANSFERABLE.md` created — *data availability must be checked against the
+  statistic, not the modality*, plus bidirectional load-bearing and the
+  threshold-timing rule.
+- `docs/X1_ROUTE_A_EMAIL.md` drafted, **not sent**.

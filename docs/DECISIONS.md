@@ -615,3 +615,46 @@ side. Qualitative, never given NK-specific numbers, attached to heatmaps whose N
 entries were never separately reported.
 
 ---
+
+## DEC-22 — Route D closes; Route E noted; the transferable rule recorded
+
+**Route D (switch dataset): CLOSED, and it took a corrected regex to get there.**
+Re-audited every T3 candidate at the variant level rather than the file level
+(`out/T3b_datasets_variant_level.tsv`). Result: **no alternative dataset exists.**
+GSE302113 is the only candidate whose design has tumour + matched normal organ +
+blood, and it is the one with the lossy deposit. GSE197037/197008 (Rückert)
+deposit the un-lossy `*_mgatk.rds.gz` — raw per-cell allele counts, any variant
+evaluable in any cell — but are PBMC-only, so they carry no tissue compartment.
+The rest deposit fragments only, and fragments record intervals, not alleles, so
+mtDNA is unrecoverable from them at any effort.
+
+**Self-correction inside the re-audit.** The first pass reported GSE197037 as
+depositing nothing, because the filename regex omitted `mgatk*.rds`. That is the
+same error class the re-audit exists to catch — trusting a pattern over the actual
+list — and it was caught by printing the filenames. Fixed, with the reason left in
+the script.
+
+**This strengthens Route A rather than replacing it.** Since Rückert deposits the
+mgatk object, depositing the un-lossy form is normal practice in this subfield, so
+the request is for an intermediate the published pipeline already produces.
+
+**Route E (within-compartment clone structure): noted, not run.** It escapes the
+ascertainment confound by using only each compartment's own variants, but it
+measures structure rather than ancestry and is a hint, not a verdict. Running it
+would require preregistering its estimator, downsampling scheme and interpretation
+rule first, as Tier 1 was. Recorded in `docs/X1_TIER1_RESULT.md` §7.
+
+**`docs/TRANSFERABLE.md` created**, carrying the rule this round produced —
+*data availability must be checked against the statistic, not the modality* — plus
+the bidirectional load-bearing rule and the threshold-timing rule. The project's
+canonical list lives outside this repo; §5 and §7b are cross-referenced by its
+numbering and their text is deliberately **not** reproduced, to avoid drift.
+
+**Route A drafted, not sent** (`docs/X1_ROUTE_A_EMAIL.md`). Two asks: the
+per-donor union matrices or Mitotrek clone assignments, and the numeric source
+data for Figs 2E/2F/S6C. The internal note recording that the archive cannot
+settle whether the authors' own NK statement carries the same bias is kept
+**out** of the email text — it is a reason to ask, not an allegation, and must not
+be phrased as one.
+
+---
