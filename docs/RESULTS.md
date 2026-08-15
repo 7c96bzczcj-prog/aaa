@@ -168,9 +168,24 @@ the conversion those papers measure did not produce it, and both the mechanism
 and the trajectory rooted on it must be re-read. That is load in the sense
 criterion 1 exists to capture.
 
-**Registry-internal consequence.** X1 and X4 are mutually constraining: X4 is
-itself one of X1's negation-side dependencies. Neither can be graded in isolation.
-X4 remains `INF_TRAJECTORY` under G2 regardless.
+**Registry-internal consequence, and the direction matters: X1 is upstream of X4.**
+X4 is not merely a co-dependency — X1 can *re-interpret* it. X4 asserts an
+inflammation-driven GZMK⁺ → ENTPD1⁺ trajectory among intratumoural taNK. If X1 is
+true and those CD49a⁺CD103⁺ cells were already lung-resident before the tumour,
+the most likely reading of that trajectory becomes **pre-existing resident
+heterogeneity read as a trajectory** — an ordering over cells that differ because
+they arrived and were imprinted at different times, not because one state becomes
+the other. An assertion that can invalidate another assertion's root is *more*
+load-bearing, not less. X4 itself remains `INF_TRAJECTORY` under G2; what this
+records is that X4's interpretation is conditional on X1.
+
+**Only X1 could have moved.** Of the 14 rows graded below HIGH under v1.0 — the
+complete set the one-directional criterion could have got wrong, since a union can
+only raise a grade — **X1 is the only one whose shortlist membership a
+load-bearing re-grade could change.** The other 13 are each blocked by an
+independent criterion: T1, T3 and T5 by `already_traced = TRUE`; R2, T2 and X2
+because their evidence is already `OBS_*`; D3, R1, R3, S1, T3, T5, T6, X3 and X4
+on decidability. Verified in `scripts/verify_results.py`.
 
 **What X1's v1.1 admission does not support.** It does **not** mean X1 is true,
 nor that it is worth doing, nor that it is answerable in humans — §4's

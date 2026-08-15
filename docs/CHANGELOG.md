@@ -57,3 +57,18 @@ would affect.
 
 **The v1.0 result remains on the record** in `docs/RESULTS.md` next to the v1.1
 result; it is not overwritten.
+
+## v1.1 — second pass, 2026-08-15
+
+- **T1 re-graded MEDIUM → HIGH** under the bidirectional criterion, carried by the
+  negation side (Sojka 2014 PMID 24714492, whose title asserts T1's negation;
+  Klose 2014 PMID 24725403; Nixon 2022 PMID 35394814). **Status unchanged** — T1
+  fails criterion 4 independently.
+- **Verified mechanically that X1 was the only row a load-bearing re-grade could
+  ever have moved.** All 13 other sub-HIGH rows are blocked by an independent
+  criterion. Encoded as a check in `scripts/verify_results.py`.
+- **T3, T5, T6, R1, R3 opened but not graded** — no negation dependency could be
+  established from primary sources, so under G3/G7 their v1.0 grades stand.
+  Declared in `phaseA/load_bearing_v11.json` under `_unfinished`.
+- `docs/X1_DESIGN.md` added, deliberately **outside** the screening record
+  (spec §0 fixed "no new directions" as a non-goal of the round).

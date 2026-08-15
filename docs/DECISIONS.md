@@ -515,3 +515,61 @@ S2/S3 with the mouse fate-mapping literature explicitly in scope before either i
 acted on, not a reason to change the value now.
 
 ---
+
+## DEC-19 — Only X1 could ever have moved; T1 re-graded; five rows opened and left ungraded
+
+**Checked before spending effort, and it changes what the re-run is for.** v1.1 is
+a *union* (positive OR negation), so it can only raise a grade — verified
+mechanically. The criterion-defined re-grade set is therefore exactly the 14 rows
+graded below HIGH under v1.0, and it is complete and unbiased by construction, as
+the spec author argued.
+
+**But of those 14, X1 is the only row whose shortlist membership a load-bearing
+re-grade could change.** Every other row is blocked by an independent criterion:
+T1/T3/T5 by `already_traced = TRUE`; R2/T2/X2 because their evidence is already
+`OBS_*`; D3/R1/R3/S1/T3/T5/T6/X3/X4 on decidability. Encoded as a check in
+`scripts/verify_results.py`. The remaining re-grades are register consistency,
+not membership.
+
+**T1: MEDIUM → HIGH, carried by the negation side, status unchanged.** The
+negation side is unusually clean — Sojka et al., eLife 2014 (PMID 24714492)
+asserts T1's negation *in its title*: "Tissue-resident natural killer (NK) cells
+are cell lineages **distinct from** thymic and conventional splenic NK cells".
+Klose 2014 (PMID 24725403) supplies the separate-progenitor architecture and
+Nixon 2022 (PMID 35394814) reports the ILC1 lineage "did not interconvert with NK
+cells". The ILC classification framework presupposes T1 false. T1 still fails
+criterion 4, so nothing moves; the re-grade removes an internal inconsistency —
+a MEDIUM sitting next to X1's HIGH on an adjacent claim.
+
+**A structural finding worth keeping.** T1 and X1 are near-complementary, and the
+DN-TGFBR2 engineered-NK construct demonstrates it: the *same* therapeutic premise
+requires **T1 true** (tumour TGF-β converts infused cNK) and **X1 false**
+(intratumoural trNK are infiltrating-and-converted rather than pre-resident). One
+construct, opposite directions on two adjacent claims.
+
+**T3, T5, T6, R1, R3: opened, NOT graded.** Targeted searches for their negation
+side returned reviews rather than primary sources, so no negation dependency was
+*established*. Under G3 that is NOT_SEARCHED-equivalent, not NONE; under G7 a
+grade may not be raised on an unverified dependency. Their v1.0 grades stand and
+stay flagged `v1.0_positive_only`. Recorded as unfinished in
+`phaseA/load_bearing_v11.json` under `_unfinished` rather than left to look
+complete. D3, R2, T2, X2, X3 and X4 are also part of the criterion-defined set and
+were never opened.
+
+---
+
+## DEC-20 — X1 design memo kept outside the screening record
+
+**What.** `docs/X1_DESIGN.md` sets out how X1 would actually be adjudicated.
+
+**Why it is a separate file.** Spec §0 fixed "no new directions" as a non-goal of
+this round, and RESULTS.md honours that. The design question was asked separately,
+after the screen closed. Putting the design into RESULTS.md would retroactively
+violate a non-goal the preregistration fixed before any retrieval; keeping it in
+its own document leaves the screening record clean and lets the memo be revised
+without touching a preregistered result.
+
+**Nothing in the memo feeds back.** No grade, table row or verdict is derived from
+it.
+
+---

@@ -78,11 +78,23 @@ check("S1 still off shortlist", s1["on_shortlist"], "FALSE")
 check("S1 fails criterion 3 only",
       "criterion1" not in s1["failed_criteria"] and "criterion3" in s1["failed_criteria"], True)
 
-print("\n== v1.1 scope is exactly X1 and S1 ==")
+print("\n== v1.1 scope, and the monotonicity claim ==")
 rescored = sorted(r["claim_id"] for r in t5 if r["load_bearing_basis"] == "v1.1_bidirectional")
-check("rows re-graded under v1.1", rescored, ["S1", "X1"])
+check("rows re-graded under v1.1", rescored, ["S1", "T1", "X1"])
 check("rows left on v1.0 basis",
-      sum(1 for r in t5 if r["load_bearing_basis"] == "v1.0_positive_only"), 23)
+      sum(1 for r in t5 if r["load_bearing_basis"] == "v1.0_positive_only"), 22)
+check("no row HIGH under v1.0 was lowered by v1.1",
+      all(not (r["load_bearing_v10"] == "HIGH" and r["load_bearing"] != "HIGH") for r in t5), True)
+# X1 must be the ONLY row a load-bearing re-grade could ever have moved
+could_move = sorted(r["claim_id"] for r in t5 if r["load_bearing_v10"] != "HIGH"
+                    and r["evidence_type_strongest"] in INF
+                    and r["lineage_decidable"] == "TRUE"
+                    and r["both_answers_actionable"] == "TRUE"
+                    and r["already_traced"] != "TRUE")
+check("only X1 could change membership on load-bearing", could_move, ["X1"])
+check("T1 re-graded HIGH but still blocked",
+      [r["load_bearing"] for r in t5 if r["claim_id"] == "T1"] +
+      [r["on_shortlist"] for r in t5 if r["claim_id"] == "T1"], ["HIGH", "FALSE"])
 check("RESULTS reports both outcomes", "v1.0" in text and "v1.1" in text, True)
 
 print("\n== Phase C power (GSE302113) ==")

@@ -13,7 +13,7 @@ R4	dNK -> PTdNK (postpartum persistence)	HIGH	HIGH	v1.0_positive_only	INF_MARKER
 S1	A differentiation ordering exists among dNK1 / dNK2 / dNK3	HIGH	MEDIUM	v1.1_bidirectional	INF_MARKER	FALSE	FALSE	FALSE	MEDIUM	FALSE	FALSE	FALSE	criterion3 lineage_decidable=FALSE; criterion3 both_answers_actionable=FALSE
 S2	Endometrial uNK1/2/3 -> decidual dNK1/2/3	HIGH	HIGH	v1.0_positive_only	INF_MARKER	TRUE	TRUE	FALSE	MEDIUM	FALSE	FALSE	TRUE	none
 S3	eNK -> dNK (menstrual cycle to pregnancy transition)	HIGH	HIGH	v1.0_positive_only	INF_INVITRO	TRUE	TRUE	FALSE	MEDIUM	FALSE	FALSE	TRUE	none
-T1	cNK -> trNK (acquisition of a residency phenotype)	MEDIUM	MEDIUM	v1.0_positive_only	INF_MARKER	TRUE	TRUE	TRUE	HIGH	FALSE	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion4 already_traced=TRUE
+T1	cNK -> trNK (acquisition of a residency phenotype)	HIGH	MEDIUM	v1.1_bidirectional	INF_MARKER	TRUE	TRUE	TRUE	HIGH	FALSE	FALSE	FALSE	criterion4 already_traced=TRUE
 T2	cNK -> uterine trNK	MEDIUM	MEDIUM	v1.0_positive_only	OBS_TRANSFER	n/a	n/a	n/a	n/a	FALSE	n/a	FALSE	criterion1 load_bearing=MEDIUM; criterion2 evidence=OBS_TRANSFER
 T3	Peripheral blood NK -> decidual NK-like	MEDIUM	MEDIUM	v1.0_positive_only	INF_INVITRO	FALSE	FALSE	TRUE	HIGH	FALSE	FALSE	FALSE	criterion1 load_bearing=MEDIUM; criterion3 lineage_decidable=FALSE; criterion3 both_answers_actionable=FALSE; criterion4 already_traced=TRUE
 T4	NK -> ILC1 within tumours	HIGH	HIGH	v1.0_positive_only	OBS_TRANSFER	n/a	n/a	n/a	n/a	FALSE	n/a	FALSE	criterion2 evidence=OBS_TRANSFER

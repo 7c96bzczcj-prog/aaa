@@ -1,42 +1,78 @@
 {
- "_criterion": "PREREGISTRATION.md AMENDMENT v1.1 §A1.2 — load_bearing = HIGH if EITHER a positive dependency (work presupposes the claim TRUE) OR a negation dependency (work presupposes the claim FALSE and must be re-read if it is true).",
- "_scope": "X1 and S1 only, on the spec author's instruction. All other rows retain their v1.0 grade.",
-
+ "_criterion": "PREREGISTRATION.md AMENDMENT v1.1 \u00a7A1.2 \u2014 load_bearing = HIGH if EITHER a positive dependency (work presupposes the claim TRUE) OR a negation dependency (work presupposes the claim FALSE and must be re-read if it is true).",
+ "_scope": "X1 and S1 (first pass), then T1 (second pass). The criterion-defined complete set is the 14 rows graded below HIGH under v1.0, since a union can only raise a grade. Rows T3, T5, T6, R1 and R3 were opened but NOT graded - see _unfinished.",
  "X1": {
   "load_bearing_v10": "MEDIUM",
   "load_bearing_v11": "HIGH",
   "basis": "v1.1_bidirectional",
   "direction_that_carries_it": "negation",
   "positive_dependencies": [
-   "Sun C et al., Cancer Immunol Res 2019 (PMID 31311791) — CD49a+ NK accumulation predicts poor HCC prognosis; its causal reading assumes a pre-existing liver-resident compartment turning bad. INTERPRETIVE.",
-   "Nixon BG et al., Sci Immunol 2022 (PMID 35394814) — IL-15 support of a locally maintained cytotoxic type-1 innate compartment, with a filed patent on targeting ILC1 IL-15 signalling. INTERVENTIONAL but entangled with the NK/ILC1 identity fork.",
-   "Annu Rev Immunol 2024 (PMID 38424658) — the multilayered tissue-resident-lymphocyte-in-cancer framework. FRAMING."
+   "Sun C et al., Cancer Immunol Res 2019 (PMID 31311791) \u2014 CD49a+ NK accumulation predicts poor HCC prognosis; its causal reading assumes a pre-existing liver-resident compartment turning bad. INTERPRETIVE.",
+   "Nixon BG et al., Sci Immunol 2022 (PMID 35394814) \u2014 IL-15 support of a locally maintained cytotoxic type-1 innate compartment, with a filed patent on targeting ILC1 IL-15 signalling. INTERVENTIONAL but entangled with the NK/ILC1 identity fork.",
+   "Annu Rev Immunol 2024 (PMID 38424658) \u2014 the multilayered tissue-resident-lymphocyte-in-cancer framework. FRAMING."
   ],
   "negation_dependencies": [
-   "Serger C et al., Sci Immunol 2026 (PMID 42247486) — resolves two taNK subsets marked by ITGAE (CD103) and ITGA1 (CD49a) 'that display features of tissue residency', and asserts 'an inflammation-driven transition from early GZMK+ NK cells toward an ENTPD1+ (CD39+) effector state'. That transition presupposes the CD49a+CD103+ taNK arise by in-situ differentiation inside the tumour. If X1 is true and those cells were already lung-resident before the tumour, the trajectory is rooted in the wrong population. REGISTRY-INTERNAL: this is claim X4.",
-   "Gao Y et al., Nat Immunol 2017 (PMID 28759001) — 'TGF-beta-signaling-dependent conversion of NK cells (CD49a-CD49b+Eomes+) into intermediate ILC1 (CD49a+CD49b+Eomes+) and ILC1 populations in the tumor microenvironment'. The whole immunoevasion mechanism requires the intratumoural CD49a+ population to have been CD49a- NK first. If it was already resident, no conversion occurred and the mechanism loses its subject. MECHANISTIC.",
-   "Cortez VS et al., Nat Immunol 2017 (PMID 28759002) — 'SMAD4 impedes the conversion of NK cells into ILC1-like cells by curtailing non-canonical TGF-beta signaling'. The genetic arm underwriting the same conversion model, with the same presupposition. MECHANISTIC/GENETIC.",
-   "Horowitz NB et al., Sci Transl Med 2026 (PMID 42090477) — mechanistic framing states 'the context in which the differentiation of CD49a+CD103+ trNK cells occurs can result in either an immunosuppressive phenotype (e.g., decidual NK cells) or a highly cytotoxic one (e.g., some tumor trNK subsets)', which presupposes tumour trNK are differentiated in situ rather than pre-resident. NOTE: this paper sits on BOTH sides — its ACT platform is origin-agnostic (which is why v1.0 declined it as a positive dependency), but its mechanism is not.",
-   "Dominant-negative TGF-betaRII engineered NK cells as an adoptive-therapy strategy — e.g. cord-blood NK expressing DN TGF-betaRII (PMID 28109751), multigene-modified NK101 (PMID 36524207). The design rationale is that TME TGF-beta acts on INFILTRATING NK to suppress/convert them. INTERVENTIONAL, and it is the clearest negation-side dependency because a therapeutic construct is built on it."
+   "Serger C et al., Sci Immunol 2026 (PMID 42247486) \u2014 resolves two taNK subsets marked by ITGAE (CD103) and ITGA1 (CD49a) 'that display features of tissue residency', and asserts 'an inflammation-driven transition from early GZMK+ NK cells toward an ENTPD1+ (CD39+) effector state'. That transition presupposes the CD49a+CD103+ taNK arise by in-situ differentiation inside the tumour. If X1 is true and those cells were already lung-resident before the tumour, the trajectory is rooted in the wrong population. REGISTRY-INTERNAL: this is claim X4.",
+   "Gao Y et al., Nat Immunol 2017 (PMID 28759001) \u2014 'TGF-beta-signaling-dependent conversion of NK cells (CD49a-CD49b+Eomes+) into intermediate ILC1 (CD49a+CD49b+Eomes+) and ILC1 populations in the tumor microenvironment'. The whole immunoevasion mechanism requires the intratumoural CD49a+ population to have been CD49a- NK first. If it was already resident, no conversion occurred and the mechanism loses its subject. MECHANISTIC.",
+   "Cortez VS et al., Nat Immunol 2017 (PMID 28759002) \u2014 'SMAD4 impedes the conversion of NK cells into ILC1-like cells by curtailing non-canonical TGF-beta signaling'. The genetic arm underwriting the same conversion model, with the same presupposition. MECHANISTIC/GENETIC.",
+   "Horowitz NB et al., Sci Transl Med 2026 (PMID 42090477) \u2014 mechanistic framing states 'the context in which the differentiation of CD49a+CD103+ trNK cells occurs can result in either an immunosuppressive phenotype (e.g., decidual NK cells) or a highly cytotoxic one (e.g., some tumor trNK subsets)', which presupposes tumour trNK are differentiated in situ rather than pre-resident. NOTE: this paper sits on BOTH sides \u2014 its ACT platform is origin-agnostic (which is why v1.0 declined it as a positive dependency), but its mechanism is not.",
+   "Dominant-negative TGF-betaRII engineered NK cells as an adoptive-therapy strategy \u2014 e.g. cord-blood NK expressing DN TGF-betaRII (PMID 28109751), multigene-modified NK101 (PMID 36524207). The design rationale is that TME TGF-beta acts on INFILTRATING NK to suppress/convert them. INTERVENTIONAL, and it is the clearest negation-side dependency because a therapeutic construct is built on it."
   ],
   "reason": "Under the v1.0 one-directional criterion X1 graded MEDIUM because its headline positive dependency (Horowitz's ctrNK ACT platform) is origin-agnostic and survives X1 being false. That finding stands. What v1.0 could not see is that the dominant framework in this area - tumour TGF-beta converting infiltrating NK into a residency/ILC1-like phenotype - presupposes X1's NEGATION, and does so across four primary papers plus an engineered-cell therapeutic strategy. If the CD49a+CD103+ intratumoural population was already resident in the organ, the conversion those papers measure did not produce it, and both the mechanism and the trajectory rooted on it must be re-read. That is load in the sense criterion 1 exists to capture.",
-  "registry_internal_note": "X1 and X4 are mutually constraining: X4 (GZMK+ NK -> ENTPD1+ ISG-high, Serger 2026) is itself one of X1's negation-side dependencies. Neither can be graded in isolation, and X4 remains INF_TRAJECTORY under G2 regardless."
+  "registry_internal_note": "X1 and X4 are mutually constraining, and the direction matters: X1 is UPSTREAM of X4. X4 (Serger 2026) asserts an inflammation-driven GZMK+ -> ENTPD1+ trajectory among intratumoural taNK. If X1 is true and those CD49a+CD103+ cells were already resident in the lung before the tumour, then the most likely reading of that trajectory is PRE-EXISTING RESIDENT HETEROGENEITY BEING READ AS A TRAJECTORY - the ordering would be over cells that differ because they arrived and were imprinted at different times, not because one state becomes the other. An assertion that can RE-INTERPRET another assertion is more load-bearing, not less: X1 does not merely share a dependency with X4, it can invalidate X4's root. X4 remains INF_TRAJECTORY under G2 regardless, and this note does not change X4's own grade - it records that X4's interpretation is conditional on X1."
  },
-
  "S1": {
   "load_bearing_v10": "MEDIUM",
   "load_bearing_v11": "HIGH",
   "basis": "v1.1_bidirectional",
   "direction_that_carries_it": "both",
   "positive_dependencies": [
-   "Guo C et al., Cell Discov 2021 (PMID 33390590) — the section titled 'Aberrant differentiation trajectory impairs dNK1 cell subset accumulation in RPL patients'. Its entire disease model is that recurrent pregnancy loss is caused by a BLOCKED conversion toward dNK1, which requires an ordering to exist. INTERPRETIVE/DISEASE-MODEL."
+   "Guo C et al., Cell Discov 2021 (PMID 33390590) \u2014 the section titled 'Aberrant differentiation trajectory impairs dNK1 cell subset accumulation in RPL patients'. Its entire disease model is that recurrent pregnancy loss is caused by a BLOCKED conversion toward dNK1, which requires an ordering to exist. INTERPRETIVE/DISEASE-MODEL."
   ],
   "negation_dependencies": [
    "The much larger body of decidual-NK association work that reports dNK1/dNK2/dNK3 PROPORTIONS as compositional readouts and interprets shifts as changes in subset abundance rather than as differentiation blockade. Huhn O et al., Nat Commun 2020 (PMID 31959757) is representative in assigning distinctive phenotypes and functions per subset. If an ordering does exist, every such proportion finding must be re-read as a flux/blockade measurement rather than a composition measurement, and the direction of that re-reading depends on a polarity the field does not agree on.",
-   "Vento-Tormo R et al., Nature 2018 (PMID 30429548) itself — it names dNK1/2/3 as 'three decidual NK cell STATES' and restricts its trajectory analysis to trophoblast. The atlas's own framing treats them as co-existing states, and the subset definitions everyone else inherits come from that framing."
+   "Vento-Tormo R et al., Nature 2018 (PMID 30429548) itself \u2014 it names dNK1/2/3 as 'three decidual NK cell STATES' and restricts its trajectory analysis to trophoblast. The atlas's own framing treats them as co-existing states, and the subset definitions everyone else inherits come from that framing."
   ],
   "reason": "S1 carries dependencies in BOTH directions, which under the v1.1 union raises it to HIGH: Guo 2021's RPL disease model requires an ordering, while the larger compositional literature presupposes none. The bidirectional criterion is what makes this visible - under v1.0 only the Guo side was counted, and one interpretive dependency graded MEDIUM.",
   "status_note": "THIS CHANGES NOTHING. S1 fails shortlist criterion 3 on BOTH decidability gates (lineage_decidable = FALSE, both_answers_actionable = FALSE) independently of load-bearing, because the asserted ordering is a directed arrow over a reversible, milieu-instructed state and clonal structure cannot order a reversible state. The re-grade is recorded for the register, not to change membership.",
   "independent_finding": "S1's audit finding stands on its own regardless of grade: Vento-Tormo 2018, the paper that defines dNK1/2/3, makes no ordering claim at all, and the three papers that do assert one give mutually incompatible topologies."
+ },
+ "T1": {
+  "load_bearing_v10": "MEDIUM",
+  "load_bearing_v11": "HIGH",
+  "basis": "v1.1_bidirectional",
+  "direction_that_carries_it": "negation",
+  "positive_dependencies": [
+   "Dominant-negative TGFBR2 / TGFBR2-knockout NK and CAR-NK products, justified on the premise that tumour TGF-beta CONVERTS infused conventional NK into non-cytotoxic CD49a+ ILC1-like cells. Found by T1's own v1.0 audit; the v1.0 adversarial pass challenged how much weight it carries, which is why T1 graded MEDIUM."
+  ],
+  "negation_dependencies": [
+   "Sojka DK et al., eLife 2014 (PMID 24714492) - the title states T1's negation outright: 'Tissue-resident natural killer (NK) cells are cell lineages DISTINCT FROM thymic and conventional splenic NK cells'. Parabiosis plus Eomes/T-bet. The entire trNK-as-separate-lineage nomenclature rests on this.",
+   "Klose CSN et al., Cell 2014 (PMID 24725403) - 'Differentiation of type 1 ILCs from a common progenitor to all helper-like innate lymphoid cell lineages'. Establishes a separate progenitor architecture (CHILP) for helper-like ILC1, distinct from the NKP that feeds cNK.",
+   "Nixon BG et al., Sci Immunol 2022 (PMID 35394814) - ILC-progenitor fate mapping plus transfer, reporting that the ILC1 lineage 'did not interconvert with NK cells'.",
+   "Consequence: the ILC classification and ontogeny framework - separate progenitors, non-interconverting lineages - presupposes that tissue type-1 innate lymphocytes are NOT cNK-derived. If cNK routinely convert to the tissue-resident phenotype, the lineage boundary that framework is built on is porous, and a large body of subset nomenclature has to be re-read as states rather than lineages."
+  ],
+  "reason": "T1 graded MEDIUM under v1.0 after the adversarial pass discounted its single positive dependency. The negation side is far larger and was invisible to the one-directional criterion: a foundational paper asserts T1's negation in its title, and the ILC ontogeny framework generalises it. Under the v1.1 union this is HIGH.",
+  "status_note": "THIS CHANGES NOTHING. T1 fails shortlist criterion 4 (already_traced = TRUE, HIGH confidence) independently of load-bearing. Re-graded for register consistency, because a MEDIUM sitting next to X1's HIGH on an adjacent claim was an internal inconsistency worth removing.",
+  "relation_to_X1": "T1 and X1 are near-complementary, and the DN-TGFBR2 construct shows it: the same therapeutic premise requires T1 TRUE (TGF-beta converts infused cNK) and X1 FALSE (intratumoural trNK are infiltrating-and-converted, not pre-resident). One construct, opposite directions on two adjacent claims."
+ },
+ "_unfinished": {
+  "rows_opened_but_not_graded": [
+   "T3",
+   "T5",
+   "T6",
+   "R1",
+   "R3"
+  ],
+  "why": "A bidirectional re-grade needs the same search depth as the Phase A adversarial pass. Targeted searches for the negation side of these five returned reviews rather than primary sources, so no negation dependency was ESTABLISHED. Under G3 that is NOT_SEARCHED-equivalent, not NONE, and under G7 a grade must not be raised on an unverified dependency. Their v1.0 grades therefore stand and remain flagged v1.0_positive_only.",
+  "membership_impact": "None. T3 and T5 are blocked by already_traced=TRUE; T3, T5, T6, R1 and R3 are all additionally blocked by criterion 3.",
+  "also_not_graded": [
+   "D3",
+   "R2",
+   "T2",
+   "X2",
+   "X3",
+   "X4"
+  ],
+  "note": "These six are part of the criterion-defined set (below HIGH under v1.0) but were not in the requested batch. All are blocked by an independent criterion."
  }
 }
