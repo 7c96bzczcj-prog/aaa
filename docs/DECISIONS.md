@@ -573,3 +573,45 @@ without touching a preregistered result.
 it.
 
 ---
+
+## DEC-21 — Tier 1 stopped before computing: an ascertainment confound, not a power failure
+
+**What.** The X1 Tier-1 re-analysis was preregistered (`4aaa154`) and then stopped
+before any statistic was computed. Full record: `docs/X1_TIER1_RESULT.md`.
+
+**Why.** The preregistered primary statistic asks whether tumour–NILT shared clones
+are under-represented in blood. GSE302113 deposits **per-library** heteroplasmy
+matrices, not the donor-union matrix the authors' own methods describe building. A
+variant can only be evaluated in a compartment where it was deposited, and it is
+deposited only if it passed mgatk's ≥5-cell filter there — so the variant set
+evaluable across all three compartments is **ascertained to be blood-present**:
+4.5% of SU-L-001's 220 tri-compartment variants and **0.0%** of SU-L-005's 507 have
+zero blood carriers. The statistic would answer its own question by construction.
+
+**Decision: report the stop; run no substitute.** Tier-1 preregistration §5 fixes
+that no threshold is lowered to produce a runnable result. A weaker pairwise
+statistic was available and inherits the same bias, so it was not run either.
+
+**This is the GSE221064 trap in a new place.** The spec warned that archives strip
+chrM. Here chrM is fully retained and clears every threshold — what is stripped is
+the *variant union*, one level up. Checking that files exist and clear a coverage
+floor is not the same as checking that their ascertainment can carry the question.
+
+**Correction issued.** `docs/X1_DESIGN.md` §3 called Tier 1 "nearly free" because
+the data was "already on disk". That was wrong for exactly this reason. The section
+is corrected in place with the error left visible rather than rewritten.
+
+**Routes forward, costed.** (A) Ask the authors for the union matrices or their
+Mitotrek clone assignments — Mitotrek is public, the matrices are not. (B) Rebuild
+from SRA FASTQs (per-sample SRX accessions exist) with cellranger-atac + mgatk over
+38 libraries — TB-scale, days of compute. (C) Abandon Tier 1. Tier 1 is
+**expensive, not blocked**.
+
+**One published sentence recorded because it cuts against X1**, not despite it:
+Liu 2026 groups NK with monocytes/macrophages/DCs as showing "high levels of clone
+sharing, suggesting that they originated from recent hematopoietic output without
+substantial clonal bottlenecks prior to tissue infiltration" — the blood-origin
+side. Qualitative, never given NK-specific numbers, attached to heatmaps whose NK
+entries were never separately reported.
+
+---

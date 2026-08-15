@@ -93,3 +93,14 @@ computed**. Fixes, in advance:
 
 Also fixed: extract the source paper's published Figure 2F value **first**, and
 treat any disagreement with our own computation as the first thing to explain.
+
+## Tier 1 — stopped, 2026-08-15
+
+Preregistered at `4aaa154`, then **stopped before computing any statistic** on an
+ascertainment confound: the deposited per-library heteroplasmy matrices make the
+usable variant set blood-present by construction (95.5–100%), so the preregistered
+three-way statistic would answer its own question. No substitute was run
+(`docs/X1_TIER1_RESULT.md`, DEC-21).
+
+`docs/X1_DESIGN.md` §3 corrected in place — Tier 1 is expensive, not nearly free.
+The error is left visible.

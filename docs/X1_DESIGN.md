@@ -49,6 +49,15 @@ reachable.
 
 ## 3. Tier 1 — the human analysis that is runnable now
 
+> **CORRECTION (2026-08-15).** This section was written before the deposited data
+> was checked for variant ascertainment. It is **wrong** that Tier 1 is nearly
+> free. The deposited heteroplasmy matrices are per-library, not the donor union,
+> and the variant set evaluable across all three compartments is ascertained to be
+> blood-present (95.5–100%), which is the very confound the statistic measures.
+> Tier 1 is not blocked but it is **expensive** — see `docs/X1_TIER1_RESULT.md`.
+> The section is left standing rather than rewritten, because the error is part of
+> the record.
+
 `GSE302113` is already downloaded and parsed in this repo. Four NSCLC donors
 (SU-L-001, -002, -004, -005) pass the preregistered power check with ≥30 NK in
 both tumour and matched non-involved lung; all five have blood.
