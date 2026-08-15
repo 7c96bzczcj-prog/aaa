@@ -72,3 +72,24 @@ result; it is not overwritten.
   Declared in `phaseA/load_bearing_v11.json` under `_unfinished`.
 - `docs/X1_DESIGN.md` added, deliberately **outside** the screening record
   (spec §0 fixed "no new directions" as a non-goal of the round).
+
+## Tier 1 preregistration — 2026-08-15
+
+`docs/PREREGISTRATION_TIER1.md` committed **before any Tier-1 statistic was
+computed**. Fixes, in advance:
+
+1. **The statistic is three-way, not pairwise** — the discriminator is whether
+   clones shared between tumour and NILT are under-represented in blood, against a
+   size-matched null with a 1000-permutation CI. Pairwise tumour∩NILT sharing is
+   insufficient because both compartments could have been filled recently from
+   blood and both converted.
+2. **Sampling correction** — downsample every compartment to equal n per donor,
+   200 resamples, median + 95% interval, **reported per donor and never pooled**.
+3. **"Same clone" thresholds fixed in advance** as the same class of admission
+   threshold as the 20× chrM floor: mgatk defaults (sc ≥ 0.65, VMR ≥ 0.01, ≥ 5
+   cells), union across a donor's libraries, chrM:307–314 excluded, >20%-of-cells
+   variants removed, heteroplasmy binarised at 0.07, with a fixed sensitivity
+   analysis at ≥3 cells and binarisation 0.05/0.10.
+
+Also fixed: extract the source paper's published Figure 2F value **first**, and
+treat any disagreement with our own computation as the first thing to explain.
