@@ -443,3 +443,75 @@ value; the confidence is reported alongside so a reader can discount it. Changin
 the value would be a post-hoc edit of §5 by the back door.
 
 ---
+
+## DEC-17 — v1.1 re-grade of X1 and S1 under the bidirectional criterion
+
+**Trigger.** The spec's author judged the v1.0 `load_bearing` definition too
+narrow: it asked only what presupposes a claim is TRUE. Amendment recorded in
+`docs/PREREGISTRATION.md` §A1 and `docs/CHANGELOG.md` before the re-grade was run.
+
+**X1: MEDIUM → HIGH, carried by the negation side.** The v1.0 finding is not
+withdrawn — Horowitz 2026's ctrNK ACT platform really is origin-agnostic and really
+does survive X1 being false. What v1.0 could not see is that four primary papers
+plus an engineered-cell therapy presuppose X1's negation: Serger 2026
+(PMID 42247486), Gao 2017 (PMID 28759001), Cortez 2017 (PMID 28759002), Horowitz
+2026's *mechanism* as distinct from its platform (PMID 42090477), and
+DN-TGF-βRII NK constructs (PMID 28109751, PMID 36524207). Full dependency list with
+directions: `phaseA/load_bearing_v11.json`.
+
+**Consequence: X1 enters the shortlist**, having already passed criteria 2, 3 and 4.
+
+**Registry-internal note.** X4 (Serger 2026) is itself one of X1's negation-side
+dependencies, so X1 and X4 are mutually constraining. X4 stays `INF_TRAJECTORY`
+under G2 regardless — the bidirectional amendment touches criterion 1 only.
+
+**S1: MEDIUM → HIGH, status unchanged.** S1 turns out to carry dependencies in
+*both* directions — Guo 2021's RPL disease model requires an ordering, while the
+larger compositional literature (representative: Huhn 2020) presupposes none, and
+Vento-Tormo 2018 itself frames dNK1/2/3 as co-existing "states". Under the union
+that is HIGH. **It changes nothing**: S1 fails criterion 3 on both decidability
+gates independently of load-bearing, because the asserted ordering is a directed
+arrow over a reversible, milieu-instructed state and clonal structure cannot order
+a reversible state. Re-graded for the register only, and recorded as such so that
+nobody later reads HIGH as a near-miss.
+
+**Scope discipline.** Applied to X1 and S1 only, on instruction. The other 23 rows
+keep their v1.0 grade and are flagged `load_bearing_basis = v1.0_positive_only` in
+T5 so a stale grade is never mistaken for a bidirectional one. Re-grading all 25
+under a changed criterion after seeing the v1.0 outcome would let the amendment
+reshape the result set retrospectively; that is deliberately not done.
+
+**Not touched in the same motion:** the 20× chrM floor, known to be uncalibrated
+(DEC-14), is left exactly as preregistered. Recalibrating a threshold in the same
+change that admits a claim it bears on is the failure mode the preregistration
+exists to prevent, whichever direction the recalibration would go.
+
+---
+
+## DEC-18 — A decidual-NK fate-mapping paper found during the re-run; S2/S3 unchanged
+
+**What.** While searching S1's negation side I found Zhang et al. (?), "T-bet Fate
+Mapping Reveals Gestational Stage-Specific Transcriptional Adaptation of Decidual
+NK", 2026, PMID 41782473 / PMC12961421 — a genuine fate-mapping study of uterine
+and decidual NK.
+
+**Methods, read not skimmed.** `Rosa26^RFP × Tbx21^Cre` T-bet fate-mapping **mouse**
+model, tracking NK in uterus, decidua and placenta through pregnancy; flow
+cytometry, bulk RNA-seq of fate-mapped cells, scRNA-seq of CD45⁺Lin⁻ cells at mid
+and late gestation.
+
+**Effect on S2/S3: none, and I checked rather than assumed.** S2 is a *human*
+subset-correspondence claim (uNK1/2/3 → dNK1/2/3); those subsets are defined by
+human scRNA-seq and have no mouse counterpart. S3 is the *cycle-to-pregnancy*
+transition; mice do not menstruate, so there is no cycling-endometrium-to-decidua
+transition to trace, and a T-bet fate map labels a lineage rather than a temporal
+transition from a pre-pregnancy compartment. Neither `already_traced` value changes.
+
+**But it is recorded, for two reasons.** It is now the nearest occupant on
+method-plus-compartment for both rows, and it reinforces that S2 and S3 rest on
+`occupancy_search_confidence = MEDIUM` (RESULTS §1) — this paper is recent enough
+that the occupancy agents may not have weighted it. It is a reason to re-run B4 on
+S2/S3 with the mouse fate-mapping literature explicitly in scope before either is
+acted on, not a reason to change the value now.
+
+---

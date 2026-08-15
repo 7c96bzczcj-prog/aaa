@@ -30,7 +30,8 @@ T2_COLS = ["claim_id", "lineage_decidable", "why", "action_if_yes", "action_if_n
            "already_traced", "occupancy_unverified", "mouse_only", "nearest_occupant",
            "crossfield_occupancy", "search_confidence", "search_terms_used"]
 
-T5_COLS = ["claim_id", "claim_text", "load_bearing", "evidence_type_strongest",
+T5_COLS = ["claim_id", "claim_text", "load_bearing", "load_bearing_v10",
+           "load_bearing_basis", "evidence_type_strongest",
            "lineage_decidable", "both_answers_actionable", "already_traced",
            "occupancy_search_confidence", "occupancy_unverified", "mouse_only",
            "on_shortlist", "failed_criteria"]
@@ -60,7 +61,16 @@ def order(cids):
     return sorted(cids, key=lambda c: (c[0], int(c[1:])))
 
 
+def load_v11():
+    """v1.1 amendment: bidirectional load-bearing, applied to X1 and S1 only."""
+    p = os.path.join(PA, "load_bearing_v11.json")
+    if not os.path.exists(p):
+        return {}
+    return {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
+
+
 def build_t1(recs, claims):
+    v11 = load_v11()
     with open(os.path.join(OUT, "T1_evidence_audit.tsv"), "w") as f:
         f.write("\t".join(T1_COLS) + "\n")
         for cid in order(recs):
@@ -88,7 +98,8 @@ def build_t1(recs, claims):
                 "claim_text": claims.get(cid, {}).get("text", "NA"),
                 "claude_initial_call": claims.get(cid, {}).get("initial", "NA"),
                 "evidence_type_strongest": fin.get("evidence_type_strongest", "NA"),
-                "load_bearing": fin.get("load_bearing", "NA"),
+                "load_bearing": (v11[cid]["load_bearing_v11"] if cid in v11
+                                 else fin.get("load_bearing", "NA")),
                 "adversarial_revision": rev,
                 "counter_evidence": " || ".join(counter),
                 "crossfield_g4_findings": v.get("crossfield_g4_findings", "NOT_SEARCHED"),
@@ -114,11 +125,17 @@ def build_t2(phaseb):
 
 def build_t5(recs, claims, phaseb):
     """Apply the preregistered section 5 rule. No other rule is applied here."""
+    v11 = load_v11()
     rows = []
     for cid in order(recs):
         fin = recs[cid].get("final") or {}
         ev = fin.get("evidence_type_strongest")
         lb = fin.get("load_bearing")
+        lb_v10 = lb
+        basis = "v1.0_positive_only"
+        if cid in v11:
+            lb = v11[cid]["load_bearing_v11"]
+            basis = v11[cid]["basis"]
         d = phaseb.get(cid) or {}
         b, o = d.get("b") or {}, d.get("o") or {}
         ld = b.get("lineage_decidable")
@@ -148,6 +165,8 @@ def build_t5(recs, claims, phaseb):
             "mouse_only": b.get("mouse_only", "n/a"),
             "on_shortlist": "TRUE" if not fails else "FALSE",
             "failed_criteria": "; ".join(fails) or "none",
+            "load_bearing_v10": lb_v10,
+            "load_bearing_basis": basis,
         })
     with open(os.path.join(OUT, "T5_shortlist.tsv"), "w") as f:
         f.write("\t".join(T5_COLS) + "\n")

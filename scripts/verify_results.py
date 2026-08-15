@@ -37,10 +37,11 @@ check("T1 rows (25 claims)", len(t1), 25)
 check("T2 rows (INF_* claims)", len(t2), 17)
 check("T5 rows", len(t5), 25)
 
-print("\n== shortlist ==")
+print("\n== shortlist (v1.1 operative) ==")
 short = sorted(r["claim_id"] for r in t5 if r["on_shortlist"] == "TRUE")
-check("shortlist membership", short, ["S2", "S3"])
-check("RESULTS says shortlist is non-empty", "shortlist is non-empty" in text.lower(), True)
+check("shortlist membership", short, ["S2", "S3", "X1"])
+check("RESULTS headline lists the v1.1 shortlist", "**S2, S3, X1**" in text, True)
+check("RESULTS headline preserves the v1.0 shortlist", "| **S2, S3** |" in text, True)
 for c in short:
     check(f"{c} claimed in RESULTS §1", bool(re.search(rf"\*\*{c}\*\*", text)), True)
 
@@ -56,15 +57,33 @@ for r in t5:
     check(f"{c} criterion3 both actionable", r["both_answers_actionable"], "TRUE")
     check(f"{c} criterion4 not traced", r["already_traced"], "FALSE")
 
-print("\n== X1 ==")
+print("\n== X1 (v1.1 re-grade) ==")
 x1 = next(r for r in t5 if r["claim_id"] == "X1")
-check("X1 not on shortlist", x1["on_shortlist"], "FALSE")
-check("X1 fails on load-bearing only", x1["failed_criteria"], "criterion1 load_bearing=MEDIUM")
+check("X1 on shortlist under v1.1", x1["on_shortlist"], "TRUE")
+check("X1 fails nothing under v1.1", x1["failed_criteria"], "none")
+check("X1 v1.0 grade preserved", x1["load_bearing_v10"], "MEDIUM")
+check("X1 v1.1 grade", x1["load_bearing"], "HIGH")
+check("X1 basis flagged", x1["load_bearing_basis"], "v1.1_bidirectional")
 check("X1 evidence", x1["evidence_type_strongest"], "INF_MARKER")
 check("X1 decidable", x1["lineage_decidable"], "TRUE")
 check("X1 both actionable", x1["both_answers_actionable"], "TRUE")
 check("X1 already_traced FALSE", x1["already_traced"], "FALSE")
-check("X1 mouse_only", x1["mouse_only"], "TRUE")
+check("X1 mouse_only unchanged", x1["mouse_only"], "TRUE")
+
+print("\n== S1 re-grade changes nothing ==")
+s1 = next(r for r in t5 if r["claim_id"] == "S1")
+check("S1 v1.0 grade", s1["load_bearing_v10"], "MEDIUM")
+check("S1 v1.1 grade", s1["load_bearing"], "HIGH")
+check("S1 still off shortlist", s1["on_shortlist"], "FALSE")
+check("S1 fails criterion 3 only",
+      "criterion1" not in s1["failed_criteria"] and "criterion3" in s1["failed_criteria"], True)
+
+print("\n== v1.1 scope is exactly X1 and S1 ==")
+rescored = sorted(r["claim_id"] for r in t5 if r["load_bearing_basis"] == "v1.1_bidirectional")
+check("rows re-graded under v1.1", rescored, ["S1", "X1"])
+check("rows left on v1.0 basis",
+      sum(1 for r in t5 if r["load_bearing_basis"] == "v1.0_positive_only"), 23)
+check("RESULTS reports both outcomes", "v1.0" in text and "v1.1" in text, True)
 
 print("\n== Phase C power (GSE302113) ==")
 lib = tsv("T4_power_GSE302113_libraries.tsv")

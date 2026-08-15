@@ -1,7 +1,10 @@
-# RESULTS — NK lineage-assertion evidence screen v1.0
+# RESULTS — NK lineage-assertion evidence screen
 
-Preregistration committed at `9692011`, **before any retrieval**. Decision rule
-unchanged since. Every conclusion below carries its `out/T1_evidence_audit.tsv`
+**v1.0 run**: preregistration committed at `9692011`, **before any retrieval**.
+**v1.1 amendment** (2026-08-15): `load_bearing` made bidirectional, re-applied to
+**X1 and S1 only**. See `docs/PREREGISTRATION.md` §A1 and `docs/CHANGELOG.md`.
+Both outcomes are reported below; **the v1.0 outcome is not overwritten.**
+No other rule, threshold or criterion changed. Every conclusion below carries its `out/T1_evidence_audit.tsv`
 row, evidence class, n with its unit, and **what it does not support**.
 
 **Scale.** 25 claims. Phase A = 25 audits + 25 independent adversarial
@@ -13,25 +16,39 @@ downloaded and parsed. Primary-source texts archived under `refs/`.
 
 ## 0. Headline
 
-**The shortlist is non-empty and contains two claims: S2 and S3.**
+| | shortlist |
+|---|---|
+| **v1.0** (load-bearing = positive dependencies only) | **S2, S3** |
+| **v1.1** (load-bearing bidirectional) | **S2, S3, X1** |
 
-Per the preregistration (§5.1), this does **not** mean they are worth doing. Moat,
-feasibility and time cost are a separate layer of judgement, explicitly outside
-this round. This round says only: their evidence is inferential, lineage can
-decide them, both answers change what you do next, and nobody has done them.
+**X1 moves onto the shortlist under v1.1**, on a re-grade of criterion 1 alone.
+It had already passed criteria 2, 3 and 4 in v1.0. Details in §3.
 
-**The user-designated highest-priority claim, X1, is not on the shortlist.** It
-fails on load-bearing, not on decidability or occupancy, and it fails after
-passing the Phase C power check. Details in §3.
+**S1 also re-graded MEDIUM → HIGH and its status did not change**: it fails
+criterion 3 on both decidability gates independently of load-bearing. Recorded
+for the register, not to move it.
+
+Per the preregistration (§5.1), being on the shortlist does **not** mean a claim
+is worth doing. Moat, feasibility and time cost are a separate layer of
+judgement, explicitly outside this round. This round says only: the evidence is
+inferential, lineage can decide it, both answers change what you do next, and
+nobody has done it.
+
+**Why the v1.0 definition was wrong.** It asked only what presupposes a claim is
+TRUE. A claim is equally load-bearing when the field presupposes its NEGATION,
+because work built on the claim being false must be re-read if it turns out true.
+That is a defect in the criterion as written, not in its execution — the v1.0
+grade was correct under the v1.0 rule.
 
 ---
 
 ## 1. The shortlist (out/T5_shortlist.tsv)
 
-| claim | T1 row | evidence | n (unit) | LB | decidable | both actionable | traced |
-|---|---|---|---|---|---|---|---|
-| **S2** endometrial uNK1/2/3 → decidual dNK1/2/3 | 14 | `INF_MARKER` | see below (donors/women) | HIGH | TRUE | TRUE | FALSE |
-| **S3** eNK → dNK across the cycle-to-pregnancy transition | 15 | `INF_INVITRO` | 26 (women) | HIGH | TRUE | TRUE | FALSE |
+| claim | T1 row | evidence | n (unit) | LB | decidable | both actionable | traced | since |
+|---|---|---|---|---|---|---|---|---|
+| **S2** endometrial uNK1/2/3 → decidual dNK1/2/3 | 14 | `INF_MARKER` | see below (donors/women) | HIGH | TRUE | TRUE | FALSE | v1.0 |
+| **S3** eNK → dNK across the cycle-to-pregnancy transition | 15 | `INF_INVITRO` | 26 (women) | HIGH | TRUE | TRUE | FALSE | v1.0 |
+| **X1** organ-resident trNK → functional intratumoural NK | 22 | `INF_MARKER` | 10 (patients) | HIGH (v1.1) | TRUE | TRUE | FALSE | **v1.1** |
 
 **S2** — the uNK→dNK subset correspondence rests on cluster-label matching across
 two separate datasets, i.e. marker similarity between clusters computed in
@@ -64,7 +81,12 @@ logistics.
 
 ---
 
-## 2. Why the other 23 failed (out/T5_shortlist.tsv, `failed_criteria`)
+## 2. Why the other 22 failed (out/T5_shortlist.tsv, `failed_criteria`)
+
+*Counts below are the v1.0 grading. Under v1.1, X1 moves out of the criterion-1
+row and onto the shortlist; S1 moves out of the criterion-1 row but stays out on
+criterion 3. The other 23 rows are unchanged and are flagged
+`load_bearing_basis = v1.0_positive_only` in T5.*
 
 | failure mode | claims | n |
 |---|---|---|
@@ -119,19 +141,41 @@ tissue-resident NK, and Dadi's population — explicitly Nfil3-independent and
 "distinct from conventional NK cells" — addresses a neighbouring transition.
 X1 keeps `INF_MARKER` (DEC-05, DEC-15).
 
-**(c) Load-bearing HIGH → MEDIUM on a specific argument.** The headline dependency
-was Horowitz 2026's ctrNK adoptive-cell-therapy platform. That platform
-differentiates ctrNK **ex vivo from peripheral NK**, so it is origin-agnostic and
-survives X1 being false. A dependency that survives the claim being false is not
-evidence of HIGH load-bearing. What does survive is interpretive: the CD49a⁺ NK
-prognostic literature in HCC reads causality off a residency pedigree, and the
-choice between preserve-the-resident-pool and promote-recruitment therapeutic
-levers depends on the answer.
+**(c) Load-bearing: HIGH → MEDIUM under v1.0, and back to HIGH under v1.1.**
 
-**What X1's failure does not support.** It does **not** mean the question is
-settled, uninteresting, or unanswerable. It means that on this registry's
-preregistered criteria the downstream structure resting on it is interpretive
-rather than interventional. Under a different load-bearing rubric it would qualify.
+*v1.0 (positive dependencies only) → MEDIUM.* The headline dependency was
+Horowitz 2026's ctrNK adoptive-cell-therapy platform, which differentiates ctrNK
+**ex vivo from peripheral NK** and is therefore origin-agnostic: it survives X1
+being false. A dependency that survives the claim being false is not evidence of
+HIGH load-bearing. **That finding stands and is not withdrawn.**
+
+*v1.1 (bidirectional) → HIGH.* What v1.0 could not see is that the dominant
+framework in this area — tumour TGF-β converting infiltrating NK into a
+residency/ILC1-like phenotype — **presupposes X1's negation**, across four
+primary papers plus an engineered-cell therapeutic strategy
+(`phaseA/load_bearing_v11.json`):
+
+| dependency | what it presupposes |
+|---|---|
+| Serger 2026, *Sci Immunol* (PMID 42247486) | an "inflammation-driven transition from early GZMK⁺ NK toward an ENTPD1⁺ effector state", with both taNK subsets marked by ITGAE/ITGA1 — i.e. the CD49a⁺CD103⁺ taNK differentiate *in situ*. **This is claim X4 of this registry.** |
+| Gao 2017, *Nat Immunol* (PMID 28759001) | "TGF-β-signaling-dependent conversion of NK cells (CD49a⁻CD49b⁺Eomes⁺) into intILC1 (CD49a⁺…) in the tumor microenvironment" — the immunoevasion mechanism requires the CD49a⁺ pool to have been CD49a⁻ first |
+| Cortez 2017, *Nat Immunol* (PMID 28759002) | "SMAD4 impedes the **conversion** of NK cells into ILC1-like cells" — the genetic arm of the same model |
+| Horowitz 2026, *Sci Transl Med* (PMID 42090477) | its *mechanism* ("the context in which the **differentiation** of CD49a⁺CD103⁺ trNK cells occurs…") presupposes conversion, even though its *platform* does not. This paper sits on **both** sides |
+| DN-TGF-βRII engineered NK (PMID 28109751; PMID 36524207) | an interventional construct whose rationale is that TME TGF-β acts on **infiltrating** NK |
+
+If the CD49a⁺CD103⁺ intratumoural population was already resident in the organ,
+the conversion those papers measure did not produce it, and both the mechanism
+and the trajectory rooted on it must be re-read. That is load in the sense
+criterion 1 exists to capture.
+
+**Registry-internal consequence.** X1 and X4 are mutually constraining: X4 is
+itself one of X1's negation-side dependencies. Neither can be graded in isolation.
+X4 remains `INF_TRAJECTORY` under G2 regardless.
+
+**What X1's v1.1 admission does not support.** It does **not** mean X1 is true,
+nor that it is worth doing, nor that it is answerable in humans — §4's
+`mouse_only = TRUE` finding is unchanged, and no human sample exists of an organ
+from before its own tumour arose.
 
 ---
 
