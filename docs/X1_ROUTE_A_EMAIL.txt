@@ -4,9 +4,10 @@ Subject: Data request re GSE302113 — per-donor union heteroplasmy matrices / M
 
 Dear Prof. Satpathy and Dr. Lareau,
 
-I am [NAME], [POSITION, INSTITUTION]. I am re-analysing GSE302113 (Liu et al.,
-Cancer Cell 2026) and would be very grateful for two items if they are easy to
-share.
+I am Richard Tang, a postdoctoral researcher at Hainan Medical University /
+Hainan Academy of Medical Sciences, China. I am re-analysing GSE302113 (Liu et
+al., Cancer Cell 2026) and would be very grateful for two items if they are easy
+to share.
 
 1) The per-donor union heteroplasmy matrices, or equivalently the Mitotrek clone
    assignments (cell barcode -> clone ID) used in the paper.
@@ -41,6 +42,7 @@ the intermediate the pipeline produces.
 Thank you for making the dataset available, and for considering this.
 
 Best regards,
-[NAME]
-[POSITION, INSTITUTION]
-[EMAIL]
+Richard Tang (Tang Zeyu)
+Postdoctoral Researcher
+Hainan Medical University / Hainan Academy of Medical Sciences, Haikou, China
+[YOUR SENDING EMAIL ADDRESS]
