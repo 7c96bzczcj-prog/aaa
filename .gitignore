@@ -5,3 +5,8 @@ phase1_registry/raw_meta/*.tar.gz
 phase1_registry/raw_meta/ab48/
 *.mtx
 phase1_registry/rescan/*.xml
+
+# A1.4 working artifacts (large binaries / environment, not source)
+.venv/
+data/raw/*.h5ad
+data/raw/*.fastq.gz

@@ -1,0 +1,5 @@
+lineage,hours,n_green,n_red,reg_genes,kill_genes,ratio_green,ratio_red,delta,direction
+NK,24,97,229,"Ccl3,Ccl4,Xcl1,Flt3l",,,,,UNCOMPUTABLE (a module lost all its genes to §5)
+NK,72,288,421,"Ccl3,Ccl4,Xcl1,Flt3l",,,,,UNCOMPUTABLE (a module lost all its genes to §5)
+CD8T,24,134,235,"Ccl3,Ccl4,Ccl5,Xcl1,Flt3l","Prf1,Gzma,Gzmk",0.7883211678832117,0.8080291970802919,0.019708029197080146,RISES (Red>Green)
+CD8T,72,243,747,"Ccl3,Ccl4,Ccl5,Xcl1,Flt3l","Prf1,Gzma,Gzmk",1.0,0.9488372093023255,-0.05116279069767449,FALLS (Red<Green)

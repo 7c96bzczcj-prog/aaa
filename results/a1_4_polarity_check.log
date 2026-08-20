@@ -1,0 +1,196 @@
+==============================================================================
+A1.4 POLARITY CONSISTENCY CHECK — E-MTAB-10176 (Li 2022)
+==============================================================================
+cells 4637   genes(raw) 16227   genes(X, HVG+scaled, unusable) 2068
+
+------------------------------------------------------------------------------
+§4(d)  DONOR vs LIBRARY STRUCTURE
+------------------------------------------------------------------------------
+colour  Green        Red      
+hours      24   72    24    72
+sample                        
+MH1_G24   354    0     0     0
+MH2_R24     0    0  1433     0
+MH3_G72     0  781     0     0
+MH4_R72     0    0     0  2069
+
+libraries: 4
+max distinct colours within any one library: 1
+colour is CONFOUNDED with library
+donor/mouse/replicate columns present in obs: NONE
+
+------------------------------------------------------------------------------
+CELL COUNTS  lineage x colour x hour
+------------------------------------------------------------------------------
+hours                 24         72     
+colour             Green  Red Green  Red
+main_celltype                           
+CD8T                 134  235   243  747
+CD4T                  55  108   109  151
+Treg                  61  848   128  712
+Tgd                    5    2    11   13
+NK                    97  229   288  421
+ambiguous-CD8-Treg     2   11     2   25
+
+------------------------------------------------------------------------------
+§5  DETECTION-RATE BANDS  (per gene, per lineage, per compartment)
+------------------------------------------------------------------------------
+genes absent from the deposited matrix entirely: ['Xcl2']
+
+--- NK ---
+hours                 24              72        
+colour             Green     Red   Green     Red
+module     gene                                 
+killing    Gzma   0.9691  0.9258  0.9583  0.7957
+           Gzmb   0.9588  0.9170  0.8993  0.8979
+           Gzmk   0.0309  0.0087  0.0278  0.0048
+           Nkg7   0.9897  0.9607  0.9792  0.9810
+           Prf1   0.8660  0.9039  0.9062  0.8694
+regulatory Ccl3   0.4536  0.1092  0.3854  0.0926
+           Ccl4   0.7629  0.3144  0.6806  0.2328
+           Ccl5   1.0000  0.3799  0.8715  0.3278
+           Flt3l  0.1649  0.2838  0.2535  0.2209
+           Xcl1   0.4536  0.5328  0.5069  0.5962
+hours                     24                      72            
+colour                 Green         Red       Green         Red
+module     gene                                                 
+killing    Gzma      CEILING     CEILING     CEILING  MEASURABLE
+           Gzmb      CEILING     CEILING     CEILING     CEILING
+           Gzmk        FLOOR       FLOOR       FLOOR       FLOOR
+           Nkg7      CEILING     CEILING     CEILING     CEILING
+           Prf1      CEILING     CEILING     CEILING     CEILING
+regulatory Ccl3   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Ccl4   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Ccl5      CEILING  MEASURABLE     CEILING  MEASURABLE
+           Flt3l  MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Xcl1   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Xcl2       ABSENT      ABSENT      ABSENT      ABSENT
+
+--- CD8T ---
+hours                 24              72        
+colour             Green     Red   Green     Red
+module     gene                                 
+killing    Gzma   0.4030  0.3149  0.3621  0.1352
+           Gzmb   0.6045  0.8979  0.6790  0.8554
+           Gzmk   0.2537  0.3064  0.2551  0.1218
+           Nkg7   0.7537  0.8894  0.8477  0.9692
+           Prf1   0.3657  0.5447  0.4568  0.7791
+regulatory Ccl3   0.1269  0.1660  0.2263  0.2985
+           Ccl4   0.3507  0.4596  0.5103  0.6078
+           Ccl5   0.6791  0.6383  0.7078  0.4779
+           Flt3l  0.1343  0.2383  0.1934  0.1928
+           Xcl1   0.0522  0.0681  0.1523  0.0616
+hours                     24                      72            
+colour                 Green         Red       Green         Red
+module     gene                                                 
+killing    Gzma   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Gzmb   MEASURABLE     CEILING  MEASURABLE     CEILING
+           Gzmk   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Nkg7   MEASURABLE     CEILING  MEASURABLE     CEILING
+           Prf1   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+regulatory Ccl3   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Ccl4   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Ccl5   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Flt3l  MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Xcl1   MEASURABLE  MEASURABLE  MEASURABLE  MEASURABLE
+           Xcl2       ABSENT      ABSENT      ABSENT      ABSENT
+
+------------------------------------------------------------------------------
+§5 ADMISSION  (gene must be MEASURABLE in BOTH Green and Red)
+------------------------------------------------------------------------------
+NK 24h  admitted=['Ccl3', 'Ccl4', 'Xcl1', 'Flt3l']
+          excluded=['Ccl5', 'Xcl2', 'Prf1', 'Gzma', 'Gzmb', 'Gzmk', 'Nkg7']
+NK 72h  admitted=['Ccl3', 'Ccl4', 'Xcl1', 'Flt3l']
+          excluded=['Ccl5', 'Xcl2', 'Prf1', 'Gzma', 'Gzmb', 'Gzmk', 'Nkg7']
+CD8T 24h  admitted=['Ccl3', 'Ccl4', 'Ccl5', 'Xcl1', 'Flt3l', 'Prf1', 'Gzma', 'Gzmk']
+          excluded=['Xcl2', 'Gzmb', 'Nkg7']
+CD8T 72h  admitted=['Ccl3', 'Ccl4', 'Ccl5', 'Xcl1', 'Flt3l', 'Prf1', 'Gzma', 'Gzmk']
+          excluded=['Xcl2', 'Gzmb', 'Nkg7']
+
+------------------------------------------------------------------------------
+A1.4  MODULE RATIO  regulatory / killing   (detection-rate units)
+A1.3a  NK and CD8T reported SIDE BY SIDE — never subtracted
+------------------------------------------------------------------------------
+
+NK 24h   n_green=  97  n_red= 229
+   reg genes used : ['Ccl3', 'Ccl4', 'Xcl1', 'Flt3l']
+   kill genes used: []
+   ratio Green=nan   ratio Red=nan   delta=+nan   UNCOMPUTABLE (a module lost all its genes to §5)
+
+NK 72h   n_green= 288  n_red= 421
+   reg genes used : ['Ccl3', 'Ccl4', 'Xcl1', 'Flt3l']
+   kill genes used: []
+   ratio Green=nan   ratio Red=nan   delta=+nan   UNCOMPUTABLE (a module lost all its genes to §5)
+
+CD8T 24h   n_green= 134  n_red= 235
+   reg genes used : ['Ccl3', 'Ccl4', 'Ccl5', 'Xcl1', 'Flt3l']
+   kill genes used: ['Prf1', 'Gzma', 'Gzmk']
+   ratio Green=0.7883   ratio Red=0.8080   delta=+0.0197   RISES (Red>Green)
+
+CD8T 72h   n_green= 243  n_red= 747
+   reg genes used : ['Ccl3', 'Ccl4', 'Ccl5', 'Xcl1', 'Flt3l']
+   kill genes used: ['Prf1', 'Gzma', 'Gzmk']
+   ratio Green=1.0000   ratio Red=0.9488   delta=-0.0512   FALLS (Red<Green)
+
+------------------------------------------------------------------------------
+§6.2  LEAVE-ONE-OUT SENSITIVITY  (does dropping any gene flip it?)
+------------------------------------------------------------------------------
+
+CD8T 24h  baseline delta=+0.0197
+   drop Ccl3   -> delta=+0.0109  stable
+   drop Ccl4   -> delta=-0.0137  ** FLIPS **
+   drop Ccl5   -> delta=+0.1122  stable
+   drop Xcl1   -> delta=+0.0192  stable
+   drop Flt3l  -> delta=-0.0301  ** FLIPS **
+   drop Prf1   -> delta=+0.1928  stable
+   drop Gzma   -> delta=-0.1295  ** FLIPS **
+   drop Gzmk   -> delta=+0.0317  stable
+
+CD8T 72h  baseline delta=-0.0512
+   drop Ccl3   -> delta=-0.1220  stable
+   drop Ccl4   -> delta=-0.1476  stable
+   drop Ccl5   -> delta=+0.0844  ** FLIPS **
+   drop Xcl1   -> delta=-0.0022  stable
+   drop Flt3l  -> delta=-0.0684  stable
+   drop Prf1   -> delta=+1.3900  ** FLIPS **
+   drop Gzma   -> delta=-0.2783  stable
+   drop Gzmk   -> delta=-0.1575  stable
+
+------------------------------------------------------------------------------
+A1.3c  REPLICATE-NOISE FLOOR (must be measured in THIS dataset)
+------------------------------------------------------------------------------
+libraries per (colour,hours) cell:
+colour  hours
+Green   24       1
+        72       1
+Red     24       1
+        72       1
+Name: sample, dtype: int64
+
+-> NO same-condition replicate libraries exist in this dataset.
+-> The replicate-noise floor CANNOT be measured here.
+-> Per A1.3c, no difference computed above is readable against a floor.
+
+------------------------------------------------------------------------------
+COMPOSITION DIAGNOSTIC  (sub-cluster mix shifts Green->Red)
+------------------------------------------------------------------------------
+
+--- NK sub-cluster fractions ---
+hours                24            72       
+colour            Green    Red  Green    Red
+celltype_cluster                            
+NK 1              0.845  0.035  0.545  0.017
+NK 2              0.155  0.895  0.455  0.886
+NK 3              0.000  0.070  0.000  0.097
+
+--- CD8T sub-cluster fractions ---
+hours                24            72       
+colour            Green    Red  Green    Red
+celltype_cluster                            
+CD8T 1            0.306  0.021  0.263  0.005
+CD8T 2            0.590  0.634  0.284  0.052
+CD8T 3            0.104  0.345  0.453  0.942
+
+==============================================================================
+Wrote results/a1_4_detection_rates.csv, a1_4_module_ratio.csv, a1_4_leave_one_out.csv
+==============================================================================
