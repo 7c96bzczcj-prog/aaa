@@ -1,0 +1,93 @@
+==============================================================================
+GSE154826 — criterion (f) admission check  [ADMISSION ONLY]
+==============================================================================
+
+libraries by parsed condition:
+condition
+tumor          24
+normal         22
+unknown        18
+hashed_both     9
+
+unambiguous single-condition libraries: 46
+patients with BOTH tumour and normal among them: 21
+  -> ['370', '371', '377', '378', '403', '406', '408', '410', '458', '460', '464', '514', '522', '532', '564', '569', '570', '572', '578', '581', '714']
+hashed (…TN) libraries are excluded here: they need HTO demux, which is
+  beyond an admission check.
+
+libraries to read: 44
+  [1/44] batch   1 pt 370 normal cells=  3418 NK=  311  (5.3s)  CCL3=0.733  CCL4=0.920  CCL5=0.929  XCL1=0.048
+  [2/44] batch   2 pt 370 tumor  cells=  2309 NK=   53  (3.8s)  CCL3=0.434  CCL4=0.792  CCL5=0.774  XCL1=0.057
+  [3/44] batch   3 pt 371 normal cells=  3859 NK=  746  (4.6s)  CCL3=0.634  CCL4=0.909  CCL5=0.849  XCL1=0.051
+  [4/44] batch   4 pt 371 tumor  cells=  6613 NK=  341  (6.4s)  CCL3=0.537  CCL4=0.698  CCL5=0.613  XCL1=0.091
+  [5/44] batch   5 pt 377 normal cells=  5049 NK=  355  (5.2s)  CCL3=0.268  CCL4=0.456  CCL5=0.186  XCL1=0.051
+  [6/44] batch   6 pt 377 tumor  cells=  2075 NK=   85  (1.8s)  CCL3=0.400  CCL4=0.694  CCL5=0.612  XCL1=0.094
+  [7/44] batch   7 pt 378 normal cells= 18241 NK= 1360  (17.4s)  CCL3=0.409  CCL4=0.748  CCL5=0.601  XCL1=0.128
+  [8/44] batch   8 pt 378 tumor  cells=  5778 NK=  312  (9.2s)  CCL3=0.670  CCL4=0.952  CCL5=0.766  XCL1=0.269
+  [9/44] batch  10 pt 403 normal cells=  6138 NK=  703  (9.5s)  CCL3=0.300  CCL4=0.807  CCL5=0.967  XCL1=0.336
+  [10/44] batch  11 pt 403 tumor  cells=  4229 NK=  113  (6.0s)  CCL3=0.186  CCL4=0.345  CCL5=0.372  XCL1=0.053
+  [11/44] batch  14 pt 406 normal cells=  3077 NK=  106  (4.7s)  CCL3=0.566  CCL4=0.840  CCL5=0.774  XCL1=0.075
+  [12/44] batch  15 pt 406 tumor  cells=  4457 NK=  116  (6.9s)  CCL3=0.431  CCL4=0.543  CCL5=0.457  XCL1=0.043
+  [13/44] batch  16 pt 408 normal cells=  4226 NK=  370  (5.6s)  CCL3=0.705  CCL4=0.911  CCL5=0.830  XCL1=0.030
+  [14/44] batch  17 pt 408 tumor  cells=  5904 NK=  226  (8.0s)  CCL3=0.354  CCL4=0.606  CCL5=0.757  XCL1=0.243
+  [15/44] batch  18 pt 410 normal cells=  5378 NK=  189  (8.7s)  CCL3=0.471  CCL4=0.884  CCL5=0.852  XCL1=0.111
+  [16/44] batch  19 pt 410 tumor  cells=  6576 NK=  530  (8.9s)  CCL3=0.155  CCL4=0.262  CCL5=0.172  XCL1=0.017
+  [17/44] batch  22 pt 458 normal cells=   670 NK=   74  (1.0s)  CCL3=0.581  CCL4=0.784  CCL5=0.689  XCL1=0.122
+  [18/44] batch  23 pt 458 tumor  cells=   936 NK=   51  (1.9s)  CCL3=0.275  CCL4=0.627  CCL5=0.608  XCL1=0.098
+  [19/44] batch  24 pt 460 normal cells=  1031 NK=   58  (2.8s)  CCL3=0.345  CCL4=0.466  CCL5=0.517  XCL1=0.103
+  [20/44] batch  25 pt 460 tumor  cells=   768 NK=   26  (1.9s)  CCL3=0.000  CCL4=0.192  CCL5=0.538  XCL1=0.077
+  [21/44] batch  26 pt 464 normal cells=   415 NK=   20  (0.8s)  CCL3=0.200  CCL4=0.700  CCL5=0.450  XCL1=0.150
+  [22/44] batch  27 pt 464 tumor  cells=   321 NK=    6  (0.8s)  CCL3=0.000  CCL4=0.333  CCL5=0.333  XCL1=0.000
+  [23/44] batch  28 pt 514 normal cells=  3724 NK=  157  (5.3s)  CCL3=0.318  CCL4=0.503  CCL5=0.497  XCL1=0.172
+  [24/44] batch  29 pt 514 tumor  cells=  3663 NK=  140  (4.6s)  CCL3=0.271  CCL4=0.536  CCL5=0.600  XCL1=0.129
+  [25/44] batch 244 pt 522 normal cells=  3886 NK=   87  (5.2s)  CCL3=0.598  CCL4=0.862  CCL5=0.839  XCL1=0.057
+  [26/44] batch  30 pt 522 normal cells=  4153 NK=  153  (4.7s)  CCL3=0.588  CCL4=0.830  CCL5=0.824  XCL1=0.085
+  [27/44] batch 245 pt 522 tumor  cells=  5719 NK=  129  (8.0s)  CCL3=0.264  CCL4=0.682  CCL5=0.628  XCL1=0.116
+  [28/44] batch  31 pt 522 tumor  cells=  5840 NK=  133  (7.6s)  CCL3=0.346  CCL4=0.654  CCL5=0.692  XCL1=0.083
+  [29/44] batch  32 pt 532 normal cells=  3253 NK=  857  (2.9s)  CCL3=0.389  CCL4=0.804  CCL5=0.918  XCL1=0.036
+  [30/44] batch  33 pt 532 tumor  cells=  2301 NK=  280  (1.3s)  CCL3=0.407  CCL4=0.732  CCL5=0.854  XCL1=0.061
+  [31/44] batch  37 pt 564 normal cells=  7990 NK=  296  (8.9s)  CCL3=0.314  CCL4=0.689  CCL5=0.645  XCL1=0.064
+  [32/44] batch  38 pt 564 tumor  cells= 11692 NK=  292  (11.8s)  CCL3=0.329  CCL4=0.582  CCL5=0.466  XCL1=0.103
+  [33/44] batch  39 pt 569 normal cells=  3558 NK=  165  (3.4s)  CCL3=0.576  CCL4=0.885  CCL5=0.788  XCL1=0.085
+  [34/44] batch  40 pt 569 tumor  cells=  3764 NK=  117  (4.8s)  CCL3=0.462  CCL4=0.803  CCL5=0.701  XCL1=0.120
+  [35/44] batch  41 pt 570 normal cells=  5240 NK=  384  (6.3s)  CCL3=0.607  CCL4=0.815  CCL5=0.846  XCL1=0.081
+  [36/44] batch  42 pt 570 tumor  cells=  2779 NK=   79  (3.8s)  CCL3=0.570  CCL4=0.557  CCL5=0.468  XCL1=0.051
+  [37/44] batch  44 pt 572 normal cells=  5211 NK=  386  (4.7s)  CCL3=0.614  CCL4=0.813  CCL5=0.808  XCL1=0.057
+  [38/44] batch  45 pt 572 tumor  cells=  5923 NK=  143  (6.8s)  CCL3=0.350  CCL4=0.580  CCL5=0.587  XCL1=0.091
+  [39/44] batch  46 pt 578 normal cells=  4077 NK=  262  (4.6s)  CCL3=0.450  CCL4=0.847  CCL5=0.878  XCL1=0.103
+  [40/44] batch  47 pt 578 tumor  cells=  6484 NK=  330  (8.1s)  CCL3=0.461  CCL4=0.742  CCL5=0.752  XCL1=0.100
+  [41/44] batch  49 pt 581 normal cells=  6008 NK=  285  (6.2s)  CCL3=0.270  CCL4=0.635  CCL5=0.586  XCL1=0.070
+  [42/44] batch  50 pt 581 tumor  cells=  5243 NK=  149  (4.8s)  CCL3=0.208  CCL4=0.530  CCL5=0.537  XCL1=0.128
+  [43/44] batch 293 pt 714 normal cells=  2989 NK=  379  (4.0s)  CCL3=0.763  CCL4=0.939  CCL5=0.823  XCL1=0.066
+  [44/44] batch 292 pt 714 tumor  cells=  3068 NK=  266  (3.6s)  CCL3=0.211  CCL4=0.301  CCL5=0.218  XCL1=0.060
+
+total read time 243s for 44 libraries
+
+------------------------------------------------------------------------------
+§4(d)  DONOR-LEVEL DETECTION RATE  (per-patient mean, equal donor weight)
+------------------------------------------------------------------------------
+libraries with NK >= 30: 41 of 44
+
+--- normal  (n donors = 20, n libraries = 21, NK cells = 7683) ---
+   CCL3  donor-mean=0.4953  [cell-pooled 0.4820]   band=MEASURABLE
+   CCL4  donor-mean=0.7750  [cell-pooled 0.7932]   band=MEASURABLE
+   CCL5  donor-mean=0.7408  [cell-pooled 0.7612]   band=MEASURABLE
+   XCL1  donor-mean=0.0930  [cell-pooled 0.1002]   band=MEASURABLE
+
+--- tumor  (n donors = 19, n libraries = 20, NK cells = 3885) ---
+   CCL3  donor-mean=0.3691  [cell-pooled 0.3634]   band=MEASURABLE
+   CCL4  donor-mean=0.6081  [cell-pooled 0.5910]   band=MEASURABLE
+   CCL5  donor-mean=0.5774  [cell-pooled 0.5534]   band=MEASURABLE
+   XCL1  donor-mean=0.1003  [cell-pooled 0.1019]   band=MEASURABLE
+
+==============================================================================
+CRITERION (f) VERDICT
+==============================================================================
+R1: genes MEASURABLE in BOTH compartments = ['CCL3', 'CCL4', 'CCL5']  (3 of 3; need >= 2)  -> PASS
+R2 (XCL1, rule 2'(i) needs 5-85% in both) -> PASS
+
+>> criterion (f) on GSE154826: **PASS**
+
+NOTE: no ratio, no module value, and no tumour-versus-normal
+difference has been computed. Both compartments are shown because
+§5 requires the band to hold in each; that is admission, not comparison.

@@ -1,0 +1,74 @@
+==============================================================================
+A3.1 RE-REPORT — E-MTAB-10176 (record only; §4-inadmissible)
+==============================================================================
+
+--- R1 module mean, A3.1 compliant (5-85% genes only) ---
+
+NK 24h
+   R1 mean over ['Ccl3', 'Ccl4']  [OK]
+      Green=0.6082  Red=0.2118   -39.6 pp
+   [ceiling, EXCLUDED from mean, reported alone] Ccl5: 1.0000 -> 0.3799  -62.0 pp  (start at/above ceiling; decline is a LOWER BOUND)
+
+NK 72h
+   R1 mean over ['Ccl3', 'Ccl4']  [OK]
+      Green=0.5330  Red=0.1627   -37.0 pp
+   [ceiling, EXCLUDED from mean, reported alone] Ccl5: 0.8715 -> 0.3278  -54.4 pp  (start at/above ceiling; decline is a LOWER BOUND)
+
+CD8T 24h
+   R1 mean over ['Ccl3', 'Ccl4', 'Ccl5']  [OK]
+      Green=0.3856  Red=0.4213   +3.6 pp
+
+CD8T 72h
+   R1 mean over ['Ccl3', 'Ccl4', 'Ccl5']  [OK]
+      Green=0.4815  Red=0.4614   -2.0 pp
+
+==============================================================================
+A3.5 LABEL-CONSTRUCTION COMPLIANCE
+==============================================================================
+   one X_pca over all 4637 cells (both sides): True
+   one neighbour graph over all cells:              True
+   leiden run over all cells:                       True
+
+   allowed constructions per A3.5:
+     1. cluster ONE side, project the other  -> NOT used
+     2. canonical marker panel, no unsupervised clustering -> NOT used
+   >> VERDICT: CONSTRUCTION VIOLATION. Labels were built by joint
+      PCA + graph + leiden across Green and Red, so they are partly
+      DEFINED by the contrast. Per A3.5 retroactive clause, any
+      decomposition on these labels is barred from RESULTS.md.
+
+==============================================================================
+A3.3 / A3.4 DECOMPOSITION VERDICTS
+==============================================================================
+
+--- NK 24h ---
+   A3.3: subgroup 'NK 3' has ZERO cells on the GREEN side (green=0, red=16)
+   >> **UNDEFINED** — standardisation across this composition
+      has an infinite weight. Not rescuable by any effective-n
+      threshold. Dropping the subgroup is barred (A3.3).
+   A3.4: replicate-noise floor for this dataset is UNMEASURABLE (no same-condition replicate libraries),
+         so the standardised estimator's SE cannot be compared to it -> **UNIDENTIFIABLE** (criterion not evaluable).
+
+--- NK 72h ---
+   A3.3: subgroup 'NK 3' has ZERO cells on the GREEN side (green=0, red=41)
+   >> **UNDEFINED** — standardisation across this composition
+      has an infinite weight. Not rescuable by any effective-n
+      threshold. Dropping the subgroup is barred (A3.3).
+   A3.4: replicate-noise floor for this dataset is UNMEASURABLE (no same-condition replicate libraries),
+         so the standardised estimator's SE cannot be compared to it -> **UNIDENTIFIABLE** (criterion not evaluable).
+
+--- CD8T 24h ---
+   A3.3: no zero-cell subgroup -> not UNDEFINED
+   A3.4: replicate-noise floor for this dataset is UNMEASURABLE (no same-condition replicate libraries),
+         so the standardised estimator's SE cannot be compared to it -> **UNIDENTIFIABLE** (criterion not evaluable).
+
+--- CD8T 72h ---
+   A3.3: no zero-cell subgroup -> not UNDEFINED
+   A3.4: replicate-noise floor for this dataset is UNMEASURABLE (no same-condition replicate libraries),
+         so the standardised estimator's SE cannot be compared to it -> **UNIDENTIFIABLE** (criterion not evaluable).
+
+==============================================================================
+NET: the Kitagawa decomposition is NOT run on this dataset, for three
+independent reasons — UNDEFINED support (NK), UNIDENTIFIABLE (no
+measurable floor), and a label-CONSTRUCTION violation (all four cells).
+==============================================================================
