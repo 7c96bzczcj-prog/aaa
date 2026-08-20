@@ -1,0 +1,9 @@
+filter,condition,gene,n_donors,n_floor,n_measurable,n_ceiling,median,min,max,rule5_unusable
+NK >= 30 per library (as used for (f)),normal,CCL3,20,0,20,0,0.5184686033742637,0.2676056338028169,0.762532981530343,False
+NK >= 30 per library (as used for (f)),normal,CCL4,20,0,14,6,0.8142878346286702,0.4563380281690141,0.9393139841688656,False
+NK >= 30 per library (as used for (f)),normal,CCL5,20,0,15,5,0.815754576400946,0.1859154929577464,0.9672830725462304,False
+NK >= 30 per library (as used for (f)),normal,XCL1,20,3,17,0,0.07334549521391723,0.0297297297297297,0.3357041251778094,False
+NK >= 30 per library (as used for (f)),tumor,CCL3,19,0,19,0,0.3539823008849557,0.1547169811320754,0.6698717948717948,False
+NK >= 30 per library (as used for (f)),tumor,CCL4,19,0,18,1,0.6061946902654868,0.2622641509433962,0.9519230769230768,False
+NK >= 30 per library (as used for (f)),tumor,CCL5,19,0,18,1,0.6078431372549019,0.1716981132075471,0.8535714285714285,False
+NK >= 30 per library (as used for (f)),tumor,XCL1,19,2,17,0,0.0941176470588235,0.0169811320754716,0.2692307692307692,False

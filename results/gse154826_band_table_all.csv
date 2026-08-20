@@ -1,0 +1,9 @@
+filter,condition,gene,n_donors,n_floor,n_measurable,n_ceiling,median,min,max,rule5_unusable
+"ALL libraries, no cell-count filter",normal,CCL3,21,0,21,0,0.4708994708994709,0.2,0.762532981530343,False
+"ALL libraries, no cell-count filter",normal,CCL4,21,0,15,6,0.8134715025906736,0.4563380281690141,0.9393139841688656,False
+"ALL libraries, no cell-count filter",normal,CCL5,21,0,16,5,0.8082901554404145,0.1859154929577464,0.9672830725462304,False
+"ALL libraries, no cell-count filter",normal,XCL1,21,3,18,0,0.0754716981132075,0.0297297297297297,0.3357041251778094,False
+"ALL libraries, no cell-count filter",tumor,CCL3,21,2,19,0,0.3496503496503496,0.0,0.6698717948717948,False
+"ALL libraries, no cell-count filter",tumor,CCL4,21,0,20,1,0.5821917808219178,0.1923076923076923,0.9519230769230768,False
+"ALL libraries, no cell-count filter",tumor,CCL5,21,0,20,1,0.6,0.1716981132075471,0.8535714285714285,False
+"ALL libraries, no cell-count filter",tumor,XCL1,21,3,18,0,0.0909090909090909,0.0,0.2692307692307692,False

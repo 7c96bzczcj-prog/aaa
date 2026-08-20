@@ -1,0 +1,119 @@
+==============================================================================
+v2.0 §5.3 + §8 on GSE154826
+==============================================================================
+
+##############################################################################
+# NK >= 30 per library (as used for (f))
+##############################################################################
+
+------------------------------------------------------------------------------
+§5.3  BAND MEMBERSHIP BY DONOR  (no donor is dropped)
+------------------------------------------------------------------------------
+
+--- normal  (20 donors) ---
+   gene    floor   meas   ceil     median      min      max   rule-5 (>half floor?)
+   CCL3        0     20      0     0.5185   0.2676   0.7625   ok
+   CCL4        0     14      6     0.8143   0.4563   0.9393   ok
+   CCL5        0     15      5     0.8158   0.1859   0.9673   ok
+   XCL1        3     17      0     0.0733   0.0297   0.3357   ok
+
+--- tumor  (19 donors) ---
+   gene    floor   meas   ceil     median      min      max   rule-5 (>half floor?)
+   CCL3        0     19      0     0.3540   0.1547   0.6699   ok
+   CCL4        0     18      1     0.6062   0.2623   0.9519   ok
+   CCL5        0     18      1     0.6078   0.1717   0.8536   ok
+   XCL1        2     17      0     0.0941   0.0170   0.2692   ok
+
+------------------------------------------------------------------------------
+§5.3 rule 4  BOUND DIRECTION for cross-band genes
+------------------------------------------------------------------------------
+
+   CCL3: no cross-band donors
+
+   CCL4: ceiling donors (6 normal / 1 tumor) sit mostly on normal; higher-valued side is normal -> difference is a LOWER BOUND
+
+   CCL5: ceiling donors (5 normal / 1 tumor) sit mostly on normal; higher-valued side is normal -> difference is a LOWER BOUND
+
+   XCL1: floor donors (3 normal / 2 tumor) sit mostly on normal; lower-valued side is normal
+
+   NOTE: 'concentrated' is not given a threshold in §5.3 rule 4.
+   The counts are reported as-is; no difference is claimed here.
+
+------------------------------------------------------------------------------
+§8  INTER-DONOR FLOOR  (dispersion ACROSS donors, within a condition)
+      -- this is the CRITERION per §8 --
+------------------------------------------------------------------------------
+
+--- normal (n = 20 donors) ---
+   gene         SD      IQR  SE(mean)      CV
+   CCL3     0.1614   0.2703    0.0361   0.326
+   CCL4     0.1498   0.1508    0.0335   0.193
+   CCL5     0.1886   0.2150    0.0422   0.255
+   XCL1     0.0668   0.0499    0.0149   0.719
+
+--- tumor (n = 19 donors) ---
+   gene         SD      IQR  SE(mean)      CV
+   CCL3     0.1378   0.1743    0.0316   0.373
+   CCL4     0.1742   0.1756    0.0400   0.286
+   CCL5     0.1849   0.2591    0.0424   0.320
+   XCL1     0.0629   0.0528    0.0144   0.627
+
+------------------------------------------------------------------------------
+§8  TECHNICAL FLOOR  (replicate libraries within one donor)
+      -- LOWER BOUND, single donor, NOT the criterion per §8 --
+------------------------------------------------------------------------------
+
+--- patient 522, normal: 2 libraries (batches [30, 244]) ---
+   CCL3   0.5977  0.5882   |spread| =   0.9 pp
+   CCL4   0.8621  0.8301   |spread| =   3.2 pp
+   CCL5   0.8391  0.8235   |spread| =   1.6 pp
+   XCL1   0.0575  0.0850   |spread| =   2.7 pp
+
+--- patient 522, tumor: 2 libraries (batches [31, 245]) ---
+   CCL3   0.2636  0.3459   |spread| =   8.2 pp
+   CCL4   0.6822  0.6541   |spread| =   2.8 pp
+   CCL5   0.6279  0.6917   |spread| =   6.4 pp
+   XCL1   0.1163  0.0827   |spread| =   3.4 pp
+
+------------------------------------------------------------------------------
+§8  SIDE BY SIDE — is the single-donor technical floor a LOWER bound?
+------------------------------------------------------------------------------
+   gene   cond     technical (pp)   inter-donor SD (pp)  ratio
+   CCL3   normal              0.9                  16.1  0.06x  <== technical SMALLER, as §8 predicts
+   CCL4   normal              3.2                  15.0  0.21x  <== technical SMALLER, as §8 predicts
+   CCL5   normal              1.6                  18.9  0.08x  <== technical SMALLER, as §8 predicts
+   XCL1   normal              2.7                   6.7  0.41x  <== technical SMALLER, as §8 predicts
+   CCL3   tumor               8.2                  13.8  0.60x  <== technical SMALLER, as §8 predicts
+   CCL4   tumor               2.8                  17.4  0.16x  <== technical SMALLER, as §8 predicts
+   CCL5   tumor               6.4                  18.5  0.35x  <== technical SMALLER, as §8 predicts
+   XCL1   tumor               3.4                   6.3  0.53x  <== technical SMALLER, as §8 predicts
+
+   §8 predicts the single-donor technical floor understates true
+   technical variation, so it should not be used as the criterion.
+
+##############################################################################
+# ALL libraries, no cell-count filter
+##############################################################################
+
+------------------------------------------------------------------------------
+§5.3  BAND MEMBERSHIP BY DONOR  (no donor is dropped)
+------------------------------------------------------------------------------
+
+--- normal  (21 donors) ---
+   gene    floor   meas   ceil     median      min      max   rule-5 (>half floor?)
+   CCL3        0     21      0     0.4709   0.2000   0.7625   ok
+   CCL4        0     15      6     0.8135   0.4563   0.9393   ok
+   CCL5        0     16      5     0.8083   0.1859   0.9673   ok
+   XCL1        3     18      0     0.0755   0.0297   0.3357   ok
+
+--- tumor  (21 donors) ---
+   gene    floor   meas   ceil     median      min      max   rule-5 (>half floor?)
+   CCL3        2     19      0     0.3497   0.0000   0.6699   ok
+   CCL4        0     20      1     0.5822   0.1923   0.9519   ok
+   CCL5        0     20      1     0.6000   0.1717   0.8536   ok
+   XCL1        3     18      0     0.0909   0.0000   0.2692   ok
+
+==============================================================================
+NOTE: no tumour-versus-normal difference, ratio or module value was
+computed. §6 main computation is gated behind G-KILL-3 ① and ③.
+==============================================================================
