@@ -155,6 +155,35 @@ Green = Kaede-Green = `Infiltrating` = 新进入；Red = Kaede-Red = `Resident` 
 
 ---
 
+## K. v2.0 §5.3 / §8 执行结果（`GSE154826`）
+
+脚本 `scripts/v2_bands_and_floors.py`，日志 `results/v2_bands_and_floors.log`。**未计算任何组间差值、比值或模块值。**
+
+| # | 断言 | 证据类型 | 等级 | 出处 | 是否推翻初判 / 归因 |
+|---|---|---|---|---|---|
+| **K1** | **§5.3 透明表（NK≥30，无供者被丢弃）。** normal（20 供者）地板/可测/天花板：CCL3 **0/20/0**、CCL4 **0/14/6**、CCL5 **0/15/5**、XCL1 **3/17/0**；tumour（19 供者）：CCL3 **0/19/0**、CCL4 **0/18/1**、CCL5 **0/18/1**、XCL1 **2/17/0**。**§5.3 规则 5（过半地板→`UNUSABLE`）无一触发** | 实测 | **[M]** | `results/gse154826_band_table_filtered.csv` | 否 |
+| **K2** | **§5.3 规则 4 的界方向：CCL4 与 CCL5 的天花板供者集中在 normal 侧（6/20 与 5/20，对 tumour 各 1/19），而 normal 恰是数值较高的一侧 → 这两个基因的任何组间差都是"下界"。** 规则 4 在此干净适用 | 实测 | **[M]** | 同上 | 否 |
+| **K3** | **§5.3 规则 4 有一处缺口，需裁决：规则未给"集中"下阈值。** XCL1 的地板供者为 **3 normal / 2 tumour**（15% vs 10.5%），normal 又恰是数值较低的一侧。**按字面严格读，规则 4 的"地板供者集中在较低一侧 → 该基因不可用"会判 XCL1 `UNUSABLE`，即 R2 整条归零**；按"3 比 2 不算集中"读则 XCL1 存活。**两种读法后果相反，且规则本身不能裁决** | 实测 + 规则分析 | **[M]** | 同上 | **是 / 归因规范** |
+| **K4** | **§8 的裁定被实测证实。** 单供者技术底（patient 522，唯一有同条件复孔者）在**全部 8 个 基因×条件 格子里都小于供者间 SD**，比值 **0.06× 至 0.60×**。§8 预测"单供者技术底低估群体技术变异、方向是让东西显得更可测"——方向完全吻合 | 实测 | **[M]** | `results/gse154826_noise_floors.csv` | 否 —— 确证 §8 |
+| **K5** | **§8 判据（供者间底）的实测值，SD，pp**：CCL3 **16.1**（normal）/ **13.8**（tumour）；CCL4 15.0 / 17.4；CCL5 18.9 / 18.5；**XCL1 6.7 / 6.3**。均值标准误（n≈20）：CCL3 3.6/3.2、CCL4 3.4/4.0、CCL5 4.2/4.2、XCL1 1.5/1.4 pp。**由此推导可检出阈值属 §6 主计算，未做** | 实测 | **[M]** | 同上 | 否 |
+| K6 | 技术底（patient 522，两文库间跨度，pp）：normal CCL3 0.9 / CCL4 3.2 / CCL5 1.6 / XCL1 2.7；tumour CCL3 8.2 / CCL4 2.8 / CCL5 6.4 / XCL1 3.4 | 实测 | **[M]** | 同上 | 否 |
+| K7 | **NK≥30 的细胞数筛选确实改变带计数**（不筛时 tumour CCL3 多出 2 个地板供者、XCL1 多 1 个，最低值 0.0000，来自 NK=6 的文库）。该筛选是**按细胞数**（精度）而非**按带**（结果）筛，故不违反 §5.3；两版表均已出具 | 实测 | **[M]** | `results/gse154826_band_table_all.csv` | 否 |
+
+---
+
+## L. G-KILL-3 ① 与 ③（v2.0 交接语第 4 项）
+
+| # | 断言 | 证据类型 | 等级 | 出处 | 是否推翻初判 |
+|---|---|---|---|---|---|
+| **L1** | **③ 的答案：`NOT_FOUND`，且形状有意义。** Europe PMC 检索 Withers DR 全部预印本（9 篇）：NK 那篇是 **2023-08-14 的预印本，即 Dean 2024 的前身**；2024 之后的预印本是 TMEM33/CD8 T（2026-01）与 γδ T/Nippostrongylus（2025-01），**均与 NK 无关**。已发表侧 2024 后为：CCR7⁺ DC（2024）、Kaede 光标记方法学 protocol（2024）、肿瘤巨噬细胞 in vivo labeling（2025）、Kaede/溶瘤病毒（2025）及若干综述。**该组把同一套 Kaede 平台转向了 DC 与巨噬细胞，没有回到 NK 机制** | 书目检索（Europe PMC API） | **[V]** | Europe PMC `AUTH:"Withers DR"`，57 篇 + 9 预印本 | 否 —— 与 A3.7"口子"读法一致 |
+| **L2** | **① 未被 Netskar 2024 占位。** 泛癌 NK 参考映射（Nat Immunol 2024，427 患者，7 瘤种，PMC11291284）**不按两条臂定义亚群**，**未陈述**两者反向或一存一失（`NOT_STATED`），**未测 CCL4**，也未把 XCR1/cDC1 与 CCR1/CCR5 招募当作可分离功能（`NOT_STATED`）。原文只说 "CCL3 and CCL5, expressed across all states, can lead to the recruitment of cells expressing ACKR1, CCR1 and CCR4"，以及两个 CD56^bright 群 "higher expression of immunomodulatory molecules, including *XCL1*, *XCL2* and *IFNG*" | primary，全文（本人打开） | **[V]** | [PMC11291284](https://pmc.ncbi.nlm.nih.gov/articles/PMC11291284/) | 否 |
+| **L3** | **① 的关键线索未能核实，且它可能对命题不利——必须在任何下一步之前解决。** 检索摘要指向 **Cell 2023 泛癌 NK 图谱**（716 患者、24 瘤种；PMID 37607536）同时报告了两件事：(i) 存在 XCL1/XCL2 高的簇与 CCL3/CCL4/CCL4L2/CCL5 高的簇，且前者细胞毒性签名较低、后者较高；(ii) **对比邻近非肿瘤组织，c3-CCL3 群的 CCL3/CCL4 下降，而 c5-CREM 群的 XCL1/XCL2 在多数瘤种中也下降**。若 (ii) 属实，则"R2 保留"这半边命题受到直接挑战——**但两条陈述分属不同的簇，不是同一批细胞**，因此也不构成命题所需的同细胞对比 | 检索摘要，**未打开原文** | **[L] / 待核实** | PMID 37607536；Europe PMC 记录：**`isOpenAccess: N`、无 PMCID、`inEPMC: N`**，ScienceDirect 与 cell.com 双双 403 | **待定 —— 不得进入结论** |
+| **L4** | **L3 触发一条操作性障碍**：该 Cell 2023 图谱正是本项目 Phase 0 已点名的那篇（把 Marsh 解离应激集 DNAJB1/HSPA1A/FOS/JUN 读作肿瘤 NK 生物学的那篇），因此按 §3 规则 4 属"手里已有、与命题相邻"，**其 Discussion 必须重读**——但它**不开放获取**，本容器无法打开。**这是 ① 目前唯一的、也是最重要的阻塞点** | 推论 | **[M]** | `docs/PHASE0_LITERATURE.md` + 上条 | 否 |
+| **L5** | **① 的当前判定：`PARTIALLY_OCCUPIED / 待核实`，不是 `NOT_FOUND`。** 已核实的两个泛癌资源里，Netskar 2024 **不**占位（L2）；Cell 2023 **可能**占位但无法核实（L3）。按 §3 规则 6，L3 不得进入结论段；按 §2 门顺序，**① 未跑完，§6 主计算仍被封** | 推论 | **[M]** | 本报告 | 否 |
+| L6 | ① 的第二问——"**有没有任何人测过肿瘤 NK 的 CCL3/CCL4**"——目前证据：Böttcher 2018 **测不到**（"could not be detected by this analysis"）`[V]`；Netskar 2024 **未测 CCL4** `[V]`；Dean 2024 **测到了** Ccl3/Ccl4（小鼠）`[V]`；Cell 2023 图谱**疑似测到**但未核实 `[L]`。**人类肿瘤 NK 的 CCL3/CCL4 测量极稀少，这一点本身支持"受众侧是空白"** | 混合 | **[V]** / 部分 **[L]** | 本文件 §F、L2、L3 | 否 |
+
+---
+
 ## D. 未做 / 未搜（§3.1，不留空）
 
 | 项 | 状态 |
@@ -165,7 +194,10 @@ Green = Kaede-Green = `Infiltrating` = 新进入；Red = Kaede-Red = `Resident` 
 | Kersten 2022 补充材料 / 逐基因 DE 表 | `NOT_SEARCHED` —— 仅主文 Results/Methods/图注 |
 | 从 `PRJNA912695` / E-MTAB-10176 FASTQ 重跑 CellRanger 以取得未过滤 droplet 矩阵 | `NOT_ATTEMPTED` —— 见 `DATASETS.md`；即使重跑也不能造出不存在的生物学重复 |
 | Dean 2024 的 `GSE221064` 上做同一 A1.4 检验 | `NOT_RUN` —— 仅 filtered matrix，且同属 n 问题，待确认后再定 |
-| G-KILL-3 整体 | `NOT_RUN` —— 仅单独核实了第 2 问指定的落点（本文件 §F），未跑门 |
+| G-KILL-3 ① | **部分已跑**（§L）：Netskar 2024 已核实不占位；Cell 2023 图谱**疑似占位但付费墙阻断核实** → 判 `PARTIALLY_OCCUPIED / 待核实`，**①未跑完** |
+| G-KILL-3 ③ | **已跑，`NOT_FOUND`**（§L1）：Withers 组 2024 后无 NK 机制预印本或新 NK 工作 |
+| G-KILL-3 ② | 已答（§F） |
+| Cell 2023 泛癌 NK 图谱原文 | `BLOCKED` —— 非开放获取，无 PMCID，ScienceDirect 与 cell.com 均 403。**①的完成取决于它** |
 | R2/R1 主读数计算 | `NOT_RUN` —— A-2 的新主读数，未授权 |
 | Dorner 2009 *Immunity* 原文 | `NOT_OPENED` —— cell.com / ScienceDirect 均 403（见 X7） |
 | Crozat 2010 *JEM* 跨物种 XCR1 原文 | `NOT_OPENED` —— rupress.org 403 |
