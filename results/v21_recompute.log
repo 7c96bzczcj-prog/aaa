@@ -1,0 +1,74 @@
+==============================================================================
+v2.1 §6.8 RECOMPUTE FROM RAW DONOR-LEVEL DATA — GSE154826
+==============================================================================
+donors with normal: 20   with tumour: 19   PAIRED (both): 19
+
+------------------------------------------------------------------------------
+PAIRED vs UNPAIRED  (pp)
+------------------------------------------------------------------------------
+gene     base  d(unpair)  SE(unpair)  d(paired)  SE(paired)      r  SE ratio
+CCL3    0.495     -12.62        4.80     -13.41        4.43   0.18      0.92
+CCL4    0.775     -16.70        5.21     -18.32        5.22  -0.07      1.00
+CCL5    0.741     -16.33        5.98     -17.51        6.15  -0.05      1.03
+XCL1    0.093       0.73        2.08       0.78        2.23  -0.09      1.07
+
+------------------------------------------------------------------------------
+§6.8 SCORING, PAIRED (the design's correct analysis)
+------------------------------------------------------------------------------
+R1 observed proportional change (median of CCL3/4/5): -23.6%
+
+CCL3:
+   paired diff = -13.41 pp (-27.1%),  SE = 4.43 pp   -> |d|/SE = 3.03
+   paired t(18) = -3.029,  p = 0.007211
+   MDPC (1-SE bar)  = 8.9%   [unpaired would give 9.7%]
+   MDPC (t.975 bar) = 18.8%
+
+CCL4:
+   paired diff = -18.32 pp (-23.6%),  SE = 5.22 pp   -> |d|/SE = 3.51
+   paired t(18) = -3.511,  p = 0.002496
+   MDPC (1-SE bar)  = 6.7%   [unpaired would give 6.7%]
+   MDPC (t.975 bar) = 14.1%
+
+CCL5:
+   paired diff = -17.51 pp (-23.6%),  SE = 6.15 pp   -> |d|/SE = 2.84
+   paired t(18) = -2.845,  p = 0.01075
+   MDPC (1-SE bar)  = 8.3%   [unpaired would give 8.1%]
+   MDPC (t.975 bar) = 17.5%
+
+XCL1:
+   paired diff = +0.78 pp (+8.4%),  SE = 2.23 pp   -> |d|/SE = 0.35
+   paired t(18) = 0.352,  p = 0.7288
+   MDPC (1-SE bar)  = 23.9%   [unpaired would give 22.3%]
+   MDPC (t.975 bar) = 50.3%
+   >> if XCL1 fell by R1's -23.6%, that is 2.20 pp = 0.99 x SE
+   >> §6.7 rule 3: MDPC(1SE)=23.9% vs R1 observed 23.6%  -> NOT SATISFIED
+   >> a same-proportion fall would be: NOT DETECTABLE
+
+==============================================================================
+§5.3 rule 4  SENSITIVITY CONTROLS (exclude out-of-band donors)
+main estimate = ALL donors; exclusion version is sensitivity ONLY
+==============================================================================
+
+CCL3: out-of-band donors = none
+   main (all 19 pairs)      : -13.41 pp
+   sensitivity (19 pairs kept) : -13.41 pp
+   direction agrees: True
+
+CCL4: out-of-band donors = [370, 371, 378, 408, 410, 569, 714]
+   main (all 19 pairs)      : -18.32 pp
+   sensitivity (12 pairs kept) : -14.18 pp
+   direction agrees: True
+
+CCL5: out-of-band donors = [370, 403, 410, 532, 578]
+   main (all 19 pairs)      : -17.51 pp
+   sensitivity (14 pairs kept) : -12.17 pp
+   direction agrees: True
+
+XCL1: out-of-band donors = [370, 406, 408, 410, 532]
+   main (all 19 pairs)      : +0.78 pp
+   sensitivity (14 pairs kept) : +0.21 pp
+   direction agrees: True
+
+==============================================================================
+Wrote v21_recompute.csv, v21_sensitivity.csv
+==============================================================================
