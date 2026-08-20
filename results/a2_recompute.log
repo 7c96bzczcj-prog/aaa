@@ -1,0 +1,194 @@
+==============================================================================
+A-2 rev 2 RECOMPUTE — E-MTAB-10176
+RECORD ONLY: dataset fails §4 admission (n=1/side). -> EXCLUDED.md
+==============================================================================
+genes absent from matrix: none
+
+------------------------------------------------------------------------------
+A2.4  SUBCLUSTER COMPOSITION, Green -> Red  (NK reported alongside CD8T)
+------------------------------------------------------------------------------
+
+--- NK 24h ---
+   NK 1                    0.845 ->  0.035    -81.0 pp
+   NK 2                    0.155 ->  0.895    +74.1 pp
+   NK 3                    0.000 ->  0.070     +7.0 pp
+   >> total variation distance (0=identical, 1=disjoint): 0.810
+
+--- NK 72h ---
+   NK 1                    0.545 ->  0.017    -52.9 pp
+   NK 2                    0.455 ->  0.886    +43.1 pp
+   NK 3                    0.000 ->  0.097     +9.7 pp
+   >> total variation distance (0=identical, 1=disjoint): 0.529
+
+--- CD8T 24h ---
+   CD8T 1                  0.306 ->  0.021    -28.5 pp
+   CD8T 2                  0.590 ->  0.634     +4.4 pp
+   CD8T 3                  0.104 ->  0.345    +24.0 pp
+   >> total variation distance (0=identical, 1=disjoint): 0.285
+
+--- CD8T 72h ---
+   CD8T 1                  0.263 ->  0.005    -25.8 pp
+   CD8T 2                  0.284 ->  0.052    -23.2 pp
+   CD8T 3                  0.453 ->  0.942    +49.0 pp
+   >> total variation distance (0=identical, 1=disjoint): 0.490
+
+------------------------------------------------------------------------------
+A2.2  PER-GENE DETECTION AND DIRECTIONAL BAND VERDICT
+------------------------------------------------------------------------------
+
+--- NK 24h ---
+   gene    mod    Green     Red  delta_pp  verdict
+   Ccl3    R1    0.4536  0.1092     -34.4  MEASURABLE
+   Ccl4    R1    0.7629  0.3144     -44.8  MEASURABLE
+   Ccl5    R1    1.0000  0.3799     -62.0  CEILING_DOWN_LOWERBOUND
+   Xcl1    R2    0.4536  0.5328      +7.9  MEASURABLE
+   Prf1    K     0.8660  0.9039      +3.8  CEILING_UP_UNMEASURED
+   Gzma    K     0.9691  0.9258      -4.3  CEILING_DOWN_LOWERBOUND
+   Gzmb    K     0.9588  0.9170      -4.2  CEILING_DOWN_LOWERBOUND
+   Gzmk    K     0.0309  0.0087      -2.2  FLOOR_UNMEASURED
+   Nkg7    K     0.9897  0.9607      -2.9  CEILING_DOWN_LOWERBOUND
+
+--- NK 72h ---
+   gene    mod    Green     Red  delta_pp  verdict
+   Ccl3    R1    0.3854  0.0926     -29.3  MEASURABLE
+   Ccl4    R1    0.6806  0.2328     -44.8  MEASURABLE
+   Ccl5    R1    0.8715  0.3278     -54.4  CEILING_DOWN_LOWERBOUND
+   Xcl1    R2    0.5069  0.5962      +8.9  MEASURABLE
+   Prf1    K     0.9062  0.8694      -3.7  CEILING_DOWN_LOWERBOUND
+   Gzma    K     0.9583  0.7957     -16.3  CEILING_DOWN_LOWERBOUND
+   Gzmb    K     0.8993  0.8979      -0.1  CEILING_DOWN_LOWERBOUND
+   Gzmk    K     0.0278  0.0048      -2.3  FLOOR_UNMEASURED
+   Nkg7    K     0.9792  0.9810      +0.2  CEILING_UP_UNMEASURED
+
+--- CD8T 24h ---
+   gene    mod    Green     Red  delta_pp  verdict
+   Ccl3    R1    0.1269  0.1660      +3.9  MEASURABLE
+   Ccl4    R1    0.3507  0.4596     +10.9  MEASURABLE
+   Ccl5    R1    0.6791  0.6383      -4.1  MEASURABLE
+   Xcl1    R2    0.0522  0.0681      +1.6  MEASURABLE
+   Prf1    K     0.3657  0.5447     +17.9  MEASURABLE
+   Gzma    K     0.4030  0.3149      -8.8  MEASURABLE
+   Gzmb    K     0.6045  0.8979     +29.3  CEILING_UP_UNMEASURED
+   Gzmk    K     0.2537  0.3064      +5.3  MEASURABLE
+   Nkg7    K     0.7537  0.8894     +13.6  CEILING_UP_UNMEASURED
+
+--- CD8T 72h ---
+   gene    mod    Green     Red  delta_pp  verdict
+   Ccl3    R1    0.2263  0.2985      +7.2  MEASURABLE
+   Ccl4    R1    0.5103  0.6078      +9.7  MEASURABLE
+   Ccl5    R1    0.7078  0.4779     -23.0  MEASURABLE
+   Xcl1    R2    0.1523  0.0616      -9.1  MEASURABLE
+   Prf1    K     0.4568  0.7791     +32.2  MEASURABLE
+   Gzma    K     0.3621  0.1352     -22.7  MEASURABLE
+   Gzmb    K     0.6790  0.8554     +17.6  CEILING_UP_UNMEASURED
+   Gzmk    K     0.2551  0.1218     -13.3  MEASURABLE
+   Nkg7    K     0.8477  0.9692     +12.1  CEILING_UP_UNMEASURED
+
+------------------------------------------------------------------------------
+A2.1  MODULE VALUES AND MAIN READOUT R2/R1
+A2.1 rule 2'(iii): raw R2 detection reported alongside every ratio
+------------------------------------------------------------------------------
+
+NK 24h
+   R1 genes used ['Ccl3', 'Ccl4', 'Ccl5']  -> OK
+      R1  Green=0.7388  Red=0.2678   -47.1 pp
+   R2 (Xcl1, single gene) -> rule 2'(i) band OK
+      R2  Green=0.4536  Red=0.5328   +7.9 pp   [rule 2'(iii) raw]
+   K  genes used ['Gzma', 'Gzmb', 'Nkg7']  -> OK
+      K   Green=0.9725  Red=0.9345   -3.8 pp
+   >> R2/R1  Green=0.6140  Red=1.9891  delta=+1.3752
+
+NK 72h
+   R1 genes used ['Ccl3', 'Ccl4', 'Ccl5']  -> OK
+      R1  Green=0.6458  Red=0.2177   -42.8 pp
+   R2 (Xcl1, single gene) -> rule 2'(i) band OK
+      R2  Green=0.5069  Red=0.5962   +8.9 pp   [rule 2'(iii) raw]
+   K  genes used ['Prf1', 'Gzma', 'Gzmb']  -> OK
+      K   Green=0.9213  Red=0.8543   -6.7 pp
+   >> R2/R1  Green=0.7849  Red=2.7382  delta=+1.9532
+
+CD8T 24h
+   R1 genes used ['Ccl3', 'Ccl4', 'Ccl5']  -> OK
+      R1  Green=0.3856  Red=0.4213   +3.6 pp
+   R2 (Xcl1, single gene) -> rule 2'(i) band OK
+      R2  Green=0.0522  Red=0.0681   +1.6 pp   [rule 2'(iii) raw]
+   K  genes used ['Prf1', 'Gzma', 'Gzmk']  -> OK
+      K   Green=0.3408  Red=0.3887   +4.8 pp
+   >> R2/R1  Green=0.1355  Red=0.1616  delta=+0.0261
+
+CD8T 72h
+   R1 genes used ['Ccl3', 'Ccl4', 'Ccl5']  -> OK
+      R1  Green=0.4815  Red=0.4614   -2.0 pp
+   R2 (Xcl1, single gene) -> rule 2'(i) band OK
+      R2  Green=0.1523  Red=0.0616   -9.1 pp   [rule 2'(iii) raw]
+   K  genes used ['Prf1', 'Gzma', 'Gzmk']  -> OK
+      K   Green=0.3580  Red=0.3454   -1.3 pp
+   >> R2/R1  Green=0.3162  Red=0.1335  delta=-0.1828
+
+------------------------------------------------------------------------------
+A2.1 rule 4  LEAVE-ONE-OUT on R1 only (R2 is a single gene)
+------------------------------------------------------------------------------
+
+NK 24h baseline delta=+1.3752
+   drop Ccl3   -> delta=+1.0200  stable
+   drop Ccl4   -> delta=+1.5545  stable
+   drop Ccl5   -> delta=+1.7697  stable
+
+NK 72h baseline delta=+1.9532
+   drop Ccl3   -> delta=+1.4739  stable
+   drop Ccl4   -> delta=+2.0295  stable
+   drop Ccl5   -> delta=+2.7131  stable
+
+CD8T 24h baseline delta=+0.0261
+   drop Ccl3   -> delta=+0.0226  stable
+   drop Ccl4   -> delta=+0.0397  stable
+   drop Ccl5   -> delta=-0.0011  ** FLIPS -> UNSTABLE **
+
+CD8T 72h baseline delta=-0.1828
+   drop Ccl3   -> delta=-0.1366  stable
+   drop Ccl4   -> delta=-0.1674  stable
+   drop Ccl5   -> delta=-0.2775  stable
+
+------------------------------------------------------------------------------
+A2.1 rule 2'(ii) + A2.3(g)  REPLICATE-NOISE FLOOR
+------------------------------------------------------------------------------
+colour  hours
+Green   24       1
+        72       1
+Red     24       1
+        72       1
+Name: sample, dtype: int64
+
+max libraries in any one (colour,hours) cell: 1
+-> noise floor UNMEASURABLE in this dataset (A2.3(g) fires)
+-> rule 2'(ii) CANNOT be satisfied: R2's change is not qualifiable
+-> per A2.3(g) this dataset yields NO difference conclusion at all
+
+------------------------------------------------------------------------------
+HAZARD FLAG — A2.2 admission can select on the realised outcome
+------------------------------------------------------------------------------
+Ceiling-band genes, and whether A2.2 admits them (admission depends on
+the DIRECTION each gene happened to move):
+   NK     24h Ccl5   1.0000->0.3799  -62.0 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     24h Prf1   0.8660->0.9039   +3.8 pp  EXCLUDED  (CEILING_UP_UNMEASURED)
+   NK     24h Gzma   0.9691->0.9258   -4.3 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     24h Gzmb   0.9588->0.9170   -4.2 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     24h Nkg7   0.9897->0.9607   -2.9 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     72h Ccl5   0.8715->0.3278  -54.4 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     72h Prf1   0.9062->0.8694   -3.7 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     72h Gzma   0.9583->0.7957  -16.3 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     72h Gzmb   0.8993->0.8979   -0.1 pp  ADMITTED  (CEILING_DOWN_LOWERBOUND)
+   NK     72h Nkg7   0.9792->0.9810   +0.2 pp  EXCLUDED  (CEILING_UP_UNMEASURED)
+   CD8T   24h Gzmb   0.6045->0.8979  +29.3 pp  EXCLUDED  (CEILING_UP_UNMEASURED)
+   CD8T   24h Nkg7   0.7537->0.8894  +13.6 pp  EXCLUDED  (CEILING_UP_UNMEASURED)
+   CD8T   72h Gzmb   0.6790->0.8554  +17.6 pp  EXCLUDED  (CEILING_UP_UNMEASURED)
+   CD8T   72h Nkg7   0.8477->0.9692  +12.1 pp  EXCLUDED  (CEILING_UP_UNMEASURED)
+
+   admitted 8, excluded 6 — all excluded ones were non-falling by construction.
+   => a module mean over ceiling genes is biased DOWNWARD by construction,
+      because only the fallers can enter. Affects K, not R1/R2 here.
+
+==============================================================================
+Wrote a2_composition.csv, a2_gene_bands.csv, a2_module_values.csv,
+      a2_leave_one_out.csv
+==============================================================================
