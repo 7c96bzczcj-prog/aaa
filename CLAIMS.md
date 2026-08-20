@@ -118,6 +118,22 @@ Green = Kaede-Green = `Infiltrating` = 新进入；Red = Kaede-Red = `Resident` 
 
 ---
 
+## I. 分解前置检查 —— 标签独立性、可识别性、Dean 自查、E-MTAB-6701 的 §4(a)
+
+脚本 `scripts/a3_precheck.py`，日志 `results/a3_precheck.log`。
+
+| # | 断言 | 证据类型 | 等级 | 出处 | 是否推翻初判 |
+|---|---|---|---|---|---|
+| **I1** | **标签独立性不成立 —— Kitagawa 在这套标签上是循环论证。** NK 三个亚群里：**NK-3 = 0 绿 / 57 红，完全由颜色决定**；NK-1 = 239 绿 / 15 红（**94.1% 绿**）。三者中两者纯度 ≥90%。对象内只有**一套** `X_pca`（全部 4637 细胞）、**一套**邻居图、一次 leiden——聚类是把绿红合在一起做的，**标签里本就含着这个对比** | 实测 | **[M]** | `results/a3_label_independence.csv` | **是** |
+| **I2** | **重加权可识别性不成立，四个 谱系×时点 格子全部 `UNIDENTIFIABLE`。** 把红侧标准化到绿侧组成时：NK 24h 的 **NK-1 拿 0.845 的权重，而红侧只有 8 个细胞**；NK 72h 的 NK-1 拿 0.545，红侧只有 **7 个细胞**。Kish 有效样本量：**红侧 229 → 11.2（保留 4.9%）**（24h）、421 → 23.3（5.5%）（72h）；CD8T 72h 747 → 50.8（6.8%） | 实测 | **[M]** | `results/a3_identifiability.csv` | **是** |
+| **I3** | **还有一个比方差爆炸更硬的失效模式，之前的框架没点出：支撑集不重叠。** `NK-3` 在绿侧是 **0 个细胞**，所以"把绿侧标准化到红侧"的权重是 **∞——不是噪声大，是没有定义**。这不是"重加权后细胞太少"，是"该方向的标准化不存在"。两个时点的 NK 都如此 | 实测 | **[M]** | 同上 | **是** —— 新失效模式 |
+| **I4** | **Dean 2024 比预想的谨慎：他报了这个组成位移，也正面处理了替代解释——但只关掉了三扇门里的两扇。** 原文报告聚类间的 KR⁺ 比例梯度："a gradation in the proportion of KR+ cells across the NK clusters, with the NK_1 cluster comprised almost entirely of KG+ cells and the NK_5 cluster … approximately 90% KR+ cells"，Fig 1D 图注即"The proportion of Kaede Green+ and Kaede Red+ cells within each cluster"。他也明确提出三分支："these cells must all either **differentiate** to a CD49a+ state, **egress** the tumor, or **die in situ**"，并用其他组织中 KR⁺ NK 极少来排除 egress。**但他没有排除 die** —— 若 CD49a⁻ NK 在瘤内选择性死亡而 CD49a⁺ 存活，组成位移与"重编程"在数据上不可区分。且**无克隆/谱系追踪**（`NOT_STATED`），聚类同样是绿红合并做的 | primary，全文（本人打开） | **[V]** | Dean et al. *Nat Commun* 2024;15:683（[PMC10808449](https://pmc.ncbi.nlm.nih.gov/articles/PMC10808449/)） | **是** —— 推翻"他讲重编程、数据讲两群人"的简单读法；真正的缺口是**选择性死亡**，不是他没想到 |
+| **I5** | **裁定 (a)（天花板不进均值）的后果已经算出来了，而且不改变方向。** 该裁定使 R1 均值 = Ccl3 + Ccl4，Ccl5 单列——这正是已跑的留一法"去掉 Ccl5"那一行：NK 的 R2/R1 Δ 由 +1.3752 → **+1.7697**（24h）、+1.9532 → **+2.7131**（72h），**方向不变且幅度更大**。CD8T 则 24h Δ → −0.0011（几乎为零）、72h → −0.2775 | 实测 | **[M]** | `results/a2_leave_one_out.csv` | 否 |
+| **I6** | **`E-MTAB-6701` 的 §4(a) 不通过 —— 你问的那一条，答案是"没有"。** 归档只有 4 个文件，矩阵是 `raw_data_10x.txt`（4.1 GB）。直接读其表头：**64,735 列 = 1 个 Gene 列 + 64,734 个条码**，条码带文库前缀（FCA7167222_… 等）跨库合并。10x v2 未过滤矩阵应是**每库 737,280** 条码；64,734 跨约十余库 ≈ 每库 5,000，**是已判定细胞的矩阵，不是未过滤 droplet 矩阵**。文件名里的 "raw" 指未归一化的计数，不指未过滤的液滴 | 实测（HTTP range 读表头） | **[M]** | `https://www.ebi.ac.uk/biostudies/files/E-MTAB-6701/raw_data_10x.txt` | **是** |
+| **I7** | **因此第三点的要求在 `E-MTAB-6701` 上无法执行。** 逐基因 soup fraction 需要空液滴；无未过滤矩阵即无法估计。R1（有大量巨噬/单核来源）与 R2（基本只有 NK/T 来源）的 soup fraction 无法并列报告 → **该数据集过了 (f)(g) 仍不能进**，卡在 (a) | 推论，基于 I6 | **[M]** | 本报告 | **是** —— 撤销 H8 的"暂定通过" |
+
+---
+
 ## D. 未做 / 未搜（§3.1，不留空）
 
 | 项 | 状态 |

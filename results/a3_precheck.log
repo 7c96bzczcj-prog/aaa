@@ -1,0 +1,98 @@
+==============================================================================
+PRE-CHECKS BEFORE ANY KITAGAWA DECOMPOSITION — E-MTAB-10176
+==============================================================================
+
+------------------------------------------------------------------------------
+(1) LABEL INDEPENDENCE — colour composition WITHIN each subcluster
+------------------------------------------------------------------------------
+A cluster that is ~pure one colour is a label defined by the contrast.
+
+--- NK ---
+   subcluster          n  nGreen   nRed  %Green  purity
+   NK 1              254     239     15    94.1  <== >=90% one colour
+   NK 2              724     146    578    20.2
+   NK 3               57       0     57     0.0  <== COLOUR-PURE (one side has ZERO cells)
+
+--- CD8T ---
+   subcluster          n  nGreen   nRed  %Green  purity
+   CD8T 1            114     105      9    92.1  <== >=90% one colour
+   CD8T 2            336     148    188    44.0
+   CD8T 3            909     124    785    13.6
+
+   --- summary ---
+   NK: 3 subclusters, 1 colour-PURE, 2 at >=90% one colour, max purity 1.000
+   CD8T: 3 subclusters, 0 colour-PURE, 1 at >=90% one colour, max purity 0.921
+
+   --- provenance evidence from the object ---
+   obsm keys: ['X_pca', 'X_umap']  (X_pca over ALL 4637 cells = joint embedding)
+   obsp keys: ['distances', 'connectivities']  (neighbour graph over all cells)
+   leiden levels: 11; leiden-2 levels: 15
+   -> a single PCA + single neighbour graph + leiden over Green AND Red
+      together means the labels were derived WITH the contrast in them.
+
+------------------------------------------------------------------------------
+(2) REWEIGHTING IDENTIFIABILITY — cells left under standardisation
+------------------------------------------------------------------------------
+
+=== NK 24h ===
+   subcluster      nG    nR     pG     pR  w(R->G)  w(G->R)
+   NK 1            82     8  0.845  0.035    24.20     0.04
+   NK 2            15   205  0.155  0.895     0.17     5.79
+   NK 3             0    16  0.000  0.070     0.00      inf
+   -- subclusters carrying >20% of target weight --
+      standardise RED to GREEN: 'NK 1' gets weight 0.845 but RED has only 8 cells   <== BELOW 30
+      standardise GREEN to RED: 'NK 2' gets weight 0.895 but GREEN has only 15 cells   <== BELOW 30
+   -- Kish effective sample size after reweighting --
+      RED   n= 229 -> n_eff=   11.2  (4.9% retained)
+      GREEN n=  97 -> n_eff=   16.2  (16.7% retained)
+   ** standardising GREEN->RED is UNDEFINED for ['NK 3'] (zero GREEN cells) **
+   >> VERDICT: UNIDENTIFIABLE (non-overlapping support)
+
+=== NK 72h ===
+   subcluster      nG    nR     pG     pR  w(R->G)  w(G->R)
+   NK 1           157     7  0.545  0.017    32.79     0.03
+   NK 2           131   373  0.455  0.886     0.51     1.95
+   NK 3             0    41  0.000  0.097     0.00      inf
+   -- subclusters carrying >20% of target weight --
+      standardise RED to GREEN: 'NK 1' gets weight 0.545 but RED has only 7 cells   <== BELOW 30
+      standardise RED to GREEN: 'NK 2' gets weight 0.455 but RED has only 373 cells
+      standardise GREEN to RED: 'NK 2' gets weight 0.886 but GREEN has only 131 cells
+   -- Kish effective sample size after reweighting --
+      RED   n= 421 -> n_eff=   23.3  (5.5% retained)
+      GREEN n= 288 -> n_eff=  135.9  (47.2% retained)
+   ** standardising GREEN->RED is UNDEFINED for ['NK 3'] (zero GREEN cells) **
+   >> VERDICT: UNIDENTIFIABLE (non-overlapping support)
+
+=== CD8T 24h ===
+   subcluster      nG    nR     pG     pR  w(R->G)  w(G->R)
+   CD8T 1          41     5  0.306  0.021    14.38     0.07
+   CD8T 2          79   149  0.590  0.634     0.93     1.08
+   CD8T 3          14    81  0.104  0.345     0.30     3.30
+   -- subclusters carrying >20% of target weight --
+      standardise RED to GREEN: 'CD8T 1' gets weight 0.306 but RED has only 5 cells   <== BELOW 30
+      standardise RED to GREEN: 'CD8T 2' gets weight 0.590 but RED has only 149 cells
+      standardise GREEN to RED: 'CD8T 2' gets weight 0.634 but GREEN has only 79 cells
+      standardise GREEN to RED: 'CD8T 3' gets weight 0.345 but GREEN has only 14 cells   <== BELOW 30
+   -- Kish effective sample size after reweighting --
+      RED   n= 235 -> n_eff=   47.2  (20.1% retained)
+      GREEN n= 134 -> n_eff=   73.6  (54.9% retained)
+   >> VERDICT: UNIDENTIFIABLE (a >20%-weight subcluster is under-populated)
+
+=== CD8T 72h ===
+   subcluster      nG    nR     pG     pR  w(R->G)  w(G->R)
+   CD8T 1          64     4  0.263  0.005    49.19     0.02
+   CD8T 2          69    39  0.284  0.052     5.44     0.18
+   CD8T 3         110   704  0.453  0.942     0.48     2.08
+   -- subclusters carrying >20% of target weight --
+      standardise RED to GREEN: 'CD8T 1' gets weight 0.263 but RED has only 4 cells   <== BELOW 30
+      standardise RED to GREEN: 'CD8T 2' gets weight 0.284 but RED has only 39 cells
+      standardise RED to GREEN: 'CD8T 3' gets weight 0.453 but RED has only 704 cells
+      standardise GREEN to RED: 'CD8T 3' gets weight 0.942 but GREEN has only 110 cells
+   -- Kish effective sample size after reweighting --
+      RED   n= 747 -> n_eff=   50.8  (6.8% retained)
+      GREEN n= 243 -> n_eff=  123.2  (50.7% retained)
+   >> VERDICT: UNIDENTIFIABLE (a >20%-weight subcluster is under-populated)
+
+==============================================================================
+Wrote a3_label_independence.csv, a3_identifiability.csv
+==============================================================================

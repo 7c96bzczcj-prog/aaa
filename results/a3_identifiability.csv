@@ -1,0 +1,18 @@
+lineage,hours,direction,subcluster,target_weight,cells_on_reweighted_side,sufficient
+NK,24,red->green,NK 1,0.845360824742268,8.0,False
+NK,24,green->red,NK 2,0.8951965065502183,15.0,False
+NK,24,__verdict__,UNIDENTIFIABLE (non-overlapping support),,,
+NK,72,red->green,NK 1,0.5451388888888888,7.0,False
+NK,72,red->green,NK 2,0.4548611111111111,373.0,True
+NK,72,green->red,NK 2,0.8859857482185273,131.0,True
+NK,72,__verdict__,UNIDENTIFIABLE (non-overlapping support),,,
+CD8T,24,red->green,CD8T 1,0.30597014925373134,5.0,False
+CD8T,24,red->green,CD8T 2,0.5895522388059702,149.0,True
+CD8T,24,green->red,CD8T 2,0.6340425531914894,79.0,True
+CD8T,24,green->red,CD8T 3,0.3446808510638298,14.0,False
+CD8T,24,__verdict__,UNIDENTIFIABLE (a >20%-weight subcluster is under-populated),,,
+CD8T,72,red->green,CD8T 1,0.26337448559670784,4.0,False
+CD8T,72,red->green,CD8T 2,0.2839506172839506,39.0,True
+CD8T,72,red->green,CD8T 3,0.45267489711934156,704.0,True
+CD8T,72,green->red,CD8T 3,0.9424364123159303,110.0,True
+CD8T,72,__verdict__,UNIDENTIFIABLE (a >20%-weight subcluster is under-populated),,,
