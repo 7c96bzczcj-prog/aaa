@@ -51,8 +51,53 @@ Green = Kaede-Green = `Infiltrating` = 新进入；Red = Kaede-Red = `Resident` 
 | **N2** | **A1.1 理由 2（基因集不可比）获得比原论证更强的实测支持。** 原论证是"XCL1 在 CD8 T 落地板"；实测是**两个谱系在 §5 后根本不共享基因集**：NK admitted = {Ccl3, Ccl4, Xcl1, Flt3l} + 杀伤模块**空集**；CD8T admitted = {Ccl3, Ccl4, Ccl5, Xcl1, Flt3l} + {Prf1, Gzma, Gzmk}。**"在 CD8T 上跑同一计算"在本数据集内字面意义上不存在** | 实测 | **[M]** | 同上 | 否 —— **加强** A1.1（且不依赖极性） |
 | N3 | **NK 侧最大的那个降幅从天花板起跳，§5 明令不可作阴性证据。** NK Ccl5 Green = **1.0000**（24h）/ 0.8715（72h），均在天花板带；−62.0 pp 正是 §5"天花板压缩…不可作为阴性证据"要挡的数 | 实测 | **[M]** | 同上 | 否（§5 按设计生效） |
 | N4 | **绿→红几乎完全是亚群构成的更换，不是同一群细胞换状态。** NK：24h Green 84.5% 是 NK-1，Red 仅 3.5% 是 NK-1、89.5% 是 NK-2。CD8T：72h Green 26.3/28.4/45.3%（CD8T-1/2/3），Red 0.5/5.2/**94.2%**。按 §7，between-composition 项将占主导，结论须改写为构成陈述 | 实测 | **[M]** | `results/a1_4_polarity_check.log` 构成诊断段 | 否 —— 预警 §7 |
-| N5 | **`Xcl2` 不在该归档矩阵中**（16,227 基因里没有），本数据集内记 `ABSENT`，非 `NOT_FOUND` 亦非地板 | 实测 | **[M]** | 同上 | 否 |
+| ~~N5~~ | ~~`Xcl2` 不在该归档矩阵中（16,227 基因里没有），本数据集内记 `ABSENT`~~ **← 已被 N5′ 更正** | 实测 | **[M]** | 同上 | ~~否~~ |
+| **N5′** | **更正 N5 的归因。`Xcl2` 缺席不是归档遗漏，是物种事实：小鼠基因组根本没有 `Xcl2` 基因。** MGI:104593（小鼠 `Xcl1`，Chr1）的 Homology 段把**人的 `XCL1` 和 `XCL2` 两个基因同时**列为这一个小鼠基因的直系同源；NCBI GeneID 16963（小鼠 `Xcl1`）邻接基因里无 `Xcl2`，且无任何 *Mus musculus* `Xcl2` 记录；人 `XCL2` = GeneID 6846，chr1q24.2，与 `XCL1` 相邻（灵长类侧的重复）。**含义：v1.0 §6 的调节模块清单里的 `XCL2` 在任何小鼠数据集中都不可能存在**，模块定义是以人为中心写的，换到小鼠会静默少一个成员 | 权威注释库（MGI + NCBI），本人打开 | **[M]** / 注释 **[V]** | [MGI:104593](https://www.informatics.jax.org/marker/MGI:104593)；[NCBI Gene 16963](https://www.ncbi.nlm.nih.gov/gene/16963)；[NCBI Gene 6846](https://www.ncbi.nlm.nih.gov/gene/6846) | **是** —— 更正本项目自己的 N5，并推翻 §6 模块清单的跨物种可移植性 |
 | N6 | 描述性、且**不得引用**：CD8T 的 Ccl3/Ccl4 随停留上升（24h +3.9/+10.9 pp，72h +7.2/+9.7 pp），方向与 K5/K6 的 Kersten d4→d14 子层一致；CD8T 的 Ccl5 在 72h 下降 −23.0 pp，与 NK 的 Ccl5 同向。这**与 [M] 47% 趋同度定性相容**，但按 P8 全部记 `UNMEASURED` | 实测 | **[M]**（数值）；**推论不成立**（无噪声底） | 同上 | 否 —— 但**不得**进入结论 |
+
+---
+
+## E. XCR1 在 cDC1 上的专一性 —— 承重前提，已补 primary
+
+**为什么承重**：R1/R2 拆分的全部效力建立在"XCL1 只找得到 cDC1"之上。若 XCR1 广泛表达，R2 就不是一条指向另一群细胞的独立臂，拆分随之垮掉。
+
+| # | 断言 | 证据类型 | 等级 | 出处 | 是否推翻初判 |
+|---|---|---|---|---|---|
+| **X1** | **承重 primary 已落定。** Bachem A, Hartung E, Güttler S, et al. "Expression of XCR1 Characterizes the Batf3-Dependent Lineage of Dendritic Cells Capable of Antigen Cross-Presentation." *Front Immunol* 2012;**3**:214，DOI 10.3389/fimmu.2012.00214，PMID 22826713。**期刊标注的文章类型是 `ORIGINAL RESEARCH`（已在页眉核实），不是综述** | primary，全文（本人打开） | **[V]** | [frontiersin.org 全文](https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2012.00214/full) | 否 —— 填补，非推翻 |
+| **X2** | **阴性面（比阳性面更要紧）逐个点名。** 原文："**Negative for XCR1 were also T cells, B cells, macrophage subsets, eosinophilic, and neutrophilic granulocytes, NK cells, NKT cells, and γ/δ T cells**"；pDC "did not express XCR1"；脾内 CD4⁺ DC 阴性 | primary，全文 | **[V]** | 同上 | 否 |
+| **X3** | **专一性陈述。** 原文："XCR1 is present on around 80% of 'classical CD8⁺ DCs' and on 4% of 'DN' DCs in the spleen and on DC subsets in peripheral LNs and organs, **but not on other cell types**" | primary，全文 | **[V]** | 同上 | 否 |
+| **X4** | 方法为原创实验：自制抗小鼠 XCR1 单抗 **MARX10** + 流式 + XCR1-LacZ 报告小鼠 + 交叉呈递实验。物种：小鼠（并述及人 CD141⁺ DC） | primary，全文 | **[V]** | 同上 | 否 |
+| **X5** | **必须区分专一性与灵敏度——前提只需要前者。** XCR1⁺ 只占 CD8⁺ DC 的 **83%（±6% SD, n = 22）**，并非全部 cDC1 都是 XCR1⁺；人 cDC1 亦可分出 XCR1⁻ 与 XCR1⁺ 两群。**但拆分需要的是"XCL1 除 cDC1 外找不到别人"（专一性），不是"所有 cDC1 都接收"（灵敏度）**，X2/X3 支持的正是专一性 | primary（83% 数字）+ 检索线索（人 XCR1⁻ cDC1） | **[V]** / 人侧 **[L]** | 同上；人侧线索 PNAS 2023 doi:10.1073/pnas.2300343120（**未打开，待核实**） | 否 —— 但限定了措辞强度 |
+| **X6** | **一条真实且对本设计有威胁的例外：XCL1 是变构（metamorphic）趋化因子，其二聚体不激动 XCR1，而是结合 GAG。** 单体/二聚体平衡决定 XCL1 究竟走不走 XCR1。**含义：以 `Xcl1` 转录本检出率作为 R2 读数，度量的是转录，不能据以声称"XCR1 定向信号增强"** | 检索线索，未落到 primary | **[L]** —— **不得进入结论段** | 检索结果（Volkman 系变构 XCL1 文献族，**未打开原文**） | 否 —— 但**限制 R2 的解释权** |
+| X7 | 起源 primary（Dorner BG et al., *Immunity* 2009;31:823-833, DOI 10.1016/j.immuni.2009.08.027, PMID 19913446）**未能打开**：cell.com 与 ScienceDirect 均返回 HTTP 403。故 X1 的 Bachem 2012 作为承重引文，Dorner 2009 只作源流标注 | primary，未打开 | **待核实** | PMID 19913446 | 否 |
+
+**净判定**：前提**成立，可写为"专一性"**——但按 X5 的措辞限定（XCR1 在 cDC1 之外的已检细胞类型上均为阴性；并非所有 cDC1 都 XCR1⁺），且按 X6 保留"转录 ≠ XCR1 定向信号"的解释边界。
+
+---
+
+## F. Böttcher 2018 的测量设计 —— G-KILL-3 第 2 问（**部分**，未跑完整门）
+
+**说明**：交接语未授权跑 G-KILL-3。以下只是把该问指定的落点单独核实清楚，供你判断改写版 Q2 的死活。**G-KILL-3 整体记 `NOT_RUN`。**
+
+| # | 断言 | 证据类型 | 等级 | 出处 | 是否推翻初判 |
+|---|---|---|---|---|---|
+| **B1** | **两者在"分析物"层面**确实**分开测过**，而且是不同模态：CCL5 蛋白用 CBA（Fig 3D）与胞内流式（Fig 3F）；`Xcl1` mRNA 用组织提取（Fig 3E）与 PrimeFlow（Fig 3G）。故"分离"在**测量**层面并非不可见 | primary，全文 | **[V]** | Böttcher et al. *Cell* 2018;172(5):1022-1037（[PMC5847168](https://pmc.ncbi.nlm.nih.gov/articles/PMC5847168/)） | **是** —— 推翻"他只测了合并表型"这一设想 |
+| **B2** | **但扰动始终是合并的。** 阻断实验原文："anti-CCL5 **and** anti-XCL1 antibodies or isotype-matched control antibodies were injected i.v."；**无** `Ccl5⁻ᐟ⁻`、`Xcl1⁻ᐟ⁻`、`Xcr1⁻ᐟ⁻` 小鼠 | primary，全文 | **[V]** | 同上 | 否 |
+| **B3** | **决定性的一句，且被埋在括号里：**"**Single loss of either CCR5 or XCR1 was not sufficient to block intratumoral cDC1 accumulation (data not shown).**" 即：受体层面的分离**他试过、拿到阴性、以 data not shown 处理** | primary，全文 | **[V]** | 同上 | **是** —— 既非"他的地盘"，也非干净空白 |
+| **B4** | 增益方向**确实**分臂做过：Fig 5C–E 用逆转录病毒分别转导 CCL5 **或** XCL1 的肿瘤 | primary，全文 | **[V]** | 同上 | 否 |
+| **B5** | 全文唯一的"分离"只是**来源分离**，不是功能分离：Fig 3H–J，CCL5 在 NK 与 CD8 T 中均可测，而 `Xcl1` mRNA "still remained largely restricted to NK cells" | primary，全文 | **[V]** | 同上 | 否 |
+| **B6** | **R1 臂在他手里基本没被测到。** 原文：其他 NK 相关趋化因子"either showed a small reduction … (CXCL1) in the protein array or **could not be detected by this analysis (CCL3 and CCL4)**" | primary，全文 | **[V]** | 同上 | 否 |
+| **B7** | **对改写版 Q2 的净判定（我的读法，供你裁决）**：他的读数终点是 **cDC1 accumulation**，而 B3 说两条臂对该终点**冗余**。所以"NK 把输出重新指向 cDC1"这一层，功能收益已被 B3 提前削弱。**但真正的空白在别处**：R1（CCL3/4/5 → CCR1/CCR5）够得着**广谱髓系**，R2（XCL1 → XCR1）**只**够得着 cDC1；"重新指向"的实质是**把可寻址受众从广谱髓系收窄到 cDC1 专一**——而 B6（CCL3/CCL4 测不到）+ cDC1-only 终点，使这一层在他的设计里**看不见**。改写版 Q2 若按"受众收窄"而非"转向 cDC1"来提，**活**；按后者提，**与 B3 正面相撞** | 推论，基于 B1–B6 的 [V] | 推论 | 本报告 | —— 待你裁决 |
+
+---
+
+## G. §5 的修正 —— 规范自身的错（按你的裁定记录）
+
+| # | 断言 | 证据类型 | 等级 | 出处 | 是否推翻初判 |
+|---|---|---|---|---|---|
+| **S1** | **A1.4 中 NK 的 `Ccl5` 被 §5 天花板规则排除，是规范自身的错，不是执行问题。** 代理排除 `Ccl5` 是照 v1.0 §5 原文执行的 | 裁定（你） | —— | 修正案 A-2（**正文未入库**，见下方待办） | **是** |
+| **S2** | **错在哪里（我的补充论证）**：§5 的天花板规则以"压缩掩盖差异"为由封禁 >85% 的基因。该理由在**向上**方向成立——从 1.0000 无法再检出上升；在**向下**方向不成立——NK `Ccl5` 从 **1.0000 → 0.3799**（24h）、**0.8715 → 0.3278**（72h），有 62.0 / 54.4 pp 的**无阻碍量程**。**规则按方向是过宽的**，且它排掉的恰是全表最大的一次移动 | 实测 + 推论 | **[M]** | `results/a1_4_detection_rates.csv` | **是** |
+| **S3** | **待办**：A-2 正文尚未入库。v1.0 与 A-1 各自是独立 commit；A-2 需同样处理，但正文未提供，无法提交。§5 替换条款的**确切措辞**因此未记录，本节只记实质与裁定归属，不代拟规则 | —— | —— | —— | —— |
 
 ---
 
@@ -66,3 +111,10 @@ Green = Kaede-Green = `Infiltrating` = 新进入；Red = Kaede-Red = `Resident` 
 | Kersten 2022 补充材料 / 逐基因 DE 表 | `NOT_SEARCHED` —— 仅主文 Results/Methods/图注 |
 | 从 `PRJNA912695` / E-MTAB-10176 FASTQ 重跑 CellRanger 以取得未过滤 droplet 矩阵 | `NOT_ATTEMPTED` —— 见 `DATASETS.md`；即使重跑也不能造出不存在的生物学重复 |
 | Dean 2024 的 `GSE221064` 上做同一 A1.4 检验 | `NOT_RUN` —— 仅 filtered matrix，且同属 n 问题，待确认后再定 |
+| G-KILL-3 整体 | `NOT_RUN` —— 仅单独核实了第 2 问指定的落点（本文件 §F），未跑门 |
+| R2/R1 主读数计算 | `NOT_RUN` —— A-2 的新主读数，未授权 |
+| Dorner 2009 *Immunity* 原文 | `NOT_OPENED` —— cell.com / ScienceDirect 均 403（见 X7） |
+| Crozat 2010 *JEM* 跨物种 XCR1 原文 | `NOT_OPENED` —— rupress.org 403 |
+| PNAS 2023 人 XCR1⁻/XCR1⁺ cDC1 原文 | `NOT_OPENED` —— 仅检索摘要级，X5 人侧因此记 [L] |
+| XCL1 变构（单体/二聚体、GAG）原始文献 | `NOT_OPENED` —— X6 因此记 [L]，不得进入结论段 |
+| 人侧 XCR1 专一性的独立 primary（Crozat / Bachem 2010 JEM 人 CD141⁺） | `NOT_SEARCHED` 至可核实深度 —— 若后续用人数据集，此条必须补 |
