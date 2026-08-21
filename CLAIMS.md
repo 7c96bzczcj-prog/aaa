@@ -217,6 +217,36 @@ Green = Kaede-Green = `Infiltrating` = 新进入；Red = Kaede-Red = `Resident` 
 
 ---
 
+## O. G-KILL-3 ① —— **已答**（Cell 2023 原文已读），门**对命题不利**
+
+用户以机构权限取得 PDF。**本人逐字读原文**（Tang F, Li J, Qi L, …, Wang D, Zhang Z. *Cell* 2023;**186**:4235–4251，doi 10.1016/j.cell.2023.07.034，OPEN ACCESS 版式）。全部为 `[V]`。
+
+| # | 断言 | 证据类型 | 等级 | 出处 | 是否推翻初判 / 归因 |
+|---|---|---|---|---|---|
+| **O1** | **两条臂**确实**被按亚群定义过**，且被明确称为"互补策略"。原文："Recent studies have associated the recruitment of type 1 conventional dendritic cells (cDC1s) into tumor with NK cells by secreting **XCL1, XCL2, and CCL5**.³⁷ Our results identified various NK cell subsets involved in the cDC1 recruitment through **cell-type-specific complementary strategies**. CD56^bright^CD16^lo^ **c2 and c4** expressed primary levels of **XCL1 and XCL2**, whereas another cDC1 chemoattractant gene **CCL5** was preferentially produced by both CD56^bright^CD16^lo^ (**c1-GZMH and c3-CCL3**) and CD56^dim^CD16^hi^ (c1-IL-32 and c8-KLRC2) NK cells." | primary，全文 | **[V]** | Cell 2023, Results | —— |
+| **O2** | **该文把 `CCL5` 划进 cDC1 招募臂，把 `CCL3/CCL4` 划进"招募 T 细胞"臂——与 v2.2 §6.1 的 R1 = CCL3/CCL4/CCL5 相冲突。** 原文："the CD56^dim^CD16^hi^ subset **c4-NFKBIA** … predominantly expressing **CCL3, CCL4, and CCL4L2, indicating their ability to recruit other immune cells such as T cells**." 而 CCL5 与 XCL1/XCL2 同列为 cDC1 chemoattractant（引 Böttcher） | primary，全文 | **[V]** | 同上 | **是 / 归因规范** —— 直接挑战 §6.1 的模块划分 |
+| **O3** | **决定性：该文报告两条臂在肿瘤 vs 邻近**都**下降。** 原文："compared with the adjacent non-tumor tissue, in tumors, the cytokine production of CD56^bright^CD16^lo^ **c3-CCL3** NK cells was lower as indicated by the **diminished expression of CCL3 and CCL4**, and **the expression of XCL1 and XCL2 in c5-CREM NK cells decreased in most cancer types**（Figures S5A, S5B; Table S5）" | primary，全文 | **[V]** | 同上 | **是** |
+| **O4** | **且这不是埋在正文里的一句话——它是该文总结图 Figure 7 的 A、B 两格。** 原文图注："**(A) CD56^bright^CD16^lo^ c5-CREM NK cells downregulated XCL2 and XCL1 in tumors, possibly leading to attenuated cDC1 recruitment. (B) CD56^bright^CD16^lo^ c3-CCL3 NK cells exhibited reduced cytokine production in tumors, including CCL3 and CCL4.**" | primary，全文 | **[V]** | 同上，Figure 7 | **是** |
+| **O5** | **`CCL3`/`CCL4` 在人肿瘤 NK 中被充分测过——推翻我此前的附带发现 L6。** 该图谱覆盖 **24 个瘤种、716 名患者、160,011 个 NK 细胞**，`CCL3`/`CCL4` 既用于定义亚群（c3-CCL3、c4-NFKBIA）也用于肿瘤 vs 邻近比较 | primary，全文 | **[V]** | 同上 | **是 / 归因执行** —— 撤回 L6 的"极稀缺" |
+| **O6** | **G-KILL-3 ① 的判定：不是"被占位"，是"被反证"。** 无人报告过两条臂的**方向分离**；相反，最大的人类泛癌 NK 图谱在其**总结图**里报告**两条臂同向下降**。"占位"意味着别人先到；这里是**现有最大证据说该现象在命题所需的方向上不存在** | 推论，基于 O3/O4 的 [V] | **[V]** | 本报告 | **是** |
+| **O7** | **三条限制，使其"不致命"但不解围**：(i) **不是同一批细胞**——CCL3/CCL4 的下降在 `c3-CCL3`，XCL1/XCL2 的下降在 `c5-CREM`，是两个亚群各自的观察，**不是命题所需的同细胞对比**；(ii) 该文**未做组成 vs 状态分解**，G-KILL-4 的门同样压在它的结论上；(iii) **幅度未知**——Figures S5A/S5B 为图像、Table S5 是独立补充文件，均不在本 PDF 内 | primary + 推论 | **[V]** / 幅度 `NOT_IN_HAND` | 同上 | 否 |
+| **O8** | **本项目的 `GSE154826` 结果无法为命题辩护。** 按 §6.8，该数据集 XCL1 的空结果是功效不足（MDPC 67.1% 对 R1 的 23.6%），**与"XCL1 在多数癌种中真实下降"完全相容**。两者不矛盾，且相容的方向是**支持 O3** | 推论 | **[M]** | `results/v22_mdpc.csv` | 否 |
+| **O9** | **附带（对 §7.1 有利的一条）：该文做过标签独立性检查，而 `E-MTAB-10176` 没有。** 原文："To further corroborate the stability of the clustering, NK cells from blood, tumor, and adjacent non-tumor tissues were **re-clustered separately**, with highly consistent results revealed (Figure S3F)." 这接近 §7.1 允许的构造 1 | primary，全文 | **[V]** | 同上 | 否 |
+| **O10** | 该文自陈的局限**未包含**组成/状态混杂或凋亡细胞被 QC 剔除：原文 Limitations 只列缺乏临床信息、表观特征未探索、体外培养困难、临床意义估计未对其他免疫细胞条件化。**G-KILL-4 的问题在该文同样未被处理** | primary，全文 | **[V]** | 同上，Limitations | 否 |
+
+### 对 v2.2 §1 命题的后果（**需你裁决，我不擅自改判据**）
+
+**§1 观察层现written为**："肿瘤中不再有 NK 发出 CCR1/CCR5 轴（CCL3/4/5）的呼叫，而 **XCR1 轴（XCL1）的呼叫保留**"。
+
+**该陈述的后半句被 O3/O4 直接反证**，且反证来自现有最大的人类证据、写在其总结图里。前半句（R1 下降）反而被**独立复现**（该文 c3-CCL3 的 CCL3/CCL4 下降，与本项目 `GSE154826` 的 R1 下降同向）。
+
+**故当前状态**：
+- **R1 下降** = 本项目 `[M]` + Cell 2023 `[V]` **双向支持，且已被别人先发表**（Q1 的归属问题）
+- **R2 保留** = **被反证**，本项目无功效反驳（O8）
+- **分离** = **无支持，且有反证**
+
+---
+
 ## D. 未做 / 未搜（§3.1，不留空）
 
 | 项 | 状态 |
