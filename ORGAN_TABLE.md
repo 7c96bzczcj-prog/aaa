@@ -1,5 +1,13 @@
 # ORGAN_TABLE.md —— 跨器官 NK 趋化因子检出率
 
+> ## ⚠ 本文件已被 `ORGAN_TABLE_v2.md` 取代（S-1a）
+> 表中的**数字仍然有效**（全 NK 检出率与标签无关，v2 逐位复现），但**基于本表的 §6 判读已改**：
+> - **§6 第二行（XCL1 器官差异主要为亚群构成）已降级为「不可判定」**，归因规范设计缺陷（`CLAIMS_ORGAN.md` H1）
+> - **`CCL3`／`CCL4`／`CCL5` 的跨器官离散度经自助法判为不成立**（区间下界 < 1.2×，H7）
+> - 本表未含 bright 细胞数，读者无法分辨「限 bright 的高检出率」是生物学还是 9 个细胞（H17）
+>
+> **请以 `ORGAN_TABLE_v2.md` 与 `RESIDENCY_FEASIBILITY.md` 为准。**
+
 **唯一数据源**：Domínguez Conde 等，*Science* 2022，Tissue Immune Cell Atlas 的 `T & innate lymphoid cells` 子集（CELLxGENE，216,611 细胞，12 供者，17 组织，`disease == normal`）。**同一供者跨器官取样**，供者变异由设计控制。
 
 **未过滤 droplet 矩阵**：不可得（CELLxGENE 发布的是 cell-called 矩阵）。按本规范 §1，本轮可用，但**检出率含未校正的环境 RNA 成分**。

@@ -1,0 +1,50 @@
+§3: 93 strata, reportable 24 ({'clean_loose': 8, 'clean_strict': 8, 'original': 8})
+
+==============================================================================
+§5 DONOR-LEVEL BOOTSTRAP  (2000 resamples)
+rule: if a spread CI lower bound < 1.2x, 'the organs differ' does not stand
+==============================================================================
+
+--- original / 10x 5' v1  (5 organs) ---
+   CCL3  spread  1.41x [1.17, 1.98]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.30, 4.33]   rho(bright) [-0.70, +0.90]
+   CCL4  spread  1.21x [1.06, 1.60]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.11, 3.62]   rho(bright) [-1.00, +0.60]
+   CCL5  spread  1.19x [1.07, 1.52]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.09, 1.80]   rho(bright) [-1.00, +0.50]
+   XCL1  spread  2.82x [1.63, 4.78]   bright-only [1.11, 1.69]   rho(bright) [+0.30, +1.00]
+   XCL2  spread  2.24x [1.72, 15.52]   bright-only [1.30, 3.17]   rho(bright) [+0.00, +1.00]
+
+--- original / 10x 5' v2  (3 organs) ---
+   CCL3  spread  1.20x [1.02, 1.39]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.08, 2.70]   rho(bright) [-1.00, +1.00]
+   CCL4  spread  1.30x [1.02, 1.57]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.05, 1.60]   rho(bright) [-1.00, +0.50]
+   CCL5  spread  1.17x [1.03, 1.43]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.07, 1.46]   rho(bright) [-1.00, -0.50]
+   XCL1  spread  1.74x [1.30, 3.28]   bright-only [1.05, 2.06]   rho(bright) [-0.50, +1.00]
+   XCL2  spread  1.56x [1.09, 2.81]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.07, 2.06]   rho(bright) [-1.00, +1.00]
+
+--- clean_strict / 10x 5' v1  (5 organs) ---
+   CCL3  spread  1.42x [1.17, 1.98]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.76, 8.00]   rho(bright) [-0.70, +0.90]
+   CCL4  spread  1.22x [1.06, 1.61]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.25, 2.67]   rho(bright) [-1.00, +0.57]
+   CCL5  spread  1.19x [1.07, 1.52]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.12, 3.50]   rho(bright) [-1.00, +0.30]
+   XCL1  spread  2.82x [1.58, 4.78]   bright-only [1.20, 2.67]   rho(bright) [+0.20, +1.00]
+   XCL2  spread  2.29x [1.77, 15.52]   bright-only [1.20, 3.45]   rho(bright) [-0.10, +1.00]
+
+--- clean_strict / 10x 5' v2  (3 organs) ---
+   CCL3  spread  1.20x [1.02, 1.39]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.18, 2.43]   rho(bright) [-1.00, +1.00]
+   CCL4  spread  1.30x [1.02, 1.57]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.06, 1.73]   rho(bright) [-1.00, +0.50]
+   CCL5  spread  1.17x [1.02, 1.43]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.04, 1.38]   rho(bright) [-1.00, -0.50]
+   XCL1  spread  1.79x [1.30, 3.28]   bright-only [1.14, 4.00]   rho(bright) [-0.50, +1.00]
+   XCL2  spread  1.61x [1.09, 2.81]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.02, 4.00]   rho(bright) [-1.00, +1.00]
+
+--- clean_loose / 10x 5' v1  (5 organs) ---
+   CCL3  spread  1.40x [1.17, 1.98]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.38, 5.22]   rho(bright) [-0.70, +0.80]
+   CCL4  spread  1.21x [1.05, 1.60]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.11, 1.78]   rho(bright) [-1.00, +0.50]
+   CCL5  spread  1.18x [1.07, 1.52]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.11, 1.74]   rho(bright) [-1.00, +0.40]
+   XCL1  spread  2.78x [1.59, 4.78]   bright-only [1.31, 2.87]   rho(bright) [+0.20, +1.00]
+   XCL2  spread  2.27x [1.66, 15.02]   bright-only [1.43, 3.08]   rho(bright) [+0.00, +1.00]
+
+--- clean_loose / 10x 5' v2  (3 organs) ---
+   CCL3  spread  1.20x [1.04, 1.39]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.07, 1.87]   rho(bright) [-1.00, +1.00]
+   CCL4  spread  1.30x [1.02, 1.57]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.08, 1.88]   rho(bright) [-1.00, +0.50]
+   CCL5  spread  1.17x [1.02, 1.43]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.03, 1.30]   rho(bright) [-1.00, -0.50]
+   XCL1  spread  1.74x [1.29, 3.28]   bright-only [1.10, 2.02]   rho(bright) [-0.50, +1.00]
+   XCL2  spread  1.67x [1.09, 2.81]  <== LOWER BOUND < 1.2x: organs do NOT differ   bright-only [1.05, 1.94]   rho(bright) [-1.00, +1.00]
+
+wrote s1a_organ_table_v2.csv, s1a_bootstrap.csv
