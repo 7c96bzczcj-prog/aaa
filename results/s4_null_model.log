@@ -1,0 +1,83 @@
+==============================================================================
+S-4 §3.1  NULL MODEL (built before §2 is inspected)
+==============================================================================
+green NK 385 cells, red NK 650 cells, 16227 genes
+median UMI/cell: green 5645  red 5282  ratio red/green = 0.936
+  green by hour: 24h 5531 (n=97)  72h 5736 (n=288)
+  red   by hour: 24h 4919 (n=229)  72h 5533 (n=421)
+
+gate (BASELINE side only): p_green >= 0.05 and >= 10 positive green cells -> 7239 genes
+  [for reference, S-3's two-sided gate would keep 6753]
+  the two-sided gate is NOT used here: gating on the red side is gating on the outcome,
+  and would drop exactly the genes with the largest falls -- the ones §2 is about.
+
+observed drop ratio: median +0.106  IQR [-0.020, +0.234]
+observed Spearman(p_green, drop ratio) = +0.0333  p = 0.00456
+
+------------------------------------------------------------------------------
+1. UNIFORM-SUPPRESSION NULL (binomial thinning), c grid
+------------------------------------------------------------------------------
+    c  median drop   Spearman(p_g, drop)          p    drop@p=0.1  drop@p=0.9
+  0.9        0.081               -0.7003          0         0.089       0.016
+  0.8        0.168               -0.7454          0         0.181       0.038
+  0.7        0.258               -0.7536          0         0.275       0.065
+  0.6        0.352               -0.7671          0         0.371       0.100
+  0.5        0.449               -0.7641          0         0.469       0.148
+  0.4        0.551               -0.7657          0         0.570       0.212
+  0.3        0.655               -0.7625          0         0.672       0.303
+  0.2        0.765               -0.7545          0         0.779       0.435
+  0.1        0.879               -0.7144          0         0.888       0.638
+
+  => the null ALONE produces a strongly NEGATIVE Spearman at every c.
+     §2.2's rule 'negative => targeted' therefore cannot be applied
+     to the raw correlation. Only the RESIDUAL against this null counts.
+
+------------------------------------------------------------------------------
+2. PARAMETRIC POISSON NULL  drop(q) = (q^c - q)/(1-q),  q = 1 - p_green
+------------------------------------------------------------------------------
+    c  median drop   Spearman    vs thinning: median |diff|
+  0.9        0.091    -1.0000                        0.0084
+  0.8        0.184    -1.0000                        0.0138
+  0.7        0.279    -1.0000                        0.0184
+  0.6        0.376    -1.0000                        0.0215
+  0.5        0.475    -1.0000                        0.0227
+  0.4        0.576    -1.0000                        0.0228
+  0.3        0.679    -1.0000                        0.0208
+  0.2        0.784    -1.0000                        0.0171
+  0.1        0.891    -1.0000                        0.0113
+  the two nulls agree closely; the thinning null is used as primary
+  because it keeps the real library-size and zero-inflation structure.
+
+------------------------------------------------------------------------------
+3. POSITIVE CONTROL -- targeted silencing of the top-k cells per gene
+------------------------------------------------------------------------------
+  frac  median drop   Spearman(p_g,drop)    drop@p=0.1  drop@p=0.9
+   0.1        0.543              -0.9925         0.954       0.109
+   0.2        1.000              -0.9183         1.000       0.221
+   0.3        1.000              -0.8119         1.000       0.333
+   0.5        1.000              -0.6014         1.000       0.552
+
+------------------------------------------------------------------------------
+4. THE TEST -- residual of observed against the matched null
+------------------------------------------------------------------------------
+c is chosen to match the OVERALL level (median drop ratio), so that
+only the SHAPE is compared. Two anchors are reported.
+  observed median drop ratio        : 0.1060
+  level-matched c (fine grid)       : 0.87  (null median drop 0.1067)
+  depth-implied c (median UMI ratio): 0.936
+
+  --- null c = 0.87 (level-matched) ---
+      residual: median +0.0142  IQR [-0.1255, +0.1328]
+      Spearman(p_green, residual) = +0.1295  p = 1.95e-28
+
+  --- null c = 0.94 (depth-implied) ---
+      residual: median +0.0627  IQR [-0.0675, +0.1866]
+      Spearman(p_green, residual) = +0.0772  p = 4.73e-11
+
+  --- power check: the same residual test on the targeted control ---
+      targeted frac 0.1: Spearman(p_green, residual) = -0.9811  p = 0
+      targeted frac 0.2: Spearman(p_green, residual) = -0.8042  p = 0
+      targeted frac 0.3: Spearman(p_green, residual) = -0.5180  p = 0
+      targeted frac 0.5: Spearman(p_green, residual) = +0.0417  p = 0.000391
+
+wrote s4_null_grid.csv, s4_residual_test.csv, s4_per_gene.csv

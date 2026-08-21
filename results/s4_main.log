@@ -1,0 +1,65 @@
+==============================================================================
+S-4 §2  MAIN ANALYSIS
+==============================================================================
+genes through the baseline-side gate: 7239
+drop ratio: median +0.1060  IQR [-0.0201, +0.2341]  range [-5.41, +0.90]
+genes that FALL (drop > 0): 5199 (71.8%)   RISE (drop < 0): 2039 (28.2%)
+
+Spearman(p_green, drop ratio) = +0.0333  p = 0.00456
+
+--- §2.3 re-check of the two quoted points ---
+gene    §2.3 drop  measured green  measured red  measured drop  null drop  residual
+Ccl3        0.778          0.4026        0.0985         0.7554     0.0312    0.7242
+Ccl5        0.597          0.9039        0.3462         0.6170     0.0090    0.6081
+
+--- bootstrap intervals on Spearman(p_green, drop) ---
+  gene bootstrap  (n=1000): +0.0346 [+0.0091, +0.0562]
+  cell bootstrap  (n=300): +0.0878 [+0.0588, +0.1161]
+  (cell bootstrap carries sampling noise only; colour is confounded
+   with library, so library/animal variance is invisible here)
+
+Spearman(p_green, RESIDUAL vs null c=0.87) = +0.1282  p = 6.85e-28
+  gene bootstrap: +0.1284 [+0.1060, +0.1509]
+
+==============================================================================
+S-4 §3.2  REGRESSION TO THE MEAN (split-half green)
+==============================================================================
+green cells split at random within each timepoint, 200 repeats;
+baseline from half A, drop computed from half B -- the baseline
+estimate and the drop numerator then share no cells.
+  naive (same half both sides)     +0.0996  [+0.0720, +0.1281]
+  split-half, raw drop             -0.0157  [-0.0375, +0.0061]
+  split-half, residual vs null     +0.0683  [+0.0468, +0.0899]
+
+==============================================================================
+S-4 §3.3  STRATIFIED BY MEAN EXPRESSION
+==============================================================================
+ decile      n  mean UMI/cell      p_green range   rho(raw)   rho(resid)   p(resid)
+      1    630         0.0626   0.052-0.070         0.0566       0.0523       0.19
+      2    772         0.0832   0.052-0.096         0.0146       0.0021       0.95
+      3    729         0.1133   0.057-0.127         0.1162       0.1021     0.0058
+      4    745         0.1496   0.065-0.161         0.0838       0.0709      0.053
+      5    733         0.1934   0.094-0.205         0.0863       0.0701      0.058
+      6    732         0.2541   0.091-0.257         0.1188       0.1048     0.0045
+      7    726         0.3470   0.094-0.338        -0.0106      -0.0241       0.52
+      8    723         0.4905   0.161-0.452         0.0573       0.0517       0.16
+      9    724         0.8033   0.132-0.675         0.0465       0.0647      0.082
+     10    725         4.9804   0.119-1.000        -0.2398      -0.0469       0.21
+
+  rho(resid) across deciles: median +0.0585, range [-0.0469, +0.1048], negative in 2/10
+
+==============================================================================
+S-4 §4  WHERE THE CHEMOKINES SIT
+==============================================================================
+gene     p_green   p_red     drop     null  residual  resid pct  drop pct
+Ccl3      0.4026  0.0985   0.7554   0.0312    0.7242     0.9986    0.9978
+Ccl4      0.7013  0.2615   0.6271   0.0167    0.6103     0.9959    0.9903
+Ccl5      0.9039  0.3462   0.6170   0.0090    0.6081     0.9956    0.9892
+Xcl1      0.4935  0.5738  -0.1628   0.0320   -0.1948     0.1823    0.1292
+Traceback (most recent call last):
+  File "/home/user/aaa/scripts/s4_main.py", line 240, in <module>
+    main()
+  File "/home/user/aaa/scripts/s4_main.py", line 215, in main
+    f"(p_green = {pg[int(np.where(names==gene)[0][0])]:.4f})")
+                         ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
