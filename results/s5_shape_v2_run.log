@@ -1,0 +1,172 @@
+==============================================================================
+TUMOUR SIDE: E-MTAB-10176 (green = arrived since, red = retained)
+==============================================================================
+
+### tumour NK
+  A-side 385 cells, B-side 650 cells, 7239 genes gated, null c = 0.87
+  drop ratio median +0.1060, Spearman(baseline, residual) = +0.1289
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   0.2416  0.0400   0.8344   0.7376     0.9992 |     0.9994
+  S1pr5    egress   0.1325  0.0200   0.8490   0.7565     0.9997 |     0.9993
+  S1pr1    egress   0.1013  0.0185   0.8178   0.7152     0.9986 |     0.9988
+  Cxcr4    egress   0.3403  0.1015   0.7016   0.6469     0.9975 |     0.9975
+  Klf2     egress   0.7948  0.3892   0.5103   0.4788     0.9847 |     0.9859
+  Klf3     egress   0.2338  0.1077   0.5393   0.4433     0.9798 |     0.9823
+  Ccl3     chemo    0.4026  0.0985   0.7554   0.7198     0.9988 |     0.9986
+  Ccl4     chemo    0.7013  0.2615   0.6271   0.6136     0.9959 |     0.9959
+  Ccl5     chemo    0.9039  0.3462   0.6170   0.6084     0.9956 |     0.9956
+  Xcl1     chemo    0.4935  0.5738  -0.1628  -0.2007     0.1783 |     0.1823
+
+### tumour CD8T
+  A-side 377 cells, B-side 982 cells, 7435 genes gated, null c = 0.87
+  drop ratio median +0.1075, Spearman(baseline, residual) = +0.0556
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   -- not through the baseline gate
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   0.4881  0.0580   0.8811   0.8332     0.9987 |     0.9988
+  Cxcr4    egress   0.2812  0.0397   0.8587   0.7769     0.9964 |     0.9975
+  Klf2     egress   0.6207  0.2128   0.6571   0.6351     0.9890 |     0.9859
+  Klf3     egress   0.3581  0.0458   0.8720   0.8264     0.9983 |     0.9823
+  Ccl3     chemo    0.1910  0.2668  -0.3970  -0.4359     0.0597 |     0.9986
+  Ccl4     chemo    0.4536  0.5723  -0.2617  -0.2994     0.1102 |     0.9959
+  Ccl5     chemo    0.6976  0.5163   0.2599   0.2487     0.8701 |     0.9956
+  Xcl1     chemo    0.1167  0.0631   0.4590   0.4127     0.9557 |     0.1823
+
+### tumour CD4T
+  A-side 164 cells, B-side 259 cells, 7072 genes gated, null c = 0.82
+  drop ratio median +0.1497, Spearman(baseline, residual) = +0.0509
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   -- not through the baseline gate
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   0.6524  0.4286   0.3431   0.2721     0.8997 |     0.9988
+  Cxcr4    egress   0.5671  0.3668   0.3532   0.2706     0.8989 |     0.9975
+  Klf2     egress   0.8537  0.6486   0.2402   0.1999     0.8330 |     0.9859
+  Klf3     egress   0.6037  0.4015   0.3348   0.2516     0.8836 |     0.9823
+  Ccl3     chemo    -- not through the baseline gate
+  Ccl4     chemo    0.1402  0.0579   0.5870   0.4740     0.9857 |     0.9959
+  Ccl5     chemo    0.7988  0.7066   0.1154   0.1023     0.6772 |     0.9956
+  Xcl1     chemo    0.3354  0.4749  -0.4161  -0.4713     0.0386 |     0.1823
+
+### tumour Treg
+  A-side 189 cells, B-side 1560 cells, 6939 genes gated, null c = 0.77
+  drop ratio median +0.1903, Spearman(baseline, residual) = +0.0196
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   -- not through the baseline gate
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   0.2169  0.0513   0.7636   0.6056     0.9973 |     0.9988
+  Cxcr4    egress   0.2328  0.0590   0.7467   0.5749     0.9965 |     0.9975
+  Klf2     egress   0.4921  0.4801   0.0243  -0.0463     0.3613 |     0.9859
+  Klf3     egress   0.2011  0.0436   0.7832   0.5769     0.9968 |     0.9823
+  Ccl3     chemo    0.1376  0.1506  -0.0950  -0.1966     0.1316 |     0.9986
+  Ccl4     chemo    0.2222  0.2782  -0.2519  -0.3538     0.0478 |     0.9959
+  Ccl5     chemo    0.2910  0.3737  -0.2842  -0.3977     0.0367 |     0.9956
+  Xcl1     chemo    -- not through the baseline gate
+
+==============================================================================
+NON-TUMOUR PRIMARY: GSE235702, mesenteric LN, SAME contrast
+  A-side = D-Red- (arrived in the node since photoconversion) == 'green'
+  B-side = D-Red+ (retained in the node)                      == 'red'
+  interval 7 days (E-MTAB-10176: 24 and 72 h) -- see §3
+==============================================================================
+
+### non-tumour LN CD4 T (GSE235702)
+  A-side 4495 cells, B-side 5822 cells, 9281 genes gated, null c = 0.84
+  drop ratio median +0.1264, Spearman(baseline, residual) = -0.1340
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   -- not through the baseline gate
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   0.4107  0.1209   0.7056   0.6288     0.9991 |     0.9988
+  Cxcr4    egress   0.0532  0.0670  -0.2599  -0.3928     0.0212 |     0.9975
+  Klf2     egress   0.4169  0.1467   0.6482   0.6015     0.9986 |     0.9859
+  Klf3     egress   0.4768  0.4428   0.0712  -0.0142     0.4028 |     0.9823
+  Ccl3     chemo    -- not through the baseline gate
+  Ccl4     chemo    -- not through the baseline gate
+  Ccl5     chemo    0.1106  0.0950   0.1409   0.0903     0.8146 |     0.9956
+  Xcl1     chemo    -- not through the baseline gate
+
+==============================================================================
+DESCRIPTIVE ONLY: GSE228629 -- DIFFERENT CONTRAST, NOT USED FOR §2
+  photoconverted site = lower back + proximal legs; hind paws SHIELDED
+  A-side = Kaede GREEN = LOCAL hind-paw cells
+  B-side = Kaede RED   = cells that MIGRATED IN from the converted skin
+  polarity is INVERTED relative to the tumour data
+==============================================================================
+
+### GSE228629 skin / B6  [A=LOCAL, B=MIGRANT -- inverted]
+  A-side 1068 cells, B-side 3062 cells, 7208 genes gated, null c = 0.87
+  drop ratio median +0.1027, Spearman(baseline, residual) = +0.2276
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   0.2734  0.1904   0.3036   0.2283     0.9724 |     0.9994
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   -- not through the baseline gate
+  Cxcr4    egress   0.3511  0.2502   0.2875   0.2152     0.9659 |     0.9975
+  Klf2     egress   0.3015  0.3001   0.0045  -0.0627     0.2748 |     0.9859
+  Klf3     egress   0.2500  0.2430   0.0281  -0.0678     0.2623 |     0.9823
+  Ccl3     chemo    0.1498  0.0911   0.3918   0.3105     0.9931 |     0.9986
+  Ccl4     chemo    0.2163  0.1760   0.1862   0.1209     0.8701 |     0.9959
+  Ccl5     chemo    0.1554  0.1009   0.3507   0.3086     0.9929 |     0.9956
+  Xcl1     chemo    -- not through the baseline gate
+
+### GSE228629 joint / B6  [A=LOCAL, B=MIGRANT -- inverted]
+  A-side 3249 cells, B-side 999 cells, 8173 genes gated, null c = 0.57
+  drop ratio median +0.3602, Spearman(baseline, residual) = +0.0438
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   0.4718  0.3934   0.1663  -0.0316     0.3839 |     0.9994
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   0.1376  0.0961   0.3015  -0.0547     0.3341 |     0.9988
+  Cxcr4    egress   0.3183  0.2422   0.2388  -0.0777     0.2900 |     0.9975
+  Klf2     egress   0.5035  0.6056  -0.2027  -0.4199     0.0466 |     0.9859
+  Klf3     egress   0.4291  0.3293   0.2324  -0.0295     0.3896 |     0.9823
+  Ccl3     chemo    0.3192  0.3804  -0.1918  -0.3761     0.0563 |     0.9986
+  Ccl4     chemo    0.3558  0.4184  -0.1760  -0.3521     0.0625 |     0.9959
+  Ccl5     chemo    0.0963  0.0771   0.1999   0.0659     0.6234 |     0.9956
+  Xcl1     chemo    -- not through the baseline gate
+
+### GSE228629 skin / BALBc  [A=LOCAL, B=MIGRANT -- inverted]
+  A-side 1199 cells, B-side 2012 cells, 7740 genes gated, null c = 0.86
+  drop ratio median +0.1130, Spearman(baseline, residual) = +0.1077
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   0.3186  0.2644   0.1701   0.1217     0.8043 |     0.9994
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   -- not through the baseline gate
+  Cxcr4    egress   0.3403  0.3077   0.0959   0.0268     0.5336 |     0.9975
+  Klf2     egress   0.3194  0.3096   0.0307  -0.0395     0.3421 |     0.9859
+  Klf3     egress   0.2794  0.3022  -0.0816  -0.1595     0.1364 |     0.9823
+  Ccl3     chemo    0.2135  0.2341  -0.0964  -0.1888     0.1116 |     0.9986
+  Ccl4     chemo    0.2894  0.3101  -0.0716  -0.1579     0.1388 |     0.9959
+  Ccl5     chemo    0.0601  0.0731  -0.2167  -0.2828     0.0561 |     0.9956
+  Xcl1     chemo    -- not through the baseline gate
+
+### GSE228629 joint / BALBc  [A=LOCAL, B=MIGRANT -- inverted]
+  A-side 2671 cells, B-side 917 cells, 8181 genes gated, null c = 0.91
+  drop ratio median +0.0674, Spearman(baseline, residual) = -0.1048
+  gene     set         p_A     p_B     drop    resid  resid pct | S-4 tumour
+  Itgam    egress   0.3545  0.4318  -0.2180  -0.2534     0.1519 |     0.9994
+  S1pr5    egress   -- not through the baseline gate
+  S1pr1    egress   0.1370  0.1232   0.1007   0.0376     0.5690 |     0.9988
+  Cxcr4    egress   0.3463  0.3762  -0.0864  -0.1377     0.2615 |     0.9975
+  Klf2     egress   0.5429  0.5649  -0.0406  -0.0726     0.3504 |     0.9859
+  Klf3     egress   0.4306  0.4046   0.0603   0.0143     0.5189 |     0.9823
+  Ccl3     chemo    0.4526  0.6510  -0.4383  -0.4609     0.0552 |     0.9986
+  Ccl4     chemo    0.4455  0.6205  -0.3927  -0.4283     0.0653 |     0.9959
+  Ccl5     chemo    0.0723  0.0720   0.0039  -0.0255     0.4376 |     0.9956
+  Xcl1     chemo    -- not through the baseline gate
+
+==============================================================================
+SIDE BY SIDE (residual percentile)
+  comparable pair: tumour lineages  vs  LN_CD4T  (same contrast)
+  GSE228629 columns are DIFFERENT CONTRAST, shown for completeness
+==============================================================================
+gene     set         tumour_NK   tumour_CD8T   tumour_CD4T   tumour_Treg       LN_CD4T       skin_B6    skin_BALBc      joint_B6   joint_BALBc
+Itgam    egress         0.9992     gated-out     gated-out     gated-out     gated-out        0.9724        0.8043        0.3839        0.1519
+S1pr5    egress         0.9997     gated-out     gated-out     gated-out     gated-out     gated-out     gated-out     gated-out     gated-out
+S1pr1    egress         0.9986        0.9987        0.8997        0.9973        0.9991     gated-out     gated-out        0.3341        0.5690
+Cxcr4    egress         0.9975        0.9964        0.8989        0.9965        0.0212        0.9659        0.5336        0.2900        0.2615
+Klf2     egress         0.9847        0.9890        0.8330        0.3613        0.9986        0.2748        0.3421        0.0466        0.3504
+Klf3     egress         0.9798        0.9983        0.8836        0.9968        0.4028        0.2623        0.1364        0.3896        0.5189
+Ccl3     chemo          0.9988        0.0597     gated-out        0.1316     gated-out        0.9931        0.1116        0.0563        0.0552
+Ccl4     chemo          0.9959        0.1102        0.9857        0.0478     gated-out        0.8701        0.1388        0.0625        0.0653
+Ccl5     chemo          0.9956        0.8701        0.6772        0.0367        0.8146        0.9929        0.0561        0.6234        0.4376
+Xcl1     chemo          0.1783        0.9557        0.0386     gated-out     gated-out     gated-out     gated-out     gated-out     gated-out
+
+wrote s5_shape_v2.log

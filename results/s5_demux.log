@@ -1,0 +1,20 @@
+
+===== B6: matrix (32291, 14923), features (32291, 3), barcodes 14923 =====
+HTO total counts: {'skin_CD45neg_GREEN': np.int64(587077), 'skin_CD45pos_RED': np.int64(3194961), 'skin_CD45pos_GREEN': np.int64(389721), 'joint_CD45neg_GREEN': np.int64(148573), 'joint_CD45pos_RED': np.int64(657529), 'joint_CD45pos_GREEN': np.int64(1391169)}
+cells with a confident HTO call ({tot>=20, top>=3x second}): 9866/14923 (66.1%)
+joint_CD45pos_GREEN    3249
+skin_CD45pos_RED       3062
+skin_CD45neg_GREEN     1273
+skin_CD45pos_GREEN     1068
+joint_CD45pos_RED       999
+joint_CD45neg_GREEN     215
+
+===== BALBc: matrix (32291, 13072), features (32291, 3), barcodes 13072 =====
+HTO total counts: {'skin_CD45neg_GREEN': np.int64(561499), 'skin_CD45pos_RED': np.int64(2267514), 'skin_CD45pos_GREEN': np.int64(500974), 'joint_CD45neg_GREEN': np.int64(133341), 'joint_CD45pos_RED': np.int64(693621), 'joint_CD45pos_GREEN': np.int64(1361109)}
+cells with a confident HTO call ({tot>=20, top>=3x second}): 7967/13072 (60.9%)
+joint_CD45pos_GREEN    2671
+skin_CD45pos_RED       2012
+skin_CD45pos_GREEN     1199
+skin_CD45neg_GREEN      970
+joint_CD45pos_RED       917
+joint_CD45neg_GREEN     198

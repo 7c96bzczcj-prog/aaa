@@ -1,0 +1,13 @@
+=== skin CD45+ cell-type composition (marker-max rule, >=1/3 of a set's markers detected) ===
+  lib               frac    n  med_umi   T  NK/ILC  B  Myeloid  Neutrophil  DC  Mast  unassigned
+   B6 skin_CD45pos_GREEN 1068   3806.5 271      15  1      419         140  24     4         194
+   B6   skin_CD45pos_RED 3062   3205.5 598      23  7      813         525  39    59         998
+BALBc skin_CD45pos_GREEN 1199   4596.0 418       5  1      461          59  25     1         229
+BALBc   skin_CD45pos_RED 2012   3749.5 190      12  2      879         164  35    71         659
+
+=== as percentages ===
+  lib               frac    n  med_umi    T  NK/ILC   B  Myeloid  Neutrophil  DC  Mast  unassigned
+   B6 skin_CD45pos_GREEN 1068   3806.5 25.4     1.4 0.1     39.2        13.1 2.2   0.4        18.2
+   B6   skin_CD45pos_RED 3062   3205.5 19.5     0.8 0.2     26.6        17.1 1.3   1.9        32.6
+BALBc skin_CD45pos_GREEN 1199   4596.0 34.9     0.4 0.1     38.4         4.9 2.1   0.1        19.1
+BALBc   skin_CD45pos_RED 2012   3749.5  9.4     0.6 0.1     43.7         8.2 1.7   3.5        32.8
