@@ -509,7 +509,9 @@ phase1_registry/registry.csv Phase 1 admission table
 results/                     A4 counts, purity, library metadata
 docs/DEVIATIONS.md           every departure from the protocol, with evidence
 docs/PHASE0_LITERATURE.md    prior-art record
-tests/                       33 tests, all passing
+scripts/chemokine_measurability.py   what a chemokine protocol can measure here
+docs/CHEMOKINE_CROSS_COMPARTMENT_BRIDGE.md   the bridge to the follow-on task
+tests/                       36 tests, all passing
 ```
 
 ## Running it
@@ -589,6 +591,58 @@ Deferred items consume attention silently, so the list is now empty
 | **NK-CHIP** | **Closed.** The supposed methodological wall — that NK clonal genotyping needs clonal expansion, which NK cannot do — does not exist. Mission Bio Tapestri genotypes single cells directly, and Rodriguez-Sevilla et al., *Nat Commun* 2025 already report NK cells carrying DNMT3A/TET2-class drivers at single-cell resolution with matched immunophenotype. Death by novelty, not by feasibility. |
 | **NK complosome** | **Closed as a direction; `C3`/`C3AR1` promoted to the Aim 2 candidate panel.** The premise check finally ran on data already on disk: `C3` clears the ambient calibration on two independent scales (soup fraction 0.191 against a fully-ambient reading of 0.402; NK/Myeloid CPM 0.437 against a pure-pickup band of 0.070–0.118). Weakly supported, low abundance, and enough to justify a candidate node on the granule/secretory-lysosome overlap — not a turn into complement immunology. |
 | **Over-dispersion axis** | **Dead.** Killed by this project's own data, by the same mechanism that killed the four-quadrant framework: ambient is additive and NK's burden is 2.6× CD8T's, depressing NK's apparent dispersion; and NK's RNA content differs between conditions (log2 −0.323, p = 6.0 × 10⁻⁸), so the dispersion contrast is partly a depth contrast. Both confounders are NK-specific and both point toward the wanted answer. |
+
+## Follow-on: the NK chemokine cross-compartment protocol
+
+The next task inherits this dataset, so the first question is not which
+axis is interesting but **which axis is measurable, and between which
+compartments**. That is answered up front rather than in phase 5 — the
+lesson of D10, where the protocol's own positive control was carried
+through five phases before anyone checked that it cleared the detection
+floor. Full record:
+[`CHEMOKINE_CROSS_COMPARTMENT_BRIDGE.md`](docs/CHEMOKINE_CROSS_COMPARTMENT_BRIDGE.md);
+the check is `scripts/chemokine_measurability.py`, run from files already
+on disk.
+
+**The blood arm does not exist.** GSE154826 has 11 PBMC libraries, but
+they come from **2 individuals**, against 29 holding a tumour/normal
+pair. A paired blood↔tissue contrast is off by an order of magnitude
+from the protocol family's own admission rule, and those PBMC libraries
+additionally carry no recorded enrichment protocol while every tissue
+library does. On this dataset "cross-compartment" can only mean **tumour
+vs adjacent normal, n = 29**.
+
+**The output is measurable; the receptor repertoire is not.** Of a
+68-gene panel — the full chemokine system plus the retention/egress
+module — **18 clear both the detection floor and the ambient scales in
+NK**:
+
+| group | measurable in NK |
+|---|---|
+| receptors (18 classical + 5 atypical) | **2 / 23** — `CX3CR1`, `CXCR4` |
+| retention / egress | **6 / 8** |
+| ligands, lymphoid | **7 / 7** — `CCL3/3L3/4/4L2/5`, `XCL1/2`, at 128–5,295 CPM |
+| ligands, myeloid / stromal | **3 / 30** |
+
+So "which chemokine receptors position NK in the tumour" is
+unanswerable on 3′ V2 pseudobulk here, while "what NK secretes, and how
+that differs between compartments" is answerable. Below the floor is
+not absence: 18 of the 46 below-floor genes sit within 2× of it
+(`CXCR3` misses on detection breadth by 0.483 against a 0.50 gate), which
+names the fix — 5′ chemistry, greater depth, or the 20 unexploited ADT
+libraries in this same cohort.
+
+One filter artefact matters for spec-writing: **`S1PR5`**, the canonical
+NK egress receptor, is cleanly measurable (148 CPM, soup fraction 0.009,
+NK/Myeloid 264) yet falls out of the tested universe because the relaxed
+filter demands a witness lineage and `S1PR5` is NK-restricted (D7). A
+chemokine protocol must set its own gene universe and state its witness
+rule.
+
+Everything the closed record says about NK-specific artefacts applies
+unchanged: the three effects that falsified the four-quadrant framework
+are properties of this dataset, not of that rule, so no chemokine phase
+may read "NK moved, the others did not" as biology.
 
 ## Suggested next step
 

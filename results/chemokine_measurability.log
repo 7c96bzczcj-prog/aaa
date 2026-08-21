@@ -1,0 +1,148 @@
+
+=== 1. compartment inventory (35 human individuals, 108 libraries) ===
+  Normal+Tumor            27 individuals
+  Tumor                    6 individuals
+  Normal+PBMC+Tumor        2 individuals
+
+  paired n by contrast (individuals holding BOTH compartments):
+    Tumor vs Normal   n = 29
+    Tumor vs PBMC     n = 2
+    Normal vs PBMC     n = 2
+    all three          n = 2
+
+  enrichment protocol per tissue (a cross-tissue contrast inherits any difference here):
+    Normal   ['CD2+ bead enrichment', 'CD45+ FACS', 'CD45+ bead enrichment', 'dead cell depletion kit']
+    PBMC     ['(unrecorded)']
+    Tumor    ['CD2+ bead enrichment', 'CD45+ FACS', 'CD45+ bead enrichment', 'dead cell depletion kit']
+
+=== 2. ambient calibration inside NK ===
+  genuinely-NK genes read soup_frac up to     0.013
+  known-ambient genes read soup_frac down to  0.402 (their true value is 1.0)
+  NK/Myeloid CPM for myeloid-only genes:      0.118  0.070  (pure pickup)
+
+=== 3. measurability in NK (floor: >=10 counts in >=50% of NK pseudobulk samples) ===
+
+  receptor_inflammatory  (1/9 measurable)
+    CCR1       det= 0.22 CPM=    9.88 soup=0.289 NK/Mye=  0.269   BELOW DETECTION FLOOR
+    CCR2       det= 0.00 CPM=    2.32 soup=0.373 NK/Mye=  0.429   BELOW DETECTION FLOOR
+    CCR3       det= 0.00 CPM=    0.18 soup=0.121 NK/Mye=  2.255*   BELOW DETECTION FLOOR
+    CCR5       det= 0.07 CPM=    6.83 soup=0.262 NK/Mye=  0.940   BELOW DETECTION FLOOR
+    CXCR1      det= 0.21 CPM=    9.22 soup=0.009 NK/Mye= 88.105*   BELOW DETECTION FLOOR
+    CXCR2      det= 0.45 CPM=   18.34 soup=0.013 NK/Mye= 12.118*   BELOW DETECTION FLOOR
+    CXCR3      det= 0.48 CPM=   24.38 soup=0.199 NK/Mye=  2.766*   BELOW DETECTION FLOOR
+    CXCR6      det= 0.31 CPM=   25.85 soup=0.262 NK/Mye= 10.352*   BELOW DETECTION FLOOR
+    CX3CR1     det= 0.64 CPM=   75.85 soup=0.013 NK/Mye=  8.618*   MEASURABLE
+
+  receptor_homing  (1/9 measurable)
+    CCR4       det= 0.00 CPM=    4.36 soup=0.300 NK/Mye=  4.211*   BELOW DETECTION FLOOR
+    CCR6       det= 0.10 CPM=    8.84 soup=0.331 NK/Mye=  0.981   BELOW DETECTION FLOOR
+    CCR7       det= 0.29 CPM=   18.15 soup=0.380 NK/Mye=  1.309*   BELOW DETECTION FLOOR
+    CCR8       det= 0.00 CPM=    0.02 soup=0.847 NK/Mye=  0.343   BELOW DETECTION FLOOR
+    CCR9       det= 0.00 CPM=    0.75 soup=0.078 NK/Mye= 21.361*   BELOW DETECTION FLOOR
+    CCR10      det= 0.02 CPM=    1.59 soup=0.342 NK/Mye=  1.238*   BELOW DETECTION FLOOR
+    CXCR4      det= 1.00 CPM= 1585.76 soup=0.131 NK/Mye=  3.100*   MEASURABLE
+    CXCR5      det= 0.02 CPM=    0.98 soup=0.539 NK/Mye=  2.379*   BELOW DETECTION FLOOR
+    XCR1       det= 0.00 CPM=    0.17 soup=0.376 NK/Mye=  0.112   BELOW DETECTION FLOOR
+
+  receptor_atypical  (0/5 measurable)
+    ACKR1      det= 0.19 CPM=   46.91 soup=0.093 NK/Mye=  3.345*   BELOW DETECTION FLOOR
+    ACKR2      det= 0.00 CPM=    0.61 soup=0.068 NK/Mye=  1.621*   BELOW DETECTION FLOOR
+    ACKR3      det= 0.09 CPM=    1.98 soup=0.256 NK/Mye=  0.257   BELOW DETECTION FLOOR
+    ACKR4      det= 0.02 CPM=    1.16 soup=0.140 NK/Mye=  1.887*   BELOW DETECTION FLOOR
+    CCRL2      det= 0.21 CPM=   12.40 soup=0.439 NK/Mye=  0.226   BELOW DETECTION FLOOR
+
+  retention_egress  (6/8 measurable)
+    S1PR1      det= 0.40 CPM=   18.68 soup=0.058 NK/Mye=  7.676*   BELOW DETECTION FLOOR
+    S1PR5      det= 0.84 CPM=  147.94 soup=0.009 NK/Mye=264.403*   MEASURABLE
+    SELL       det= 0.79 CPM=   71.94 soup=0.100 NK/Mye=  2.379*   MEASURABLE
+    SELPLG     det= 0.91 CPM=  102.47 soup=0.066 NK/Mye=  1.778*   MEASURABLE
+    CD69       det= 0.98 CPM=  971.11 soup=0.107 NK/Mye=  6.313*   MEASURABLE
+    ITGAE      det= 0.83 CPM=   66.53 soup=0.131 NK/Mye=  2.159*   MEASURABLE
+    ITGA1      det= 0.33 CPM=   29.77 soup=0.075 NK/Mye=  6.014*   BELOW DETECTION FLOOR
+    KLRG1      det= 0.81 CPM=   79.18 soup=0.046 NK/Mye= 15.822*   MEASURABLE
+
+  ligand_lymphoid  (7/7 measurable)
+    CCL3       det= 0.95 CPM= 2293.61 soup=0.046 NK/Mye=  2.303*   MEASURABLE
+    CCL3L3     det= 0.90 CPM=  212.21 soup=0.116 NK/Mye=  0.915   MEASURABLE
+    CCL4       det= 0.98 CPM= 5294.98 soup=0.039 NK/Mye=  7.173*   MEASURABLE
+    CCL4L2     det= 0.95 CPM=  856.79 soup=0.057 NK/Mye=  3.475*   MEASURABLE
+    CCL5       det= 0.98 CPM= 2332.02 soup=0.039 NK/Mye= 42.580*   MEASURABLE
+    XCL1       det= 0.84 CPM=  128.20 soup=0.035 NK/Mye= 48.635*   MEASURABLE
+    XCL2       det= 0.95 CPM=  221.96 soup=0.021 NK/Mye=100.754*   MEASURABLE
+
+  ligand_myeloid_stromal  (3/30 measurable)
+    CCL2       det= 0.50 CPM=   76.39 soup=0.239 NK/Mye=  0.485   MEASURABLE
+    CCL7       det= 0.03 CPM=    3.39 soup=0.357 NK/Mye=  0.367   BELOW DETECTION FLOOR
+    CCL8       det= 0.09 CPM=    4.62 soup=0.368 NK/Mye=  0.288   BELOW DETECTION FLOOR
+    CCL13      det= 0.17 CPM=   12.80 soup=0.343 NK/Mye=  0.338   BELOW DETECTION FLOOR
+    CCL14      det= 0.05 CPM=    1.93 soup=0.064 NK/Mye=  2.547*   BELOW DETECTION FLOOR
+    CCL15      det= 0.00 CPM=    0.08 soup=0.727 NK/Mye=  0.081   BELOW DETECTION FLOOR
+    CCL17      det= 0.17 CPM=    6.81 soup=0.852 NK/Mye=  0.047   BELOW DETECTION FLOOR
+    CCL18      det= 0.71 CPM=  371.95 soup=0.372 NK/Mye=  0.222   MEASURABLE
+    CCL19      det= 0.05 CPM=    3.77 soup=0.209 NK/Mye=  0.490   BELOW DETECTION FLOOR
+    CCL20      det= 0.62 CPM=   67.30 soup=0.618 NK/Mye=  0.180   AMBIENT-INDISTINGUISHABLE
+    CCL21      det= 0.10 CPM=    7.36 soup=0.096 NK/Mye=  0.493   BELOW DETECTION FLOOR
+    CCL22      det= 0.07 CPM=    2.85 soup=0.295 NK/Mye=  0.373   BELOW DETECTION FLOOR
+    CCL23      det= 0.14 CPM=    9.03 soup=0.280 NK/Mye=  0.286   BELOW DETECTION FLOOR
+    CCL24      det= 0.00 CPM=    0.01 soup=1.000 NK/Mye=  0.055   BELOW DETECTION FLOOR
+    CCL28      det= 0.29 CPM=   11.58 soup=0.068 NK/Mye=  3.350*   BELOW DETECTION FLOOR
+    CXCL1      det= 0.33 CPM=   25.52 soup=0.308 NK/Mye=  0.430   BELOW DETECTION FLOOR
+    CXCL2      det= 0.83 CPM=  208.57 soup=0.283 NK/Mye=  0.243   MEASURABLE
+    CXCL3      det= 0.78 CPM=  154.76 soup=0.493 NK/Mye=  0.176   AMBIENT-INDISTINGUISHABLE
+    CXCL5      det= 0.15 CPM=    8.88 soup=0.232 NK/Mye=  0.233   BELOW DETECTION FLOOR
+    CXCL6      det= 0.03 CPM=    1.35 soup=0.308 NK/Mye=  0.279   BELOW DETECTION FLOOR
+    CXCL8      det= 0.84 CPM=  245.44 soup=0.475 NK/Mye=  0.197   AMBIENT-INDISTINGUISHABLE
+    CXCL9      det= 0.12 CPM=    5.40 soup=0.994 NK/Mye=  0.079   BELOW DETECTION FLOOR
+    CXCL10     det= 0.28 CPM=   22.12 soup=0.734 NK/Mye=  0.133   BELOW DETECTION FLOOR
+    CXCL11     det= 0.03 CPM=    1.76 soup=0.526 NK/Mye=  0.115   BELOW DETECTION FLOOR
+    CXCL12     det= 0.09 CPM=    4.70 soup=0.055 NK/Mye=  1.193*   BELOW DETECTION FLOOR
+    CXCL13     det= 0.07 CPM=    9.91 soup=1.000 NK/Mye=  1.587*   BELOW DETECTION FLOOR
+    CXCL14     det= 0.33 CPM=   27.77 soup=0.268 NK/Mye=  1.096*   BELOW DETECTION FLOOR
+    CXCL16     det= 0.60 CPM=   35.13 soup=0.506 NK/Mye=  0.131   AMBIENT-INDISTINGUISHABLE
+    CXCL17     det= 0.43 CPM=   54.38 soup=0.167 NK/Mye=  0.820   BELOW DETECTION FLOOR
+    CX3CL1     det= 0.09 CPM=    4.83 soup=0.101 NK/Mye=  1.642*   BELOW DETECTION FLOOR
+
+  control_positive  (3/3 measurable)
+    KLRD1      det= 0.98 CPM= 1049.81 soup=0.013 NK/Mye=211.171*   MEASURABLE
+    NKG7       det= 0.98 CPM= 3614.67 soup=0.013 NK/Mye=111.513*   MEASURABLE
+    GNLY       det= 0.98 CPM= 5188.38 soup=0.012 NK/Mye=216.871*   MEASURABLE
+
+  control_negative  (0/3 measurable)
+    C1QA       det= 0.74 CPM=  325.78 soup=0.586 NK/Mye=  0.118   AMBIENT-INDISTINGUISHABLE
+    LYZ        det= 0.81 CPM=  377.74 soup=1.000 NK/Mye=  0.070   AMBIENT-INDISTINGUISHABLE
+    IGKC       det= 0.84 CPM= 8338.04 soup=0.402 NK/Mye=  3.295*   AMBIENT-INDISTINGUISHABLE
+
+  det = fraction of NK pseudobulk samples reaching the floor (>=10 counts); at the mean NK library size of 637,948 counts the floor is ~16 CPM.
+  * NK/Myeloid ratio does not discriminate for this gene (NK >= Myeloid); the soup fraction is the only scale that applies.
+
+=== 4. paired tumour-vs-normal in NK, for the 18 measurable panel genes ===
+    DESCRIPTIVE ONLY -- the quadrant reading of this dataset is retracted; three
+    NK-specific technical effects make any NK-vs-others contrast unreadable here.
+    gene        NK_log2FC   NK_SE  CD8T_log2FC               quadrant
+    SELPLG         -0.521   0.102       -0.068           unclassified
+    CCL4           -0.385   0.167       -0.394           unclassified
+    CCL5           -0.363   0.179       -0.261           unclassified
+    KLRG1          -0.329   0.160       -0.490           unclassified
+    CCL3           -0.224   0.170        0.064           unclassified
+    CCL4L2         -0.114   0.174        0.313           unclassified
+    SELL           -0.031   0.138        0.529                     Q4
+    XCL2            0.052   0.212       -0.272                     Q4
+    ITGAE           0.105   0.141        0.455           unclassified
+    CCL3L3          0.351   0.171        0.165           unclassified
+    CCL18           0.425   0.488       -0.545           unclassified
+    CXCR4           0.495   0.150        0.035           unclassified
+    XCL1            0.566   0.257       -0.642           unclassified
+    CXCL2           0.598   0.348       -0.453           unclassified
+    CD69            0.694   0.142        0.124           unclassified
+    CCL2            0.819   0.438       -1.178           unclassified
+    CX3CR1       -- untested: measurable here, absent from the 27-patient Phase 5 table
+    S1PR5        -- untested: NK-restricted: no witness lineage (D7)
+
+=== SUMMARY ===
+  panel genes                     68
+  measurable in NK                18
+    of which receptors            2/23
+    of which ligands              10/37
+  tumour vs normal, paired n      29 individuals in the metadata; 29 carry a complete five-lineage pair here
+  blood vs tissue, paired n       2 individuals
+DONE

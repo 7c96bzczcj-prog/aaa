@@ -138,6 +138,41 @@ def main() -> int:
                rv.groupby("lineage").rho_per_sample.median()["CD8T"])
     chk("NK rho / CD8T rho", 2.6, round(rr, 1), abs(rr - 2.6) < 0.05)
 
+    # ---- chemokine bridge (docs/CHEMOKINE_CROSS_COMPARTMENT_BRIDGE.md)
+    inv = pd.read_csv(os.path.join(OUT, "chemokine_compartment_inventory.csv"))
+    n_by = dict(zip(inv.tissues, inv.n_individuals))
+    chk("chemokine Normal+Tumor n", 27, n_by.get("Normal+Tumor"),
+        n_by.get("Normal+Tumor") == 27)
+    chk("chemokine 3-compartment n", 2, n_by.get("Normal+PBMC+Tumor"),
+        n_by.get("Normal+PBMC+Tumor") == 2)
+
+    cv = pd.read_csv(os.path.join(OUT, "chemokine_panel_verdict.csv"))
+    panel = cv[~cv.axis.str.startswith("control")]
+    n_meas = int((panel.verdict == "MEASURABLE").sum())
+    chk("chemokine panel size", 68, len(panel), len(panel) == 68)
+    chk("chemokine measurable", 18, n_meas, n_meas == 18)
+    rec = panel[panel.axis.str.startswith("receptor")]
+    chk("chemokine receptors measurable", "2/23",
+        f"{int((rec.verdict == 'MEASURABLE').sum())}/{len(rec)}",
+        int((rec.verdict == "MEASURABLE").sum()) == 2 and len(rec) == 23)
+    lig = panel[panel.axis.str.startswith("ligand")]
+    chk("chemokine ligands measurable", "10/37",
+        f"{int((lig.verdict == 'MEASURABLE').sum())}/{len(lig)}",
+        int((lig.verdict == "MEASURABLE").sum()) == 10 and len(lig) == 37)
+    # the ambient scales must still separate the two control sets, or the
+    # verdict column means nothing
+    pos = cv[cv.axis == "control_positive"].verdict
+    neg = cv[cv.axis == "control_negative"].verdict
+    chk("chemokine positive controls", "3x MEASURABLE",
+        f"{int((pos == 'MEASURABLE').sum())}/3", (pos == "MEASURABLE").all())
+    chk("chemokine negative controls", "3x ambient",
+        f"{int(neg.str.startswith('AMBIENT').sum())}/3",
+        neg.str.startswith("AMBIENT").all())
+    nk_only = cv[cv.gene == "S1PR5"].iloc[0]
+    chk("S1PR5 measurable but filtered", "True/False",
+        f"{nk_only.verdict == 'MEASURABLE'}/{bool(nk_only.passes_witness_filter)}",
+        nk_only.verdict == "MEASURABLE" and not nk_only.passes_witness_filter)
+
     # A retracted claim must stay retracted EVERYWHERE, not just in the
     # README.  The first version of this check scanned README.md alone and
     # reported "16/16 verified" while the retracted sentence was still live,

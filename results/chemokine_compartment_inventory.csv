@@ -1,0 +1,4 @@
+tissues,n_individuals
+Normal+Tumor,27
+Tumor,6
+Normal+PBMC+Tumor,2
