@@ -1,0 +1,104 @@
+==============================================================================
+S-1a §S1a.2  CLEAN STRATIFIER (outcome genes excluded by construction)
+==============================================================================
+excluded from the label: ['XCL1', 'XCL2', 'CCL3', 'CCL4', 'CCL5']
+built from: FCGR3A, NCAM1 only
+thresholds (identical across all organs and chemistries, raw counts):
+   strict: bright = NCAM1>0 & FCGR3A==0 ; dim = FCGR3A>0 ; else UNCLASSIFIABLE
+   loose : bright = FCGR3A==0           ; dim = FCGR3A>0
+
+author-annotated NK cells: 29493
+
+overall label distribution
+   orig    dim=20591 (69.8%)  bright=8902 (30.2%)
+   strict  dim=18437 (62.5%)  UNCLASSIFIABLE=7528 (25.5%)  bright=3528 (12.0%)
+   loose   dim=18437 (62.5%)  bright=11056 (37.5%)
+
+UNCLASSIFIABLE under strict: 25.5% (NCAM1 and FCGR3A both zero — the NCAM1 dropout problem)
+
+------------------------------------------------------------------------------
+CONFUSION MATRIX vs Manually_curated_celltype (cell level)
+------------------------------------------------------------------------------
+
+--- clean/strict vs original ---
+strict  UNCLASSIFIABLE  bright    dim
+orig                                 
+bright            4377    3016   1509
+dim               3151     512  16928
+row-normalised (%):
+strict  UNCLASSIFIABLE  bright   dim
+orig                                
+bright            49.2    33.9  17.0
+dim               15.3     2.5  82.2
+   agreement excluding UNCLASSIFIABLE (n=21965): 0.908
+
+--- clean/loose vs original ---
+loose   bright    dim
+orig                 
+bright    7393   1509
+dim       3663  16928
+row-normalised (%):
+loose   bright   dim
+orig                
+bright    83.0  17.0
+dim       17.8  82.2
+   overall agreement: 0.825
+
+------------------------------------------------------------------------------
+PER-ORGAN BRIGHT SHARE: clean minus original  (pp)
+§4: reported per (tissue x assay); never merged across chemistry
+------------------------------------------------------------------------------
+tissue                 assay           n    orig  strict   loose   d_str   d_loo  unclass
+blood                  10x 3' v3    3511   0.114   0.103   0.453    -1.1   +33.9    39.0%
+bone marrow            10x 3' v3    6872   0.092   0.070   0.196    -2.2   +10.4    13.5%
+jejunal epithelium     10x 3' v3      60   0.717   0.429   0.733   -28.8    +1.7    53.3%
+jejunum lamina propria 10x 3' v3      72   0.486   0.333   0.611   -15.3   +12.5    41.7%
+lung                   10x 3' v3    2880   0.149   0.085   0.311    -6.4   +16.2    24.7%
+spleen                 10x 3' v3    5098   0.423   0.230   0.443   -19.3    +2.0    27.6%
+thoracic lymph node    10x 3' v3     377   0.910   0.526   0.761   -38.3   -14.9    49.6%
+blood                  10x 5' v1     206   0.117   0.073   0.131    -4.4    +1.5     6.3%
+bone marrow            10x 5' v1     601   0.100   0.049   0.185    -5.1    +8.5    14.3%
+liver                  10x 5' v1    1515   0.653   0.408   0.661   -24.6    +0.7    42.7%
+lung                   10x 5' v1     324   0.090   0.032   0.154    -5.8    +6.5    12.7%
+skeletal muscle tissue 10x 5' v1     134   0.104   0.063   0.112    -4.1    +0.7     5.2%
+spleen                 10x 5' v1    1361   0.606   0.295   0.515   -31.1    -9.1    31.2%
+thoracic lymph node    10x 5' v1     257   0.965   0.554   0.774   -41.1   -19.1    49.4%
+blood                  10x 5' v2     267   0.079   0.070   0.258    -0.8   +18.0    20.2%
+bone marrow            10x 5' v2     753   0.189   0.076   0.205   -11.3    +1.6    13.9%
+jejunal epithelium     10x 5' v2      66   0.848   0.618   0.803   -23.1    -4.5    48.5%
+jejunum lamina propria 10x 5' v2      71   0.521   0.346   0.521   -17.5    +0.0    26.8%
+liver                  10x 5' v2    2072   0.345   0.172   0.337   -17.3    -0.8    19.9%
+mesenteric lymph node  10x 5' v2     950   0.618   0.344   0.568   -27.4    -4.9    34.2%
+spleen                 10x 5' v2    1751   0.521   0.240   0.449   -28.1    -7.2    27.5%
+thoracic lymph node    10x 5' v2     177   0.842   0.409   0.576   -43.2   -26.6    28.2%
+
+------------------------------------------------------------------------------
+§S1a.2 PRE-WRITTEN VERDICT
+------------------------------------------------------------------------------
+
+--- 10x 3' v3 (7 organs) ---
+   |d_strict| median 15.3 pp, max 38.3 pp
+   |d_loose|  median 12.5 pp, max 33.9 pp
+   organ-order preserved?  strict rho=+0.96  loose rho=+0.89
+   order changed (strict): True ; (loose): True
+   -> strict: 须整体重估 (>10pp)
+   -> loose: 须整体重估 (>10pp)
+   strict and loose agree in sign per organ: False
+
+--- 10x 5' v1 (7 organs) ---
+   |d_strict| median 5.8 pp, max 41.1 pp
+   |d_loose|  median 6.5 pp, max 19.1 pp
+   organ-order preserved?  strict rho=+1.00  loose rho=+0.71
+   order changed (strict): False ; (loose): True
+   -> strict: 部分可用 (5-10pp)
+   -> loose: 部分可用 (5-10pp)
+   strict and loose agree in sign per organ: False
+
+--- 10x 5' v2 (8 organs) ---
+   |d_strict| median 20.3 pp, max 43.2 pp
+   |d_loose|  median 4.7 pp, max 26.6 pp
+   organ-order preserved?  strict rho=+0.98  loose rho=+0.98
+   order changed (strict): True ; (loose): True
+   -> strict: 须整体重估 (>10pp)
+   -> loose: 影响有限 (<5pp)
+   strict and loose agree in sign per organ: False
