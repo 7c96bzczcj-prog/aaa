@@ -1,0 +1,56 @@
+==============================================================================
+S-3a §1  GENE-WIDE SWEEP WITHOUT THE T-DIFF FILTER
+==============================================================================
+rise side, no filter : 2040
+rise side, old (filtered): 1261   re-admitted: 779
+
+                     set    n  median    iqr    q25    q75    p10    p90    min    max
+     no filter, all rise 2040  0.1262 0.1718 0.0512 0.2230 0.0171 0.3301 0.0000 0.8441
+   no filter, dir-stable 1251  0.1818 0.1697 0.1095 0.2792 0.0528 0.3697 0.0020 0.8441
+  OLD filtered, all rise 1261  0.1277 0.1729 0.0540 0.2268 0.0173 0.3310 0.0001 0.7618
+OLD filtered, dir-stable  781  0.1787 0.1674 0.1114 0.2788 0.0577 0.3669 0.0020 0.7618
+
+MAIN COMPARISON  f_est median: OLD 0.1787  ->  NEW 0.1818  (shift +0.0032)
+                 IQR         : OLD 0.1674  ->  NEW 0.1697
+                 10-90%      : OLD [0.058, 0.367]  ->  NEW [0.053, 0.370]
+
+KEY COMPARISON (does the conclusion change?)
+  Ccl3: f_min=0.337   vs NEW f_est 90th pct 0.370  -> *** NOW BELOW - CONCLUSION CHANGED ***
+  Ccl4: f_min=0.596   vs NEW f_est 90th pct 0.370  -> STILL ABOVE (conclusion unchanged)
+  Ccl5: f_min=0.853   vs NEW f_est 90th pct 0.370  -> STILL ABOVE (conclusion unchanged)
+
+explained share at f = NEW median 0.182:
+  Ccl5: 3.8%  (was 3.7% at f=0.179)
+  Ccl4: 15.1%  (was 14.8% at f=0.179)
+  Ccl3: 43.7%  (was 42.7% at f=0.179)
+
+fall genes (stable, >=10pp) n=550: f_min > NEW median: 366/550 (66.5%)  [OLD: 378/550 (68.7%)]
+
+IQR THRESHOLD TABLE (main caliber = no filter, dir-stable)
+  measured IQR = 0.1697
+  IQR 门槛 0.15 -> 发散 -> 第三行（发散 → 本路径无效）
+  IQR 门槛 0.20 -> 集中 -> 第二行（集中但低于某些 f_min → 差额由状态改变承担）
+  IQR 门槛 0.25 -> 集中 -> 第二行（集中但低于某些 f_min → 差额由状态改变承担）
+  IQR 门槛 0.30 -> 集中 -> 第二行（集中但低于某些 f_min → 差额由状态改变承担）  <== 回填采用
+
+ESS THRESHOLD TABLE (set B)
+  set B, best match: ESS=26.98  implied surviving 27.0/385 = 0.070 -> implied f = 0.930
+     threshold 20: USABLE
+     threshold 25: USABLE
+     threshold 30: UNRELIABLE   <== 回填维持
+     threshold 35: UNRELIABLE
+  set B, entropy balancing: ESS=29.32  implied surviving 29.3/385 = 0.076 -> implied f = 0.924
+     threshold 20: USABLE
+     threshold 25: USABLE
+     threshold 30: UNRELIABLE   <== 回填维持
+     threshold 35: UNRELIABLE
+
+=== were the 779 re-admitted genes a different f population? ===
+  re-admitted (cosync)   n=  779  median 0.1246  IQR 0.1696
+  previously kept        n= 1261  median 0.1277  IQR 0.1729
+  all rise               n= 2040  median 0.1262  IQR 0.1718
+  re-admitted, dir-stable  n=  470  median 0.1850  IQR 0.1774
+  prev kept, dir-stable    n=  781  median 0.1787  IQR 0.1674
+  Mann-Whitney U on dir-stable: p = 0.6815
+
+wrote S3_PLOTS/f_distributions_nofilter.png
