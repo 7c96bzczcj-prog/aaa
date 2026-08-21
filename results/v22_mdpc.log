@@ -1,0 +1,53 @@
+==============================================================================
+v2.2 MDPC — two-sided alpha = 0.05, power = 80%
+multiplier (z.975 + z.80) = 2.8016
+==============================================================================
+
+control benchmark: R1 median observed proportional change = 23.6%
+
+gene    baseline  SE(diff) pp  MDPC@80%  MDPC@1SE(v2.1)    rule3 vs R1
+CCL3      0.4953         4.43     25.0%            8.9%  NOT SATISFIED
+CCL4      0.7750         5.22     18.9%            6.7%      SATISFIED
+CCL5      0.7408         6.15     23.3%            8.3%      SATISFIED
+XCL1      0.0930         2.23     67.1%           23.9%  NOT SATISFIED
+
+   NOTE: under the v2.1 (1 x SE) definition XCL1 gave 23.9% ;
+   the hand calculation's 22.3% was BELOW the R1 benchmark and would
+   have LITERALLY PERMITTED writing PRESERVED. At 80% power it is
+   67.1% — no longer close.
+
+==============================================================================
+RULE 5 — attenuation-corrected within-patient correlation
+==============================================================================
+
+CCL3: observed r = +0.177   inter-donor SD = 14.96 pp
+   mean tech   SD =  3.24 pp  -> ratio 0.217, reliability = 0.953, attenuation-corrected r ~ +0.186
+   worst tech  SD =  5.82 pp  -> ratio 0.389, reliability = 0.849, attenuation-corrected r ~ +0.209
+
+CCL4: observed r = -0.071   inter-donor SD = 16.20 pp
+   mean tech   SD =  2.12 pp  -> ratio 0.131, reliability = 0.983, attenuation-corrected r ~ -0.072
+   worst tech  SD =  2.26 pp  -> ratio 0.140, reliability = 0.980, attenuation-corrected r ~ -0.073
+
+CCL5: observed r = -0.046   inter-donor SD = 18.67 pp
+   mean tech   SD =  2.81 pp  -> ratio 0.150, reliability = 0.977, attenuation-corrected r ~ -0.047
+   worst tech  SD =  4.51 pp  -> ratio 0.242, reliability = 0.942, attenuation-corrected r ~ -0.049
+
+XCL1: observed r = -0.089   inter-donor SD = 6.49 pp
+   mean tech   SD =  2.16 pp  -> ratio 0.333, reliability = 0.889, attenuation-corrected r ~ -0.100
+   worst tech  SD =  2.37 pp  -> ratio 0.366, reliability = 0.866, attenuation-corrected r ~ -0.102
+
+   Reliability is HIGH (technical share small), so the near-zero
+   correlations survive correction: they are not an artefact of
+   measurement error. Caveat: the technical term rests on ONE donor.
+   Correction: the previously reported 0.06x-0.60x compared a RANGE
+   to an SD; on a like-for-like SD basis the ratios are smaller still.
+
+==============================================================================
+SCALE FEASIBILITY — what would it take to detect an R1-sized fall?
+==============================================================================
+   CCL3   target 11.71 pp   current SE  4.43 pp   SE needed  4.18 pp   n =     21 pairs
+   CCL4   target 18.32 pp   current SE  5.22 pp   SE needed  6.54 pp   n =     12 pairs   <== already powered
+   CCL5   target 17.51 pp   current SE  6.15 pp   SE needed  6.25 pp   n =     18 pairs   <== already powered
+   XCL1   target  2.20 pp   current SE  2.23 pp   SE needed  0.78 pp   n =    153 pairs
+
+   (current n = 19 pairs)
