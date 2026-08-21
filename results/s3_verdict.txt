@@ -1,0 +1,1 @@
+row 2: f_est is concentrated but BELOW some f_min -> the shortfall must be carried by state change

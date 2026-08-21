@@ -1,0 +1,28 @@
+green NK 385 red NK 650
+
+--- B: chemokine+residency (entropy balancing) ---
+  genes matched            : 8
+  green cells              : 385
+  Kish ESS                 : 29.3  (< 30 -> UNRELIABLE)
+  max |w| / mean |w|       : 39.2
+  residual share (L1)      : 0.251   => clearance can close 74.9% of the gap
+  residual share (L2)      : 0.244
+  optimiser converged      : False (ABNORMAL: )
+
+--- B: chemokine+residency (best match) ---
+  genes matched            : 8
+  green cells              : 385
+  Kish ESS                 : 27.0  (< 30 -> UNRELIABLE)
+  max |w| / mean |w|       : 43.8
+  residual share (L1)      : 0.000   => clearance can close 100.0% of the gap
+  residual share (L2)      : 0.000
+  optimiser converged      : True (CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH)
+
+--- A: all gated genes (best match) ---
+  genes matched            : 6753
+  green cells              : 385
+  Kish ESS                 : 152.9  (OK)
+  max |w| / mean |w|       : 7.3
+  residual share (L1)      : 0.701   => clearance can close 29.9% of the gap
+  residual share (L2)      : 0.677
+  optimiser converged      : False (STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT)

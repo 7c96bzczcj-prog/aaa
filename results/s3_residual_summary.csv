@@ -1,0 +1,4 @@
+gene_set,n_genes,n_green,ess,reliable,residual_L1,residual_L2,closed_share,converged,note
+B: chemokine+residency (entropy balancing),8,385,29.319770406946997,False,0.2505639669957871,0.2439775707784404,0.7494360330042129,False,exact-moment solver; best-match below shows the constraints ARE feasible
+B: chemokine+residency (best match),8,385,26.97560424387125,False,9.547384725725072e-09,8.682348240993716e-09,0.9999999904526152,True,exact match achievable but ESS 27.0 < 30 -> UNRELIABLE; implied surviving subset ~27/385 => implied f ~ 0.93
+A: all gated genes (best match),6753,385,152.9,True,0.701,0.6773410801427222,0.299,True,converged (L-BFGS success at 40k budget); residual stable at 2k/10k/40k iterations

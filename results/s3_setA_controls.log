@@ -1,0 +1,6 @@
+control-1 (selective, Ccl5-biased): kept 89/385 = f_true 0.769
+  L1res=0.0000 closed=100.0% ESS=89.0 obj=3.163e-16 gap_sum=192.4
+control-2 (random 60% removal): kept 142/385
+  L1res=0.0000 closed=100.0% ESS=142.0 obj=1.497e-16 gap_sum=137.3
+REAL red target: L1res=0.7010 closed=29.9% ESS=152.9 obj=1.193e+01 gap_sum=295.3
+CTRLDONE
