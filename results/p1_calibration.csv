@@ -1,0 +1,3 @@
+gene,condition,recorded_cell_level_detection,poisson_bound_from_pseudobulk,absolute_error_pp,source_of_truth
+TOX,Tumor,0.043,0.043476884956161865,0.04768849561618688,docs/DEVIATIONS.md D10 / README
+TOX,Normal,0.049,0.04788057991041628,-0.11194200895837253,docs/DEVIATIONS.md D10 / README

@@ -1,0 +1,7 @@
+gene,condition,det_balanced_raw,cells_balanced,band_balanced_raw,det_allcells_decontam,cells_allcells,band_allcells_decontam,same_band
+PIEZO1,Tumor,0.026240395948123885,7559,floor,0.018609714778150432,9230,floor,True
+PIEZO1,Normal,0.027285052132025367,11495,floor,0.022676029667259345,13841,floor,True
+TRPV2,Tumor,0.040688928722062534,7559,floor,0.03222486772291522,9230,floor,True
+TRPV2,Normal,0.065360706379469,11495,measurable,0.057658289063721724,13841,measurable,True
+TOX,Tumor,0.043476884956161865,7559,floor,0.03690867814335186,9230,floor,True
+TOX,Normal,0.04788057991041628,11495,floor,0.04823601550080758,13841,floor,True

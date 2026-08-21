@@ -1,0 +1,20 @@
+gene,nTPM_NK-cell,nTPM_T-reg,nTPM_neutrophil,nTPM_basophil,blood_cell_specificity
+PIEZO1,1.0,5.0,0.1,1.8,Low immune cell specificity
+PIEZO2,0.0,0.0,0.0,0.0,Not detected in immune cells
+TRPV4,0.0,0.0,0.0,0.0,Not detected in immune cells
+TRPV2,63.5,50.1,6.9,61.0,Low immune cell specificity
+TRPM7,2.4,2.0,1.6,1.8,Low immune cell specificity
+TRPC1,0.0,0.0,0.0,0.0,Not detected in immune cells
+TMEM63A,10.2,19.8,5.5,6.3,Low immune cell specificity
+TMEM63B,0.0,0.4,0.3,0.2,Not detected in immune cells
+KCNK2,0.0,0.0,0.0,0.0,Not detected in immune cells
+KCNK4,0.0,0.0,0.0,0.0,Not detected in immune cells
+ITGA1,0.0,0.0,0.0,0.0,Not detected in immune cells
+ITGAE,0.0,1.1,0.0,0.0,Immune cell enhanced
+CD69,26.8,7.9,0.3,1.3,Low immune cell specificity
+KLF2,28.8,59.8,80.1,63.6,Low immune cell specificity
+S1PR1,398.5,330.3,15.4,1252.2,Immune cell enhanced
+S1PR5,44.0,0.6,3.9,0.5,Group enriched
+SELL,2558.9,1013.6,4213.9,3696.6,Low immune cell specificity
+KLRD1,737.5,1.4,9.5,1.5,Group enriched
+NKG7,4809.3,17.5,112.4,77.6,Group enriched

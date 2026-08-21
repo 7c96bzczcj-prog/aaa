@@ -1,0 +1,154 @@
+=== Task P-1: PIEZO1 expression baseline (GSE154826 arm) ===
+read pseudobulk_raw.npz: 33668 gene rows x 270 sample columns in 0.94s
+donors: 27 paired patients; lineages: [np.str_('B'), np.str_('CD4T'), np.str_('CD8T'), np.str_('Myeloid'), np.str_('NK')]
+targeted genes read: 20  (no full-matrix rescan)
+median UMI/cell implied by recovered n_min: 2642
+NK cells gated in these 27 paired patients: 21465; NK cells entering the balanced pseudobulk: 7559 tumour + 11495 normal = 19054
+
+=== calibration of the detection estimator (§Q1 self-supplied rule) ===
+gene condition  recorded_cell_level_detection  poisson_bound_from_pseudobulk  absolute_error_pp                 source_of_truth
+ TOX     Tumor                          0.043                         0.0435             0.0477 docs/DEVIATIONS.md D10 / README
+ TOX    Normal                          0.049                         0.0479            -0.1119 docs/DEVIATIONS.md D10 / README
+worst absolute error: 0.11 percentage points (TIGHT at the floor)
+
+=== Q1: PIEZO1 in NK, and in every other gated lineage ===
+lineage condition  n_donors  n_cells_total  umi_per_cell_median  cpm_donor_median  det_pooled  det_pooled_lo95  det_pooled_hi95 band_pooled  donors_in_floor_band
+     NK     Tumor        27           7559            1684.3951           13.4227      0.0262           0.0210           0.0302       floor                    26
+     NK    Normal        27          11495            1802.7872           13.0076      0.0273           0.0199           0.0335       floor                    27
+   CD8T     Tumor        27           7559            2210.1571           12.9350      0.0302           0.0252           0.0360       floor                    22
+   CD8T    Normal        27          11495            2086.4799           16.3691      0.0307           0.0242           0.0369       floor                    22
+   CD4T     Tumor        27           7559            2635.1961           13.2909      0.0381           0.0312           0.0462       floor                    17
+   CD4T    Normal        27          11495            2618.2945           16.8840      0.0360           0.0285           0.0434       floor                    18
+      B     Tumor        27           7559            5167.0886            8.2121      0.0583           0.0396           0.0755  measurable                    19
+      B    Normal        27          11495            3175.8724           15.8259      0.0518           0.0398           0.0639  measurable                    18
+Myeloid     Tumor        27           7559            5761.2315           13.3931      0.0798           0.0683           0.0919  measurable                     8
+Myeloid    Normal        27          11495            6278.7389           15.1860      0.0865           0.0721           0.1025  measurable                     4
+
+Note on the cross-lineage rows: CPM is depth-normalised and detection is not.
+  PIEZO1's CPM is flat across the five lineages, so the detection spread below tracks
+  library depth (UMI/cell), not a difference in relative abundance.
+
+VERDICT Q1 (GSE154826): PIEZO1 in NK is ['floor'] in both conditions (2.62-2.73% detection).
+
+--- Q1 sensitivity 1: how much of it could be ambient ---
+   gene condition  rho_NK_median  ambient_fraction_of_signal  det_observed  det_ambient_adjusted band_ambient_adjusted
+ PIEZO1     Tumor         0.2446                      0.2925        0.0262                0.0186                 floor
+ PIEZO1    Normal         0.0685                      0.0758        0.0273                0.0252                 floor
+  TRPV2     Tumor         0.2446                      0.3852        0.0407                0.0252                 floor
+  TRPV2    Normal         0.0685                      0.0639        0.0654                0.0613            measurable
+  TRPM7     Tumor         0.2446                      0.2174        0.0371                0.0292                 floor
+  TRPM7    Normal         0.0685                      0.0491        0.0441                0.0420                 floor
+TMEM63A     Tumor         0.2446                      0.2043        0.0390                0.0312                 floor
+TMEM63A    Normal         0.0685                      0.0588        0.0366                0.0345                 floor
+
+--- Q1 sensitivity 2: the same call from the other pseudobulk artifact ---
+  gene condition  det_balanced_raw  cells_balanced band_balanced_raw  det_allcells_decontam  cells_allcells band_allcells_decontam  same_band
+PIEZO1     Tumor            0.0262            7559             floor                 0.0186            9230                  floor       True
+PIEZO1    Normal            0.0273           11495             floor                 0.0227           13841                  floor       True
+ TRPV2     Tumor            0.0407            7559             floor                 0.0322            9230                  floor       True
+ TRPV2    Normal            0.0654           11495        measurable                 0.0577           13841             measurable       True
+   TOX     Tumor            0.0435            7559             floor                 0.0369            9230                  floor       True
+   TOX    Normal            0.0479           11495             floor                 0.0482           13841                  floor       True
+
+=== Q2: ten mechanosensitive channels, side by side in NK ===
+   gene condition  cpm_donor_median  det_pooled  det_pooled_lo95  det_pooled_hi95 band_pooled  rank_in_panel
+ PIEZO1     Tumor           13.4227      0.0262           0.0210           0.0302       floor              4
+ PIEZO1    Normal           13.0076      0.0273           0.0199           0.0335       floor              4
+ PIEZO2     Tumor            0.0000      0.0024           0.0007           0.0038       floor              7
+ PIEZO2    Normal            0.0000      0.0009           0.0001           0.0014       floor              8
+  TRPV4     Tumor            0.0000      0.0030           0.0018           0.0044       floor              6
+  TRPV4    Normal            0.0000      0.0014           0.0006           0.0021       floor              6
+  TRPV2     Tumor           23.4785      0.0407           0.0327           0.0511       floor              1
+  TRPV2    Normal           40.0351      0.0654           0.0564           0.0792  measurable              1
+  TRPM7     Tumor           20.1244      0.0371           0.0306           0.0425       floor              3
+  TRPM7    Normal           24.8617      0.0441           0.0353           0.0526       floor              2
+  TRPC1     Tumor            0.0000      0.0007           0.0002           0.0012       floor              8
+  TRPC1    Normal            0.0000      0.0011           0.0003           0.0019       floor              7
+TMEM63A     Tumor           21.2288      0.0390           0.0321           0.0474       floor              2
+TMEM63A    Normal           23.0746      0.0366           0.0315           0.0421       floor              3
+TMEM63B     Tumor            5.9147      0.0150           0.0111           0.0191       floor              5
+TMEM63B    Normal            5.1277      0.0149           0.0097           0.0192       floor              5
+  KCNK2     Tumor            0.0000      0.0000           0.0000           0.0000       floor              9
+  KCNK2    Normal            0.0000      0.0003           0.0000           0.0006       floor              9
+  KCNK4     Tumor            0.0000      0.0000           0.0000           0.0000       floor              9
+  KCNK4    Normal            0.0000      0.0000           0.0000           0.0000       floor             10
+  Tumor: highest = TRPV2 (4.07%), PIEZO1 rank 4/10
+  Normal: highest = TRPV2 (6.54%), PIEZO1 rank 4/10
+
+--- Q2 head-to-head: PIEZO1 against each other channel, within donor, same cells ---
+condition  gene_b  n_donors  mean_log2_diff  paired_t_p   q_BH  donors_a_gt_b  donors_b_gt_a      verdict
+    Tumor  PIEZO2        27          3.2390      0.0000 0.0000             26              0    a_above_b
+    Tumor   TRPV4        27          2.7950      0.0000 0.0000             26              1    a_above_b
+    Tumor   TRPV2        27         -0.8577      0.0072 0.0081              6             19    b_above_a
+    Tumor   TRPM7        27         -0.5135      0.0947 0.0947              5             20 not_resolved
+    Tumor   TRPC1        27          3.4186      0.0000 0.0000             25              0    a_above_b
+    Tumor TMEM63A        27         -0.6150      0.0004 0.0005              5             17    b_above_a
+    Tumor TMEM63B        27          0.8890      0.0229 0.0242             20              5    a_above_b
+    Tumor   KCNK2        27          3.6717      0.0000 0.0000             26              0    a_above_b
+    Tumor   KCNK4        27          3.6717      0.0000 0.0000             26              0    a_above_b
+   Normal  PIEZO2        27          3.6007      0.0000 0.0000             27              0    a_above_b
+   Normal   TRPV4        27          3.2707      0.0000 0.0000             27              0    a_above_b
+   Normal   TRPV2        27         -1.5883      0.0000 0.0000              1             25    b_above_a
+   Normal   TRPM7        27         -0.8968      0.0000 0.0000              3             21    b_above_a
+   Normal   TRPC1        27          3.4912      0.0000 0.0000             27              0    a_above_b
+   Normal TMEM63A        27         -0.7186      0.0001 0.0001              5             22    b_above_a
+   Normal TMEM63B        27          1.4963      0.0000 0.0000             24              2    a_above_b
+   Normal   KCNK2        27          3.7053      0.0000 0.0000             27              0    a_above_b
+   Normal   KCNK4        27          3.7705      0.0000 0.0000             27              0    a_above_b
+  channels significantly ABOVE PIEZO1 (BH q<0.05): ['TMEM63A', 'TRPM7', 'TRPV2']
+
+=== Q4 (human arm): tumour vs paired adjacent normal, NK ===
+   gene  n_pairs  mean_log2FC_tumour_vs_normal  ci95_lo  ci95_hi  paired_t_p  paired_t_q_BH band_tumour band_normal  measurable
+ PIEZO1       27                       -0.0988  -0.4866   0.2890      0.6048         0.6804       floor       floor       False
+ PIEZO2       27                        0.2628   0.0009   0.5247      0.0493         0.1478       floor       floor       False
+  TRPV4       27                        0.3770  -0.1438   0.8977      0.1488         0.2653       floor       floor       False
+  TRPV2       27                       -0.8294  -1.2254  -0.4333      0.0002         0.0019       floor  measurable        True
+  TRPM7       27                       -0.4821  -0.9341  -0.0301      0.0375         0.1478       floor       floor       False
+  TRPC1       27                       -0.0262  -0.3855   0.3331      0.8820         0.8820       floor       floor       False
+TMEM63A       27                       -0.2024  -0.6435   0.2386      0.3541         0.4553       floor       floor       False
+TMEM63B       27                        0.5084  -0.2444   1.2613      0.1768         0.2653       floor       floor       False
+  KCNK2       27                       -0.0653  -0.1583   0.0278      0.1613         0.2653       floor       floor       False
+  KCNK4       27                        0.0000   0.0000   0.0000         NaN            NaN       floor       floor       False
+
+=== Q6: measurability of the correlation partners (the correlation itself needs cells) ===
+     side  gene condition  cpm_donor_median  det_pooled  det_pooled_lo95  det_pooled_hi95 band_pooled                                                                                 source
+residency ITGA1     Tumor           29.5735      0.0646           0.0398           0.0865  measurable                                                  pseudobulk_raw (balanced, raw counts)
+residency ITGA1    Normal            5.1658      0.0432           0.0174           0.0670       floor                                                  pseudobulk_raw (balanced, raw counts)
+residency  CD69     Tumor         1053.0319      0.8758           0.8106           0.9231     ceiling                                                  pseudobulk_raw (balanced, raw counts)
+residency  CD69    Normal          737.9840      0.7645           0.6923           0.8202  measurable                                                  pseudobulk_raw (balanced, raw counts)
+residency ITGAE     Tumor           49.3570      0.0960           0.0800           0.1207  measurable                                                  pseudobulk_raw (balanced, raw counts)
+residency ITGAE    Normal           54.9932      0.0950           0.0806           0.1120  measurable                                                  pseudobulk_raw (balanced, raw counts)
+   egress  KLF2     Tumor          142.5842      0.2712           0.2182           0.3171  measurable                                                  pseudobulk_raw (balanced, raw counts)
+   egress  KLF2    Normal          203.8981      0.3296           0.2270           0.4146  measurable                                                  pseudobulk_raw (balanced, raw counts)
+   egress S1PR1     Tumor            7.6214      0.0256           0.0170           0.0343       floor                                                  pseudobulk_raw (balanced, raw counts)
+   egress S1PR1    Normal           18.6651      0.0475           0.0300           0.0626       floor                                                  pseudobulk_raw (balanced, raw counts)
+   egress S1PR5     Tumor           79.0378      0.1532           0.0973           0.2185  measurable                                                  pseudobulk_raw (balanced, raw counts)
+   egress S1PR5    Normal          201.2370      0.2601           0.2041           0.3260  measurable                                                  pseudobulk_raw (balanced, raw counts)
+   egress  SELL     Tumor           58.6327      0.1015           0.0754           0.1342  measurable                                                  pseudobulk_raw (balanced, raw counts)
+   egress  SELL    Normal           69.7386      0.1171           0.0904           0.1466  measurable                                                  pseudobulk_raw (balanced, raw counts)
+  control KLRD1     Tumor         1038.7092      0.7274           0.6277           0.8202  measurable pseudobulk_per_sample (all cells, ambient-subtracted; gene barred from pseudobulk_raw)
+  control KLRD1    Normal         1553.6457      0.8866           0.8277           0.9302     ceiling pseudobulk_per_sample (all cells, ambient-subtracted; gene barred from pseudobulk_raw)
+  control  NKG7     Tumor         2857.4576      0.9842           0.9477           0.9969     ceiling pseudobulk_per_sample (all cells, ambient-subtracted; gene barred from pseudobulk_raw)
+  control  NKG7    Normal         5357.3268      0.9995           0.9976           1.0000     ceiling pseudobulk_per_sample (all cells, ambient-subtracted; gene barred from pseudobulk_raw)
+  residency-side genes in the floor band: ['ITGA1']
+
+--- APPENDIX (NOT Q6): between-donor Spearman, confounded by donor as the task states ---
+condition      side  gene  n_donors  spearman_rho     p  statistic_is_the_Q6_one
+    Tumor residency ITGA1        27         0.035 0.861                    False
+    Tumor residency  CD69        27        -0.370 0.058                    False
+    Tumor residency ITGAE        27        -0.210 0.293                    False
+    Tumor    egress  KLF2        27         0.161 0.422                    False
+    Tumor    egress S1PR1        27         0.294 0.136                    False
+    Tumor    egress S1PR5        27        -0.086 0.669                    False
+    Tumor    egress  SELL        27         0.012 0.954                    False
+    Tumor   control KLRD1        27         0.153 0.447                    False
+    Tumor   control  NKG7        27         0.128 0.524                    False
+   Normal residency ITGA1        27         0.507 0.007                    False
+   Normal residency  CD69        27        -0.314 0.111                    False
+   Normal residency ITGAE        27         0.092 0.650                    False
+   Normal    egress  KLF2        27        -0.156 0.436                    False
+   Normal    egress S1PR1        27         0.262 0.187                    False
+   Normal    egress S1PR5        27        -0.265 0.182                    False
+   Normal    egress  SELL        27         0.072 0.721                    False
+   Normal   control KLRD1        27        -0.328 0.095                    False
+   Normal   control  NKG7        27        -0.468 0.014                    False
