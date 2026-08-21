@@ -1,0 +1,17 @@
+tissue,assay,gene,n_pos,n_nonnk,top5
+bone marrow,10x 5' v1,IL15,74,2434,Tem/emra_CD8 39.2%; Tgd_CRTAM+ 16.2%; Trm/em_CD8 14.9%; Teffector/EM_CD4 12.2%; MAIT 5.4%
+bone marrow,10x 5' v1,IL15RA,97,2434,Tem/emra_CD8 41.2%; Teffector/EM_CD4 14.4%; Trm/em_CD8 11.3%; Cycling T&NK 9.3%; Tnaive/CM_CD4 6.2%
+bone marrow,10x 5' v2,IL15,60,2249,Tem/emra_CD8 33.3%; Trm/em_CD8 21.7%; Teffector/EM_CD4 16.7%; MAIT 6.7%; Tgd_CRTAM+ 6.7%
+bone marrow,10x 5' v2,IL15RA,89,2249,Teffector/EM_CD4 25.8%; Tem/emra_CD8 19.1%; Trm/em_CD8 13.5%; Tnaive/CM_CD4_activated 10.1%; MAIT 5.6%
+liver,10x 5' v1,IL15,73,2682,MAIT 52.1%; T_CD4/CD8 12.3%; Tem/emra_CD8 8.2%; Tgd_CRTAM+ 5.5%; Teffector/EM_CD4 5.5%
+liver,10x 5' v1,IL15RA,126,2682,MAIT 47.6%; Trm_gut_CD8 9.5%; Tgd_CRTAM+ 8.7%; Trm/em_CD8 7.1%; Trm_Th1/Th17 7.1%
+lung,10x 5' v1,IL15,51,1545,Tem/emra_CD8 29.4%; Trm_Th1/Th17 27.5%; Trm/em_CD8 17.6%; MAIT 7.8%; Cycling T&NK 3.9%
+lung,10x 5' v1,IL15RA,144,1545,Trm_Th1/Th17 34.7%; Tem/emra_CD8 27.8%; Trm/em_CD8 10.4%; Teffector/EM_CD4 9.7%; Trm_gut_CD8 4.2%
+mesenteric lymph node,10x 5' v2,IL15,132,9910,Tfh 15.2%; Tnaive/CM_CD4 12.1%; Trm_Th1/Th17 12.1%; Trm_gut_CD8 10.6%; Tregs 9.1%
+mesenteric lymph node,10x 5' v2,IL15RA,304,9910,Tnaive/CM_CD4 20.1%; Tregs 19.7%; Tfh 14.8%; Teffector/EM_CD4 10.9%; Trm_Th1/Th17 5.3%
+spleen,10x 5' v1,IL15,296,7404,Trm/em_CD8 29.1%; Trm_gut_CD8 12.5%; Teffector/EM_CD4 11.5%; Tem/emra_CD8 9.5%; MAIT 8.8%
+spleen,10x 5' v1,IL15RA,456,7404,Trm/em_CD8 22.6%; Teffector/EM_CD4 17.3%; Tem/emra_CD8 12.5%; MAIT 9.6%; Trm_gut_CD8 7.9%
+spleen,10x 5' v2,IL15,191,9129,Trm/em_CD8 23.0%; Tgd_CRTAM+ 14.7%; MAIT 12.6%; Tfh 10.5%; Teffector/EM_CD4 10.5%
+spleen,10x 5' v2,IL15RA,366,9129,Trm/em_CD8 15.6%; Tfh 13.7%; Teffector/EM_CD4 13.4%; MAIT 13.4%; Tgd_CRTAM+ 12.8%
+thoracic lymph node,10x 5' v1,IL15,141,11475,Teffector/EM_CD4 21.3%; Trm/em_CD8 19.9%; Tnaive/CM_CD4 13.5%; Tfh 10.6%; Trm_Th1/Th17 9.2%
+thoracic lymph node,10x 5' v1,IL15RA,433,11475,Teffector/EM_CD4 19.6%; Tregs 18.0%; Tnaive/CM_CD4 17.8%; Tfh 14.3%; Tnaive/CM_CD8 5.5%
