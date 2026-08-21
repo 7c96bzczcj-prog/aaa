@@ -10,3 +10,5 @@ phase1_registry/rescan/*.xml
 .venv/
 data/raw/*.h5ad
 data/raw/*.fastq.gz
+data/raw/*.parquet
+results/organ_cells_cache.parquet

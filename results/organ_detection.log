@@ -1,0 +1,48 @@
+cells 216611, donors 12, tissues 17, assays 3
+genes not in matrix: none
+scanning raw/X ...
+   20000/216611
+   80000/216611
+   140000/216611
+   200000/216611
+raw/X integer-valued (counts): True
+
+author NK: 29493  (bright 8902)
+uniform-gate NK: 5499  (bright 2181)
+uniform gate threshold: KLRD1>0 & NCAM1>0 & CD3E==0 & CD3D==0 (raw counts); bright adds FCGR3A==0
+cached per-cell table: (216611, 28)
+
+wrote per-donor rows: 164
+                                   donors    nk
+definition tissue                              
+author     blood                        6  3984
+           bone marrow                 10  8226
+           caecum                       1     2
+           duodenum                     2     5
+           ileum                        1     1
+           jejunal epithelium           5   126
+           jejunum lamina propria       5   143
+           liver                        7  3587
+           lung                        10  3233
+           mesenteric lymph node        8   991
+           omentum                      4    33
+           sigmoid colon                1     1
+           skeletal muscle tissue       3   134
+           spleen                      12  8210
+           thoracic lymph node         12   811
+           thymus                       1     2
+           transverse colon             1     4
+uniform    blood                        5   435
+           bone marrow                  9  1543
+           duodenum                     1     1
+           ileum                        1     1
+           jejunal epithelium           4    31
+           jejunum lamina propria       5    32
+           liver                        7   643
+           lung                        10   536
+           mesenteric lymph node        6   255
+           omentum                      2     9
+           skeletal muscle tissue       2    31
+           spleen                      12  1812
+           thoracic lymph node         10   169
+           transverse colon             1     1

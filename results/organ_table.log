@@ -1,0 +1,28 @@
+strata total 59, passing §7: 7
+definition              tissue     assay  n_donors  n_nk  median_umi  bright_frac   stress     CCL3     CCL4     CCL5     XCL1     XCL2
+    author         bone marrow 10x 5' v1         5   601     4302.00     0.113208 1.212909 0.817073 0.902439 0.837838 0.315789 0.377358
+    author               liver 10x 5' v1         5  1515     4436.50     0.593750 2.152979 0.781250 0.875000 0.789969 0.723404 0.507389
+    author                lung 10x 5' v1         6   324     3281.50     0.119333 1.742848 0.666667 0.881944 0.846983 0.555556 0.445882
+    author              spleen 10x 5' v1         6  1361     5132.75     0.558395 2.379645 0.726397 0.883983 0.799901 0.692472 0.678037
+    author thoracic lymph node 10x 5' v1         6   257     4260.25     0.981667 2.587679 0.660783 0.763889 0.773333 0.879279 0.773333
+    author              spleen 10x 5' v2         4  1751     4039.75     0.519578 2.068361 0.665632 0.781184 0.790327 0.424244 0.472711
+   uniform              spleen 10x 5' v2         4   410     3976.50     0.492513 1.945958 0.727015 0.813032 0.764229 0.515230 0.536710
+
+wrote plots to COVARIATE_PLOTS/ (10 files)
+
+==============================================================================
+§6 DIAGNOSTICS (per chemistry; §4 bars cross-chemistry ranking)
+==============================================================================
+
+--- author / 10x 5' v1  (5 organs: bone marrow, liver, lung, spleen, thoracic lymph node) ---
+   CCL3   spread(max/min) all-NK  1.24x  bright-only 1.44  rho(depth) +0.50  rho(bright%) -0.60
+   CCL4   spread(max/min) all-NK  1.18x  bright-only 1.19  rho(depth) +0.30  rho(bright%) -0.90
+   CCL5   spread(max/min) all-NK  1.10x  bright-only 1.18  rho(depth) -0.30  rho(bright%) -0.90
+   XCL1   spread(max/min) all-NK  2.78x  bright-only 1.25  rho(depth) +0.10  rho(bright%) +1.00
+   XCL2   spread(max/min) all-NK  2.05x  bright-only 1.61  rho(depth) +0.20  rho(bright%) +0.90
+
+author / 10x 5' v2: only 1 organ strata -> too few to evaluate §6
+
+uniform / 10x 5' v1: only 0 organ strata -> too few to evaluate §6
+
+uniform / 10x 5' v2: only 1 organ strata -> too few to evaluate §6

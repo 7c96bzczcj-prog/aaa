@@ -1,0 +1,6 @@
+definition,assay,gene,n_organs,spread_all,spread_bright,rho_depth,rho_bright,any_floor
+author,10x 5' v1,CCL3,5,1.2365222525347122,1.443873179091688,0.5,-0.6,False
+author,10x 5' v1,CCL4,5,1.1813747228381377,1.187709694508211,0.3,-0.9,False
+author,10x 5' v1,CCL5,5,1.0952363258026159,1.180327868852459,-0.3,-0.9,False
+author,10x 5' v1,XCL1,5,2.7843843843843845,1.25,0.1,1.0,False
+author,10x 5' v1,XCL2,5,2.0493333333333332,1.6103913630229418,0.2,0.9,False
