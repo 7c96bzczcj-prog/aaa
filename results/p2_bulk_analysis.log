@@ -1,0 +1,108 @@
+=== Task P-2: mechanosensor panel in sorted-NK bulk RNA-seq ===
+
+[GSE236394] 55080 genes x 23 samples, 6 donors
+[GSE133383] 11943 genes x 30 samples, 4 donors, tissues ['BL', 'BM', 'LN', 'LU', 'SP']
+[GSE140035 (human)] 24998 genes x 24 samples, conditions ['IFNA', 'IL12IL18', 'IL2IL15', 'UNSTIM']
+[GSE140035 (mouse)] 24116 genes x 24 samples, conditions ['IFNA', 'IFNAIL2IL15', 'IL12IL18', 'IL12IL18IFNA', 'IL2IL15', 'IL2IL15IL12IL18', 'IL2IL15IL12IL18IFNA', 'UNSTIM']
+[GSE242941 (bulk arm)] 55765 genes x 5 samples
+[GSE200319] 24651 genes x 23 samples, tissues ['Liver Perfusate', 'PBMC'], subsets ['CD56hiCD16[+]', 'CD56hiCD16[-]', 'CD56loCD16[+]']
+[GSE205492] 14626 genes x 8 samples, 4 patients, pairs ['11', '2', '3', 'SA1556']
+
+=== PIEZO1, every comparison ===
+             dataset                                            comparison    n  log2FC  ci_lo  ci_hi     p  q_BH  linear_cpm  pct_expressed_genes near_floor  max_effect_still_compatible  informative_null
+           GSE236394                         CD56bright vs CD56dim (blood)  6.0   0.392  0.043  0.741 0.034 0.059      18.481               87.881      False                        0.741             False
+           GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed) 30.0   0.152 -0.236  0.541 0.424 0.424     120.359               86.928      False                        0.541              True
+   GSE140035 (human)                                     IL2IL15 vs UNSTIM  6.0  -0.071 -0.516  0.375 0.701 0.801      59.876               83.400      False                        0.516              True
+   GSE140035 (human)                                    IL12IL18 vs UNSTIM  6.0   0.533 -0.074  1.140 0.073 0.176      59.876               83.400      False                        1.140             False
+   GSE140035 (human)                                        IFNA vs UNSTIM  6.0  -1.032 -1.879 -0.185 0.026 0.052      59.876               83.400      False                        1.879             False
+   GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse)  6.0   0.358 -0.449  1.164 0.284 0.431      34.431               76.989      False                        1.164             False
+   GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse)  6.0   0.010 -0.832  0.853 0.974 0.974      34.431               76.989      False                        0.853             False
+   GSE140035 (mouse)                                IFNA vs UNSTIM (mouse)  6.0  -0.513 -1.529  0.503 0.221 0.635      34.431               76.989      False                        1.529             False
+GSE242941 (bulk arm)                                   cytokine vs control  5.0  -0.287 -0.878  0.304 0.201 0.402      26.246               79.149      False                        0.878             False
+           GSE133383             all tissues vs blood (donor+subset fixed) 30.0  -0.490 -1.012  0.032 0.065 0.129     120.359               86.928      False                        1.012             False
+           GSE133383                      BM vs blood (donor+subset fixed) 12.0  -0.353 -1.618  0.911 0.520 0.831     120.359               86.928      False                        1.618             False
+           GSE133383                      SP vs blood (donor+subset fixed) 12.0  -0.471 -1.409  0.467 0.274 0.547     120.359               86.928      False                        1.409             False
+           GSE133383                      LU vs blood (donor+subset fixed) 12.0  -0.807 -2.013  0.398 0.152 0.222     120.359               86.928      False                        2.013             False
+           GSE133383                      LN vs blood (donor+subset fixed) 12.0  -0.670 -1.815  0.476 0.203 0.417     120.359               86.928      False                        1.815             False
+           GSE200319               liver perfusate vs blood (subset fixed) 18.0  -0.075 -0.732  0.581 0.811 0.877         NaN               89.063      False                        0.732             False
+           GSE205492                       tumour NK vs blood NK (matched)  4.0  -0.261 -1.466  0.944 0.540 0.962         NaN               47.150      False                        1.466             False
+
+  PIEZO1 comparisons with q<0.05: 0 of 16
+  PIEZO1 measurable (not near floor) in: 16 of 16 comparisons; CPM range 18.5-120.4 (datasets reporting CPM)
+  informative nulls (CI excludes a 1.5-fold change): 2 of 16
+
+=== channels reaching q<0.05 in any comparison ===
+          dataset                                            comparison    gene  log2FC   q_BH near_floor
+        GSE236394                         CD56bright vs CD56dim (blood)  PIEZO2  0.8175 0.0467      False
+        GSE236394                         CD56bright vs CD56dim (blood)   TRPV2  0.3907 0.0383      False
+        GSE236394                         CD56bright vs CD56dim (blood)   TRPM7 -0.6595 0.0081      False
+        GSE236394                         CD56bright vs CD56dim (blood)   TRPC1  2.1889 0.0051       True
+        GSE236394                         CD56bright vs CD56dim (blood) TMEM63A  0.5620 0.0201      False
+        GSE236394                         CD56bright vs CD56dim (blood) TMEM63B -0.4143 0.0120      False
+        GSE236394                         CD56bright vs CD56dim (blood)   KCNK2  1.5644 0.0467       True
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed)   TRPV2 -0.4742 0.0181      False
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed) TMEM63A  0.6646 0.0135      False
+GSE140035 (human)                                     IL2IL15 vs UNSTIM   TRPM7 -0.5139 0.0027      False
+GSE140035 (human)                                     IL2IL15 vs UNSTIM TMEM63A -0.5204 0.0108      False
+GSE140035 (human)                                    IL12IL18 vs UNSTIM   TRPV2 -1.0567 0.0143      False
+GSE140035 (human)                                    IL12IL18 vs UNSTIM TMEM63B  1.4390 0.0130      False
+GSE140035 (human)                                        IFNA vs UNSTIM   TRPM7 -0.7135 0.0025      False
+GSE140035 (human)                                        IFNA vs UNSTIM TMEM63A -0.4132 0.0303      False
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse)   TRPV2  1.6583 0.0010      False
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse)   TRPM7 -0.7375 0.0130      False
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse)   TRPV2 -1.4974 0.0011      False
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse)   TRPM7 -1.5625 0.0037      False
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse) TMEM63A -1.5062 0.0037      False
+        GSE133383                      LU vs blood (donor+subset fixed) TMEM63A -2.0538 0.0052      False
+        GSE133383                      LU vs blood (donor+subset fixed) TMEM63B  1.7262 0.0244      False
+
+=== state controls: do the two arms actually differ? ===
+          dataset                                            comparison  gene  log2FC  q_BH
+        GSE236394                         CD56bright vs CD56dim (blood) MKI67   2.017 0.004
+        GSE236394                         CD56bright vs CD56dim (blood) ITGA1   2.700 0.029
+        GSE236394                         CD56bright vs CD56dim (blood) ITGAE  -1.178 0.000
+        GSE236394                         CD56bright vs CD56dim (blood)  SELL   3.477 0.000
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed)  IFNG  -1.194 0.005
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed)  GZMB  -3.021 0.000
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed) ITGA1   3.136 0.000
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed)  KLF2  -0.912 0.010
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed) S1PR1  -1.455 0.010
+        GSE133383 CD56bright vs CD56dim (5 tissues, donor+tissue fixed)  SELL   1.100 0.009
+GSE140035 (human)                                     IL2IL15 vs UNSTIM  IFNG   3.231 0.003
+GSE140035 (human)                                     IL2IL15 vs UNSTIM  GZMB   1.552 0.003
+GSE140035 (human)                                     IL2IL15 vs UNSTIM  CD69   1.338 0.004
+GSE140035 (human)                                     IL2IL15 vs UNSTIM S1PR1  -1.306 0.003
+GSE140035 (human)                                    IL12IL18 vs UNSTIM  IFNG   4.926 0.004
+GSE140035 (human)                                    IL12IL18 vs UNSTIM ITGA1   2.388 0.013
+GSE140035 (human)                                    IL12IL18 vs UNSTIM S1PR1  -1.445 0.013
+GSE140035 (human)                                        IFNA vs UNSTIM  IFNG   4.123 0.000
+GSE140035 (human)                                        IFNA vs UNSTIM  GZMB   1.624 0.001
+GSE140035 (human)                                        IFNA vs UNSTIM MKI67  -0.501 0.043
+GSE140035 (human)                                        IFNA vs UNSTIM  CD69   1.835 0.000
+GSE140035 (human)                                        IFNA vs UNSTIM ITGAE   0.484 0.024
+GSE140035 (human)                                        IFNA vs UNSTIM  KLF2  -1.291 0.024
+GSE140035 (human)                                        IFNA vs UNSTIM S1PR1  -1.644 0.000
+GSE140035 (human)                                        IFNA vs UNSTIM  SELL   2.066 0.000
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse)  IFNG   3.531 0.000
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse)  GZMB   5.657 0.000
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse) MKI67  -0.363 0.030
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse) ITGA1  -0.802 0.021
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse)  CD69   2.330 0.000
+GSE140035 (mouse)                             IL2IL15 vs UNSTIM (mouse) S1PR1  -2.398 0.001
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse)  IFNG   9.700 0.000
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse)  GZMB   3.910 0.000
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse) ITGA1  -2.142 0.016
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse)  CD69   3.409 0.001
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse)  KLF2  -1.328 0.013
+GSE140035 (mouse)                            IL12IL18 vs UNSTIM (mouse) S1PR1  -5.745 0.001
+GSE140035 (mouse)                                IFNA vs UNSTIM (mouse)  GZMB   2.990 0.002
+GSE140035 (mouse)                                IFNA vs UNSTIM (mouse) ITGA1  -0.539 0.039
+GSE140035 (mouse)                                IFNA vs UNSTIM (mouse)  CD69   2.361 0.003
+GSE140035 (mouse)                                IFNA vs UNSTIM (mouse) S1PR1  -0.815 0.028
+        GSE133383             all tissues vs blood (donor+subset fixed)  IFNG   1.946 0.001
+        GSE133383                      SP vs blood (donor+subset fixed)  IFNG   1.973 0.003
+        GSE133383                      LU vs blood (donor+subset fixed)  IFNG   1.831 0.024
+        GSE133383                      LU vs blood (donor+subset fixed)  SELL  -4.098 0.005
+        GSE200319               liver perfusate vs blood (subset fixed)  CD69  -1.977 0.048
+        GSE200319               liver perfusate vs blood (subset fixed) ITGAE   1.734 0.006
+        GSE200319               liver perfusate vs blood (subset fixed)  SELL  -4.962 0.016
