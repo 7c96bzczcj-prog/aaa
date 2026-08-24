@@ -353,6 +353,61 @@ def harmony_embed(sub, batch_key, n_iter=20):
     return "X_pca_harmony"
 
 
+def refine_nk_subclusters(tnk, nk_mask, receptor_frac=0.25, resolution=0.6,
+                          min_cells=60, seed=0):
+    """
+    Second gating stage: re-cluster the candidate NK cells and drop subclusters
+    that carry no NK receptor.
+
+    Cluster-mean marker levels are partly a product of the clustering itself, so
+    a single pass can hand back a "CD56+ cluster" that is internally mixed.
+    Re-clustering the candidates exposes that: in the tumour-containing datasets
+    a large subpopulation appears with NCAM1 and KLRF1 essentially absent but
+    TRAC high, which is not NK under any receptor definition. It survives the
+    first pass only because the parent cluster's mean is carried by the genuine
+    NK cells sitting beside it.
+
+    A subcluster is kept when NCAM1 or KLRF1 reaches `receptor_frac` of the best
+    NK subcluster's level, i.e. the receptor signal has to be comparable to the
+    main NK population rather than merely above the T-cell floor.
+
+    Returns (refined mask, per-subcluster table).
+    """
+    import scanpy as _sc
+
+    if int(nk_mask.sum()) < min_cells:
+        return nk_mask, None
+
+    sub = tnk[nk_mask].copy()
+    sub.X = sub.layers["lognorm"].copy()
+    _sc.pp.highly_variable_genes(sub, n_top_genes=min(1500, sub.n_vars - 1))
+    s2 = sub[:, sub.var.highly_variable].copy()
+    _sc.pp.scale(s2, max_value=10)
+    _sc.tl.pca(s2, n_comps=min(20, s2.n_obs - 1, s2.n_vars - 1), svd_solver="arpack")
+    _sc.pp.neighbors(s2, n_neighbors=min(15, s2.n_obs - 1))
+    _sc.tl.leiden(s2, resolution=resolution, key_added="nksub",
+                  flavor="igraph", n_iterations=2, directed=False, random_state=seed)
+    sub.obs["nksub"] = s2.obs["nksub"].values
+
+    ex = cluster_expression(sub, "nksub",
+                            ["NCAM1", "KLRF1", "KLRD1", "NKG7", "GNLY", "PRF1",
+                             "CD3D", "CD3G", "CD6", "CD3E", "TRAC", "FCGR3A", "IL7R"])
+    ex["n"] = sub.obs.groupby("nksub", observed=True).size()
+    keep = np.zeros(len(ex), dtype=bool)
+    for g in ("NCAM1", "KLRF1"):
+        m = ex[g].values.max()
+        if m > 1e-9:
+            keep |= ex[g].values >= receptor_frac * m
+    ex["kept"] = keep
+
+    kept_ids = set(ex.index[keep])
+    sub_keys = np.asarray(sub.obs["nksub"].values).astype(str)
+    refined = nk_mask.copy()
+    idx = np.where(nk_mask)[0]
+    refined[idx[~np.isin(sub_keys, list(kept_ids))]] = False
+    return refined, ex
+
+
 def detection_rates(adata, genes, layer="counts"):
     """Fraction of cells with >0 counts, per gene, as a DataFrame column set."""
     import scipy.sparse as _sp

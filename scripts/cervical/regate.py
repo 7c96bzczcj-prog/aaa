@@ -49,11 +49,22 @@ def main():
 
         keys = np.asarray(tnk.obs["tnk_cluster"].values).astype(str)
         nk_mask = np.isin(keys, list(nk_clusters))
+        stage1 = int(nk_mask.sum())
+
+        # second stage: drop internally-mixed subclusters lacking NK receptors
+        nk_mask, subtab = cc.refine_nk_subclusters(tnk, nk_mask)
+        if subtab is not None:
+            subtab.to_csv(f"{OUT}/nksub_{ds}.csv")
+
         bright = cd56_bright(tnk, nk_mask)
 
         print(f"\n=== {ds} ===")
         print(f"NK clusters: {sorted(nk_clusters)}  "
-              f"-> {int(nk_mask.sum())} NK of {tnk.n_obs} T/NK cells")
+              f"-> stage1 {stage1} -> refined {int(nk_mask.sum())} "
+              f"of {tnk.n_obs} T/NK cells "
+              f"({100*(stage1-int(nk_mask.sum()))/max(stage1,1):.0f}% dropped as receptor-negative)")
+        if subtab is not None:
+            print(subtab.round(3).to_string())
         show = [c for c in ["NCAM1", "KLRF1", "KLRD1", "NKG7", "GNLY", "PRF1",
                             "CD3D", "CD3G", "CD6", "CD3E", "TRAC",
                             "n_T_neg", "cytotoxic", "receptor", "is_NK"] if c in tab]
