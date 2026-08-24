@@ -1,0 +1,179 @@
+NPC single-cell occupancy audit -- COUNTS
+run date: 2026-08-24
+==============================================================================
+
+1. RETRIEVAL
+------------------------------------------------------------------------------
+  Q1  hitCount=215    retrieved=215   
+  Q2  hitCount=7      retrieved=7     
+  Q3  hitCount=234    retrieved=234   
+  Q4  hitCount=1554   retrieved=1555  
+  Q5  hitCount=37     retrieved=37    
+  Q6  NCBI db=gds  esearch_ids=205  esummary_docs=205
+  Q7  hitCount=487    retrieved=487      [spec section 5 anchor-repair query]
+  Q8  hitCount=135    retrieved=135      [spec section 5 anchor-repair query]
+
+  NOTE Q4 retrieved 1555 vs hitCount 1554: Europe PMC cursorMark paging returned one
+  record more than the reported hitCount (the index shifted mid-crawl). The extra
+  record is removed by de-duplication and does not propagate; closure below is exact.
+
+2. NUMERIC CLOSURE  (spec section 0, rule 6)
+------------------------------------------------------------------------------
+  retrieved (Q1-Q5,Q7,Q8 union, pre-dedup) : 2670
+  duplicates removed                       : 232
+  deduped                                  : 2438
+  CHECK retrieved - duplicates = deduped   : PASS  (2670 - 232 = 2438)
+
+  included                                 : 38
+  secondary_analysis (separate file)       : 58
+  excluded                                 : 2342
+  CHECK included + secondary + excluded    : PASS  (38 + 58 + 2342 = 2438 vs deduped 2438)
+
+  The spec writes this closure as `deduped = included + excluded`. This audit keeps
+  secondary_analysis as its own bucket (spec section 2 requires those records be kept,
+  not discarded), so the identity is stated with three terms. No record appears twice.
+
+  excluded breakdown by stage:
+    1_no_modality_term       1651
+    2_pan_cancer_no_NPC      553
+    2_screening              67
+    2_no_true_modality       60
+    3_adjudication           11
+
+3. FULL-TEXT RETRIEVAL
+------------------------------------------------------------------------------
+  survivors with a PMCID          : 524
+  fullTextXML retrieved           : 487
+  fullTextXML failed (404/no body): 37   -> logged in fetch_failures.tsv
+  included records with full text : 22 / 38
+  included records abstract_only  : 16 / 38
+
+4. ANCHOR RECALL  (spec section 5)
+------------------------------------------------------------------------------
+  HIT  #1  Nat Commun 2021;12:741 -- 10 NPC tumour-blood pairs, 176,447 cells, scRNA+TCR
+         -> pmid=33531485 doi=10.1038/s41467-021-21043-4 queries=Q1
+  HIT  #2  Cell Res 2020 doi 10.1038/s41422-020-0374-x -- GSE150430
+         -> pmid=32686767 doi=10.1038/s41422-020-0374-x queries=Q1,Q3
+  HIT  #3  PMID 32901110 -- Cell Res 2020, ~104,000 cells, 19 EBV+ NPC
+         -> pmid=32901110 doi=10.1038/s41422-020-00402-8 queries=Q1
+  HIT  #4  PMC7943808 -- Nat Commun 2021, 66,627 cells, 14 pts, stromal dynamics
+         -> pmid=33750785 doi=10.1038/s41467-021-21795-z queries=Q1
+  HIT  #5  PMID 32061950 -- 2020 NPC tumour + infiltrating immune landscape
+         -> pmid=32061950 doi=10.1016/j.canlet.2020.02.010 queries=Q1
+  HIT  #6  PMC8794254 -- primary vs recurrent NPC, ~60,000 cells
+         -> pmid=35096485 doi=10.1080/2162402x.2022.2026583 queries=Q1,Q3
+  HIT  #7  doi 10.1186/s12967-023-04112-8 -- J Transl Med 2023 NK exhaustion, n=3
+         -> pmid=37098551 doi=10.1186/s12967-023-04112-8 queries=Q1,Q3,Q5
+  HIT  #8  PMID 37349991 -- Clin Transl Med 2023 CD8+ NK cluster
+         -> pmid=37349991 doi=10.1002/ctm2.1315 queries=Q1,Q2,Q3
+  HIT  #9  doi 10.1111/jcmm.70137 -- J Cell Mol Med 2024, primary vs LN met, 47,618 cells
+         -> pmid=39392128 doi=10.1111/jcmm.70137 queries=Q1
+  HIT  #10 doi 10.1038/s41467-023-35995-2 -- Nat Commun 2023 metastatic evolution
+         -> pmid=36739462 doi=10.1038/s41467-023-35995-2 queries=Q1
+  HIT  #11 doi 10.1038/s41467-024-52153-4 -- Nat Commun 2024 TLS, 343,829 cells
+         -> pmid=39231979 doi=10.1038/s41467-024-52153-4 queries=Q1
+  HIT  #12 doi 10.3389/fimmu.2023.1124066 -- Front Immunol 2023 EBV DNA sero+/-
+         -> pmid=36860875 doi=10.3389/fimmu.2023.1124066 queries=Q1
+  HIT  #13 doi 10.1038/s41392-024-01988-w -- STTT 2024 CONTINUUM PBMC CyTOF
+         -> pmid=39438442 doi=10.1038/s41392-024-01988-w queries=Q1,Q2,Q4,Q8
+  HIT  #14 PMID 39415331 -- paired pre/post immunochemotherapy, 11 pts, 87,191 cells
+         -> pmid=39415331 doi=10.1002/ctm2.70061 queries=Q1
+  HIT  #15 Cell 2023;186:4235-4251 -- Tang F et al pan-cancer NK atlas
+         -> pmid=37607536 doi=10.1016/j.cell.2023.07.034 queries=Q7
+
+  RESULT: 15/15 hit, 0 missed.
+
+  Two anchors needed work before they resolved:
+   * #1  Nat Commun 2021;12:741 was present all along (PMID 33531485) but the matcher
+         missed it: Europe PMC leaves the flat journalTitle/journalVolume null on that
+         core record and puts them under journalInfo. Matcher fixed; no query change.
+   * #15 Cell 2023;186:4235-4251 (PMID 37607536) is genuinely unreachable from Q1-Q5:
+         isOpenAccess=N, no PMCID, inEPMC=N, so Europe PMC indexes no full text and the
+         string 'nasopharyngeal' appears nowhere in any searchable field. Repaired by
+         adding Q7 (pan-cancer single-cell atlas language) per spec section 5; it is
+         retrieved by Q7, not hand-added.
+
+5. RE-VERIFICATION OF 10% OF INCLUDED RECORDS  (spec section 7.1)
+------------------------------------------------------------------------------
+  sample: 4 of 38 included records (10%), drawn with a fixed seed (20260824)
+  fields re-checked: n_patients, tissue_blood, NK_depth
+
+  pmid 32901110
+    n_patients     = NOT_FOUND    [consistent] abstract gives 19 EBV+ NPCs and 7 nonmalignant biopsies (samples), states no patient count
+    tissue_blood   = N            [consistent] abstract mentions only nasopharyngeal biopsies
+    NK_depth       = NOT_FOUND    [consistent] abstract_only record; NK not mentioned in the abstract
+  pmid 40315843
+    n_patients     = 22           [abstract_silent] 22 comes from full text 'TIL plus CCRT (n = 22)'; abstract reports 47 infusion products / 62 TME
+    tissue_blood   = Y            [abstract_silent] full text: 'PBMCs from NPC patients and healthy donors were isolated from peripheral blood'
+    NK_depth       = cluster_only [abstract_silent] abstract names CD56+/CD56- DN TIL subsets; NK as such only in full text
+  pmid 40691404
+    n_patients     = 24           [consistent] abstract: 'single-cell and spatial transcriptomics analysis of 39 tumors from 24 patients'
+    tissue_blood   = N            [consistent] abstract describes tumours only
+    NK_depth       = NOT_FOUND    [consistent] abstract_only record; NK not mentioned in the abstract
+  pmid 41395113
+    n_patients     = NOT_FOUND    [consistent] abstract states no cohort size
+    tissue_blood   = N            [consistent] abstract: 'NPC and adjacent normal tissue samples'
+    NK_depth       = cluster_only [abstract_silent] NK appears only in a full-text figure legend listing cell types
+
+  field checks              : 12
+  contradicted by abstract  : 0
+  abstract silent (value from full text, declared as source_field=fullText): 4
+  INCONSISTENCY RATE        : 0.0%  (threshold 5%)  -> PASS
+
+6. NOT_FOUND RATE PER FIELD  (over 38 included records)
+------------------------------------------------------------------------------
+  A high rate here is a finding about the literature, not a defect of the extraction.
+
+  pmid                           1/38    2.6%
+  doi                            0/38    0.0%
+  year                           0/38    0.0%
+  journal                        1/38    2.6%
+  first_author                   0/38    0.0%
+  last_author                    0/38    0.0%
+  corresponding_affiliation      1/38    2.6%
+  modality                       0/38    0.0%
+  tissue_primary                 2/38    5.3%
+  tissue_LN_met                  1/38    2.6%
+  tissue_distant_met             1/38    2.6%
+  tissue_normal_NP               1/38    2.6%
+  tissue_blood                   1/38    2.6%
+  n_patients                    13/38   34.2%
+  n_samples                     20/38   52.6%
+  n_cells                       23/38   60.5%
+  treatment_status              23/38   60.5%
+  longitudinal                   0/38    0.0%
+  M_stage                       30/38   78.9%
+  NK_depth                      14/38   36.8%
+  NK_claim                      22/38   57.9%
+  EBV_DNA_link                   0/38    0.0%
+  accession                     24/38   63.2%
+  accession_includes_blood       0/38    0.0%
+  source_field                   0/38    0.0%
+  source_snippet                 0/38    0.0%
+
+7. OCCUPANCY ANSWERS (see OCCUPANCY.md)
+------------------------------------------------------------------------------
+  Q-A blood + NK_depth>=subclustered        : 4
+  Q-B distant metastasis (M1) samples       : 5   (of which with blood: 1)
+  Q-C longitudinal repeat BLOOD sampling    : 2   (longitudinal of any material: 4)
+  Q-D continuous plasma EBV DNA regression  : 1
+  Q-E metastatic-cascade staged framework   : 1
+  Q-F public downloadable NPC sc datasets
+      that contain blood                    : 2   (GSE162025, GSE202604)
+
+8. KNOWN LIMITS OF THIS ROUND
+------------------------------------------------------------------------------
+  * 16 of 38 included records have no retrievable full text, so their fields are
+    abstract_only and their NK_depth is NOT_FOUND rather than 'absent' -- 'absent'
+    would assert something about a full text that was never retrieved.
+  * Spatial-transcriptomics platforms differ in resolution. 10x Visium and GeoMx DSP are
+    spot/region-level, NOT single-cell. Records whose only new data are Visium/GeoMx are
+    still included (spec section 2 excludes only PURE public re-analysis with no new
+    samples), but modality names the platform so the reader can discount them.
+  * includes_blood in npc_sc_datasets.tsv is decided from GEO sample titles / series
+    title only. GEO series summaries repeat the paper abstract and would have produced
+    at least one false positive (GSE206245).
+  * Q6 uses the exact term the spec prescribes; NCBI's translation of that term returns
+    24 GSE records, which is narrower than the accession set recovered from the papers
+    themselves. npc_sc_datasets.tsv is the union of both.
+

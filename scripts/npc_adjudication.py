@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+"""Final include / secondary / exclude verdicts for the 107 candidates.
+
+Rule applied (spec v1.0 section 2):
+  * secondary_analysis -- the retrieved text explicitly states the single-cell data
+    were downloaded from a repository or taken from a prior published dataset, AND
+    no new single-cell samples of the authors' own are described.
+  * excluded -- fails an inclusion criterion (article type, material, disease site,
+    or no retrievable identifier).
+  * included -- everything else that is primary research reporting single-cell
+    resolution data on human NPC material. Where the retrieved text does not state
+    provenance either way, the record stays included and its provenance field
+    records NOT_FOUND; it is NOT demoted to secondary on an inference.
+
+Each entry carries the verbatim basis taken from the retrieved title/abstract/fullText.
+"""
+
+# id -> (verdict, reason_code, quotable basis from retrieved text)
+VERDICT = {
+ # ---------------- secondary analysis: stated public / prior-dataset reuse -------
+ "PPR1246565": ("secondary", "public_scRNA_reuse", "We integrated single-cell RNA sequencing (scRNA-seq) data from 15 NPC samples and one adjacent normal tissue"),
+ "PPR1278744": ("secondary", "public_scRNA_reuse", "We analyzed single-cell RNA sequencing data from 15 primary NPC tumors using a Computational Senescence Prediction and Classification Framework"),
+ "PPR1271397": ("secondary", "public_scRNA_reuse", "RNAGAN ... is a published foundation model that analyzes single-cell and bulk-level RNA sequencing samples ... the model was never trained with any NPC data"),
+ "PPR1078128": ("secondary", "public_scRNA_reuse", "we aimed to leverage publicly available datasets to identify EBV-host gene interactions and re-map their expression at single-cell resolution"),
+ "PPR1004352": ("secondary", "public_scRNA_reuse", "We analyzed public databases (TIMER2.0, GEPIA2, cBioPortal) and single-cell sequencing data"),
+ "PPR1103883": ("secondary", "public_scRNA_reuse", "we integrated large-scale NPC genetic association data(N=9,447) with transcriptomic datasets of NPC tumors, including single-cell RNA-seq(N=31)"),
+ "PPR931544":  ("secondary", "public_scRNA_reuse", "This study utilized single-cell RNA sequencing (scRNA-seq) to analyze 120,579 cells obtained from 15 NPC samples"),
+ "PPR746946":  ("secondary", "public_scRNA_reuse", "integrates both bulk (n=206) and single-cell RNA-sequencing (n=56) data along with experimental validations"),
+ "PPR497669":  ("secondary", "public_scRNA_reuse", "we screened the viral transcriptome in single cell RNA sequencing datasets from peripheral blood to identify virus infected cells"),
+ "41081462":   ("secondary", "public_scRNA_reuse", "Scissor method was applied to identify survival-associated cell subpopulations from single-cell data"),
+ "41399390":   ("secondary", "public_scRNA_reuse", "Two scRNA-seq datasets, GSE150825 and GSE150430, were downloaded from the GEO database."),
+ "41504259":   ("secondary", "public_scRNA_reuse", "We obtained two single-cell RNA sequencing datasets (GSE150825 and GSE162025) from GEO."),
+ "41522354":   ("secondary", "public_scRNA_reuse", "we analyzed two independent single-cell RNA sequencing datasets (NPC-GSE150430 and NPC-GSE162025) obtained from the Tumor Immune Single-Cell Hub (TISCH"),
+ "41705255":   ("secondary", "public_scRNA_reuse", "After performing quality control and filtering low-quality cells from the GSE162025 scRNA-seq data"),
+ "41718918":   ("secondary", "public_scRNA_reuse", "combined cell-based assays and transcriptomic sequencing ... scRNA-seq datasets GSE12452, GSE150430, GSE53819, GSE68799"),
+ "41735356":   ("secondary", "public_scRNA_reuse", "Single-cell RNA sequencing (scRNA-seq) datasets were obtained from the GEO database using the following accession numbers"),
+ "41794796":   ("secondary", "public_scRNA_reuse", "We next analyzed publicly available scRNA-seq dataset (GSE150430) from NPC samples."),
+ "41815160":   ("secondary", "public_scRNA_reuse", "Single-cell RNA sequencing data from the GSE150825 dataset were analyzed using the \"Seurat\" package"),
+ "42056895":   ("secondary", "public_scRNA_reuse", "we obtained the raw scRNA-seq data from the GSE150825 dataset and performed downstream single-cell transcriptomic analysis."),
+ "42168454":   ("secondary", "public_scRNA_reuse", "Based on the GSE266679 dataset, we systematically analyzed NLGN1 expression patterns using bioinformatics methods."),
+ "42303913":   ("secondary", "public_scRNA_reuse", "This study analyzed scRNA-seq data from NPC and control tissues to resolve the tumor microenvironment."),
+ "42361082":   ("secondary", "public_scRNA_reuse", "Through integrated bulk transcriptomic datasets, single-cell analysis, clinical specimens, and NPC cell lines"),
+ "42468141":   ("secondary", "public_scRNA_reuse", "Single-cell RNA-seq data were integrated with inferCNV, Monocle3 ... External validation used NPC bulk cohorts"),
+ "42520978":   ("secondary", "public_scRNA_reuse", "By integrating single-cell RNA sequencing data from eight local NPC samples, mRNA sequencing data from pre-established radioresistant cell models"),
+ "39742726":   ("secondary", "public_scRNA_reuse", "alongside datasets from the Gene Expression Omnibus cohort and a single-cell RNA sequencing dataset"),
+ "39744570":   ("secondary", "public_scRNA_reuse", "The single-cell RNA sequencing (scRNA-seq) data for NPC and peripheral blood lymphocyte samples (n=10) were obtained from GSE162025"),
+ "39744943":   ("secondary", "public_scRNA_reuse", "Tumor biopsies of 10 NPC patients were collected for scRNA-Seq in our previous study (18)."),
+ "39747499":   ("secondary", "public_scRNA_reuse", "The \"Seurat\" R package was used for preliminary processing of the GSE150430 dataset"),
+ "39891699":   ("secondary", "public_scRNA_reuse", "For single-cell RNA transcriptome and bulk RNA transcriptome data, eight NPC cohorts were downloaded from the Gene Expression Omnibus"),
+ "40053129":   ("secondary", "public_scRNA_reuse", "We utilized bioinformatics and machine learning techniques on single-cell RNA-seq and bulk transcriptomic datasets"),
+ "40118861":   ("secondary", "public_scRNA_reuse", "Single-nucleus RNA-seq datasets were obtained from the National Genomics Data Center with the accession number HRA003340."),
+ "40272558":   ("secondary", "public_scRNA_reuse", "The scRNA - seq dataset GSE150430 from GEO was analyzed using the Seurat R program."),
+ "40382519":   ("secondary", "public_scRNA_reuse", "we obtained single-cell RNA sequencing (scRNA-seq) data for nasopharyngeal carcinoma tissues from the GEO dataset"),
+ "40574357":   ("secondary", "public_scRNA_reuse", "Differentially expressed URGs were screened based on the single-cell RNA sequencing (scRNA-seq) dataset"),
+ "40594834":   ("secondary", "public_scRNA_reuse", "we analyzed single-cell transcriptomics of liver metastases and adjacent tissues from nasopharyngeal carcinoma (NPC), thyroid carcinoma (THCA), breast cancer (BC), colorectal cancer (CRC) and cervical cancer (CESC)"),
+ "40624598":   ("secondary", "public_scRNA_reuse", "The 10x Genomics and Smart-seq2 datasets were downloaded from the GEO database (GSE162025 and GSE150825), the Genome Sequence Archive database (HRA000087)"),
+ "40631744":   ("secondary", "public_scRNA_reuse", "The single-cell expression matrix, barcode, and gene annotation for GSE120926 we[re] ... obtained from the GEO"),
+ "40822284":   ("secondary", "public_scRNA_reuse", "The GEO database includes three NPC-related microarray datasets ... and one NPC-related single-cell sequencing dataset (GSE150825, GSE150430)."),
+ "41083782":   ("secondary", "public_scRNA_reuse", "Additionally, HMMR's role was explored using the GSE162025 scRNA-seq dataset"),
+ "41151481":   ("secondary", "public_scRNA_reuse", "The study incorporated single-cell sequencing data from 488,771 cells across 82 samples ... were collected to investigate the correlation between cell types and patient prognosis"),
+ "41158214":   ("secondary", "public_scRNA_reuse", "The single-cell NPC sequencing data utilized in this research are accessible to the Gene Expression Omnibus (GEO) under accession number GSE150430."),
+ "41249704":   ("secondary", "public_scRNA_reuse", "The GSE150430 scRNA-seq data were preprocessed and normalized using the Seurat package."),
+ "37061217":   ("secondary", "public_scRNA_reuse", "The raw and processed single-cell sequencing data are publicly available in Gene Expression Omnibus (GEO) with the accession number GSE150825"),
+ "38295746":   ("secondary", "public_scRNA_reuse", "We downloaded the single-cell transcriptome sequencing data of 15 NPC patients from GEO database"),
+ "38382442":   ("secondary", "public_scRNA_reuse", "We obtained the single-cell sequencing data of 10 NPC (GSE162025) and 10 oropharyngeal squamous cell carcinoma"),
+ "38400862":   ("secondary", "public_scRNA_reuse", "single-cell RNA sequencing (scRNA-seq) data from 15 NPC patient samples and normal nasopharyngeal epithelial tissue from 1 patient were obtained from GEO dataset (GSE150430)"),
+ "38918785":   ("secondary", "public_scRNA_reuse", "We collected scRNA-seq data from nasopharyngeal tumor tissues in 11 patients with NPC and nasopharyngeal lymphatic hyperplasia (NLH) samp[les] ... This study is proceed based on prior research"),
+ "39158776":   ("secondary", "public_scRNA_reuse", "we collected paired primary and metastatic tumour samples from several previous trials (GSE150825, GSE162025, HRA000036)"),
+ "39392128":   ("secondary", "public_scRNA_reuse", "we integrated the transcriptome of 47,618 single cells from eight samples related to NPC LNM ... The public transcriptome profiles and clinical data were provided"),
+ "39726587":   ("secondary", "public_scRNA_reuse", "The model's precision at the single-cell level was confirmed using the GSE150430 dataset"),
+ "36860875":   ("secondary", "public_scRNA_reuse", "Publicly available datasets were analyzed in this study ... The processed scRNA-seq dataset was deposited at the Gene expression omnibus (GEO) data repository under the accession code GSE150430."),
+ "37098551":   ("secondary", "public_scRNA_reuse", "The NK-NPC single-cell transcriptome sequencing dataset (GSE162025) was obtained from the Gene Expression Omnibus database"),
+ "37744335":   ("secondary", "public_scRNA_reuse", "We obtained scRNA-seq data for NPC samples from the GEO database ... accession number: GSE150430"),
+ "35433690":   ("secondary", "public_scRNA_reuse", "we collected single-cell RNA sequencing (scRNA-seq) data from a recent study with NPC patients at different stages (Chen et al., 2020)"),
+ "36186467":   ("secondary", "public_scRNA_reuse", "we utilized bulk RNA sequencing (bulk RNA-seq) data from GEO and single-cell RNA sequencing (scRNA-seq) results from a web portal"),
+ "36371985":   ("secondary", "public_scRNA_reuse", "The NPC scRNA-Seq datasets were downloaded from the CNGBdb database with accession number CNP0000428 and from the GEO database with accession numbers GSE150825 and GSE162025"),
+ "41377662":   ("secondary", "public_scRNA_reuse", "The gene expression datasets generated during this study were publicly available and can be downloaded through GEO web portal using accession listing ... GSE150430"),
+ "39748426":   ("secondary", "public_scRNA_reuse", "we curated single-cell transcriptome (scRNA-seq) data from 17 studies that encompassing 222 patients across six different cancer types (colorectal, gastric, lung, nasopharyngeal (NPC), ovarian, pancreatic ductal adenocarcinoma (PDAC), breast)"),
+
+ # ---------------- excluded ------------------------------------------------------
+ "PPR1186440":  ("excluded", "duplicate_preprint", "preprint of PMID 42625209; same cohort and same 27,330 cells (Fresh normal nasopharyngeal tissue, primary NPC, and nodal metastases were profiled by scRNA-seq, yielding 27,330 cells)"),
+ "PPR1035848":  ("excluded", "cell_line_or_xenograft_only", "Experiments with cell lines and subsequent RNA sequencing, network pharmacology, molecular docking"),
+ "PPR1051789":  ("excluded", "cell_line_or_xenograft_only", "NPC cell line experiments, high-throughput sequencing, Mendelian Randomization (MR), expression quantitative trait loci (eQTL)"),
+ "PPR947723":   ("excluded", "no_single_cell_data_on_NPC_material", "Immunohistochemistry revealed that, in addition to tumor cells, LIF is primarily expressed by stromal TAMs; retrieved text describes no single-cell profiling of NPC samples"),
+ "IND608682699": ("excluded", "no_retrievable_identifier", "record carries neither PMID nor DOI; fails spec hard rule 4"),
+ "42385107":    ("excluded", "no_single_cell_resolution_data", "This retrospective biomarker investigation combined transcriptomic profiling and survival analyses; discovery cohort N = 99 profiled in bulk"),
+ "38681663":    ("excluded", "no_single_cell_resolution_data", "The study included 57 NPC patients who were pathologically diagnosed and underwent RNA sequencing; radiomic feature extraction from NBI images"),
+ "35025968":    ("excluded", "cell_line_or_xenograft_only", "After tumors reached 200-300 mm3, they were collected and digested ... scRNA data deposited as PRJNA736082 to SRA -- single-cell data are from mouse xenografts"),
+ "32428547":    ("excluded", "cell_line_or_xenograft_only", "The study was performed using NPC patient-derived tumor xenograft tumors, cell lines, CCR4 + CD8 T cells sorted from peripheral blood mononuclear cells of healthy volunteers, and TCGA-derived ... data sets"),
+ "32708712":    ("excluded", "cell_line_or_xenograft_only", "in the single-cell RNA sequencing analysis of the two groups of mouse xenografts"),
+ "40888040":    ("excluded", "no_single_cell_data_on_NPC_material", "A total of 9 specimens were analyzed from 5 patients (4 of these matched pairs) with breast cancer LMD -- the scRNA-seq arm covered only breast-cancer leptomeningeal disease, although the trial enrolled a nasopharyngeal primary"),
+}
+
+# Everything in candidate_ids.json not listed above is INCLUDED.
+INCLUDE_BASIS = {
+ "42625209":  ("new_samples", "Fresh normal nasopharyngeal tissue, primary NPC, and nodal metastases were profiled by scRNA-seq, yielding 27,330 cells."),
+ "41986499":  ("new_samples", "Here we performed multi-omics profiling, including proteomics, phosphoproteomics, genomics and transcriptomics, on 240 patients with NPC"),
+ "41992060":  ("new_samples", "We performed RNA sequencing analyses on NPC PBMCs and tissue samples to identify genes associated with JAB1. Dimensionality reduction and clustering analyses were conducted on paired single-cell RNA sequencing data"),
+ "42245668":  ("new_samples", "We collected 20 untreated samples (15 nasopharyngeal carcinoma (NPC) and 5 ...); The single-cell sequencing data reported in this paper have been deposited in OMIX (accession: OMIX013224)"),
+ "42230534":  ("NOT_FOUND", "single-cell RNA sequencing combined with multiplex immunofluorescence revealed that B cells were highly enriched in non-metastatic NPC"),
+ "42456326":  ("NOT_FOUND", "the construction of a comprehensive single-cell transcriptomic atlas of primary NPC and NPCLM"),
+ "PPR1118410": ("new_samples", "Single-cell RNA sequencing (scRNA-seq) was performed on peripheral blood mononuclear cell (PBMC) samples from stage I NPC patients (T1N0M0) treated with RT alone. Blood samples were collected before and after 18 Gy RT"),
+ "40059116":  ("new_samples", "Clinical sample collectionTen NPC samples for single-cell RNA sequencing (scRN[A-seq]); Sequencing data ... deposited in Genome Sequence Archive (GSA) with accession code HRA010229"),
+ "40315843":  ("new_samples", "The generated bulk RNA-seq, scRNA-seq, and scTCR-seq data in this study have been deposited to Genome Sequence Archive (GSA) ... HRA008590"),
+ "40389670":  ("new_samples", "The research team collected NPC and normal tissue samples, and performed in-depth single-cell sequencing analysis of the transcriptomes."),
+ "40392335":  ("new_samples", "The datasets generated and/or analyzed during the current study are not publicly available due to privacy and confidentiality agreements with the participants"),
+ "40530955":  ("new_samples", "Following single-cell suspension preparation, library construction, sequencing analysis, and quality control of the obtained data, we acquired transcriptome data for a total of 28,957 cells."),
+ "40543508":  ("new_samples", "Raw sequencing data, including GeoMx DSP data, HEV RNA-seq data; and RNA-seq data of HUVECs after cytokine induction, have been deposited in the Genome Sequence Archive"),
+ "40691404":  ("new_samples", "we conducted single-cell and spatial transcriptomics analysis of 39 tumors from 24 patients to reveal the microenvironmental differences between primary and rNPC"),
+ "40746726":  ("new_samples", "A total of 15 primary NPC tumor samples were collected for single-cell RNA sequencing (scRNA-seq). Fresh biopsy samples designated for scRNA-seq were thoroughly washed"),
+ "40818459":  ("new_samples", "we confirmed the spatial proximity of SOX4 and ZIP14 through our in-house spatial transcriptomics dataset; The raw and processed Visium spatial sequencing data of primary NPC tissues have been deposi[ted]"),
+ "40888040":  ("new_samples", "CSF and blood were collected before treatment and at different time points after treatment was initiated in all patients."),
+ "41067232":  ("new_samples", "Integrated genomic and spatial transcriptomic analyses were performed to characterize the patient population benefitting from this combination therapy."),
+ "41395113":  ("new_samples", "Researchers performed single-cell RNA sequencing on NPC and adjacent normal tissue samples."),
+ "39197193":  ("NOT_FOUND", "Single-cell transcriptome sequencing analysis of human nasopharyngeal carcinoma (NPC) revealed a significant enrichment of B cell subset characterized by high expression of EGR1 and EGR3"),
+ "39205595":  ("NOT_FOUND", "using single-cell RNA sequencing techniques, we investigated the cellular landscape in NPC and oral cancers"),
+ "39231979":  ("new_samples", "we performed single-cell RNA sequencing (scRNA-seq) analysis of transcriptome and immune cell receptor profiles for 77 samples, including 56 tumours and 10 peripheral blood mononuclear cells (PBMC)"),
+ "39415331":  ("new_samples", "we performed scRNA-seq of prospectively collected NPC specimens from this clinical trial"),
+ "39438442":  ("new_samples", "we performed immune profiling using CyTOF on longitudinal PBMC samples and identified the Ki67+ Treg subset as strongly associated with relapse"),
+ "38547605":  ("NOT_FOUND", "Utilizing single-cell RNA sequencing combined with T cell receptor (TCR) and B cell receptor (BCR) sequencing (scRNA + TCR + BCR-seq), we analyzed data from 7 patients with NPC and 3 patients with nasopharyngeal lymphatic hyperplasia (NLH)"),
+ "36739462":  ("new_samples", "we collected paired primary and metastatic tumour samples from a previous trial (NCT02111460) in de novo metastatic NPC and conducted integrative genomic and transcriptomic sequencing, including scRNA-seq"),
+ "37280275":  ("new_samples", "using single-cell RNA sequencing and T cell and B cell receptor sequencing of matched, treatment-naive and post-GP chemotherapy NPC samples (n = 15 pairs)"),
+ "37349991":  ("new_samples", "we collected three non-malignant tissues and seven NPC samples from nine donors via clinical biopsy"),
+ "35096485":  ("new_samples", "we generated scRNA-seq profiles for nasopharyngeal tumors from the six patients with NPC, four treatment-naive, and two recurrent samples"),
+ "33531485":  ("new_samples", "Fresh tumour sample was obtained using endoscopic nasopharyngeal biopsy and matching peripheral blood sample was collected for each patient"),
+ "33545035":  ("NOT_FOUND", "by performing a pan-cancer analysis of single myeloid cells from 210 patients across 15 human cancer types, we identified distinct features of TIMs across cancer types. Mast cells in nasopharyngeal cancer"),
+ "33750785":  ("new_samples", "we performed 5' single-cell RNA sequencing integrated with V(D)J profiling on 14 patients with either nasopharyngeal carcinoma (NPC) or nasopharyngeal lymphatic hyperplasia (NLH)"),
+ "34253636":  ("NOT_FOUND", "Cell populations and the corresponding markers were identified by single-cell RNA sequencing and fluorescence-activated cell sorting analysis."),
+ "32061950":  ("new_samples", "we performed single cell RNA-seq and analyzed tumor cells together with the infiltrating immune cells from three NPC tumor tissues"),
+ "32686767":  ("new_samples", "The fresh biopsies, which were collected during endoscopy, were rapidly digested into single-cell suspensions and analyzed using droplet-based single-cell transcriptome profiles (10x Genomics Chromium system)"),
+ "32901110":  ("new_samples", "Here we performed single-cell RNA sequencing on ~104,000 cells from 19 EBV+ NPCs and 7 nonmalignant nasopharyngeal biopsies"),
+ "41619722":  ("new_samples", "we performed scRNA-seq on 53 fresh bone metastatic specimens, of which 43 were from sp[ine]"),
+ "40265092":  ("new_samples", "We collected 17 lymph node tissues from patients admitted with lymphadenopathy through tissue aspiration or surger[y]"),
+ "37607536":  ("NOT_FOUND", "we perform integrative single-cell RNA sequencing analyses on NK cells from 716 patients with cancer, covering 24 cancer types"),
+}
