@@ -262,8 +262,10 @@ def decontx(X, clusters, max_iter=150, delta=(10.0, 10.0), tol=1e-4, verbose=Fal
             r = 1.0 / (1.0 + t_over[rows_global] * s_kg[coo.col])
             native = coo.data * r
             contam = coo.data - native
-            np.add.at(new_csum[j], coo.col, native)
-            np.add.at(contam_tot, rows_global, contam)
+            # bincount, not np.add.at: identical arithmetic, but add.at is
+            # unbuffered and dominates the runtime on 30M+ nonzero matrices
+            new_csum[j] = np.bincount(coo.col, weights=native, minlength=n_genes)
+            contam_tot += np.bincount(rows_global, weights=contam, minlength=n_cells)
 
         phi = normed(new_csum + eps)
         csum = new_csum

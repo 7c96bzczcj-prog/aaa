@@ -138,6 +138,41 @@ def sensitivity() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def capture_check() -> pd.DataFrame:
+    """
+    Measure, rather than cite, the capture confound.
+
+    NK cells in tumour are reported to carry markedly less endogenous RNA than in
+    matched normal. If that holds here, part of any tumour-vs-normal proportion
+    difference is differential capture and QC survival, not abundance. Compared
+    per sample against the T cells of the same library, which controls for the
+    library's overall depth.
+    """
+    import scanpy as sc
+    CACHE = "/home/user/cervical_work/cache"
+    rows = []
+    for ds in DATASETS:
+        p = f"{CACHE}/tnk_{ds}.h5ad"
+        if not os.path.exists(p):
+            continue
+        obs = sc.read_h5ad(p).obs
+        for smp, g in obs.groupby("sample", observed=True):
+            nk, tc = g[g.is_NK], g[~g.is_NK.astype(bool)]
+            if len(nk) < 10 or len(tc) < 10:
+                continue
+            rows.append({
+                "dataset": ds, "sample": smp, "tissue": g.tissue.iloc[0],
+                "n_NK": len(nk),
+                "NK_median_UMI": round(float(nk.total_counts.median()), 1),
+                "T_median_UMI": round(float(tc.total_counts.median()), 1),
+                "NK_over_T_UMI": round(float(nk.total_counts.median()
+                                             / tc.total_counts.median()), 3),
+                "NK_median_genes": round(float(nk.n_genes_by_counts.median()), 1),
+                "T_median_genes": round(float(tc.n_genes_by_counts.median()), 1),
+            })
+    return pd.DataFrame(rows)
+
+
 def main():
     df = load_all()
     cols = ["dataset", "donor", "sample", "tissue_label", "histology",
@@ -162,6 +197,17 @@ def main():
         p.to_csv(f"{OUT}/NK_PAIRED.csv", index=False)
         print("\n=== WITHIN-DONOR PAIRS ===")
         print(p.to_string(index=False))
+
+    try:
+        cap = capture_check()
+        if len(cap):
+            cap.to_csv(f"{OUT}/NK_CAPTURE.csv", index=False)
+            print("\n=== NK vs T RNA capture, within library ===")
+            print(cap.to_string(index=False))
+            byt = cap.groupby("tissue", observed=True)["NK_over_T_UMI"].median().round(3)
+            print("\nmedian NK/T UMI ratio by tissue:\n" + byt.to_string())
+    except Exception as e:
+        print(f"\n[capture check failed: {e}]")
 
     try:
         sens = sensitivity()
