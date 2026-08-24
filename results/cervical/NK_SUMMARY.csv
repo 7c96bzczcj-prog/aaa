@@ -1,0 +1,28 @@
+dataset,tissue,denominator,n_samples,median,min,max,total_NK
+E-MTAB-12305,HSIL / CIN,of all cells,2,7.03,4.58,9.47,1103
+E-MTAB-12305,HSIL / CIN,of CD45+,2,11.85,11.08,12.61,1103
+E-MTAB-12305,HSIL / CIN,of lymphocytes,2,19.38,16.31,22.45,1103
+E-MTAB-12305,cervical cancer,of all cells,4,0.17,0.02,1.65,169
+E-MTAB-12305,cervical cancer,of CD45+,4,0.73,0.3,4.29,169
+E-MTAB-12305,cervical cancer,of lymphocytes,4,1.57,0.32,6.39,169
+E-MTAB-12305,metastatic lymph node,of all cells,1,3.16,3.16,3.16,243
+E-MTAB-12305,metastatic lymph node,of CD45+,1,4.23,4.23,4.23,243
+E-MTAB-12305,metastatic lymph node,of lymphocytes,1,5.6,5.6,5.6,243
+E-MTAB-12305,normal cervix (tumour-adjacent),of all cells,3,0.11,0.01,0.18,39
+E-MTAB-12305,normal cervix (tumour-adjacent),of CD45+,3,1.05,0.84,2.23,39
+E-MTAB-12305,normal cervix (tumour-adjacent),of lymphocytes,3,1.85,1.67,3.19,39
+GSE173231,normal cervix (healthy donor),of all cells,10,1.98,0.28,10.62,601
+GSE173231,normal cervix (healthy donor),of CD45+,10,3.99,0.38,18.21,601
+GSE173231,normal cervix (healthy donor),of lymphocytes,10,4.38,0.38,23.23,601
+GSE197461,cervical cancer,of all cells,8,0.99,0.05,4.66,410
+GSE197461,cervical cancer,of CD45+,8,2.02,0.19,6.99,410
+GSE197461,cervical cancer,of lymphocytes,8,2.42,0.27,12.09,410
+GSE208653,HSIL / CIN,of all cells,2,2.86,2.77,2.96,364
+GSE208653,HSIL / CIN,of CD45+,2,5.15,3.86,6.44,364
+GSE208653,HSIL / CIN,of lymphocytes,2,6.33,5.18,7.47,364
+GSE208653,cervical cancer,of all cells,3,2.99,1.48,3.67,593
+GSE208653,cervical cancer,of CD45+,3,3.31,1.99,7.12,593
+GSE208653,cervical cancer,of lymphocytes,3,5.96,2.76,11.2,593
+GSE208653,normal cervix,of all cells,4,1.93,0.69,3.78,852
+GSE208653,normal cervix,of CD45+,4,3.48,0.95,5.8,852
+GSE208653,normal cervix,of lymphocytes,4,4.33,1.07,10.17,852

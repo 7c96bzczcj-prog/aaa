@@ -1,0 +1,4 @@
+dataset,donor,normal,tumor,NK_normal,lymph_normal,NK_tumor,lymph_tumor,pct_normal,ci_normal,pct_tumor,ci_tumor,fold_change,fisher_p,informative
+E-MTAB-12305,P45,N1,T1,15,896,6,1850,1.67,1.02-2.74,0.32,0.15-0.71,0.19,0.0005,NO - too few NK
+E-MTAB-12305,P50,N2,T2,23,722,21,828,3.19,2.13-4.73,2.54,1.66-3.85,0.8,0.4484,yes
+E-MTAB-12305,P51,N3,T3,1,54,2,335,1.85,0.33-9.77,0.6,0.16-2.15,0.32,0.3621,NO - too few NK
