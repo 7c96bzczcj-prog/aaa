@@ -26,8 +26,30 @@ DATA_ROOT = "/home/user/cervical_work"
 
 # NK positive markers (task step 2)
 NK_POS = ["NCAM1", "KLRD1", "KLRF1", "NKG7", "GNLY", "PRF1"]
-# T markers that an NK cell must be negative for (task step 2)
-T_NEG = ["CD3D", "CD3E", "CD3G", "TRBC2"]
+
+# T markers an NK cell must be negative for.
+#
+# This panel is the OUTPUT of scripts/cervical/validate_markers.py, not an
+# assumption. The task asks to verify TRBC1 in the data before relying on it;
+# applying that same test to every candidate shows the proposed panel
+# {CD3D, CD3E, CD3G, TRBC2} does not survive contact with these libraries.
+# Inside a CD56+ cytotoxic cluster, measured as a fraction of the T-cell level:
+#
+#     CD3D 0.06   CD3G 0.05   CD6 0.08     <- usable
+#     CD3E 0.64   TRBC2 0.72   TRAC 0.79   TRBC1 0.90   <- do NOT go negative
+#
+# The failures are the highest-abundance T transcripts, which retain the largest
+# ambient residue, and CD3E/CD3zeta machinery that NK cells genuinely transcribe.
+# Candidates were also required to be positive in >=80% of T clusters: CD5,
+# CD28, CD40LG, THEMIS and IL7R are low in CD8 effector/TEMRA cells, so they
+# would let an effector-T cluster collect "negative" votes and be miscalled NK.
+T_NEG = ["CD3D", "CD3G", "CD6"]
+T_NEG_REJECTED = ["CD3E", "TRBC2", "TRAC", "TRBC1", "LCK", "SKAP1", "ITK", "TRAT1"]
+
+# a cluster counts as negative for a marker below this fraction of the T level
+NEG_MAX_FRAC_OF_T = 0.25
+# and the T level is taken as this percentile of per-cluster means
+T_REF_PCTL = 90
 
 # compartment markers used only to split major lineages before the T/NK subset
 LINEAGE = {
@@ -161,7 +183,9 @@ def all_samples() -> pd.DataFrame:
 def read_10x(prefix: str, mtx: str, bc: str, ft: str):
     """Read a 10x triplet. Returns (counts CSR cells x genes, barcodes, gene symbols)."""
     m = scipy.io.mmread(prefix + mtx)          # genes x cells
+    m.data = m.data.astype(np.float32)          # halve before the CSR conversion
     X = sp.csr_matrix(m.T)                      # -> cells x genes
+    del m
     with gzip.open(prefix + bc, "rt") as fh:
         barcodes = [ln.strip() for ln in fh if ln.strip()]
     genes = []
@@ -178,8 +202,8 @@ def collapse_duplicate_genes(X, genes):
     """Sum columns that share a gene symbol so every dataset has unique symbols."""
     uniq, inv = np.unique(genes, return_inverse=True)
     if len(uniq) == len(genes):
-        order = np.argsort(genes)
-        return X[:, order], genes[order]
+        # already unique: reordering would only cost a full sparse copy
+        return X, genes
     M = sp.csr_matrix(
         (np.ones(len(genes), dtype=np.float32), (np.arange(len(genes)), inv)),
         shape=(len(genes), len(uniq)),
@@ -349,3 +373,62 @@ def cluster_marker_table(adata, cluster_key, genes, layer="counts"):
     det = detection_rates(adata, genes, layer=layer)
     det[cluster_key] = adata.obs[cluster_key].values
     return det.groupby(cluster_key, observed=True).mean()
+
+
+def cluster_expression(adata, cluster_key, genes, layer="lognorm"):
+    """Per-cluster mean expression for each gene."""
+    M = adata.layers[layer] if layer else adata.X
+    keys = np.asarray(adata.obs[cluster_key].values).astype(str)
+    out = {}
+    for g in genes:
+        if g not in adata.var_names:
+            out[g] = np.zeros(adata.n_obs)
+            continue
+        col = M[:, adata.var_names.get_loc(g)]
+        out[g] = col.toarray().ravel() if sp.issparse(col) else np.asarray(col).ravel()
+    df = pd.DataFrame(out)
+    df["_k"] = keys
+    return df.groupby("_k", observed=True).mean()
+
+
+def call_nk_clusters(tnk, cluster_key="tnk_cluster",
+                     neg_frac=NEG_MAX_FRAC_OF_T, min_neg=None,
+                     receptor_frac=0.25):
+    """
+    Decide which T/NK clusters are NK.
+
+    Negativity is judged *relative to the T-cell level in the same dataset*
+    rather than against an absolute detection rate. Detection rate is strongly
+    depth-dependent -- in a deeply sequenced library a single ambient molecule
+    counts as "detected" -- so an absolute cutoff silently tightens as depth
+    rises. The T reference is the 90th percentile of per-cluster means, i.e. the
+    level in a genuine T cluster.
+
+    Returns (per-cluster table, set of NK cluster ids).
+    """
+    genes = sorted(set(NK_POS + T_NEG + ["FCGR3A", "CD2", "IL7R", "TRAC", "CD3E"]))
+    ex = cluster_expression(tnk, cluster_key, genes)
+    min_neg = len(T_NEG) if min_neg is None else min_neg
+
+    tab = ex.copy()
+    n_neg = np.zeros(len(ex), dtype=int)
+    for g in T_NEG:
+        ref = float(np.percentile(ex[g].values, T_REF_PCTL))
+        neg = (ex[g].values < neg_frac * ref) if ref > 1e-9 else np.ones(len(ex), bool)
+        tab[f"neg_{g}"] = neg
+        n_neg += neg.astype(int)
+    tab["n_T_neg"] = n_neg
+
+    # cytotoxic-granule requirement keeps ILC1 (which lack them) out of the count
+    cyto = ((ex["NKG7"].values > np.median(ex["NKG7"].values))
+            & (ex["GNLY"].values > np.median(ex["GNLY"].values)))
+    # and at least one NK receptor clearly enriched relative to its own maximum
+    rec = np.zeros(len(ex), dtype=bool)
+    for g in ("NCAM1", "KLRF1", "KLRD1"):
+        m = ex[g].values.max()
+        if m > 1e-9:
+            rec |= ex[g].values >= receptor_frac * m
+    tab["cytotoxic"] = cyto
+    tab["receptor"] = rec
+    tab["is_NK"] = (n_neg >= min_neg) & cyto & rec
+    return tab, set(tab.index[tab.is_NK])

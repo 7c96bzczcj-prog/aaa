@@ -93,11 +93,22 @@ def qc_and_decontaminate(ad, sample):
     # Doublet removal is mandatory here: T-NK doublets are the single largest
     # source of false NK calls. A silent fallback to "no doublets" would quietly
     # inflate every number downstream, so a failure is fatal, not tolerated.
-    sc.pp.scrublet(ad, expected_doublet_rate=min(0.08, 0.008 * n_qc / 1000), verbose=False)
+    exp_rate = min(0.08, 0.008 * n_qc / 1000)
+    sc.pp.scrublet(ad, expected_doublet_rate=exp_rate, verbose=False)
     dbl = ad.obs["predicted_doublet"].values.astype(bool)
+    if dbl.sum() == 0:
+        # Scrublet picks its cutoff from the bimodality of the simulated-doublet
+        # score distribution. When that distribution is unimodal it silently
+        # returns zero doublets, which is not the same as there being none.
+        # Fall back to calling the top expected-rate fraction by score, so the
+        # mandatory doublet step still removes something rather than no-op'ing.
+        k = int(round(exp_rate * n_qc))
+        score = ad.obs["doublet_score"].values
+        thr = np.partition(score, -k)[-k] if 0 < k < len(score) else np.inf
+        dbl = score >= thr
+        log(f"  {sample}: scrublet found no threshold; removing top "
+            f"{int(dbl.sum())} cells by doublet score ({exp_rate:.1%} expected)")
     n_dbl = int(dbl.sum())
-    if n_dbl == 0:
-        log(f"  {sample}: WARNING scrublet called 0 doublets in {n_qc} cells")
     ad = ad[~dbl].copy()
 
     # ---- coarse clusters to drive decontX --------------------------------
@@ -117,9 +128,11 @@ def qc_and_decontaminate(ad, sample):
 
     # ---- decontX ----------------------------------------------------------
     theta, Xd = cc.decontx(ad.layers["counts"], clusters)
-    ad.layers["counts_raw"] = ad.layers["counts"].copy()
+    # the pre-correction matrix is deliberately not retained: nothing downstream
+    # reads it, and keeping a third copy of a 36k-gene matrix was enough to push
+    # the largest dataset into the OOM killer
     ad.layers["counts"] = Xd
-    ad.X = Xd.copy()
+    ad.X = Xd
     ad.obs["decontx_theta"] = theta
 
     # drop cells left with too little signal after decontamination
