@@ -1,0 +1,5287 @@
+[
+ {
+  "accession": "GSE196989",
+  "n_gsm": 2,
+  "n_bm": 0,
+  "n_pb": 2,
+  "n_cb": 0,
+  "n_age": 2,
+  "samples": [
+   {
+    "gsm": "GSM5906337",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 64",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "GSM5906337_HDf_Metadata_snATAC.txt.gz",
+     "GSM5906337_HDf_RawCounts_snATAC.rds.gz"
+    ],
+    "title": "HDf [snATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDf [snATAC-seq] PBMC cell type: PBMC age (in years): 64 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906338",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 51",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "GSM5906338_jcov31_Metadata_snATAC.txt.gz",
+     "GSM5906338_jcov31_RawCounts_snATAC.rds.gz"
+    ],
+    "title": "jcov31 [snATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov31 [snATAC-seq] PBMC cell type: PBMC age (in years): 51 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   }
+  ]
+ },
+ {
+  "accession": "GSE196987",
+  "n_gsm": 40,
+  "n_bm": 4,
+  "n_pb": 33,
+  "n_cb": 0,
+  "n_age": 32,
+  "samples": [
+   {
+    "gsm": "GSM5906273",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 68",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HD_AD [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HD_AD [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 68 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906274",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 36",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDa [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDa [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 36 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906275",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 40",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDj [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDj [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 40 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906276",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 69",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDu [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDu [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 69 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906277",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 65",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDv [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDv [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 65 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906278",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 42",
+     "Sex: Male",
+     "clinical status: Mild:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov101_2 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov101_2 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 42 Sex: Male clinical status: Mild:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906279",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 42",
+     "Sex: Male",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov101 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov101 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 42 Sex: Male clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906280",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 66",
+     "Sex: Male",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov110 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov110 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 66 Sex: Male clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906281",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 58",
+     "Sex: Male",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov111 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov111 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 58 Sex: Male clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906282",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 32",
+     "Sex: Male",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov114 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov114 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 32 Sex: Male clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906283",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 64",
+     "Sex: Female",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov115 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov115 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 64 Sex: Female clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906284",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 73",
+     "Sex: Female",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov117 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov117 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 73 Sex: Female clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906285",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 65",
+     "Sex: Female",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov119 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov119 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 65 Sex: Female clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906286",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 68",
+     "Sex: Male",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov122 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov122 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 68 Sex: Male clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906287",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 68",
+     "Sex: Female",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov124 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov124 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 68 Sex: Female clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906288",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 52",
+     "Sex: Female",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov127 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov127 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 52 Sex: Female clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906289",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 65",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov21 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov21 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 65 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906290",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 37",
+     "Sex: Male",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov42_20 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov42_20 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 37 Sex: Male clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906291",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 37",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov42 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov42 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 37 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906292",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 63",
+     "Sex: Male",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov49_2 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov49_2 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 63 Sex: Male clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906293",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 68",
+     "Sex: Female",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov52 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov52 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 68 Sex: Female clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906294",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 71",
+     "Sex: Male",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov56_9 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov56_9 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 71 Sex: Male clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906295",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 44",
+     "Sex: Male",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov60_6 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov60_6 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 44 Sex: Male clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906296",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 43",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov69_8 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov69_8 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 43 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906297",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 63",
+     "Sex: Female",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov72_5 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov72_5 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 63 Sex: Female clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906298",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 72",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov92 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov92 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 72 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906299",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 68",
+     "Sex: Male",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov93 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov93 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 68 Sex: Male clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906300",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 40",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "lgtd17 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "lgtd17 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 40 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906301",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 40",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "lgtd18 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "lgtd18 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 40 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906302",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 40",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "lgtd19 [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "lgtd19 [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 40 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906303",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 40",
+     "Sex: Male",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "lgtd4m [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "lgtd4m [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 40 Sex: Male clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5906304",
+    "char": [
+     "cell type: PBMC",
+     "age (in years): 40",
+     "Sex: Male",
+     "clinical status: Mild:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "lgtd8m [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "lgtd8m [MultiomeATAC-seq] PBMC cell type: PBMC age (in years): 40 Sex: Male clinical status: Mild:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7484960",
+    "char": [
+     "tissue: BAL Fluid",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "MHV1_D30_AJ_BALF_Naive [MultiomeATAC-seq]",
+    "source": "BAL Fluid",
+    "strategy": "ATAC-seq",
+    "blob": "MHV1_D30_AJ_BALF_Naive [MultiomeATAC-seq] BAL Fluid tissue: BAL Fluid cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7484962",
+    "char": [
+     "tissue: BAL Fluid",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "MHV1_D30_AJ_BALF_Recovered_aIL6_2 [MultiomeATAC-seq]",
+    "source": "BAL Fluid",
+    "strategy": "ATAC-seq",
+    "blob": "MHV1_D30_AJ_BALF_Recovered_aIL6_2 [MultiomeATAC-seq] BAL Fluid tissue: BAL Fluid cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7484963",
+    "char": [
+     "tissue: BAL Fluid",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "MHV1_D30_AJ_BALF_Recovered [MultiomeATAC-seq]",
+    "source": "BAL Fluid",
+    "strategy": "ATAC-seq",
+    "blob": "MHV1_D30_AJ_BALF_Recovered [MultiomeATAC-seq] BAL Fluid tissue: BAL Fluid cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7484964",
+    "char": [
+     "tissue: Bone Marrow",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "MHV1_D30_AJ_BM_Naive [MultiomeATAC-seq]",
+    "source": "Bone Marrow",
+    "strategy": "ATAC-seq",
+    "blob": "MHV1_D30_AJ_BM_Naive [MultiomeATAC-seq] Bone Marrow tissue: Bone Marrow cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7484965",
+    "char": [
+     "tissue: Bone Marrow",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "MHV1_D30_AJ_BM_Recovered_aIL6 [MultiomeATAC-seq]",
+    "source": "Bone Marrow",
+    "strategy": "ATAC-seq",
+    "blob": "MHV1_D30_AJ_BM_Recovered_aIL6 [MultiomeATAC-seq] Bone Marrow tissue: Bone Marrow cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7484967",
+    "char": [
+     "tissue: Bone Marrow",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "MHV1_D30_AJ_BM_Recovered [MultiomeATAC-seq]",
+    "source": "Bone Marrow",
+    "strategy": "ATAC-seq",
+    "blob": "MHV1_D30_AJ_BM_Recovered [MultiomeATAC-seq] Bone Marrow tissue: Bone Marrow cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7484968",
+    "char": [
+     "tissue: Bone Marrow",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BMMCpie1_snATAC [MultiomeATAC-seq]",
+    "source": "Bone Marrow",
+    "strategy": "ATAC-seq",
+    "blob": "BMMCpie1_snATAC [MultiomeATAC-seq] Bone Marrow tissue: Bone Marrow cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7484969",
+    "char": [
+     "tissue: PBMC",
+     "cell type: mononuclear cell"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "PBMCpie1_snATAC [MultiomeATAC-seq]",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "PBMCpie1_snATAC [MultiomeATAC-seq] PBMC tissue: PBMC cell type: mononuclear cell",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   }
+  ]
+ },
+ {
+  "accession": "GSE190004",
+  "n_gsm": 57,
+  "n_bm": 0,
+  "n_pb": 57,
+  "n_cb": 0,
+  "n_age": 57,
+  "samples": [
+   {
+    "gsm": "GSM5711702",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 36",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDe-cd14_S3_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDe-cd14_S3_L001 PBMC tissue: CD14 Monocytes age (in years): 36 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711703",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 69",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDg-cd14_S17_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDg-cd14_S17_L002 PBMC tissue: CD14 Monocytes age (in years): 69 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711704",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 57",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDp-cd14_S5_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDp-cd14_S5_L001 PBMC tissue: CD14 Monocytes age (in years): 57 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711705",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 67",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDq-cd34_S6_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDq-cd34_S6_L001 PBMC tissue: HSPC age (in years): 67 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711706",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 38",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDr-cd14_S7_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDr-cd14_S7_L001 PBMC tissue: CD14 Monocytes age (in years): 38 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711707",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 77",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDs-cd14_S8_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDs-cd14_S8_L001 PBMC tissue: CD14 Monocytes age (in years): 77 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711708",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 77",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDs-cd34_S31_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDs-cd34_S31_L001 PBMC tissue: HSPC age (in years): 77 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711709",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 59",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDt-cd34_S9_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDt-cd34_S9_L001 PBMC tissue: HSPC age (in years): 59 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711710",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 64",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDw-cd34_S33_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDw-cd34_S33_L001 PBMC tissue: HSPC age (in years): 64 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711711",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 55",
+     "Sex: Female",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov103-cd14_S13_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov103-cd14_S13_L001 PBMC tissue: CD14 Monocytes age (in years): 55 Sex: Female clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711712",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 63",
+     "Sex: Male",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov104-cd14_S14_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov104-cd14_S14_L001 PBMC tissue: CD14 Monocytes age (in years): 63 Sex: Male clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711713",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 68",
+     "Sex: Male",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov106-cd14_S15_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov106-cd14_S15_L001 PBMC tissue: CD14 Monocytes age (in years): 68 Sex: Male clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711714",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 40",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov108-cd34_S17_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov108-cd34_S17_L001 PBMC tissue: HSPC age (in years): 40 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711715",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 68",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov18-cd14_S21_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov18-cd14_S21_L002 PBMC tissue: CD14 Monocytes age (in years): 68 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711716",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 51",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov19-cd14_S19_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov19-cd14_S19_L002 PBMC tissue: CD14 Monocytes age (in years): 51 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711717",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 46",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov20-cd14_S20_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov20-cd14_S20_L002 PBMC tissue: CD14 Monocytes age (in years): 46 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711718",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 45",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov26-cd14_S21_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov26-cd14_S21_L002 PBMC tissue: CD14 Monocytes age (in years): 45 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711719",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 45",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov26-cd34_S29_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov26-cd34_S29_L002 PBMC tissue: HSPC age (in years): 45 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711720",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 46",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov35-cd14_S23_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov35-cd14_S23_L002 PBMC tissue: CD14 Monocytes age (in years): 46 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711721",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 46",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov35-cd34_S8_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov35-cd34_S8_L002 PBMC tissue: HSPC age (in years): 46 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711722",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 48",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov40-cd14_S24_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov40-cd14_S24_L002 PBMC tissue: CD14 Monocytes age (in years): 48 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711723",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 68",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov46-cd14_S25_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov46-cd14_S25_L002 PBMC tissue: CD14 Monocytes age (in years): 68 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711724",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 63",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov49-cd14_S26_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov49-cd14_S26_L002 PBMC tissue: CD14 Monocytes age (in years): 63 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711725",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 63",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov49-cd34_S11_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov49-cd34_S11_L002 PBMC tissue: HSPC age (in years): 63 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711726",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 65",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov51-cd14_S27_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov51-cd14_S27_L002 PBMC tissue: CD14 Monocytes age (in years): 65 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711727",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 65",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov51-cd34_S12_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov51-cd34_S12_L002 PBMC tissue: HSPC age (in years): 65 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711728",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 49",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov53-cd14_S19_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov53-cd14_S19_L001 PBMC tissue: CD14 Monocytes age (in years): 49 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711729",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 49",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov53-cd34_S41_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov53-cd34_S41_L001 PBMC tissue: HSPC age (in years): 49 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711730",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 45",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov67-cd14_S28_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov67-cd14_S28_L002 PBMC tissue: CD14 Monocytes age (in years): 45 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711731",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 41",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov77-cd14_S4_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov77-cd14_S4_L001 PBMC tissue: CD14 Monocytes age (in years): 41 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711732",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 41",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov77-cd34_S14_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov77-cd34_S14_L001 PBMC tissue: HSPC age (in years): 41 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711733",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 17",
+     "Sex: Male",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov78-cd14_S5_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov78-cd14_S5_L001 PBMC tissue: CD14 Monocytes age (in years): 17 Sex: Male clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711734",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 17",
+     "Sex: Male",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov78-cd34_S15_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov78-cd34_S15_L001 PBMC tissue: HSPC age (in years): 17 Sex: Male clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711735",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 33",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov79-cd14_S6_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov79-cd14_S6_L001 PBMC tissue: CD14 Monocytes age (in years): 33 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711736",
+    "char": [
+     "tissue: HSPC",
+     "age (in years): 33",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov79-cd34_S16_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov79-cd34_S16_L001 PBMC tissue: HSPC age (in years): 33 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711737",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 69",
+     "Sex: Male",
+     "clinical status: nonCoV"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov85-cd14_S29_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov85-cd14_S29_L002 PBMC tissue: CD14 Monocytes age (in years): 69 Sex: Male clinical status: nonCoV",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711738",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 48",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov94-cd14_S20_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov94-cd14_S20_L001 PBMC tissue: CD14 Monocytes age (in years): 48 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711739",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 38",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDy-cd14_S44_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDy-cd14_S44_L001 PBMC tissue: CD14 Monocytes age (in years): 38 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711740",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 79",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDab-cd14_S45_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDab-cd14_S45_L001 PBMC tissue: CD14 Monocytes age (in years): 79 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM5711741",
+    "char": [
+     "tissue: CD14 Monocytes",
+     "age (in years): 47",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDaa-cd14_S46_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDaa-cd14_S46_L001 PBMC tissue: CD14 Monocytes age (in years): 47 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469463",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 60",
+     "Sex: Male",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "cov201-cd14_S18_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "cov201-cd14_S18_L002 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 60 Sex: Male clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469464",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 73",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "Hdi-cd14_S19_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "Hdi-cd14_S19_L002 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 73 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469465",
+    "char": [
+     "tissue: PBMC",
+     "cell type: HSPC",
+     "age (in_years): 57",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDp-cd34_S28_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDp-cd34_S28_L001 PBMC tissue: PBMC cell type: HSPC age (in_years): 57 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469466",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 67",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDq-cd14_S29_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDq-cd14_S29_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 67 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469467",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 59",
+     "Sex: Female",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDt-cd14_S32_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDt-cd14_S32_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 59 Sex: Female clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469468",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 64",
+     "Sex: Male",
+     "clinical status: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HDw-cd14_S10_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "HDw-cd14_S10_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 64 Sex: Male clinical status: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469469",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 56",
+     "Sex: Male",
+     "clinical status: nonCov"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov102-cd14_S12_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov102-cd14_S12_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 56 Sex: Male clinical status: nonCov",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469470",
+    "char": [
+     "tissue: PBMC",
+     "cell type: HSPC",
+     "age (in_years): 56",
+     "Sex: Male",
+     "clinical status: nonCov"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov102-cd34_S35_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov102-cd34_S35_L001 PBMC tissue: PBMC cell type: HSPC age (in_years): 56 Sex: Male clinical status: nonCov",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469471",
+    "char": [
+     "tissue: PBMC",
+     "cell type: HSPC",
+     "age (in_years): 55",
+     "Sex: Female",
+     "clinical status: nonCov"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov103-cd34_S36_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov103-cd34_S36_L001 PBMC tissue: PBMC cell type: HSPC age (in_years): 55 Sex: Female clinical status: nonCov",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469472",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 71",
+     "Sex: Female",
+     "clinical status: nonCov"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov107-cd14_S16_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov107-cd14_S16_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 71 Sex: Female clinical status: nonCov",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469473",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 40",
+     "Sex: Male",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov108-cd14_S39_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov108-cd14_S39_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 40 Sex: Male clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469474",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 75",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov47-cd14_S18_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov47-cd14_S18_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 75 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469475",
+    "char": [
+     "tissue: PBMC",
+     "cell type: HSPC",
+     "age (in_years): 75",
+     "Sex: Male",
+     "clinical status: Severe:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "Jcov47-cd34_S40_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "Jcov47-cd34_S40_L001 PBMC tissue: PBMC cell type: HSPC age (in_years): 75 Sex: Male clinical status: Severe:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469476",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 35",
+     "Sex: Female",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov61-cd14_S23_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov61-cd14_S23_L002 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 35 Sex: Female clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469477",
+    "char": [
+     "tissue: PBMC",
+     "cell type: HSPC",
+     "age (in_years): 35",
+     "Sex: Female",
+     "clinical status: Severe:4-12mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov61-cd34_S31_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov61-cd34_S31_L002 PBMC tissue: PBMC cell type: HSPC age (in_years): 35 Sex: Female clinical status: Severe:4-12mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469478",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 35",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov88-cd14_S30_L002",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov88-cd14_S30_L002 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 35 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM7469479",
+    "char": [
+     "tissue: PBMC",
+     "cell type: CD14 Monocytes",
+     "age (in_years): 76",
+     "Sex: Female",
+     "clinical status: Mild:2-4mo"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "jcov97-cd14_S43_L001",
+    "source": "PBMC",
+    "strategy": "ATAC-seq",
+    "blob": "jcov97-cd14_S43_L001 PBMC tissue: PBMC cell type: CD14 Monocytes age (in_years): 76 Sex: Female clinical status: Mild:2-4mo",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   }
+  ]
+ },
+ {
+  "accession": "GSE234939",
+  "n_gsm": 50,
+  "n_bm": 0,
+  "n_pb": 50,
+  "n_cb": 0,
+  "n_age": 0,
+  "samples": [
+   {
+    "gsm": "GSM7483245",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "108_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "108_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483247",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "108_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "108_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483248",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "110_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "110_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483249",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "110_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "110_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483250",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "111_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "111_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483251",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "111_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "111_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483253",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "128_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "128_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483254",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "128_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "128_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483255",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "134_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "134_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483256",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "134_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "134_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483258",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "135_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "135_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483259",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "135_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "135_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483260",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "138_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "138_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483261",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "138_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "138_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483263",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "23_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "23_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483264",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "23_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "23_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483265",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "27_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "27_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483266",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "27_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "27_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483267",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "34_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "34_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483269",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "34_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "34_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483270",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "42_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "42_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483271",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "42_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "42_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483272",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "56_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "56_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483273",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "56_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "56_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483275",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "58_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "58_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483276",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "58_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "58_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483277",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "59_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "59_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483278",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "59_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "59_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483280",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "60_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "60_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483281",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "60_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "60_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483282",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "64_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "64_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483283",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "64_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "64_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483284",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "66_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "66_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483286",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "66_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "66_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483287",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "75_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "75_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483288",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: severe convalescent COVID-19"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "75_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "75_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: severe convalescent COVID-19",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483289",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "A_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "A_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483290",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "A_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "A_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483291",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "AC_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "AC_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483293",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "AC_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "AC_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483294",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "B_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "B_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483295",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "B_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "B_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483296",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "C_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "C_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483298",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "C_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "C_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483299",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "G_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "G_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483300",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "G_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "G_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483301",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "K_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "K_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483303",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "K_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "K_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483304",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "Z_1",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Z_1 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7483305",
+    "char": [
+     "tissue: PBMC",
+     "cell type: Stimulated CD14 Monocytes",
+     "disease: Healthy"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "Z_2",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Z_2 PBMC tissue: PBMC cell type: Stimulated CD14 Monocytes disease: Healthy",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   }
+  ]
+ },
+ {
+  "accession": "GSE241989",
+  "n_gsm": 18,
+  "n_bm": 12,
+  "n_pb": 6,
+  "n_cb": 0,
+  "n_age": 0,
+  "samples": [
+   {
+    "gsm": "GSM7747223",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: del(5q)",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747223_05H034-barcodes.tsv.gz",
+     "GSM7747223_05H034-features.tsv.gz",
+     "GSM7747223_05H034-matrix.mtx.gz"
+    ],
+    "title": "Sample 1_05H034",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 1_05H034 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: del(5q) Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747224",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: KMT2A-rearranged",
+     "Sex: Female"
+    ],
+    "suppl": [
+     "GSM7747224_05H066-barcodes.tsv.gz",
+     "GSM7747224_05H066-features.tsv.gz",
+     "GSM7747224_05H066-matrix.mtx.gz"
+    ],
+    "title": "Sample 2_05H066",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 2_05H066 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: KMT2A-rearranged Sex: Female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747225",
+    "char": [
+     "tissue: Peripheral blood",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Normal karyotype",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747225_07H134-barcodes.tsv.gz",
+     "GSM7747225_07H134-features.tsv.gz",
+     "GSM7747225_07H134-matrix.mtx.gz"
+    ],
+    "title": "Sample 3_07H134",
+    "source": "Peripheral blood",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 3_07H134 Peripheral blood tissue: Peripheral blood cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Normal karyotype Sex: Male",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747226",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Normal karyotype",
+     "Sex: Female"
+    ],
+    "suppl": [
+     "GSM7747226_08H087-barcodes.tsv.gz",
+     "GSM7747226_08H087-features.tsv.gz",
+     "GSM7747226_08H087-matrix.mtx.gz"
+    ],
+    "title": "Sample 4_08H087",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 4_08H087 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Normal karyotype Sex: Female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747227",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: KMT2A-rearranged",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747227_09H010-barcodes.tsv.gz",
+     "GSM7747227_09H010-features.tsv.gz",
+     "GSM7747227_09H010-matrix.mtx.gz"
+    ],
+    "title": "Sample 5_09H010",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 5_09H010 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: KMT2A-rearranged Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747228",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: KMT2A-rearranged",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747228_09H032-barcodes.tsv.gz",
+     "GSM7747228_09H032-features.tsv.gz",
+     "GSM7747228_09H032-matrix.mtx.gz"
+    ],
+    "title": "Sample 6_09H032",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 6_09H032 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: KMT2A-rearranged Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747229",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Normal karyotype",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747229_09H070-barcodes.tsv.gz",
+     "GSM7747229_09H070-features.tsv.gz",
+     "GSM7747229_09H070-matrix.mtx.gz"
+    ],
+    "title": "Sample 7_09H070",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 7_09H070 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Normal karyotype Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747230",
+    "char": [
+     "tissue: Peripheral blood",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: del(5q)",
+     "Sex: Female"
+    ],
+    "suppl": [
+     "GSM7747230_11H097-barcodes.tsv.gz",
+     "GSM7747230_11H097-features.tsv.gz",
+     "GSM7747230_11H097-matrix.mtx.gz"
+    ],
+    "title": "Sample 8_11H097",
+    "source": "Peripheral blood",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 8_11H097 Peripheral blood tissue: Peripheral blood cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: del(5q) Sex: Female",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747231",
+    "char": [
+     "tissue: Peripheral blood",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Complex karyotype",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747231_11H103-barcodes.tsv.gz",
+     "GSM7747231_11H103-features.tsv.gz",
+     "GSM7747231_11H103-matrix.mtx.gz"
+    ],
+    "title": "Sample 9_11H103",
+    "source": "Peripheral blood",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 9_11H103 Peripheral blood tissue: Peripheral blood cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Complex karyotype Sex: Male",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747232",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Normal karyotype",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747232_12H010-barcodes.tsv.gz",
+     "GSM7747232_12H010-features.tsv.gz",
+     "GSM7747232_12H010-matrix.mtx.gz"
+    ],
+    "title": "Sample 10_12H010",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 10_12H010 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Normal karyotype Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747233",
+    "char": [
+     "tissue: Peripheral blood",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Complex karyotype",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747233_12H106-barcodes.tsv.gz",
+     "GSM7747233_12H106-features.tsv.gz",
+     "GSM7747233_12H106-matrix.mtx.gz"
+    ],
+    "title": "Sample 11_12H106",
+    "source": "Peripheral blood",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 11_12H106 Peripheral blood tissue: Peripheral blood cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Complex karyotype Sex: Male",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747234",
+    "char": [
+     "tissue: Peripheral blood",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Complex karyotype",
+     "Sex: Female"
+    ],
+    "suppl": [
+     "GSM7747234_12H138-barcodes.tsv.gz",
+     "GSM7747234_12H138-features.tsv.gz",
+     "GSM7747234_12H138-matrix.mtx.gz"
+    ],
+    "title": "Sample 12_12H138",
+    "source": "Peripheral blood",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 12_12H138 Peripheral blood tissue: Peripheral blood cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Complex karyotype Sex: Female",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747235",
+    "char": [
+     "tissue: Peripheral blood",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: Normal karyotype",
+     "Sex: Female"
+    ],
+    "suppl": [
+     "GSM7747235_14H007-barcodes.tsv.gz",
+     "GSM7747235_14H007-features.tsv.gz",
+     "GSM7747235_14H007-matrix.mtx.gz"
+    ],
+    "title": "Sample 13_14H007",
+    "source": "Peripheral blood",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 13_14H007 Peripheral blood tissue: Peripheral blood cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: Normal karyotype Sex: Female",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747236",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: del(5q)",
+     "Sex: Female"
+    ],
+    "suppl": [
+     "GSM7747236_17H065-barcodes.tsv.gz",
+     "GSM7747236_17H065-features.tsv.gz",
+     "GSM7747236_17H065-matrix.mtx.gz"
+    ],
+    "title": "Sample 14_17H065",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 14_17H065 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: del(5q) Sex: Female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747237",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: mono 7",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747237_04H096-barcodes.tsv.gz",
+     "GSM7747237_04H096-features.tsv.gz",
+     "GSM7747237_04H096-matrix.mtx.gz"
+    ],
+    "title": "Sample 15_04H096",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 15_04H096 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: mono 7 Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747238",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: mono 7",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747238_05H193-barcodes.tsv.gz",
+     "GSM7747238_05H193-features.tsv.gz",
+     "GSM7747238_05H193-matrix.mtx.gz"
+    ],
+    "title": "Sample 16_05H193",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 16_05H193 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: mono 7 Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747239",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: KMT2A-rearranged",
+     "Sex: Male"
+    ],
+    "suppl": [
+     "GSM7747239_06H088-barcodes.tsv.gz",
+     "GSM7747239_06H088-features.tsv.gz",
+     "GSM7747239_06H088-matrix.mtx.gz"
+    ],
+    "title": "Sample 17_06H088",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 17_06H088 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: KMT2A-rearranged Sex: Male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7747240",
+    "char": [
+     "tissue: Bone marrow",
+     "cell line: N/A",
+     "cell type: Primary acute myeloid leukemia cells",
+     "genotype: 02H017 (KMT2A-rearranged); 03H112 (inv(16)); 18H047 (Complex karyotype)",
+     "Sex: pooled male and female"
+    ],
+    "suppl": [
+     "GSM7747240_mix-02H017-03H112-18H047-barcodes.tsv.gz",
+     "GSM7747240_mix-02H017-03H112-18H047-features.tsv.gz",
+     "GSM7747240_mix-02H017-03H112-18H047-matrix.mtx.gz"
+    ],
+    "title": "Sample 18_mixed 02H017, 03H112, 18H047",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Sample 18_mixed 02H017, 03H112, 18H047 Bone marrow tissue: Bone marrow cell line: N/A cell type: Primary acute myeloid leukemia cells genotype: 02H017 (KMT2A-rearranged); 03H112 (inv(16)); 18H047 (Complex karyotype) Sex: pooled male and female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   }
+  ]
+ },
+ {
+  "accession": "GSE233304",
+  "n_gsm": 55,
+  "n_bm": 6,
+  "n_pb": 7,
+  "n_cb": 0,
+  "n_age": 0,
+  "samples": [
+   {
+    "gsm": "GSM7421860",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421860_S1_barcodes.tsv.gz",
+     "GSM7421860_S1_features.tsv.gz",
+     "GSM7421860_S1_filtered_feature_bc_matrix.h5",
+     "GSM7421860_S1_matrix.mtx.gz"
+    ],
+    "title": "Patient 1, Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 1, Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421861",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421861_S2_barcodes.tsv.gz",
+     "GSM7421861_S2_features.tsv.gz",
+     "GSM7421861_S2_filtered_feature_bc_matrix.h5",
+     "GSM7421861_S2_matrix.mtx.gz"
+    ],
+    "title": "Patient 1, Tumor CD45+, 3' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 1, Tumor CD45+, 3' GEX scRNAseq Tumor cell type: CD45+ cells tissue: Tumor disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421862",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMCs",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421862_S3_barcodes.tsv.gz",
+     "GSM7421862_S3_features.tsv.gz",
+     "GSM7421862_S3_filtered_feature_bc_matrix.h5",
+     "GSM7421862_S3_matrix.mtx.gz"
+    ],
+    "title": "Patient 1, PBMCs CD45+, 3' GEX scRNAseq",
+    "source": "PBMCs",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 1, PBMCs CD45+, 3' GEX scRNAseq PBMCs cell type: CD45+ cells tissue: PBMCs disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421863",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421863_S4_barcodes.tsv.gz",
+     "GSM7421863_S4_features.tsv.gz",
+     "GSM7421863_S4_filtered_feature_bc_matrix.h5",
+     "GSM7421863_S4_matrix.mtx.gz"
+    ],
+    "title": "Patient 2, Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 2, Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421864",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421864_S5_barcodes.tsv.gz",
+     "GSM7421864_S5_features.tsv.gz",
+     "GSM7421864_S5_filtered_feature_bc_matrix.h5",
+     "GSM7421864_S5_matrix.mtx.gz"
+    ],
+    "title": "Patient 2, Tumor CD45+, 3' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 2, Tumor CD45+, 3' GEX scRNAseq Tumor cell type: CD45+ cells tissue: Tumor disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421865",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMCs",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421865_S6_barcodes.tsv.gz",
+     "GSM7421865_S6_features.tsv.gz",
+     "GSM7421865_S6_filtered_feature_bc_matrix.h5",
+     "GSM7421865_S6_matrix.mtx.gz"
+    ],
+    "title": "Patient 2, PBMCs CD45+, 3' GEX scRNAseq",
+    "source": "PBMCs",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 2, PBMCs CD45+, 3' GEX scRNAseq PBMCs cell type: CD45+ cells tissue: PBMCs disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421866",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421866_S7_barcodes.tsv.gz",
+     "GSM7421866_S7_features.tsv.gz",
+     "GSM7421866_S7_filtered_feature_bc_matrix.h5",
+     "GSM7421866_S7_matrix.mtx.gz"
+    ],
+    "title": "Patient 7, Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 7, Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421867",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421867_S8_barcodes.tsv.gz",
+     "GSM7421867_S8_features.tsv.gz",
+     "GSM7421867_S8_filtered_feature_bc_matrix.h5",
+     "GSM7421867_S8_matrix.mtx.gz"
+    ],
+    "title": "Patient 8, Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 8, Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421868",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421868_S9_barcodes.tsv.gz",
+     "GSM7421868_S9_features.tsv.gz",
+     "GSM7421868_S9_filtered_feature_bc_matrix.h5",
+     "GSM7421868_S9_matrix.mtx.gz"
+    ],
+    "title": "Patient 9, Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 9, Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421869",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421869_S10_barcodes.tsv.gz",
+     "GSM7421869_S10_features.tsv.gz",
+     "GSM7421869_S10_filtered_feature_bc_matrix.h5",
+     "GSM7421869_S10_matrix.mtx.gz"
+    ],
+    "title": "Patient 9, Tumor CD45+, 3' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 9, Tumor CD45+, 3' GEX scRNAseq Tumor cell type: CD45+ cells tissue: Tumor disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421870",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMCs",
+     "disease: glioblastoma"
+    ],
+    "suppl": [
+     "GSM7421870_S11_barcodes.tsv.gz",
+     "GSM7421870_S11_features.tsv.gz",
+     "GSM7421870_S11_filtered_feature_bc_matrix.h5",
+     "GSM7421870_S11_matrix.mtx.gz"
+    ],
+    "title": "Patient 9, PBMCs CD45+, 3' GEX scRNAseq",
+    "source": "PBMCs",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 9, PBMCs CD45+, 3' GEX scRNAseq PBMCs cell type: CD45+ cells tissue: PBMCs disease: glioblastoma",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421871",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone",
+     "disease: non-neoplastic intracranial disease"
+    ],
+    "suppl": [
+     "GSM7421871_S12_barcodes.tsv.gz",
+     "GSM7421871_S12_features.tsv.gz",
+     "GSM7421871_S12_filtered_feature_bc_matrix.h5",
+     "GSM7421871_S12_matrix.mtx.gz"
+    ],
+    "title": "Patient c4, Control Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c4, Control Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone disease: non-neoplastic intracranial disease",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421872",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMCs",
+     "disease: non-neoplastic intracranial disease"
+    ],
+    "suppl": [
+     "GSM7421872_S13_barcodes.tsv.gz",
+     "GSM7421872_S13_features.tsv.gz",
+     "GSM7421872_S13_filtered_feature_bc_matrix.h5",
+     "GSM7421872_S13_matrix.mtx.gz"
+    ],
+    "title": "Patient c4, Control PBMCs CD45+, 3' GEX scRNAseq",
+    "source": "PBMCs",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c4, Control PBMCs CD45+, 3' GEX scRNAseq PBMCs cell type: CD45+ cells tissue: PBMCs disease: non-neoplastic intracranial disease",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421873",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone",
+     "disease: non-neoplastic intracranial disease"
+    ],
+    "suppl": [
+     "GSM7421873_S14_barcodes.tsv.gz",
+     "GSM7421873_S14_features.tsv.gz",
+     "GSM7421873_S14_filtered_feature_bc_matrix.h5",
+     "GSM7421873_S14_matrix.mtx.gz"
+    ],
+    "title": "Patient c5, Control Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c5, Control Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone disease: non-neoplastic intracranial disease",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM7421874",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMCs",
+     "disease: non-neoplastic intracranial disease"
+    ],
+    "suppl": [
+     "GSM7421874_S15_barcodes.tsv.gz",
+     "GSM7421874_S15_features.tsv.gz",
+     "GSM7421874_S15_filtered_feature_bc_matrix.h5",
+     "GSM7421874_S15_matrix.mtx.gz"
+    ],
+    "title": "Patient c5, Control PBMCs CD45+, 3' GEX scRNAseq",
+    "source": "PBMCs",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c5, Control PBMCs CD45+, 3' GEX scRNAseq PBMCs cell type: CD45+ cells tissue: PBMCs disease: non-neoplastic intracranial disease",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244370",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244370_S16_barcodes.tsv.gz",
+     "GSM8244370_S16_features.tsv.gz",
+     "GSM8244370_S16_filtered_feature_bc_matrix.h5",
+     "GSM8244370_S16_matrix.mtx.gz"
+    ],
+    "title": "Patient c8, Control Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c8, Control Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244371",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMC"
+    ],
+    "suppl": [
+     "GSM8244371_S17_barcodes.tsv.gz",
+     "GSM8244371_S17_features.tsv.gz",
+     "GSM8244371_S17_filtered_feature_bc_matrix.h5",
+     "GSM8244371_S17_matrix.mtx.gz"
+    ],
+    "title": "Patient c8, Control PBMC CD45+, 3' GEX scRNAseq",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c8, Control PBMC CD45+, 3' GEX scRNAseq PBMC cell type: CD45+ cells tissue: PBMC",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244372",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244372_S18_barcodes.tsv.gz",
+     "GSM8244372_S18_features.tsv.gz",
+     "GSM8244372_S18_filtered_feature_bc_matrix.h5",
+     "GSM8244372_S18_matrix.mtx.gz"
+    ],
+    "title": "Patient c9, Control Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c9, Control Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244373",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMC"
+    ],
+    "suppl": [
+     "GSM8244373_S19_barcodes.tsv.gz",
+     "GSM8244373_S19_features.tsv.gz",
+     "GSM8244373_S19_filtered_feature_bc_matrix.h5",
+     "GSM8244373_S19_matrix.mtx.gz"
+    ],
+    "title": "Patient c9, Control PBMC CD45+, 3' GEX scRNAseq",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c9, Control PBMC CD45+, 3' GEX scRNAseq PBMC cell type: CD45+ cells tissue: PBMC",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244374",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244374_S20_barcodes.tsv.gz",
+     "GSM8244374_S20_features.tsv.gz",
+     "GSM8244374_S20_filtered_feature_bc_matrix.h5",
+     "GSM8244374_S20_matrix.mtx.gz"
+    ],
+    "title": "Patient c10, Control Cranial Bone CD45+, 3' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c10, Control Cranial Bone CD45+, 3' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244375",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMC"
+    ],
+    "suppl": [
+     "GSM8244375_S21_barcodes.tsv.gz",
+     "GSM8244375_S21_features.tsv.gz",
+     "GSM8244375_S21_filtered_feature_bc_matrix.h5",
+     "GSM8244375_S21_matrix.mtx.gz"
+    ],
+    "title": "Patient c10, Control PBMC CD45+, 3' GEX scRNAseq",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient c10, Control PBMC CD45+, 3' GEX scRNAseq PBMC cell type: CD45+ cells tissue: PBMC",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244376",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244376_S22_barcodes.tsv.gz",
+     "GSM8244376_S22_features.tsv.gz",
+     "GSM8244376_S22_filtered_feature_bc_matrix.h5",
+     "GSM8244376_S22_matrix.mtx.gz"
+    ],
+    "title": "Patient 4, Cranial Bone CD45+, 5' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 4, Cranial Bone CD45+, 5' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244377",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244377_S23_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 4, Cranial Bone CD45+, 5' TCR scV(D)Jseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 4, Cranial Bone CD45+, 5' TCR scV(D)Jseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244378",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244378_S24_barcodes.tsv.gz",
+     "GSM8244378_S24_features.tsv.gz",
+     "GSM8244378_S24_filtered_feature_bc_matrix.h5",
+     "GSM8244378_S24_matrix.mtx.gz"
+    ],
+    "title": "Patient 4, Tumor CD45+, 5' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 4, Tumor CD45+, 5' GEX scRNAseq Tumor cell type: CD45+ cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244379",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244379_S25_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 4, Tumor CD45+, 5' TCR scV(D)Jseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 4, Tumor CD45+, 5' TCR scV(D)Jseq Tumor cell type: CD45+ cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244380",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244380_S26_barcodes.tsv.gz",
+     "GSM8244380_S26_features.tsv.gz",
+     "GSM8244380_S26_filtered_feature_bc_matrix.h5",
+     "GSM8244380_S26_matrix.mtx.gz"
+    ],
+    "title": "Patient 15, Cranial Bone CD45+, 5' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 15, Cranial Bone CD45+, 5' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244381",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244381_S27_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 15, Cranial Bone CD45+, 5' TCR scV(D)Jseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 15, Cranial Bone CD45+, 5' TCR scV(D)Jseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244382",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244382_S28_barcodes.tsv.gz",
+     "GSM8244382_S28_features.tsv.gz",
+     "GSM8244382_S28_filtered_feature_bc_matrix.h5",
+     "GSM8244382_S28_matrix.mtx.gz"
+    ],
+    "title": "Patient 15, Tumor CD45+, 5' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 15, Tumor CD45+, 5' GEX scRNAseq Tumor cell type: CD45+ cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244383",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244383_S29_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 15, Tumor CD45+, 5' TCR scV(D)Jseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 15, Tumor CD45+, 5' TCR scV(D)Jseq Tumor cell type: CD45+ cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244384",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMC"
+    ],
+    "suppl": [
+     "GSM8244384_S30_barcodes.tsv.gz",
+     "GSM8244384_S30_features.tsv.gz",
+     "GSM8244384_S30_filtered_feature_bc_matrix.h5",
+     "GSM8244384_S30_matrix.mtx.gz"
+    ],
+    "title": "Patient 15, PBMC CD45+, 5' GEX scRNAseq",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 15, PBMC CD45+, 5' GEX scRNAseq PBMC cell type: CD45+ cells tissue: PBMC",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244385",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMC"
+    ],
+    "suppl": [
+     "GSM8244385_S31_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 15, PBMC CD45+, 5' TCR scV(D)Jseq",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 15, PBMC CD45+, 5' TCR scV(D)Jseq PBMC cell type: CD45+ cells tissue: PBMC",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244386",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244386_S32_barcodes.tsv.gz",
+     "GSM8244386_S32_features.tsv.gz",
+     "GSM8244386_S32_filtered_feature_bc_matrix.h5",
+     "GSM8244386_S32_matrix.mtx.gz"
+    ],
+    "title": "Patient 16, Cranial Bone CD45+, 5' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 16, Cranial Bone CD45+, 5' GEX scRNAseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244387",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244387_S33_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 16, Cranial Bone CD45+, 5' TCR scV(D)Jseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 16, Cranial Bone CD45+, 5' TCR scV(D)Jseq Cranial Bone cell type: CD45+ cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244388",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244388_S34_barcodes.tsv.gz",
+     "GSM8244388_S34_features.tsv.gz",
+     "GSM8244388_S34_filtered_feature_bc_matrix.h5",
+     "GSM8244388_S34_matrix.mtx.gz"
+    ],
+    "title": "Patient 16, Tumor CD45+, 5' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 16, Tumor CD45+, 5' GEX scRNAseq Tumor cell type: CD45+ cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244389",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244389_S35_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 16, Tumor CD45+, 5' TCR scV(D)Jseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 16, Tumor CD45+, 5' TCR scV(D)Jseq Tumor cell type: CD45+ cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244390",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMC"
+    ],
+    "suppl": [
+     "GSM8244390_S36_barcodes.tsv.gz",
+     "GSM8244390_S36_features.tsv.gz",
+     "GSM8244390_S36_filtered_feature_bc_matrix.h5",
+     "GSM8244390_S36_matrix.mtx.gz"
+    ],
+    "title": "Patient 16, PBMC CD45+, 5' GEX scRNAseq",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 16, PBMC CD45+, 5' GEX scRNAseq PBMC cell type: CD45+ cells tissue: PBMC",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244391",
+    "char": [
+     "cell type: CD45+ cells",
+     "tissue: PBMC"
+    ],
+    "suppl": [
+     "GSM8244391_S37_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 16, PBMC CD45+, 5' TCR scV(D)Jseq",
+    "source": "PBMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 16, PBMC CD45+, 5' TCR scV(D)Jseq PBMC cell type: CD45+ cells tissue: PBMC",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244392",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244392_S38_barcodes.tsv.gz",
+     "GSM8244392_S38_features.tsv.gz",
+     "GSM8244392_S38_filtered_feature_bc_matrix.h5",
+     "GSM8244392_S38_matrix.mtx.gz"
+    ],
+    "title": "Patient 21, Cranial Bone CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 21, Cranial Bone CD45+ CD14-, 5' GEX scRNAseq Cranial Bone cell type: CD45+ CD14- cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244393",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244393_S39_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 21, Cranial Bone CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 21, Cranial Bone CD45+ CD14-, 5' TCR scV(D)Jseq Cranial Bone cell type: CD45+ CD14- cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244394",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244394_S40_barcodes.tsv.gz",
+     "GSM8244394_S40_features.tsv.gz",
+     "GSM8244394_S40_filtered_feature_bc_matrix.h5",
+     "GSM8244394_S40_matrix.mtx.gz"
+    ],
+    "title": "Patient 21, Tumor CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 21, Tumor CD45+ CD14-, 5' GEX scRNAseq Tumor cell type: CD45+ CD14- cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244395",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244395_S41_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 21, Tumor CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 21, Tumor CD45+ CD14-, 5' TCR scV(D)Jseq Tumor cell type: CD45+ CD14- cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244396",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: BMMC"
+    ],
+    "suppl": [
+     "GSM8244396_S42_barcodes.tsv.gz",
+     "GSM8244396_S42_features.tsv.gz",
+     "GSM8244396_S42_filtered_feature_bc_matrix.h5",
+     "GSM8244396_S42_matrix.mtx.gz"
+    ],
+    "title": "Patient 21, BMMC CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "BMMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 21, BMMC CD45+ CD14-, 5' GEX scRNAseq BMMC cell type: CD45+ CD14- cells tissue: BMMC",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244397",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: BMMC"
+    ],
+    "suppl": [
+     "GSM8244397_S43_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 21, BMMC CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "BMMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 21, BMMC CD45+ CD14-, 5' TCR scV(D)Jseq BMMC cell type: CD45+ CD14- cells tissue: BMMC",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244398",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244398_S44_barcodes.tsv.gz",
+     "GSM8244398_S44_features.tsv.gz",
+     "GSM8244398_S44_filtered_feature_bc_matrix.h5",
+     "GSM8244398_S44_matrix.mtx.gz"
+    ],
+    "title": "Patient 22, Cranial Bone CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 22, Cranial Bone CD45+ CD14-, 5' GEX scRNAseq Cranial Bone cell type: CD45+ CD14- cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244399",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244399_S45_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 22, Cranial Bone CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 22, Cranial Bone CD45+ CD14-, 5' TCR scV(D)Jseq Cranial Bone cell type: CD45+ CD14- cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244400",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244400_S46_barcodes.tsv.gz",
+     "GSM8244400_S46_features.tsv.gz",
+     "GSM8244400_S46_filtered_feature_bc_matrix.h5",
+     "GSM8244400_S46_matrix.mtx.gz"
+    ],
+    "title": "Patient 22, Tumor CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 22, Tumor CD45+ CD14-, 5' GEX scRNAseq Tumor cell type: CD45+ CD14- cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244401",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244401_S47_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 22, Tumor CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 22, Tumor CD45+ CD14-, 5' TCR scV(D)Jseq Tumor cell type: CD45+ CD14- cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244402",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: BMMC"
+    ],
+    "suppl": [
+     "GSM8244402_S48_barcodes.tsv.gz",
+     "GSM8244402_S48_features.tsv.gz",
+     "GSM8244402_S48_filtered_feature_bc_matrix.h5",
+     "GSM8244402_S48_matrix.mtx.gz"
+    ],
+    "title": "Patient 22, BMMC CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "BMMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 22, BMMC CD45+ CD14-, 5' GEX scRNAseq BMMC cell type: CD45+ CD14- cells tissue: BMMC",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244403",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: BMMC"
+    ],
+    "suppl": [
+     "GSM8244403_S49_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 22, BMMC CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "BMMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 22, BMMC CD45+ CD14-, 5' TCR scV(D)Jseq BMMC cell type: CD45+ CD14- cells tissue: BMMC",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244404",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244404_S50_barcodes.tsv.gz",
+     "GSM8244404_S50_features.tsv.gz",
+     "GSM8244404_S50_filtered_feature_bc_matrix.h5",
+     "GSM8244404_S50_matrix.mtx.gz"
+    ],
+    "title": "Patient 24, Cranial Bone CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 24, Cranial Bone CD45+ CD14-, 5' GEX scRNAseq Cranial Bone cell type: CD45+ CD14- cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244405",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Cranial Bone"
+    ],
+    "suppl": [
+     "GSM8244405_S51_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 24, Cranial Bone CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "Cranial Bone",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 24, Cranial Bone CD45+ CD14-, 5' TCR scV(D)Jseq Cranial Bone cell type: CD45+ CD14- cells tissue: Cranial Bone",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244406",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244406_S52_barcodes.tsv.gz",
+     "GSM8244406_S52_features.tsv.gz",
+     "GSM8244406_S52_filtered_feature_bc_matrix.h5",
+     "GSM8244406_S52_matrix.mtx.gz"
+    ],
+    "title": "Patient 24, Tumor CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 24, Tumor CD45+ CD14-, 5' GEX scRNAseq Tumor cell type: CD45+ CD14- cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244407",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: Tumor"
+    ],
+    "suppl": [
+     "GSM8244407_S53_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 24, Tumor CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "Tumor",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 24, Tumor CD45+ CD14-, 5' TCR scV(D)Jseq Tumor cell type: CD45+ CD14- cells tissue: Tumor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244408",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: BMMC"
+    ],
+    "suppl": [
+     "GSM8244408_S54_barcodes.tsv.gz",
+     "GSM8244408_S54_features.tsv.gz",
+     "GSM8244408_S54_filtered_feature_bc_matrix.h5",
+     "GSM8244408_S54_matrix.mtx.gz"
+    ],
+    "title": "Patient 24, BMMC CD45+ CD14-, 5' GEX scRNAseq",
+    "source": "BMMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 24, BMMC CD45+ CD14-, 5' GEX scRNAseq BMMC cell type: CD45+ CD14- cells tissue: BMMC",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM8244409",
+    "char": [
+     "cell type: CD45+ CD14- cells",
+     "tissue: BMMC"
+    ],
+    "suppl": [
+     "GSM8244409_S55_filtered_contig_annotations.csv.gz"
+    ],
+    "title": "Patient 24, BMMC CD45+ CD14-, 5' TCR scV(D)Jseq",
+    "source": "BMMC",
+    "strategy": "RNA-Seq",
+    "blob": "Patient 24, BMMC CD45+ CD14-, 5' TCR scV(D)Jseq BMMC cell type: CD45+ CD14- cells tissue: BMMC",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   }
+  ]
+ },
+ {
+  "accession": "GSE134759",
+  "n_gsm": 33,
+  "n_bm": 30,
+  "n_pb": 3,
+  "n_cb": 0,
+  "n_age": 33,
+  "samples": [
+   {
+    "gsm": "GSM3732336",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 11",
+     "Sex: male",
+     "source: KM",
+     "source institute: NYU"
+    ],
+    "suppl": [
+     "GSM3732336_ETV001_NYU_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV001_NYU_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV001_NYU_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 11 Sex: male source: KM source institute: NYU",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732337",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 11",
+     "Sex: male",
+     "source: KM",
+     "source institute: NYU"
+    ],
+    "suppl": [
+     "GSM3732337_ETV001_NYU_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV001_NYU_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV001_NYU_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 11 Sex: male source: KM source institute: NYU",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732338",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PASFIF",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732338_ETV002_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV002_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV002_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PASFIF source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732339",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PASFIF",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732339_ETV002_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV002_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV002_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PASFIF source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732340",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PASFIF",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732340_ETV002_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV002_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV002_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PASFIF source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732341",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 9",
+     "Sex: female",
+     "source: SJETV043",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732341_ETV003_SJ_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV003_SJ_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV003_SJ_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 9 Sex: female source: SJETV043 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732342",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 9",
+     "Sex: female",
+     "source: SJETV043",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732342_ETV003_SJ_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV003_SJ_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV003_SJ_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 9 Sex: female source: SJETV043 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732343",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 9",
+     "Sex: female",
+     "source: SJETV043",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732343_ETV003_SJ_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV003_SJ_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV003_SJ_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 9 Sex: female source: SJETV043 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732344",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAUCIG",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732344_ETV004_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV004_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV004_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAUCIG source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732345",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAUCIG",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732345_ETV004_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV004_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV004_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAUCIG source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732346",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAUCIG",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732346_ETV004_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV004_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV004_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAUCIG source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732347",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAWMMA",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732347_ETV005_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV005_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV005_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAWMMA source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732348",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAWMMA",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732348_ETV005_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV005_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV005_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAWMMA source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732349",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAWMMA",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732349_ETV005_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV005_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV005_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAWMMA source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732350",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 21",
+     "Sex: male",
+     "source: LONZA (LOT#0000497343)",
+     "source institute: LONZA"
+    ],
+    "suppl": [
+     "GSM3732350_HEALTHY001_LONZA_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY001_LONZA_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY001_LONZA_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 21 Sex: male source: LONZA (LOT#0000497343) source institute: LONZA",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732351",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 42",
+     "Sex: male",
+     "source: WEILL CORNELL",
+     "source institute: WEILL CORNELL"
+    ],
+    "suppl": [
+     "GSM3732351_HEALTHY002_WC4_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY002_WC4_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY002_WC4_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 42 Sex: male source: WEILL CORNELL source institute: WEILL CORNELL",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732352",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 25",
+     "Sex: female",
+     "source: STEMCELL (LOT#1708300152)",
+     "source institute: STEMCELL"
+    ],
+    "suppl": [
+     "GSM3732352_HEALTHY003_SC_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY003_SC_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY003_SC_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 25 Sex: female source: STEMCELL (LOT#1708300152) source institute: STEMCELL",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732353",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 20",
+     "Sex: male",
+     "source: STEMCELL (LOT#214549001)",
+     "source institute: STEMCELL"
+    ],
+    "suppl": [
+     "GSM3732353_HEALTHY004_SC_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY004_SC_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY004_SC_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 20 Sex: male source: STEMCELL (LOT#214549001) source institute: STEMCELL",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732354",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 12",
+     "Sex: male",
+     "source: PAUZUW",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732354_PH001_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "PH001_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH001_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 12 Sex: male source: PAUZUW source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732355",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 12",
+     "Sex: male",
+     "source: PAUZUW",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732355_PH001_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "PH001_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH001_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 12 Sex: male source: PAUZUW source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732356",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 12",
+     "Sex: male",
+     "source: PAUZUW",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732356_PH001_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "PH001_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH001_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 12 Sex: male source: PAUZUW source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732357",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 8",
+     "Sex: female",
+     "source: SJPH005",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732357_PH002_SJ_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "PH002_SJ_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH002_SJ_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 8 Sex: female source: SJPH005 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732358",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 8",
+     "Sex: female",
+     "source: SJPH005",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732358_PH002_SJ_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "PH002_SJ_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH002_SJ_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 8 Sex: female source: SJPH005 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732359",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 8",
+     "Sex: female",
+     "source: SJPH005",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732359_PH002_SJ_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "PH002_SJ_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH002_SJ_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 8 Sex: female source: SJPH005 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967066",
+    "char": [
+     "disease state: mixed sample (non-demultiplexed)",
+     "Stage: mixed sample (non-demultiplexed)",
+     "cell type: mixed sample (non-demultiplexed)",
+     "age (years): mixed sample (non-demultiplexed)",
+     "Sex: Male",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: mixed sample (non-demultiplexed)"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HEALTHY-PB1, HEALTHY-PB2, BALL-PB1, BALL-PB2",
+    "source": "peripheral blood mononuclear cells",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY-PB1, HEALTHY-PB2, BALL-PB1, BALL-PB2 peripheral blood mononuclear cells disease state: mixed sample (non-demultiplexed) Stage: mixed sample (non-demultiplexed) cell type: mixed sample (non-demultiplexed) age (years): mixed sample (non-demultiplexed) Sex: Male source: mixed sample (non-demultiplexed) source institute: mixed sample (non-demultiplexed)",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967067",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Moribund",
+     "cell type: bone marrow",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BALL8-BM, BALL9-BM",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BALL8-BM, BALL9-BM bone marrow disease state: B-ALL Stage: Moribund cell type: bone marrow age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967068",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Moribund",
+     "cell type: peripheral blood mononuclear cells",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BALL8-PB, BALL9-PB",
+    "source": "peripheral blood mononuclear cells",
+    "strategy": "RNA-Seq",
+    "blob": "BALL8-PB, BALL9-PB peripheral blood mononuclear cells disease state: B-ALL Stage: Moribund cell type: peripheral blood mononuclear cells age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967069",
+    "char": [
+     "disease state: Healthy",
+     "cell type: bone marrow",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "CON1-BM, CON2-BM",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "CON1-BM, CON2-BM bone marrow disease state: Healthy cell type: bone marrow age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967070",
+    "char": [
+     "disease state: Healthy",
+     "cell type: peripheral blood mononuclear cells",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "CON1-PB, CON2-PB",
+    "source": "peripheral blood mononuclear cells",
+    "strategy": "RNA-Seq",
+    "blob": "CON1-PB, CON2-PB peripheral blood mononuclear cells disease state: Healthy cell type: peripheral blood mononuclear cells age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642793",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 9 years",
+     "Sex: female"
+    ],
+    "suppl": [
+     "GSM4642793_ETV003.barcodes.tsv.gz",
+     "GSM4642793_ETV003.features.tsv.gz",
+     "GSM4642793_ETV003.matrix.mtx.gz"
+    ],
+    "title": "ETV003",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "ETV003 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 9 years Sex: female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642794",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 2 months",
+     "Sex: female"
+    ],
+    "suppl": [
+     "GSM4642794_MLL001.barcodes.tsv.gz",
+     "GSM4642794_MLL001.features.tsv.gz",
+     "GSM4642794_MLL001.matrix.mtx.gz"
+    ],
+    "title": "MLL001",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "MLL001 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 2 months Sex: female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642795",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 8 years",
+     "Sex: female"
+    ],
+    "suppl": [
+     "GSM4642795_PH002.barcodes.tsv.gz",
+     "GSM4642795_PH002.features.tsv.gz",
+     "GSM4642795_PH002.matrix.mtx.gz"
+    ],
+    "title": "PH002",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "PH002 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 8 years Sex: female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642796",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 16 years",
+     "Sex: male"
+    ],
+    "suppl": [
+     "GSM4642796_PH003.barcodes.tsv.gz",
+     "GSM4642796_PH003.features.tsv.gz",
+     "GSM4642796_PH003.matrix.mtx.gz"
+    ],
+    "title": "PH003",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "PH003 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 16 years Sex: male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   }
+  ]
+ }
+]

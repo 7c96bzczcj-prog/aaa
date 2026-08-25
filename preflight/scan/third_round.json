@@ -1,0 +1,1098 @@
+[
+ {
+  "accession": "GSE134759",
+  "n_gsm": 33,
+  "n_bm": 30,
+  "n_pb": 3,
+  "n_cb": 0,
+  "n_age": 33,
+  "samples": [
+   {
+    "gsm": "GSM3732336",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 11",
+     "Sex: male",
+     "source: KM",
+     "source institute: NYU"
+    ],
+    "suppl": [
+     "GSM3732336_ETV001_NYU_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV001_NYU_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV001_NYU_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 11 Sex: male source: KM source institute: NYU",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732337",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 11",
+     "Sex: male",
+     "source: KM",
+     "source institute: NYU"
+    ],
+    "suppl": [
+     "GSM3732337_ETV001_NYU_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV001_NYU_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV001_NYU_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 11 Sex: male source: KM source institute: NYU",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732338",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PASFIF",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732338_ETV002_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV002_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV002_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PASFIF source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732339",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PASFIF",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732339_ETV002_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV002_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV002_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PASFIF source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732340",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PASFIF",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732340_ETV002_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV002_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV002_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PASFIF source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732341",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 9",
+     "Sex: female",
+     "source: SJETV043",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732341_ETV003_SJ_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV003_SJ_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV003_SJ_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 9 Sex: female source: SJETV043 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732342",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 9",
+     "Sex: female",
+     "source: SJETV043",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732342_ETV003_SJ_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV003_SJ_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV003_SJ_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 9 Sex: female source: SJETV043 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732343",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 9",
+     "Sex: female",
+     "source: SJETV043",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732343_ETV003_SJ_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV003_SJ_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV003_SJ_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 9 Sex: female source: SJETV043 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732344",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAUCIG",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732344_ETV004_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV004_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV004_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAUCIG source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732345",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAUCIG",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732345_ETV004_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV004_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV004_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAUCIG source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732346",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAUCIG",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732346_ETV004_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV004_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV004_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAUCIG source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732347",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAWMMA",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732347_ETV005_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "ETV005_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV005_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAWMMA source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732348",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAWMMA",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732348_ETV005_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "ETV005_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV005_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAWMMA source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732349",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 2",
+     "Sex: male",
+     "source: PAWMMA",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732349_ETV005_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "ETV005_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "ETV005_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 2 Sex: male source: PAWMMA source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732350",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 21",
+     "Sex: male",
+     "source: LONZA (LOT#0000497343)",
+     "source institute: LONZA"
+    ],
+    "suppl": [
+     "GSM3732350_HEALTHY001_LONZA_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY001_LONZA_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY001_LONZA_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 21 Sex: male source: LONZA (LOT#0000497343) source institute: LONZA",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732351",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 42",
+     "Sex: male",
+     "source: WEILL CORNELL",
+     "source institute: WEILL CORNELL"
+    ],
+    "suppl": [
+     "GSM3732351_HEALTHY002_WC4_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY002_WC4_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY002_WC4_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 42 Sex: male source: WEILL CORNELL source institute: WEILL CORNELL",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732352",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 25",
+     "Sex: female",
+     "source: STEMCELL (LOT#1708300152)",
+     "source institute: STEMCELL"
+    ],
+    "suppl": [
+     "GSM3732352_HEALTHY003_SC_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY003_SC_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY003_SC_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 25 Sex: female source: STEMCELL (LOT#1708300152) source institute: STEMCELL",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732353",
+    "char": [
+     "disease state: Healthy",
+     "cell type: CD45+ bone marrow cells",
+     "age (years): 20",
+     "Sex: male",
+     "source: STEMCELL (LOT#214549001)",
+     "source institute: STEMCELL"
+    ],
+    "suppl": [
+     "GSM3732353_HEALTHY004_SC_CD45.matrix.mtx.gz"
+    ],
+    "title": "HEALTHY004_SC_CD45",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY004_SC_CD45 bone marrow disease state: Healthy cell type: CD45+ bone marrow cells age (years): 20 Sex: male source: STEMCELL (LOT#214549001) source institute: STEMCELL",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732354",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 12",
+     "Sex: male",
+     "source: PAUZUW",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732354_PH001_COG_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "PH001_COG_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH001_COG_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 12 Sex: male source: PAUZUW source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732355",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 12",
+     "Sex: male",
+     "source: PAUZUW",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732355_PH001_COG_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "PH001_COG_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH001_COG_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 12 Sex: male source: PAUZUW source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732356",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 12",
+     "Sex: male",
+     "source: PAUZUW",
+     "source institute: COG"
+    ],
+    "suppl": [
+     "GSM3732356_PH001_COG_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "PH001_COG_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH001_COG_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 12 Sex: male source: PAUZUW source institute: COG",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732357",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Diagnosis",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 8",
+     "Sex: female",
+     "source: SJPH005",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732357_PH002_SJ_DIAGNOSIS.matrix.mtx.gz"
+    ],
+    "title": "PH002_SJ_DIAGNOSIS",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH002_SJ_DIAGNOSIS bone marrow disease state: B-ALL Stage: Diagnosis cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 8 Sex: female source: SJPH005 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732358",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 8",
+     "Sex: female",
+     "source: SJPH005",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732358_PH002_SJ_RELAPSE.matrix.mtx.gz"
+    ],
+    "title": "PH002_SJ_RELAPSE",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH002_SJ_RELAPSE bone marrow disease state: B-ALL Stage: Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 8 Sex: female source: SJPH005 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3732359",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Remission",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age (years): 8",
+     "Sex: female",
+     "source: SJPH005",
+     "source institute: St. Jude"
+    ],
+    "suppl": [
+     "GSM3732359_PH002_SJ_REMISSION.matrix.mtx.gz"
+    ],
+    "title": "PH002_SJ_REMISSION",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "PH002_SJ_REMISSION bone marrow disease state: B-ALL Stage: Remission cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age (years): 8 Sex: female source: SJPH005 source institute: St. Jude",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967066",
+    "char": [
+     "disease state: mixed sample (non-demultiplexed)",
+     "Stage: mixed sample (non-demultiplexed)",
+     "cell type: mixed sample (non-demultiplexed)",
+     "age (years): mixed sample (non-demultiplexed)",
+     "Sex: Male",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: mixed sample (non-demultiplexed)"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "HEALTHY-PB1, HEALTHY-PB2, BALL-PB1, BALL-PB2",
+    "source": "peripheral blood mononuclear cells",
+    "strategy": "RNA-Seq",
+    "blob": "HEALTHY-PB1, HEALTHY-PB2, BALL-PB1, BALL-PB2 peripheral blood mononuclear cells disease state: mixed sample (non-demultiplexed) Stage: mixed sample (non-demultiplexed) cell type: mixed sample (non-demultiplexed) age (years): mixed sample (non-demultiplexed) Sex: Male source: mixed sample (non-demultiplexed) source institute: mixed sample (non-demultiplexed)",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967067",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Moribund",
+     "cell type: bone marrow",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BALL8-BM, BALL9-BM",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BALL8-BM, BALL9-BM bone marrow disease state: B-ALL Stage: Moribund cell type: bone marrow age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967068",
+    "char": [
+     "disease state: B-ALL",
+     "Stage: Moribund",
+     "cell type: peripheral blood mononuclear cells",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BALL8-PB, BALL9-PB",
+    "source": "peripheral blood mononuclear cells",
+    "strategy": "RNA-Seq",
+    "blob": "BALL8-PB, BALL9-PB peripheral blood mononuclear cells disease state: B-ALL Stage: Moribund cell type: peripheral blood mononuclear cells age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967069",
+    "char": [
+     "disease state: Healthy",
+     "cell type: bone marrow",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "CON1-BM, CON2-BM",
+    "source": "bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "CON1-BM, CON2-BM bone marrow disease state: Healthy cell type: bone marrow age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3967070",
+    "char": [
+     "disease state: Healthy",
+     "cell type: peripheral blood mononuclear cells",
+     "age (weeks): 10",
+     "Sex: Female",
+     "source: mixed sample (non-demultiplexed)",
+     "source institute: Jackson Laboratories"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "CON1-PB, CON2-PB",
+    "source": "peripheral blood mononuclear cells",
+    "strategy": "RNA-Seq",
+    "blob": "CON1-PB, CON2-PB peripheral blood mononuclear cells disease state: Healthy cell type: peripheral blood mononuclear cells age (weeks): 10 Sex: Female source: mixed sample (non-demultiplexed) source institute: Jackson Laboratories",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642793",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 9 years",
+     "Sex: female"
+    ],
+    "suppl": [
+     "GSM4642793_ETV003.barcodes.tsv.gz",
+     "GSM4642793_ETV003.features.tsv.gz",
+     "GSM4642793_ETV003.matrix.mtx.gz"
+    ],
+    "title": "ETV003",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "ETV003 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 9 years Sex: female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642794",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 2 months",
+     "Sex: female"
+    ],
+    "suppl": [
+     "GSM4642794_MLL001.barcodes.tsv.gz",
+     "GSM4642794_MLL001.features.tsv.gz",
+     "GSM4642794_MLL001.matrix.mtx.gz"
+    ],
+    "title": "MLL001",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "MLL001 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 2 months Sex: female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642795",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 8 years",
+     "Sex: female"
+    ],
+    "suppl": [
+     "GSM4642795_PH002.barcodes.tsv.gz",
+     "GSM4642795_PH002.features.tsv.gz",
+     "GSM4642795_PH002.matrix.mtx.gz"
+    ],
+    "title": "PH002",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "PH002 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 8 years Sex: female",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM4642796",
+    "char": [
+     "Stage: Diagnosis/Remission/Relapse",
+     "cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells",
+     "age: 16 years",
+     "Sex: male"
+    ],
+    "suppl": [
+     "GSM4642796_PH003.barcodes.tsv.gz",
+     "GSM4642796_PH003.features.tsv.gz",
+     "GSM4642796_PH003.matrix.mtx.gz"
+    ],
+    "title": "PH003",
+    "source": "bone marrow",
+    "strategy": "OTHER",
+    "blob": "PH003 bone marrow Stage: Diagnosis/Remission/Relapse cell type: ratio of 1:5 CD19+:CD19-CD45+ bone marrow cells age: 16 years Sex: male",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   }
+  ]
+ },
+ {
+  "accession": "GSE261228",
+  "n_gsm": 1,
+  "n_bm": 1,
+  "n_pb": 1,
+  "n_cb": 0,
+  "n_age": 0,
+  "samples": [
+   {
+    "gsm": "GSM8138135",
+    "char": [
+     "tissue: Bone Marrow/Peripheral Blood",
+     "cell type: Hematopoietic Stem and Progenitor Cells (HSPCs)"
+    ],
+    "suppl": [
+     "GSM8138135_Normal_Bone_Marrow_barcodes.tsv.gz",
+     "GSM8138135_Normal_Bone_Marrow_genes.tsv.gz",
+     "GSM8138135_Normal_Bone_Marrow_matrix.mtx.gz"
+    ],
+    "title": "HSPCs, barcode-derived cDNA",
+    "source": "Bone Marrow/Peripheral Blood",
+    "strategy": "OTHER",
+    "blob": "HSPCs, barcode-derived cDNA Bone Marrow/Peripheral Blood tissue: Bone Marrow/Peripheral Blood cell type: Hematopoietic Stem and Progenitor Cells (HSPCs)",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": true,
+    "has_age": false
+   }
+  ]
+ },
+ {
+  "accession": "GSE181543",
+  "n_gsm": 15,
+  "n_bm": 6,
+  "n_pb": 9,
+  "n_cb": 0,
+  "n_age": 0,
+  "samples": [
+   {
+    "gsm": "GSM5505336",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "GSM5505336_PBMC1_all_contig_annotations.csv.gz",
+     "GSM5505336_PBMC1_filtered_feature_bc_matrix.h5",
+     "GSM5505336_PBMC1_raw_feature_bc_matrix.h5"
+    ],
+    "title": "PBMC1 [GEX]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC1 [GEX] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505337",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "GSM5505337_PBMC2_all_contig_annotations.csv.gz",
+     "GSM5505337_PBMC2_filtered_feature_bc_matrix.h5",
+     "GSM5505337_PBMC2_raw_feature_bc_matrix.h5"
+    ],
+    "title": "PBMC2 [GEX]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC2 [GEX] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505338",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "GSM5505338_PBMC3_all_contig_annotations.csv.gz",
+     "GSM5505338_PBMC3_filtered_feature_bc_matrix.h5",
+     "GSM5505338_PBMC3_raw_feature_bc_matrix.h5"
+    ],
+    "title": "PBMC3 [GEX]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC3 [GEX] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505339",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: B-cell enriched",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "GSM5505339_BM1_all_contig.fasta.gz",
+     "GSM5505339_BM1_all_contig_annotations.csv.gz",
+     "GSM5505339_BM1_filtered_feature_bc_matrix.h5",
+     "GSM5505339_BM1_raw_feature_bc_matrix.h5"
+    ],
+    "title": "BM1 [GEX]",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BM1 [GEX] Bone marrow tissue: Bone marrow cell type: B-cell enriched disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505340",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: B-cell enriched",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "GSM5505340_BM2_all_contig.fasta.gz",
+     "GSM5505340_BM2_all_contig_annotations.csv.gz",
+     "GSM5505340_BM2_filtered_feature_bc_matrix.h5",
+     "GSM5505340_BM2_raw_feature_bc_matrix.h5"
+    ],
+    "title": "BM2 [GEX]",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BM2 [GEX] Bone marrow tissue: Bone marrow cell type: B-cell enriched disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505341",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "PBMC1 [ADT]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC1 [ADT] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505342",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "PBMC2 [ADT]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC2 [ADT] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505343",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "PBMC3 [ADT]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC3 [ADT] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505344",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: B-cell enriched",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BM1 [ADT]",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BM1 [ADT] Bone marrow tissue: Bone marrow cell type: B-cell enriched disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505345",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: B-cell enriched",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BM2 [ADT]",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BM2 [ADT] Bone marrow tissue: Bone marrow cell type: B-cell enriched disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505346",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "PBMC1 [VDJ]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC1 [VDJ] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505347",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "PBMC2 [VDJ]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC2 [VDJ] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505348",
+    "char": [
+     "tissue: Blood",
+     "cell type: PBMC",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "PBMC3 [VDJ]",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "PBMC3 [VDJ] Blood tissue: Blood cell type: PBMC disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": true,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505349",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: B-cell enriched",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BM1 [VDJ]",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BM1 [VDJ] Bone marrow tissue: Bone marrow cell type: B-cell enriched disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM5505350",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: B-cell enriched",
+     "disease status: Healthy donor"
+    ],
+    "suppl": [
+     "NONE"
+    ],
+    "title": "BM2 [VDJ]",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "BM2 [VDJ] Bone marrow tissue: Bone marrow cell type: B-cell enriched disease status: Healthy donor",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   }
+  ]
+ }
+]

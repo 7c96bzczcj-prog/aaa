@@ -1,0 +1,2 @@
+[GSE233304_P1] cells=6527 doublets=87 NK_cluster=418 NK_ratio=320 NK_cd3zero=62 | T=2640 unassigned=1861 Myeloid=1135 B=484 NK=320 doublet=87
+[GSE233304_P15] cells=10106 doublets=96 NK_cluster=506 NK_ratio=385 NK_cd3zero=56 | T=5604 Myeloid=2037 unassigned=1105 B=642 NK=385 Plasma=174 doublet=96 GranProg=48 Erythroid=15

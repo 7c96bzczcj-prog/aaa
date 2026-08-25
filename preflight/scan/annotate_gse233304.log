@@ -1,0 +1,14 @@
+[P1] cells=6527 NK_cluster=420 NK_ratio=322 NK_cd3zero=62 | T=2645 unassigned=1924 Myeloid=1143 B=493 NK=322
+[P2] cells=3771 NK_cluster=0 NK_ratio=0 NK_cd3zero=0 | T=1894 unassigned=984 Myeloid=467 B=409 Plasma=17
+[P9] cells=4136 NK_cluster=59 NK_ratio=59 NK_cd3zero=16 | T=2382 Myeloid=1122 unassigned=367 B=157 NK=59 Plasma=39 Mk=10
+[P15] cells=10106 NK_cluster=513 NK_ratio=392 NK_cd3zero=56 | T=5607 Myeloid=2093 unassigned=1119 B=658 NK=392 Plasma=174 GranProg=48 Erythroid=15
+[P16] cells=7806 NK_cluster=193 NK_ratio=175 NK_cd3zero=18 | T=4169 Myeloid=2276 B=876 NK=175 unassigned=115 Plasma=70 Erythroid=58 HSPC=54 pDC=13
+[c4] cells=2063 NK_cluster=89 NK_ratio=57 NK_cd3zero=1 | T=1324 unassigned=448 Myeloid=167 B=67 NK=57
+[c5] cells=3540 NK_cluster=55 NK_ratio=55 NK_cd3zero=9 | T=2205 unassigned=739 Myeloid=246 B=195 NK=55 Plasma=33 GranProg=26 pDC=26 Erythroid=15
+[c8] cells=10679 NK_cluster=353 NK_ratio=348 NK_cd3zero=37 | T=7443 Myeloid=1611 B=703 NK=348 Plasma=145 Mk=144 HSPC=124 Erythroid=85 unassigned=76
+[c9] cells=10299 NK_cluster=166 NK_ratio=162 NK_cd3zero=13 | T=5862 Myeloid=2430 unassigned=798 B=638 NK=162 GranProg=139 Plasma=107 pDC=91 HSPC=72
+[c10] cells=6532 NK_cluster=256 NK_ratio=220 NK_cd3zero=10 | T=4214 unassigned=1451 B=312 Myeloid=290 NK=220 Plasma=35 Mk=10
+[P4] cells=1679 NK_cluster=111 NK_ratio=99 NK_cd3zero=14 | T=863 Myeloid=188 unassigned=173 GranProg=145 NK=99 B=64 pDC=53 HSPC=47 Erythroid=25 Plasma=22
+[P7] cells=933 NK_cluster=0 NK_ratio=0 NK_cd3zero=0 | T=496 unassigned=304 pDC=103 B=23 Plasma=7
+[P8] cells=1783 NK_cluster=0 NK_ratio=0 NK_cd3zero=0 | T=814 unassigned=397 Myeloid=302 B=136 GranProg=106 Plasma=28
+[P21] cells=9839 NK_cluster=595 NK_ratio=396 NK_cd3zero=32 | T=6688 unassigned=1094 B=780 NK=396 HSPC=292 Myeloid=160 pDC=139 GranProg=103 Erythroid=100 Plasma=87

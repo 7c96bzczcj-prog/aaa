@@ -1,0 +1,6 @@
+{
+ "bm_sc": "(\"bone marrow\"[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type] AND (\"single cell\"[All Fields] OR scRNA[All Fields] OR \"single-cell\"[All Fields])",
+ "bm_healthy": "(\"bone marrow\"[All Fields]) AND (healthy[All Fields] OR normal[All Fields] OR donor[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type] AND \"single cell\"[All Fields]",
+ "bm_pb_paired": "(\"bone marrow\"[All Fields]) AND (\"peripheral blood\"[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type] AND (\"single cell\"[All Fields] OR scRNA[All Fields])",
+ "bm_nk": "(\"bone marrow\"[All Fields]) AND (\"natural killer\"[All Fields] OR NK[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type]"
+}

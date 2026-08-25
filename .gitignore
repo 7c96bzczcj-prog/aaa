@@ -5,3 +5,6 @@ phase1_registry/raw_meta/*.tar.gz
 phase1_registry/raw_meta/ab48/
 *.mtx
 phase1_registry/rescan/*.xml
+.venv/
+preflight/labels/
+preflight/out/

@@ -1,0 +1,292 @@
+[
+ {
+  "dataset": "GSE233304",
+  "donor": "P1",
+  "compartment": "BM",
+  "library": "S1",
+  "path": "/home/user/aaa/data/gse233304/GSM7421860_S1_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421860_S1_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421860_S1_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P1.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P1",
+  "compartment": "PB",
+  "library": "S3",
+  "path": "/home/user/aaa/data/gse233304/GSM7421862_S3_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421862_S3_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421862_S3_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P1.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P2",
+  "compartment": "BM",
+  "library": "S4",
+  "path": "/home/user/aaa/data/gse233304/GSM7421863_S4_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421863_S4_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421863_S4_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P2.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P2",
+  "compartment": "PB",
+  "library": "S6",
+  "path": "/home/user/aaa/data/gse233304/GSM7421865_S6_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421865_S6_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421865_S6_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P2.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P7",
+  "compartment": "BM",
+  "library": "S7",
+  "path": "/home/user/aaa/data/gse233304/GSM7421866_S7_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421866_S7_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421866_S7_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P7.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P8",
+  "compartment": "BM",
+  "library": "S8",
+  "path": "/home/user/aaa/data/gse233304/GSM7421867_S8_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421867_S8_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421867_S8_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P8.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P9",
+  "compartment": "BM",
+  "library": "S9",
+  "path": "/home/user/aaa/data/gse233304/GSM7421868_S9_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421868_S9_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421868_S9_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P9.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P9",
+  "compartment": "PB",
+  "library": "S11",
+  "path": "/home/user/aaa/data/gse233304/GSM7421870_S11_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421870_S11_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421870_S11_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P9.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c4",
+  "compartment": "BM",
+  "library": "S12",
+  "path": "/home/user/aaa/data/gse233304/GSM7421871_S12_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421871_S12_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421871_S12_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c4.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c4",
+  "compartment": "PB",
+  "library": "S13",
+  "path": "/home/user/aaa/data/gse233304/GSM7421872_S13_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421872_S13_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421872_S13_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c4.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c5",
+  "compartment": "BM",
+  "library": "S14",
+  "path": "/home/user/aaa/data/gse233304/GSM7421873_S14_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421873_S14_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421873_S14_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c5.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c5",
+  "compartment": "PB",
+  "library": "S15",
+  "path": "/home/user/aaa/data/gse233304/GSM7421874_S15_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421874_S15_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421874_S15_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c5.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c8",
+  "compartment": "BM",
+  "library": "S16",
+  "path": "/home/user/aaa/data/gse233304/GSM8244370_S16_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244370_S16_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244370_S16_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c8.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c8",
+  "compartment": "PB",
+  "library": "S17",
+  "path": "/home/user/aaa/data/gse233304/GSM8244371_S17_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244371_S17_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244371_S17_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c8.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c9",
+  "compartment": "BM",
+  "library": "S18",
+  "path": "/home/user/aaa/data/gse233304/GSM8244372_S18_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244372_S18_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244372_S18_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c9.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c9",
+  "compartment": "PB",
+  "library": "S19",
+  "path": "/home/user/aaa/data/gse233304/GSM8244373_S19_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244373_S19_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244373_S19_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c9.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c10",
+  "compartment": "BM",
+  "library": "S20",
+  "path": "/home/user/aaa/data/gse233304/GSM8244374_S20_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244374_S20_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244374_S20_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c10.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c10",
+  "compartment": "PB",
+  "library": "S21",
+  "path": "/home/user/aaa/data/gse233304/GSM8244375_S21_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244375_S21_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244375_S21_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c10.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P4",
+  "compartment": "BM",
+  "library": "S22",
+  "path": "/home/user/aaa/data/gse233304/GSM8244376_S22_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244376_S22_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244376_S22_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P4.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P15",
+  "compartment": "BM",
+  "library": "S26",
+  "path": "/home/user/aaa/data/gse233304/GSM8244380_S26_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244380_S26_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244380_S26_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P15.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P15",
+  "compartment": "PB",
+  "library": "S30",
+  "path": "/home/user/aaa/data/gse233304/GSM8244384_S30_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244384_S30_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244384_S30_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P15.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P16",
+  "compartment": "BM",
+  "library": "S32",
+  "path": "/home/user/aaa/data/gse233304/GSM8244386_S32_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244386_S32_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244386_S32_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P16.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P16",
+  "compartment": "PB",
+  "library": "S36",
+  "path": "/home/user/aaa/data/gse233304/GSM8244390_S36_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244390_S36_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244390_S36_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P16.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P21",
+  "compartment": "BM",
+  "library": "S38",
+  "path": "/home/user/aaa/data/gse233304/GSM8244392_S38_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244392_S38_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244392_S38_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P21.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P21",
+  "compartment": "BMMC",
+  "library": "S42",
+  "path": "/home/user/aaa/data/gse233304/GSM8244396_S42_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244396_S42_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244396_S42_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P21.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P22",
+  "compartment": "BM",
+  "library": "S44",
+  "path": "/home/user/aaa/data/gse233304/GSM8244398_S44_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244398_S44_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244398_S44_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P22.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P22",
+  "compartment": "BMMC",
+  "library": "S48",
+  "path": "/home/user/aaa/data/gse233304/GSM8244402_S48_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244402_S48_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244402_S48_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P22.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P24",
+  "compartment": "BM",
+  "library": "S50",
+  "path": "/home/user/aaa/data/gse233304/GSM8244404_S50_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244404_S50_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244404_S50_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P24.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P24",
+  "compartment": "BMMC",
+  "library": "S54",
+  "path": "/home/user/aaa/data/gse233304/GSM8244408_S54_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244408_S54_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244408_S54_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P24.npz",
+  "group": "GBM"
+ }
+]

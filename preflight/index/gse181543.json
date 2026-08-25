@@ -1,0 +1,52 @@
+[
+ {
+  "dataset": "GSE181543",
+  "donor": "PBMC1",
+  "compartment": "PB",
+  "library": "PBMC1",
+  "path": "/home/user/aaa/data/gse181543/GSM5505336_PBMC1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/GSE181543_PBMC1.npz",
+  "group": "healthy;BM is B-cell enriched"
+ },
+ {
+  "dataset": "GSE181543",
+  "donor": "PBMC2",
+  "compartment": "PB",
+  "library": "PBMC2",
+  "path": "/home/user/aaa/data/gse181543/GSM5505337_PBMC2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/GSE181543_PBMC2.npz",
+  "group": "healthy;BM is B-cell enriched"
+ },
+ {
+  "dataset": "GSE181543",
+  "donor": "PBMC3",
+  "compartment": "PB",
+  "library": "PBMC3",
+  "path": "/home/user/aaa/data/gse181543/GSM5505338_PBMC3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/GSE181543_PBMC3.npz",
+  "group": "healthy;BM is B-cell enriched"
+ },
+ {
+  "dataset": "GSE181543",
+  "donor": "BM1",
+  "compartment": "BM",
+  "library": "BM1",
+  "path": "/home/user/aaa/data/gse181543/GSM5505339_BM1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/GSE181543_BM1.npz",
+  "group": "healthy;BM is B-cell enriched"
+ },
+ {
+  "dataset": "GSE181543",
+  "donor": "BM2",
+  "compartment": "BM",
+  "library": "BM2",
+  "path": "/home/user/aaa/data/gse181543/GSM5505340_BM2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/GSE181543_BM2.npz",
+  "group": "healthy;BM is B-cell enriched"
+ }
+]

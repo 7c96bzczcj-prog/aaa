@@ -1,0 +1,902 @@
+[
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_3",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM1",
+  "compartment": "BM",
+  "library": "MantonBM1_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM1_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM1.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_3",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM2",
+  "compartment": "BM",
+  "library": "MantonBM2_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM2_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM2.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_3",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM3",
+  "compartment": "BM",
+  "library": "MantonBM3_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM3_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM3.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_3",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM4",
+  "compartment": "BM",
+  "library": "MantonBM4_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM4_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM4.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_3",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM5",
+  "compartment": "BM",
+  "library": "MantonBM5_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM5_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM5.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM6",
+  "compartment": "BM",
+  "library": "MantonBM6_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM6_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM6.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_3",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM7",
+  "compartment": "BM",
+  "library": "MantonBM7_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM7_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM7.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_1",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_1_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_2",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_2_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_3",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_3_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_4",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_4_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_5",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_5_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_6",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_6_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_7",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_7_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_8",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_8_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "HCA_ICA",
+  "donor": "MantonBM8",
+  "compartment": "BM",
+  "library": "MantonBM8_HiSeq_9",
+  "path": "/home/user/aaa/data/hca_ica/MantonBM8_HiSeq_9_raw_feature_bc_matrix.h5",
+  "kind": "h5",
+  "labels": "/home/user/aaa/preflight/labels/MantonBM8.npz",
+  "group": "healthy"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P1",
+  "compartment": "BM",
+  "library": "S1",
+  "path": "/home/user/aaa/data/gse233304/GSM7421860_S1_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421860_S1_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421860_S1_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P1.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P2",
+  "compartment": "BM",
+  "library": "S4",
+  "path": "/home/user/aaa/data/gse233304/GSM7421863_S4_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421863_S4_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421863_S4_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P2.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P7",
+  "compartment": "BM",
+  "library": "S7",
+  "path": "/home/user/aaa/data/gse233304/GSM7421866_S7_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421866_S7_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421866_S7_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P7.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P8",
+  "compartment": "BM",
+  "library": "S8",
+  "path": "/home/user/aaa/data/gse233304/GSM7421867_S8_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421867_S8_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421867_S8_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P8.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P9",
+  "compartment": "BM",
+  "library": "S9",
+  "path": "/home/user/aaa/data/gse233304/GSM7421868_S9_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421868_S9_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421868_S9_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P9.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c4",
+  "compartment": "BM",
+  "library": "S12",
+  "path": "/home/user/aaa/data/gse233304/GSM7421871_S12_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421871_S12_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421871_S12_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c4.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c5",
+  "compartment": "BM",
+  "library": "S14",
+  "path": "/home/user/aaa/data/gse233304/GSM7421873_S14_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM7421873_S14_features.tsv.gz|/home/user/aaa/data/gse233304/GSM7421873_S14_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c5.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c8",
+  "compartment": "BM",
+  "library": "S16",
+  "path": "/home/user/aaa/data/gse233304/GSM8244370_S16_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244370_S16_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244370_S16_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c8.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c9",
+  "compartment": "BM",
+  "library": "S18",
+  "path": "/home/user/aaa/data/gse233304/GSM8244372_S18_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244372_S18_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244372_S18_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c9.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "c10",
+  "compartment": "BM",
+  "library": "S20",
+  "path": "/home/user/aaa/data/gse233304/GSM8244374_S20_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244374_S20_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244374_S20_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_c10.npz",
+  "group": "control"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P4",
+  "compartment": "BM",
+  "library": "S22",
+  "path": "/home/user/aaa/data/gse233304/GSM8244376_S22_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244376_S22_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244376_S22_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P4.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P15",
+  "compartment": "BM",
+  "library": "S26",
+  "path": "/home/user/aaa/data/gse233304/GSM8244380_S26_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244380_S26_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244380_S26_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P15.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P16",
+  "compartment": "BM",
+  "library": "S32",
+  "path": "/home/user/aaa/data/gse233304/GSM8244386_S32_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244386_S32_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244386_S32_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P16.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P21",
+  "compartment": "BM",
+  "library": "S38",
+  "path": "/home/user/aaa/data/gse233304/GSM8244392_S38_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244392_S38_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244392_S38_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P21.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P21",
+  "compartment": "BMMC",
+  "library": "S42",
+  "path": "/home/user/aaa/data/gse233304/GSM8244396_S42_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244396_S42_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244396_S42_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P21.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P22",
+  "compartment": "BM",
+  "library": "S44",
+  "path": "/home/user/aaa/data/gse233304/GSM8244398_S44_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244398_S44_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244398_S44_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P22.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P22",
+  "compartment": "BMMC",
+  "library": "S48",
+  "path": "/home/user/aaa/data/gse233304/GSM8244402_S48_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244402_S48_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244402_S48_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P22.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P24",
+  "compartment": "BM",
+  "library": "S50",
+  "path": "/home/user/aaa/data/gse233304/GSM8244404_S50_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244404_S50_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244404_S50_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P24.npz",
+  "group": "GBM"
+ },
+ {
+  "dataset": "GSE233304",
+  "donor": "P24",
+  "compartment": "BMMC",
+  "library": "S54",
+  "path": "/home/user/aaa/data/gse233304/GSM8244408_S54_barcodes.tsv.gz|/home/user/aaa/data/gse233304/GSM8244408_S54_features.tsv.gz|/home/user/aaa/data/gse233304/GSM8244408_S54_matrix.mtx.gz",
+  "kind": "mtx",
+  "labels": "/home/user/aaa/preflight/labels/GSE233304_P24.npz",
+  "group": "GBM"
+ }
+]

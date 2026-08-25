@@ -1,0 +1,729 @@
+[
+ {
+  "accession": "GSE120221",
+  "n_gsm": 25,
+  "n_bm": 25,
+  "n_pb": 0,
+  "n_cb": 0,
+  "n_age": 25,
+  "samples": [
+   {
+    "gsm": "GSM3396161",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 59 years old"
+    ],
+    "suppl": [
+     "GSM3396161_barcodes_A.tsv.gz",
+     "GSM3396161_genes_A.tsv.gz",
+     "GSM3396161_matrix_A.mtx.gz"
+    ],
+    "title": "Bone marrow A",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow A Bone marrow cell type: bone marrow cells age: 59 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396162",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 47 years old"
+    ],
+    "suppl": [
+     "GSM3396162_barcodes_B.tsv.gz",
+     "GSM3396162_genes_B.tsv.gz",
+     "GSM3396162_matrix_B.mtx.gz"
+    ],
+    "title": "Bone marrow B",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow B Bone marrow cell type: bone marrow cells age: 47 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396163",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 60 years old"
+    ],
+    "suppl": [
+     "GSM3396163_barcodes_C1.tsv.gz",
+     "GSM3396163_genes_C1.tsv.gz",
+     "GSM3396163_matrix_C1.mtx.gz"
+    ],
+    "title": "Bone marrow C1",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow C1 Bone marrow cell type: bone marrow cells age: 60 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396164",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 59 years old"
+    ],
+    "suppl": [
+     "GSM3396164_barcodes_Ck.tsv.gz",
+     "GSM3396164_genes_Ck.tsv.gz",
+     "GSM3396164_matrix_Ck.mtx.gz"
+    ],
+    "title": "Bone marrow Ck",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow Ck Bone marrow cell type: bone marrow cells age: 59 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396165",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 60 years old"
+    ],
+    "suppl": [
+     "GSM3396165_barcodes_C2.tsv.gz",
+     "GSM3396165_genes_C2.tsv.gz",
+     "GSM3396165_matrix_C2.mtx.gz"
+    ],
+    "title": "Bone marrow C2",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow C2 Bone marrow cell type: bone marrow cells age: 60 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396166",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 30 years old"
+    ],
+    "suppl": [
+     "GSM3396166_barcodes_E.tsv.gz",
+     "GSM3396166_genes_E.tsv.gz",
+     "GSM3396166_matrix_E.mtx.gz"
+    ],
+    "title": "Bone marrow E",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow E Bone marrow cell type: bone marrow cells age: 30 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396167",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 41 years old"
+    ],
+    "suppl": [
+     "GSM3396167_barcodes_F.tsv.gz",
+     "GSM3396167_genes_F.tsv.gz",
+     "GSM3396167_matrix_F.mtx.gz"
+    ],
+    "title": "Bone marrow F",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow F Bone marrow cell type: bone marrow cells age: 41 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396168",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 58 years old"
+    ],
+    "suppl": [
+     "GSM3396168_barcodes_G.tsv.gz",
+     "GSM3396168_genes_G.tsv.gz",
+     "GSM3396168_matrix_G.mtx.gz"
+    ],
+    "title": "Bone marrow G",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow G Bone marrow cell type: bone marrow cells age: 58 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396169",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 50 years old"
+    ],
+    "suppl": [
+     "GSM3396169_barcodes_H.tsv.gz",
+     "GSM3396169_genes_H.tsv.gz",
+     "GSM3396169_matrix_H.mtx.gz"
+    ],
+    "title": "Bone marrow H",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow H Bone marrow cell type: bone marrow cells age: 50 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396170",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 43 years old"
+    ],
+    "suppl": [
+     "GSM3396170_barcodes_J.tsv.gz",
+     "GSM3396170_genes_J.tsv.gz",
+     "GSM3396170_matrix_J.mtx.gz"
+    ],
+    "title": "Bone marrow J",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow J Bone marrow cell type: bone marrow cells age: 43 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396171",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 84 years old"
+    ],
+    "suppl": [
+     "GSM3396171_barcodes_K.tsv.gz",
+     "GSM3396171_genes_K.tsv.gz",
+     "GSM3396171_matrix_K.mtx.gz"
+    ],
+    "title": "Bone marrow K",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow K Bone marrow cell type: bone marrow cells age: 84 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396172",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 57 years old"
+    ],
+    "suppl": [
+     "GSM3396172_barcodes_L.tsv.gz",
+     "GSM3396172_genes_L.tsv.gz",
+     "GSM3396172_matrix_L.mtx.gz"
+    ],
+    "title": "Bone marrow L",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow L Bone marrow cell type: bone marrow cells age: 57 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396173",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 60 years old"
+    ],
+    "suppl": [
+     "GSM3396173_barcodes_M.tsv.gz",
+     "GSM3396173_genes_M.tsv.gz",
+     "GSM3396173_matrix_M.mtx.gz"
+    ],
+    "title": "Bone marrow M",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow M Bone marrow cell type: bone marrow cells age: 60 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396174",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 67 years old"
+    ],
+    "suppl": [
+     "GSM3396174_barcodes_N.tsv.gz",
+     "GSM3396174_genes_N.tsv.gz",
+     "GSM3396174_matrix_N.mtx.gz"
+    ],
+    "title": "Bone marrow N",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow N Bone marrow cell type: bone marrow cells age: 67 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396175",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 50 years old"
+    ],
+    "suppl": [
+     "GSM3396175_barcodes_O.tsv.gz",
+     "GSM3396175_genes_O.tsv.gz",
+     "GSM3396175_matrix_O.mtx.gz"
+    ],
+    "title": "Bone marrow O",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow O Bone marrow cell type: bone marrow cells age: 50 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396176",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 58 years old"
+    ],
+    "suppl": [
+     "GSM3396176_barcodes_P.tsv.gz",
+     "GSM3396176_genes_P.tsv.gz",
+     "GSM3396176_matrix_P.mtx.gz"
+    ],
+    "title": "Bone marrow P",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow P Bone marrow cell type: bone marrow cells age: 58 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396177",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 66 years old"
+    ],
+    "suppl": [
+     "GSM3396177_barcodes_Q.tsv.gz",
+     "GSM3396177_genes_Q.tsv.gz",
+     "GSM3396177_matrix_Q.mtx.gz"
+    ],
+    "title": "Bone marrow Q",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow Q Bone marrow cell type: bone marrow cells age: 66 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396178",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 31 years old"
+    ],
+    "suppl": [
+     "GSM3396178_barcodes_R.tsv.gz",
+     "GSM3396178_genes_R.tsv.gz",
+     "GSM3396178_matrix_R.mtx.gz"
+    ],
+    "title": "Bone marrow R",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow R Bone marrow cell type: bone marrow cells age: 31 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396179",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 56 years old"
+    ],
+    "suppl": [
+     "GSM3396179_barcodes_S1.tsv.gz",
+     "GSM3396179_genes_S1.tsv.gz",
+     "GSM3396179_matrix_S1.mtx.gz"
+    ],
+    "title": "Bone marrow S1",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow S1 Bone marrow cell type: bone marrow cells age: 56 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396180",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 55 years old"
+    ],
+    "suppl": [
+     "GSM3396180_barcodes_Sk1.tsv.gz",
+     "GSM3396180_genes_Sk1.tsv.gz",
+     "GSM3396180_matrix_Sk1.mtx.gz"
+    ],
+    "title": "Bone marrow Sk1",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow Sk1 Bone marrow cell type: bone marrow cells age: 55 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396181",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 56 years old"
+    ],
+    "suppl": [
+     "GSM3396181_barcodes_S2.tsv.gz",
+     "GSM3396181_genes_S2.tsv.gz",
+     "GSM3396181_matrix_S2.mtx.gz"
+    ],
+    "title": "Bone marrow S2",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow S2 Bone marrow cell type: bone marrow cells age: 56 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396182",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 55 years old"
+    ],
+    "suppl": [
+     "GSM3396182_barcodes_Sk2.tsv.gz",
+     "GSM3396182_genes_Sk2.tsv.gz",
+     "GSM3396182_matrix_Sk2.mtx.gz"
+    ],
+    "title": "Bone marrow Sk2",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow Sk2 Bone marrow cell type: bone marrow cells age: 55 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396183",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 24 years old"
+    ],
+    "suppl": [
+     "GSM3396183_barcodes_T.tsv.gz",
+     "GSM3396183_genes_T.tsv.gz",
+     "GSM3396183_matrix_T.mtx.gz"
+    ],
+    "title": "Bone marrow T",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow T Bone marrow cell type: bone marrow cells age: 24 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396184",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 46 years old"
+    ],
+    "suppl": [
+     "GSM3396184_barcodes_U.tsv.gz",
+     "GSM3396184_genes_U.tsv.gz",
+     "GSM3396184_matrix_U.mtx.gz"
+    ],
+    "title": "Bone marrow U",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow U Bone marrow cell type: bone marrow cells age: 46 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   },
+   {
+    "gsm": "GSM3396185",
+    "char": [
+     "cell type: bone marrow cells",
+     "age: 28 years old"
+    ],
+    "suppl": [
+     "GSM3396185_barcodes_W.tsv.gz",
+     "GSM3396185_genes_W.tsv.gz",
+     "GSM3396185_matrix_W.mtx.gz"
+    ],
+    "title": "Bone marrow W",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "Bone marrow W Bone marrow cell type: bone marrow cells age: 28 years old",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": true
+   }
+  ]
+ },
+ {
+  "accession": "GSE130430",
+  "n_gsm": 9,
+  "n_bm": 6,
+  "n_pb": 0,
+  "n_cb": 0,
+  "n_age": 0,
+  "samples": [
+   {
+    "gsm": "GSM3738536",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: F"
+    ],
+    "suppl": [
+     "GSM3738536_24y_F_BM_barcodes.tsv.gz",
+     "GSM3738536_24y_F_BM_genes.tsv.gz",
+     "GSM3738536_24y_F_BM_matrix.mtx.gz"
+    ],
+    "title": "24y_F_BM",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "24y_F_BM Bone marrow tissue: Bone marrow cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: F",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738537",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: F"
+    ],
+    "suppl": [
+     "GSM3738537_25y_F_1_BM_barcodes.tsv.gz",
+     "GSM3738537_25y_F_1_BM_genes.tsv.gz",
+     "GSM3738537_25y_F_1_BM_matrix.mtx.gz"
+    ],
+    "title": "25y_F_1_BM",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "25y_F_1_BM Bone marrow tissue: Bone marrow cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: F",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738538",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: F"
+    ],
+    "suppl": [
+     "GSM3738538_25y_F_2_BM_barcodes.tsv.gz",
+     "GSM3738538_25y_F_2_BM_genes.tsv.gz",
+     "GSM3738538_25y_F_2_BM_matrix.mtx.gz"
+    ],
+    "title": "25y_F_2_BM",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "25y_F_2_BM Bone marrow tissue: Bone marrow cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: F",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738539",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: F"
+    ],
+    "suppl": [
+     "GSM3738539_26y_F_BM_barcodes.tsv.gz",
+     "GSM3738539_26y_F_BM_genes.tsv.gz",
+     "GSM3738539_26y_F_BM_matrix.mtx.gz"
+    ],
+    "title": "26y_F_BM",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "26y_F_BM Bone marrow tissue: Bone marrow cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: F",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738540",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: M"
+    ],
+    "suppl": [
+     "GSM3738540_25y_M_BM_barcodes.tsv.gz",
+     "GSM3738540_25y_M_BM_genes.tsv.gz",
+     "GSM3738540_25y_M_BM_matrix.mtx.gz"
+    ],
+    "title": "25y_M_BM",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "25y_M_BM Bone marrow tissue: Bone marrow cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: M",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738541",
+    "char": [
+     "tissue: Bone marrow",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: M"
+    ],
+    "suppl": [
+     "GSM3738541_35y_M_BM_barcodes.tsv.gz",
+     "GSM3738541_35y_M_BM_genes.tsv.gz",
+     "GSM3738541_35y_M_BM_matrix.mtx.gz"
+    ],
+    "title": "35y_M_BM",
+    "source": "Bone marrow",
+    "strategy": "RNA-Seq",
+    "blob": "35y_M_BM Bone marrow tissue: Bone marrow cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: M",
+    "is_cb": false,
+    "is_bm": true,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738542",
+    "char": [
+     "tissue: Blood",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: F"
+    ],
+    "suppl": [
+     "GSM3738542_25y_F_2_PB_barcodes.tsv.gz",
+     "GSM3738542_25y_F_2_PB_genes.tsv.gz",
+     "GSM3738542_25y_F_2_PB_matrix.mtx.gz"
+    ],
+    "title": "25y_F_2_PB",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "25y_F_2_PB Blood tissue: Blood cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: F",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738543",
+    "char": [
+     "tissue: Blood",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: healthy donor",
+     "gender: F"
+    ],
+    "suppl": [
+     "GSM3738543_26y_F_PB_barcodes.tsv.gz",
+     "GSM3738543_26y_F_PB_genes.tsv.gz",
+     "GSM3738543_26y_F_PB_matrix.mtx.gz"
+    ],
+    "title": "26y_F_PB",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "26y_F_PB Blood tissue: Blood cell type: NK cells sorting population: Lin-CD7+ genotype/variation: healthy donor gender: F",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   },
+   {
+    "gsm": "GSM3738544",
+    "char": [
+     "tissue: Blood",
+     "cell type: NK cells",
+     "sorting population: Lin-CD7+",
+     "genotype/variation: GATA2T354M",
+     "gender: F"
+    ],
+    "suppl": [
+     "GSM3738544_GATA2T354M_F_PB_barcodes.tsv.gz",
+     "GSM3738544_GATA2T354M_F_PB_genes.tsv.gz",
+     "GSM3738544_GATA2T354M_F_PB_matrix.mtx.gz"
+    ],
+    "title": "GATA2T354M_F_PB",
+    "source": "Blood",
+    "strategy": "RNA-Seq",
+    "blob": "GATA2T354M_F_PB Blood tissue: Blood cell type: NK cells sorting population: Lin-CD7+ genotype/variation: GATA2T354M gender: F",
+    "is_cb": false,
+    "is_bm": false,
+    "is_pb": false,
+    "has_age": false
+   }
+  ]
+ }
+]

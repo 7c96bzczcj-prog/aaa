@@ -1,0 +1,253 @@
+# BM-PB-NK preflight -- dataset manifest
+# spec: BM-PB-NK-preflight-v1.0   (section 2 admission criteria)
+#
+# Admission criteria, applied to every dataset below:
+#   C1  an UNFILTERED droplet matrix is deposited (raw / unfiltered barcode
+#       matrix).  HARD GATE for task A; without it the ambient profile cannot
+#       be estimated at all.  Verified by counting barcodes, never by reading
+#       a paper.
+#   C2  target-gene detection rate inside the 5%-85% measurable window,
+#       computed separately per compartment and per dataset.  Measured in
+#       results/soup_by_compartment.tsv, not asserted here.
+#   C3  statistical unit is the donor -- never the library, never the cell.
+#
+# Every accession in the instruction came from a second-hand source and was
+# re-verified against GEO / the HCA Data Portal.  Where the instruction's
+# description was wrong, the correction is recorded under `correction:`.
+
+spec_version: BM-PB-NK-preflight-v1.0
+verified_on: 2026-08-25
+search_scope: [GEO, ArrayExpress, HCA Data Portal]
+search_method: >
+  864 bone-marrow single-cell GSE and 932 PBMC single-cell GSE were enumerated
+  by NCBI esearch and each series' suppl/filelist.txt was fetched and
+  classified for C1 (see preflight/scripts/geo_scan.py, preflight/scan/*.json).
+  58 bone-marrow and 89 blood series carry an unfiltered droplet matrix; those
+  were then classified by compartment from GSM-level metadata.
+  C1 must be judged PER SAMPLE, not per series: GSE163278 deposits full 10x v2
+  whitelists for some samples (2,280,347 B barcodes.tsv.gz) and 1,177-barcode
+  called-cell lists for others in the same series.
+
+datasets:
+
+  - id: HCA_ICA
+    name: HCA Census of Immune Cells (A single cell immune cell atlas of the
+      human hematopoietic system)
+    source: HCA Data Portal, projectId cc95ff89-2e68-4a08-a234-480eca21ce79
+    named_in_instruction: yes ("HCA Census of Immune Cells, ~8 bone marrow")
+    correction: >
+      The instruction says ~8 bone marrow samples.  True, but incomplete and it
+      omits the fact that decides this preflight: the same project also holds
+      8 ADULT PERIPHERAL BLOOD donors (MantonBL1-8, 23-50y, "peripheral blood
+      mononuclear cell", 10x 3' v2), run on the same chemistry in the same
+      project.  This is the only admitted source with both compartments under
+      one protocol.
+    samples: 16 donors used (MantonBM1-8 bone marrow, MantonBL1-8 blood),
+      127 sequencing libraries.  Cord blood (MantonCB1-12) and the pooled
+      libraries (MantonBMP / MantonBLP) are excluded.
+    donors: 16
+    same_donor_BM_and_PB: NO
+    same_donor_evidence: >
+      BM ages/sexes 52F 50M 39M 29M 29M 26F 36F 32F; BL ages/sexes 28F 50M 32F
+      27F 23M 36M 24M 25F.  Only one (50M) matches on both fields, and two
+      index-matched pairs disagree on sex, so these are different individuals.
+      The BM-PB contrast in this dataset is therefore UNPAIRED (n=8 vs n=8).
+    age_metadata: yes -- 26 to 52 y (bone marrow), 23 to 50 y (blood)
+    unfiltered_matrix: YES -- *_raw_feature_bc_matrix.h5, 737,280 barcodes =
+      the complete 10x v2 whitelist; 192,055 droplets in the 1-20 UMI empty
+      window on MantonBM1 lane 1 alone
+    enrichment: none (mononuclear cells, unsorted)
+    verdict: ADMIT -- task A primary, task C primary
+    verification: >
+      Azul API file listing + direct h5 read (matrix/barcodes = 737,280).
+      3.0 GB downloaded.
+
+  - id: GSE233304
+    name: Cranioencephalic functional lymphoid units in glioblastoma
+    source: GEO GSE233304
+    named_in_instruction: no -- found by the C1 scan
+    samples: 29 GSM downloaded (cranial bone marrow, matched PBMC, and iliac
+      BMMC); tumour samples deliberately not downloaded
+    donors: 16 patients; 10 with BOTH a bone-marrow and a blood sample
+    same_donor_BM_and_PB: YES -- P1 P2 P9 P15 P16 (glioblastoma) and
+      c4 c5 c8 c9 c10 (non-neoplastic intracranial disease controls)
+    age_metadata: no
+    unfiltered_matrix: YES -- barcodes.tsv.gz holds 173,894 to 1,377,326
+      barcodes per sample against 215 to 9,272 called cells, i.e. 123,086 to
+      1,041,947 empty droplets per sample
+    enrichment: CD45+ (three patients additionally CD14-, not used for the
+      paired contrast)
+    caveat: >
+      The marrow here is CALVARIAL bone, taken as a surgical bone specimen, not
+      an iliac aspirate.  That makes it a different marrow compartment from the
+      public aspirate datasets -- and, incidentally, the only public analogue of
+      the surgical-bone arm of our own cohort.  It is not a substitute for
+      aspirate and is not read as one.
+    verdict: ADMIT -- task A second dataset (paired design)
+    verification: direct barcode counts on every downloaded sample
+
+  - id: GSE181543
+    name: Comprehensive multi-omics single-cell data integration reveals
+      greater heterogeneity in the human immune system
+    source: GEO GSE181543
+    named_in_instruction: no -- found by the C1 scan
+    samples: PBMC1-3 (blood) and BM1-2 (bone marrow), healthy donors,
+      raw_feature_bc_matrix.h5 present for all five
+    donors: 5
+    same_donor_BM_and_PB: NO
+    age_metadata: no
+    unfiltered_matrix: YES
+    enrichment: >
+      blood unsorted; bone marrow B-CELL ENRICHED.  The enrichment is
+      asymmetric between the compartments, which is exactly the kind of
+      difference that would masquerade as a compartment effect.
+    verdict: ADMIT CONDITIONALLY -- run, and let criterion C2 (NK target-gene
+      detection rate) decide rather than judgement.  Reported separately, never
+      pooled with the other two.
+    verification: direct h5 read
+
+  - id: GSE120221
+    name: Human Bone Marrow Assessment by Single Cell RNA Sequencing, Mass
+      Cytometry and Flow Cytometry [scRNA]  (Oetjen et al.)
+    source: GEO GSE120221
+    named_in_instruction: yes ("~25 unsorted bone marrow samples, with age")
+    correction: >
+      25 samples is right, 25 donors is not: C1/C2/Ck are one donor and
+      S1/S2/Sk1/Sk2 are another, so the donor count is lower than the sample
+      count.  Ages are present and span 24-84 y, which is the widest age axis
+      of any candidate.
+    donors: 25 samples; ages 24,28,30,31,41,43,46,47,50,50,55,55,56,56,57,58,
+      58,59,59,60,60,60,66,67,84
+    unfiltered_matrix: NO -- GSM3396161_barcodes_A.tsv.gz holds 2,994 barcodes,
+      a called-cell list, not a droplet matrix.  Only fastq exist upstream.
+    verdict: >
+      REJECT for task A on C1 (hard gate; no ambient estimate is possible and
+      the spec forbids substituting a filtered matrix).  ADMIT for task B,
+      where C1 is not a gate and the age axis is what matters.
+    verification: downloaded and line-counted
+
+  - id: GSE130430
+    name: The Developmental Heterogeneity of Human Natural Killer Cells Defined
+      by Single-cell Transcriptome  (Yang et al., Nat Commun 2019;10:3931)
+    source: GEO GSE130430
+    named_in_instruction: yes -- accession was unknown to the instruction and
+      was recovered here
+    composition_check: >
+      The instruction's "6 bone marrow + 2 blood, not same-individual" is
+      WRONG on the last clause.  Sample titles are 24y_F_BM, 25y_F_1_BM,
+      25y_F_2_BM, 26y_F_BM, 25y_M_BM, 35y_M_BM, 25y_F_2_PB, 26y_F_PB,
+      GATA2T354M_F_PB: donors 25y_F_2 and 26y_F each contribute BOTH bone
+      marrow and blood.  There are two same-individual BM/PB pairs, plus one
+      GATA2-mutant blood sample that is not a healthy control.
+    unfiltered_matrix: NO -- barcodes.tsv.gz are 4-11 kB (roughly 1,000-2,500
+      barcodes), called-cell lists
+    enrichment: sorted Lin-CD7+ NK cells
+    verdict: >
+      REJECT for task A on C1.  Note additionally that even with raw matrices
+      this dataset could not answer task A: in a sorted-NK library the ambient
+      pool is itself NK-derived, so it cannot represent the marrow or blood
+      soup that unsorted material generates.
+    verification: GEO filelist + sample metadata
+
+  - id: GSE199411
+    name: Melsen et al., Front Immunol 2022;13:1044398 -- bone marrow NK CITE-seq
+    source: GEO GSE199411
+    named_in_instruction: yes -- accession was unknown to the instruction and
+      was recovered here
+    source_check: >
+      Checked against the full text, not the abstract, as the instruction
+      requires.  Three boundaries the abstract does not carry:
+      (1) the scRNA-seq is ONE healthy donor, 6,525 cells after QC;
+      (2) QC removed every cell with fewer than 1,000 expressed genes (plus
+          >8,300 genes, >12.5% mitochondrial, and 454 doublets);
+      (3) the "no developmental connection between CD34+ progenitors and NK"
+          claim rests on MNN integration with the HCA bone marrow dataset as
+          downloaded through HCAData -- that is the 378,000-cell FILTERED
+          matrix, so the primary source of P3 never examined an unfiltered
+          droplet matrix, and reported no frequency bound on the absence.
+    unfiltered_matrix: NO -- matrix.mtx.gz header reads 33,542 x 7,000, matching
+      the 7,000-line barcodes.tsv.gz
+    verdict: REJECT on C1, and n=1 donor fails C3 for any donor-level statistic.
+      Retained as the reference whose boundary conditions task C tests.
+    verification: GEO filelist + partial gzip read of the mtx header
+
+  - id: GSE185381
+    name: An inflammatory state remodels the immune microenvironment and improves
+      risk stratification in acute myeloid leukemia
+    source: GEO GSE185381
+    named_in_instruction: yes ("~10 cases")
+    correction: >
+      Not ~10 cases: 79 GSM, and the study is acute myeloid leukaemia with
+      controls, not a healthy marrow resource.  The instruction's description
+      does not match the record.
+    unfiltered_matrix: NO -- barcodes.tsv.gz holds 27,170 barcodes (a called-cell
+      list).  The authors ran SoupX themselves and deposited only the corrected
+      output (*_RNA_soupx_processed.csv.gz), not the raw droplets it needed.
+    verdict: REJECT on C1
+    verification: downloaded and line-counted
+
+  - id: GSE231946
+    name: Chronic Active Epstein-Barr Virus Disease Originates from Infected
+      Hematopoietic Stem Cells
+    source: GEO GSE231946
+    named_in_instruction: no -- found by the C1 scan
+    note: >
+      Design is the best of any candidate: same-subject bone marrow AND
+      peripheral blood for eight subjects, two of them healthy controls
+      (S7, S8).  Recorded because it is exactly what section 2 asks to look for.
+    unfiltered_matrix: NO -- the .RNA barcodes files are 38-118 kB, roughly
+      10,000-25,000 barcodes; only an EBV-genome sub-matrix reaches 727 kB
+    verdict: REJECT on C1, despite the best available design
+    verification: GEO filelist sizes
+
+  - id: GSE163278
+    name: Early alterations in stem-like/marrow-resident T cells, innate and
+      myeloid cells in preneoplastic gammopathy
+    source: GEO GSE163278
+    named_in_instruction: no -- found by the C1 scan
+    unfiltered_matrix: PARTIAL -- hd2, hd3, hd4, hd5 and most MGUS/MM samples
+      carry the full 10x v2 whitelist (2,280,347 B); hd1, hd6, hd7, hd8, mgus1,
+      mgus13, mgus14 carry 5-14 kB called-cell lists
+    compartment: bone marrow only
+    verdict: RECORDED, NOT USED -- C1 passes for only 4 of 8 healthy donors, and
+      with no blood arm it cannot contribute to task A.  Kept in the manifest
+      because it is the clearest demonstration that C1 is a per-sample fact.
+    verification: GEO filelist sizes + direct line count of hd1 (1,177 barcodes)
+
+  - id: GSE241989
+    name: Immunotherapeutic targeting of surfaceome heterogeneity in AML
+    source: GEO GSE241989
+    named_in_instruction: no -- found by the C1 scan
+    unfiltered_matrix: YES -- 10x v3 whitelist (20,921,369 B barcodes.tsv.gz)
+    compartment: bone marrow (12) and peripheral blood (6), unpaired
+    verdict: >
+      PASSES C1, NOT USED.  Every sample is primary AML: the marrow soup is
+      blast-derived, so it answers a different question from P1, which is about
+      the healthy marrow pool our own cohort will sample.  Stated here rather
+      than quietly dropped.
+    verification: GEO filelist sizes
+
+  - id: GSE196988_196990
+    name: Durable Alterations of Hematopoiesis and Chromatin post-COVID-19
+    source: GEO GSE196988 (subseries) / GSE196990 (superseries)
+    named_in_instruction: no -- found by the C1 scan
+    unfiltered_matrix: YES -- bmmc_raw_feature_bc_matrix.h5 and
+      pbmc_raw_feature_bc_matrix.h5
+    verdict: >
+      RECORDED, NOT USED.  The two matched-compartment libraries are single
+      NUCLEUS multiome (10x Multiome ATAC+GEX), one BMMC and one PBMC.  A
+      nuclear preparation's ambient pool is not the same object as a whole-cell
+      one, and n=1 library per compartment cannot support a donor-level
+      statistic (C3).
+    verification: GSM metadata (BMMCpie1_snATAC / PBMCpie1_snATAC)
+
+  - id: GSE134759
+    name: The Evolving Immune Microenvironment of Human B-cell Acute
+      Lymphoblastic Leukemia
+    source: GEO GSE134759
+    unfiltered_matrix: PARTIAL -- only the four CITE-seq B-ALL samples carry the
+      10x v3 whitelist; the four healthy CD45+ marrow samples (ages 20, 21, 25,
+      42) do not
+    verdict: RECORDED, NOT USED -- the samples with age are not the samples with
+      raw droplets, and the peripheral blood samples are mouse xenografts
+    verification: GEO filelist sizes + GSM metadata

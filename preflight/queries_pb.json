@@ -1,0 +1,6 @@
+{
+ "pbmc_sc": "(PBMC[All Fields] OR \"peripheral blood mononuclear\"[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type] AND (\"single cell\"[All Fields] OR scRNA[All Fields])",
+ "pbmc_healthy": "(PBMC[All Fields]) AND (healthy[All Fields] OR \"healthy donor\"[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type] AND \"single cell\"[All Fields]",
+ "pbmc_nk": "(\"peripheral blood\"[All Fields]) AND (\"natural killer\"[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type] AND \"single cell\"[All Fields]",
+ "pbmc_age": "(PBMC[All Fields]) AND (aging[All Fields] OR age[All Fields]) AND \"Homo sapiens\"[Organism] AND GSE[Entry Type] AND \"single cell\"[All Fields]"
+}

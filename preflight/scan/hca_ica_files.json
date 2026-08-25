@@ -1,0 +1,6792 @@
+[
+ {
+  "name": "MantonBL1_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 26131997,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f782112a-7d2b-4c66-9bed-9f14856bca92?catalog=dcp60&version=2022-11-28T10%3A43%3A33.111000Z",
+  "sha256": "0918c2ccaad6c53a2df4744bcb3c6257cbe27f900dd56990a92a3db5743d5d0d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "28",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL1_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 26234002,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a909e999-d3cf-4420-ba09-b9b5e6fa19be?catalog=dcp60&version=2022-11-28T10%3A43%3A33.153000Z",
+  "sha256": "6d9b470938ba1694a6c19f13c2b71d1dc8fdc6e4e0542ab3f313b87964d8b753",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "28",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL1_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 26592027,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5caf810d-c5d1-49ff-872e-9473af65cce3?catalog=dcp60&version=2022-11-28T10%3A43%3A33.377000Z",
+  "sha256": "851fadb24b46fa30cda10703be0d566aff89b1ed08751807465485bb8ed623e7",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "28",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL1_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 26206883,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/1edae77d-4461-4dbd-b305-abe0113e75a0?catalog=dcp60&version=2022-11-28T10%3A43%3A33.194000Z",
+  "sha256": "135790c9de5a6b394052bd66469aef7a00f5e827187b7e834db70ad85088e23a",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "28",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL1_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 26411380,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/af029a13-a8d2-4e63-8208-c1a96bb142ac?catalog=dcp60&version=2022-11-28T10%3A43%3A33.233000Z",
+  "sha256": "4beeeff353930c26551b610dd7a1c0358d827c5448fa30f137f8a57507ff2214",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "28",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL1_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 26456838,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9cda72ed-f029-4611-a946-6cc636703413?catalog=dcp60&version=2022-11-28T10%3A43%3A33.449000Z",
+  "sha256": "457a888189191809fb9352da5b7dd2b75d10375f5e29af96475632740433c588",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "28",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL1_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 23833021,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c238976e-bbc6-452c-985e-f2ba9c833f79?catalog=dcp60&version=2022-11-28T10%3A43%3A35.277000Z",
+  "sha256": "c2c6ad786177db758b6e48d94a68dc30891bf8c8b5321e99058addd890401048",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "28",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL2_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 25920925,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/cdd17f4f-4a33-476f-9c46-7e667dbb2fef?catalog=dcp60&version=2022-11-28T10%3A43%3A33.476000Z",
+  "sha256": "bba7fdcb126a50afaeb0b8367f0d1664f3eb8f0ba789d6a6aa6abe06fdf74931",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL2_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 25230556,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/d322193a-1ed3-4b5e-8a11-66302926973d?catalog=dcp60&version=2022-11-28T10%3A43%3A33.522000Z",
+  "sha256": "7bb8f41658fb2fe4b25b7431bb29a96a6f4e34bae84f3f91e58dc9e5a9b82948",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL2_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 25480849,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4e4b5ee4-ca0c-4008-a863-fed043bbb98c?catalog=dcp60&version=2022-11-28T10%3A43%3A33.628000Z",
+  "sha256": "3c8d14267404c22636fc7ecb75cbb5727192e7d674f0fe9db0f346f602fcaf19",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL2_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25610631,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/889d8a47-7786-4ed7-82a9-77b03edc0ae6?catalog=dcp60&version=2022-11-28T10%3A43%3A33.545000Z",
+  "sha256": "91629ccff58df167405f68bc8ebff972a2f2c15720369983077035aa291607aa",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL2_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25374121,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f72526e0-9070-47ac-b087-19e5e8983953?catalog=dcp60&version=2022-11-28T10%3A43%3A33.581000Z",
+  "sha256": "422fd279c5084b337f7140bc185316e30d253b4e2186c56d0daa551cd987bbcd",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL2_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 26162294,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a310dfcc-c226-403b-a255-42d107c71338?catalog=dcp60&version=2022-11-28T10%3A43%3A33.681000Z",
+  "sha256": "36b9090cd12f25398c9471bccea0818a476c4b1ccea968023142aa6a4d31a43f",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL2_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 23644294,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/6ccdf241-d0d2-4f17-bb5b-c702bfc6ed9f?catalog=dcp60&version=2022-11-28T10%3A43%3A35.350000Z",
+  "sha256": "97aab18cdd9b7d38f60044f9021aa074d9898d45e65f78ceac6cebf8d2e2d6ce",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL3_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 26850102,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c28ac13b-9900-41f0-95f2-ba1c0fff3ef2?catalog=dcp60&version=2022-11-28T10%3A43%3A33.713000Z",
+  "sha256": "9b54866de79dc94d9d79fd9075d258a45ce2b2669b67bb3cd2ce5d699838566c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL3_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 26748556,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/8c45de9f-9db9-4ce1-b6c2-f881e6d644d5?catalog=dcp60&version=2022-11-28T10%3A43%3A33.749000Z",
+  "sha256": "a2ed98110ddb802f6b26419563b315ac4f460f2dea7b76c7b22008c83db8cbfa",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL3_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 23759545,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e23810a3-bdac-48d6-a7a0-bfcc3c15f24e?catalog=dcp60&version=2022-11-28T10%3A43%3A33.817000Z",
+  "sha256": "590fc55e051b65dc6d193bc1fd1b6445c935489291c35b205448dc4c0f484ceb",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL3_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 26814603,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e5093cd0-1444-4893-abf5-b9267a8260e1?catalog=dcp60&version=2022-11-28T10%3A43%3A33.770000Z",
+  "sha256": "affc00420a8c1ab9e812051dd1d99353b269d447c306cddabc459754c1a46b80",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL3_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 26914900,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/412634b2-b240-4cbc-9cc7-735229d56ecb?catalog=dcp60&version=2022-11-28T10%3A43%3A33.796000Z",
+  "sha256": "6eb0c525b11ff7a7d28d3dc5ed74fc5995768899d938d2e3574d3de31b885602",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL3_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 26587171,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a8eaeee9-a7e9-4e1e-a240-db8bed17e7b2?catalog=dcp60&version=2022-11-28T10%3A43%3A33.837000Z",
+  "sha256": "2740d677965daa9e5300dab94947151f75496a105dac3ee224059dd88b8af04d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL3_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 24185779,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/6682fd0a-7fd2-460d-b747-ebb569d73028?catalog=dcp60&version=2022-11-28T10%3A43%3A35.413000Z",
+  "sha256": "be33ce6d09d89a85462199573fa1421b071f8761a0a55ce0221e2846502fe207",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL4_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 26756164,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0db6719e-8068-4124-aefa-58be469fa53d?catalog=dcp60&version=2022-11-28T10%3A43%3A33.858000Z",
+  "sha256": "032e83d32da1307507ea7af1d6b334a6702661df4015d64f0978aae900a97c1e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "27",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL4_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 26575501,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e981cde4-5c65-4afe-97bc-6b34204ee429?catalog=dcp60&version=2022-11-28T10%3A43%3A33.883000Z",
+  "sha256": "af74bfe3d2e71fb0e9d3b120fb14c014ea609c9b09e835b67b959622a147ea6e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "27",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL4_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 26233692,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/8369c86a-f4ab-47ee-b1c4-2d12cf0f0a38?catalog=dcp60&version=2022-11-28T10%3A43%3A33.967000Z",
+  "sha256": "622e899f63473a873393d9b968fb00d1d398a029c7bae801f0629a76211f95a1",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "27",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL4_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 26476806,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0ec9a794-ed23-4943-b152-91c4ba11f1ad?catalog=dcp60&version=2022-11-28T10%3A43%3A33.917000Z",
+  "sha256": "5ff72ec5e92d96b3f3933f0c97e2018f34721b045a324cbec9aee2cb3dca8536",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "27",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL4_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 26447184,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5a55df02-2182-470d-bd12-45ef294a718f?catalog=dcp60&version=2022-11-28T10%3A43%3A33.948000Z",
+  "sha256": "56f50e5a83550d418641044facab3e7a0f74a92cef12e26fc66c079a6b3ffb03",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "27",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL4_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 25794434,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c237d18e-4100-4253-9561-2e218d621b31?catalog=dcp60&version=2022-11-28T10%3A43%3A34.030000Z",
+  "sha256": "0c227f7f74e28b555e6bfb38be8209ee04628758482d3a49d7bc17fa9a5f978e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "27",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL4_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 24413069,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/06a78f8e-2a6e-49bb-9cba-72b690e15143?catalog=dcp60&version=2022-11-28T10%3A43%3A35.457000Z",
+  "sha256": "5bb90e42cedb61db56c7b45f4f1b06b2e2c656bd5ee032d785d9e9e8c4d0d8f2",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "27",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL5_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 25833245,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c9b96e32-ef64-4475-8e35-5f92a34d29b4?catalog=dcp60&version=2022-11-28T10%3A43%3A34.061000Z",
+  "sha256": "9e74744c6d8946b0e8d9e4bc97a92755bada9a19aa229ac75f7ac8bae9f3a2e2",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL5_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 25561503,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e2b1d642-a4d1-4d1d-b144-b4d33bf42c0f?catalog=dcp60&version=2022-11-28T10%3A43%3A34.089000Z",
+  "sha256": "629e9331a004ce60b7ad124debb400693dda0c45b435f6e65ad4edd6130e8b69",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL5_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 25693433,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5613ec09-81ef-4d63-9464-b82dd5b528a0?catalog=dcp60&version=2022-11-28T10%3A43%3A34.162000Z",
+  "sha256": "30db0eb1452b9e25a62f442997773cc90cfb5099dae35833932f4f7e96139379",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL5_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25804175,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e90bea13-4014-4ed9-a693-3c604ac5d983?catalog=dcp60&version=2022-11-28T10%3A43%3A34.124000Z",
+  "sha256": "31eab84b926493f05c0f99f842a32ad1308366455aeba51eb1ccffbf2263928a",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL5_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25819109,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ded5f190-5dca-4370-ad63-6ccc95f93dc9?catalog=dcp60&version=2022-11-28T10%3A43%3A34.146000Z",
+  "sha256": "e0fb89a0b2e7e3c91587ac5324b9241aa48965497f93b376f788d163ef313283",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL5_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 25686128,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/fc4aba89-5e61-4977-98fc-4f6e3c0cc4ed?catalog=dcp60&version=2022-11-28T10%3A43%3A34.182000Z",
+  "sha256": "fd9f0436c918730dc60bd0e3721e78faa324951712cc9612d8f1ed5c0c2e0c4b",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL5_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 25000655,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f88f8495-6af7-45c7-b1e4-878c4ba7f4cc?catalog=dcp60&version=2022-11-28T10%3A43%3A35.492000Z",
+  "sha256": "f7cbc7ffe989732268b25e159f3ecdb785347fd0ad841c8940aecf1cbb07f766",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL6_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 25709652,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/526f87db-1074-41e2-b4fb-ddf2c4e81ec2?catalog=dcp60&version=2022-11-28T10%3A43%3A34.205000Z",
+  "sha256": "e6a52b56f09fb382f6bc23d8a09179a39e1d1bf9d9974935d5462f881e40b6c0",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL6_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 25531711,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ebb2142c-fab8-4de6-b375-4af1da84524a?catalog=dcp60&version=2022-11-28T10%3A43%3A34.224000Z",
+  "sha256": "f329a520fe649f7745e82406c8665c5ac9b64597afe78475f576c11bdedd7670",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL6_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 25671705,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/69d47200-f170-464c-ac0e-079c00c31c50?catalog=dcp60&version=2022-11-28T10%3A43%3A34.275000Z",
+  "sha256": "ff83dfe851506b3786a9ab89bf36d9219687b650649252af8d5c68abf411f53d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL6_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25533891,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f35db229-de27-46ba-b136-f524ec0e98d6?catalog=dcp60&version=2022-11-28T10%3A43%3A34.241000Z",
+  "sha256": "9a4dd0bf8fbeedf45218dc896908592d17ee875fec46557fa424f173c620c4bc",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL6_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25653848,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/fc7e8edb-d9f7-4c7a-8c4a-0e0d0e794173?catalog=dcp60&version=2022-11-28T10%3A43%3A34.259000Z",
+  "sha256": "965b709661ef9f08d78e2a851d29befeebaf1a8b0b6c4017005044e57a95ca58",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL6_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 25993000,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/aa1dd73f-904f-44ec-b164-33193570e6e0?catalog=dcp60&version=2022-11-28T10%3A43%3A34.295000Z",
+  "sha256": "cd21b6e3fcc15adf850f31601d96b925a7e0199a26a737a352ee00e27b682d7f",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL6_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 24901129,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a6e9f5f0-1465-4ab9-a49d-2aa387d2a5fa?catalog=dcp60&version=2022-11-28T10%3A43%3A35.528000Z",
+  "sha256": "d60d343fca23a2f00540b5bc0ceb225028fdfd79830991957c2693cf98aee58c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL7_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 26225002,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a5b49586-faf7-4a5e-9d7e-4e02b19b9005?catalog=dcp60&version=2022-11-28T10%3A43%3A34.333000Z",
+  "sha256": "e71336abc0a93daf163e5e21c5927621a6350a33d2a430a52f501eac53b4b28d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "24",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL7_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 25899593,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/8025390f-7c46-4777-8f21-484ad14381df?catalog=dcp60&version=2022-11-28T10%3A43%3A34.405000Z",
+  "sha256": "be8059cc95eb18a8adc966fb5cc1666b307aef5ce8cb33ff4bd2f59940f3c8dc",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "24",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL7_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 31141413,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7baa3e5b-6e12-47a2-bbbf-60f12f7ce026?catalog=dcp60&version=2022-11-28T10%3A43%3A34.469000Z",
+  "sha256": "53d63cbca12ef4fa4e1ef47ab159dd60ba26bb20e131a43dee1ba05ab6f0d0fe",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "24",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL7_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 26039334,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9abaf652-858c-4435-bc05-0610f461f726?catalog=dcp60&version=2022-11-28T10%3A43%3A34.429000Z",
+  "sha256": "12a2bca69528d09c760b6b607b518b56771fac5c069449d355f90c0caa46907f",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "24",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL7_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25832697,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ebdc1e0a-47f8-48b7-9cee-3beb784ee1ee?catalog=dcp60&version=2022-11-28T10%3A43%3A34.447000Z",
+  "sha256": "43395833b40473ba10ae008649e65012d01e32bab98baea5b169e6c79a2a9664",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "24",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL7_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 26636351,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b633f559-2472-4526-a53c-c7f4535094ac?catalog=dcp60&version=2022-11-28T10%3A43%3A34.501000Z",
+  "sha256": "82501365fa38a96e7065b5ca9ac11147baf410b451458e5137ec2dcdb384a28c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "24",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL7_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 25527961,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e648717c-009d-45b9-827a-2c1322adbb60?catalog=dcp60&version=2022-11-28T10%3A43%3A35.577000Z",
+  "sha256": "322c6fbbe065a2ff16f4688f000cbf9227239d573dfd06831fe181ac1917b6ba",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "24",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL8_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 25668729,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/23884d84-c958-4ab3-af77-f2a1351b875f?catalog=dcp60&version=2022-11-28T10%3A43%3A34.533000Z",
+  "sha256": "4bcb3986222cf75ba6373e201d8a29eb98fa04d359aec619fce5dae3a7bd779c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "25",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL8_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 25788709,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c7724630-b71d-42d9-bad6-e3b3addc0bb7?catalog=dcp60&version=2022-11-28T10%3A43%3A34.573000Z",
+  "sha256": "1cf894a516ee683ad3a563fd0f85aa2464e461c8b579833542e31a46bb264842",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "25",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL8_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 25230680,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/13f173af-5e14-4a7d-ba8b-70884ae1d47f?catalog=dcp60&version=2022-11-28T10%3A43%3A34.638000Z",
+  "sha256": "d840d85e7a36f6383d0d8d587bb28b964dfbe879158c78cb27bf6066d9a4ecce",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "25",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL8_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25474417,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c9cac830-8b20-490d-b92b-728c93eb6a3e?catalog=dcp60&version=2022-11-28T10%3A43%3A34.593000Z",
+  "sha256": "c776a92dcd679b30aa5f0547e36c28871e75f77d7ddd80157c1a3962ea23ba01",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "25",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL8_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25969859,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c3b52df2-84bd-4442-954c-a9bdac6ac717?catalog=dcp60&version=2022-11-28T10%3A43%3A34.617000Z",
+  "sha256": "8e03564a975167fcb20f17bb460a7ae09663d403025e25679142a5672b17d22e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "25",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL8_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 25889452,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/38398059-0a8a-4684-af56-5a94ea097233?catalog=dcp60&version=2022-11-28T10%3A43%3A34.655000Z",
+  "sha256": "df204c5a848fad134e742bdac80079b4ef42f6d870cefef0e64e4016488b1306",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "25",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBL8_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 24578266,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/bafd32cd-9e4d-4d75-9c44-46fd056d8721?catalog=dcp60&version=2022-11-28T10%3A43%3A35.597000Z",
+  "sha256": "ae058b212b83e29352fc25b30fe8283d7f31468e4f7f6177d16e2ba506daaff5",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "25",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_10_raw_feature_bc_matrix.h5",
+  "size": 49295835,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/be2a5914-5f45-489d-b08f-d01989b930b7?catalog=dcp60&version=2022-11-28T10%3A43%3A34.942000Z",
+  "sha256": "502e3ef000d0ac0501b225f4b00f657766340645dbe586d02650bbca20aa6a43",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_11_raw_feature_bc_matrix.h5",
+  "size": 48506206,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7cd059f9-5b8d-4076-a124-41d1b936e840?catalog=dcp60&version=2022-11-28T10%3A43%3A34.964000Z",
+  "sha256": "4b6570b130086afd5d2eaa885f500a457d2ddcce0819140c45a344da225c8003",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_12_raw_feature_bc_matrix.h5",
+  "size": 50157208,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/6692499c-8399-4b3f-8204-afe70c0f51e9?catalog=dcp60&version=2022-11-28T10%3A43%3A34.998000Z",
+  "sha256": "accf49d9a972d9bf8429a7449e3ace6a9483b9a07c6c9f463920340fbff55dd9",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_13_raw_feature_bc_matrix.h5",
+  "size": 46421477,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/3ec27fbc-ad20-4a08-a0bd-ddff53fe5b25?catalog=dcp60&version=2022-11-28T10%3A43%3A35.030000Z",
+  "sha256": "b977faa6ad834cf774ceb21b42272be306efe1bff9fdffb0731808e8be5267f0",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_14_raw_feature_bc_matrix.h5",
+  "size": 51423875,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/258588fd-7662-4c93-bae1-3a106025c2f9?catalog=dcp60&version=2022-11-28T10%3A43%3A35.070000Z",
+  "sha256": "6976aca5ddf85b5dea717d1b880db7e4bf11482dbec562d0df65c11064a42260",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_15_raw_feature_bc_matrix.h5",
+  "size": 51618799,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/43c13715-f4f8-4581-8677-eab4865c5ce2?catalog=dcp60&version=2022-11-28T10%3A43%3A35.096000Z",
+  "sha256": "82e44678e1321ca615b52c758841cb3a0772e24a7fd538a9b8942ee4289eb859",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_16_raw_feature_bc_matrix.h5",
+  "size": 51919517,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/6a10c548-ab5e-429b-b968-7e582065ffd9?catalog=dcp60&version=2022-11-28T10%3A43%3A35.192000Z",
+  "sha256": "dfca12144400baa77925e3a9d1098ad12991e59802c2ade7b56c776116e85831",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 47185947,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/efa52bc9-4b52-4175-bec8-c1fc69b12811?catalog=dcp60&version=2022-11-28T10%3A43%3A34.675000Z",
+  "sha256": "4dea51b8e04241eba44dc92ad884b024fd08dff685c5c66019bbae316da1cf99",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 51439663,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/cd63266e-b4e2-400e-9b0b-c8915c8f523b?catalog=dcp60&version=2022-11-28T10%3A43%3A34.693000Z",
+  "sha256": "cdec10d89367146357de84c91f9b10d7996e714b3488f9358f5e919c9f0369a2",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 49575827,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b39dac05-cdc5-4e34-bdec-d13f9a1325a0?catalog=dcp60&version=2022-11-28T10%3A43%3A34.721000Z",
+  "sha256": "0ffaf96de421d655f5c8bfeb22d2c710a41491527182b73c924484e2d24132b1",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 50778252,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/83a06983-19c7-41ac-aa6b-03110e982639?catalog=dcp60&version=2022-11-28T10%3A43%3A34.756000Z",
+  "sha256": "cac4bcc7b83e8ead8faac8ef13bfeded17e81a954d7d622140d7870122949e88",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 51391437,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/299472d9-849b-43f3-a0ec-6ac203458835?catalog=dcp60&version=2022-11-28T10%3A43%3A34.781000Z",
+  "sha256": "9878d369b6dba539474a8b9fe4b122443db5f516117f25c74ab2c41d852c2885",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 51712986,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/dbffdb36-5bfe-4e1f-b808-511c73f8a6e3?catalog=dcp60&version=2022-11-28T10%3A43%3A34.825000Z",
+  "sha256": "dbe81d7b5df572df3071da2def42b8e1b89b76659df21b33dafff51d65bd641c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 51075137,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e7711b83-794c-4a99-bbd2-dbbf9480060b?catalog=dcp60&version=2022-11-28T10%3A43%3A34.866000Z",
+  "sha256": "6062eab8679ca1b5a8626c20fccc767ed69b7644188a8100d62fa3101b22cc61",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 51139309,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/fc306d14-b519-4d52-b0fb-b3bcb1c2e063?catalog=dcp60&version=2022-11-28T10%3A43%3A34.905000Z",
+  "sha256": "36322ff0b8c3a9806bf101b340020279ac5df393e209a4067c57892a8673b747",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBLP_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 48479044,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e7cf7409-c799-4e7e-8803-a443a4779a1b?catalog=dcp60&version=2022-11-28T10%3A43%3A34.922000Z",
+  "sha256": "e910d08dff1963090b40b7835f971656bfe0dd17ba26893f35bd5b76d5d006ba",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 24938273,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5bdac793-429a-421f-b74f-cbd1229e9da5?catalog=dcp60&version=2022-11-28T10%3A43%3A19.405000Z",
+  "sha256": "7eff86649c32d613b3d69082bfe54e1f539c63df94ea46bd420352df1b019d85",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4294,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 24435558,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/d2c00134-ec17-44bd-ae39-b205ebfa83c9?catalog=dcp60&version=2022-11-28T10%3A43%3A19.428000Z",
+  "sha256": "7215412271bb03b8ee0097cb400f601081ba32bdf028b0ba795fe69082cccdb2",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4122,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 24335408,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9b58d516-8e20-44fd-9084-4135d05a4fab?catalog=dcp60&version=2022-11-28T10%3A43%3A19.445000Z",
+  "sha256": "c40cdc38e1f94de3f61efaf9f5fc6fef3e9022f0a1cf9dcf17ce7c81e3806173",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3971,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24531037,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/19b51326-4356-4a49-a3c5-0cbf419d9c29?catalog=dcp60&version=2022-11-28T10%3A43%3A19.473000Z",
+  "sha256": "c63ab405d00a16f63266fdbe206446916a8ab7e7fbd011b08cfc4c4391e36531",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4039,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24905543,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e8d5e236-7545-4318-852c-2831d660b976?catalog=dcp60&version=2022-11-28T10%3A43%3A19.494000Z",
+  "sha256": "526ea7074e7b8a653c0bcd224f09c3f1c2d8c21793af81ba3ed828b7d4570475",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4190,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25283716,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/622b70a6-c9ef-487e-b3bf-74712f6faad0?catalog=dcp60&version=2022-11-28T10%3A43%3A19.510000Z",
+  "sha256": "86b5074f6872c2a4cedac69b6d41eb6d712fb06b995051969688e24547e5939c",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4353,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 24689740,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/31700d20-2660-4a32-978b-1fd8ed5d75e8?catalog=dcp60&version=2022-11-28T10%3A43%3A19.541000Z",
+  "sha256": "2639f259819200bbd79edd844409cc652383fbad231052b7fd4d7240f98fb3f7",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4219,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 24869575,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9fbd1efd-4658-428a-9ec9-f257ff04d040?catalog=dcp60&version=2022-11-28T10%3A43%3A19.572000Z",
+  "sha256": "6aca5928ad2685b6d63610f148641826c088f07531ff878881119d3d9b21b450",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4226,
+  "age": null,
+  "sex": null,
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM1_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 25220493,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/92cc359f-e9da-4f39-b04c-9805abf8f987?catalog=dcp60&version=2022-11-28T10%3A43%3A36.889000Z",
+  "sha256": "651580a83906ad1f6af47c23a3387c156357fa70e491f20db01556c6d0ffcc26",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 24318838,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/96636749-4052-4326-85ba-5fd8fe1038f3?catalog=dcp60&version=2022-11-28T10%3A43%3A19.596000Z",
+  "sha256": "a2f46e450fc9c75bd1ff931da94112e68319cd25a94a45662f7aa2a7c37fab0f",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4866,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 24639485,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/25cfe503-2870-443f-aaef-7c7f989fefab?catalog=dcp60&version=2022-11-28T10%3A43%3A19.637000Z",
+  "sha256": "f29276deb287ddb6b3989298fc802f409d690a33bfe6bc7f5f4b5314dba0886b",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 5107,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 24818264,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/069bd82e-907a-4d12-81b0-e576ed513aa0?catalog=dcp60&version=2022-11-28T10%3A43%3A19.676000Z",
+  "sha256": "e2c41c4b24b30245f98ad666c68c63596be6b4e4c641f93370970119dfb0f4d7",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 5280,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24515404,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/22956d5d-3866-46e3-97e8-cce6d6e084d8?catalog=dcp60&version=2022-11-28T10%3A43%3A19.703000Z",
+  "sha256": "7eff63876ac5d1110c24f208f5776ae46922c525ec3bfe72fe11ac164facac43",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 5118,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24930970,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0f6b1260-deba-4362-9361-2b68637414c6?catalog=dcp60&version=2022-11-28T10%3A43%3A19.723000Z",
+  "sha256": "3078932633541b091e09c7db29c9bcfa987604df4eec9c5dfec9cb103cada2ea",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 5247,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25198469,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/2744cf98-e1d4-44bf-9e9a-625406de1eb5?catalog=dcp60&version=2022-11-28T10%3A43%3A19.758000Z",
+  "sha256": "9eb3f44a9f4df8ab4f45c94d7fd1c8d2b8952ef7ffe9d9cb58188bcb9b851c37",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 5102,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 24868281,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/580ebd56-af40-4a00-836d-53d749a94d67?catalog=dcp60&version=2022-11-28T10%3A43%3A19.778000Z",
+  "sha256": "b0eb1d0dfeb1292d482b70fdf618100160dee739aa1986342e6a61f13039b619",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 5018,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 24528480,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/cb74d270-4173-4f37-991a-1865d660af13?catalog=dcp60&version=2022-11-28T10%3A43%3A19.816000Z",
+  "sha256": "8559aadbdfb8a19d80340c60f3e5c80e6809e33a9c228d742bfa8eb1714ff6ac",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4995,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM2_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 25397397,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b3cc0a45-af5e-478e-9c21-aea2ca0d1952?catalog=dcp60&version=2022-11-28T10%3A43%3A37.000000Z",
+  "sha256": "c331eb7e66903de002fdef3eaf5768fb729201921cde450fcfba9dd221233899",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 23777434,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/137d9f9e-3743-40fd-a6e0-ecb4d064cf41?catalog=dcp60&version=2022-11-28T10%3A43%3A19.856000Z",
+  "sha256": "4a65ddc3c19612607939a030d4c9d4bfb3d03f1b299a63d3ef7f94bc0b715bd0",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4161,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 24464064,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4b44b122-84ef-4480-9779-fac880ffd7ee?catalog=dcp60&version=2022-11-28T10%3A43%3A19.903000Z",
+  "sha256": "bb3c7fe7ad96b03240cb88dabd0c1499ee23a5c5e568b1302f93e0840fc0cef0",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4354,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 23566526,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/1fdeaa03-12da-46c8-8c7f-555564b9fd13?catalog=dcp60&version=2022-11-28T10%3A43%3A19.940000Z",
+  "sha256": "71d759c692a2577792c48ea416cc057e9f3519318ab783ee3f7cd3a6636f591e",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4178,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24235643,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/bd52899e-0a29-4384-8ab1-fceafe349bea?catalog=dcp60&version=2022-11-28T10%3A43%3A20.004000Z",
+  "sha256": "f3376ffab47449e47a0fa9f8e60360eb8c6754f618e379eb4e341acb6fd9354b",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4322,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 23680832,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/be6b7b13-64a5-4ca7-8e3b-0b7279507270?catalog=dcp60&version=2022-11-28T10%3A43%3A20.024000Z",
+  "sha256": "ddbfe9816b85f9234a4c6e34130313acb64da0c70cfc63cc42887c313d9c9997",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4302,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 23858895,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/1aa744a9-5523-455c-b095-63c36412809c?catalog=dcp60&version=2022-11-28T10%3A43%3A20.041000Z",
+  "sha256": "0f957c8546c0b3c2e685deb322b1c4cad5748775821547d4c981ee661d0db925",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4466,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 23460072,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a3ef538b-6e45-47e4-b63d-0c206e038d60?catalog=dcp60&version=2022-11-28T10%3A43%3A20.069000Z",
+  "sha256": "e9d2ee819eea22a897136682031ea5a5cdf3877f5ed35b12429c34660506c64c",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4132,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 23581226,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/3f0b1c6b-2b15-478c-b29d-871e234aee00?catalog=dcp60&version=2022-11-28T10%3A43%3A20.087000Z",
+  "sha256": "fda451ae13041f923afbb04fea1ba09f916f5cd4ed5a8f90e8b7a90e44d2f444",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4278,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM3_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 24555775,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/fa575e3e-ac3d-4ac3-8dcc-8a4c33f9265d?catalog=dcp60&version=2022-11-28T10%3A43%3A37.064000Z",
+  "sha256": "a84d9405e78ccbde5c1ab0fa683f652e3d800aec102599a65a01bce2365d487a",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "39",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 25033589,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9a5ea39b-f755-4f59-928e-127fb16a0296?catalog=dcp60&version=2022-11-28T10%3A43%3A20.112000Z",
+  "sha256": "dc139ed0559852a4034c5ae3122734a9525176b0713c97537c50bba4666eb1e0",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4067,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 24453752,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a5000cb3-2a0f-420d-a5e5-36490c2c87c1?catalog=dcp60&version=2022-11-28T10%3A43%3A20.143000Z",
+  "sha256": "f34e1cd6f8cd08da2f6483c911e03df1d4705a5d32dbfb444777d1802815d86d",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3969,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 24422103,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/1fe269f6-c832-4646-bbce-547a8f761d38?catalog=dcp60&version=2022-11-28T10%3A43%3A20.164000Z",
+  "sha256": "9e52bad283ff0d91dd2b804d443342d1e2bc40b60eae95265bcaed5453837686",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3854,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24685572,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9e07b539-fe19-48f1-8d8f-101655597b33?catalog=dcp60&version=2022-11-28T10%3A43%3A20.194000Z",
+  "sha256": "1a92966550001409a0b4b69510aa756017aefb12556733ccb97c86cca2147615",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4075,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24978150,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/998557a0-55fb-43df-954a-737b58407f86?catalog=dcp60&version=2022-11-28T10%3A43%3A20.220000Z",
+  "sha256": "eb5437d08b37e9ef31df45a055db038fae92dc551f2a055c49aaa285abce4144",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4136,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 24753927,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a8119a39-64a6-4420-8092-aa11b73c0675?catalog=dcp60&version=2022-11-28T10%3A43%3A20.236000Z",
+  "sha256": "a2b3dc6e440648b2ebae2ff562a5da1c98506051897e8ad790f878f24c61d031",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4258,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 24917850,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/419c7706-c281-462b-9a08-ca237928d1ef?catalog=dcp60&version=2022-11-28T10%3A43%3A20.274000Z",
+  "sha256": "642f55f4f43dcfd919d79b2c02e41781d32835fbdffca56eb29f2244ff4dcd2d",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4234,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 25179132,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ede4cbe6-5b7c-4cd9-9d37-fbe538a2fe02?catalog=dcp60&version=2022-11-28T10%3A43%3A20.299000Z",
+  "sha256": "4c0ef5936190f3b0b4b1a3a4c5d9e0d3f04f6e0f5f806679e77ecc770e74985e",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4353,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM4_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 25088850,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/97aaa31d-5b23-430b-add6-289a79623f33?catalog=dcp60&version=2022-11-28T10%3A43%3A37.112000Z",
+  "sha256": "68eff77870cb11082e9798698823945e7f35bc080df827a4287f3ccb15c1f607",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 26801583,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/76d9b1e8-2146-4996-a720-931b2a8da2e3?catalog=dcp60&version=2022-11-28T10%3A43%3A20.346000Z",
+  "sha256": "76c4dc02a0ea4a8cdffb66880ad5f74159c9a306e3854b1188c083699901d146",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3956,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 26338111,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/78c7aac5-9185-4af2-af99-ef0ee057f8a2?catalog=dcp60&version=2022-11-28T10%3A43%3A20.398000Z",
+  "sha256": "bb7287d6ea2a6487b95cbe737698d2d2c6ed2e65ea833b7689817b891f873865",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3854,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 26758624,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/2eec665e-d956-4191-a106-b042292dfd8d?catalog=dcp60&version=2022-11-28T10%3A43%3A20.427000Z",
+  "sha256": "3f5135fe9dc38577c080740c0b8efe35688fd2a051f45bd3a7992f2a0f481316",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3922,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 26231672,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f040bc43-a79b-44e6-8710-2d7b1f334959?catalog=dcp60&version=2022-11-28T10%3A43%3A20.469000Z",
+  "sha256": "d52d5627c4944ecea671b5c2f27cc5aab13c99586d227535ff9fe7488c6644ce",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3804,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 26536890,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f8012f64-0ea0-4c09-91a1-b3b83d240f16?catalog=dcp60&version=2022-11-28T10%3A43%3A20.499000Z",
+  "sha256": "563c3a9a19b7fbc4e168aa7e0577ce780c50e5277c44fb32ddd80b3b680f50da",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4032,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 26231831,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0fd0f89f-a8e2-4e0a-9ffe-7b38aebce3e2?catalog=dcp60&version=2022-11-28T10%3A43%3A20.540000Z",
+  "sha256": "585e3aa0209af7249da1e570643aef19cdcc21b34be6d3acde1bcfbced1f00ba",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3842,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25579278,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/08c25a1e-08ab-45e0-a076-d13a2f5dafb2?catalog=dcp60&version=2022-11-28T10%3A43%3A20.598000Z",
+  "sha256": "8b135b79d69dc885bc1a251b58a38c8e891a8cec4ede65e6f030cefa37a7f632",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3524,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 26511052,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ba9fd994-00ac-49f8-817a-bdffb4156b9c?catalog=dcp60&version=2022-11-28T10%3A43%3A20.625000Z",
+  "sha256": "9736fda19c1faaa4e34f0ae61054580d827fd175f32cd35bfd3ac156cae51f37",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 3806,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM5_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 26515488,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/eaafc254-6243-4653-b7e5-749bdf4c899f?catalog=dcp60&version=2022-11-28T10%3A43%3A37.168000Z",
+  "sha256": "aa3dae2781cf0e91b3d2d13fdf71c0f716c88cc8368f782e8e118d3c46b04d36",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "29",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 26260794,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/adb325aa-e171-4e83-8dc5-de9d464de300?catalog=dcp60&version=2022-11-28T10%3A43%3A20.656000Z",
+  "sha256": "6e8fe3846c2180d82688cefece822d0e4bda71b214538ce687bb7d9f8644c881",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4580,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 25942768,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/bc762fd9-0935-4848-a375-2d6c9355974b?catalog=dcp60&version=2022-11-28T10%3A43%3A20.688000Z",
+  "sha256": "d6cfea02d94d26aca0690321eb4434ae70fabb25880120aeeb3ffe26d9d52cd8",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4396,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 25784579,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7b3d23c7-6d5a-41bc-9c76-af96715fe0a5?catalog=dcp60&version=2022-11-28T10%3A43%3A20.721000Z",
+  "sha256": "5c7e67a2e13a3f0454027ea471943efceae5a9270fe2414ece7b18326671c15e",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4558,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 26057594,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7a907944-da1b-42db-b417-f3fa394dde08?catalog=dcp60&version=2022-11-28T10%3A43%3A20.945000Z",
+  "sha256": "3308b397211d341c405db1cda2d2324c39ef93bfcb9f83f29e8ebaf7d22a003c",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4584,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25914764,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/77d0117c-8850-4b77-9672-96343065d325?catalog=dcp60&version=2022-11-28T10%3A43%3A21.082000Z",
+  "sha256": "c7ffc8bb69501da55e7e55a0ac7a021599467e1b75eda8649a15292022babe54",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4430,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25736433,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/83d81ac9-63a7-47b0-9e6d-9cbc2b435238?catalog=dcp60&version=2022-11-28T10%3A43%3A21.679000Z",
+  "sha256": "b7a5040e7952059d11b37d490d8625ed2d8ebe2a70d7f441262fb0a3bee7b22e",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4541,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 26141564,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/670492e6-e7bd-42cf-a7e6-4ec3d3ccf410?catalog=dcp60&version=2022-11-28T10%3A43%3A21.778000Z",
+  "sha256": "694c824f660907d84a8b994d6d849dea3b251d87630f840f79613e3c0b58e86c",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4565,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM6_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 25465071,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/3425eac3-7f34-40c6-8ca6-f970c0960937?catalog=dcp60&version=2022-11-28T10%3A43%3A37.213000Z",
+  "sha256": "3e45c05c26cb13659173e30155316460f18cc1e9c6b5c7e09cadc4776077197a",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 23893039,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0f99fc37-e548-4c31-b0e1-4f4527f08b66?catalog=dcp60&version=2022-11-28T10%3A43%3A21.798000Z",
+  "sha256": "4237d90911c2664a7b0ba7f69a059ce9de1f70a10fece6ab602f35db97939e15",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4330,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 24373764,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f3887ca5-e582-4113-99f2-ff2028dbda93?catalog=dcp60&version=2022-11-28T10%3A43%3A21.826000Z",
+  "sha256": "a921ee902c5a382a93cd0a842e448ca4c53a6cd65f317029dac6f7705709286c",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4556,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 24663473,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/2767bf50-10d6-46b9-b478-63579683e92c?catalog=dcp60&version=2022-11-28T10%3A43%3A21.908000Z",
+  "sha256": "ca9db1b9b7b5002368f8eadf3d9a58c838d5b845190b128aab38f1682d9a4a9f",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4679,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 25050866,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7225fa89-47fd-4ac4-8005-ef5e96be08c0?catalog=dcp60&version=2022-11-28T10%3A43%3A21.987000Z",
+  "sha256": "8420cfb8021fbf0c8e9e90c16d1c6333c59fb076218f35421fab77fc376fdc33",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4827,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24068541,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0891212c-a6f2-497a-9f4a-f08e5a89c7e8?catalog=dcp60&version=2022-11-28T10%3A43%3A22.017000Z",
+  "sha256": "f25fa234fe4a218b39420b66926166adc677d3ce152c026b990e9690f5073209",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4591,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 24353914,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/dfb37b02-9f20-41a6-b5ff-19e1f3862c2b?catalog=dcp60&version=2022-11-28T10%3A43%3A22.043000Z",
+  "sha256": "c5dd93220bee6b3d9ecdb142d8dbfc07f665e5df4edd2e03cf701b81edc96331",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4408,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 23218825,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/41ac5ec9-3861-4b00-8693-6b53658b727d?catalog=dcp60&version=2022-11-28T10%3A43%3A22.059000Z",
+  "sha256": "9f0a0a748d4f1ad569982af1cdefc7c9df5fe265fb2d8203218c83e065c38685",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4074,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 24118042,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/479b1f20-14fc-4304-aa0a-9c71f487ec8c?catalog=dcp60&version=2022-11-28T10%3A43%3A22.081000Z",
+  "sha256": "a5e723d0a782c522c83866a88ed0417c3e11e5eb00659d73eff5bab8b06667c7",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4548,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM7_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 24480800,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/2c642e5d-1e36-4740-9a0f-4ff9087b3eb5?catalog=dcp60&version=2022-11-28T10%3A43%3A37.229000Z",
+  "sha256": "6336da45b9a24a17cf833000e6b2cf654bf98f8180cac4345c702aa18eb828c3",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 24655482,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/6cb0f041-9506-4c93-a631-504a1df82a91?catalog=dcp60&version=2022-11-28T10%3A43%3A22.099000Z",
+  "sha256": "41ac0554fcacd7d0f388a9bb61e7d0c459ce9d1ec4807839ee7b5d77219547d6",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4400,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 23888562,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/dca3a328-1150-4921-995d-e9c4f572e32f?catalog=dcp60&version=2022-11-28T10%3A43%3A22.120000Z",
+  "sha256": "fecfd417e95c52aa9fc80904048b0aa43b8b4494cbba2642bb390bba2fa9c405",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4186,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 24348413,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/849f126a-29e8-4a64-b19d-4e4519a29195?catalog=dcp60&version=2022-11-28T10%3A43%3A22.143000Z",
+  "sha256": "5f8d425c1f09c244e03ab9762bd7f6aa39477a03c36e703fc22c9ccf03a64527",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4302,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24142571,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a243f1cc-431f-40ff-a205-693d03b3579a?catalog=dcp60&version=2022-11-28T10%3A43%3A22.173000Z",
+  "sha256": "102f58d4146ef55457fccc3192c9fd9335ad5d90b8609fd0de0e2851bc9d8b48",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4275,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24012544,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ab0b8f84-a604-4622-b3ad-d2555fec7964?catalog=dcp60&version=2022-11-28T10%3A43%3A22.197000Z",
+  "sha256": "96aaec1e655e035e4d620b050a046648d1f22c08580a54691119836b14101db1",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4343,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 24323693,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/98ad4a99-d56c-4458-b7db-2048c2c5933d?catalog=dcp60&version=2022-11-28T10%3A43%3A22.236000Z",
+  "sha256": "14105cd37eae4598e374d7ca26c5d3c4217026d0aa1e5e390f41ec790a8cd17b",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4495,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 24083007,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/35d7600e-9472-4c70-aa3d-d0d3280d1a85?catalog=dcp60&version=2022-11-28T10%3A43%3A22.264000Z",
+  "sha256": "5f82cc836b56781a53a08c8bda987a2cd43c50d4463633b3520b30386ef7caf5",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4286,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 23727205,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/869c9f29-b822-4232-8022-ad3818f79400?catalog=dcp60&version=2022-11-28T10%3A43%3A22.287000Z",
+  "sha256": "125a7d99a2dd9f08b139ab7359923c2094e96a67c67b1059f4bbf944367561d3",
+  "organ": [
+   "immune system"
+  ],
+  "cell_type": [
+   "bone marrow hematopoietic cell"
+  ],
+  "target_cells": 4202,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBM8_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 26046215,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5e8cc419-54b5-4608-bd8d-1cf34fd06028?catalog=dcp60&version=2022-11-28T10%3A43%3A37.246000Z",
+  "sha256": "158d1d86540c2f0a99f3b597d1ad9308b6dcce0b921f65226a31a7208546293b",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "32",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_10_raw_feature_bc_matrix.h5",
+  "size": 44369922,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b8c02bcf-2484-4599-97f2-685b9d42f825?catalog=dcp60&version=2022-11-28T10%3A43%3A35.927000Z",
+  "sha256": "ec66e64c26fda04aa90a4677b394dac44c605f7fdbc190304cc15629c8b924a9",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_11_raw_feature_bc_matrix.h5",
+  "size": 44893278,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7b3198eb-6066-43ec-bf93-cfd6d04ccd55?catalog=dcp60&version=2022-11-28T10%3A43%3A36.051000Z",
+  "sha256": "660043e192d25e8aa7c42830abc2bb0ba41c579701ec4fc65ad3824c026d49ec",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_12_raw_feature_bc_matrix.h5",
+  "size": 45742252,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e8bb4c33-abe9-4b92-8ab0-5761057a5118?catalog=dcp60&version=2022-11-28T10%3A43%3A36.341000Z",
+  "sha256": "80757565a7ee03089a570a6b0eca1d1fcc72a99d2d215d7a2f2ea26c734c4bd5",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_13_raw_feature_bc_matrix.h5",
+  "size": 46243190,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9444940e-9190-4628-a7c8-f3e83a505913?catalog=dcp60&version=2022-11-28T10%3A43%3A36.559000Z",
+  "sha256": "4c239b858d494b9cbd79f24486c7e6e008884264d0f09297ebbb22a9f1e58430",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_14_raw_feature_bc_matrix.h5",
+  "size": 46221078,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5a790b5d-0146-4414-a117-d80df6b86c1b?catalog=dcp60&version=2022-11-28T10%3A43%3A36.812000Z",
+  "sha256": "f348bdcd878055beca8ee946bf21c11832bccbe63442f4e0e715dd9353f62634",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_15_raw_feature_bc_matrix.h5",
+  "size": 45346198,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/fadbedc2-e58c-47c1-af0a-46b98531ae19?catalog=dcp60&version=2022-11-28T10%3A43%3A36.840000Z",
+  "sha256": "9ca3cc10ffc27ef57abcebbfbfa27a7bbc0bf2deae9b1942b48137553abc6b32",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_16_raw_feature_bc_matrix.h5",
+  "size": 45880983,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f2c8d470-02f6-4b23-af68-e7022258877f?catalog=dcp60&version=2022-11-28T10%3A43%3A36.868000Z",
+  "sha256": "fb2186a4c2702f571b5606994aa838f074934a98c4e7be02dcbf71752582c478",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 46442486,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4ecfb569-ddb5-49e5-a316-232cb16da1a6?catalog=dcp60&version=2022-11-28T10%3A43%3A35.632000Z",
+  "sha256": "6812e02924029aa99bf39228d0d0c691ea7622026979d231f1eb6d8fa0fb511f",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 46404520,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/d0cc9663-9749-41cd-b870-2d9d2ec3f6b9?catalog=dcp60&version=2022-11-28T10%3A43%3A35.661000Z",
+  "sha256": "91794482599b5a6620fe71228428a6e26efa0ce763874db7adb981fe58b0549d",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 46807588,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a5b547db-bf50-43c8-a434-1eac4b27691a?catalog=dcp60&version=2022-11-28T10%3A43%3A35.701000Z",
+  "sha256": "caec5eb00e56e298917978fcc25c439c3ba78f18d46f9fe91f675e8fd8da9731",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 46333833,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/466a4ada-67bf-409e-8e83-dfec21fa6621?catalog=dcp60&version=2022-11-28T10%3A43%3A35.734000Z",
+  "sha256": "ae2d225e60023749871f75e822a0eedbef71628f8b6fe22f12a95b1a89c8dc2d",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 46905266,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a4f6df29-b7aa-431c-b5f2-b9225c0759dd?catalog=dcp60&version=2022-11-28T10%3A43%3A35.774000Z",
+  "sha256": "bade260e7c8abe4ee7e57e9d006aa21b2e2c52407470c2963716ffa3c7bc277c",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 46777670,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/745447fc-b8ba-4518-a2d0-a0383bd03ba5?catalog=dcp60&version=2022-11-28T10%3A43%3A35.794000Z",
+  "sha256": "f55fa549ee12ae024559340f59118f11b52e639886b28e582a24ea55aac7ed02",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 46511782,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/89969881-7fca-4081-a950-ded50646dbb1?catalog=dcp60&version=2022-11-28T10%3A43%3A35.818000Z",
+  "sha256": "1c3032c8157259247c695077bd0eee8ed00d4f2de5cd54680b2fa3ed8b1b2d7b",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 41511928,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/1347471b-c079-4c0c-8e14-5b95317bb809?catalog=dcp60&version=2022-11-28T10%3A43%3A35.848000Z",
+  "sha256": "3de0ff8c18d0deb9553e47183f18bb4b1a419823c96e7d12a1733f56bc574510",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonBMP_HiSeq_9_raw_feature_bc_matrix.h5",
+  "size": 45334367,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/31f78738-b487-44a2-88e9-be1f585e6725?catalog=dcp60&version=2022-11-28T10%3A43%3A35.880000Z",
+  "sha256": "cb4b24b5de7c13fb61faa49235b98e41e02086e60af59002186aa1fa71929cbb",
+  "organ": [
+   "bone marrow"
+  ],
+  "cell_type": [
+   "mononuclear cell of bone marrow"
+  ],
+  "target_cells": 34000,
+  "age": [
+   {
+    "value": "26",
+    "unit": "year"
+   },
+   {
+    "value": "29",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "39",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   },
+   {
+    "value": "52",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 25843366,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5bf4d3e0-497f-4a8f-8766-1ef3b54a7e55?catalog=dcp60&version=2022-11-28T10%3A43%3A28.150000Z",
+  "sha256": "9c389b1115bd7b846c0b763d3c0bed04f4339f2ea7872d724d35b52ef653edc1",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 26243111,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c06e65ca-60a4-4462-9e4f-92993a38b9a9?catalog=dcp60&version=2022-11-28T10%3A43%3A28.949000Z",
+  "sha256": "28f86962f2d173c3f0a3667ae8ea7c8fad9e93cadc5f9bdb6c08691559df81f9",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 25458706,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/33741bdd-a961-4346-bff0-3fccd2ae0d1e?catalog=dcp60&version=2022-11-28T10%3A43%3A29.948000Z",
+  "sha256": "43237350b12850f847cf2f1b6c6b325c1668345add99b06e4c91268cdb8b5e61",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 23892420,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/60f8c155-d1a7-4858-8c17-88d9664a7a52?catalog=dcp60&version=2022-11-28T10%3A43%3A30.278000Z",
+  "sha256": "7366b803c3dae8950772e603f0ab76a713dc59c1d74acee5946a9951b4f0eea2",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24324387,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/90fa2c1f-2b07-436d-9fbc-c33ced10a11f?catalog=dcp60&version=2022-11-28T10%3A43%3A30.707000Z",
+  "sha256": "476f3fedb60b17200905e7a819ea7c9ccd501d555eee5239a7d9ed5642ea9937",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 26432561,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/fe5048a8-717e-42ac-8a2f-cb2e6f71e313?catalog=dcp60&version=2022-11-28T10%3A43%3A31.103000Z",
+  "sha256": "6a515534d654061ce1ee2202f5dfcffde0af02c7546dc484ef762e62f8e79ec2",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25464072,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/de0f5459-88f0-4b15-a50b-af317ce82132?catalog=dcp60&version=2022-11-28T10%3A43%3A31.344000Z",
+  "sha256": "8a75d32785ec0aebb69bbc2b3a1e2908c58da4810e426634a2e501b1edcf80b8",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB10_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 24653936,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/d141826e-3141-475c-9469-183e867e1c01?catalog=dcp60&version=2022-11-28T10%3A43%3A32.002000Z",
+  "sha256": "563e51190ac843f4c7ed62461d1145101e4b0e94957c4256f337daaaa4055a9c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "38",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 23328686,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/00a438b2-76ac-4451-b5a1-e12eebcfbb2b?catalog=dcp60&version=2022-11-28T10%3A43%3A32.227000Z",
+  "sha256": "155ac62128f9f7708cb8f8ce4db65864b58e949ffaf42abed28840d353474613",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 23740898,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/70c51d55-c520-4a09-8e71-c316190498d3?catalog=dcp60&version=2022-11-28T10%3A43%3A32.367000Z",
+  "sha256": "0fd4576e90548373f39ea083276edab415108d62dab386890a7a0455f1abd309",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 22677181,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7c2dbbed-50b7-4ad7-a777-d5d808adeb52?catalog=dcp60&version=2022-11-28T10%3A43%3A32.412000Z",
+  "sha256": "c61ee322bf54c46fc05d3bff0a44c20253fc5236ab2f47d68c691e96f0813bf5",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24214953,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/1ee02d0a-973c-41ee-913d-49fc78692492?catalog=dcp60&version=2022-11-28T10%3A43%3A32.450000Z",
+  "sha256": "730e46fc61be82987fa80a6ea3744779e6c451f6667b741d8e54743a9aefb47e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24202291,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/402b6446-e712-46c5-8cdc-aa12ca28dfde?catalog=dcp60&version=2022-11-28T10%3A43%3A32.528000Z",
+  "sha256": "aaf0b61c062e5218704324c84fef5487c1bd69d45d10d5c2a7253b2fad8a21c0",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 23852286,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/725857b8-39c6-4023-a0c6-04c0b7e8d8f5?catalog=dcp60&version=2022-11-28T10%3A43%3A32.589000Z",
+  "sha256": "ff08639192c719248e66de6a48373561fd641e0a055697d3391abf1dfcef249a",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 24708881,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/2b8140ff-5d1e-43ed-aa3b-bb37233f7e33?catalog=dcp60&version=2022-11-28T10%3A43%3A32.606000Z",
+  "sha256": "370fef53dca19e0285b321050b7406ce820bcc54563ecf44d859885a26181fed",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB11_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 25170522,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/37907bf2-8e3e-43fe-9f23-fe15d176622f?catalog=dcp60&version=2022-11-28T10%3A43%3A32.625000Z",
+  "sha256": "5cb6d36386e997c40ecf8ee437e57a6ce312002943eff402bd3af6a94f6df57e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "37",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 21967939,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c4172e0d-9e38-4763-80e7-c4d952c0adfa?catalog=dcp60&version=2022-11-28T10%3A43%3A32.663000Z",
+  "sha256": "38f566fe003dafa7681cdae4c293f323eb3082af89a4937998eeb692a252dff3",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 22286662,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/123aeb1f-b4ac-4372-bebd-6a4c0e584fff?catalog=dcp60&version=2022-11-28T10%3A43%3A32.689000Z",
+  "sha256": "558871a509c21f3acfbde43234ae54fee95aae022ac772a6f154fe8bcffb72a1",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 22257586,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7a676d5c-9dc8-467e-802f-946b161323ec?catalog=dcp60&version=2022-11-28T10%3A43%3A32.724000Z",
+  "sha256": "156e79a927e5c919d04a6ce278644dc001ae18d79da2c31257fc4217df888e97",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 22211654,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/23eebfee-f343-4854-b2b0-62e857c35371?catalog=dcp60&version=2022-11-28T10%3A43%3A32.755000Z",
+  "sha256": "91f530637bcdd75fa0defed36fe77a0b14c4850ddf1f9f7d2ddfff62ffccad87",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 23092278,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/dec86e81-75a8-47fe-a68b-9773468d8372?catalog=dcp60&version=2022-11-28T10%3A43%3A32.789000Z",
+  "sha256": "0b98bb409fc10309ca8625b928fbf8281ba100db94e39a73fa7dcc8052025337",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 21947338,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/fd2d1e2e-50ec-47ec-a2c3-d39a2f828e56?catalog=dcp60&version=2022-11-28T10%3A43%3A32.850000Z",
+  "sha256": "265b9a9f4bcba8b7f60a0f3d64b23ef6fec758c5f8e64aa9303abd33a59513b8",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 22183728,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9995d5d7-89d8-4698-a48e-d3478b22f06c?catalog=dcp60&version=2022-11-28T10%3A43%3A32.919000Z",
+  "sha256": "b37d06506d09e744c2c6f9af477fe87194267cee84df476221c9114520f63cb8",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB12_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 22843644,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b79cf505-533c-46db-8910-8d0e1a0876c4?catalog=dcp60&version=2022-11-28T10%3A43%3A33.035000Z",
+  "sha256": "31880b5924e43ca152c475f823417dde8fd2e35caea471f657935ef422dbac06",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   {
+    "value": "36",
+    "unit": "week"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 22587714,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/68ac9cfe-5c0b-426a-8b0f-ae02123a68e0?catalog=dcp60&version=2022-11-28T10%3A43%3A22.318000Z",
+  "sha256": "d887235293a8b2cbb0043dc6200f8ef3a8562a98cd3e69e3c67c8b9e217b0317",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2981,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 21474137,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/37b7b93a-d473-4eaf-b8ec-f698d03e3b5b?catalog=dcp60&version=2022-11-28T10%3A43%3A22.342000Z",
+  "sha256": "04c55e100f40aef53f19e11cead7069a17ab799314b0414c698979957029a77e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2813,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 19217992,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e0aefefa-d4d1-4fd7-856c-ae03bff55ad3?catalog=dcp60&version=2022-11-28T10%3A43%3A22.395000Z",
+  "sha256": "616e99c35a642b9f15e8d2444bb4667225ecf1382899ad9ed0cc83fa53b3cb88",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 1482,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 21864449,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ffb5be64-f3f4-43ea-beeb-e83fe13e4ccb?catalog=dcp60&version=2022-11-28T10%3A43%3A22.420000Z",
+  "sha256": "2448550b71aed366283c10f51394a2edfe156d274a4de07d033136f809aa08ec",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2889,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 21989120,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0fb066de-d3ba-4837-91a8-a3788111811d?catalog=dcp60&version=2022-11-28T10%3A43%3A22.436000Z",
+  "sha256": "70475e42b360acddc503b58383f8fe5f9fe926f17c5c87038700918ba4c16ddb",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3006,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 22053745,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/30861e0c-7fb2-4575-a2f6-208dfc3ac21e?catalog=dcp60&version=2022-11-28T10%3A43%3A22.467000Z",
+  "sha256": "cc5138df3eb1256b7445c3fdc6580083ed80d95b99a83e4f56cb623e1b562a56",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2933,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 22066275,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/68efdb9c-268e-4e1a-b255-755dfaf27408?catalog=dcp60&version=2022-11-28T10%3A43%3A22.491000Z",
+  "sha256": "7c0517e5ea13dd4abb7c651945867a82bf2f2fcf190d3b3e17ffa29aa4088c0e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2839,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB1_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 22027382,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/afc85a34-ea50-416f-bdf7-2db106d3f721?catalog=dcp60&version=2022-11-28T10%3A43%3A22.507000Z",
+  "sha256": "af27ec745b7a945f499bba47d000aca86dd021c3f0dcab519100c2b0c224fe17",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2875,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 24752076,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c23bef83-2a1f-494d-bbd5-489a86082ade?catalog=dcp60&version=2022-11-28T10%3A43%3A22.525000Z",
+  "sha256": "dcd881a8eef522a2e680ba4fee022b6fbf0c61dd18cf3016b4eca3365f752c16",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4573,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 24731603,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c96885b0-ad71-42f8-9053-ee685dc6f1a6?catalog=dcp60&version=2022-11-28T10%3A43%3A22.540000Z",
+  "sha256": "633c795662d2e51699b8996d105dd380cc87caa3045168bb6036f8343b702ef1",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4369,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 25175525,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/dfe785ab-bfda-4b65-82ae-ac4a2d8b3966?catalog=dcp60&version=2022-11-28T10%3A43%3A22.555000Z",
+  "sha256": "51cc95173e3c9dbf6e460b639c27ec3dcb6f6c1365aedffa6ae576da2cbc8e4a",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4604,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24974871,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/8ca0c768-145e-4978-abbc-a38df41cedb4?catalog=dcp60&version=2022-11-28T10%3A43%3A22.569000Z",
+  "sha256": "640dccd0d385480d61c1189c90fd8ebafea15df23a121776c1cf2eaa83f32c0e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4568,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24955320,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a1308743-807c-4ae9-b771-f0508f1f926c?catalog=dcp60&version=2022-11-28T10%3A43%3A22.593000Z",
+  "sha256": "ebe4c44b936f3c25ee734ec4d9702b5fc14e3cc3f87fe2034164da1744b529f8",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4724,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25030168,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/100d5b61-6657-4e7c-a08c-892b77d945fa?catalog=dcp60&version=2022-11-28T10%3A43%3A22.612000Z",
+  "sha256": "2a625f9c5f01b90ba0a38b3b602a59e18c04d91632ee182fb7a88c1bcbe6b76d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4723,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 24484841,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9f98fde8-b242-4867-bee3-fef84a26b713?catalog=dcp60&version=2022-11-28T10%3A43%3A22.627000Z",
+  "sha256": "4997814140422ce07c68512e028e0c66671f809deb251482cf051890a25bf0bb",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4371,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB2_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 24940284,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7dc811bf-7ded-4a23-b66a-a39ee8746f0e?catalog=dcp60&version=2022-11-28T10%3A43%3A22.643000Z",
+  "sha256": "43fd0781b9dca95fffcefa4bf43fbed28436682aad0fd9af55d238b86357570f",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4575,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 25135609,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/80607a74-d142-444f-b42b-5f7841f36e8d?catalog=dcp60&version=2022-11-28T10%3A43%3A22.662000Z",
+  "sha256": "43b2bd53022c65bb1aaa69fdd167362bd1aa5b9db26ef0a6716c16e66387d923",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4579,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 25696224,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e1f9d340-d840-4c7c-b59e-900ae60b5a6e?catalog=dcp60&version=2022-11-28T10%3A43%3A22.681000Z",
+  "sha256": "0ad4162f18974f2ad8d37ed3d19ded7b238d72eaabaf4a7aabe15cfc7cece282",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4375,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 25243009,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4bb21eae-cbc5-4e74-8f25-3960da9f2116?catalog=dcp60&version=2022-11-28T10%3A43%3A22.696000Z",
+  "sha256": "372b9db6d0953ba70731dd8220bb9db754098819d39e31d0fc02618925f9414d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4505,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 23580317,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e4e98381-508e-420e-a710-198f249cdf5c?catalog=dcp60&version=2022-11-28T10%3A43%3A22.719000Z",
+  "sha256": "1f7c499e314764582829345a12a19addb9f7153effe14661c2168432965aabdc",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4098,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 25325436,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c4791c68-94bf-44ef-8e02-7ee5dc8a5a95?catalog=dcp60&version=2022-11-28T10%3A43%3A22.734000Z",
+  "sha256": "41ec39749402617a808c3af8be977d0f1dceb7ec30464e10a2b23a91383ae717",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4293,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25301843,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/69fcea80-3391-4c20-9b6d-740734313806?catalog=dcp60&version=2022-11-28T10%3A43%3A22.750000Z",
+  "sha256": "817d01ea3dddc10dd72d5b224e68d3827d4a57d07fed7a163e8afc76675f465e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4173,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25149555,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e00fca06-0ac1-4f01-8fd6-2dec79aacfd2?catalog=dcp60&version=2022-11-28T10%3A43%3A22.765000Z",
+  "sha256": "c61040d2ab9da9e35e0c68ee3ca988067d60c4729ddc8e66e6c28b815f51df1b",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4429,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB3_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 24650456,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/53b0e510-f216-4914-8050-53c92cccb5d1?catalog=dcp60&version=2022-11-28T10%3A43%3A22.791000Z",
+  "sha256": "005896d6c5d664e7fbbd5d993eb490c72076ef70382d187f75bcf46aad4c2540",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4195,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 20523261,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4cbffc64-07c2-452c-bad7-d0a5f924cd22?catalog=dcp60&version=2022-11-28T10%3A43%3A22.806000Z",
+  "sha256": "4ca3adb2484dc3a3b535d89286238b9d6191270c266865ee33417fbc69536a5f",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2502,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 20549946,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/245ad892-591c-4337-8891-5a47a2ffd0fc?catalog=dcp60&version=2022-11-28T10%3A43%3A22.834000Z",
+  "sha256": "410d25e092c5c9dd05887cef49e5cfade6e6db7ea84d337e503ae0bb2c86ede5",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2511,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 22503718,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/654b114f-c263-44f9-b147-624d84b427f0?catalog=dcp60&version=2022-11-28T10%3A43%3A22.849000Z",
+  "sha256": "be2397babf2361dac82007914f808ebd326a909b7592b9b6e25caf26712f214d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3831,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 22741596,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f606c736-6f32-411b-a7e4-3a7e90c156e5?catalog=dcp60&version=2022-11-28T10%3A43%3A22.864000Z",
+  "sha256": "38a4d111fa267af91619fab91ff2a7019ada52fde1c1b4e0c3a96cce0c8d6072",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3877,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 22697967,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/8ca8b3f0-6d3c-46fe-88d5-8eed23e2792d?catalog=dcp60&version=2022-11-28T10%3A43%3A22.889000Z",
+  "sha256": "a45178ca5791e05c01148d5120b5199ccc6174b8646806bc345b78bdab717d01",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4096,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 22994882,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/127f94ec-3495-4079-94a9-9fbc88f306ed?catalog=dcp60&version=2022-11-28T10%3A43%3A22.903000Z",
+  "sha256": "39685dc66325ed2339b95da07040e372bc4d9f7cb5b5639a9fdb6a18c2ec2eb8",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4012,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 23095525,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f8a2bdef-8c8a-44f5-97dc-b799c34d892a?catalog=dcp60&version=2022-11-28T10%3A43%3A22.918000Z",
+  "sha256": "1a54ba091dd3a6b3a66bc0c466abf98a262bbdaf2d153f5596d033a8a70ab8c1",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4099,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB4_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 19440401,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b2c577db-26ba-4685-8da3-08cd1a846cfa?catalog=dcp60&version=2022-11-28T10%3A43%3A22.940000Z",
+  "sha256": "ac311ade9ac412250b94ab2326e4e32d39da5df794a88a7776a2ef25b36b7e79",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 863,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 24052472,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/63ca2e43-0893-49f3-af1d-4e593f3cc907?catalog=dcp60&version=2022-11-28T10%3A43%3A22.962000Z",
+  "sha256": "63cfa1b2656aae20335eaffb2a115bc4145780cc51810f93be19106829f79e4b",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4675,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 24023863,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4121f69d-460e-4b89-986a-64fd0a0e2b86?catalog=dcp60&version=2022-11-28T10%3A43%3A23.053000Z",
+  "sha256": "15e700ea0871fcaf6b01ab0933ae18bc214f66beea8c7edb712c357e20db9345",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4753,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 23768025,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9d661119-5780-4eb7-9bfa-42c0e28bf54a?catalog=dcp60&version=2022-11-28T10%3A43%3A23.114000Z",
+  "sha256": "aed6a28b2cc428d6433e6a6471ae25d67b85cc2937edfb0eb64ed5acd35b6bbf",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4530,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24076877,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/49b6cb5e-e150-4926-9b63-e3e7198a71d8?catalog=dcp60&version=2022-11-28T10%3A43%3A23.202000Z",
+  "sha256": "1a95cd1dec7eb3d648402e207d703990b0119b262f6053955841253d227e671c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4707,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24071171,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4df5fe7c-e02e-4288-bf54-2ae94ee30c4c?catalog=dcp60&version=2022-11-28T10%3A43%3A23.233000Z",
+  "sha256": "f63af9f88d6cf007b60f372d727efb69c0c5d489cb0aa384ead241ed509c5d63",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4478,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 23602093,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b39357d2-8f59-41ce-8499-c77d078f8c00?catalog=dcp60&version=2022-11-28T10%3A43%3A23.249000Z",
+  "sha256": "09ebc801d96d5a046f1cf60aa45a8587654107433e179262f4e60fe580fa1ac9",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4728,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 23751884,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f4957294-6be9-45cf-8f56-21457f8929bf?catalog=dcp60&version=2022-11-28T10%3A43%3A23.264000Z",
+  "sha256": "d81301b6876c63dd59aadd0800127596718e5df49416cb0a6855083255eccc0d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4626,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB5_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 23259598,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/0a4aad89-c22b-4c46-ae4b-4498a531614a?catalog=dcp60&version=2022-11-28T10%3A43%3A23.289000Z",
+  "sha256": "77d9493b6cc489f022fc0fefb1214063e5dd883e3f12e9a7e7366bdba51c7449",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4366,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 24396777,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7ab333a3-cba7-4372-8a33-6df5b7f20cfd?catalog=dcp60&version=2022-11-28T10%3A43%3A23.304000Z",
+  "sha256": "0e9d222ffebc4a95a909f8c7daa2bad758cb10db8079673c1c74b8898d7229e5",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4556,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 23970084,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/cc517e70-7e3c-4d61-b83e-9c8b588791aa?catalog=dcp60&version=2022-11-28T10%3A43%3A23.319000Z",
+  "sha256": "ba0f9e19b7c4664d5c59c3b8c146d8df97d4ed8665e6308b2aa6c4b2697caa98",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4270,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 23939712,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/c6f597fa-0c38-435d-9390-40375c75f67e?catalog=dcp60&version=2022-11-28T10%3A43%3A23.340000Z",
+  "sha256": "577de38bbf4eba82d8d4c4db72c9d01585bf59c741a936f3ff7d61e476315668",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4245,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 24741102,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5630d59b-1bd4-442b-a6f8-148762b755df?catalog=dcp60&version=2022-11-28T10%3A43%3A23.354000Z",
+  "sha256": "9b8a5b26b86b3dda8d67b1639875f4a06dbaff8833ac4b562519a5a28b45ffeb",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4557,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 24189464,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e555e010-fac7-423f-858f-318f1cc4f625?catalog=dcp60&version=2022-11-28T10%3A43%3A23.373000Z",
+  "sha256": "d337c11c12ac5e6f9d008397274195aacb2a9598c7d217bef6b57bf8e761cc13",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4492,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 23907941,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f92d9d4f-64f4-48cb-82c3-c367352aa1eb?catalog=dcp60&version=2022-11-28T10%3A43%3A23.402000Z",
+  "sha256": "3cae06eff5b42602296dc5134d8eeef8e0e75d759de088c920f52a243af52b78",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4425,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 24796844,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/9beef1aa-e8c6-4d4c-af28-32b6869d99a9?catalog=dcp60&version=2022-11-28T10%3A43%3A23.419000Z",
+  "sha256": "d6f5010043228161807b34f1798dc70b1958c16d2d4856e5f8c11aeb8679bd1e",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4582,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB6_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 24234353,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/5eec1079-81f8-4875-a1b6-46b3aefed518?catalog=dcp60&version=2022-11-28T10%3A43%3A23.435000Z",
+  "sha256": "e60c0a21fba14aa88f8cf80823e6afac1ff4a63867bbee1c2d479b95d3819523",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 4493,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 26379678,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/66b0c17a-1e49-4b98-ad06-2b17fada56a4?catalog=dcp60&version=2022-11-28T10%3A43%3A23.451000Z",
+  "sha256": "f59d13e9ab19cc62f310bf5a060419306894bf67804f6d500761c805591854a4",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 5119,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 18221920,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/4550d426-480e-4714-b81c-934bf2bf9ee3?catalog=dcp60&version=2022-11-28T10%3A43%3A23.467000Z",
+  "sha256": "5a75f9ed49248000deb0e354a187c2f67624632105701e57e9d24c88f2c1862d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 917,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 27348213,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/01758632-c905-4817-aa53-25eeba40e550?catalog=dcp60&version=2022-11-28T10%3A43%3A23.490000Z",
+  "sha256": "548cfd374151ab02a86f089dd166c2b0903eb3460212454166862f264313306f",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 5236,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 27020581,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b49c0815-51d0-4bd6-a2be-a568dba5c39f?catalog=dcp60&version=2022-11-28T10%3A43%3A23.506000Z",
+  "sha256": "95f856e414f35c68ff1c02edf7f726a368e7f7260f1026b19bc1b1dc760b63ca",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 5143,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 26504645,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7e508f25-2be2-4fb2-8e33-96cc817e07cc?catalog=dcp60&version=2022-11-28T10%3A43%3A23.521000Z",
+  "sha256": "392aa10b93eacef8a8b645a27dc17c73b28cd45cca0085213981e596fb9afcc3",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 5052,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 25935954,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/f5859c3e-9bb6-4d5f-858b-9393d87047b4?catalog=dcp60&version=2022-11-28T10%3A43%3A23.536000Z",
+  "sha256": "3120af657bf2a7e553e2cc3e1f27510bf2b4d39976111f60f92d461b82e44616",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 5132,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 25993537,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/dcc51f07-e590-4e4d-81b0-ac575b7ece6a?catalog=dcp60&version=2022-11-28T10%3A43%3A23.551000Z",
+  "sha256": "934601b9412abd476f49fd53296220ed088bb627b4badbbfb73c4f261487a0a9",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 5022,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB7_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 26234323,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/3dd07111-15e9-4f93-978e-639d3570f30b?catalog=dcp60&version=2022-11-28T10%3A43%3A23.566000Z",
+  "sha256": "4ea3880c281d07ed1b3a95aa88b2c27db36d9eaee93bcf5029edcc22d5f020ef",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 5132,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "male"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 21993553,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/40515b86-423d-48f2-a440-084ce9e7f90b?catalog=dcp60&version=2022-11-28T10%3A43%3A23.591000Z",
+  "sha256": "8f938e65e1f67817750736bac64b7c76e8f93bbf4a0d3606d985b6e1ff87312c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2518,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 22307424,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/ca2bd133-dbfc-456a-b145-899e653f5736?catalog=dcp60&version=2022-11-28T10%3A43%3A23.605000Z",
+  "sha256": "8901f5b6d04fc595421e65c5b61d86d7c6ef4871ab9f81b23fe9ff63ac373f77",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2895,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 22543800,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/e2854047-c6dc-46e6-b130-e8559e18c980?catalog=dcp60&version=2022-11-28T10%3A43%3A23.627000Z",
+  "sha256": "f00c7c811497320cb5418dd2408cd7fe1815412ce645ec44d174803cf58b89d5",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3034,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 22365546,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/bea0ff63-66aa-4d24-b2af-0e4cb257cee3?catalog=dcp60&version=2022-11-28T10%3A43%3A23.643000Z",
+  "sha256": "9600687116adf5bc8331ded3940255d8984555eb71356f701f078cfd6cffd164",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 2898,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 22797640,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/296586fc-9e84-4dc1-91f4-d697f50657cd?catalog=dcp60&version=2022-11-28T10%3A43%3A23.659000Z",
+  "sha256": "cbf2db3015f774a7dda3c8159ded1bf096f729c78914d8ef91350f0e7ff20309",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3339,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 23388154,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/dee7fa5e-e1db-40d4-b131-b1a45ad98ec1?catalog=dcp60&version=2022-11-28T10%3A43%3A23.675000Z",
+  "sha256": "2a80596d76b7bdb44449493e484fd2323761cf140c6e62c04e0c19de0c0da681",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3753,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 23202968,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/be88fb6b-2e31-4373-91fb-22dc4306694a?catalog=dcp60&version=2022-11-28T10%3A43%3A23.692000Z",
+  "sha256": "8a651ff0528a0049115f42393abeeb527207f683c9c0cf28d8625d9285a72237",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3686,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB8_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 23270482,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/614228bd-547b-4cce-ba79-ee8076a85a71?catalog=dcp60&version=2022-11-28T10%3A43%3A23.707000Z",
+  "sha256": "71d63f4b665c6222b9bb79e3843a91507f5a343ea471bb78a2535ee0b56b1806",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "cord blood hematopoietic stem cell"
+  ],
+  "target_cells": 3788,
+  "age": [
+   {
+    "value": "0",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_1_raw_feature_bc_matrix.h5",
+  "size": 21512498,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/b3d96ed1-250c-4bce-b9e6-16a031903bf9?catalog=dcp60&version=2022-11-28T10%3A43%3A24.072000Z",
+  "sha256": "fb1c47c88793673959cb92962703ba902e58485c67cfc89cf3094d6523d403ad",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_2_raw_feature_bc_matrix.h5",
+  "size": 21540422,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/1f34bc76-d42c-457f-9834-c9a7e66c9b4e?catalog=dcp60&version=2022-11-28T10%3A43%3A24.442000Z",
+  "sha256": "167a8fcfccb7a41fc3b5ff4b4e3f3e1bd40499a4e087f7d4ec39d8468bec719c",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_3_raw_feature_bc_matrix.h5",
+  "size": 21836005,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/af8d2b28-ecbd-4b43-9a4f-9681d7d38ae4?catalog=dcp60&version=2022-11-28T10%3A43%3A24.720000Z",
+  "sha256": "0b2feb564c4bb2ab1c0bca34264731260113d48dfe6d49024c7a252eab60ec52",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_4_raw_feature_bc_matrix.h5",
+  "size": 21860079,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/83c44942-bc2e-4d9d-aced-7db173115490?catalog=dcp60&version=2022-11-28T10%3A43%3A25.649000Z",
+  "sha256": "3641416d5583230815834e6ef3149d2b7379ca4403bb27bd4ab397cd579c2350",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_5_raw_feature_bc_matrix.h5",
+  "size": 21649208,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/bd35b86d-a38e-403e-b06a-05945bc57332?catalog=dcp60&version=2022-11-28T10%3A43%3A26.028000Z",
+  "sha256": "355dd82c819d243466cf839dab504f23e196ba8b30e948c9489641999d1edd13",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_6_raw_feature_bc_matrix.h5",
+  "size": 21891081,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/d33df2d7-233c-4d0e-b3ea-2d186ca1dcc1?catalog=dcp60&version=2022-11-28T10%3A43%3A26.535000Z",
+  "sha256": "43f6cce92ba0adc1df77680a2c4d71468e993bb2ba4136ef045a3766e52c8c6d",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_7_raw_feature_bc_matrix.h5",
+  "size": 21489404,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/da2aae6a-70de-4e72-bb69-01a787429687?catalog=dcp60&version=2022-11-28T10%3A43%3A26.965000Z",
+  "sha256": "fb2a5f8e9a2114bd89909eef8d85563d203994a769caebed196c8c865ae4eb58",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "MantonCB9_HiSeq_8_raw_feature_bc_matrix.h5",
+  "size": 20830326,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/7b57a33d-71f6-4220-96d2-1a2d8d4f4f75?catalog=dcp60&version=2022-11-28T10%3A43%3A27.646000Z",
+  "sha256": "b066cc3e262dcf42e58509475cf5103fc9cb92d9c56fa0fc5494d4a6c8a6eea9",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 7000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "cb_cc_raw_feature_bc_matrix.h5",
+  "size": 50482877,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a7e5bdf0-0294-4193-af95-e49fea66df9d?catalog=dcp60&version=2022-11-28T10%3A43%3A37.310000Z",
+  "sha256": "666193da454a63cb8b55d50ed8bb8c909cc0f8c24dcd22c49bbfbdb230c047b4",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 30000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "CITE-seq (sample multiplexing)"
+ },
+ {
+  "name": "cb_control_raw_feature_bc_matrix.h5",
+  "size": 35289880,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/a926eb3b-02f8-4a24-a4e4-f1b5e502e855?catalog=dcp60&version=2022-11-28T10%3A43%3A37.293000Z",
+  "sha256": "5d433127d3114047b358140f2dc074d0fbb05d20135de1cdcf368ff44fe616a8",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "mononuclear cell of umbilical cord"
+  ],
+  "target_cells": 30000,
+  "age": [
+   null
+  ],
+  "sex": [
+   "female"
+  ],
+  "chemistry": "10x 3' v2"
+ },
+ {
+  "name": "pbmc_30k_raw_feature_bc_matrix.h5",
+  "size": 45705464,
+  "url": "https://service.azul.data.humancellatlas.org/repository/files/de03a69c-f741-4fa9-a556-5faa4e3981d2?catalog=dcp60&version=2022-11-28T10%3A43%3A37.264000Z",
+  "sha256": "fe10b94ccc974d4d2e54b7d9c964404fcbb91522459186c2b62a64eb4cf05ac4",
+  "organ": [
+   "blood"
+  ],
+  "cell_type": [
+   "peripheral blood mononuclear cell"
+  ],
+  "target_cells": 30000,
+  "age": [
+   {
+    "value": "23",
+    "unit": "year"
+   },
+   {
+    "value": "24",
+    "unit": "year"
+   },
+   {
+    "value": "25",
+    "unit": "year"
+   },
+   {
+    "value": "27",
+    "unit": "year"
+   },
+   {
+    "value": "28",
+    "unit": "year"
+   },
+   {
+    "value": "32",
+    "unit": "year"
+   },
+   {
+    "value": "36",
+    "unit": "year"
+   },
+   {
+    "value": "50",
+    "unit": "year"
+   }
+  ],
+  "sex": [
+   "female",
+   "male"
+  ],
+  "chemistry": "cell hashing"
+ }
+]

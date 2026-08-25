@@ -1,0 +1,17 @@
+[MantonBM1] cells=44718 NK_cluster=1315 NK_ratio=1250 NK_cd3zero=703 | T=22322 B=9127 Myeloid=6041 Erythroid=2407 GranProg=1764 NK=1250 HSPC=695 Plasma=518 pDC=295 Mk=234 unassigned=65
+[MantonBM2] cells=51340 NK_cluster=7150 NK_ratio=6906 NK_cd3zero=3460 | T=21331 B=12909 NK=6906 Myeloid=5880 Erythroid=965 GranProg=954 unassigned=900 Mk=643 Plasma=396 HSPC=306 pDC=150
+[MantonBM3] cells=45640 NK_cluster=2329 NK_ratio=2003 NK_cd3zero=1015 | T=22942 Myeloid=11532 B=3351 NK=2003 unassigned=1486 Erythroid=1230 GranProg=1008 HSPC=814 Plasma=677 pDC=414 Mk=183
+[MantonBM4] cells=45910 NK_cluster=4282 NK_ratio=4177 NK_cd3zero=2241 | T=14019 Myeloid=13658 B=6366 NK=4177 Erythroid=1807 GranProg=1714 Mk=1551 HSPC=1264 pDC=793 Plasma=456 unassigned=105
+[MantonBM5] cells=45742 NK_cluster=1994 NK_ratio=1136 NK_cd3zero=473 | T=15198 Myeloid=9793 B=7006 Erythroid=5296 GranProg=3522 NK=1136 HSPC=1068 unassigned=858 Plasma=788 Mk=590 pDC=487
+[MantonBM6] cells=43396 NK_cluster=2114 NK_ratio=2049 NK_cd3zero=786 | T=21589 Myeloid=6619 B=5169 GranProg=2438 NK=2049 Erythroid=1797 unassigned=1295 HSPC=1246 Plasma=555 pDC=420 Mk=219
+[MantonBM7] cells=49174 NK_cluster=4476 NK_ratio=4125 NK_cd3zero=1479 | T=25145 B=8916 Myeloid=5606 NK=4125 Erythroid=1566 GranProg=1495 HSPC=859 pDC=540 unassigned=351 Plasma=333 Mk=238
+[MantonBM8] cells=48385 NK_cluster=987 NK_ratio=868 NK_cd3zero=413 | T=26997 Myeloid=9394 B=5860 Erythroid=2267 HSPC=1704 NK=868 pDC=454 GranProg=323 Plasma=284 unassigned=119 Mk=115
+[MantonBL1] cells=40906 NK_cluster=5125 NK_ratio=4607 NK_cd3zero=1347 | T=21742 Myeloid=7758 B=5100 NK=4607 unassigned=1248 Mk=284 pDC=148 Plasma=19
+[MantonBL2] cells=42691 NK_cluster=3385 NK_ratio=3337 NK_cd3zero=1754 | T=12890 unassigned=9920 B=7710 Myeloid=7542 NK=3337 Plasma=580 Mk=350 pDC=271 HSPC=91
+[MantonBL3] cells=41244 NK_cluster=3756 NK_ratio=3687 NK_cd3zero=1696 | T=24559 Myeloid=7076 NK=3687 B=3528 unassigned=1970 pDC=240 Mk=127 HSPC=57
+[MantonBL4] cells=45183 NK_cluster=2179 NK_ratio=2021 NK_cd3zero=764 | T=26127 B=8427 Myeloid=7819 NK=2021 unassigned=565 pDC=140 Mk=84
+[MantonBL5] cells=35881 NK_cluster=4628 NK_ratio=4414 NK_cd3zero=1166 | T=20772 Myeloid=5898 NK=4414 B=3776 unassigned=802 Mk=115 pDC=104
+[MantonBL6] cells=39972 NK_cluster=4570 NK_ratio=4353 NK_cd3zero=999 | T=22764 unassigned=7513 B=4357 NK=4353 Myeloid=541 Mk=223 Plasma=181 HSPC=40
+[MantonBL7] cells=44693 NK_cluster=8816 NK_ratio=8675 NK_cd3zero=3029 | T=19375 B=9297 NK=8675 Myeloid=5253 unassigned=1593 HSPC=380 Mk=120
+[MantonBL8] cells=42020 NK_cluster=2156 NK_ratio=2108 NK_cd3zero=976 | T=22100 B=9393 Myeloid=4656 unassigned=3277 NK=2108 HSPC=304 pDC=123 Mk=59
+ALL_DONE
