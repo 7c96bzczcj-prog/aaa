@@ -181,11 +181,21 @@ def gse131907_samples() -> pd.DataFrame:
     p = os.path.join(d, "samples.csv")
     if not os.path.exists(p):
         return pd.DataFrame()
+    import re
+
     s = pd.read_csv(p)
+
+    def donor_of(sample):
+        # LUNG_T06 and LUNG_N06 are the same patient; the numeric suffix is the
+        # donor. Using the sample name would split one patient into two donors
+        # and silently inflate the donor count in every per-donor statistic.
+        m = re.search(r"(\d+)$", str(sample))
+        return f"pt{m.group(1)}" if m else str(sample)
+
     return pd.DataFrame([{
         "dataset": "GSE131907", "sample": r["sample"],
         "tissue": "tumor" if r["origin"] == "tLung" else "normal_adj",
-        "donor": r["sample"], "histology": "NSCLC", "hpv": "-",
+        "donor": donor_of(r["sample"]), "histology": "NSCLC", "hpv": "-",
         "prefix": os.path.join(d, f"{r['sample']}_"),
         "mtx": "matrix.mtx.gz", "bc": "barcodes.tsv.gz", "ft": "features.tsv.gz",
     } for _, r in s.iterrows()])
