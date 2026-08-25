@@ -100,3 +100,52 @@ as a progenitor marker. Its r_g came back at 1.11 in marrow and 1.69 in blood �
 NK carry more SPINK2 than the entire pseudobulk could hold as soup, so it is
 not NK-foreign and would have inflated rho. A foreign panel needs the same
 r_g > 1 sanity check applied to every member.
+
+---
+
+## T3 — A detection-rate admission criterion is uninterpretable without its ambient floor
+
+*Found: BM-PB-NK preflight, admission criterion 2, GSE120221.*
+
+**The failure.** Criterion 2 admits a gene when its detection rate in the
+target population falls inside 5%–85%. A detection rate counts cells with at
+least one transcript, and in a library with a heavy soup a large share of those
+transcripts are ambient. The criterion therefore has a floor it never
+measures, and in a soupy dataset the floor alone can lift a gene over the 5%
+threshold.
+
+**The evidence.** GSE120221 (Oetjen, 20 healthy marrow donors, no unfiltered
+matrix deposited, median 6,175 UMI per cell):
+
+| gene | detected in ALL cells, every lineage included |
+|---|---|
+| HBB | **100%** |
+| GNLY | **52%** |
+| NKG7 | **51%** |
+| LYZ | 69% |
+| MPO | 27% |
+
+Erythroid and myeloid cells do not transcribe GNLY or NKG7. Half of every
+lineage carrying them is the soup, not expression. Every cell in every
+lymphoid sub-cluster of donor A carried TCR transcripts at 2.6–3.1 per 1,000
+UMI — the cytotoxic sub-cluster included — so the NK gate could not be formed
+there either.
+
+**Why it matters beyond this run.** The floor is a property of the library, not
+of the gene, so it moves between datasets and between compartments of the same
+dataset. Two datasets can return the same detection rate for the same gene and
+mean entirely different things by it. Any admission, filtering or "expressed
+in X% of cells" statement built on a raw detection rate inherits that.
+
+**The repair, stated as a rule.**
+
+> Criterion 2 (detection rate inside 5%–85%) is not a criterion on its own.
+> It holds only when reported together with an **ambient floor**: the same
+> gene's detection rate in a population that certainly does not express it,
+> measured in the same libraries. The admissible quantity is the gap between
+> the two, not the rate. Where no unfiltered matrix exists, the floor cannot
+> be estimated and the criterion cannot be applied at all.
+
+Past conclusions that used the bare criterion need re-examination on this
+point. This preflight reports the floor for every detection rate it quotes
+(`results/ltnk_detection_gate.tsv`, columns `floor_B_*` and `floor_Erythroid_*`).
