@@ -1,4 +1,0 @@
-[MantonBL1] cells=40906 doublets=434 NK_cluster=5064 NK_ratio=4572 NK_cd3zero=1344 | T=21685 Myeloid=7604 B=4992 NK=4572 unassigned=1179 doublet=434 Mk=276 pDC=145 Plasma=19
-[MantonBL2] cells=42691 doublets=656 NK_cluster=3293 NK_ratio=3263 NK_cd3zero=1738 | T=12869 unassigned=9739 B=7626 Myeloid=7265 NK=3263 doublet=656 Plasma=580 Mk=343 pDC=267 HSPC=83
-[MantonBL3] cells=41244 doublets=25 NK_cluster=3756 NK_ratio=3687 NK_cd3zero=1696 | T=24557 Myeloid=7061 NK=3687 B=3521 unassigned=1969 pDC=240 Mk=127 HSPC=57 doublet=25
-FAIL  MantonBL4

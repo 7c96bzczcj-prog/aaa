@@ -8,3 +8,7 @@ phase1_registry/rescan/*.xml
 .venv/
 preflight/labels/
 preflight/out/
+preflight/scan/ann_*.log
+preflight/scan/annotate*.log
+preflight/scan/task_c*.log
+preflight/scan/fetch_*.log
