@@ -243,7 +243,7 @@ def cd56_split(tnk):
 
 # --------------------------------------------------------------------------
 def main(dataset):
-    reg = cc.all_samples()
+    reg = cc.registry()
     reg = reg[reg.dataset == dataset].reset_index(drop=True)
     if reg.empty:
         raise SystemExit(f"unknown dataset {dataset}")

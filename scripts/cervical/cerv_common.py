@@ -168,6 +168,70 @@ def gse173231_samples() -> pd.DataFrame:
     return df
 
 
+LUNG_ROOT = "/home/user/lung_work"
+
+
+def gse131907_samples() -> pd.DataFrame:
+    """
+    Kim et al. NSCLC. Primary-site lung only: tLung tumour and nLung normal.
+    Written out per sample as 10x triplets by convert_gse131907.py so this arm
+    runs through the same build_dataset.py as the cervical arm.
+    """
+    d = os.path.join(LUNG_ROOT, "GSE131907_samples")
+    p = os.path.join(d, "samples.csv")
+    if not os.path.exists(p):
+        return pd.DataFrame()
+    s = pd.read_csv(p)
+    return pd.DataFrame([{
+        "dataset": "GSE131907", "sample": r["sample"],
+        "tissue": "tumor" if r["origin"] == "tLung" else "normal_adj",
+        "donor": r["sample"], "histology": "NSCLC", "hpv": "-",
+        "prefix": os.path.join(d, f"{r['sample']}_"),
+        "mtx": "matrix.mtx.gz", "bc": "barcodes.tsv.gz", "ft": "features.tsv.gz",
+    } for _, r in s.iterrows()])
+
+
+def gse154826_samples() -> pd.DataFrame:
+    """
+    Leader et al. NSCLC. Unhashed, CD45+-enriched, V2 tumour libraries.
+    These are UNFILTERED droplet matrices (737,280 barcodes = the full 10x v2
+    whitelist), so the standard QC step is also the cell call here.
+    """
+    import glob
+    import re
+    root = os.path.join(LUNG_ROOT, "GSE154826")
+    rows = []
+    for mtxp in sorted(glob.glob(os.path.join(root, "b*", "*_matrix.mtx*"))):
+        base = mtxp[: mtxp.index("_matrix.mtx")]
+        stem = os.path.basename(base)
+        m = re.match(r"(\d+)_patient_(\d+)-(.+)", stem)
+        if not m:
+            continue
+        batch, patient, tis = m.groups()
+        gz = ".gz" if mtxp.endswith(".gz") else ""
+        rows.append({
+            "dataset": "GSE154826", "sample": f"p{patient}_b{batch}",
+            "tissue": "tumor" if "tumor" in tis.lower() or tis.upper().endswith("T") else "normal_adj",
+            "donor": f"p{patient}", "histology": "NSCLC", "hpv": "-",
+            "prefix": base + "_",
+            "mtx": f"matrix.mtx{gz}", "bc": f"barcodes.tsv{gz}", "ft": f"features.tsv{gz}",
+        })
+    return pd.DataFrame(rows)
+
+
+def registry() -> pd.DataFrame:
+    """Cervical plus lung, for build_dataset.py."""
+    parts = [all_samples()]
+    for fn in (gse131907_samples, gse154826_samples):
+        try:
+            d = fn()
+            if len(d):
+                parts.append(d)
+        except Exception:
+            pass
+    return pd.concat(parts, ignore_index=True)
+
+
 def all_samples() -> pd.DataFrame:
     df = pd.concat(
         [emtab_samples(), gse208653_samples(), gse197461_samples(), gse173231_samples()],
@@ -182,14 +246,17 @@ def all_samples() -> pd.DataFrame:
 
 def read_10x(prefix: str, mtx: str, bc: str, ft: str):
     """Read a 10x triplet. Returns (counts CSR cells x genes, barcodes, gene symbols)."""
+    def _open(p):
+        return gzip.open(p, "rt") if p.endswith(".gz") else open(p, "rt")
+
     m = scipy.io.mmread(prefix + mtx)          # genes x cells
     m.data = m.data.astype(np.float32)          # halve before the CSR conversion
     X = sp.csr_matrix(m.T)                      # -> cells x genes
     del m
-    with gzip.open(prefix + bc, "rt") as fh:
+    with _open(prefix + bc) as fh:
         barcodes = [ln.strip() for ln in fh if ln.strip()]
     genes = []
-    with gzip.open(prefix + ft, "rt") as fh:
+    with _open(prefix + ft) as fh:
         for ln in fh:
             parts = ln.rstrip("\n").split("\t")
             genes.append(parts[1] if len(parts) > 1 else parts[0])

@@ -20,7 +20,8 @@ import cerv_common as cc
 
 CACHE = "/home/user/cervical_work/cache"
 OUT = "/home/user/aaa/results/cervical"
-DATASETS = ["E-MTAB-12305", "GSE208653", "GSE197461", "GSE173231"]
+DATASETS = ["E-MTAB-12305", "GSE208653", "GSE197461", "GSE173231",
+            "GSE131907", "GSE154826"]
 
 
 def cd56_bright(tnk, nk_mask):
