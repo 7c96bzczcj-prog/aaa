@@ -32,6 +32,13 @@ import pf_core as pf  # noqa: E402
 
 GATE_GENES = ["CD69", "CXCR6"]
 SUBSET_GENES = ["CD69", "CXCR6", "NCAM1", "FCGR3A", "SELL", "GZMK", "KLRC1"]
+# The 5%-85% admission window is a window on a detection rate, and a detection
+# rate in a soupy library is partly soup.  The same rates are therefore also
+# measured in two populations that express none of these genes, which gives the
+# ambient floor the NK rate has to be read against.  On GSE120221 that floor is
+# not a technicality: GNLY is detected in 52% and NKG7 in 51% of ALL cells,
+# erythroid and myeloid included, and HBB in 100%.
+FLOOR_LINEAGES = ["B", "Erythroid"]
 
 
 def counts_for(mat, cells, gene):
@@ -66,6 +73,11 @@ def main():
         mat = (pf.read_10x_h5(e["path"]) if e["kind"] == "h5"
                else pf.read_10x_mtx(*e["path"].split("|"), e["library"]))
         sel = np.flatnonzero(np.isin(mat.barcodes, list(nk_bc)))
+        floors = {}
+        for fl in FLOOR_LINEAGES:
+            fbc = set(bc[(libcol == e["library"]) & (lin == fl)])
+            fsel = np.flatnonzero(np.isin(mat.barcodes, list(fbc))) if fbc else np.array([], int)
+            floors[fl] = fsel
         r = {"dataset": e["dataset"], "donor": e["donor"], "library": e["library"],
              "compartment": e["compartment"], "age": e.get("age", np.nan),
              "n_nk": len(sel)}
@@ -87,6 +99,12 @@ def main():
                 r["frac_bright"] = float(bright.mean())
                 r["n_dim"] = int(dim.sum())
                 r["frac_dim"] = float(dim.mean())
+        for fl, fsel in floors.items():
+            r[f"n_{fl}"] = len(fsel)
+            if len(fsel) >= pf.MIN_NK_CELLS:
+                for g in SUBSET_GENES:
+                    v = counts_for(mat, fsel, g)
+                    r[f"floor{fl}_{g}"] = float((v > 0).mean()) if v is not None else np.nan
         rows.append(r)
         print(f"  {e['dataset']:<11} {e['donor']:<12} {e['library']:<24} "
               f"NK={r['n_nk']:<6} detCD69={r.get('det_CD69', float('nan')):.3f} "

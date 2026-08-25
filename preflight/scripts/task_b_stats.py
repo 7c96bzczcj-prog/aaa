@@ -38,8 +38,10 @@ def main():
         r = {"dataset": ds, "donor": donor, "compartment": comp,
              "n_libraries": len(g), "n_nk": int(g.n_nk.sum()),
              "age": float(g.age.iloc[0]) if not np.isnan(g.age.iloc[0]) else np.nan}
-        for c in ["det_CD69", "det_CXCR6", "det_NCAM1", "det_FCGR3A", "det_SELL",
-                  "det_GZMK", "det_KLRC1"]:
+        cand = ["det_CD69", "det_CXCR6", "det_NCAM1", "det_FCGR3A", "det_SELL",
+                "det_GZMK", "det_KLRC1"]
+        cand += [c for c in g.columns if c.startswith("floor")]
+        for c in cand:
             if c in g:
                 r[c] = float(np.average(g[c].astype(float), weights=w))
         for c, ncol in [("frac_ltNK", "n_ltNK"), ("frac_bright", "n_bright"),
@@ -60,6 +62,12 @@ def main():
         for gene in ["CD69", "CXCR6"]:
             v = float(np.average(g[f"det_{gene}"], weights=w))
             row[f"det_{gene}"] = v
+            for fl in ("B", "Erythroid"):
+                col = f"floor{fl}_{gene}"
+                if col in g and g[col].notna().any():
+                    gg = g[g[col].notna()]
+                    row[f"floor_{fl}_{gene}"] = float(
+                        np.average(gg[col], weights=gg.n_nk.astype(float)))
             row[f"det_{gene}_min_donor"] = float(g[f"det_{gene}"].min())
             row[f"det_{gene}_max_donor"] = float(g[f"det_{gene}"].max())
             row[f"gate_{gene}_pass"] = bool(pf.DETECTION_LO <= v <= pf.DETECTION_HI)

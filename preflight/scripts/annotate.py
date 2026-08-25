@@ -96,7 +96,7 @@ def annotate(a):
         g2i.setdefault(g, []).append(i)
     Xn = a.raw.X if a.raw is not None else a.X          # log1p CP10K, all genes
     clusters = np.asarray(a.obs["leiden"])
-    uniq = sorted(set(clusters), key=lambda s: int(s))
+    uniq = sorted(set(clusters), key=lambda s: (len(s), s))
     panel_mean = {}
     for k, panel in pf.PANELS.items():
         rows = [i for g in panel for i in g2i.get(g, [])]
