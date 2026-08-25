@@ -134,7 +134,34 @@ def contrast(dn, paired, bm="BM", pb="PB", amb_prefix="amb_"):
     return out
 
 
-def verdict_for(con, tst, dn):
+def pooled_acceptance(libs, dataset, gate):
+    """Acceptance judged on counts pooled over a dataset x compartment, because
+    a per-library ratio on a handful of counts is dominated by Poisson noise.
+    rho is recomputed from the same pooled counts, which is exactly the
+    inherited estimator applied to the pool."""
+    out = []
+    d = libs[(libs.dataset == dataset) & (libs.gate == gate) &
+             (libs.n_nk >= pf.MIN_NK_CELLS)]
+    for comp, g in d.groupby("compartment"):
+        obs, pred = {}, {}
+        for gene in pf.RHO_FOREIGN_PANEL:
+            co, cp = f"fobs_{gene}", f"fpred_{gene}"
+            if co in g and cp in g:
+                obs[gene] = float(g[co].sum())
+                pred[gene] = float(g[cp].sum())
+        num = sum(obs.get(x, 0.0) for x in pf.RHO_MARKERS_NK)
+        den = sum(pred.get(x, 0.0) for x in pf.RHO_MARKERS_NK)
+        rho = num / den if den > 0 else np.nan
+        ok, n, frac, med = pf.acceptance_from_pooled(obs, pred, rho)
+        out.append({"dataset": dataset, "gate": gate, "compartment": comp,
+                    "n_libraries": len(g), "n_nk": int(g.n_nk.sum()),
+                    "rho_pooled": rho, "accept_pass": ok,
+                    "n_testable_foreign_genes": n, "frac_within_3x": frac,
+                    "median_ratio": med})
+    return pd.DataFrame(out)
+
+
+def verdict_for(con, tst, dn, acc_df):
     g = con[(con.gene != "")].merge(tst[["gene", "testable"]], on="gene", how="left")
     g = g[g.testable.fillna(False)]
     n_test = len(g)
@@ -142,8 +169,8 @@ def verdict_for(con, tst, dn):
     rho = con[con.quantity == "rho_narrow"].iloc[0] if (con.quantity == "rho_narrow").any() else None
     rho_ratio = (rho.mean_bm / rho.mean_pb) if (rho is not None and rho.mean_pb) else np.nan
     rho_sig = bool(rho is not None and rho.p == rho.p and rho.p < pf.FDR_ALPHA)
-    acc = dn.groupby("compartment").accept_pass_frac.mean().to_dict()
-    acc_ok = all(v >= 0.5 for v in acc.values()) and len(acc) >= 2
+    acc = {r.compartment: bool(r.accept_pass) for r in acc_df.itertuples()}
+    acc_ok = len(acc) >= 2 and all(acc.values())
     if not acc_ok:
         key = "A_UNMEASURABLE"
     elif (rho_ratio >= pf.RHO_RATIO_LARGE and rho_sig) or \
@@ -159,7 +186,7 @@ def verdict_for(con, tst, dn):
             "rho_pb": float(rho.mean_pb) if rho is not None else np.nan,
             "rho_ratio_bm_over_pb": float(rho_ratio),
             "rho_p": float(rho.p) if rho is not None else np.nan,
-            "acceptance_pass_frac": json.dumps({k: round(v, 3) for k, v in acc.items()}),
+            "acceptance_pooled": json.dumps(acc),
             "verdict_key": key, "verdict": VERDICT_TABLE[key]}
 
 
@@ -173,7 +200,7 @@ def main():
     dn = donor_table(df)
     dn.to_csv(os.path.join(a.outdir, "soup_by_donor.tsv"), sep="\t", index=False)
 
-    all_con, all_tst, verdicts = [], [], []
+    all_con, all_tst, verdicts, all_acc = [], [], [], []
     for (ds, gate), g in dn.groupby(["dataset", "gate"]):
         tst = testable_genes(g)
         tst.insert(0, "dataset", ds)
@@ -185,7 +212,9 @@ def main():
         con.insert(0, "dataset", ds)
         con.insert(1, "gate", gate)
         all_con.append(con)
-        v = verdict_for(con, tst, g)
+        acc_df = pooled_acceptance(df, ds, gate)
+        all_acc.append(acc_df)
+        v = verdict_for(con, tst, g, acc_df)
         v.update({"dataset": ds, "gate": gate, "paired": paired,
                   "n_donors_bm": int((g.compartment == "BM").sum()),
                   "n_donors_pb": int((g.compartment == "PB").sum())})
@@ -193,11 +222,16 @@ def main():
     con = pd.concat(all_con, ignore_index=True)
     tst = pd.concat(all_tst, ignore_index=True)
     vd = pd.DataFrame(verdicts)
+    acc = pd.concat(all_acc, ignore_index=True)
+    acc.to_csv(os.path.join(a.outdir, "soup_model_acceptance.tsv"), sep="\t", index=False)
     con.to_csv(os.path.join(a.outdir, "soup_by_compartment.tsv"), sep="\t", index=False)
     tst.to_csv(os.path.join(a.outdir, "target_gene_detection.tsv"), sep="\t", index=False)
     vd.to_csv(os.path.join(a.outdir, "task_a_verdict.tsv"), sep="\t", index=False)
     json.dump(VERDICT_TABLE, open(os.path.join(a.outdir, "task_a_verdict_table.json"), "w"),
               indent=1)
+    print("=== instrument acceptance (pooled per dataset x compartment) ===")
+    print(acc.to_string(index=False))
+    print()
     print(tst.to_string(index=False))
     print()
     print(con[con.gene != ""].to_string(index=False))

@@ -302,47 +302,76 @@ RHO_FOREIGN_PANEL = [
 # SPINK2 is deliberately NOT in the panel: it is not NK-foreign.  Measured
 # r_g was 1.11 (BM) and 1.69 (PB), i.e. NK carry more SPINK2 than the whole
 # pseudobulk could hold as soup, so treating it as foreign would inflate rho.
-MIN_PREDICTED_AMBIENT_COUNTS = 10   # below this r_g is Poisson noise
-ACCEPT_FOLD = 3.0                   # r_g must sit within this factor of rho
-ACCEPT_FRAC = 2.0 / 3.0             # and this share of testable genes must
+# A gene may only be read as an ambient measurement when the model expects a
+# meaningful number of ambient counts in it.  The floor is on rho * pred (the
+# counts the soup model actually predicts), NOT on pred (the counts the gene
+# would carry if the pseudobulk were pure soup).  The first version used pred,
+# which is wrong by a factor of rho: on GSE233304, where rho is about 0.004,
+# it declared 17-40 genes testable whose predicted ambient was under 0.1 counts,
+# every one of which came back at r_g = 0 and failed acceptance by construction.
+MIN_EXPECTED_AMBIENT_COUNTS = 5.0
+MIN_TESTABLE_FOREIGN_GENES = 3     # below this, acceptance is indeterminate
+ACCEPT_FOLD = 3.0                  # r_g must sit within this factor of rho
+ACCEPT_FRAC = 2.0 / 3.0            # and this share of testable genes must
 
 
-def per_gene_ratio(observed, genes, profile, panel=None):
-    """r_g = observed_g / (total_observed * soup_g).  If the soup model holds,
-    every NK-foreign gene returns the same value, namely rho."""
+def foreign_obs_pred(observed, genes, profile, panel=None):
+    """Per foreign gene: (observed counts, counts if the whole pseudobulk were
+    soup).  Returned raw so that libraries can be POOLED before the ratio is
+    formed -- a ratio of small counts per library is far noisier than the ratio
+    of their sums."""
     panel = RHO_FOREIGN_PANEL if panel is None else panel
     idx = {}
     for i, g in enumerate(genes):
         idx.setdefault(g, i)
     tot = float(observed.sum())
-    out = {}
+    obs, pred = {}, {}
     for g in panel:
         i = idx.get(g)
         if i is None:
             continue
-        pred = tot * float(profile[i])
-        out[g] = (float(observed[i]) / pred if pred > 0 else np.nan, pred)
-    return out
+        obs[g] = float(observed[i])
+        pred[g] = tot * float(profile[i])
+    return obs, pred
+
+
+def per_gene_ratio(observed, genes, profile, panel=None):
+    """r_g = observed_g / (total_observed * soup_g).  If the soup model holds,
+    every NK-foreign gene returns the same value, namely rho."""
+    obs, pred = foreign_obs_pred(observed, genes, profile, panel)
+    return {g: ((obs[g] / pred[g]) if pred[g] > 0 else np.nan, pred[g]) for g in obs}
+
+
+def acceptance_from_pooled(obs, pred, rho):
+    """Acceptance on pooled counts.  obs and pred are dicts gene -> summed
+    counts; rho is the pooled soup fraction.  Returns
+    (passes, n_testable, frac_within, median_ratio)."""
+    if not np.isfinite(rho) or rho <= 0:
+        return False, 0, np.nan, np.nan
+    vals = []
+    for g in obs:
+        if rho * pred.get(g, 0.0) >= MIN_EXPECTED_AMBIENT_COUNTS and pred[g] > 0:
+            vals.append(obs[g] / pred[g])
+    if len(vals) < MIN_TESTABLE_FOREIGN_GENES:
+        return False, len(vals), np.nan, (float(np.median(vals)) if vals else np.nan)
+    v = np.array(vals)
+    within = float(np.mean((v <= rho * ACCEPT_FOLD) & (v >= rho / ACCEPT_FOLD)))
+    return bool(within >= ACCEPT_FRAC), int(len(v)), within, float(np.median(v))
 
 
 def acceptance(observed, genes, profile, rho):
-    """Returns (passes, n_testable, frac_within, median_ratio)."""
-    r = per_gene_ratio(observed, genes, profile)
-    vals = [v for v, pred in r.values()
-            if pred >= MIN_PREDICTED_AMBIENT_COUNTS and not np.isnan(v)]
-    if not vals or not np.isfinite(rho) or rho <= 0:
-        return False, len(vals), np.nan, np.nan
-    vals = np.array(vals)
-    within = float(np.mean((vals <= rho * ACCEPT_FOLD) & (vals >= rho / ACCEPT_FOLD)))
-    return bool(within >= ACCEPT_FRAC), int(len(vals)), within, float(np.median(vals))
+    obs, pred = foreign_obs_pred(observed, genes, profile)
+    return acceptance_from_pooled(obs, pred, rho)
 
 
-def rho_median(observed, genes, profile):
-    """Alternative rho: median per-gene ratio over the foreign panel, using only
-    genes with enough predicted ambient counts.  Reported alongside the
-    inherited estimator; the inherited estimator stays primary unless it fails
-    acceptance and this one passes."""
-    r = per_gene_ratio(observed, genes, profile)
-    vals = [v for v, pred in r.values()
-            if pred >= MIN_PREDICTED_AMBIENT_COUNTS and not np.isnan(v)]
-    return float(np.median(vals)) if vals else float("nan")
+def rho_median(observed, genes, profile, rho_provisional=None):
+    """Alternative rho: median per-gene ratio over the foreign genes whose
+    expected ambient counts clear the floor.  The floor needs a provisional rho;
+    the inherited narrow estimator supplies it."""
+    obs, pred = foreign_obs_pred(observed, genes, profile)
+    r = rho_provisional
+    if r is None or not np.isfinite(r) or r <= 0:
+        return float("nan")
+    vals = [obs[g] / pred[g] for g in obs
+            if pred.get(g, 0.0) > 0 and r * pred[g] >= MIN_EXPECTED_AMBIENT_COUNTS]
+    return float(np.median(vals)) if len(vals) >= MIN_TESTABLE_FOREIGN_GENES else float("nan")

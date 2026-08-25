@@ -58,13 +58,15 @@ def one_library(mat, labels_bc, labels_lin, lib_name, gate="ratio"):
         prof, n_empty = pf.soup_profile(mat, lo, hi)
         rho_n = pf.estimate_rho(obs, genes, prof, pf.RHO_MARKERS_NK)
         rho_w = pf.estimate_rho(obs, genes, prof, pf.RHO_MARKERS_NK_WIDE)
-        rho_m = pf.rho_median(obs, genes, prof)
+        rho_m = pf.rho_median(obs, genes, prof, rho_n)
         ok, n_test, frac_in, med_r = pf.acceptance(obs, genes, prof, rho_n)
         ok_m, _, frac_in_m, _ = pf.acceptance(obs, genes, prof, rho_m)
         af = pf.ambient_fraction(obs, prof, rho_n, [r for r in tgt_rows])
         afm = pf.ambient_fraction(obs, prof, rho_m, [r for r in tgt_rows])
         acc = pf.ambient_fraction(obs, prof, rho_n, [r for r in acc_rows])
-        per_window[(lo, hi)] = {"rho_narrow": rho_n, "rho_wide": rho_w,
+        fo, fp = pf.foreign_obs_pred(obs, genes, prof)
+        per_window[(lo, hi)] = {"foreign_obs": fo, "foreign_pred": fp,
+                                "rho_narrow": rho_n, "rho_wide": rho_w,
                                 "rho_median": rho_m, "n_empty": n_empty,
                                 "amb": af, "amb_rhomed": afm, "acc": acc,
                                 "accept_pass": ok, "accept_n": n_test,
@@ -96,6 +98,11 @@ def one_library(mat, labels_bc, labels_lin, lib_name, gate="ratio"):
             res[f"det_{g}"] = np.nan
     for k, g in enumerate(ACCEPTANCE_GENES):
         res[f"acc_{g}"] = p["acc"][k]
+    # raw foreign-panel counts, so libraries can be pooled before the ratio
+    for g, v in p["foreign_obs"].items():
+        res[f"fobs_{g}"] = v
+    for g, v in p["foreign_pred"].items():
+        res[f"fpred_{g}"] = v
     return res, obs
 
 
