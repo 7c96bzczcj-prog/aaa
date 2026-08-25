@@ -190,3 +190,36 @@ cells only. GSE231946 — same-subject BM and PB for eight subjects including tw
 healthy controls, the best design found anywhere — fails the same gate. Three
 of the instruction's descriptions were wrong and are corrected in the manifest,
 including that GSE130430 does contain two same-individual BM/PB pairs.
+
+---
+
+## 7. E1 — adaptive-NK BM–PB magnitude on the paired dataset (spec v1.2)
+
+**Falls in row 2 of the E1 table: the public data give no stable magnitude, so
+the distribution is reported and no point estimate is offered.** Six of eight
+candidate genes clear the T3 gate (KLRC2, B3GAT1, CX3CR1 high; FCER1G, KLRC1,
+GZMK low); ZEB2 is excluded because its ambient floor is 0.547 against a
+detection of 0.848 (1.55×, below the required 3×) and IL7R because its
+detection of 0.076 sits on a floor of 0.063. The four per-donor Δ (marrow −
+blood, adaptive share of NK, depth-symmetric score) are **+0.010 (P1), −0.110
+(P15), −0.081 (P16), −0.010 (c9)** — median −0.046, IQR [−0.088, −0.005], but
+only three of four share a sign, and the presence/absence sensitivity arm
+returns all four positive, so the two definitions disagree even in direction.
+GSE233304 is calvarial marrow from glioblastoma patients plus one
+non-neoplastic intracranial control, n = 4, and this is a magnitude reading on
+public data only. Full gate and per-donor table:
+`results/e1_adaptive_delta_gse233304.tsv`.
+
+## 8. E2 — donor age structure of the admitted datasets (spec v1.2)
+
+**Falls in row 2 of the E2 table — the middle band exists — with row 3 applying
+alongside it.** Across the admitted human bone-marrow datasets there are 46
+donors, of whom **28 (61%) carry a deposited age** and 18 do not; GSE233304 and
+GSE181543 deposit none at all. Ages run 24–84 y, and **17 donors fall in
+25–55 y** (GSE120221 n = 9, HCA Census of Immune Cells n = 8), so a continuous
+marrow curve across the middle band is in principle drawable from public data
+and the question of why it has not been drawn is a separate one. The structural
+absence is at the young end, not the middle: **0 donors under 18** and 1 under
+25 in any admitted marrow dataset. This is an inventory of public data.
+Per-donor table: `results/e2_age_distribution.tsv`; decade counts:
+`results/e2_age_summary.tsv`.

@@ -107,6 +107,35 @@ eq("GSE233304 marrow X upper 95 %",
    100 * pf.clopper_pearson_upper(int(g2.earlyNK_permissive_postQC_n.sum()),
                                   int(g2.n_postQC.sum())), 0.112, 0.002)
 
+print("\n== E1 (spec v1.2) ==")
+import json as _json
+e1 = _json.load(open(f"{RES}/e1_gate.json"))
+eq("E1 genes passing the T3 gate", e1["n_passing"], 6, 0)
+eq("E1 donors", e1["n_donors"], 4, 0)
+eq("E1 delta median", e1["delta_median"], -0.046, 0.001)
+eq("E1 delta Q1", e1["delta_q1"], -0.088, 0.001)
+eq("E1 delta Q3", e1["delta_q3"], -0.005, 0.001)
+eq("E1 donors with positive delta", e1["n_positive"], 1, 0)
+gt = pd.DataFrame(e1["gate"]).set_index("gene")
+eq("E1 ZEB2 floor", gt.loc["ZEB2", "floor_used"], 0.547, 0.002)
+eq("E1 ZEB2 fold", gt.loc["ZEB2", "fold"], 1.55, 0.02)
+eq("E1 IL7R detection", gt.loc["IL7R", "det_NK"], 0.076, 0.001)
+eq("E1 IL7R floor", gt.loc["IL7R", "floor_used"], 0.063, 0.001)
+
+print("\n== E2 (spec v1.2) ==")
+a = pd.read_csv(f"{RES}/e2_age_distribution.tsv", sep="\t")
+bm = a[a.compartment == "BM"]
+age = bm.age.dropna()
+eq("E2 marrow donors", len(bm), 46, 0)
+eq("E2 marrow donors with an age", len(age), 28, 0)
+eq("E2 marrow donors without an age", len(bm) - len(age), 18, 0)
+eq("E2 pct with age", 100 * len(age) / len(bm), 61, 1)
+eq("E2 age min", age.min(), 24, 0)
+eq("E2 age max", age.max(), 84, 0)
+eq("E2 donors 25-55", int(((age >= 25) & (age <= 55)).sum()), 17, 0)
+eq("E2 donors under 18", int((age < 18).sum()), 0, 0)
+eq("E2 donors under 25", int((age < 25).sum()), 1, 0)
+
 print(f"\n{checks} checks, {len(fails)} failed")
 if fails:
     print("FAILED:", "; ".join(fails))

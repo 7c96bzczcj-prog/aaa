@@ -1,0 +1,58 @@
+dataset	donor	compartment	age	age_source
+HCA_ICA	MantonBM1	BM	52.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBM2	BM	50.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBM3	BM	39.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBM4	BM	29.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBM5	BM	29.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBM6	BM	26.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBM7	BM	36.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBM8	BM	32.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL1	PB	28.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL2	PB	50.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL3	PB	32.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL4	PB	27.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL5	PB	23.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL6	PB	36.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL7	PB	24.0	HCA Azul donorOrganisms.organismAge
+HCA_ICA	MantonBL8	PB	25.0	HCA Azul donorOrganisms.organismAge
+GSE120221	A	BM	59.0	GEO GSM characteristics; 1 library(ies), ages [59]
+GSE120221	B	BM	47.0	GEO GSM characteristics; 1 library(ies), ages [47]
+GSE120221	C	BM	60.0	GEO GSM characteristics; 3 library(ies), ages [59, 60, 60]
+GSE120221	E	BM	30.0	GEO GSM characteristics; 1 library(ies), ages [30]
+GSE120221	F	BM	41.0	GEO GSM characteristics; 1 library(ies), ages [41]
+GSE120221	G	BM	58.0	GEO GSM characteristics; 1 library(ies), ages [58]
+GSE120221	H	BM	50.0	GEO GSM characteristics; 1 library(ies), ages [50]
+GSE120221	J	BM	43.0	GEO GSM characteristics; 1 library(ies), ages [43]
+GSE120221	K	BM	84.0	GEO GSM characteristics; 1 library(ies), ages [84]
+GSE120221	L	BM	57.0	GEO GSM characteristics; 1 library(ies), ages [57]
+GSE120221	M	BM	60.0	GEO GSM characteristics; 1 library(ies), ages [60]
+GSE120221	N	BM	67.0	GEO GSM characteristics; 1 library(ies), ages [67]
+GSE120221	O	BM	50.0	GEO GSM characteristics; 1 library(ies), ages [50]
+GSE120221	P	BM	58.0	GEO GSM characteristics; 1 library(ies), ages [58]
+GSE120221	Q	BM	66.0	GEO GSM characteristics; 1 library(ies), ages [66]
+GSE120221	R	BM	31.0	GEO GSM characteristics; 1 library(ies), ages [31]
+GSE120221	S	BM	55.5	GEO GSM characteristics; 4 library(ies), ages [55, 55, 56, 56]
+GSE120221	T	BM	24.0	GEO GSM characteristics; 1 library(ies), ages [24]
+GSE120221	U	BM	46.0	GEO GSM characteristics; 1 library(ies), ages [46]
+GSE120221	W	BM	28.0	GEO GSM characteristics; 1 library(ies), ages [28]
+GSE233304	P1	BM		MISSING -- no age deposited
+GSE233304	P2	BM		MISSING -- no age deposited
+GSE233304	P4	BM		MISSING -- no age deposited
+GSE233304	P7	BM		MISSING -- no age deposited
+GSE233304	P8	BM		MISSING -- no age deposited
+GSE233304	P9	BM		MISSING -- no age deposited
+GSE233304	P15	BM		MISSING -- no age deposited
+GSE233304	P16	BM		MISSING -- no age deposited
+GSE233304	P21	BM		MISSING -- no age deposited
+GSE233304	P22	BM		MISSING -- no age deposited
+GSE233304	P24	BM		MISSING -- no age deposited
+GSE233304	c4	BM		MISSING -- no age deposited
+GSE233304	c5	BM		MISSING -- no age deposited
+GSE233304	c8	BM		MISSING -- no age deposited
+GSE233304	c9	BM		MISSING -- no age deposited
+GSE233304	c10	BM		MISSING -- no age deposited
+GSE181543	BM1	BM		MISSING -- no age deposited
+GSE181543	BM2	BM		MISSING -- no age deposited
+GSE181543	PBMC1	PB		MISSING -- no age deposited
+GSE181543	PBMC2	PB		MISSING -- no age deposited
+GSE181543	PBMC3	PB		MISSING -- no age deposited

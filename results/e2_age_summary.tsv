@@ -1,0 +1,7 @@
+dataset	compartment	n_donors	n_with_age	age_min	age_max	n_0_10	n_10_20	n_20_30	n_30_40	n_40_50	n_50_60	n_60_70	n_70_80	n_80_90
+GSE120221	BM	20	20	24.0	84.0	0	0	2	2	4	7	4	0	1
+GSE181543	BM	2	0			0	0	0	0	0	0	0	0	0
+GSE181543	PB	3	0			0	0	0	0	0	0	0	0	0
+GSE233304	BM	16	0			0	0	0	0	0	0	0	0	0
+HCA_ICA	BM	8	8	26.0	52.0	0	0	3	3	0	2	0	0	0
+HCA_ICA	PB	8	8	23.0	50.0	0	0	5	2	0	1	0	0	0
