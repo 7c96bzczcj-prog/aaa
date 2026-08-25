@@ -101,10 +101,26 @@ datasets:
       blood unsorted; bone marrow B-CELL ENRICHED.  The enrichment is
       asymmetric between the compartments, which is exactly the kind of
       difference that would masquerade as a compartment effect.
-    verdict: ADMIT CONDITIONALLY -- run, and let criterion C2 (NK target-gene
-      detection rate) decide rather than judgement.  Reported separately, never
-      pooled with the other two.
-    verification: direct h5 read
+    verdict: >
+      ADMITTED ON C1, THEN EXCLUDED ON MEASUREMENT.  Run as planned so that a
+      criterion, not judgement, would decide it.  Both marrow libraries return
+      ZERO gated NK cells: the highest NK panel mean over any cluster is 0.14
+      (BM1) and 0.11 (BM2), against 1.4-1.9 in the marrow clusters of the two
+      admitted datasets.  The B-cell enrichment removed the population, so
+      there is no marrow arm and the dataset cannot enter task A.  Its three
+      blood libraries do yield NK (169, 262, 1137) and pass on their own, which
+      is why the failure is attributable to the enrichment rather than to the
+      pipeline.
+    verification: direct h5 read; cluster tables in preflight/labels/
+
+  # Evidence grading for task A (spec v1.1 addendum, section 1): the question is
+  # the difference between two compartments OF ONE PERSON, so grading follows
+  # design and not n.  GSE233304 is same-donor paired and outranks HCA_ICA,
+  # which is unpaired and whose BM-PB contrast carries between-donor variance as
+  # well.  Where the two conflict, GSE233304 governs and the conflict is written
+  # into VERDICT.md.  GSE233304's four usable pairs are P1, P15, P16
+  # (glioblastoma) and c9 (non-neoplastic intracranial disease): the paired
+  # design and the disease background are not separable in this dataset.
 
   - id: GSE120221
     name: Human Bone Marrow Assessment by Single Cell RNA Sequencing, Mass
