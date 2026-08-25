@@ -12,3 +12,5 @@ preflight/scan/ann_*.log
 preflight/scan/annotate*.log
 preflight/scan/task_c*.log
 preflight/scan/fetch_*.log
+preflight/scan/rho*.log
+preflight/scan/task_b*.log
