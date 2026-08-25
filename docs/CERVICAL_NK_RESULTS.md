@@ -4,7 +4,7 @@ Full per-donor table: `results/cervical/NK_TABLE.csv`
 Primary paired result: `results/cervical/NK_PAIRED.csv`
 Method and marker validation: `docs/CERVICAL_NK_METHODS.md`
 
-37 libraries, 4 datasets, 3,538 gated NK cells. No author annotation used.
+37 libraries, 4 datasets, 4,374 gated NK cells. No author annotation used.
 
 ---
 
