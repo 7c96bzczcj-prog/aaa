@@ -4,6 +4,7 @@
     python sop_memo/memo.py                     # Day 0 = 下一个周二
     python sop_memo/memo.py --day0 2026-09-01   # 指定 Day 0
     python sop_memo/memo.py --decorated         # 万一无边框窗口在你系统上不听话
+    python sop_memo/memo.py --test-notify       # 试一条 macOS 通知，确认系统放行了
 
 只用标准库 tkinter。勾选状态与窗口位置存在 ~/.tgfb_sop_memo.json，重开不丢。
 """
@@ -20,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import notify  # noqa: E402
 from schedule import (  # noqa: E402
     PREP_TASKS,
     ROUND2_GATES,
@@ -32,6 +34,7 @@ from schedule import (  # noqa: E402
     flow,
     heads_up_line,
     next_weekday,
+    notification_for,
     today_line,
     tomorrow_line,
 )
@@ -53,6 +56,9 @@ BORDER = "#d8c88a"
 MARGIN = 12  # 距屏幕右上角的留白
 WIDTH = 400
 MAX_HEIGHT_RATIO = 0.88  # 最高不超过屏幕高度的这个比例
+
+TICK_MS = 300_000  # 5 分钟重画并检查一次通知
+DEFAULT_NOTIFY_AT = _dt.time(9, 0)  # 每天几点往通知中心发那一条
 
 
 def pick_font() -> str:
@@ -84,10 +90,12 @@ def save_state(state: dict) -> None:
 
 
 class Memo:
-    def __init__(self, root: tk.Tk, day0: _dt.date, decorated: bool = False) -> None:
+    def __init__(self, root: tk.Tk, day0: _dt.date, decorated: bool = False,
+                 notify_at: _dt.time | None = DEFAULT_NOTIFY_AT) -> None:
         self.root = root
         self.day0 = day0
         self.decorated = decorated
+        self.notify_at = notify_at
         self.plans = build_round1(day0)
         self.state = load_state()
         self.state.setdefault("checked", {})
@@ -110,7 +118,8 @@ class Memo:
 
         self.render()
         self.place_window()
-        self.root.after(300_000, self._tick)  # 每 5 分钟重画一次，跨过午夜自动换“今天”
+        self.maybe_notify()  # 开机晚了也补发当天那条
+        self.root.after(TICK_MS, self._tick)  # 定期重画，跨过午夜自动换“今天”
 
     # ---------------- 布局 ----------------
 
@@ -362,10 +371,45 @@ class Memo:
         self.state["pos"] = [self.root.winfo_x(), self.root.winfo_y()]
         save_state(self.state)
 
+    # ---------------- 通知中心 ----------------
+
+    def maybe_notify(self, now: _dt.datetime | None = None) -> bool:
+        """到点就往通知中心发一条。每天最多一条，发过就记下日期。
+
+        没设 ``--notify-at``、还没到点、当天已发过、或今天没什么可说的，都不发。
+        """
+        if self.notify_at is None:
+            return False
+        now = now or _dt.datetime.now()
+        today = now.date()
+        if self.state.get("last_notified") == today.isoformat():
+            return False
+        if now.time() < self.notify_at:
+            return False
+        note = notification_for(flow(self.plans, today))
+        if note is None:
+            # 今天没内容也记一笔，免得每 5 分钟重算一次
+            self.state["last_notified"] = today.isoformat()
+            save_state(self.state)
+            return False
+        sent = notify.send(note.title, note.subtitle, note.body)
+        self.state["last_notified"] = today.isoformat()
+        save_state(self.state)
+        return sent
+
     def _tick(self) -> None:
         self.render()
         self.place_window()
-        self.root.after(300_000, self._tick)
+        self.maybe_notify()
+        self.root.after(TICK_MS, self._tick)
+
+
+def parse_time(text: str) -> _dt.time:
+    """把 ``HH:MM`` 解析成时间，给 argparse 用。"""
+    try:
+        return _dt.datetime.strptime(text, "%H:%M").time()
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"时间要写成 HH:MM，收到的是 {text!r}") from None
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -373,16 +417,37 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--day0", help="Day 0 日期 YYYY-MM-DD；缺省为下一个周二")
     parser.add_argument("--decorated", action="store_true", help="保留系统窗口边框")
     parser.add_argument("--reset", action="store_true", help="清空勾选与记住的位置")
+    parser.add_argument("--notify-at", type=parse_time, default=DEFAULT_NOTIFY_AT,
+                        metavar="HH:MM", help="每天几点发通知中心提醒，缺省 09:00")
+    parser.add_argument("--no-notify", action="store_true", help="完全不发通知")
+    parser.add_argument("--test-notify", action="store_true",
+                        help="立刻发一条测试通知然后退出，用来确认系统放行了通知")
     return parser.parse_args(argv)
+
+
+def run_test_notify() -> int:
+    """发一条测试通知。macOS 上通知权限是最常见的失败点，给个当场能试的法子。"""
+    if not notify.available():
+        print(f"当前系统（{sys.platform}）不支持通知中心，便签本身照常用。")
+        return 1
+    ok = notify.send("TGF-β SOP · 测试", "通知中心已接通", "看到这条就说明提醒能发出来。")
+    if ok:
+        print("已发出。没看见的话到 系统设置 → 通知 → 脚本编辑器 里把通知打开。")
+        return 0
+    print("发送失败。检查 osascript 是否可用，以及系统设置里的通知权限。")
+    return 1
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
+    if args.test_notify:
+        return run_test_notify()
     if args.reset:
         STATE_PATH.unlink(missing_ok=True)
     day0 = _dt.date.fromisoformat(args.day0) if args.day0 else next_weekday(_dt.date.today(), 1)
     root = tk.Tk()
-    Memo(root, day0, decorated=args.decorated)
+    Memo(root, day0, decorated=args.decorated,
+         notify_at=None if args.no_notify else args.notify_at)
     root.mainloop()
     return 0
 

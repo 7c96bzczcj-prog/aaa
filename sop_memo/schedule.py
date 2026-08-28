@@ -228,6 +228,33 @@ def tomorrow_line(f: Flow) -> str:
     )
 
 
+@dataclass(frozen=True)
+class Notification:
+    title: str
+    subtitle: str
+    body: str
+
+
+def notification_for(f: Flow) -> Notification | None:
+    """当天该不该弹通知，弹什么。没什么可说的就返回 None，不制造噪音。"""
+    if f.today_plan is not None:
+        first = f.today_plan.tasks[0].text if f.today_plan.tasks else ""
+        return Notification(
+            title=f"TGF-β SOP · {f.today_plan.label}",
+            subtitle=f"今天 {_date_label(f.today)} · {len(f.today_plan.tasks)} 项",
+            body=first,
+        )
+    if f.heads_up and f.next_plan is not None:
+        when = "明天" if f.days_until_next == 1 else f"还有 {f.days_until_next} 天"
+        first = f.next_plan.tasks[0].text if f.next_plan.tasks else ""
+        return Notification(
+            title="TGF-β SOP · 预告",
+            subtitle=f"{when}就是 {f.next_plan.label}（{_date_label(f.next_plan.date)}）",
+            body=first,
+        )
+    return None
+
+
 def heads_up_line(f: Flow) -> str | None:
     """空档长时的提前预告；不该提示就返回 None。"""
     if not f.heads_up or f.next_plan is None:
