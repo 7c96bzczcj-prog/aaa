@@ -30,6 +30,15 @@ Four independent resources agree on the same ranking, and the spread is about
 | oligodendrocyte | 0.061 | 7.5 | 3.5× |
 | **neuron** | **0.017** | **0.3** | **1.0×** |
 
+**Two bulk, antibody-free technologies give the same ranking**, which matters
+because single-nucleus data under-detect. Immunopanned human brain cells (Zhang
+2016, GSE73721, FPKM): endothelial 6.5, myeloid/microglia 5.13, astrocytes 1.70,
+oligodendrocytes 1.18, neuron 0.8. Immunopanned mouse cells (GSE52564, FPKM):
+endothelial 2.06, microglia 0.54, neuron 0.42, OPC 0.22, astrocyte 0.21, with both
+oligodendrocyte fractions at the 0.1 detection floor. Astrocyte IFIH1 is not fixed:
+astrocytes purified from the core of human brain tumours reach 6.5–11.4 FPKM, four
+to seven times normal cortical astrocytes.
+
 Sources: **CELLxGENE Census** (2025-11-08 release), 18,551,076 human brain cells,
 783 donors, 144 datasets, single-nucleus subset, CP10k = IFIH1 counts per 10,000
 total counts. **Human Protein Atlas** single-nuclei brain panel (Siletti atlas),
@@ -309,6 +318,107 @@ ratio is division by roughly zero. Depth-matched, the same comparison gives OR
 
 ---
 
+## Prior art: what was already published, and what these analyses add
+
+A systematic literature and database sweep was run alongside the computation, with
+every claim adversarially re-verified against primary sources. It changes the
+standing of several results above.
+
+### The oligodendrocyte result was already published — by Lerma-Martin themselves
+
+Supplementary Table 6 of Lerma-Martin 2024 (pseudobulk DESeq2, per cell type)
+already reports IFIH1 as significantly up in oligodendrocytes:
+
+| contrast | cell type | log2FC | adjusted p |
+|---|---|---|---|
+| chronic active vs control | oligodendrocyte | +0.905 | 0.0122 |
+| chronic inactive vs control | oligodendrocyte | +1.095 | 0.0047 |
+| chronic inactive vs control | myeloid | +0.950 | 0.116 (not significant) |
+
+IFIH1 does not appear for astrocytes, OPCs, neurons, endothelium, B cells or
+stromal cells in any contrast. **So the oligodendrocyte finding is not new, and my
+independent reanalysis reproduces the authors' own conclusion by a different
+route.** Their myeloid result is likewise non-significant, which matches the
+borderline status of the microglial claim here rather than contradicting it.
+
+### Two bulk cohorts confirm it, and confirm the RIG-I selectivity
+
+- **GSE138614** (Elkjaer 2019, 73 MS white-matter areas from 10 progressive-MS
+  donors vs 25 control WM areas). IFIH1 up in active lesions (log2FC +0.558,
+  FDR 0.021) and chronic active lesions (+0.478, FDR 0.0073); trend in
+  remyelinating lesions; not significant in inactive lesions or normal-appearing
+  WM. `DDX58` and `DHX58` are **never** significant in any lesion type. That is
+  the same MDA5-over-RIG-I selectivity seen in GSE180759 microglia, now in bulk
+  tissue and an independent cohort.
+- **GSE283092** (Chen 2025, *Brain*, 96 dissected samples). IFIH1 is named in the
+  paper among the most significant genes up in foamy active lesions. Paired
+  against the same donor's normal-appearing WM, foamy active lesions give
+  fold-change 1.79 (p=0.0015) and remyelinated lesions 1.36 (p=0.0009).
+
+### What is genuinely unreported
+
+- **IFIH1 appears nowhere in Absinta 2021's own published output** — not in any
+  marker list, DE list, WGCNA module or drug table across all 13 supplementary
+  tables. Neither do DDX58, MX1, ISG15, STAT1, IRF7, OAS1 or EIF2AK2. The
+  GSE180759 analysis here is new for that dataset.
+- **IFIH1 is absent from every Schirmer 2019 supplementary table**, having fallen
+  below their detection filter. Their lesion-stage list does contain DDX58, DHX58,
+  IFIT1, IFIT3, STAT1 and ISG15, all *declining* from early to late lesion. So the
+  cortical null reported above is an original measurement, not a restatement.
+- **No primary study has ever measured MDA5 in oligodendrocytes or OPCs**, in
+  any species, by any method. Nor in primary or iPSC-derived human microglia; the
+  "microglial MDA5" statements in reviews trace back to THP-1 and monocyte-derived
+  macrophage experiments.
+
+### The protein-level evidence is absent, and what exists points the other way
+
+**There is no immunohistochemistry, immunofluorescence, western blot or proteomic
+measurement of MDA5 in human MS brain tissue.** Everything above, and everything in
+the literature, is transcript-level.
+
+Worse for the naive reading, the available protein data in *normal* brain are
+**discordant with the mRNA ranking**. The Human Protein Atlas IHC (antibody
+HPA002656, reliability Approved) scores cerebral cortex as neuronal cells Medium,
+endothelial cells Low, and **glial cells Not detected**; cerebellar Purkinje cells
+Medium with granular and molecular layer cells not detected. A macaque SIV
+encephalitis study (Co et al., *J Infect Dis* 2011) likewise found MDA5 protein
+constitutively expressed in neurons and undetectable in perivascular macrophages
+and astrocytes in uninfected brain, becoming induced in those glial compartments
+only on infection.
+
+Two readings are possible and the data do not separate them: either MDA5 protein
+really is neuronal while the transcript is vascular/myeloid, or the single
+antibody plus semi-quantitative four-level scoring misses thin glial processes
+that are easy to miss and large neuronal somata that are easy to score. Either
+way, **no transcript-level claim in this document should be restated as a claim
+about MDA5 protein.**
+
+### An independent parallel for the white-matter specificity
+
+In that same macaque SIV model, MDA5 mRNA rose about 21-fold **in white matter** by
+day 7, while **grey matter had higher basal levels and minimal infection-driven
+change**. That is the same compartment asymmetry found here in MS: the inducible
+compartment is white matter, and grey matter moves little.
+
+### IFIH1 is not a multiple sclerosis susceptibility gene
+
+This is worth stating because it is easy to assume otherwise from the T1D
+literature. The IMSGC 2019 genomic map (47,429 cases, 68,374 controls) contains no
+associated variant in the IFIH1 region. The GWAS Catalog has **zero** MS entries
+for rs1990760 (A946T), which is genome-wide significant for type 1 diabetes,
+psoriasis, SLE, autoimmune thyroid disease, inflammatory bowel disease and
+selective IgA deficiency. Open Targets scores IFIH1–MS at 0.016 on literature
+evidence alone, with a genetic-association score of exactly zero. The single
+positive report (Martinez 2008, Spanish, n=412) was driven by rs2068330, which
+lies in KCNH7 outside IFIH1, and failed replication in 591 French trio families.
+The T1D-protective loss-of-function variant rs35667974 has no MS effect at 99%
+power in 3,037 cases.
+
+**So any MDA5 change in MS lesions is a downstream tissue response, not an
+inherited driver of susceptibility.**
+
+---
+
 ## Methods
 
 - **GSE180759**: the authors' filtered matrix (29,432 genes × 66,432 nuclei) and
@@ -366,9 +476,10 @@ ratio is division by roughly zero. Depth-matched, the same comparison gives OR
 
 ## What would settle it
 
-- Protein-level confirmation. No MDA5 immunostaining of MS lesions was found;
-  an IHC or single-molecule assay on rim microglia against control white matter
-  would convert this from a transcript correlation into a finding.
+- **Protein.** There is no MDA5 immunostaining of MS lesions anywhere in the
+  literature, and the normal-brain antibody data point to neurons rather than glia.
+  Until someone stains an MS lesion, every statement here is about transcript.
+  This is now the single largest gap.
 - A depth-balanced snRNA-seq design, or CITE-seq, in which control and lesion
   libraries are sequenced to matched depth.
 - Testing the ADAR1 axis directly: if MDA5 induction on the rim reflects loss of
