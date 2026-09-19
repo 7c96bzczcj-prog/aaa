@@ -21,9 +21,8 @@ const sizeOf = p => {
   }
   return null;
 };
-['fig_q1_celltype.png', 'fig_q1_region.png', 'figB_null.png', 'fig_q2_wm.png',
- 'fig_q2_gm.png', 'fig_q2_interaction.png', 'fig_confound.png',
- 'fig_umap_wm.png'].forEach(n => {
+['fig_q1_celltype.png', 'fig_q1_region.png', 'fig_q2_wm.png', 'fig_q2_gm.png',
+ 'fig_lesion.png', 'fig_umap_wm.png'].forEach(n => {
   try { const s = sizeOf(FIG + n); if (s) DIMS[n] = s.w / s.h; } catch (e) {}
 });
 
@@ -80,8 +79,8 @@ table(s, [
   ['GSE180759  Absinta 2021', '皮层下白质', '3 对照 + 5 MS', '66 432', '白质，含病灶分期'],
   ['GSE279180  Lerma-Martin 2024', '皮层下白质', '6 对照 + 7 MS', '103 780', '白质，主队列'],
   ['Schirmer 2019', '皮层标本', '9 对照 + 12 MS', '48 919', '皮层'],
-  ['GSE118257  Jäkel 2019', '白质', '5 对照 + 4 MS', '17 799', '白质，验证'],
-], [3.3, 3.1, 2.1, 1.6, 2.0], 2.20, 0.64);
+  ['Macnair 2025', '皮层 + 皮层下白质', '26 对照 + 54 MS', '632 375', '病灶分期，同一研究内'],
+], [3.0, 3.4, 2.2, 1.6, 1.9], 2.20, 0.64);
 
 /* ------------------------------------------- 3 问题一：哪些细胞表达 */
 s = plain();
@@ -105,8 +104,8 @@ figure(s, 'fig_q2_gm.png', 1.05);
 
 /* ------------------------------------------- 7 白质图谱 */
 s = plain();
-title(s, '白质单核图谱与脱髓鞘病灶分期');
-figure(s, 'fig_umap_wm.png', 1.05);
+title(s, '按脱髓鞘病灶分期，每一期与对照比较');
+figure(s, 'fig_lesion.png', 1.05);
 
 pres.writeFile({ fileName: '/home/user/aaa/results/mda5/MDA5_IFIH1_人脑与MS.pptx' })
   .then(f => console.log('written', f, '|', pageNo + 1, '页'));
