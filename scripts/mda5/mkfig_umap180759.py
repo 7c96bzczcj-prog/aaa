@@ -22,29 +22,30 @@ STAGES = ['control_white_matter', 'MS_periplaque_white_matter',
           'MS_lesion_core']
 STAGES = [s for s in STAGES if (obs.pathology.values == s).any()]
 
-fig = plt.figure(figsize=(16.0, 4.6))
-gs = GridSpec(1, 1 + len(STAGES), width_ratios=[1.75] + [1] * len(STAGES),
-              wspace=0.06, figure=fig)
+# 地图占左半两行，五张特征图排成两行，整体接近 2:1，正好铺满 16:9 的版面
+fig = plt.figure(figsize=(13.6, 6.4))
+gs = GridSpec(2, 5, width_ratios=[1.08, 1.08, 1, 1, 1],
+              wspace=0.05, hspace=0.10, figure=fig)
 
-ax0 = fig.add_subplot(gs[0, 0])
-F.umap_annotated(ax0, x, y, obs.cell_type.values, PAL, s=1.5, label_fs=10.5)
-ax0.set_title('细胞类型', fontsize=13, color=F.INK, pad=8)
+ax0 = fig.add_subplot(gs[0:2, 0:2])
+F.umap_annotated(ax0, x, y, obs.cell_type.values, PAL, s=2.0, label_fs=11.5)
+ax0.set_title('细胞类型', fontsize=13.5, color=F.INK, pad=8)
 
 vmax = np.quantile(v[v > 0], 0.99) if (v > 0).any() else 1.0
+CELL = [(0, 2), (0, 3), (0, 4), (1, 2), (1, 3)]
 for j, st in enumerate(STAGES):
-    ax = fig.add_subplot(gs[0, j + 1])
+    ax = fig.add_subplot(gs[CELL[j]])
     m = obs.pathology.values == st
     # 灰底为该分期之外的全部细胞，保持轮廓可见
     ax.scatter(x[~m], y[~m], s=1.2, c='#f2f2f2', linewidths=0, rasterized=True)
     F.umap_feature(ax, x[m], y[m], v[m], s=1.5, vmax=vmax)
     ax.set_xlim(ax0.get_xlim()); ax.set_ylim(ax0.get_ylim())
-    ax.set_title(F.STAGE_CN[st], fontsize=11.5, color=F.INK, pad=8)
-    ax.text(0.5, -0.045, f'n = {int(m.sum()):,}', transform=ax.transAxes,
-            ha='center', va='top', fontsize=8.5, color=F.MUT)
+    ax.set_title(f'{F.STAGE_CN[st]}\nn = {int(m.sum()):,}', fontsize=11.2,
+                 color=F.INK, pad=6, linespacing=1.5)
 
-cax = fig.add_axes([0.925, 0.30, 0.008, 0.38])
+cax = fig.add_axes([0.845, 0.115, 0.010, 0.26])
 cb = fig.colorbar(ScalarMappable(norm=Normalize(0, vmax), cmap=F.FEAT), cax=cax)
-cb.set_label('IFIH1 表达水平（对数归一化）', fontsize=9.5, color=F.INK)
+cb.set_label('IFIH1 表达水平（对数归一化）', fontsize=9.5, color=F.INK, labelpad=2)
 cb.ax.tick_params(labelsize=8.5, length=2)
 cb.outline.set_visible(False)
 
