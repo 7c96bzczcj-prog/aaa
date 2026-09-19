@@ -39,15 +39,19 @@ FEAT = LinearSegmentedColormap.from_list('feat', ['#ececec', '#cfc9e6', '#8b7ec8
 STAGE = {'control_white_matter': '#9a9a9a', 'MS_periplaque_white_matter': '#a9cbf4',
          'chronic_inactive_MS_lesion_edge': '#5598e7', 'chronic_active_MS_lesion_edge': '#2a78d6',
          'MS_lesion_core': '#104281'}
-STAGE_CN = {'control_white_matter': '对照白质', 'MS_periplaque_white_matter': '斑块周围白质',
-            'chronic_inactive_MS_lesion_edge': '慢性非活动边缘',
-            'chronic_active_MS_lesion_edge': '慢性活动边缘', 'MS_lesion_core': '病灶核心'}
-CT_CN = {'oligodendrocytes': '少突胶质', 'astrocytes': '星形胶质', 'immune': '小胶质/巨噬',
-         'neurons': '神经元', 'opc': 'OPC', 'vascular_cells': '血管/内皮', 'lymphocytes': '淋巴细胞',
-         'oligodendrocyte': '少突胶质', 'astrocyte': '星形胶质', 'microglia': '小胶质/巨噬',
-         'neuron': '神经元', 'OPC': 'OPC', 'endothelial': '内皮/血管', 'lymphocyte': '淋巴细胞',
-         'stromal': '基质', 'mural': '周细胞'}
-CT_ORDER = ['少突胶质', '小胶质/巨噬', '星形胶质', 'OPC', '神经元', '内皮/血管']
+STAGE_CN = {'control_white_matter': '对照白质',
+            'MS_periplaque_white_matter': '病灶周围白质',
+            'chronic_inactive_MS_lesion_edge': '慢性非活动性病灶边缘',
+            'chronic_active_MS_lesion_edge': '慢性活动性病灶边缘',
+            'MS_lesion_core': '病灶核心'}
+CT_CN = {'oligodendrocytes': '少突胶质细胞', 'astrocytes': '星形胶质细胞',
+         'immune': '小胶质细胞', 'neurons': '神经元', 'opc': '少突胶质前体细胞',
+         'vascular_cells': '内皮细胞', 'lymphocytes': '淋巴细胞',
+         'oligodendrocyte': '少突胶质细胞', 'astrocyte': '星形胶质细胞',
+         'microglia': '小胶质细胞', 'neuron': '神经元', 'OPC': '少突胶质前体细胞',
+         'endothelial': '内皮细胞', 'lymphocyte': '淋巴细胞',
+         'stromal': '基质细胞', 'mural': '壁细胞'}
+CT_ORDER = ['少突胶质细胞', '小胶质细胞', '星形胶质细胞', '少突胶质前体细胞', '神经元', '内皮细胞']
 
 
 def bare(ax):

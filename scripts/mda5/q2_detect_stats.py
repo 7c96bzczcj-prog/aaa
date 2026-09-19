@@ -14,8 +14,8 @@ MIN_D = 3
 rng = np.random.default_rng(5)
 
 ORDER = ['oligodendrocyte', 'microglia', 'astrocyte', 'OPC', 'neuron', 'endothelial']
-CN = {'oligodendrocyte': '少突胶质', 'microglia': '小胶质/巨噬', 'astrocyte': '星形胶质',
-      'OPC': 'OPC', 'neuron': '神经元', 'endothelial': '内皮/血管'}
+import figstyle as _F
+CN = {k: _F.CT_CN[k] for k in ORDER}
 WM_COH = ['GSE180759', 'GSE279180']
 GM_COH = ['Schirmer 2019']
 

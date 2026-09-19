@@ -56,10 +56,11 @@ def tidy(ax, labels, positions, ylab=None, title=None):
 # ==========================================================================
 def fig_celltype():
     base = pd.read_csv(RES + 'out_baseline_consolidated.csv')
-    NAME = {'endothelial': '内皮', 'fibroblast': '成纤维', 'mural/perivascular': '周细胞/血管周',
-            'lymphocyte/leukocyte': '淋巴/白细胞', 'microglia/CNS macrophage': '小胶质/巨噬',
-            'ependymal/choroid': '室管膜/脉络丛', 'astrocyte': '星形胶质', 'OPC': 'OPC',
-            'oligodendrocyte': '少突胶质', 'neuron': '神经元'}
+    NAME = {'endothelial': '内皮细胞', 'fibroblast': '成纤维细胞',
+            'mural/perivascular': '壁细胞/血管周细胞',
+            'lymphocyte/leukocyte': '淋巴细胞', 'microglia/CNS macrophage': '小胶质细胞',
+            'ependymal/choroid': '室管膜/脉络丛上皮', 'astrocyte': '星形胶质细胞',
+            'OPC': '少突胶质前体细胞', 'oligodendrocyte': '少突胶质细胞', 'neuron': '神经元'}
     base = base[base.grp.isin(NAME)].copy()
     base['名'] = base.grp.map(NAME)
     base = base.sort_values('CP10k')
@@ -78,8 +79,8 @@ def fig_celltype():
                 fontsize=9.5, color=F.INK)
     ax.set_yticks(y); ax.set_yticklabels(base.名.values, fontsize=11)
     ax.set_xlim(0, base.CP10k.max() * 1.28)
-    ax.set_xlabel('IFIH1  CP10k（伪整体）', fontsize=10.5)
-    ax.set_title('正常人脑，783 位供体，1850 万个核', fontsize=12.5, pad=10, color=F.INK)
+    ax.set_xlabel('IFIH1 表达量  CP10k', fontsize=10.5)
+    ax.set_title('正常人脑，783 例供体，1850 万个核', fontsize=12.5, pad=10, color=F.INK)
     ax.spines['left'].set_visible(False); ax.tick_params(axis='y', length=0)
     ax.grid(axis='x', color=F.HAIR, lw=0.7, alpha=0.7); ax.set_axisbelow(True)
 
@@ -105,9 +106,9 @@ def fig_celltype():
                         s=2.6, color=col, alpha=0.5, linewidths=0, rasterized=True)
             ax2.hlines(np.log10(np.median(nz)), i - 0.3, i + 0.3, color=col, lw=2.8, zorder=6)
             tops.append(np.log10(nz).max())
-        xlab.append(f'{CN[e]}\n检出 {100 * len(nz) / len(v):.1f}%')
+        xlab.append(f'{CN[e]}\n阳性率 {100 * len(nz) / len(v):.1f}%')
     tidy(ax2, xlab, list(range(len(order))), None,
-         '正常白质，检出 IFIH1 的核的表达水平')
+         '阳性核的 IFIH1 表达水平（正常白质）')
     ax2.set_ylabel('IFIH1  CP10k', fontsize=10.5)
     ticks = np.array([0, 1, 2])
     ax2.set_yticks(ticks); ax2.set_yticklabels(['1', '10', '100'])
