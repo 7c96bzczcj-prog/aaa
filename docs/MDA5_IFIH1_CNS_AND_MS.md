@@ -111,6 +111,25 @@ per-donor values in [`out_meta_donor_cp10k.csv`](../results/mda5/out_meta_donor_
 by far the highest baseline. The change is confined to the myeloid and
 oligodendroglial compartments.
 
+A second, more conservative model agrees on the effect size and is less sure of
+the p-value. Negative-binomial GLM on donor pseudobulk counts, `IFIH1 ~ condition
++ cohort` with `log(total counts)` as offset
+([`out_meta_nb_glm.csv`](../results/mda5/out_meta_nb_glm.csv)):
+
+| cell type | fold change | 95% CI | p |
+|---|---|---|---|
+| microglia / macrophage | 1.99 | 0.97 – 4.11 | 0.062 |
+| oligodendrocyte | 1.97 | 1.05 – 3.70 | 0.034 |
+| astrocyte | 0.78 | 0.39 – 1.55 | 0.47 |
+| OPC | 0.97 | 0.43 – 2.18 | 0.95 |
+| endothelial | 0.97 | 0.42 – 2.26 | 0.95 |
+
+**The fold-change estimate is robust and the p-value is not.** Varying the
+dispersion parameter from 0.1 to 2.0 moves microglia only between 1.79× and 2.18×
+and oligodendrocytes between 1.96× and 2.01×, while p ranges from 0.004 to 0.26.
+The defensible claim is **a roughly two-fold increase in both cell types, with
+21 brains giving borderline significance** — not a precisely quantified p.
+
 ### How stable are the two positive results?
 
 Re-run under progressively stricter donor-inclusion rules:
