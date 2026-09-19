@@ -8,3 +8,8 @@ phase1_registry/rescan/*.xml
 node_modules/
 package-lock.json
 *.log
+results/mda5/node_modules/
+results/mda5/package-lock.json
+results/mda5/package.json
+results/mda5/slide-*.png
+results/mda5/*.pdf
