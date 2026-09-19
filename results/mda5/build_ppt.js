@@ -45,8 +45,6 @@ const rows=[
 s.addTable(rows,{x:0.6,y:1.35,w:12.1,colW:[3.5,3.0,2.1,1.9,1.6],fontSize:13,fontFace:CN,color:BLACK,
   border:[{type:'none'},{type:'none'},{type:'solid',color:RULE,pt:1},{type:'none'}],
   rowH:0.5,valign:'middle',autoPage:false});
-s.addText('灰质与白质分属不同研究：Macnair 2025 为唯一同时含两者的队列，存于 EGA 受控访问。',
-  {x:0.6,y:5.1,w:12.1,h:0.4,fontSize:13,color:GREY,fontFace:CN,isTextBox:true,margin:0});
 
 /* 3 baseline */
 s=plain(); title(s,'基线：MDA5 在正常人脑各细胞类型中的分布'); figure(s,'fig1_baseline.png',1.25);
