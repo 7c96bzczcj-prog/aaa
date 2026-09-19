@@ -103,15 +103,10 @@ s = plain();
 title(s, 'MS 皮层：未见同等幅度的变化');
 figure(s, 'fig_q2_gm.png', 1.05);
 
-/* ------------------------------------------- 8 问题二的落点 */
+/* ------------------------------------------- 7 白质图谱 */
 s = plain();
-title(s, '两个区域变化幅度之差');
-figure(s, 'fig_q2_interaction.png', 1.05);
-
-/* ------------------------------------------- 9 皮层块的混入 */
-s = plain();
-title(s, '皮层标本含皮层下白质，MS 取材更深');
-figure(s, 'fig_confound.png', 1.05);
+title(s, '白质单核图谱与脱髓鞘病灶分期');
+figure(s, 'fig_umap_wm.png', 1.05);
 
 pres.writeFile({ fileName: '/home/user/aaa/results/mda5/MDA5_IFIH1_人脑与MS.pptx' })
   .then(f => console.log('written', f, '|', pageNo + 1, '页'));
