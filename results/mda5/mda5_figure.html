@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MDA5 in the CNS</title>
+<style>
+  :root{
+    color-scheme: light;
+    --page:#f9f9f7; --surface:#fcfcfb;
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,0.10);
+    --blue:#2a78d6; --flat:#898781;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --page:#0d0d0d; --surface:#1a1a19;
+      --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+      --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,0.10);
+      --blue:#3987e5; --flat:#898781;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --page:#0d0d0d; --surface:#1a1a19;
+    --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,0.10);
+    --blue:#3987e5; --flat:#898781;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--page); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:15px; line-height:1.5;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:32px 16px 64px}
+  h1{font-size:1.5rem; margin:0 0 6px; letter-spacing:-0.01em}
+  .sub{color:var(--ink2); margin:0 0 32px; font-size:0.94rem}
+  .panel{
+    background:var(--surface); border:1px solid var(--ring); border-radius:12px;
+    padding:22px 22px 18px; margin-bottom:22px;
+  }
+  h2{font-size:1.02rem; margin:0 0 4px; letter-spacing:-0.005em}
+  .note{color:var(--ink2); font-size:0.86rem; margin:0 0 18px}
+  .row{display:grid; grid-template-columns:minmax(110px,180px) 1fr minmax(84px,auto); gap:12px; align-items:center; margin-bottom:9px}
+  .lab{font-size:0.86rem; color:var(--ink2); text-align:right; overflow-wrap:anywhere}
+  .track{position:relative; height:20px; display:flex; align-items:center}
+  .bar{height:16px; border-radius:0 4px 4px 0; background:var(--blue); min-width:2px; transition:filter .12s}
+  .bar.flat{background:var(--flat)}
+  .val{font-size:0.8rem; color:var(--ink2); font-variant-numeric:tabular-nums; white-space:nowrap}
+  .row:hover .bar{filter:brightness(1.12)}
+  .row:hover .lab{color:var(--ink)}
+  .axis{border-top:1px solid var(--axis); margin-top:6px; padding-top:5px;
+        display:grid; grid-template-columns:minmax(110px,180px) 1fr minmax(84px,auto); gap:12px}
+  .ticks{display:flex; justify-content:space-between; font-size:0.74rem; color:var(--muted); font-variant-numeric:tabular-nums}
+  .legend{display:flex; gap:16px; font-size:0.82rem; color:var(--ink2); margin:0 0 16px; flex-wrap:wrap}
+  .key{display:inline-flex; align-items:center; gap:6px}
+  .dot{width:11px; height:11px; border-radius:3px; display:inline-block}
+  .refline{font-size:0.74rem; color:var(--muted)}
+  details{margin-top:10px}
+  summary{cursor:pointer; font-size:0.83rem; color:var(--ink2)}
+  table{border-collapse:collapse; width:100%; margin-top:10px; font-size:0.82rem}
+  th,td{text-align:left; padding:5px 8px; border-bottom:1px solid var(--grid); font-variant-numeric:tabular-nums}
+  th{color:var(--ink2); font-weight:600}
+  td.n{text-align:right}
+  footer{color:var(--muted); font-size:0.8rem; margin-top:28px; line-height:1.6}
+  @media (max-width:560px){
+    .row,.axis{grid-template-columns:90px 1fr minmax(64px,auto); gap:8px}
+    .lab{font-size:0.78rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>MDA5 (IFIH1) in the human nervous system</h1>
+<p class="sub">Where the dsRNA sensor is expressed across CNS cell types, and which cells change in multiple sclerosis.</p>
+
+<section class="panel">
+  <h2>Baseline: MDA5 is a vascular and myeloid gene, not a neuronal one</h2>
+  <p class="note">Normal human brain. CELLxGENE Census, 18.5M cells, 783 donors, 144 datasets, single-nucleus subset. CP10k = IFIH1 counts per 10,000 total counts.</p>
+  <div id="pA"></div>
+  <div class="axis"><div></div><div class="ticks"><span>0</span><span>0.55</span><span>1.1</span></div><div></div></div>
+  <details><summary>Table view</summary><div id="tA"></div></details>
+</section>
+
+<section class="panel">
+  <h2>In multiple sclerosis, MDA5 rises in microglia and oligodendrocytes</h2>
+  <p class="note">Donor-level meta-analysis across 21 brains (GSE180759 + GSE279180). Each donor contributes one depth-normalised value per cell type. Bars show the MS-to-control ratio; 1.0 means no change.</p>
+  <div class="legend">
+    <span class="key"><span class="dot" style="background:var(--blue)"></span>changed (p &lt; 0.01)</span>
+    <span class="key"><span class="dot" style="background:var(--flat)"></span>no change</span>
+    <span class="refline">dashed marker = no change (1.0×)</span>
+  </div>
+  <div id="pB"></div>
+  <div class="axis"><div></div><div class="ticks"><span>0</span><span>1.25×</span><span>2.5×</span></div><div></div></div>
+  <details><summary>Table view</summary><div id="tB"></div></details>
+</section>
+
+<section class="panel">
+  <h2>Within MS, MDA5 is highest in chronic-active and rim microglia</h2>
+  <p class="note">Lerma-Martin 2024 (GSE279180) microglial states, depth-normalised. The chronic-active and rim states are the compartment that drives lesion expansion.</p>
+  <div id="pC"></div>
+  <div class="axis"><div></div><div class="ticks"><span>0</span><span>0.35</span><span>0.7</span></div><div></div></div>
+  <details><summary>Table view</summary><div id="tC"></div></details>
+</section>
+
+<footer>
+  Computed from primary data: CELLxGENE Census 2025-11-08; Human Protein Atlas single-nuclei brain panel;
+  GSE180759 (Absinta 2021, <em>Nature</em>); GSE279180 (Lerma-Martin 2024, <em>Nat Neurosci</em>); GSE118257 (Jäkel 2019, <em>Nature</em>).
+  Sequencing depth is confounded with disease status in both MS cohorts, so every disease comparison here is depth-normalised.
+</footer>
+
+</div>
+<script>
+const A=[["Endothelial cell",1.095],["Microglia / CNS macrophage",0.338],["Fibroblast",0.230],
+ ["Pericyte / smooth muscle",0.219],["Lymphocyte / leukocyte",0.141],["Ependymal / choroid plexus",0.098],
+ ["Astrocyte",0.086],["OPC",0.084],["Oligodendrocyte",0.061],["Neuron",0.017]];
+const B=[["Oligodendrocyte",2.42,0.0077,true],["Microglia / macrophage",2.07,0.0061,true],
+ ["Endothelial / vascular",1.32,0.51,false],["Astrocyte",0.87,0.37,false],["OPC",0.82,0.80,false]];
+const C=[["MG_CA (chronic active)",0.690],["MG_Rim (lesion rim)",0.589],["MG_Dis (disease-assoc.)",0.508],
+ ["MG_Homeo3",0.419],["MG_Phago1",0.357],["MG_Homeo1",0.353],["MG_Homeo2",0.330]];
+
+function bars(el,data,max,fmt,flatIdx){
+  document.getElementById(el).innerHTML=data.map((d,i)=>{
+    const flat=flatIdx?flatIdx(d):false;
+    const w=Math.max(0.4,(d[1]/max)*100);
+    return `<div class="row" title="${d[0]}: ${fmt(d)}">
+      <div class="lab">${d[0]}</div>
+      <div class="track"><div class="bar${flat?' flat':''}" style="width:${w}%"></div></div>
+      <span class="val">${fmt(d)}</span>
+    </div>`;}).join("");
+}
+function table(el,data,cols,fmt){
+  document.getElementById(el).innerHTML=`<table><thead><tr>${cols.map(c=>`<th>${c}</th>`).join("")}</tr></thead>
+  <tbody>${data.map(d=>`<tr><td>${d[0]}</td>${fmt(d).map(v=>`<td class="n">${v}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+bars("pA",A,1.1,d=>d[1].toFixed(3));
+table("tA",A,["Cell class","CP10k"],d=>[d[1].toFixed(3)]);
+bars("pB",B,2.5,d=>d[1].toFixed(2)+"×  p="+(d[2]<0.01?d[2].toFixed(4):d[2].toFixed(2)),d=>!d[3]);
+table("tB",B,["Cell type","MS/control","p"],d=>[d[1].toFixed(2)+"×",d[2]<0.01?d[2].toFixed(4):d[2].toFixed(2)]);
+bars("pC",C,0.7,d=>d[1].toFixed(3));
+table("tC",C,["Microglial state","CP10k"],d=>[d[1].toFixed(3)]);
+// no-change reference marker on panel B
+(function(){
+  const rows=document.querySelectorAll("#pB .track");
+  rows.forEach(t=>{
+    const m=document.createElement("div");
+    m.style.cssText="position:absolute;left:"+(1/2.5*100)+"%;top:0;bottom:0;width:0;border-left:1px dashed var(--axis);pointer-events:none";
+    t.appendChild(m);
+  });
+})();
+</script>
+</body>
+</html>
