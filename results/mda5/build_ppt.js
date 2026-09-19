@@ -22,7 +22,7 @@ const sizeOf = p => {
   return null;
 };
 ['fig_q1_celltype.png', 'fig_q1_region.png', 'fig_q2_wm.png', 'fig_q2_gm.png',
- 'fig_lesion.png', 'fig_umap_wm.png'].forEach(n => {
+ 'fig_umap_wm.png', 'fig_lesion.png'].forEach(n => {
   try { const s = sizeOf(FIG + n); if (s) DIMS[n] = s.w / s.h; } catch (e) {}
 });
 
@@ -102,7 +102,12 @@ s = plain();
 title(s, 'MS 皮层：未见同等幅度的变化');
 figure(s, 'fig_q2_gm.png', 1.05);
 
-/* ------------------------------------------- 7 白质图谱 */
+/* ------------------------------------------- 7 单核图谱 */
+s = plain();
+title(s, 'IFIH1 在白质单核中的分布，按病灶分期');
+figure(s, 'fig_umap_wm.png', 1.05);
+
+/* ------------------------------------------- 8 病灶分期定量 */
 s = plain();
 title(s, '按脱髓鞘病灶分期，每一期与对照比较');
 figure(s, 'fig_lesion.png', 1.05);
