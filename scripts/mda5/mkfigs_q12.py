@@ -65,8 +65,8 @@ def fig_celltype():
     base['名'] = base.grp.map(NAME)
     base = base.sort_values('CP10k')
 
-    fig = plt.figure(figsize=(14.6, 5.5))
-    gs = GridSpec(1, 2, width_ratios=[1.0, 1.15], wspace=0.28, figure=fig)
+    fig = plt.figure(figsize=(15.8, 5.5))
+    gs = GridSpec(1, 2, width_ratios=[0.92, 1.30], wspace=0.24, figure=fig)
 
     ax = fig.add_subplot(gs[0, 0])
     y = np.arange(len(base))
@@ -78,8 +78,8 @@ def fig_celltype():
         ax.text(r.CP10k * 1.09, yi, f'{r.CP10k:.2f}', va='center', ha='left',
                 fontsize=9.5, color=F.INK)
     ax.set_yticks(y); ax.set_yticklabels(base.名.values, fontsize=11)
-    ax.set_xlim(0, base.CP10k.max() * 1.28)
-    ax.set_xlabel('IFIH1 表达量  CP10k', fontsize=10.5)
+    ax.set_xlim(0, base.CP10k.max() * 1.16)
+    ax.set_xlabel('IFIH1 表达量（每万转录本中的计数）', fontsize=10.5)
     ax.set_title('正常人脑，783 例供体，1850 万个核', fontsize=12.5, pad=10, color=F.INK)
     ax.spines['left'].set_visible(False); ax.tick_params(axis='y', length=0)
     ax.grid(axis='x', color=F.HAIR, lw=0.7, alpha=0.7); ax.set_axisbelow(True)
@@ -106,14 +106,14 @@ def fig_celltype():
                         s=2.6, color=col, alpha=0.5, linewidths=0, rasterized=True)
             ax2.hlines(np.log10(np.median(nz)), i - 0.3, i + 0.3, color=col, lw=2.8, zorder=6)
             tops.append(np.log10(nz).max())
-        xlab.append(f'{CN[e]}\n阳性率 {100 * len(nz) / len(v):.1f}%')
+        xlab.append(f'{CN[e]}\n阳性率 {100 * len(nz) / len(v):.1f}%'.replace('少突胶质前体细胞', '少突胶质\n前体细胞'))
     tidy(ax2, xlab, list(range(len(order))), None,
          '阳性核的 IFIH1 表达水平（正常白质）')
-    ax2.set_ylabel('IFIH1  CP10k', fontsize=10.5)
+    ax2.set_ylabel('IFIH1（每万转录本中的计数）', fontsize=10.5)
     ticks = np.array([0, 1, 2])
     ax2.set_yticks(ticks); ax2.set_yticklabels(['1', '10', '100'])
     ax2.set_ylim(-0.55, max(tops) + 0.35)
-    ax2.tick_params(axis='x', rotation=0, labelsize=9.5)
+    ax2.tick_params(axis='x', rotation=0, labelsize=8.8)
     fig.savefig(FIG + 'fig_q1_celltype.png', dpi=240, bbox_inches='tight', facecolor='white')
     plt.close(fig); print('fig_q1_celltype ok')
 

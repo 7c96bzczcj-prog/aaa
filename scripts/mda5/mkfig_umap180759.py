@@ -80,11 +80,11 @@ for k, (key, nm) in enumerate(CTS):
     ax.set_title(nm, fontsize=11.5, pad=6, color=F.INK)
     ax.tick_params(labelsize=8.5)
     if k == 0:
-        ax.set_ylabel('IFIH1  CP10k\n每点一位供体', fontsize=9.5)
+        ax.set_ylabel('IFIH1 表达量\n每万转录本中的计数', fontsize=9.5)
 
 cax = fig.add_axes([0.925, 0.60, 0.007, 0.25])
 cb = fig.colorbar(ScalarMappable(norm=Normalize(0, vmax), cmap=F.FEAT), cax=cax)
-cb.set_label('IFIH1  log 归一化表达', fontsize=9.5, color=F.INK)
+cb.set_label('IFIH1 表达水平（对数归一化）', fontsize=9.5, color=F.INK)
 cb.ax.tick_params(labelsize=8.5, length=2)
 cb.outline.set_visible(False)
 
