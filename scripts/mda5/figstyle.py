@@ -164,3 +164,15 @@ def forest(ax, labels, est, lo, hi, colors, xlab, ref=0.0, untestable=None, fs=1
     ax.spines['left'].set_visible(False)
     ax.tick_params(axis='y', length=0)
     ax.set_ylim(-0.7, n - 0.3)
+
+
+def stars(p):
+    """显著性标记。ns 表示不显著，不是"无差异"。"""
+    if p is None or p != p:
+        return ''
+    return '***' if p < 0.001 else '**' if p < 0.01 else '*' if p < 0.05 else 'ns'
+
+
+def star_key(fig, y=0.005, fs=9):
+    fig.text(0.5, y, '* p<0.05    ** p<0.01    *** p<0.001    ns 不显著',
+             ha='center', va='bottom', fontsize=fs, color=MUT)

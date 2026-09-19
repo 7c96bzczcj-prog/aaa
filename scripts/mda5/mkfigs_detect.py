@@ -74,8 +74,9 @@ def fig_change(comp_label, cohorts, fname, ct_col, ms_col):
                 if not (r.率对照 > 0):
                     txt = '对照组未检出'; solid = False
                 else:
-                    txt = f"×{2**r['log2比值']:.1f}\n[{2**r.lo:.1f}, {2**r.hi:.1f}]"
-                    solid = (r.lo > 0) or (r.hi < 0)
+                    sg = F.stars(r.get('p', float('nan')))
+                    txt = f"×{2**r['log2比值']:.1f}  {sg}\n[{2**r.lo:.1f}, {2**r.hi:.1f}]"
+                    solid = sg not in ('ns', '')
             else:
                 txt = '样本量不足'; solid = False
             F.bracket(ax, x0, x1, top * 1.08, txt, color=F.INK if solid else F.MUT, fs=9.4)
@@ -84,6 +85,7 @@ def fig_change(comp_label, cohorts, fname, ct_col, ms_col):
                 ax.text((x0 + x1) / 2, -0.205, coh, transform=ax.get_xaxis_transform(),
                         ha='center', va='top', fontsize=9.2, color=F.MUT)
     fig.tight_layout(h_pad=3.4 if len(cohorts) > 1 else 2.6, w_pad=2.2)
+    F.star_key(fig, y=-0.012)
     fig.savefig(FIG + fname, dpi=240, bbox_inches='tight', facecolor='white')
     plt.close(fig); print(fname, 'ok')
 
@@ -101,11 +103,12 @@ def fig_region():
         if len(w) >= 3 and len(m) >= 3:
             from scipy.stats import mannwhitneyu
             p = mannwhitneyu(w, m, alternative='two-sided').pvalue
-            F.bracket(ax, 0, 1, top * 1.10, f'p = {p:.3f}',
+            F.bracket(ax, 0, 1, top * 1.10, f'{F.stars(p)}   p = {p:.3f}',
                       color=F.INK if p < .05 else F.MUT, fs=10.5)
         else:
             F.bracket(ax, 0, 1, top * 1.10, '样本量不足', color=F.MUT, fs=10.5)
     fig.tight_layout(h_pad=2.6, w_pad=2.2)
+    F.star_key(fig, y=-0.012)
     fig.savefig(FIG + 'fig_q1_region.png', dpi=240, bbox_inches='tight', facecolor='white')
     plt.close(fig); print('fig_q1_region ok')
 
