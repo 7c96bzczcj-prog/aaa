@@ -1,0 +1,35 @@
+cell_type,group,nCPM
+Endothelial cell,Endothelial and mural cells,118.9
+Central nervous system macrophage,Glial cells,35.5
+Leukocyte,Blood and immune cells,30.2
+Fibroblast,Mesenchymal cells,23.2
+Pericyte,Endothelial and mural cells,14.8
+Ependymal cell,Ciliated cells,13.5
+Vascular associated smooth muscle cell,Endothelial and mural cells,13.3
+Oligodendrocyte precursor cell,Glial cells,12.3
+Astrocyte,Glial cells,11.6
+Choroid plexus epithelial cell,Ciliated cells,8.8
+Oligodendrocyte,Glial cells,7.5
+Committed oligodendrocyte precursor,Glial cells,5.6
+Bergmann glia,Glial cells,5.4
+Thalamic excitatory,Neuronal cells,4.7
+Miscellaneous,Neuronal cells,3.3
+Mammillary body,Neuronal cells,2.0
+Hippocampal ca1-3,Neuronal cells,1.5
+Lamp5-lhx6 and chandelier,Neuronal cells,1.4
+Upper rhombic lip,Neuronal cells,1.3
+Deep-layer intratelencephalic,Neuronal cells,1.2
+Deep-layer corticothalamic and 6b,Neuronal cells,0.9
+Mge interneuron,Neuronal cells,0.8
+Midbrain-derived inhibitory,Neuronal cells,0.7
+Upper-layer intratelencephalic,Neuronal cells,0.5
+Splatter,Neuronal cells,0.5
+Cge interneuron,Neuronal cells,0.5
+Lower rhombic lip,Neuronal cells,0.3
+Amygdala excitatory,Neuronal cells,0.3
+Cerebellar inhibitory,Neuronal cells,0.2
+Deep-layer near-projecting,Neuronal cells,0.2
+Hippocampal ca4,Neuronal cells,0.1
+Medium spiny neuron,Neuronal cells,0.1
+Eccentric medium spiny neuron,Neuronal cells,0.1
+Hippocampal dentate gyrus,Neuronal cells,0.0
