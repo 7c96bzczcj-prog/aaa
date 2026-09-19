@@ -171,17 +171,36 @@ effect. The induction is cell-intrinsic to microglia.
 
 ### Is it MDA5 specifically, or the whole interferon module?
 
-The two cohorts disagree, and this is the weakest part of the picture.
+Judged on raw detection rates, Lerma-Martin looks like a blanket interferon
+response — IFIH1 OR 4.13, but DDX58 2.69, STAT1 2.77, MX1 2.19, OAS1 3.19, BST2
+6.42, ISG15 14.13 as well. **That reading is an artefact of the 3.84× depth
+difference.** Re-run depth-normalised and at donor level, the picture is much more
+specific ([`out_lerma_isg_panel_donor.csv`](../results/mda5/out_lerma_isg_panel_donor.csv)):
 
-In **GSE180759** the response is selective — IFIH1 2.45× and IRF7 2.59× and BST2
-1.49× up, while RIG-I/`DDX58` (0.65×), `STAT1` (0.75×), `MX1` (0.34×), `OAS1`
-(0.27×) and `IFIT3` (0.46×) all fall. RIG-I staying flat while MDA5 rises 4.6-fold
-in the same nuclei is a clean internal control against a depth artefact.
+| gene | oligodendrocyte | microglia | astrocyte |
+|---|---|---|---|
+| **IFIH1** (MDA5) | **2.45× p=0.014** | 1.64× p=0.054 | 1.12× n.s. |
+| DDX58 (RIG-I) | **1.42× p=0.022** | 1.12× n.s. | 1.11× n.s. |
+| EIF2AK2 (PKR) | **1.34× p=0.035** | 0.99× n.s. | 1.01× n.s. |
+| IRF7 | **4.96× p=0.012** | 1.32× n.s. | **1.93× p=0.008** |
+| MAVS | 0.85× p=0.051 | **0.76× p=0.014** | **0.71× p=0.002** |
+| BST2 | 5.64× n.s. (near zero) | **2.64× p=0.005** | 1.18× n.s. |
+| STAT1, MX1, OAS1, ISG15, IFIT3, XAF1 | n.s. | n.s. | n.s. |
 
-In **Lerma-Martin** the entire antiviral module rises together — IFIH1 OR 4.13,
-but also DDX58 2.69, STAT1 2.77, MX1 2.19, OAS1 3.19, XAF1 2.78, and BST2 6.42 and
-ISG15 14.13 exceed IFIH1. There, MDA5 is one member of a general interferon
-response rather than a selectively induced gene.
+**In oligodendrocytes the cytoplasmic RNA-sensing arm moves as a unit** — MDA5,
+RIG-I and PKR all rise together with IRF7 — while the downstream effectors (MX1,
+OAS1, BST2, ISG15) stay at essentially zero (0.000–0.003 CP10k). Oligodendrocytes
+in MS look **primed to sense dsRNA without executing an interferon response**.
+
+In microglia, MDA5 and BST2 rise while the classic effectors do not. In
+GSE180759's microglia the same selectivity appears from the other direction:
+IFIH1 2.45× and IRF7 2.59× and BST2 1.49× up, while RIG-I (0.65×), STAT1 (0.75×),
+MX1 (0.34×), OAS1 (0.27×) and IFIT3 (0.46×) fall. RIG-I staying flat while MDA5
+rises in the same nuclei is a clean internal control against a depth artefact.
+
+**`MAVS`, the adaptor MDA5 signals through, falls** in microglia (0.76×, p=0.014)
+and astrocytes (0.71×, p=0.002) — so more sensor is being made while less of its
+obligate adaptor is. That is worth following up rather than asserting.
 
 `ADAR`, which edits endogenous dsRNA and is the brake on MDA5, does **not** rise
 with it in GSE180759 microglia (1.342 → 1.023, 0.76×, n.s.), while ADAR2/`ADARB1`
