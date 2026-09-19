@@ -227,6 +227,88 @@ rises 1.61×. Too weak to build on, but it is the natural next thing to test.
 
 ---
 
+---
+
+## Answer 3 — split by compartment: the MS effect is a white-matter effect
+
+**No single public dataset with accessible processed data sampled both compartments.**
+GSE180759, GSE279180 and GSE118257 are all subcortical **white matter**. The only
+study designed for this question, Macnair 2025 (*Neuron*, 632,000 nuclei, 54 MS +
+26 controls, WM lesion / normal-appearing WM / GM lesion / normal-appearing GM),
+deposits its data at EGA under controlled access (EGAD00001009169) and could not
+be used. So the grey-matter arm comes from a separate study:
+**Schirmer 2019 (*Nature*)**, cortical snRNA-seq, 48,919 nuclei, 9 control and 12
+MS donors, obtained from the UCSC Cell Browser. The compartment comparison is
+therefore **cross-study**, and that is its main weakness.
+
+### Baseline: the cell-type hierarchy is the same in grey and white matter
+
+Absolute units differ between studies, so each cell type is expressed relative to
+**astrocytes in its own dataset** ([`out_gm_vs_wm_baseline.csv`](../results/mda5/out_gm_vs_wm_baseline.csv)):
+
+| cell type | cortex / GM | WM (Absinta) | WM (Lerma-Martin) |
+|---|---|---|---|
+| endothelial | 10.40 | 0.68 | 5.44 |
+| microglia | 2.80 | 1.18 | 2.75 |
+| astrocyte | 1.00 | 1.00 | 1.00 |
+| oligodendrocyte | 0.70 | 0.29 | 0.46 |
+| OPC | 0.29 | 0.20 | 0.51 |
+| neuron | 0.16 | 0.00 | 0.17 |
+
+Same ordering in both compartments: endothelium highest, then microglia, then
+astrocytes, then oligodendroglia, with neurons lowest. **Compartment does not
+change which cells express MDA5.** (The Absinta endothelial figure rests on 65
+control nuclei and should be ignored.)
+
+### Disease effect: depth-matched, same statistic in both compartments
+
+[`out_gm_wm_depthmatched.csv`](../results/mda5/out_gm_wm_depthmatched.csv)
+
+| cell type | WM Absinta | WM Lerma-Martin | cortex / GM (Schirmer) |
+|---|---|---|---|
+| **oligodendrocyte** | **OR 1.84, p=0.0019** | **OR 2.40, p=7×10⁻⁴²** | OR 1.14, p=0.77 |
+| **microglia** | OR 2.55, p=0.17 | **OR 1.64, p=0.0017** | OR 1.78, p=0.54 |
+| astrocyte | 0.49, n.s. | 1.14, n.s. | 0.96, n.s. |
+| OPC | 2.01, n.s. | 0.72, n.s. | 2.16, p=0.13 |
+| endothelial | 4.24, n.s. (n=54) | 0.83, n.s. | 1.92, p=0.16 (n=90) |
+| neuron | — | 0.88, n.s. | **1.12, p=0.43** |
+
+Three things follow.
+
+**The oligodendrocyte effect is white-matter-specific, and this is not a power
+problem.** Cortex contributes 3,070 oligodendrocytes per matched group and returns
+OR 1.14 with p=0.77; the donor-level test agrees (1.56×, p=0.37). In white matter
+the same statistic gives 1.84 and 2.40 in two independent cohorts. MDA5 goes up in
+oligodendrocytes where the lesions are demyelinating white-matter tracts, not in
+cortical oligodendrocytes.
+
+**Neurons do not change, and grey matter is what finally allows that to be tested.**
+White-matter datasets contain almost no neurons (34 control neuronal nuclei in
+GSE180759). Cortex gives 10,134 per matched group, and the answer is a clean
+negative: OR 1.12, p=0.43. Neurons have the lowest MDA5 in the brain and MS does
+not raise it.
+
+**Microglia point the same way in all three cohorts** (OR 2.55, 1.64, 1.78) but
+cortex cannot confirm it: control cortex yields only **159** microglial nuclei,
+and just 2 of 9 control donors reach 20. The microglial result stands on white
+matter.
+
+### A separate cortical observation, not about MDA5
+
+Microglia are **0.91%** of control cortical nuclei and **4.84%** of MS cortical
+nuclei, a roughly five-fold expansion, while neurons fall from 63.2% to 40.3%.
+That is a composition change in MS cortex, and it is the reason the control
+microglial baseline there is so thin.
+
+### One nominal hit that does not survive inspection
+
+Cortical OPCs scored 16.9× with p=0.041 at donor level. Five of nine control
+donors have **zero** IFIH1-positive OPC nuclei, so the control median is 0 and the
+ratio is division by roughly zero. Depth-matched, the same comparison gives OR
+2.16, p=0.13. It is not a finding.
+
+---
+
 ## Methods
 
 - **GSE180759**: the authors' filtered matrix (29,432 genes × 66,432 nuclei) and
@@ -236,6 +318,12 @@ rises 1.61×. Too weak to build on, but it is the natural next thing to test.
 - **GSE279180**: the nine per-cell-type `.h5ad` files (103,780 nuclei, 13 donors),
   raw integer counts, chunked extraction of the same gene panel.
 - **Census / Jäkel**: `cellxgene-census` 1.18.0, stable release, `raw` layer.
+- **Schirmer 2019 (cortex / grey matter)**: the authors' normalised matrix and
+  metadata from the UCSC Cell Browser (`cells.ucsc.edu/ms`), 48,919 nuclei, 21
+  donors, four cortical regions. The matrix is per-cell library-size normalised and
+  log-transformed rather than raw counts, so the reported statistics there are mean
+  normalised expression and decile-depth-matched detection using the metadata's own
+  per-nucleus UMI totals. Raw reads for that study are SRA PRJNA544731.
 - **Statistics**: donor-level Mann-Whitney on depth-normalised CP10k is the primary
   test. Cell-level Fisher tests are reported only as descriptive, because nuclei
   within a donor are not independent. Cross-cohort combination is Fisher's method
@@ -266,6 +354,15 @@ rises 1.61×. Too weak to build on, but it is the natural next thing to test.
    (1,645 UMI total). Everything here is a low-count measurement.
 6. **Jäkel adds direction but no power** — 78 control microglia, 0% positive vs
    3.14% in MS, p=0.23.
+7. **The grey-matter versus white-matter comparison is cross-study**, because the
+   one cohort that sampled both compartments (Macnair 2025) is under EGA controlled
+   access. Cortex comes from Schirmer 2019 and white matter from three other
+   studies, so a compartment difference is confounded with study, tissue handling
+   and normalisation. The two conclusions that survive this are the ones resting on
+   a *negative* in a well-powered cortical sample — oligodendrocytes (3,070 per
+   matched group) and neurons (10,134) — since a cross-study artefact is a poor
+   explanation for an effect that is strong in two independent WM cohorts and
+   absent in an adequately sized GM one.
 
 ## What would settle it
 
