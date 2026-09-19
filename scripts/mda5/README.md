@@ -12,3 +12,14 @@ Run order (all expect the GEO/Census downloads described in
 
 Gene panel extraction from the GSE180759 matrix is a one-line awk filter on the
 first CSV field; see the Methods section. Outputs land in `results/mda5/`.
+
+## 图与 PPT 生成
+
+| 脚本 | 作用 |
+|---|---|
+| `figstyle.py` | matplotlib 中文字体与统一配色（文泉驿正黑；病灶分期用有序蓝色梯度） |
+| `mkfig12.py` | 图1 基线三技术对照；图2 MS vs 对照（小提琴+散点 与 供体水平森林图） |
+| `mkfig345.py` | 图3 灰质/白质；图4 病灶分期与小胶质状态（含 UMAP 特征图）；图5 三项对照 |
+| `../results/mda5/build_ppt.js` | 用 pptxgenjs 组装 9 页中文 PPT |
+
+图输出到 `results/mda5/figs/`，PPT 为 `results/mda5/MDA5_IFIH1_人脑与MS.pptx`。
