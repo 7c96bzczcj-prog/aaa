@@ -46,8 +46,9 @@ for j, st in enumerate(STAGES):
 d = pd.read_parquet('df_180759.parquet').reset_index(drop=True)
 d['stage'] = obs.pathology.values
 d['ct'] = obs.cell_type.values
-CTS = [('oligodendrocytes', '少突胶质'), ('immune', '小胶质/巨噬'),
-       ('astrocytes', '星形胶质'), ('opc', 'OPC'), ('vascular_cells', '血管/内皮')]
+CTS = [('oligodendrocytes', '少突胶质细胞'), ('immune', '小胶质细胞'),
+       ('astrocytes', '星形胶质细胞'), ('opc', '少突胶质前体细胞'),
+       ('vascular_cells', '内皮细胞')]
 SHORT = {'control_white_matter': '对照', 'MS_periplaque_white_matter': '斑块周围',
          'chronic_inactive_MS_lesion_edge': '慢性非活动',
          'chronic_active_MS_lesion_edge': '慢性活动', 'MS_lesion_core': '病灶核心'}
