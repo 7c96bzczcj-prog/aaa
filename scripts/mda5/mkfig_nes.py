@@ -21,9 +21,10 @@ NAME = {'endothelial': '内皮细胞', 'fibroblast': '成纤维细胞',
         'OPC': '少突胶质前体细胞', 'oligodendrocyte': '少突胶质细胞', 'neuron': '神经元'}
 CT180 = {'oligodendrocytes': '少突胶质细胞', 'astrocytes': '星形胶质细胞',
          'immune': '小胶质细胞', 'neurons': '神经元', 'opc': '少突胶质前体细胞',
-         'vascular_cells': '内皮细胞'}
-ORDER180 = ['vascular_cells', 'opc', 'astrocytes', 'oligodendrocytes',
-            'neurons', 'immune']
+         'vascular_cells': '内皮细胞', 'lymphocytes': '淋巴细胞'}
+# 淋巴细胞必须在列：它是左图的第一名，读者会到右图核对。
+ORDER180 = ['lymphocytes', 'vascular_cells', 'opc', 'astrocytes',
+            'oligodendrocytes', 'neurons', 'immune']
 
 base = pd.read_csv(RES + 'out_nes_baseline.csv')
 base = base[base.grp.isin(NAME)].copy()
@@ -60,12 +61,12 @@ ax.grid(axis='x', color=F.HAIR, lw=0.7, alpha=0.7); ax.set_axisbelow(True)
 ax2 = fig.add_subplot(gs[0, 1])
 rng = np.random.default_rng(3)
 tops = []; xlab = []
-order = [k for k in ORDER180 if (ctrl.ct == k).sum() > 400]
+order = [k for k in ORDER180 if (ctrl.ct == k).sum() >= 200]
 for i, k in enumerate(order):
     v = ctrl[ctrl.ct == k].CP10k.values
     nz = v[v > 0]
-    col = F.BLUE if k in ('vascular_cells', 'opc') else '#9fb3c8'
-    if len(nz) > 5:
+    col = F.BLUE if k in ('vascular_cells', 'opc', 'lymphocytes') else '#9fb3c8'
+    if len(nz) >= 3:
         p = ax2.violinplot([np.log10(nz)], positions=[i], widths=0.74,
                            showextrema=False, showmedians=False)
         for b in p['bodies']:
@@ -75,8 +76,12 @@ for i, k in enumerate(order):
                     s=2.6, color=col, alpha=0.5, linewidths=0, rasterized=True)
         ax2.hlines(np.log10(np.median(nz)), i - 0.3, i + 0.3, color=col, lw=2.8, zorder=6)
         tops.append(np.log10(nz).max())
-    xlab.append(f'{CT180[k]}\n阳性率 {100 * len(nz) / len(v):.1f}%')
-ax2.set_xticks(range(len(order))); ax2.set_xticklabels(xlab, fontsize=8.8)
+        if len(nz) < 30:
+            ax2.text(i, np.log10(nz).max() + 0.13, f'{len(nz)} 核',
+                     ha='center', va='bottom', fontsize=8, color=F.MUT)
+    xlab.append(f'{CT180[k]}\n阳性率 {100 * len(nz) / len(v):.1f}%'
+                .replace('少突胶质前体细胞', '少突胶质\n前体细胞'))
+ax2.set_xticks(range(len(order))); ax2.set_xticklabels(xlab, fontsize=8.4)
 ax2.set_xlim(-0.7, len(order) - 0.3)
 ax2.set_ylabel(f'{GENE}（每万转录本中的计数）', fontsize=10.5)
 ax2.set_yticks([0, 1, 2]); ax2.set_yticklabels(['1', '10', '100'])
