@@ -42,20 +42,10 @@ gs = GridSpec(1, 2, width_ratios=[0.92, 1.30], wspace=0.24, figure=fig)
 
 # ---- 左：Census 伪整体排序 ----
 ax = fig.add_subplot(gs[0, 0])
-y = np.arange(len(base))
-for yi, (_, r) in zip(y, base.iterrows()):
-    c = (F.VIOLET if r.grp == 'endothelial' else
-         F.BLUE if r.grp in ('OPC', 'mural/perivascular') else '#9fb3c8')
-    ax.hlines(yi, 0, r.CP10k, color=c, lw=2.2, alpha=0.55)
-    ax.scatter([r.CP10k], [yi], s=74, color=c, zorder=4, linewidths=0)
-    ax.text(r.CP10k * 1.06, yi, f'{r.CP10k:.2f}', va='center', ha='left',
-            fontsize=9.5, color=F.INK)
-ax.set_yticks(y); ax.set_yticklabels(base.名.values, fontsize=11)
-ax.set_xlim(0, base.CP10k.max() * 1.16)
-ax.set_xlabel(f'{GENE} 表达量（每万转录本中的计数）', fontsize=10.5)
-ax.set_title('正常人脑，CELLxGENE Census', fontsize=12.5, pad=10, color=F.INK)
-ax.spines['left'].set_visible(False); ax.tick_params(axis='y', length=0)
-ax.grid(axis='x', color=F.HAIR, lw=0.7, alpha=0.7); ax.set_axisbelow(True)
+bd = pd.read_csv(RES + 'out_nes_bydataset.csv')
+F.census_panel(ax, bd, 'NES', highlight=('endothelial',))
+ax.set_title('正常人脑，每点一个数据集，横线为中位', fontsize=12.5,
+             pad=10, color=F.INK)
 
 # ---- 右：白质单核层面 ----
 ax2 = fig.add_subplot(gs[0, 1])

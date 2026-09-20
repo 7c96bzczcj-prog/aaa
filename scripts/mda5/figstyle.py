@@ -194,3 +194,55 @@ def source(fig, keys, y=-0.002, fs=7.8, x=0.0):
         keys = [keys]
     txt = '\n'.join(CITE[k] for k in keys)
     fig.text(x, y, txt, ha='left', va='top', fontsize=fs, color=MUT, linespacing=1.5)
+
+
+CENSUS_NAME = {'endothelial': '内皮细胞', 'fibroblast': '成纤维细胞',
+               'mural/perivascular': '壁细胞/血管周细胞', 'lymphocyte/leukocyte': '淋巴细胞',
+               'microglia/CNS macrophage': '小胶质细胞', 'ependymal/choroid': '室管膜/脉络丛上皮',
+               'astrocyte': '星形胶质细胞', 'OPC': '少突胶质前体细胞',
+               'oligodendrocyte': '少突胶质细胞', 'neuron': '神经元'}
+
+
+def census_panel(ax, by_dataset, gene, highlight=(), seed=0, floor=2e-3):
+    """每数据集一个点，横线为各数据集的中位。
+
+    不画合并值：合并按总计数加权，单个数据集可以独占某一行。
+    对数横轴，零值压在 floor 处并空心表示。
+    """
+    import numpy as np
+    med = (by_dataset.groupby('grp').CP10k.median().sort_values())
+    rng = np.random.default_rng(seed)
+    for i, (g, m) in enumerate(med.items()):
+        v = by_dataset[by_dataset.grp == g].CP10k.values
+        col = VIOLET if g in highlight else '#9fb3c8'
+        zero = v <= 0
+        jit = rng.uniform(-0.17, 0.17, len(v))
+        if (~zero).any():
+            ax.scatter(np.maximum(v[~zero], floor), i + jit[~zero], s=15,
+                       facecolor='white', edgecolor=col, linewidths=1.0, zorder=4)
+        if zero.any():
+            ax.scatter(np.full(zero.sum(), floor), i + jit[zero], s=12,
+                       facecolor='none', edgecolor='#c8c8c8', linewidths=0.9, zorder=3)
+        ax.hlines(i, max(m, floor) * 0.86, max(m, floor) * 1.16, color=col, lw=0)
+        ax.vlines(max(m, floor), i - 0.30, i + 0.30, color=col, lw=3.0, zorder=6)
+        ax.text(1.02, i, f'{m:.3f}', transform=ax.get_yaxis_transform(),
+                va='center', ha='left', fontsize=9, color=INK)
+    ax.set_xscale('log')
+    # 字体缺负号字形，log 默认刻度会显示成乱码，故给定明确标签
+    from matplotlib.ticker import FixedLocator, FixedFormatter, NullLocator
+    tv = [0.001, 0.01, 0.1, 1.0]
+    tl = ['0.001', '0.01', '0.1', '1']
+    lo = min(floor * 0.7, min(v for v in med.values if v > 0) * 0.5)
+    hi = by_dataset.CP10k.max() * 1.6
+    keep = [(t, l) for t, l in zip(tv, tl) if lo <= t <= hi]
+    ax.xaxis.set_major_locator(FixedLocator([t for t, _ in keep]))
+    ax.xaxis.set_major_formatter(FixedFormatter([l for _, l in keep]))
+    ax.xaxis.set_minor_locator(NullLocator())
+    ax.set_xlim(lo, hi)
+    ax.set_yticks(range(len(med)))
+    ax.set_yticklabels([CENSUS_NAME.get(g, g) for g in med.index], fontsize=11)
+    ax.set_ylim(-0.6, len(med) - 0.4)
+    ax.set_xlabel(f'{gene} 表达量（每万转录本中的计数）', fontsize=10.5)
+    ax.spines['left'].set_visible(False); ax.tick_params(axis='y', length=0)
+    ax.grid(axis='x', color=HAIR, lw=0.7, alpha=0.7); ax.set_axisbelow(True)
+    return med
