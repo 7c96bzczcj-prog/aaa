@@ -84,6 +84,7 @@ ax2.set_ylim(-0.55, max(tops) + 0.35)
 ax2.set_title(f'阳性核的 {GENE} 表达水平（白质，66 432 核）', fontsize=12.5, pad=10, color=F.INK)
 ax2.tick_params(labelsize=9.5)
 
+F.source(fig, ['census', 'absinta'])
 fig.savefig(FIG + 'fig_nes_celltype.png', dpi=240, bbox_inches='tight', facecolor='white')
 print('fig_nes_celltype ok')
 print(base[['名', 'n', 'CP10k', '阳性率']].sort_values('CP10k', ascending=False)

@@ -92,6 +92,7 @@ for r, (matter, stages) in enumerate((('WM', WM), ('GM', GM))):
                     color=F.INK if sg not in ('ns', '') else F.MUT)
         ax.text(0, hi * 1.10, '对照', ha='center', va='bottom', fontsize=8.2, color=F.MUT)
 F.star_key(fig, y=-0.004)
+F.source(fig, ['macnair'], y=-0.022)
 fig.savefig('/home/user/aaa/results/mda5/figs/fig_lesion.png', dpi=240,
             bbox_inches='tight', facecolor='white')
 print('ok')

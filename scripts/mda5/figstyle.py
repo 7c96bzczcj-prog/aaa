@@ -176,3 +176,21 @@ def stars(p):
 def star_key(fig, y=0.005, fs=9):
     fig.text(0.5, y, '* p<0.05    ** p<0.01    *** p<0.001    ns 不显著',
              ha='center', va='bottom', fontsize=fs, color=MUT)
+
+
+# 数据来源，NLM 格式；图左下角标注用
+CITE = {
+    'census':  'CELLxGENE Census · CZI Cell Science Program, et al. Nucleic Acids Res. 2025;53(D1):D886-D900',
+    'absinta': 'GSE180759 · Absinta M, et al. Nature. 2021;597(7878):709-714',
+    'lerma':   'GSE279180 · Lerma-Martin C, et al. Nat Neurosci. 2024;27(12):2354-2365',
+    'schirmer':'Schirmer L, et al. Nature. 2019;573(7772):75-82',
+    'macnair': 'Macnair W, et al. Neuron. 2025;113(3):396-410.e9',
+}
+
+
+def source(fig, keys, y=-0.002, fs=7.8, x=0.0):
+    """图左下角的数据来源。keys 为 CITE 的键，按给定次序逐行排列。"""
+    if isinstance(keys, str):
+        keys = [keys]
+    txt = '\n'.join(CITE[k] for k in keys)
+    fig.text(x, y, txt, ha='left', va='top', fontsize=fs, color=MUT, linespacing=1.5)

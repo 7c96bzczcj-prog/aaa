@@ -49,6 +49,7 @@ cb.set_label('IFIH1 表达水平（对数归一化）', fontsize=9.5, color=F.IN
 cb.ax.tick_params(labelsize=8.5, length=2)
 cb.outline.set_visible(False)
 
+F.source(fig, ['absinta'])
 fig.savefig('/home/user/aaa/results/mda5/figs/fig_umap_wm.png',
             dpi=240, bbox_inches='tight', facecolor='white')
 print('ok  vmax', round(float(vmax), 3))

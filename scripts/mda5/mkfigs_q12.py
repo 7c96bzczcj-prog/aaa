@@ -114,6 +114,7 @@ def fig_celltype():
     ax2.set_yticks(ticks); ax2.set_yticklabels(['1', '10', '100'])
     ax2.set_ylim(-0.55, max(tops) + 0.35)
     ax2.tick_params(axis='x', rotation=0, labelsize=8.8)
+    F.source(fig, ['census', 'absinta', 'lerma'])
     fig.savefig(FIG + 'fig_q1_celltype.png', dpi=240, bbox_inches='tight', facecolor='white')
     plt.close(fig); print('fig_q1_celltype ok')
 

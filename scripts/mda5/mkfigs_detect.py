@@ -86,6 +86,7 @@ def fig_change(comp_label, cohorts, fname, ct_col, ms_col):
                         ha='center', va='top', fontsize=9.2, color=F.MUT)
     fig.tight_layout(h_pad=3.4 if len(cohorts) > 1 else 2.6, w_pad=2.2)
     F.star_key(fig, y=-0.012)
+    F.source(fig, ['absinta', 'lerma'] if len(cohorts) > 1 else ['schirmer'], y=-0.030)
     fig.savefig(FIG + fname, dpi=240, bbox_inches='tight', facecolor='white')
     plt.close(fig); print(fname, 'ok')
 
@@ -109,6 +110,7 @@ def fig_region():
             F.bracket(ax, 0, 1, top * 1.10, '样本量不足', color=F.MUT, fs=10.5)
     fig.tight_layout(h_pad=2.6, w_pad=2.2)
     F.star_key(fig, y=-0.012)
+    F.source(fig, ['absinta', 'lerma', 'schirmer'], y=-0.030)
     fig.savefig(FIG + 'fig_q1_region.png', dpi=240, bbox_inches='tight', facecolor='white')
     plt.close(fig); print('fig_q1_region ok')
 
