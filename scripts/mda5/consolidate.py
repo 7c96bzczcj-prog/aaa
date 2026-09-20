@@ -18,12 +18,16 @@ GROUPS = {
                            r'perivascular cell', r'vascular leptomeningeal',
                            r'brain vascular cell'],
     'fibroblast': [r'fibroblast'],
-    'lymphocyte/leukocyte': [r'T cell', r'B cell', r'natural killer', r'leukocyte',
-                             r'lymphocyte'],
+    # 必须加词边界：'T cell' 不加边界会匹配 neural cresT cell、masT cell、
+    # gobleT cell。神经嵴细胞是神经前体，NES 高表达，曾因此把淋巴细胞一行
+    # 从第 8 位抬到第 1 位。
+    'lymphocyte/leukocyte': [r'\bT cells?\b', r'\bB cells?\b', r'\bnatural killer\b',
+                             r'\bleukocyte\b', r'\blymphocyte\b', r'\bmonocyte\b'],
     'ependymal/choroid': [r'ependymal', r'choroid plexus'],
 }
 # 归入 neuron 前先排除这些（它们是胶质或前体，名字里带 glial/progenitor）
-EXCLUDE_NEURON = [r'glial', r'progenitor', r'radial glia', r'glioblast', r'neural cell']
+EXCLUDE_NEURON = [r'glial', r'progenitor', r'radial glia', r'glioblast', r'neural cell',
+                  r'neural crest', r'mast cell', r'goblet cell']
 
 
 def assign(ct):
