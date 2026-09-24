@@ -1,0 +1,92 @@
+# NK public-atlas secondary analysis: frozen definitions, v1.0
+#
+# Committed before any atlas data object was opened. After this commit the
+# file is fixed. It must not be edited during or after any run, and parameters
+# must not be tuned while results are being viewed. A change requires a new
+# file with a new version number, plus an entry in docs/DEVIATIONS.md
+# explaining why.
+# tests/test_frozen_definitions.py enforces this by checking the file's
+# sha256 and its values.
+#
+# Values under [nk_gate], [signatures], [single_genes], [call_rule] and
+# [reference_groups] are copied verbatim from the round-1 task description
+# (v1.0). The task leaves some points unspecified. Those appear under
+# [implementer_fixed]: they were fixed here, before any data was viewed, so
+# that they cannot become a free parameter later. They are listed in the
+# round-1 report for the PI to confirm or overrule, which would require a
+# new version of this file.
+
+[meta]
+version = "1.0"
+frozen_on = "2026-09-24"
+source = "NK 公开图谱二次分析 — 第一轮任务说明 v1.0"
+
+# ---------------------------------------------------------------- NK gate
+# Keep: (NCAM1+ OR KLRD1+) AND NCR1+.
+# Drop: any of CD3D, CD3E, IL7R, RORA, GATA3 positive.
+# IL7R, RORA and GATA3 exclude type-1 innate lymphoid cells (ILC1).
+# They must not be omitted.
+[nk_gate]
+keep_require_any = ["NCAM1", "KLRD1"]
+keep_require_all = ["NCR1"]
+drop_if_any = ["CD3D", "CD3E", "IL7R", "RORA", "GATA3"]
+ilc1_exclusion_genes = ["IL7R", "RORA", "GATA3"]
+ilc1_exclusion_mandatory = true
+
+# ---------------------------------------------------------------- signatures
+[signatures]
+loss = ["PRF1", "GZMB", "GZMH", "GNLY", "FCGR3A", "KLRK1", "CD226", "NCR3", "CX3CR1", "TBX21"]
+gain = ["CD9", "ITGA1", "VEGFA", "CXCR4", "PAEP", "ITGAE", "CD69", "EOMES"]
+
+# Reported individually and never included in either signature.
+[single_genes]
+recent_degranulation = ["SELL", "LAMP1"]
+tissue_origin = ["CXCR6", "S1PR5"]
+
+# ---------------------------------------------------------------- call rule
+# Call "gain signature up" only if at least 3 genes of the gain signature
+# have adjusted P < 0.05 between the candidate group and the reference
+# group, and their fold changes point in a consistent direction.
+[call_rule]
+signature = "gain"
+min_genes = 3
+padj_threshold = 0.05
+padj_strict_less_than = true
+require_consistent_fold_change_direction = true
+
+# ---------------------------------------------------------------- references
+# Primary: all NK cells from healthy-donor peripheral blood.
+# Independent: healthy-donor CD56-bright NK cells, as a separate reference.
+[reference_groups]
+primary = "healthy_donor_peripheral_blood_NK_all"
+independent = "healthy_donor_CD56bright_NK"
+
+# ---------------------------------------------------------------- prohibitions
+[prohibitions]
+rerun_integration_or_clustering = false  # use each atlas's published subset labels only
+signature_scores_or_DE_in_round1 = false
+edit_gene_lists_or_thresholds = false
+tune_parameters_while_viewing_results = false
+
+# ---------------------------------------------------------------- implementer-fixed
+# The task does not specify these points. They are fixed here, before any
+# data was viewed, and are flagged for PI confirmation.
+[implementer_fixed]
+# "Positive" means at least 1 raw UMI in the atlas's raw-count layer. If an
+# atlas provides no raw counts for a cell set, the gate is reported as not
+# applicable to that set. No substitute layer is used.
+positivity_rule = "raw_umi_count >= 1"
+positivity_layer = "raw_counts_only"
+# P-value adjustment: Benjamini-Hochberg, over all genes tested in that
+# contrast.
+padj_method = "benjamini_hochberg"
+padj_family = "all_genes_tested_in_the_contrast"
+# For the call "up", the consistent direction must be log2FC > 0
+# (candidate higher than reference) for every gene counted toward
+# min_genes.
+direction_for_up = "log2fc_positive"
+# CD56-bright reference and every other subset use the atlas's own
+# published labels. The label-to-group mapping is written to a separate
+# committed file after the metadata inventory and before any expression
+# value is computed.
+subset_source = "published_labels_only"
