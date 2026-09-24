@@ -1,0 +1,51 @@
+object,hit_in,field,keyword_group,match
+A_main,values,sampleID,timepoint,"122 values, e.g. GSM4456257_ALL10-d15; BIOKEY_14_Pre; BIOKEY_19_Pre; BIOKEY_28_Pre; BIOKEY_3_Pre"
+A_main,values,sampleID,age_sex,"2 values, e.g. male-mix; female-mix"
+A_main,values,cellID,survival,"1 values, e.g. p1b1_bcIDFS"
+A_main,values,cellID,timepoint,"26796 values, e.g. BIOKEY_14_Pre_ACTATCTCAAGTAGTA-1; BIOKEY_14_Pre_AGCTTGATCCCTCTTT-1; BIOKEY_14_Pre_CAAGGCCGTCTACCTC-1; BIOKEY_14_Pre_CAGAATCTCGCAGGCT-1; BIOKEY_14_Pre_CAGCCGATCGTACGGC-1"
+A_main,values,meta_patientID,timepoint,"13 values, e.g. ALL10-d15; D20180108; D20171215; D20171109; D20180110"
+A_main,values,meta_patientID,age_sex,"2 values, e.g. male-mix; female-mix"
+A_main,values,datasets,timepoint,"1 values, e.g. 9_Cryopreservation"
+A_main,field_name,meta_platform,batch_platform,meta_platform
+A_main,field_name,batch,batch_platform,batch
+A_main,values,batch,timepoint,"18 values, e.g. ALL10-d15-GSE148218; CID4471-9_Cryopreservation; CID44971-9_Cryopreservation; CID4513-9_Cryopreservation; PID17267-9_Cryopreservation"
+A_main,values,batch,age_sex,"2 values, e.g. male-mix-GSE158291; female-mix-GSE158291"
+A_main,field_name,meta_tissue_in_paper,tissue,meta_tissue_in_paper
+A_blood,values,sampleID,timepoint,"47 values, e.g. Pre_P007_b; Pre_P012_b; Pre_P014_b; Pre_P023_b; Pre_P013_b"
+A_blood,values,cellID,survival,"1 values, e.g. p1b1_bcIDFS_No_43,part_1"
+A_blood,values,cellID,timepoint,"19495 values, e.g. AAAGCAAAGCGATATA.Pre_P007_b_Pre_P007_b; ACACCAACATACTACG.Pre_P007_b_Pre_P007_b; ACGCAGCTCGAACTGT.Pre_P007_b_Pre_P007_b; ACGGAGAGTAAGAGGA.Pre_P007_b_Pre_P007_b; ATAACGCAGCATGGCA.Pre_P007_b_Pre_P007_b"
+A_blood,values,meta_patientID,timepoint,"5 values, e.g. D20170327; D20171109; D20171215; D20180108; D20170412"
+A_blood,field_name,batch,batch_platform,batch
+A_blood,values,batch,timepoint,"5 values, e.g. D20170327_No_381,part_1; D20171109_No_381,part_1; D20171215_No_381,part_1; D20180108_No_381,part_1; D20170412_No_381,part_1"
+A_blood,field_name,meta_tissue,tissue,meta_tissue
+B_milo,values,sample,timepoint,"26 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_milo,field_name,batch,batch_platform,batch
+B_milo,values,batch,timepoint,"26 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_milo,field_name,source,tissue,source
+B_milo,field_name,_scvi_batch,batch_platform,_scvi_batch
+B_milo,field_name,tissue_residency_auc,tissue,tissue_residency_auc
+B_milo,field_name,subset_source,tissue,subset_source
+B_after_mapping,values,sample,timepoint,"26 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_after_mapping,field_name,batch,batch_platform,batch
+B_after_mapping,values,batch,timepoint,"26 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_after_mapping,field_name,source,tissue,source
+B_after_mapping,field_name,_scvi_batch,batch_platform,_scvi_batch
+B_after_mapping,field_name,tissue_residency_auc,tissue,tissue_residency_auc
+B_after_mapping,field_name,subset_source,tissue,subset_source
+B_after_mapping,values,patient,timepoint,"14 values, e.g. D4; D5; D6; D11; D12"
+B_tumor_query,values,sample,timepoint,"11 values, e.g. D4_T_1; D4_T_2; D5_T_1; D5_T_2; D6_T"
+B_tumor_query,field_name,batch,batch_platform,batch
+B_tumor_query,values,batch,timepoint,"11 values, e.g. D4_T_1; D4_T_2; D5_T_1; D5_T_2; D6_T"
+B_tumor_query,field_name,source,tissue,source
+B_tumor_query,values,patient,timepoint,"9 values, e.g. D4; D5; D6; D7; D9"
+B_ref_nk,values,sample,timepoint,"15 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_ref_nk,field_name,batch,batch_platform,batch
+B_ref_nk,values,batch,timepoint,"15 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_ref_nk,field_name,source,tissue,source
+B_ref_after_training,values,sample,timepoint,"15 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_ref_after_training,field_name,batch,batch_platform,batch
+B_ref_after_training,values,batch,timepoint,"15 values, e.g. D4_N_1; D4_N_2; D5_N_1; D6_N; D11_N"
+B_ref_after_training,field_name,source,tissue,source
+B_ref_after_training,field_name,_scvi_batch,batch_platform,_scvi_batch
+B_ref_after_training,field_name,tissue_residency_auc,tissue,tissue_residency_auc
+B_pb_12_donors,field_name,batch,batch_platform,batch

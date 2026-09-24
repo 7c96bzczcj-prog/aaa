@@ -1,0 +1,9 @@
+object,atlas,role,n_cells,n_genes,has_raw,layers,uns_keys
+A_main,A,"Zenodo 10163908 comb_CD56_CD16_NK.h5ad.gz: all tissues, used in most of the paper",142304,13493,True,,
+A_blood,A,Zenodo 10163908 comb_CD56_CD16_NK_blood.h5ad.gz: circulating-NK analysis,84904,13287,False,,datasets_colors;hvg;meta_histology_colors;neighbors;pca;umap
+B_milo,B,"Zenodo 14178285 adata_all_nk_milo.h5ad: reference + TiNK, published nhood groups; matches paper 27,732 TrNK / 38,982 TiNK",89850,14337,False,norm,_scvi_manager_uuid;_scvi_uuid;bright_dim_subset_colors;neighbors;subset_colors;subset_source_colors;umap
+B_after_mapping,B,"Zenodo 14178285 adata_all_nk_after_mapping.h5ad: reference + TiNK, pre-Milo filter",90320,14337,False,norm,_scvi_manager_uuid;_scvi_uuid;bright_dim_subset_colors;neighbors;subset_colors;subset_source_colors;umap
+B_tumor_query,B,Zenodo 14178285 adata_nk_tumor_query.h5ad: TiNK query,39315,14337,False,,
+B_ref_nk,B,Zenodo 14178285 adata_ref_nk.h5ad: reference NK used for mapping,51005,14337,False,,
+B_ref_after_training,B,Zenodo 14178285 adata_ref_after_training.h5ad,51005,14337,False,norm,_scvi_manager_uuid;_scvi_uuid;neighbors;umap
+B_pb_12_donors,B,"Zenodo 14178285 pb_12_donors.h5ad: healthy PB-NK, 12 donors; matches paper 44,640",44640,9833,False,,

@@ -1,0 +1,25 @@
+object,group,tissue,n_samples,n_patients,n_patient_ids_raw,n_nk,nk_per_sample_median,nk_per_sample_q1,nk_per_sample_q3,nk_per_sample_iqr,n_datasets,n_cancer_types,patients_with_blood_and_tumor
+A_main,healthy_donor,Blood,10,10,10,1436,139.5,68.8,154.5,85.8,2,1,88.0
+A_main,patient,Blood,164,126,126,65766,184.0,73.0,401.5,328.5,13,11,88.0
+A_main,patient,Normal,196,169,169,22792,55.0,8.0,134.2,126.2,21,13,88.0
+A_main,patient,Other tissue,121,102,102,17410,34.0,16.0,136.0,120.0,13,9,88.0
+A_main,patient,Tumor,772,593,557,34900,22.0,8.8,43.0,34.2,62,24,88.0
+A_blood,healthy_donor,Blood,73,70,70,19143,189.0,124.0,365.0,241.0,9,1,0.0
+A_blood,patient,Blood,164,126,126,65761,184.0,73.0,401.5,328.5,13,11,0.0
+B_milo,healthy_donor,PBMC (reference),12,12,12,23136,1449.0,1334.5,2153.8,819.2,4,1,
+B_milo,patient,Tumor (reference=tumor),2803,428,423,38982,1.0,1.0,1.0,0.0,41,7,
+B_milo,reference_tissue,Reference tissue: brain_normal,282,4,4,718,2.0,1.0,3.0,2.0,1,1,
+B_milo,reference_tissue,Reference tissue: breast_normal,8,8,8,646,34.0,19.8,129.0,109.2,1,1,
+B_milo,reference_tissue,Reference tissue: lung_normal,85,85,85,25137,170.0,54.0,390.0,336.0,8,1,
+B_milo,reference_tissue,Reference tissue: pancreas_normal,9,9,9,673,65.0,2.0,78.0,76.0,3,1,
+B_milo,reference_tissue,Reference tissue: prostate_normal,11,10,10,288,12.0,5.0,30.0,25.0,2,1,
+B_milo,reference_tissue,Reference tissue: skin_normal,26,24,24,270,7.0,2.2,16.8,14.5,5,1,
+"B_milo excluding [('chan', 'tumor')]",healthy_donor,PBMC (reference),12,12,12,23136,1449.0,1334.5,2153.8,819.2,4,1,
+"B_milo excluding [('chan', 'tumor')]",patient,Tumor (reference=tumor),443,414,409,36622,28.0,7.0,68.0,61.0,40,7,
+"B_milo excluding [('chan', 'tumor')]",reference_tissue,Reference tissue: brain_normal,282,4,4,718,2.0,1.0,3.0,2.0,1,1,
+"B_milo excluding [('chan', 'tumor')]",reference_tissue,Reference tissue: breast_normal,8,8,8,646,34.0,19.8,129.0,109.2,1,1,
+"B_milo excluding [('chan', 'tumor')]",reference_tissue,Reference tissue: lung_normal,85,85,85,25137,170.0,54.0,390.0,336.0,8,1,
+"B_milo excluding [('chan', 'tumor')]",reference_tissue,Reference tissue: pancreas_normal,9,9,9,673,65.0,2.0,78.0,76.0,3,1,
+"B_milo excluding [('chan', 'tumor')]",reference_tissue,Reference tissue: prostate_normal,11,10,10,288,12.0,5.0,30.0,25.0,2,1,
+"B_milo excluding [('chan', 'tumor')]",reference_tissue,Reference tissue: skin_normal,26,24,24,270,7.0,2.2,16.8,14.5,5,1,
+B_pb_12_donors,healthy_donor,"PBMC (pb_12_donors, bulk + sorted)",22,12,12,44640,1820.5,1366.2,2567.0,1200.8,1,1,
