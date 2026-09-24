@@ -58,7 +58,7 @@ OBJECTS = {
 }
 
 # Strings counted as missing, as well as real NaN/None.
-MISSING_TOKENS = {"", "nan", "none", "na", "n/a", "null"}
+MISSING_TOKENS = {"", "nan", "none", "na", "n/a", "null", "unknown", "notavailable", "not available"}
 
 
 def open_h5(src):
@@ -150,38 +150,68 @@ def keyword_scan(label, obs):
 MISSING = "缺失"
 
 
+ALL_B = ["B_milo", "B_after_mapping", "B_tumor_query", "B_ref_nk", "B_ref_after_training"]
+B_REF = ["B_milo", "B_after_mapping", "B_ref_nk", "B_ref_after_training"]
+B_TUM = ["B_milo", "B_after_mapping", "B_tumor_query"]
+# item -> {object: (field, regex over the field's values selecting the level or None, note)}
+ITEMS = [
+    ("转移状态 — M 分期", {}),
+    ("转移状态 — 是否远处转移", {}),
+    ("转移状态 — 转移部位", {}),
+    ("随访终点 — 总生存期 (OS) 及事件指示", {}),
+    ("随访终点 — 无进展生存期 (PFS) 及事件指示", {}),
+    ("随访终点 — 无病生存期 (DFS) 及事件指示", {}),
+    ("外周血样本采样时点 (治疗前/中/后)", {}),
+    ("组织来源标签 — 字段", {
+        "A_main": ("meta_tissue_in_paper", None, ""),
+        "A_blood": ("meta_tissue", None, "常数字段：全部为 Blood"),
+        **{o: ("source", None, "器官与组织合一的标签；另有 reference 字段区分参照/肿瘤") for o in ALL_B}}),
+    ("组织来源 — 肿瘤", {
+        "A_main": ("meta_tissue_in_paper", r"^Tumor$", "注意：血液肿瘤（如 CLL 外周血 GSE111015）也标为 Tumor"),
+        **{o: ("source", r"_tumor$|^glioblastoma$|^melanoma$|^sarcoma$", "") for o in B_TUM}}),
+    ("组织来源 — 癌旁", {}),
+    ("组织来源 — 外周血", {
+        "A_main": ("meta_tissue_in_paper", r"^Blood$", ""),
+        "A_blood": ("meta_tissue", r"^Blood$", ""),
+        **{o: ("source", r"^PBMC$", "仅健康供者") for o in B_REF}}),
+    ("组织来源 — 淋巴结", {}),
+    ("组织来源 — 正常组织", {
+        "A_main": ("meta_tissue_in_paper", r"^Normal$", "单一 Normal 取值，与癌旁不可区分"),
+        **{o: ("source", r"_normal$", "参照组织；对象内未注明是否癌旁") for o in B_REF}}),
+    ("组织来源 — 其他（未细分）", {
+        "A_main": ("meta_tissue_in_paper", r"^Other tissue$",
+                   "混合类：含淋巴结、转移灶、积液、腹水及部分正常组织，对象内不可拆分")}),
+    ("健康供者年龄", {}),
+    ("健康供者性别", {}),
+    ("批次 — 作者整合批次键 (batch)", {
+        "A_main": ("batch", None, "= 病人ID + 数据集 (BBKNN batch_key)，与病人一一对应，非技术批次"),
+        "A_blood": ("batch", None, "= 病人ID + 数据集 (BBKNN batch_key)，与病人一一对应，非技术批次"),
+        **{o: ("batch", None, "样本/文库级 ID，用作 scVI 批次键") for o in ALL_B + ["B_pb_12_donors"]}}),
+    ("批次 — 技术批次 (测序批次/文库制备/化学版本)", {}),
+    ("测序平台", {"A_main": ("meta_platform", None, "11 个拼写取值约对应 8 个平台；无 10x 化学版本")}),
+]
+
+
 def checklist(obs_by_obj):
-    items = [
-        ("转移状态 — M 分期", {}),
-        ("转移状态 — 是否远处转移", {}),
-        ("转移状态 — 转移部位", {}),
-        ("随访终点 — 总生存期 (OS) 及事件指示", {}),
-        ("随访终点 — 无进展生存期 (PFS) 及事件指示", {}),
-        ("随访终点 — 无病生存期 (DFS) 及事件指示", {}),
-        ("外周血样本采样时点 (治疗前/中/后)", {}),
-        ("组织来源标签", {"A_main": "meta_tissue_in_paper", "A_blood": "meta_tissue",
-                     "B_milo": "source (+ reference)", "B_after_mapping": "source (+ reference)",
-                     "B_tumor_query": "source", "B_ref_nk": "source", "B_ref_after_training": "source"}),
-        ("健康供者年龄", {}),
-        ("健康供者性别", {}),
-        ("批次", {"A_main": "batch", "A_blood": "batch", "B_milo": "batch", "B_after_mapping": "batch",
-                "B_tumor_query": "batch", "B_ref_nk": "batch", "B_ref_after_training": "batch",
-                "B_pb_12_donors": "batch"}),
-        ("测序平台", {"A_main": "meta_platform"}),
-    ]
     rows = []
-    for item, present in items:
+    for item, present in ITEMS:
         for obj, obs in obs_by_obj.items():
-            fld = present.get(obj)
-            if fld:
-                base = fld.split(" ")[0]
-                assert base in obs.columns, (obj, base)
-                vals = obs[base].astype(str).value_counts()
-                rows.append(dict(item=item, object=obj, status="存在", field=fld,
-                                 values=f"{len(vals)} values: " + "; ".join(vals.index[:12])
-                                 + ("; ..." if len(vals) > 12 else "")))
-            else:
-                rows.append(dict(item=item, object=obj, status=MISSING, field="", values=""))
+            spec = present.get(obj)
+            if not spec:
+                rows.append(dict(item=item, object=obj, status=MISSING, field="", values="", note=""))
+                continue
+            fld, level, note = spec
+            assert fld in obs.columns, (obj, fld)
+            vc = obs[fld].astype(str).value_counts()
+            if level is not None:
+                vc = vc[vc.index.str.contains(level, regex=True)]
+                if vc.sum() == 0:
+                    rows.append(dict(item=item, object=obj, status=MISSING, field="", values="", note=""))
+                    continue
+            shown = "; ".join(f"{k} ({v})" for k, v in vc.head(12).items())
+            rows.append(dict(item=item, object=obj, status="存在", field=fld,
+                             values=f"{len(vc)} 个取值: {shown}" + ("; ..." if len(vc) > 12 else ""),
+                             note=note))
     return pd.DataFrame(rows)
 
 
@@ -327,7 +357,8 @@ def write_markdown():
     ck = pd.read_csv(OUT / "D1_required_fields.csv")
     (OUT / "D1_required_fields.md").write_text(
         "# Deliverable 1 — required-field checklist\n\n" + _md(ck.rename(columns={
-            "item": "项目", "object": "对象", "status": "状态", "field": "字段", "values": "取值"})))
+            "item": "项目", "object": "对象", "status": "状态", "field": "字段", "values": "取值",
+            "note": "说明"})))
     cols = ["group", "cancer_type", "tissue", "n_samples", "n_patients", "n_patient_ids_raw", "n_nk",
             "nk_per_sample_median", "nk_per_sample_q1", "nk_per_sample_q3", "n_datasets"]
     zh = ["组别", "瘤种", "组织来源", "样本数", "病人数", "病人ID数(原始)", "NK 细胞数",

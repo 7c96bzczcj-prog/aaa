@@ -10,7 +10,7 @@ Zenodo 14178285 adata_all_nk_milo.h5ad: reference + TiNK, published nhood groups
 |---|---|---|---|---|
 | sample | categorical | 1.0 | 3212 | amir5 (4644); GSM6622299_CM1 (2916); amir6 (2806); amir8 (2603); amir4 (2004); malm2 (1912); CRR073026_0425N_LUAD5 (1641); yang2 (1476); LUNG_N34 (1458); crinier3 (1422); p028n_bischoff (1422); yang1 (1406); crinier1 (1344); malm1 (1306); p032n_bischoff (1269); CRR073022_0418N_LUAD1 (1213); R4 (1192); patient_43 (1168); crinier2 (1108); amir1 (1105); ... [first 20 of 3212 values, by cell count] |
 | batch | categorical | 1.0 | 849 | amir5 (4644); GSM6622299_CM1 (2916); amir6 (2806); amir8 (2603); amir4 (2004); malm2_bulk (1912); CRR073026_0425N_LUAD5 (1641); yang2 (1476); LUNG_N34_kim (1458); p028n (1422); crinier3 (1422); yang1 (1406); crinier1 (1344); malm1_bulk (1306); p032n (1269); 2_leader (1229); CRR073022_0418N_LUAD1 (1213); R4 (1192); patient_43_goeveia (1168); crinier2 (1108); ... [first 20 of 849 values, by cell count] |
-| subset | categorical | 1.0 | 1 | Unknown (89850) |
+| subset | categorical | 0.0 | 0 |  |
 | dataset | categorical | 1.0 | 52 | amir (13162); leader (9624); kim (8559); bischoff (6614); he (5824); chan (4469); crinier (3874); chen (3263); malm (3218); lambrechts (3071); zhang (2987); yang (2882); pombo (2787); goeveia (2755); wu (2430); leader_cite (1866); pal (1824); abdelfattah (1365); bassez (1069); cillo (1042); ... [first 20 of 52 values, by cell count] |
 | source | categorical | 1.0 | 14 | lung_normal (25137); PBMC (23136); lung_tumor (21608); glioblastoma (5741); breast_tumor (5130); melanoma (3084); sarcoma (1688); pancreas_tumor (1182); brain_normal (718); pancreas_normal (673); breast_normal (646); prostate_tumor (549); prostate_normal (288); skin_normal (270) |
 | total_counts | float64 | 1.0 | 8948 | numeric: min 301, median 1700, max 3.58e+04 |
@@ -35,7 +35,7 @@ Zenodo 14178285 adata_all_nk_milo.h5ad: reference + TiNK, published nhood groups
 | reference | categorical | 1.0 | 2 | reference (50868); tumor (38982) |
 | nhood_group | categorical | 1.0 | 6 | 6 (23866); 5 (17822); 2 (17565); 3 (12753); 4 (11495); 1 (6349) |
 | subset_label | categorical | 1.0 | 9 | TrCD56dim (26258); TiCD56dim (20846); TiCD56bright (18136); KIR+ (13318); NKG2A+ (4440); CD57+ (2104); CD56bright (1788); Adaptive (1486); TrCD56bright (1474) |
-| label | categorical | 1.0 | 1 | Unknown (89850) |
+| label | categorical | 0.0 | 0 |  |
 | new_subset_ano | categorical | 1.0 | 5 | KIR+ (42632); CD56bright (21535); NKG2A+ (12751); CD57+ (11446); Adaptive (1486) |
 
 ## `B_after_mapping`: 90,320 cells × 14,337 genes
@@ -131,4 +131,4 @@ Zenodo 14178285 pb_12_donors.h5ad: healthy PB-NK, 12 donors; matches paper 44,64
 | pct_counts_mt | float64 | 1.0 | 28084 | numeric: min 0, median 2.544, max 9.954 |
 | sample | categorical | 1.0 | 22 | amir5 (4644); malm14 (3285); malm18 (2947); amir6 (2806); malm16 (2641); amir8 (2609); malm17 (2441); malm15 (2313); malm04 (2154); amir4 (2004); malm2 (1912); malm02 (1729); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm05 (1353); malm03 (1309); malm1 (1306); malm06 (1215); ... [first 20 of 22 values, by cell count] |
 | batch | categorical | 1.0 | 14 | malm2_sorted (13627); malm1_sorted (7760); amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2_bulk (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1_bulk (1306); amir1 (1124); crinier2 (1108) |
-| subset | categorical | 1.0 | 6 | Unknown (23253); KIR+ (8589); CD56bright (5014); NKG2A+ (3622); CD57+ (2947); Adaptive (1215) |
+| subset | categorical | 0.4791 | 5 | KIR+ (8589); CD56bright (5014); NKG2A+ (3622); CD57+ (2947); Adaptive (1215) |
