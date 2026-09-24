@@ -1,15 +1,15 @@
 object,group,cancer_type,tissue,n_samples,n_patients,n_patient_ids_raw,n_nk,nk_per_sample_median,nk_per_sample_q1,nk_per_sample_q3,nk_per_sample_iqr,n_datasets
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",healthy_donor,Healthy donor,PBMC (reference),12,12,12,23136,1449.0,1334.5,2153.8,819.2,4
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,lung,Tumor (reference=tumor),155,129,124,19248,55.0,19.0,128.0,109.0,10
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,glioblastoma,Tumor (reference=tumor),107,107,107,5741,10.0,4.0,34.0,30.0,15
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,breast,Tumor (reference=tumor),86,86,86,5130,35.0,10.5,68.0,57.5,5
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,melanoma,Tumor (reference=tumor),11,11,11,3084,12.0,9.0,22.0,13.0,2
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,sarcoma,Tumor (reference=tumor),18,18,18,1688,36.5,4.2,78.0,73.8,3
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,pancreas,Tumor (reference=tumor),41,40,40,1182,23.0,3.0,47.0,44.0,4
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,prostate,Tumor (reference=tumor),25,23,23,549,13.0,6.0,34.0,28.0,3
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: brain_normal,282,4,4,718,2.0,1.0,3.0,2.0,1
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: breast_normal,8,8,8,646,34.0,19.8,129.0,109.2,1
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: lung_normal,85,85,85,25137,170.0,54.0,390.0,336.0,8
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: pancreas_normal,9,9,9,673,65.0,2.0,78.0,76.0,3
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: prostate_normal,11,10,10,288,12.0,5.0,30.0,25.0,2
-"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: skin_normal,26,24,24,270,7.0,2.2,16.8,14.5,5
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",healthy_donor,Healthy donor,PBMC (reference),12,12,12,23136,1449.00,1334.50,2153.75,819.25,4
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,lung,Tumor (reference=tumor),155,129,124,19248,55.00,19.00,128.00,109.00,10
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,glioblastoma,Tumor (reference=tumor),107,107,107,5741,10.00,4.00,34.00,30.00,15
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,breast,Tumor (reference=tumor),86,86,86,5130,35.00,10.50,68.00,57.50,5
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,melanoma,Tumor (reference=tumor),11,11,11,3084,12.00,9.00,22.00,13.00,2
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,sarcoma,Tumor (reference=tumor),18,18,18,1688,36.50,4.25,78.00,73.75,3
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,pancreas,Tumor (reference=tumor),41,40,40,1182,23.00,3.00,47.00,44.00,4
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",patient,prostate,Tumor (reference=tumor),25,23,23,549,13.00,6.00,34.00,28.00,3
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: brain_normal,282,4,4,718,2.00,1.00,3.00,2.00,1
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: breast_normal,8,8,8,646,34.00,19.75,129.00,109.25,1
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: lung_normal,85,85,85,25137,170.00,54.00,390.00,336.00,8
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: pancreas_normal,9,9,9,673,65.00,2.00,78.00,76.00,3
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: prostate_normal,11,10,10,288,12.00,5.00,30.00,25.00,2
+"B_milo excluding per-cell-sample datasets [('chan', 'tumor')]",reference_tissue,—,Reference tissue: skin_normal,26,24,24,270,7.00,2.25,16.75,14.50,5

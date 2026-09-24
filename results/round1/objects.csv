@@ -7,3 +7,18 @@ B_tumor_query,B,Zenodo 14178285 adata_nk_tumor_query.h5ad: TiNK query,39315,1433
 B_ref_nk,B,Zenodo 14178285 adata_ref_nk.h5ad: reference NK used for mapping,51005,14337,False,,
 B_ref_after_training,B,Zenodo 14178285 adata_ref_after_training.h5ad,51005,14337,False,norm,_scvi_manager_uuid;_scvi_uuid;neighbors;umap
 B_pb_12_donors,B,"Zenodo 14178285 pb_12_donors.h5ad: healthy PB-NK, 12 donors; matches paper 44,640",44640,9833,False,,
+Bx_lung_tumor,B,Zenodo 14178285 lung_tumor.h5ad: not an NK-only object; D1 field list only,738416,12675,False,,
+Bx_lung_normal,B,Zenodo 14178285 lung_normal.h5ad: not an NK-only object; D1 field list only,334072,14756,False,,
+Bx_breast_tumor,B,Zenodo 14178285 breast_tumor.h5ad: not an NK-only object; D1 field list only,445376,15298,False,,
+Bx_breast_normal,B,Zenodo 14178285 breast_normal.h5ad: not an NK-only object; D1 field list only,46314,33538,False,,
+Bx_glioblastoma,B,Zenodo 14178285 glioblastoma.h5ad: not an NK-only object; D1 field list only,782101,26355,False,,
+Bx_melanoma,B,Zenodo 14178285 melanoma.h5ad: not an NK-only object; D1 field list only,28834,21812,False,,
+Bx_sarcoma,B,Zenodo 14178285 sarcoma.h5ad: not an NK-only object; D1 field list only,150851,21505,False,,level1_cell_type_new_colors;level2_cell_type_new_colors;nhood_group_colors
+Bx_pancreas_tumor,B,Zenodo 14178285 pancreas_tumor.h5ad: not an NK-only object; D1 field list only,124380,17980,False,,
+Bx_pancreas_normal,B,Zenodo 14178285 pancreas_normal.h5ad: not an NK-only object; D1 field list only,38996,22557,False,,
+Bx_prostate_tumor,B,Zenodo 14178285 prostate_tumor.h5ad: not an NK-only object; D1 field list only,63530,18717,False,,
+Bx_prostate_normal,B,Zenodo 14178285 prostate_normal.h5ad: not an NK-only object; D1 field list only,20717,33538,False,,
+Bx_skin_normal,B,Zenodo 14178285 skin_normal.h5ad: not an NK-only object; D1 field list only,137683,33514,False,,
+Bx_pb_12_donors_bulk,B,Zenodo 14178285 pb_12_donors_bulk.h5ad: not an NK-only object; D1 field list only,23253,32549,False,,
+Bx_pb_12_donors_processed,B,Zenodo 14178285 pb_12_donors_processed.h5ad: not an NK-only object; D1 field list only,44640,9833,True,counts;denoised_rna,C_scANVI_colors;_scvi;batch_colors;leiden;neighbors;subset_colors;umap
+Bx_pb_12_donors_pseudotime,B,Zenodo 14178285 pb_12_donors_pseudotime.h5ad: not an NK-only object; D1 field list only,23253,9833,True,counts;denoised_rna,C_scANVI_colors;_scvi;batch_colors;leiden;neighbors;nk1_nk2_colors;subset_colors;umap

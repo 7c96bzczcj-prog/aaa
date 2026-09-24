@@ -13,23 +13,23 @@ Zenodo 14178285 adata_all_nk_milo.h5ad: reference + TiNK, published nhood groups
 | subset | categorical | 0.0 | 0 |  |
 | dataset | categorical | 1.0 | 52 | amir (13162); leader (9624); kim (8559); bischoff (6614); he (5824); chan (4469); crinier (3874); chen (3263); malm (3218); lambrechts (3071); zhang (2987); yang (2882); pombo (2787); goeveia (2755); wu (2430); leader_cite (1866); pal (1824); abdelfattah (1365); bassez (1069); cillo (1042); ... [first 20 of 52 values, by cell count] |
 | source | categorical | 1.0 | 14 | lung_normal (25137); PBMC (23136); lung_tumor (21608); glioblastoma (5741); breast_tumor (5130); melanoma (3084); sarcoma (1688); pancreas_tumor (1182); brain_normal (718); pancreas_normal (673); breast_normal (646); prostate_tumor (549); prostate_normal (288); skin_normal (270) |
-| total_counts | float64 | 1.0 | 8948 | numeric: min 301, median 1700, max 3.58e+04 |
-| n_genes_by_counts | float64 | 1.0 | 2716 | numeric: min 208, median 855, max 5829 |
-| pct_counts_mt | float64 | 1.0 | 67582 | numeric: min 0, median 3.49, max 19.97 |
-| _scvi_batch | int16 | 1.0 | 849 | numeric: min 0, median 484, max 850 |
-| _scvi_labels | int8 | 1.0 | 1 | numeric: min 5, median 5, max 5 |
-| tissue_residency_auc | float64 | 1.0 | 2194 | numeric: min 0, median 0.08663, max 0.5013 |
-| HALLMARK_CHOLESTEROL_HOMEOSTASIS_auc | float64 | 1.0 | 4406 | numeric: min 0, median 0.0363, max 0.1505 |
-| HALLMARK_TGF_BETA_SIGNALING_auc | float64 | 1.0 | 5085 | numeric: min 0, median 0.05713, max 0.2039 |
-| HALLMARK_OXIDATIVE_PHOSPHORYLATION_auc | float64 | 1.0 | 14018 | numeric: min 0.0001142, median 0.0781, max 0.1989 |
-| GOBP_RESPONSE_TO_PROSTAGLANDIN_auc | float64 | 1.0 | 2339 | numeric: min 0, median 0.02087, max 0.175 |
-| HALLMARK_HYPOXIA_auc | float64 | 1.0 | 11777 | numeric: min 0.01093, median 0.06601, max 0.1594 |
-| HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY_auc | float64 | 1.0 | 5209 | numeric: min 0, median 0.07419, max 0.2516 |
-| HALLMARK_MTORC1_SIGNALING_auc | float64 | 1.0 | 11209 | numeric: min 0.003672, median 0.06014, max 0.1623 |
-| HALLMARK_NOTCH_SIGNALING_auc | float64 | 1.0 | 2553 | numeric: min 0, median 0.02925, max 0.1813 |
-| KEGG_NATURAL_KILLER_CELL_MEDIATED_CYTOTOXICITY_auc | float64 | 1.0 | 10499 | numeric: min 0.0008081, median 0.1142, max 0.2137 |
-| HALLMARK_GLYCOLYSIS_auc | float64 | 1.0 | 9173 | numeric: min 0, median 0.0347, max 0.1087 |
-| HALLMARK_WNT_BETA_CATENIN_SIGNALING_auc | float64 | 1.0 | 2776 | numeric: min 0, median 0.01803, max 0.1277 |
+| total_counts | float64 | 1.0 | 8948 | (numeric) |
+| n_genes_by_counts | float64 | 1.0 | 2716 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 67582 | (numeric) |
+| _scvi_batch | int16 | 1.0 | 849 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 1 | (numeric) |
+| tissue_residency_auc | float64 | 1.0 | 2194 | (numeric) |
+| HALLMARK_CHOLESTEROL_HOMEOSTASIS_auc | float64 | 1.0 | 4406 | (numeric) |
+| HALLMARK_TGF_BETA_SIGNALING_auc | float64 | 1.0 | 5085 | (numeric) |
+| HALLMARK_OXIDATIVE_PHOSPHORYLATION_auc | float64 | 1.0 | 14018 | (numeric) |
+| GOBP_RESPONSE_TO_PROSTAGLANDIN_auc | float64 | 1.0 | 2339 | (numeric) |
+| HALLMARK_HYPOXIA_auc | float64 | 1.0 | 11777 | (numeric) |
+| HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY_auc | float64 | 1.0 | 5209 | (numeric) |
+| HALLMARK_MTORC1_SIGNALING_auc | float64 | 1.0 | 11209 | (numeric) |
+| HALLMARK_NOTCH_SIGNALING_auc | float64 | 1.0 | 2553 | (numeric) |
+| KEGG_NATURAL_KILLER_CELL_MEDIATED_CYTOTOXICITY_auc | float64 | 1.0 | 10499 | (numeric) |
+| HALLMARK_GLYCOLYSIS_auc | float64 | 1.0 | 9173 | (numeric) |
+| HALLMARK_WNT_BETA_CATENIN_SIGNALING_auc | float64 | 1.0 | 2776 | (numeric) |
 | subset_source | categorical | 1.0 | 31 | TrCD56dim_lung_normal (24083); TiCD56dim_lung_tumor (13881); KIR+_PBMC (13318); TiCD56bright_lung_tumor (7727); NKG2A+_PBMC (4440); TiCD56bright_glioblastoma (3872); TiCD56bright_breast_tumor (3820); CD57+_PBMC (2104); TiCD56dim_glioblastoma (1869); TiCD56bright_melanoma (1816); CD56bright_PBMC (1788); Adaptive_PBMC (1486); TiCD56dim_breast_tumor (1310); TiCD56dim_sarcoma (1295); TiCD56dim_melanoma (1268); TrCD56bright_lung_normal (1054); TiCD56dim_pancreas_tumor (866); TrCD56dim_brain_normal (703); TrCD56dim_breast_normal (632); TrCD56dim_pancreas_normal (560); ... [first 20 of 31 values, by cell count] |
 | bright_dim_subset | categorical | 1.0 | 2 | CD56dim (68452); CD56bright (21398) |
 | reference | categorical | 1.0 | 2 | reference (50868); tumor (38982) |
@@ -49,23 +49,23 @@ Zenodo 14178285 adata_all_nk_after_mapping.h5ad: reference + TiNK, pre-Milo filt
 | subset | categorical | 1.0 | 9 | TrCD56dim (26278); TiCD56dim (21055); TiCD56bright (18260); KIR+ (13370); NKG2A+ (4490); CD57+ (2110); CD56bright (1794); Adaptive (1489); TrCD56bright (1474) |
 | dataset | categorical | 1.0 | 52 | amir (13187); leader (9753); kim (8559); bischoff (6615); he (5840); chan (4491); crinier (3966); chen (3274); malm (3218); lambrechts (3084); zhang (2989); yang (2882); goeveia (2805); pombo (2787); wu (2459); leader_cite (1875); pal (1833); abdelfattah (1367); bassez (1069); cillo (1043); ... [first 20 of 52 values, by cell count] |
 | source | categorical | 1.0 | 14 | lung_normal (25151); PBMC (23253); lung_tumor (21896); glioblastoma (5749); breast_tumor (5159); melanoma (3087); sarcoma (1692); pancreas_tumor (1182); brain_normal (718); pancreas_normal (674); breast_normal (651); prostate_tumor (550); prostate_normal (288); skin_normal (270) |
-| total_counts | float64 | 1.0 | 8957 | numeric: min 285, median 1695, max 3.58e+04 |
-| n_genes_by_counts | float64 | 1.0 | 2758 | numeric: min 39, median 853, max 5829 |
-| pct_counts_mt | float64 | 1.0 | 67749 | numeric: min 0, median 3.491, max 19.97 |
-| _scvi_batch | int16 | 1.0 | 851 | numeric: min 0, median 406, max 850 |
-| _scvi_labels | int8 | 1.0 | 1 | numeric: min 0, median 0, max 0 |
-| tissue_residency_auc | float64 | 1.0 | 2194 | numeric: min 0, median 0.08647, max 0.5013 |
-| HALLMARK_CHOLESTEROL_HOMEOSTASIS_auc | float64 | 1.0 | 4406 | numeric: min 0, median 0.03626, max 0.1505 |
-| HALLMARK_TGF_BETA_SIGNALING_auc | float64 | 1.0 | 5086 | numeric: min 0, median 0.05705, max 0.2039 |
-| HALLMARK_OXIDATIVE_PHOSPHORYLATION_auc | float64 | 1.0 | 14128 | numeric: min 0.0001142, median 0.07797, max 0.1989 |
-| GOBP_RESPONSE_TO_PROSTAGLANDIN_auc | float64 | 1.0 | 2339 | numeric: min 0, median 0.02083, max 0.175 |
-| HALLMARK_HYPOXIA_auc | float64 | 1.0 | 11800 | numeric: min 0.01093, median 0.06591, max 0.1594 |
-| HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY_auc | float64 | 1.0 | 5227 | numeric: min 0, median 0.07401, max 0.2516 |
-| HALLMARK_MTORC1_SIGNALING_auc | float64 | 1.0 | 11247 | numeric: min 0.003672, median 0.06004, max 0.1623 |
-| HALLMARK_NOTCH_SIGNALING_auc | float64 | 1.0 | 2568 | numeric: min 0, median 0.02933, max 0.1813 |
-| KEGG_NATURAL_KILLER_CELL_MEDIATED_CYTOTOXICITY_auc | float64 | 1.0 | 10588 | numeric: min 0.0008081, median 0.114, max 0.2137 |
-| HALLMARK_GLYCOLYSIS_auc | float64 | 1.0 | 9204 | numeric: min 0, median 0.03463, max 0.1087 |
-| HALLMARK_WNT_BETA_CATENIN_SIGNALING_auc | float64 | 1.0 | 2852 | numeric: min 0, median 0.01817, max 0.1321 |
+| total_counts | float64 | 1.0 | 8957 | (numeric) |
+| n_genes_by_counts | float64 | 1.0 | 2758 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 67749 | (numeric) |
+| _scvi_batch | int16 | 1.0 | 851 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 1 | (numeric) |
+| tissue_residency_auc | float64 | 1.0 | 2194 | (numeric) |
+| HALLMARK_CHOLESTEROL_HOMEOSTASIS_auc | float64 | 1.0 | 4406 | (numeric) |
+| HALLMARK_TGF_BETA_SIGNALING_auc | float64 | 1.0 | 5086 | (numeric) |
+| HALLMARK_OXIDATIVE_PHOSPHORYLATION_auc | float64 | 1.0 | 14128 | (numeric) |
+| GOBP_RESPONSE_TO_PROSTAGLANDIN_auc | float64 | 1.0 | 2339 | (numeric) |
+| HALLMARK_HYPOXIA_auc | float64 | 1.0 | 11800 | (numeric) |
+| HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY_auc | float64 | 1.0 | 5227 | (numeric) |
+| HALLMARK_MTORC1_SIGNALING_auc | float64 | 1.0 | 11247 | (numeric) |
+| HALLMARK_NOTCH_SIGNALING_auc | float64 | 1.0 | 2568 | (numeric) |
+| KEGG_NATURAL_KILLER_CELL_MEDIATED_CYTOTOXICITY_auc | float64 | 1.0 | 10588 | (numeric) |
+| HALLMARK_GLYCOLYSIS_auc | float64 | 1.0 | 9204 | (numeric) |
+| HALLMARK_WNT_BETA_CATENIN_SIGNALING_auc | float64 | 1.0 | 2852 | (numeric) |
 | subset_source | categorical | 1.0 | 31 | TrCD56dim_lung_normal (24097); TiCD56dim_lung_tumor (14065); KIR+_PBMC (13370); TiCD56bright_lung_tumor (7831); NKG2A+_PBMC (4490); TiCD56bright_glioblastoma (3875); TiCD56bright_breast_tumor (3837); CD57+_PBMC (2110); TiCD56dim_glioblastoma (1874); TiCD56bright_melanoma (1816); CD56bright_PBMC (1794); Adaptive_PBMC (1489); TiCD56dim_breast_tumor (1322); TiCD56dim_sarcoma (1299); TiCD56dim_melanoma (1271); TrCD56bright_lung_normal (1054); TiCD56dim_pancreas_tumor (866); TrCD56dim_brain_normal (703); TrCD56dim_breast_normal (637); TrCD56dim_pancreas_normal (561); ... [first 20 of 31 values, by cell count] |
 | bright_dim_subset | categorical | 1.0 | 2 | CD56dim (68792); CD56bright (21528) |
 | reference | categorical | 1.0 | 2 | reference (51005); tumor (39315) |
@@ -77,9 +77,9 @@ Zenodo 14178285 adata_nk_tumor_query.h5ad: TiNK query. raw: False; layers: —
 
 | 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
 |---|---|---|---|---|
-| total_counts | float64 | 1.0 | 6412 | numeric: min 301, median 1844, max 3.58e+04 |
-| n_genes_by_counts | float64 | 1.0 | 2642 | numeric: min 39, median 812, max 5829 |
-| pct_counts_mt | float64 | 1.0 | 31856 | numeric: min 0, median 3.674, max 19.96 |
+| total_counts | float64 | 1.0 | 6412 | (numeric) |
+| n_genes_by_counts | float64 | 1.0 | 2642 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 31856 | (numeric) |
 | sample | categorical | 1.0 | 2823 | GSM6622299_CM1 (2918); CRR073026_0425N_LUAD5 (1642); CRR073022_0418N_LUAD1 (1214); R4 (1192); patient_43 (1119); CRR073023_0422N2_LUAD2 (1017); cillio_osteosarcoma_3 (769); SRR11821880_8 (733); GSM4909288_TN-B1-MH0177 (703); CRR073024_N0423_LUAD3 (663); R5 (582); CRR073025_N0424_LUAD4 (542); patient_41 (514); SRR11821878_10 (477); 8_leader (443); R2 (440); SRR11821882_6 (374); SRR11821881_7 (373); ndGBM-02 (321); LUNG_T31 (309); ... [first 20 of 2823 values, by cell count] |
 | batch | categorical | 1.0 | 454 | GSM6622299_CM1 (2918); CRR073026_0425N_LUAD5 (1642); CRR073022_0418N_LUAD1 (1214); R4 (1192); patient_43_goeveia (1119); CRR073023_0422N2_LUAD2 (1017); cillio_osteosarcoma_3 (769); SRR11821880_8_chen (733); GSM4909288_TN-B1-MH0177 (703); CRR073024_N0423_LUAD3 (663); R5 (582); CRR073025_N0424_LUAD4 (542); patient_41_goeveia (514); SRR11821878_10_chen (477); 7_leader (446); R2 (440); SRR11821882_6_chen (374); SRR11821881_7_chen (373); ndGBM-02 (321); RU1038_Sort-Freeze_chan (312); ... [first 20 of 454 values, by cell count] |
 | subset | categorical | 1.0 | 2 | CD56dim NK cells (21055); CD56bright NK cells (18260) |
@@ -98,9 +98,9 @@ Zenodo 14178285 adata_ref_nk.h5ad: reference NK used for mapping. raw: False; la
 | subset | categorical | 1.0 | 7 | CD56dim NK cells (26278); KIR+ (13370); NKG2A+ (4490); CD57+ (2110); CD56bright (1794); Adaptive (1489); CD56bright NK cells (1474) |
 | dataset | categorical | 1.0 | 23 | amir (13187); kim (7199); leader (6575); bischoff (5393); crinier (3966); malm (3218); yang (2882); chan (2114); lambrechts (1338); leader_cite (1209); he (762); siletti (718); bhat (651); goeveia (607); chen_GSE212966 (477); heidegger (224); steele (193); rindler (80); mirizio (66); tuong (64); ... [first 20 of 23 values, by cell count] |
 | source | categorical | 1.0 | 7 | lung_normal (25151); PBMC (23253); brain_normal (718); pancreas_normal (674); breast_normal (651); prostate_normal (288); skin_normal (270) |
-| total_counts | float64 | 1.0 | 7142 | numeric: min 285, median 1640, max 2.341e+04 |
-| n_genes_by_counts | float64 | 1.0 | 2171 | numeric: min 172, median 871, max 4885 |
-| pct_counts_mt | float64 | 1.0 | 40671 | numeric: min 0, median 3.389, max 19.97 |
+| total_counts | float64 | 1.0 | 7142 | (numeric) |
+| n_genes_by_counts | float64 | 1.0 | 2171 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 40671 | (numeric) |
 
 ## `B_ref_after_training`: 51,005 cells × 14,337 genes
 
@@ -113,12 +113,12 @@ Zenodo 14178285 adata_ref_after_training.h5ad. raw: False; layers: norm
 | subset | categorical | 1.0 | 7 | CD56dim NK cells (26278); KIR+ (13370); NKG2A+ (4490); CD57+ (2110); CD56bright (1794); Adaptive (1489); CD56bright NK cells (1474) |
 | dataset | categorical | 1.0 | 23 | amir (13187); kim (7199); leader (6575); bischoff (5393); crinier (3966); malm (3218); yang (2882); chan (2114); lambrechts (1338); leader_cite (1209); he (762); siletti (718); bhat (651); goeveia (607); chen_GSE212966 (477); heidegger (224); steele (193); rindler (80); mirizio (66); tuong (64); ... [first 20 of 23 values, by cell count] |
 | source | categorical | 1.0 | 7 | lung_normal (25151); PBMC (23253); brain_normal (718); pancreas_normal (674); breast_normal (651); prostate_normal (288); skin_normal (270) |
-| total_counts | float64 | 1.0 | 7142 | numeric: min 285, median 1640, max 2.341e+04 |
-| n_genes_by_counts | float64 | 1.0 | 2171 | numeric: min 172, median 871, max 4885 |
-| pct_counts_mt | float64 | 1.0 | 40671 | numeric: min 0, median 3.389, max 19.97 |
-| _scvi_batch | int16 | 1.0 | 424 | numeric: min 0, median 395, max 423 |
-| _scvi_labels | int8 | 1.0 | 1 | numeric: min 0, median 0, max 0 |
-| tissue_residency_auc | float64 | 1.0 | 1868 | numeric: min 0, median 0.06772, max 0.4528 |
+| total_counts | float64 | 1.0 | 7142 | (numeric) |
+| n_genes_by_counts | float64 | 1.0 | 2171 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 40671 | (numeric) |
+| _scvi_batch | int16 | 1.0 | 424 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 1 | (numeric) |
+| tissue_residency_auc | float64 | 1.0 | 1868 | (numeric) |
 
 ## `B_pb_12_donors`: 44,640 cells × 9,833 genes
 
@@ -126,9 +126,395 @@ Zenodo 14178285 pb_12_donors.h5ad: healthy PB-NK, 12 donors; matches paper 44,64
 
 | 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
 |---|---|---|---|---|
-| total_counts | float64 | 1.0 | 4261 | numeric: min 285, median 1745, max 7395 |
-| n_genes_by_counts | int32 | 1.0 | 1630 | numeric: min 202, median 867, max 2287 |
-| pct_counts_mt | float64 | 1.0 | 28084 | numeric: min 0, median 2.544, max 9.954 |
+| total_counts | float64 | 1.0 | 4261 | (numeric) |
+| n_genes_by_counts | int32 | 1.0 | 1630 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 28084 | (numeric) |
 | sample | categorical | 1.0 | 22 | amir5 (4644); malm14 (3285); malm18 (2947); amir6 (2806); malm16 (2641); amir8 (2609); malm17 (2441); malm15 (2313); malm04 (2154); amir4 (2004); malm2 (1912); malm02 (1729); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm05 (1353); malm03 (1309); malm1 (1306); malm06 (1215); ... [first 20 of 22 values, by cell count] |
 | batch | categorical | 1.0 | 14 | malm2_sorted (13627); malm1_sorted (7760); amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2_bulk (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1_bulk (1306); amir1 (1124); crinier2 (1108) |
 | subset | categorical | 0.4791 | 5 | KIR+ (8589); CD56bright (5014); NKG2A+ (3622); CD57+ (2947); Adaptive (1215) |
+
+## `Bx_lung_tumor`: 738,416 cells × 12,675 genes
+
+Zenodo 14178285 lung_tumor.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 44648 | SRR11821878_10 (21031); SRR11821875_11 (20778); SRR11821880_8 (15641); CRR073022_0418N_LUAD1 (13627); SRR11821874_3 (13239); p018t (13232); SRR11821883_5 (12965); patient_41 (12502); SRR11821882_6 (12344); 38_leader (12205); SRR11821881_7 (11918); CRR073024_N0423_LUAD3 (11804); CRR073025_N0424_LUAD4 (11252); CRR073023_0422N2_LUAD2 (10499); SRR11821879_9 (9798); p032t (9569); P17 (8697); p027t (8690); patient_45 (8645); P3 (7826); ... [first 20 of 44648 values, by cell count] |
+| batch | categorical | 1.0 | 187 | SRR11821878_10_chen (21031); SRR11821875_11_chen (20778); SRR11821880_8_chen (15641); CRR073022_0418N_LUAD1 (13627); SRR11821874_3_chen (13239); 13_bischoff (13232); SRR11821883_5_chen (12965); patient_41_goeveia (12502); SRR11821882_6_chen (12344); 31_leader (12205); SRR11821881_7_chen (11918); CRR073024_N0423_LUAD3 (11804); CRR073025_N0424_LUAD4 (11252); CRR073023_0422N2_LUAD2 (10499); SRR11821879_9_chen (9798); 14_bischoff (9569); P17_wu (8697); 3_bischoff (8690); patient_45_goeveia (8645); P3_wu (7826); ... [first 20 of 187 values, by cell count] |
+| patient | categorical | 1.0 | 162 | 4 (24759); 3 (22759); 5 (21118); 10_chen (21031); 11_chen (20778); 8_chen (15641); 1 (15282); 3_chen (13239); p018t (13232); 2 (13111); 5_chen (12965); patient_41 (12502); 6_chen (12344); 38_leader (12205); 7_chen (11918); p3 (9938); 9_chen (9798); p032t (9569); 8 (8982); P17 (8697); ... [first 20 of 162 values, by cell count] |
+| tissue | categorical | 1.0 | 7 | Tumor (310154); lung (293964); tLung (44738); tumor (39137); TEC_squamous (28567); TEC_adeno (18589); TEC_large_cell (3267) |
+| dataset | categorical | 1.0 | 11 | leader (132934); chen (132110); wu (89264); lambrechts (62812); bischoff (62059); he (54572); goeveia (50423); kim (44738); chan (44470); zilionis (39137); leader_cite (25897) |
+| classification_cell_type_leader | categorical | 0.0351 | 7 | HTO_1 (14167); HTO_3 (8049); HTO_2 (3120); HTO_4 (359); HTO_5 (87); HTO_9 (59); HTO_10 (56) |
+| cell_type_kim | categorical | 0.0606 | 8 | T lymphocytes (18573); Myeloid cells (8705); Epithelial cells (6993); B lymphocytes (5298); MAST cells (1807); Fibroblasts (1709); NK cells (1003); Endothelial cells (650) |
+| refined_cell_type_kim | categorical | 0.0528 | 7 | T/NK cells (13933); Myeloid cells (8705); Epithelial cells (6993); B lymphocytes (5298); MAST cells (1807); Fibroblasts (1647); Endothelial cells (621) |
+| sub_cell_type_kim | categorical | 0.0516 | 41 | mo-Mac (4633); Follicular B cells (3579); CD4+ Th (3572); tS1 (3234); tS2 (2792); CD8+/CD4+ Mixed Th (2463); MAST (1807); Exhausted CD8+ T (1761); Naive CD4+ T (1743); Treg (1606); Alveolar Mac (1321); MALT B cells (1117); Undetermined (980); CD8 low T (783); NK (738); COL13A1+ matrix FBs (701); CD163+CD14+ DCs (653); Monocytes (639); CD1c+ DCs (526); Cytotoxic CD8+ T (418); ... [first 20 of 41 values, by cell count] |
+| endothelial_cell_type_goeveia | categorical | 0.0683 | 2 | No (38348); Yes (12075) |
+| lm22_cell_type_zilionis | categorical | 0.053 | 21 | T cells CD4 memory resting (9111); B cells memory (4770); Macrophages M2 (3980); Monocytes (3791); Neutrophils (2713); Macrophages M0 (2635); Plasma cells (2217); T cells follicular helper (1674); T cells CD8 (1583); Mast cells activated (1272); Dendritic cells resting (982); T cells regulatory (Tregs) (833); Dendritic cells activated (819); T cells CD4 memory activated (677); NK cells resting (529); Eosinophils (488); B cells naive (384); Macrophages M1 (269); NK cells activated (179); Mast cells resting (168); ... [first 20 of 21 values, by cell count] |
+| major_cell_type_zilionis | categorical | 0.053 | 24 | tT cells (12476); tMoMacDC (9189); tB cells (5103); tNeutrophils (2546); tPlasma cells (2115); Patient1-specific (1262); tNK cells (1079); Patient5-specific (737); tMast cells (711); Fibroblasts (557); Patient7-specific (529); Endothelial cells (506); Patient3-specific (477); Type II cells (388); Smooth muscle cells (302); tpDC (273); Patient6-specific (229); Patient4-specific (197); Patient2-specific (105); tRBC (103); ... [first 20 of 24 values, by cell count] |
+| minor_cell_type_zilionis | categorical | 0.053 | 86 | tT2 (6521); tB (5103); tMac3 (2530); tT1 (2345); tT3 (2096); tMonoDC (1068); tMac1 (924); tMac2 (912); tNK1 (862); tN5 (814); tPC6 (764); tN4 (743); tMono1 (682); tT6 (672); tMast1 (628); tPC1 (614); tN1 (505); tMac8 (485); tMac4 (407); tMac7 (403); ... [first 20 of 86 values, by cell count] |
+| coarse_cell_type_chan | categorical | 0.0602 | 4 | Lymphoid (28205); Myeloid (5969); Mesenchymal (5969); Epithelial (4327) |
+| fine_cell_type_chan | categorical | 0.0602 | 21 | T cell (23367); B cell (4628); Fibroblast (3713); Macrophage (3205); Endothelial (2256); DC (1616); NSCLC (992); Mast (924); Ionocyte (918); AE1 (472); Basal (419); AEP (391); Neuroendocrine (358); Ciliated (291); Hepatocyte (226); Plasma cell (210); Neutrophil (188); Mucinous (182); Club (74); Erythrocyte (36); ... [first 20 of 21 values, by cell count] |
+| general_cell_type_chan | categorical | 0.0602 | 3 | Immune (34138); Mesenchymal (6005); Epithelial (4327) |
+| med_cell_type_chan | categorical | 0.0602 | 13 | T cell (23367); B cell (4628); Fibroblast (3713); Macrophage (3205); Epithelial Stroma (2977); Endothelial (2256); DC (1616); NSCLC (992); Mast (924); SCLC (358); Plasma cell (210); Neutrophil (188); Erythrocyte (36) |
+| n_genes_by_counts | int32 | 1.0 | 5943 | (numeric) |
+| total_counts | float32 | 1.0 | 28934 | (numeric) |
+| total_counts_mt | float32 | 1.0 | 4280 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 394387 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 8856 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 522446 | (numeric) |
+| _scvi_batch | int16 | 1.0 | 187 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 5 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 4 | Lymphoid (344699); Myeloid (190986); Epithelial (147997); Mesenchymal (54734) |
+| level2_cell_type | categorical | 1.0 | 24 | Epithelial Stroma (147997); Macrophages (139206); Tem/Trm cytotoxic T cells (88633); Tem/Effector helper T cells (71235); Plasma cells (41524); Memory B cells (40866); Regulatory T cells (39244); Dendritic cells (36570); Endothelial cells (35733); Tcm/Naive helper T cells (26785); Fibroblasts (19001); CD56dim NK cells (14065); Mast cells (12574); CD56bright NK cells (7831); NKT cells (6936); Naive B cells (4240); Late erythroid (2636); ILC (1330); Follicular helper T cells (653); Germinal center B cells (618); ... [first 20 of 24 values, by cell count] |
+| nhood_group | categorical | 1.0 | 30 | Epithelial Stroma (147997); Macrophages (139206); Tem/Trm cytotoxic T cells (88633); Tem/Effector helper T cells (71235); Plasma cells (41524); Memory B cells (40866); Regulatory T cells (39244); Dendritic cells (36570); Endothelial cells (35733); Tcm/Naive helper T cells (26785); Fibroblasts (19001); Mast cells (12574); NKT cells (6936); 2 (5405); Naive B cells (4240); 5 (3846); 6 (3647); 3 (3266); 1 (2960); Late erythroid (2636); ... [first 20 of 30 values, by cell count] |
+
+## `Bx_lung_normal`: 334,072 cells × 14,756 genes
+
+Zenodo 14178285 lung_normal.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 86 | 7_leader (16372); CRR073030_T0424_N4 (15763); CRR073027_0418T_N1 (14009); p018n_bischoff (11446); CRR073028_0422T2_N2 (11156); CRR073031_T0425_N5 (10285); CRR073029_T0423_N3 (9926); p027n_bischoff (8514); patient_40 (7696); 37_leader (7499); BT1301 (6169); p028n_bischoff (5901); 10_leader (5896); scrBT1428_hg19 (5814); LUNG_N20 (5798); 49_leader (5724); LUNG_N34 (5219); p031n_bischoff (5186); 41_leader (5029); p032n_bischoff (4973); ... [first 20 of 86 values, by cell count] |
+| batch | categorical | 1.0 | 76 | 6_leader (16484); CRR073030_T0424_N4 (15763); CRR073027_0418T_N1 (14009); p018n (11446); CRR073028_0422T2_N2 (11156); CRR073031_T0425_N5 (10285); CRR073029_T0423_N3 (9926); p027n (8514); 4_leader (8159); patient_40_goeveia (7696); 30_leader (7499); BT1301 (6169); 0_leader (6052); 9_leader (5904); p028n (5901); scrBT1428_hg19 (5814); LUNG_N20_kim (5798); 15_leader (5764); 41_leader (5724); 2_leader (5248); ... [first 20 of 76 values, by cell count] |
+| patient | categorical | 1.0 | 86 | 7_leader (16372); 4_he (15763); 1_he (14009); p018n_bischoff (11446); 2_he (11156); 5_he (10285); 3_he (9926); p027n_bischoff (8514); patient_40_goeveia (7696); 37_leader (7499); 5_lambrechts (6169); p028n_bischoff (5901); 10_leader (5896); 8_lambrechts (5814); N20_kim (5798); 49_leader (5724); N34_kim (5219); p031n_bischoff (5186); 41_leader (5029); p032n_bischoff (4973); ... [first 20 of 86 values, by cell count] |
+| tissue | categorical | 1.0 | 1 | normal lung (334072) |
+| dataset | categorical | 1.0 | 8 | leader (94772); he (61139); bischoff (52926); kim (42957); goeveia (25952); lambrechts (24710); leader_cite (19305); chan (12311) |
+| classification_cell_type_leader | categorical | 0.0578 | 10 | HTO_4 (10049); HTO_2 (5758); HTO_3 (2541); HTO_8 (210); HTO_6 (209); HTO_7 (202); HTO_10 (148); HTO_9 (130); HTO_1 (45); HTO_5 (13) |
+| cell_type_kim | categorical | 0.1286 | 8 | Myeloid cells (16660); T lymphocytes (11071); NK cells (6824); Epithelial cells (3699); Fibroblasts (1670); Endothelial cells (1341); MAST cells (1079); B lymphocytes (613) |
+| refined_cell_type_kim | categorical | 0.1088 | 7 | Myeloid cells (16660); T/NK cells (11413); Epithelial cells (3699); Fibroblasts (1585); Endothelial cells (1295); MAST cells (1079); B lymphocytes (613) |
+| sub_cell_type_kim | categorical | 0.1088 | 43 | Alveolar Mac (12199); NK (4752); CD4+ Th (3101); Monocytes (2319); Cytotoxic CD8+ T (2041); AT2 (2020); MAST (1079); COL14A1+ matrix FBs (1078); CD1c+ DCs (880); mo-Mac (808); CD8 low T (680); Tip-like ECs (654); Ciliated (651); AT1 (530); Club (438); Undetermined (373); Stalk-like ECs (322); Follicular B cells (319); Naive CD4+ T (280); COL13A1+ matrix FBs (259); ... [first 20 of 43 values, by cell count] |
+| endothelial_cell_type_goeveia | categorical | 0.0777 | 2 | No (17841); Yes (8111) |
+| coarse_cell_type_chan | categorical | 0.0369 | 4 | Lymphoid (6758); Myeloid (4578); Epithelial (848); Mesenchymal (127) |
+| fine_cell_type_chan | categorical | 0.0369 | 19 | T cell (6629); Macrophage (3334); DC (1032); AE1 (248); AEP (194); Mast (191); B cell (127); Ciliated (126); Endothelial (90); Ionocyte (84); Hepatocyte (82); Club (42); Mucinous (38); Fibroblast (37); Basal (21); Neutrophil (21); Neuroendocrine (12); Plasma cell (2); Tuft (1) |
+| general_cell_type_chan | categorical | 0.0369 | 3 | Immune (11336); Epithelial (848); Mesenchymal (127) |
+| med_cell_type_chan | categorical | 0.0369 | 11 | T cell (6629); Macrophage (3334); DC (1032); Epithelial Stroma (836); Mast (191); B cell (127); Endothelial (90); Fibroblast (37); Neutrophil (21); SCLC (12); Plasma cell (2) |
+| n_genes_by_counts | int32 | 1.0 | 5656 | (numeric) |
+| total_counts | float32 | 1.0 | 35372 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 76 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 5 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 4 | Myeloid (150680); Lymphoid (119289); Epithelial (40444); Mesenchymal (23659) |
+| level2_cell_type | categorical | 1.0 | 29 | Macrophages (111726); Epithelial cells (40444); Tem/Effector helper T cells (38016); Tem/Trm cytotoxic T cells (28109); CD56dim NK cells (24097); Monocytes (23194); Endothelial cells (18753); NKT cells (10903); Dendritic cells (8277); Mast cells (7483); Regulatory T cells (6552); Fibroblasts (4906); Memory B cells (3732); Tcm/Naive helper T cells (2405); Plasma cells (2351); CD56bright NK cells (1054); Tem/Temra cytotoxic T cells (757); Type 1 helper T cells (561); Follicular helper T cells (314); MAIT cells (230); ... [first 20 of 29 values, by cell count] |
+| nhood_group | categorical | 1.0 | 34 | Macrophages (111726); Epithelial cells (40444); Tem/Effector helper T cells (38016); Tem/Trm cytotoxic T cells (28109); Monocytes (23194); Endothelial cells (18753); NKT cells (10903); 6 (8471); Dendritic cells (8277); Mast cells (7483); Regulatory T cells (6552); 5 (6431); Fibroblasts (4906); 3 (4257); 4 (4094); Memory B cells (3732); Tcm/Naive helper T cells (2405); Plasma cells (2351); 2 (1527); Tem/Temra cytotoxic T cells (757); ... [first 20 of 34 values, by cell count] |
+
+## `Bx_breast_tumor`: 445,376 cells × 15,298 genes
+
+Zenodo 14178285 breast_tumor.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 97 | GSM4909288_TN-B1-MH0177 (19013); GSM4909294_HER2-MH0176 (17395); GSM4909282_TN-MH0135 (15557); GSM4909319_mER-PM0178 (12542); GSM4909290_HER2-PM0337 (11359); GSM4798909_B2019-2 (11203); GSM4909302_ER-MH0025 (10423); GSM5457202_B2019 (9988); GSM4909315_ER-MH0167-T (9701); GSM4909317_ER-MH0173-T (9096); GSM4909299_ER-MH0114-T3 (8782); CID4471 (8599); CID44971 (7943); CID4495 (7923); GSM4909306_ER-MH0029-9C (7870); GSM5457211_E2020 (7370); GSM4909296_ER-MH0001 (7335); GSM4909297_ER-MH0125 (7281); CID44991 (7010); GSM4909298_ER-PM0360 (6270); ... [first 20 of 97 values, by cell count] |
+| batch | categorical | 1.0 | 97 | GSM4909288_TN-B1-MH0177 (19013); GSM4909294_HER2-MH0176 (17395); GSM4909282_TN-MH0135 (15557); GSM4909319_mER-PM0178 (12542); GSM4909290_HER2-PM0337 (11359); GSM4798909_B2019-2 (11203); GSM4909302_ER-MH0025 (10423); GSM5457202_B2019 (9988); GSM4909315_ER-MH0167-T (9701); GSM4909317_ER-MH0173-T (9096); GSM4909299_ER-MH0114-T3 (8782); CID4471 (8599); CID44971 (7943); CID4495 (7923); GSM4909306_ER-MH0029-9C (7870); GSM5457211_E2020 (7370); GSM4909296_ER-MH0001 (7335); GSM4909297_ER-MH0125 (7281); CID44991 (7010); GSM4909298_ER-PM0360 (6270); ... [first 20 of 97 values, by cell count] |
+| patient | categorical | 1.0 | 97 | GSM4909288_TN-B1-MH0177 (19013); GSM4909294_HER2-MH0176 (17395); GSM4909282_TN-MH0135 (15557); GSM4909319_mER-PM0178 (12542); GSM4909290_HER2-PM0337 (11359); GSM4798909_B2019-2 (11203); GSM4909302_ER-MH0025 (10423); P2_xu_GSE180286 (9988); GSM4909315_ER-MH0167-T (9701); GSM4909317_ER-MH0173-T (9096); GSM4909299_ER-MH0114-T3 (8782); CID4471 (8599); CID44971 (7943); CID4495 (7923); GSM4909306_ER-MH0029-9C (7870); P5_xu_GSE180286 (7370); GSM4909296_ER-MH0001 (7335); GSM4909297_ER-MH0125 (7281); CID44991 (7010); GSM4909298_ER-PM0360 (6270); ... [first 20 of 97 values, by cell count] |
+| tissue | categorical | 1.0 | 5 | breast tumor (222856); TNBC breast cancer (80514); ER+ breast cancer (79020); primary breast cancer (38871); HER2+ breast cancer (24115) |
+| dataset | categorical | 1.0 | 5 | pal (222856); wu (98886); bassez (84763); xu_GSE180286 (27668); xu_GSE158399 (11203) |
+| celltype_subset_wu | categorical | 0.222 | 49 | T_cells_c1_CD4+_IL7R (7740); Cancer LumA SC (7695); T_cells_c4_CD8+_ZFP36 (5060); Cancer Cycling (5045); T_cells_c0_CD4+_CCR7 (4952); Endothelial ACKR1 (4579); T_cells_c2_CD4+_T-regs_FOXP3 (4232); Cancer Basal SC (4192); Cancer Her2 SC (3615); Plasmablasts (3513); PVL Differentiated s3 (3432); Cancer LumB SC (3326); T_cells_c7_CD8+_IFNG (3155); B cells Memory (2579); CAFs MSC iCAF-like s1 (2300); T_cells_c3_CD4+_Tfh_CXCL13 (2244); CAFs myCAF like s5 (2233); Myeloid_c10_Macrophage_1_EGR1 (2112); Myeloid_c1_LAM1_FABP5 (2073); T_cells_c8_CD8+_LAG3 (1946); ... [first 20 of 49 values, by cell count] |
+| celltype_minor_wu | categorical | 0.222 | 29 | T cells CD4+ (19168); T cells CD8+ (11460); Cancer LumA SC (7695); Macrophage (5811); Cancer Cycling (5045); Endothelial ACKR1 (4579); Cancer Basal SC (4192); Cancer Her2 SC (3615); Plasmablasts (3513); PVL Differentiated (3432); CAFs myCAF-like (3377); Cancer LumB SC (3326); CAFs MSC iCAF-like (3137); B cells Memory (2579); Monocyte (2315); Luminal Progenitors (1922); PVL Immature (1854); NK cells (1845); Endothelial CXCL12 (1629); Cycling T-cells (1526); ... [first 20 of 29 values, by cell count] |
+| celltype_major_wu | categorical | 0.222 | 9 | T-cells (35117); Cancer Epithelial (23873); Myeloid (9526); Endothelial (7542); CAFs (6514); PVL (5329); Normal Epithelial (4268); Plasmablasts (3513); B-cells (3204) |
+| celltype_bassez | categorical | 0.1903 | 8 | Cancer_cell (28603); T_cell (27556); Fibroblast (11527); Myeloid_cell (6324); B_cell (6305); Endothelial_cell (3501); Mast_cell (658); pDC (289) |
+| n_genes_by_counts | int64 | 1.0 | 6599 | (numeric) |
+| total_counts | float32 | 1.0 | 31875 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 296009 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 97 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 30 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 4 | Epithelial (198643); Lymphoid (147072); Mesenchymal (57945); Myeloid (41716) |
+| level2_cell_type | categorical | 1.0 | 31 | Cancer LumA SC (83928); Cancer Basal SC (51207); Tem/Trm cytotoxic T cells (48838); Cancer Cycling (42625); CAFs (33658); Macrophages (33654); Regulatory T cells (24968); Tem/Effector helper T cells (18774); Plasma cells (16683); Memory B cells (16048); Endothelial cells (14186); Tcm/Naive helper T cells (12358); Mature Luminal (10852); PVL Differentiated (10101); Luminal Progenitors (6545); Dendritic cells (4586); CD56bright NK cells (3837); Myoepithelial (3486); Naive B cells (1829); Mast cells (1497); ... [first 20 of 31 values, by cell count] |
+| nhood_group | categorical | 1.0 | 37 | Cancer LumA SC (83928); Cancer Basal SC (51207); Tem/Trm cytotoxic T cells (48838); Cancer Cycling (42625); CAFs (33658); Macrophages (33654); Regulatory T cells (24968); Tem/Effector helper T cells (18774); Plasma cells (16683); Memory B cells (16048); Endothelial cells (14186); Tcm/Naive helper T cells (12358); Mature Luminal (10852); PVL Differentiated (10101); Luminal Progenitors (6545); Dendritic cells (4586); Myoepithelial (3486); 2 (2863); Naive B cells (1829); Mast cells (1497); ... [first 20 of 37 values, by cell count] |
+
+## `Bx_breast_normal`: 46,314 cells × 33,538 genes
+
+Zenodo 14178285 breast_normal.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 8 | D6-D10_Pool_CMG (10379); D6-D10_Pool_HN (9313); D11 (7675); D3 (4917); D1 (4793); D5 (4617); D4 (3336); D2 (1284) |
+| batch | categorical | 1.0 | 8 | D6-D10_Pool_CMG (10379); D6-D10_Pool_HN (9313); D11 (7675); D3 (4917); D1 (4793); D5 (4617); D4 (3336); D2 (1284) |
+| patient | categorical | 1.0 | 8 | D6-D10_Pool_CMG (10379); D6-D10_Pool_HN (9313); D11 (7675); D3 (4917); D1 (4793); D5 (4617); D4 (3336); D2 (1284) |
+| tissue | categorical | 1.0 | 1 | normal breast (46314) |
+| dataset | categorical | 1.0 | 1 | bhat (46314) |
+| n_genes_by_counts | int32 | 1.0 | 5489 | (numeric) |
+| total_counts | float32 | 1.0 | 15038 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 8 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 1 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 4 | Mesenchymal (16013); Epithelial (13617); Lymphoid (12125); Myeloid (4559) |
+| level2_cell_type | categorical | 1.0 | 17 | Epithelial cells (13617); Tem/Trm cytotoxic T cells (10163); Endothelial cells (9313); Fibroblasts (6700); Macrophages (3755); Dendritic cells (664); CD56dim NK cells (637); Tem/Effector helper T cells (463); Regulatory T cells (401); NKT cells (259); Memory B cells (167); Monocytes (140); CD56bright NK cells (14); MAIT cells (8); Tcm/Naive helper T cells (7); ILC (5); Germinal center B cells (1) |
+| nhood_group | categorical | 1.0 | 22 | Epithelial cells (13617); Tem/Trm cytotoxic T cells (10163); Endothelial cells (9313); Fibroblasts (6700); Macrophages (3755); Dendritic cells (664); Tem/Effector helper T cells (463); Regulatory T cells (401); NKT cells (259); 5 (242); 6 (186); Memory B cells (167); Monocytes (140); 3 (98); 4 (71); 2 (34); 1 (15); MAIT cells (8); Tcm/Naive helper T cells (7); CD56dim NK cells (5); ... [first 20 of 22 values, by cell count] |
+
+## `Bx_glioblastoma`: 782,101 cells × 26,355 genes
+
+Zenodo 14178285 glioblastoma.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 136 | Patient_4 (28385); ndGBM-01 (26625); Patient_1 (26567); rGBM-04 (25938); rGBM-01 (25697); ndGBM-02 (25216); Patient_3 (22764); rGBM-02 (21492); Patient_2 (19044); R4 (17409); BT363 (11757); ND7 (11249); R2 (11227); G967 (10858); P317 (10739); rGBM-05 (9571); BT364 (9565); R3 (9417); rGBM-03 (9382); LB3872T (9310); ... [first 20 of 136 values, by cell count] |
+| batch | categorical | 1.0 | 136 | Patient_4 (28385); ndGBM-01 (26625); Patient_1 (26567); rGBM-04 (25938); rGBM-01 (25697); ndGBM-02 (25216); Patient_3 (22764); rGBM-02 (21492); Patient_2 (19044); R4 (17409); BT363 (11757); ND7 (11249); R2 (11227); G967 (10858); P317 (10739); rGBM-05 (9571); BT364 (9565); R3 (9417); rGBM-03 (9382); LB3872T (9310); ... [first 20 of 136 values, by cell count] |
+| patient | categorical | 1.0 | 136 | Patient_4_xie (28385); ndGBM-01_abdelfattah (26625); Patient_1_xie (26567); rGBM-04_abdelfattah (25938); rGBM-01_abdelfattah (25697); ndGBM-02_abdelfattah (25216); Patient_3_xie (22764); rGBM-02_abdelfattah (21492); Patient_2_xie (19044); R4_pombo (17409); BT363_couturier (11757); ND7_pombo (11249); R2_pombo (11227); G967_richards (10858); P317_ravi (10739); rGBM-05_abdelfattah (9571); BT364_couturier (9565); R3_pombo (9417); rGBM-03_abdelfattah (9382); LB3872T_lee (9310); ... [first 20 of 136 values, by cell count] |
+| tissue | categorical | 1.0 | 1 | glioblastoma tumor (782101) |
+| dataset | categorical | 1.0 | 15 | abdelfattah (202647); lee (119869); xie (96760); pombo (79617); couturier (63655); ravi (41060); richards (39429); leblanc (33540); johnson (25107); mathewson (24289); bhaduri (14724); neftel (12969); wang2020 (12433); wang2019 (10006); goswami (5996) |
+| cell_type_moreno | categorical | 1.0 | 18 | macrophage (229315); malignant cell (211889); microglial cell (160642); mature T cell (90297); monocyte (37579); oligodendrocyte (19623); dendritic cell (7621); neutrophil (5053); mural cell (4510); endothelial cell (4260); radial glial cell (3181); natural killer cell (3074); B cell (2340); plasma cell (1235); mast cell (714); oligodendrocyte precursor cell (660); astrocyte (104); neuron (4) |
+| cell_type_abdelfattah | categorical | 0.0 | 0 |  |
+| cell_type_bhaduri | categorical | 0.0113 | 18 | Radial Glia (2853); Microglia (1501); Immature Astrocyte (1187); Endothelial (713); Mixed Progenitor/Neuron (512); Dividing Neuron (486); Glycolytic Progenitor (478); Dividing Progenitor (332); Oligodendrocyte (274); Pericyte (159); Mature IPC/Newborn Neuron (98); Tumor Associated Macrophage (95); Neuron (67); Protoplasmic Astrocyte (47); Red blood cells (5); OPC (3); CGE iN (1); Dividing OPC (1) |
+| cell_type_couturier | categorical | 0.0 | 0 |  |
+| cell_type_goswami | categorical | 0.0 | 0 |  |
+| cell_type_johnson | categorical | 0.0292 | 12 | Differentiated tumor (11771); Myeloid (4725); Prolif stemcell tumor (2445); Stem cell tumor (1889); Oligodendrocyte (1302); Granulocyte (535); DC (105); T cells (58); B cells (19); Pericyte (6); Fibroblast (5); Endothelial (5) |
+| cell_type_leblanc | categorical | 0.0 | 0 |  |
+| cell_type_lee | categorical | 0.0 | 0 |  |
+| cell_type_mathewson | categorical | 0.0283 | 4 | CD8+ (18639); CD4+ (3063); Treg (362); Cycling T cells (78) |
+| cell_type_neftel | categorical | 0.0 | 0 |  |
+| cell_type_pombo | categorical | 0.1018 | 28 | TAM 1 (18172); TAM 2 (17741); T cells (17231); Monocytes (3445); NK (3347); T cells 1 (2389); Mono 1 (1573); Mono 2 (1545); Regulatory T cells (1484); TAM 4 (1463); TAM 3 (1459); Proliferating TAM (1343); T cells 2 (1151); TAM 5 (1135); B cells (1087); DC 2 (820); cDC2 (713); T cells 3 (637); DC 4 (630); Treg (443); ... [first 20 of 28 values, by cell count] |
+| cell_type_ravi | categorical | 0.0525 | 28 | CD14 Mono (15381); CD16 Mono (8965); Platelet (3815); HSPC (3230); CD8 TEM (3144); CD4 TCM (1752); cDC2 (1694); CD4 TEM (1445); NK (417); Treg (287); gdT (201); MAIT (182); cDC1 (119); CD4 Proliferating (75); B intermediate (57); ILC (53); CD8 TCM (50); NK_CD56bright (42); NK Proliferating (28); dnT (27); ... [first 20 of 28 values, by cell count] |
+| cell_type_richards | categorical | 0.0493 | 3 | Immune cell (24323); Tumour (10746); Normal brain (3495) |
+| cell_type_wang | categorical | 0.0 | 0 |  |
+| cell_type_xie | categorical | 0.1237 | 12 | Microglia (41595); Macrophage (38854); Neutrophils (4520); Endothelial (3889); Proliferating macrophage (3445); Pericyte (1295); Microglia in patient 4 (956); T cells (883); B cells (429); Glia and neuronal cells (371); Dendritic cells (297); Microglia + macrophage (226) |
+| n_genes_by_counts | int32 | 1.0 | 7102 | (numeric) |
+| total_counts | float32 | 1.0 | 34401 | (numeric) |
+| total_counts_mt | float32 | 1.0 | 4378 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 538287 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 7665 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 615399 | (numeric) |
+| _scvi_batch | int16 | 1.0 | 136 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 18 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 5 | Myeloid (441205); Malignant (211735); Lymphoid (96840); Glial/neuronal (23560); Mesenchymal (8761) |
+| level2_cell_type | categorical | 1.0 | 27 | Macrophages (230112); Malignant cells (211735); Microglial cells (160642); Tem/Trm cytotoxic T cells (68329); Monocytes (37854); Oligodendrocytes (20279); Tem/Effector helper T cells (9397); Regulatory T cells (7345); Dendritic cells (6946); Neutrophils (5053); Mural cells (4505); Endothelial cells (4256); CD56bright NK cells (3875); Radial glial cells (3173); CD56dim NK cells (1874); Memory B cells (1758); Tcm/Naive helper T cells (1395); Plasma cells (1128); MAIT cells (727); Tcm/Naive cytotoxic T cells (709); ... [first 20 of 27 values, by cell count] |
+| nhood_group | categorical | 1.0 | 33 | Macrophages (230112); Malignant cells (211735); Microglial cells (160642); Tem/Trm cytotoxic T cells (68329); Monocytes (37854); Oligodendrocytes (20279); Tem/Effector helper T cells (9397); Regulatory T cells (7345); Dendritic cells (6946); Neutrophils (5053); Mural cells (4505); Endothelial cells (4256); 2 (3330); Radial glial cells (3173); Memory B cells (1758); Tcm/Naive helper T cells (1395); Plasma cells (1128); 5 (885); MAIT cells (727); Tcm/Naive cytotoxic T cells (709); ... [first 20 of 33 values, by cell count] |
+
+## `Bx_melanoma`: 28,834 cells × 21,812 genes
+
+Zenodo 14178285 melanoma.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 11 | GSM6622299_CM1 (9918); GSM6622301_CM3 (9854); GSM6622300_CM2 (7093); GSM5293920 (632); GSM5293916 (447); GSM5293921 (363); GSM5293917 (209); GSM5293919 (156); GSM5293923 (84); GSM5293922 (42); GSM5293918 (36) |
+| batch | categorical | 1.0 | 11 | GSM6622299_CM1 (9918); GSM6622301_CM3 (9854); GSM6622300_CM2 (7093); 1_GSM5293920 (632); 1_GSM5293916 (447); 1_GSM5293921 (363); 1_GSM5293917 (209); 1_GSM5293919 (156); 1_GSM5293923 (84); 1_GSM5293922 (42); 1_GSM5293918 (36) |
+| patient | categorical | 1.0 | 11 | CM1_zhang (9918); CM3_zhang (9854); CM2_zhang (7093); GSM5293920 (632); GSM5293916 (447); GSM5293921 (363); GSM5293917 (209); GSM5293919 (156); GSM5293923 (84); GSM5293922 (42); GSM5293918 (36) |
+| tissue | categorical | 1.0 | 1 | melanoma (28834) |
+| dataset | categorical | 1.0 | 2 | zhang (26865); smalley (1969) |
+| n_genes_by_counts | Int32 | 1.0 | 5248 | (numeric) |
+| total_counts | float64 | 1.0 | 13148 | (numeric) |
+| total_counts_mt | float64 | 1.0 | 2671 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 27495 | (numeric) |
+| total_counts_ribo | float64 | 1.0 | 5659 | (numeric) |
+| pct_counts_ribo | float64 | 1.0 | 28476 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 4 | Epithelial (15437); Lymphoid (10754); Mesenchymal (2185); Myeloid (458) |
+| level2_cell_type | categorical | 1.0 | 21 | Melanoma cells (15437); Tem/Effector helper T cells (2306); CD56bright NK cells (1816); Tem/Trm cytotoxic T cells (1742); Regulatory T cells (1561); Fibroblasts (1470); CD56dim NK cells (1271); Memory B cells (1221); Endothelial cells (715); Dendritic cells (284); Tcm/Naive helper T cells (266); ILC (230); MAIT cells (160); Macrophages (111); Naive B cells (78); Type 1 helper T cells (78); Monocytes (63); Tcm/Naive cytotoxic T cells (10); Germinal center B cells (7); B cells (5); ... [first 20 of 21 values, by cell count] |
+| nhood_group | categorical | 1.0 | 26 | Melanoma cells (15437); Tem/Effector helper T cells (2306); Tem/Trm cytotoxic T cells (1742); Regulatory T cells (1561); Fibroblasts (1470); 1 (1277); Memory B cells (1221); 2 (832); Endothelial cells (715); 4 (556); Dendritic cells (284); Tcm/Naive helper T cells (266); ILC (230); 6 (182); 5 (181); MAIT cells (160); Macrophages (111); Type 1 helper T cells (78); Naive B cells (78); Monocytes (63); ... [first 20 of 26 values, by cell count] |
+
+## `Bx_sarcoma`: 150,851 cells × 21,505 genes
+
+Zenodo 14178285 sarcoma.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 19 | BC6 (20850); BC5 (19952); BC11 (12578); BC20 (9527); BC16 (9070); GSM5155199 (9062); BC3 (8601); GSM5155200 (8330); BC22 (8007); GSM4952365 (7885); GSM4952363 (7232); GSM4952364 (6837); BC2 (5951); BC21 (5456); GSM5155198 (3643); cillio_osteosarcoma_3 (3492); cillio_osteosarcoma_4 (2005); cillio_osteosarcoma_1 (1689); cillio_osteosarcoma_2 (684) |
+| batch | categorical | 1.0 | 19 | BC6 (20850); BC5 (19952); BC11 (12578); BC20 (9527); BC16 (9070); GSM5155199 (9062); BC3 (8601); GSM5155200 (8330); BC22 (8007); GSM4952365 (7885); GSM4952363 (7232); GSM4952364 (6837); BC2 (5951); BC21 (5456); GSM5155198 (3643); cillio_osteosarcoma_3 (3492); cillio_osteosarcoma_4 (2005); cillio_osteosarcoma_1 (1689); cillio_osteosarcoma_2 (684) |
+| patient | categorical | 1.0 | 19 | BC6_zhou (20850); BC5_zhou (19952); BC11_zhou (12578); BC20_zhou (9527); BC16_zhou (9070); P5_liu (9062); BC3_zhou (8601); P6_liu (8330); BC22_zhou (8007); P3_liu (7885); P1_liu (7232); P2_liu (6837); BC2_zhou (5951); BC21_zhou (5456); P4_liu (3643); cillio_osteosarcoma_3 (3492); cillio_osteosarcoma_4 (2005); cillio_osteosarcoma_1 (1689); cillio_osteosarcoma_2 (684) |
+| tissue | categorical | 1.0 | 2 | sarcoma (142981); sarcoma TIL (7870) |
+| dataset | categorical | 1.0 | 3 | zhou (99992); liu (42989); cillo (7870) |
+| n_genes_by_counts | int32 | 1.0 | 6017 | (numeric) |
+| total_counts | float32 | 1.0 | 27571 | (numeric) |
+| total_counts_mt | float32 | 1.0 | 4267 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 129313 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 10827 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 139184 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 19 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 1 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 3 | Mesenchymal (79508); Myeloid (54588); Lymphoid (16755) |
+| level2_cell_type | categorical | 1.0 | 22 | CAFs (74117); Macrophages (51616); Tem/Trm cytotoxic T cells (7585); Endothelial cells (4891); Monocytes (1884); NKT cells (1405); Regulatory T cells (1361); CD56dim NK cells (1299); Dendritic cells (1057); Tcm/Naive helper T cells (986); Tem/Effector helper T cells (887); Plasma cells (886); Memory B cells (819); Tcm/Naive cytotoxic T cells (435); pDC (427); Osteoblasts (395); CD56bright NK cells (393); Naive B cells (237); Fibroblasts (105); Osteoclasts (31); ... [first 20 of 22 values, by cell count] |
+| nhood_group | categorical | 1.0 | 27 | CAFs (74117); Macrophages (51616); Tem/Trm cytotoxic T cells (7585); Endothelial cells (4891); Monocytes (1884); NKT cells (1405); Regulatory T cells (1361); Dendritic cells (1057); Tcm/Naive helper T cells (986); Tem/Effector helper T cells (887); Plasma cells (886); Memory B cells (819); 3 (472); Tcm/Naive cytotoxic T cells (435); pDC (427); 2 (414); Osteoblasts (395); 6 (286); 5 (258); Naive B cells (237); ... [first 20 of 27 values, by cell count] |
+
+## `Bx_pancreas_tumor`: 124,380 cells × 17,980 genes
+
+Zenodo 14178285 pancreas_tumor.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 57 | PDAC_TISSUE_7_steele (7155); GSM6567157_PDAC1_GSE212966 (7132); GSM6567161_PDAC4_GSE212966 (5879); GSM6567159_PDAC2_GSE212966 (5703); GSM6567160_PDAC3_GSE212966 (5682); GSM6567164_PDAC6_GSE212966 (4770); PDAC_TISSUE_13_steele (4752); GSM6567163_PDAC5_GSE212966 (4442); PDAC_TISSUE_9_steele (4200); PDAC_TISSUE_8_steele (4179); T11_peng (3130); T2_peng (3034); T19_peng (2884); T23_peng (2859); PDAC_TISSUE_11A_steele (2834); PDAC_TISSUE_15_steele (2374); T9_peng (2312); T12_peng (2235); T22_peng (2207); PDAC_TISSUE_6_steele (2049); ... [first 20 of 57 values, by cell count] |
+| batch | categorical | 1.0 | 57 | PDAC_TISSUE_7_steele (7155); GSM6567157_PDAC1_GSE212966 (7132); GSM6567161_PDAC4_GSE212966 (5879); GSM6567159_PDAC2_GSE212966 (5703); GSM6567160_PDAC3_GSE212966 (5682); GSM6567164_PDAC6_GSE212966 (4770); PDAC_TISSUE_13_steele (4752); GSM6567163_PDAC5_GSE212966 (4442); PDAC_TISSUE_9_steele (4200); PDAC_TISSUE_8_steele (4179); T11_peng (3130); T2_peng (3034); T19_peng (2884); T23_peng (2859); PDAC_TISSUE_11A_steele (2834); PDAC_TISSUE_15_steele (2374); T9_peng (2312); T12_peng (2235); T22_peng (2207); PDAC_TISSUE_6_steele (2049); ... [first 20 of 57 values, by cell count] |
+| patient | categorical | 1.0 | 56 | 7_steele (7155); GSM6567157_PDAC1_GSE212966 (7132); GSM6567161_PDAC4_GSE212966 (5879); GSM6567159_PDAC2_GSE212966 (5703); GSM6567160_PDAC3_GSE212966 (5682); GSM6567164_PDAC6_GSE212966 (4770); 13_steele (4752); 11_steele (4467); GSM6567163_PDAC5_GSE212966 (4442); 9_steele (4200); 8_steele (4179); T11_peng (3130); T2_peng (3034); T19_peng (2884); T23_peng (2859); 15_steele (2374); T9_peng (2312); T12_peng (2235); T22_peng (2207); 6_steele (2049); ... [first 20 of 56 values, by cell count] |
+| tissue | categorical | 1.0 | 1 | tumor pancreas (124380) |
+| dataset | categorical | 1.0 | 4 | steele (41526); peng (41436); GSE212966 (33608); lin (7810) |
+| n_genes_by_counts | int32 | 1.0 | 6411 | (numeric) |
+| total_counts | float32 | 1.0 | 26908 | (numeric) |
+| total_counts_mt | float32 | 1.0 | 3841 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 112930 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 8257 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 118827 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 57 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 18 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 6 | Lymphoid (32614); Mesenchymal (32308); Epithelial (31421); Myeloid (24913); Exocrine (2358); Endocrine (766) |
+| level2_cell_type | categorical | 1.0 | 31 | Ductal cells (31421); Fibroblasts (18278); Macrophages (13828); Tem/Trm cytotoxic T cells (11153); Monocytes (9342); Stellate cells (7520); Endothelial cells (6510); Tem/Effector helper T cells (5000); Regulatory T cells (3396); Memory B cells (3336); Tcm/Naive helper T cells (2568); Acinar cell (2358); Plasma cells (2284); Dendritic cells (1625); CD56dim NK cells (866); Naive B cells (775); Endocrine cells (766); Tem/Temra cytotoxic T cells (505); B cells (457); gamma-delta T cells (375); ... [first 20 of 31 values, by cell count] |
+| nhood_group | categorical | 1.0 | 35 | Ductal cells (31421); Fibroblasts (18278); Macrophages (13828); Tem/Trm cytotoxic T cells (11153); Monocytes (9342); Stellate cells (7520); Endothelial cells (6510); Tem/Effector helper T cells (5000); Regulatory T cells (3396); Memory B cells (3336); Tcm/Naive helper T cells (2568); Acinar cell (2358); Plasma cells (2284); Dendritic cells (1625); Naive B cells (775); Endocrine cells (766); Tem/Temra cytotoxic T cells (505); B cells (457); gamma-delta T cells (375); Tcm/Naive cytotoxic T cells (356); ... [first 20 of 35 values, by cell count] |
+
+## `Bx_pancreas_normal`: 38,996 cells × 22,557 genes
+
+Zenodo 14178285 pancreas_normal.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 17 | GSM6567171_ADJ6_chen_GSE212966 (6252); GSM6567166_ADJ2_chen_GSE212966 (5991); GSM6567165_ADJ1_chen_GSE212966 (4127); AdjNorm_TISSUE_1_steele (4109); N1_peng (2821); AdjNorm_TISSUE_2_steele (2510); N9_peng (2451); N2_peng (1953); N10_peng (1534); N11_peng (1381); N8_peng (1209); N7_peng (1107); N4_peng (973); N5_peng (886); N6_peng (717); AdjNorm_TISSUE_3_steele (520); N3_peng (455) |
+| batch | categorical | 1.0 | 17 | GSM6567171_ADJ6_chen_GSE212966 (6252); GSM6567166_ADJ2_chen_GSE212966 (5991); GSM6567165_ADJ1_chen_GSE212966 (4127); AdjNorm_TISSUE_1_steele (4109); N1_peng (2821); AdjNorm_TISSUE_2_steele (2510); N9_peng (2451); N2_peng (1953); N10_peng (1534); N11_peng (1381); N8_peng (1209); N7_peng (1107); N4_peng (973); N5_peng (886); N6_peng (717); AdjNorm_TISSUE_3_steele (520); N3_peng (455) |
+| patient | categorical | 1.0 | 17 | GSM6567171_ADJ6_chen_GSE212966 (6252); GSM6567166_ADJ2_chen_GSE212966 (5991); GSM6567165_ADJ1_chen_GSE212966 (4127); 1_steele (4109); N1_peng (2821); 2_steele (2510); N9_peng (2451); N2_peng (1953); N10_peng (1534); N11_peng (1381); N8_peng (1209); N7_peng (1107); N4_peng (973); N5_peng (886); N6_peng (717); 3_steele (520); N3_peng (455) |
+| tissue | categorical | 1.0 | 1 | normal pancreas (38996) |
+| dataset | categorical | 1.0 | 3 | chen_GSE212966 (16370); peng (15487); steele (7139) |
+| n_genes_by_counts | int32 | 1.0 | 5108 | (numeric) |
+| total_counts | float32 | 1.0 | 13858 | (numeric) |
+| total_counts_mt | float32 | 1.0 | 2324 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 37520 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 4949 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 38370 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 17 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 10 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 6 | Lymphoid (12584); Mesenchymal (9155); Epithelial (8609); Myeloid (5118); Exocrine (2814); Endocrine (716) |
+| level2_cell_type | categorical | 1.0 | 24 | Ductal cells (8564); Tem/Trm cytotoxic T cells (5967); Endothelial cells (5271); Acinar cell (2814); Memory B cells (2686); Fibroblasts (2230); Macrophages (2104); Monocytes (1896); Stellate cells (1654); Tcm/Naive helper T cells (1172); Regulatory T cells (748); Dendritic cells (735); Endocrine cells (716); Tem/Effector helper T cells (675); CD56dim NK cells (561); Mast cells (383); Follicular helper T cells (253); Plasma cells (193); CD56bright NK cells (113); Germinal center B cells (100); ... [first 20 of 24 values, by cell count] |
+| nhood_group | categorical | 1.0 | 29 | Ductal cells (8564); Tem/Trm cytotoxic T cells (5967); Endothelial cells (5271); Acinar cell (2814); Memory B cells (2686); Fibroblasts (2230); Macrophages (2104); Monocytes (1896); Stellate cells (1654); Tcm/Naive helper T cells (1172); Regulatory T cells (748); Dendritic cells (735); Endocrine cells (716); Tem/Effector helper T cells (675); Mast cells (383); Follicular helper T cells (253); 6 (236); Plasma cells (193); 4 (117); 5 (109); ... [first 20 of 29 values, by cell count] |
+
+## `Bx_prostate_tumor`: 63,530 cells × 18,717 genes
+
+Zenodo 14178285 prostate_tumor.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 29 | GSM5793832_P4t (5996); GSE141445_S12 (5753); GSM5793829_P2t (5614); GSE141445_S2 (5301); GSE141445_S3 (4982); GSM5793831_P3t (4413); GSE141445_S4 (4075); GSE141445_S8 (3023); GSE141445_S11 (2819); GSM5793828_P1t (2470); GSE141445_S9 (2453); D6_T (1887); GSE141445_S6 (1585); GSE141445_S1 (1554); GSE141445_S7 (1533); GSE141445_S5 (1336); GSE141445_S13 (1277); D9_T (1099); D5_T_1 (857); D5_T_2 (844); ... [first 20 of 29 values, by cell count] |
+| batch | categorical | 1.0 | 29 | GSM5793832_P4t (5996); GSE141445_S12 (5753); GSM5793829_P2t (5614); GSE141445_S2 (5301); GSE141445_S3 (4982); GSM5793831_P3t (4413); GSE141445_S4 (4075); GSE141445_S8 (3023); GSE141445_S11 (2819); GSM5793828_P1t (2470); GSE141445_S9 (2453); D6_T (1887); GSE141445_S6 (1585); GSE141445_S1 (1554); GSE141445_S7 (1533); GSE141445_S5 (1336); GSE141445_S13 (1277); D9_T (1099); D5_T_1 (857); D5_T_2 (844); ... [first 20 of 29 values, by cell count] |
+| patient | categorical | 1.0 | 27 | GSM5793832_P4 (5996); GSE141445_S12 (5753); GSM5793829_P2 (5614); GSE141445_S2 (5301); GSE141445_S3 (4982); GSM5793831_P3 (4413); GSE141445_S4 (4075); GSE141445_S8 (3023); GSE141445_S11 (2819); GSM5793828_P1 (2470); GSE141445_S9 (2453); D6 (1887); D5 (1701); D4 (1679); GSE141445_S6 (1585); GSE141445_S1 (1554); GSE141445_S7 (1533); GSE141445_S5 (1336); GSE141445_S13 (1277); D9 (1099); ... [first 20 of 27 values, by cell count] |
+| tissue | categorical | 1.0 | 1 | prostate (63530) |
+| dataset | categorical | 1.0 | 3 | chen (36370); heidegger (18493); tuong (8667) |
+| n_genes_by_counts | int32 | 1.0 | 5817 | (numeric) |
+| total_counts | float32 | 1.0 | 19525 | (numeric) |
+| total_counts_mt | float64 | 1.0 | 1 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 1 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 9922 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 60927 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 29 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 26 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 4 | Epithelial (37540); Lymphoid (13133); Mesenchymal (7217); Myeloid (5640) |
+| level2_cell_type | categorical | 1.0 | 24 | Luminal epithelial (31856); Tem/Trm cytotoxic T cells (7552); Endothelial cells (7217); Club epithelial (5684); Macrophages (2774); Mast cells (2027); Tem/Effector helper T cells (1321); Tcm/Naive helper T cells (1298); Regulatory T cells (975); Memory B cells (897); Monocytes (441); Dendritic cells (398); CD56dim NK cells (358); Type 17 helper T cells (248); CD56bright NK cells (192); Type 1 helper T cells (86); Naive B cells (84); ILC (71); Plasma cells (18); Tcm/Naive cytotoxic T cells (14); ... [first 20 of 24 values, by cell count] |
+| nhood_group | categorical | 1.0 | 29 | Luminal epithelial (31856); Tem/Trm cytotoxic T cells (7552); Endothelial cells (7217); Club epithelial (5684); Macrophages (2774); Mast cells (2027); Tem/Effector helper T cells (1321); Tcm/Naive helper T cells (1298); Regulatory T cells (975); Memory B cells (897); Monocytes (441); Dendritic cells (398); Type 17 helper T cells (248); 1 (159); 2 (140); Type 1 helper T cells (86); Naive B cells (84); 5 (81); ILC (71); 3 (61); ... [first 20 of 29 values, by cell count] |
+
+## `Bx_prostate_normal`: 20,717 cells × 33,538 genes
+
+Zenodo 14178285 prostate_normal.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 16 | GSM5793824_P1n (5767); GSM5793827_P4n (4155); D6_N (2676); GSM5793825_P2n (1488); D12_N (1115); GSM5793826_P3n (1096); D4_N_1 (1028); D4_N_2 (1020); D11_N (847); D13_N (612); D5_N_2 (226); D5_N_1 (222); D15_N (176); D9_N (104); D7_N (101); D14_N (84) |
+| batch | categorical | 1.0 | 16 | GSM5793824_P1n (5767); GSM5793827_P4n (4155); D6_N (2676); GSM5793825_P2n (1488); D12_N (1115); GSM5793826_P3n (1096); D4_N_1 (1028); D4_N_2 (1020); D11_N (847); D13_N (612); D5_N_2 (226); D5_N_1 (222); D15_N (176); D9_N (104); D7_N (101); D14_N (84) |
+| patient | categorical | 1.0 | 14 | GSM5793824_P1 (5767); GSM5793827_P4 (4155); D6 (2676); D4 (2048); GSM5793825_P2 (1488); D12 (1115); GSM5793826_P3 (1096); D11 (847); D13 (612); D5 (448); D15 (176); D9 (104); D7 (101); D14 (84) |
+| tissue | categorical | 1.0 | 1 | normal prostate (20717) |
+| dataset | categorical | 1.0 | 2 | heidegger (12506); tuong (8211) |
+| n_genes_by_counts | int32 | 1.0 | 4135 | (numeric) |
+| total_counts | float32 | 1.0 | 8031 | (numeric) |
+| total_counts_mt | float32 | 1.0 | 2159 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 17556 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 3463 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 19854 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 16 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 26 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 5 | Epithelial (8740); Lymphoid (6029); Mesenchymal (3002); Sperm (1500); Myeloid (1446) |
+| level2_cell_type | categorical | 1.0 | 24 | Luminal epithelial (3754); Tem/Trm cytotoxic T cells (3732); Club epithelial (2900); Basal epithelial (2038); Endothelial cells (1996); Sperm cells (1500); Fibroblasts (1006); Tem/Effector helper T cells (749); Memory B cells (642); Macrophages (582); Monocytes (370); Regulatory T cells (304); Dendritic cells (269); Late erythroid (225); CD56bright NK cells (151); CD56dim NK cells (137); Tem/Temra cytotoxic T cells (135); Tcm/Naive helper T cells (84); ILC (62); Epithelial cells (48); ... [first 20 of 24 values, by cell count] |
+| nhood_group | categorical | 1.0 | 28 | Luminal epithelial (3754); Tem/Trm cytotoxic T cells (3732); Club epithelial (2900); Basal epithelial (2038); Endothelial cells (1996); Sperm cells (1500); Fibroblasts (1006); Tem/Effector helper T cells (749); Memory B cells (642); Macrophages (582); Monocytes (370); Regulatory T cells (304); Dendritic cells (269); Late erythroid (225); Tem/Temra cytotoxic T cells (135); 2 (120); Tcm/Naive helper T cells (84); ILC (62); Epithelial cells (48); 5 (45); ... [first 20 of 28 values, by cell count] |
+
+## `Bx_skin_normal`: 137,683 cells × 33,514 genes
+
+Zenodo 14178285 skin_normal.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| sample | categorical | 1.0 | 29 | GSM5788495 (15380); GSM5788492 (14838); GSM5788501 (11966); GSM5788503 (10051); GSM5788497 (9506); GSM5534591_P115_HC (7894); GSM5534590_P112_HC (5951); GSM5534593_P121_HC (5091); GSM5788499 (4828); GSM5176930_damsky_2 (4813); GSM5534592_P116_HC (4233); GSM4115885_SC124 (4160); P2_RPMI (3595); GSM4115870_SC4 (3541); GSM4115878_SC50 (3538); P1_RPMI (3229); GSM4115872_SC18 (3107); GSM4115886_SC125 (2796); GSM5176931_damsky_3 (2590); P1_CryoStor (2402); ... [first 20 of 29 values, by cell count] |
+| batch | categorical | 1.0 | 29 | GSM5788495 (15380); GSM5788492 (14838); GSM5788501 (11966); GSM5788503 (10051); GSM5788497 (9506); GSM5534591_P115_HC (7894); GSM5534590_P112_HC (5951); GSM5534593_P121_HC (5091); GSM5788499 (4828); GSM5176930_damsky_2 (4813); GSM5534592_P116_HC (4233); GSM4115885_SC124 (4160); P2_RPMI (3595); GSM4115870_SC4 (3541); GSM4115878_SC50 (3538); P1_RPMI (3229); GSM4115872_SC18 (3107); GSM4115886_SC125 (2796); GSM5176931_damsky_3 (2590); P1_CryoStor (2402); ... [first 20 of 29 values, by cell count] |
+| patient | categorical | 1.0 | 26 | GSM5788495 (15380); GSM5788492 (14838); GSM5788501 (11966); GSM5788503 (10051); GSM5788497 (9506); GSM5534591_P115_HC (7894); GSM5534590_P112_HC (5951); P1_mirizio (5631); GSM5534593_P121_HC (5091); P2_mirizio (4962); GSM5788499 (4828); GSM5176930_damsky_2 (4813); GSM5534592_P116_HC (4233); GSM4115885_SC124 (4160); GSM4115870_SC4 (3541); GSM4115878_SC50 (3538); GSM4115872_SC18 (3107); GSM4115886_SC125 (2796); P3_mirizio (2649); GSM5176931_damsky_3 (2590); ... [first 20 of 26 values, by cell count] |
+| tissue | categorical | 1.0 | 1 | normal skin (137683) |
+| dataset | categorical | 1.0 | 5 | he (66569); xue (26481); rindler (23169); mirizio (13242); damsky (8222) |
+| n_genes_by_counts | int32 | 1.0 | 6186 | (numeric) |
+| total_counts | float32 | 1.0 | 40297 | (numeric) |
+| total_counts_mt | float32 | 1.0 | 11995 | (numeric) |
+| pct_counts_mt | float32 | 1.0 | 125442 | (numeric) |
+| total_counts_ribo | float32 | 1.0 | 20854 | (numeric) |
+| pct_counts_ribo | float32 | 1.0 | 131368 | (numeric) |
+| _scvi_batch | int8 | 1.0 | 29 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 20 | (numeric) |
+| level1_cell_type | categorical | 1.0 | 4 | Epithelial (79918); Mesenchymal (38608); Lymphoid (12114); Myeloid (7043) |
+| level2_cell_type | categorical | 1.0 | 24 | Keratinocytes (72984); Fibroblasts (16569); Endothelial cells (14450); Pericytes (7589); Tem/Effector helper T cells (6972); Melanocytes (6340); Dendritic cells (4256); Macrophages (2787); Tem/Trm cytotoxic T cells (2167); Regulatory T cells (2080); Epithelial cells (594); Tcm/Naive helper T cells (305); ILC (172); CD56dim NK cells (143); CD56bright NK cells (127); Memory B cells (63); Plasma cells (62); Type 1 helper T cells (10); Follicular helper T cells (4); Germinal center B cells (4); ... [first 20 of 24 values, by cell count] |
+| nhood_group | categorical | 1.0 | 28 | Keratinocytes (72984); Fibroblasts (16569); Endothelial cells (14450); Pericytes (7589); Tem/Effector helper T cells (6972); Melanocytes (6340); Dendritic cells (4256); Macrophages (2787); Tem/Trm cytotoxic T cells (2167); Regulatory T cells (2080); Epithelial cells (594); Tcm/Naive helper T cells (305); ILC (172); 2 (93); Memory B cells (63); Plasma cells (62); 5 (59); 6 (50); 4 (28); 1 (21); ... [first 20 of 28 values, by cell count] |
+
+## `Bx_pb_12_donors_bulk`: 23,253 cells × 32,549 genes
+
+Zenodo 14178285 pb_12_donors_bulk.h5ad: not an NK-only object; D1 field list only. raw: False; layers: —
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| total_counts | float64 | 1.0 | 4121 | (numeric) |
+| n_genes_by_counts | int32 | 1.0 | 1628 | (numeric) |
+| pct_counts_mt | float64 | 1.0 | 16154 | (numeric) |
+| sample | categorical | 1.0 | 12 | amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2 (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1 (1306); amir1 (1124); crinier2 (1108) |
+| batch | categorical | 1.0 | 12 | amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2_bulk (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1_bulk (1306); amir1 (1124); crinier2 (1108) |
+| subset | categorical | 1.0 | 5 | KIR+ (13370); NKG2A+ (4490); CD57+ (2110); CD56bright (1794); Adaptive (1489) |
+| label | categorical | 0.0 | 0 |  |
+| dataset | categorical | 1.0 | 4 | amir (13187); crinier (3966); malm (3218); yang (2882) |
+| _scvi_batch | int8 | 1.0 | 12 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 1 | (numeric) |
+| C_scANVI | categorical | 1.0 | 5 | KIR+ (13370); NKG2A+ (4490); CD57+ (2110); CD56bright (1794); Adaptive (1489) |
+| source | categorical | 1.0 | 1 | PBMC (23253) |
+| tumor_type | categorical | 0.0 | 0 |  |
+
+## `Bx_pb_12_donors_processed`: 44,640 cells × 9,833 genes
+
+Zenodo 14178285 pb_12_donors_processed.h5ad: not an NK-only object; D1 field list only. raw: True; layers: counts;denoised_rna
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| nCount_RNA | float64 | 1.0 | 4261 | (numeric) |
+| nFeature_RNA | int32 | 1.0 | 1630 | (numeric) |
+| orig.ident | categorical | 1.0 | 11 | 1 (23253); Brights, Donor2 (3285); CD57+, Donor2 (2947); Educated, Donor2 (2641); Non-educated, Donor2 (2441); NKG2A+, Donor2 (2313); Educated, Donor1 (2154); Brights, Donor1 (1729); Non-educated, Donor1 (1353); NKG2A+, Donor1 (1309); Adaptive, Donor1 (1215) |
+| percent.mt | float64 | 1.0 | 28084 | (numeric) |
+| sample | categorical | 1.0 | 14 | Donor2 (13627); Donor1 (7760); amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2 (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1 (1306); amir1 (1124); crinier2 (1108) |
+| batch | categorical | 1.0 | 14 | Donor2 (13627); Donor1 (7760); amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2 (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1 (1306); amir1 (1124); crinier2 (1108) |
+| pseudotime | float64 | 0.5209 | 23253 | (numeric) |
+| NK1_auc | float64 | 0.5209 | 6118 | (numeric) |
+| NK2_auc | float64 | 0.5209 | 2647 | (numeric) |
+| subsample | categorical | 0.4791 | 10 | malm14 (3285); malm18 (2947); malm16 (2641); malm17 (2441); malm15 (2313); malm04 (2154); malm02 (1729); malm05 (1353); malm03 (1309); malm06 (1215) |
+| subset | categorical | 0.4791 | 5 | Educated/Non-educated (8589); Brights (5014); NKG2A+ (3622); CD57+ (2947); Adaptive (1215) |
+| _scvi_batch | int8 | 1.0 | 14 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 6 | (numeric) |
+| _scvi_local_l_mean | float64 | 1.0 | 14 | (numeric) |
+| _scvi_local_l_var | float64 | 1.0 | 14 | (numeric) |
+| leiden | categorical | 1.0 | 17 | 0 (6455); 1 (5155); 2 (4840); 3 (4418); 4 (3905); 5 (3852); 6 (2813); 7 (2581); 8 (2569); 9 (2156); 10 (1556); 11 (1160); 12 (911); 13 (823); 14 (800); 15 (581); 16 (65) |
+| size_factor | float32 | 1.0 | 3977 | (numeric) |
+| C_scANVI | categorical | 1.0 | 5 | Educated/Non-educated (19128); NKG2A+ (10027); Brights (6466); CD57+ (5719); Adaptive (3300) |
+| Adaptive_prob | float32 | 1.0 | 42507 | (numeric) |
+| Brights_prob | float32 | 1.0 | 38734 | (numeric) |
+| CD57+_prob | float32 | 1.0 | 40707 | (numeric) |
+| Educated/Non-educated_prob | float32 | 1.0 | 28651 | (numeric) |
+| NKG2A+_prob | float32 | 1.0 | 37421 | (numeric) |
+
+## `Bx_pb_12_donors_pseudotime`: 23,253 cells × 9,833 genes
+
+Zenodo 14178285 pb_12_donors_pseudotime.h5ad: not an NK-only object; D1 field list only. raw: True; layers: counts;denoised_rna
+
+| 字段名 | 数据类型 | 非缺失比例 | 取值数 | 取值 (前 20, 细胞数) |
+|---|---|---|---|---|
+| nCount_RNA | float64 | 1.0 | 4121 | (numeric) |
+| nFeature_RNA | int32 | 1.0 | 1628 | (numeric) |
+| orig.ident | categorical | 1.0 | 1 | 1 (23253) |
+| percent.mt | float64 | 1.0 | 16154 | (numeric) |
+| sample | categorical | 1.0 | 12 | amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2 (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1 (1306); amir1 (1124); crinier2 (1108) |
+| batch | categorical | 1.0 | 12 | amir5 (4644); amir6 (2806); amir8 (2609); amir4 (2004); malm2 (1912); yang2 (1476); crinier1 (1436); crinier3 (1422); yang1 (1406); malm1 (1306); amir1 (1124); crinier2 (1108) |
+| pseudotime | float64 | 1.0 | 23253 | (numeric) |
+| NK1_auc | float64 | 1.0 | 5802 | (numeric) |
+| NK2_auc | float64 | 1.0 | 2340 | (numeric) |
+| subsample | categorical | 0.0 | 0 |  |
+| subset | categorical | 0.0 | 0 |  |
+| _scvi_batch | int8 | 1.0 | 12 | (numeric) |
+| _scvi_labels | int8 | 1.0 | 1 | (numeric) |
+| _scvi_local_l_mean | float64 | 1.0 | 12 | (numeric) |
+| _scvi_local_l_var | float64 | 1.0 | 12 | (numeric) |
+| leiden | categorical | 1.0 | 17 | 1 (3172); 2 (2520); 3 (2321); 4 (2087); 8 (1940); 5 (1759); 6 (1673); 7 (1653); 0 (1434); 9 (1141); 10 (844); 11 (678); 12 (587); 14 (574); 13 (439); 15 (366); 16 (65) |
+| size_factor | float32 | 1.0 | 3840 | (numeric) |
+| C_scANVI | categorical | 1.0 | 5 | Educated/Non-educated (10141); NKG2A+ (6662); CD57+ (2990); Adaptive (2063); Brights (1397) |
+| Adaptive_prob | float32 | 1.0 | 22309 | (numeric) |
+| Brights_prob | float32 | 1.0 | 22371 | (numeric) |
+| CD57+_prob | float32 | 1.0 | 21894 | (numeric) |
+| Educated/Non-educated_prob | float32 | 1.0 | 15970 | (numeric) |
+| NKG2A+_prob | float32 | 1.0 | 19253 | (numeric) |
+| subset_full | categorical | 0.0 | 0 |  |
+| active_auc | float64 | 1.0 | 3839 | (numeric) |
+| nk1_nk2 | categorical | 1.0 | 2 | NK1 (21270); NK2 (1983) |

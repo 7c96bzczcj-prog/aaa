@@ -57,6 +57,16 @@ OBJECTS = {
                        "Zenodo 14178285 pb_12_donors.h5ad: healthy PB-NK, 12 donors; matches paper 44,640"),
 }
 
+# The other h5ad objects in the Atlas B record are all-cell or PB-derived
+# objects rather than the NK objects. Their obs is inventoried for
+# Deliverable 1 only and is not used in the census.
+B_EXTRA = ["lung_tumor", "lung_normal", "breast_tumor", "breast_normal", "glioblastoma", "melanoma",
+           "sarcoma", "pancreas_tumor", "pancreas_normal", "prostate_tumor", "prostate_normal",
+           "skin_normal", "pb_12_donors_bulk", "pb_12_donors_processed", "pb_12_donors_pseudotime"]
+for _k in B_EXTRA:
+    OBJECTS[f"Bx_{_k}"] = ("B", ZB.format(f"{_k}.h5ad"),
+                           f"Zenodo 14178285 {_k}.h5ad: not an NK-only object; D1 field list only")
+
 # Strings counted as missing, as well as real NaN/None.
 MISSING_TOKENS = {"", "nan", "none", "na", "n/a", "null", "unknown", "notavailable", "not available"}
 
@@ -67,8 +77,21 @@ def open_h5(src):
     return h5py.File(RangeFile(src), "r")
 
 
+CACHE = ROOT / "data" / "obs_cache"  # under data/, which is git-ignored
+
+
 def load(label):
     atlas, src, role = OBJECTS[label]
+    hit = CACHE / f"{label}.pkl"
+    if hit.exists():
+        return pd.read_pickle(hit)
+    out = _load(label, atlas, src, role)
+    CACHE.mkdir(parents=True, exist_ok=True)
+    pd.to_pickle(out, hit)
+    return out
+
+
+def _load(label, atlas, src, role):
     f = open_h5(src)
     obs = read_elem(f["obs"])
     x = f["X"]
@@ -104,8 +127,7 @@ def field_table(obs: pd.DataFrame) -> pd.DataFrame:
             dtype = "categorical" if isinstance(s.dtype, pd.CategoricalDtype) else str(s.dtype)
         else:
             n, dtype = s.nunique(), str(s.dtype)
-            vals = (f"numeric: min {s.min():.4g}, median {s.median():.4g}, max {s.max():.4g}"
-                    if s.notna().any() else "")
+            vals = "(numeric)"  # no summary statistics in round 1
         rows.append(dict(field=c, dtype=dtype, non_missing_frac=round(1 - miss.mean(), 4),
                          n_non_missing=int((~miss).sum()), n_values=int(n), values=vals))
     return pd.DataFrame(rows)
@@ -148,6 +170,9 @@ def keyword_scan(label, obs):
 # exact obs field only where that field directly encodes the item.
 # Otherwise it says 缺失 (missing). No approximating field is substituted.
 MISSING = "缺失"
+DEDUP_LOG = []
+HEME = ["Chronic Lymphocytic Leukemia(CLL)", "Multiple Myeloma(MM)",
+        "Acute Lymphocytic Leukemia(ALL)", "Acute Myeloid Leukemia(AML)"]
 
 
 ALL_B = ["B_milo", "B_after_mapping", "B_tumor_query", "B_ref_nk", "B_ref_after_training"]
@@ -192,11 +217,36 @@ ITEMS = [
 ]
 
 
+# Extra B objects: level rows come from a regex over the values of their
+# own tissue/source field. That field is `tissue` in the per-tissue objects
+# and `source` in pb_12_donors_bulk.
+EXTRA_LEVELS = {
+    "组织来源标签 — 字段": None,
+    # Only values that literally name a tumour count (tumor, cancer, melanoma,
+    # sarcoma, ...). Abbreviations such as tLung or TEC_* are not decoded,
+    # and bare organ names ("lung", "prostate") do not count.
+    "组织来源 — 肿瘤": r"(?i)tumou?r|cancer|carcinoma|melanoma|sarcoma|glioblastoma",
+    "组织来源 — 癌旁": r"(?i)adjacent|\badj",
+    "组织来源 — 外周血": r"(?i)pbmc|blood",
+    "组织来源 — 淋巴结": r"(?i)lymph|\bLN\b",
+    "组织来源 — 正常组织": r"(?i)normal",
+}
+
+
+def _extra_spec(item, obs):
+    if item.startswith("批次 — 作者整合批次键") and "batch" in obs.columns:
+        return ("batch", None, "样本/文库级 ID")
+    fld = "tissue" if "tissue" in obs.columns else "source" if "source" in obs.columns else None
+    if fld and item in EXTRA_LEVELS:
+        return (fld, EXTRA_LEVELS[item], "按取值正则匹配，取值原样列出")
+    return None
+
+
 def checklist(obs_by_obj):
     rows = []
     for item, present in ITEMS:
         for obj, obs in obs_by_obj.items():
-            spec = present.get(obj)
+            spec = present.get(obj) if not obj.startswith("Bx_") else _extra_spec(item, obs)
             if not spec:
                 rows.append(dict(item=item, object=obj, status=MISSING, field="", values="", note=""))
                 continue
@@ -237,6 +287,21 @@ def census_A(obs, tissue_col, label):
     # submission split into parts counts once: "No_552,part_1" -> "No_552".
     # This changes the counting key only; no biological label is modified.
     o["dataset_key"] = o["datasets"].astype(str).str.replace(r",part_\d+$", "", regex=True)
+    # Some cells were deposited twice, with the same patient and cellID
+    # under two dataset labels. In A_main these are 98 cells of CID4471,
+    # CID44971 and CID4513, in GSE176078 and 9_Cryopreservation. The copy in
+    # the dataset holding fewer of that patient's cells is dropped.
+    # Barcodes repeated inside one dataset are left alone: they can be real
+    # collisions between samples.
+    key = o["meta_patientID"].astype(str) + "|" + o["cellID"].astype(str)
+    cross = key.map(o.groupby(key, observed=True)["dataset_key"].nunique()) > 1
+    n_pt = o.groupby(["meta_patientID", "dataset_key"], observed=True).size()
+    size = pd.Series(list(zip(o["meta_patientID"], o["dataset_key"])), index=o.index).map(n_pt)
+    keep = ~cross | (size == size.groupby(key).transform("max"))
+    DEDUP_LOG.append(dict(object=label, cells_in=len(o), cross_dataset_duplicate_cells_dropped=int((~keep).sum()),
+                          patients=";".join(sorted(o.loc[~keep, "meta_patientID"].astype(str).unique())),
+                          datasets_dropped_from=";".join(sorted(o.loc[~keep, "dataset_key"].unique()))))
+    o = o[keep].copy()
     o["cancer_type"] = o["meta_histology"].astype(str)
     o["tissue"] = o[tissue_col].astype(str)
     sk, pk = ["dataset_key", "sampleID"], ["dataset_key", "meta_patientID"]
@@ -247,6 +312,15 @@ def census_A(obs, tissue_col, label):
     tot.insert(0, "object", label)
     # Patients (dataset-scoped key) with NK cells in both Blood and Tumor in
     # this object. This is a count of paired designs, not a test.
+    # The Tumor label also covers haematological malignancies, whose
+    # samples are blood or bone marrow. A separate row keeps only solid
+    # types. The list is explicit: the four meta_histology labels of
+    # haematological cancers.
+    solid = o[(o.group == "patient") & (o.tissue == "Tumor") & ~o.cancer_type.isin(HEME)].copy()
+    solid["tissue"] = "Tumor (solid types only)"
+    st = per_group(solid, sk, pk, ["group", "tissue"])
+    st.insert(0, "object", label)
+    tot = pd.concat([tot, st], ignore_index=True)
     pt = o[o.group == "patient"].groupby(pk, observed=True)["tissue"].agg(set)
     tot["patients_with_blood_and_tumor"] = int(pt.map(lambda t: {"Blood", "Tumor"} <= t).sum())
     return tab, tot
@@ -289,7 +363,10 @@ def census_B(milo, after_mapping, pb12):
     # with the suffix dropped. This is a counting key only.
     p = pb12.copy()
     p["donor"] = p["batch"].astype(str).str.replace(r"_(sorted|bulk)$", "", regex=True)
-    p["dataset_key"] = "pb12"
+    # The object has no dataset or donor field. The cohort is read from the
+    # sample-name prefix (amir/crinier/malm/yang) and the donor from the batch
+    # name. Both are counting keys only.
+    p["dataset_key"] = p["sample"].astype(str).str.replace(r"\d+$", "", regex=True)
     p["cancer_type"], p["tissue"] = "Healthy donor", "PBMC (pb_12_donors, bulk + sorted)"
     p["group"] = "healthy_donor"
     pbt = per_group(p, ["dataset_key", "sample"], ["dataset_key", "donor"], ["group", "cancer_type", "tissue"])
@@ -302,8 +379,11 @@ def census_B(milo, after_mapping, pb12):
 
 def main():
     obs_by_obj, infos, fields, scans = {}, [], [], []
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(4) as ex:
+        loaded = dict(zip(OBJECTS, ex.map(load, OBJECTS)))
     for label in OBJECTS:
-        obs, info = load(label)
+        obs, info = loaded[label]
         obs_by_obj[label] = obs
         infos.append(info)
         ft = field_table(obs)
@@ -323,11 +403,12 @@ def main():
     for name, t in [("D2_census_A_main", a_main), ("D2_census_A_blood", a_blood),
                     ("D2_census_B", b_tab), ("D2_census_B_sensitivity", b_sens)]:
         t.sort_values(["group", "tissue", "n_nk"], ascending=[True, True, False]).to_csv(
-            OUT / f"{name}.csv", index=False, float_format="%.1f")
+            OUT / f"{name}.csv", index=False, float_format="%.2f")
 
     # Compartment totals, counted directly from cells (never by summing rows).
     pd.concat([a_main_tot, a_blood_tot, b_tot], ignore_index=True).to_csv(
-        OUT / "D2_compartment_totals.csv", index=False, float_format="%.1f")
+        OUT / "D2_compartment_totals.csv", index=False, float_format="%.2f")
+    pd.DataFrame(DEDUP_LOG).to_csv(OUT / "D2_dedup_log.csv", index=False)
     print("per-cell sample datasets (B):", per_cell)
     write_markdown()
 
@@ -366,10 +447,10 @@ def write_markdown():
     parts = ["# Deliverable 2 — sample census by cancer type × tissue source\n"]
     for name in ["D2_census_A_main", "D2_census_A_blood", "D2_census_B", "D2_census_B_sensitivity"]:
         t = pd.read_csv(OUT / f"{name}.csv")
-        parts.append(f"\n## {name} ({t.object.iloc[0]})\n\n")
+        parts.append(f"\n## {name} ({', '.join(dict.fromkeys(t.object))})\n\n")
         t = t[cols].copy()
         for c in ["nk_per_sample_median", "nk_per_sample_q1", "nk_per_sample_q3"]:
-            t[c] = t[c].map(lambda v: f"{v:g}")
+            t[c] = t[c].map(lambda v: f"{v:.2f}".rstrip("0").rstrip("."))
         t.columns = zh
         parts.append(_md(t))
     (OUT / "D2_census.md").write_text("".join(parts))

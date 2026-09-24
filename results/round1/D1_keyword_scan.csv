@@ -49,3 +49,58 @@ B_ref_after_training,field_name,source,tissue,source
 B_ref_after_training,field_name,_scvi_batch,batch_platform,_scvi_batch
 B_ref_after_training,field_name,tissue_residency_auc,tissue,tissue_residency_auc
 B_pb_12_donors,field_name,batch,batch_platform,batch
+Bx_lung_tumor,field_name,batch,batch_platform,batch
+Bx_lung_tumor,field_name,tissue,tissue,tissue
+Bx_lung_tumor,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_lung_normal,field_name,batch,batch_platform,batch
+Bx_lung_normal,field_name,tissue,tissue,tissue
+Bx_lung_normal,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_breast_tumor,field_name,batch,batch_platform,batch
+Bx_breast_tumor,field_name,tissue,tissue,tissue
+Bx_breast_tumor,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_breast_normal,values,sample,timepoint,"8 values, e.g. D1; D2; D3; D4; D5"
+Bx_breast_normal,field_name,batch,batch_platform,batch
+Bx_breast_normal,values,batch,timepoint,"8 values, e.g. D1; D2; D3; D4; D5"
+Bx_breast_normal,values,patient,timepoint,"8 values, e.g. D1; D2; D3; D4; D5"
+Bx_breast_normal,field_name,tissue,tissue,tissue
+Bx_breast_normal,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_glioblastoma,field_name,batch,batch_platform,batch
+Bx_glioblastoma,field_name,tissue,tissue,tissue
+Bx_glioblastoma,values,cell_type_moreno,survival,"1 values, e.g. oligodendrocyte precursor cell"
+Bx_glioblastoma,values,cell_type_moreno,timepoint,"1 values, e.g. oligodendrocyte precursor cell"
+Bx_glioblastoma,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_melanoma,field_name,batch,batch_platform,batch
+Bx_melanoma,field_name,tissue,tissue,tissue
+Bx_sarcoma,field_name,batch,batch_platform,batch
+Bx_sarcoma,field_name,tissue,tissue,tissue
+Bx_sarcoma,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_pancreas_tumor,field_name,batch,batch_platform,batch
+Bx_pancreas_tumor,field_name,tissue,tissue,tissue
+Bx_pancreas_tumor,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_pancreas_normal,field_name,batch,batch_platform,batch
+Bx_pancreas_normal,field_name,tissue,tissue,tissue
+Bx_pancreas_normal,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_prostate_tumor,values,sample,timepoint,"12 values, e.g. D4_T_1; D4_T_2; D5_T_1; D5_T_2; D6_T"
+Bx_prostate_tumor,field_name,batch,batch_platform,batch
+Bx_prostate_tumor,values,batch,timepoint,"12 values, e.g. D4_T_1; D4_T_2; D5_T_1; D5_T_2; D6_T"
+Bx_prostate_tumor,values,patient,timepoint,"10 values, e.g. D4; D5; D6; D7; D9"
+Bx_prostate_tumor,field_name,tissue,tissue,tissue
+Bx_prostate_tumor,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_prostate_normal,values,sample,timepoint,"12 values, e.g. D4_N_1; D4_N_2; D5_N_1; D5_N_2; D6_N"
+Bx_prostate_normal,field_name,batch,batch_platform,batch
+Bx_prostate_normal,values,batch,timepoint,"12 values, e.g. D4_N_1; D4_N_2; D5_N_1; D5_N_2; D6_N"
+Bx_prostate_normal,values,patient,timepoint,"10 values, e.g. D4; D5; D6; D7; D9"
+Bx_prostate_normal,field_name,tissue,tissue,tissue
+Bx_prostate_normal,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_skin_normal,field_name,batch,batch_platform,batch
+Bx_skin_normal,field_name,tissue,tissue,tissue
+Bx_skin_normal,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_pb_12_donors_bulk,field_name,batch,batch_platform,batch
+Bx_pb_12_donors_bulk,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_pb_12_donors_bulk,field_name,source,tissue,source
+Bx_pb_12_donors_processed,field_name,batch,batch_platform,batch
+Bx_pb_12_donors_processed,field_name,pseudotime,timepoint,pseudotime
+Bx_pb_12_donors_processed,field_name,_scvi_batch,batch_platform,_scvi_batch
+Bx_pb_12_donors_pseudotime,field_name,batch,batch_platform,batch
+Bx_pb_12_donors_pseudotime,field_name,pseudotime,timepoint,pseudotime
+Bx_pb_12_donors_pseudotime,field_name,_scvi_batch,batch_platform,_scvi_batch
