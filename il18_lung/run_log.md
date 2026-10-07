@@ -67,3 +67,14 @@ HLCA（dataset 9f222629）被拆为作者 `study` 子研究以避免跨研究混
 - COVID 尸检单独取 Regev_2021（Delorey，H08）、Budinger_2020（Bharat，H09）。
 - COVID/肺炎 BALF 取 Zhang_2021（Liao，H10）、Lambrechts_2021（Wauters，H11）、Wunderink_2021（Grant，H12）。
 - IPF Cell Atlas 对照取 Kaminski_2020 的 Healthy（H02）。
+
+## 追加：小鼠 LPS 急性肺损伤（用户授权纳入，自行注释——对规格的偏离）
+
+- M06 GSE280364、M07 GSE280611：全肺 10x，各 2 对照 vs 2 LPS（GSE280611 的 LPS+DMH1 药物臂已排除）。Il18 以 Ensembl ID 命中。
+- 因 GEO 无作者逐细胞注释，用 scanpy 标准流程（normalize→HVG→PCA→neighbors→Leiden res=1.0）聚类，再以犬齿清晰的 marker panel 对每个簇评分、按细胞 argmax 的簇内多数票归入 11 类（`scripts/lps_annotate.py`）。QC：counts≥500 且 genes≥200。随机种子 20261007。
+- 这是对规格 §4.2「用作者注释、不重新聚类」的偏离；相关行在主表/汇总表标 `self_annotated=TRUE`，簇→类诊断见 `results/lps_cluster_labels_*.tsv`。
+- 结果与其余数据一致：肺泡巨噬细胞 IL18 阳性 63–95% 居首；LPS 后肺泡巨噬细胞被耗竭（细胞数锐减）但存活者仍高表达。
+
+## 幻灯片交付
+
+`IL18_lung_celltype.pptx`（10 页，无装饰）：结论、数据与方法、人/小鼠总览散点图、上皮真伪、流感时间序列、零值判读、数据缺口与偏离。两张总览散点图（`figures/master_human.png`、`figures/master_mouse.png`）将每个单细胞数据集作为一行，点大小=阳性比例、颜色=数据集内排序。

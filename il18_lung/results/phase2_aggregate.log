@@ -16,3 +16,5 @@ M02_TMS_SS2_lung: 5218 cells, 166 donor x celltype cells, 113 set to NA (n_cells
 M03_PostFlu_timeseries: 123154 cells, 446 donor x celltype cells, 96 set to NA (n_cells < 20)
 M04_GSE236342_Spn: 16070 cells, 42 donor x celltype cells, 8 set to NA (n_cells < 20)
 M05_GSE313334_Abaumannii: 4461 cells, 18 donor x celltype cells, 5 set to NA (n_cells < 20)
+M06_GSE280364_LPS_ALI: 42713 cells, 48 donor x celltype cells, 5 set to NA (n_cells < 20)
+M07_GSE280611_LPS_ALI: 20563 cells, 40 donor x celltype cells, 4 set to NA (n_cells < 20)

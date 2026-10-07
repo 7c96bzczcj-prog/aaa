@@ -17,7 +17,7 @@
 # collection DOI matching the citation. GEO accessions verified by fetching the GEO series and
 # sample SOFT text plus the FTP supplementary listing in this session (2026-10-07).
 
-version: "1.1"   # 1.1: H13 resting arm restricted to cultured mock (uncultured arm removed)
+version: "1.2"   # 1.2: add mouse LPS-ALI GSE280364, GSE280611 (self-annotated, user-authorised deviation)
 datasets:
 
 # ---------------- human, resting ----------------
@@ -364,4 +364,41 @@ datasets:
   verified_how: GEO series + 4 GSM SOFT records fetched 2026-10-07; Mus musculus, lung, infected vs non-infected; GSE313334_cell_metadata.csv.gz present
   x_source: geo_10x_h5
   x_samples: {ES1_CTRL_NT: [resting, "mock"], 6489_ES3_INF_NT: [bacterial, "A. baumannii"]}
+  x_ambient: filtered matrices only; uncorrected
+
+# ---------------- mouse, LPS acute lung injury (self-annotated; DEVIATION, user-authorised) ----------------
+- id: M06_GSE280364_LPS_ALI
+  accession: GSE280364
+  source_layer: D
+  species: mouse
+  condition: lps_ali     # intratracheal LPS vs control, whole lung, 2 vs 2
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 2
+  has_raw_counts: true
+  author_celltype_annotation: false
+  self_annotated: true
+  citation: "GSE280364 (GEO title: Activin-A production by recruited alveolar macrophages ... acute lung injury)"
+  accession_verified: true
+  verified_how: GEO series + 4 GSM SOFT fetched 2026-10-07; Mus musculus, lung, LPS-ALI vs control, 10x; raw mtx per sample
+  x_source: prebuilt    # per-cell table produced by scripts/lps_annotate.py
+  x_self_annotated: true
+  x_ambient: filtered matrices only; uncorrected
+
+- id: M07_GSE280611_LPS_ALI
+  accession: GSE280611
+  source_layer: D
+  species: mouse
+  condition: lps_ali     # untreated vs LPS (LPS+DMH1 drug arm excluded), whole lung, 2 vs 2
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 2
+  has_raw_counts: true
+  author_celltype_annotation: false
+  self_annotated: true
+  citation: "GSE280611 (PMID 40456538)"
+  accession_verified: true
+  verified_how: GEO series + GSM SOFT fetched 2026-10-07 (PMID 40456538); Mus musculus, whole lung cells, untreated/LPS, 10x; filtered h5 per sample
+  x_source: prebuilt
+  x_self_annotated: true
   x_ambient: filtered matrices only; uncorrected

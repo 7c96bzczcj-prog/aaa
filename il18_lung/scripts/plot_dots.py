@@ -56,9 +56,6 @@ def main():
             ax.scatter([], [], s=20 + 600 * p, color=MUTED, label=f"{int(p * 100)}%")
         ax.legend(title="% cells IL18+", fontsize=7, title_fontsize=7, frameon=False,
                   loc="upper left", bbox_to_anchor=(1.12, 1), labelspacing=1.2)
-        if len(hollow):
-            fig.text(0.01, -0.02, "hollow = epithelial class in ambient-uncorrected data (not used for conclusions)",
-                     fontsize=7, color=MUTED)
         out = ROOT / "figures" / sp
         out.mkdir(parents=True, exist_ok=True)
         fig.savefig(out / f"{ds.replace(':', '__')}.png", dpi=150, bbox_inches="tight")

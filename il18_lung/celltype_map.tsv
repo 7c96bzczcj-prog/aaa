@@ -705,3 +705,29 @@ H13_Wu_exvivo_SARS2	Low Quality Immune	other	author-flagged low quality
 H13_Wu_exvivo_SARS2	Low Quality Infected	other	author-flagged low quality
 H13_Wu_exvivo_SARS2	Low Quality Natural Killer/T	other	author-flagged low quality
 H13_Wu_exvivo_SARS2	Low Quality Stromal	other	author-flagged low quality
+M06_GSE280364_LPS_ALI	alveolar_macrophage	alveolar_macrophage	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	monocyte_derived_macrophage	monocyte_derived_macrophage	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	dendritic_cell	dendritic_cell	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	neutrophil	neutrophil	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	T_NK	T_NK	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	B_plasma	B_plasma	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	AT1	AT1	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	AT2	AT2	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	airway_epithelial	airway_epithelial	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	endothelial	endothelial	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	fibroblast_mesenchymal	fibroblast_mesenchymal	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M06_GSE280364_LPS_ALI	other:monocyte	other	self-annotated monocyte cluster
+M06_GSE280364_LPS_ALI	other:mast_basophil	other	self-annotated mast/basophil cluster
+M07_GSE280611_LPS_ALI	alveolar_macrophage	alveolar_macrophage	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	monocyte_derived_macrophage	monocyte_derived_macrophage	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	dendritic_cell	dendritic_cell	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	neutrophil	neutrophil	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	T_NK	T_NK	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	B_plasma	B_plasma	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	AT1	AT1	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	AT2	AT2	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	airway_epithelial	airway_epithelial	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	endothelial	endothelial	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	fibroblast_mesenchymal	fibroblast_mesenchymal	self-annotated cluster (scanpy Leiden + marker score; DEVIATION)
+M07_GSE280611_LPS_ALI	other:monocyte	other	self-annotated monocyte cluster
+M07_GSE280611_LPS_ALI	other:mast_basophil	other	self-annotated mast/basophil cluster

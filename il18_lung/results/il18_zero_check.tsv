@@ -420,3 +420,45 @@ mouse	M05_GSE313334_Abaumannii	resting	mock	T_NK	NK|NKT|T	1	0.0131362889983579	2
 mouse	M05_GSE313334_Abaumannii	resting	mock	T_NK	NK|NKT|T	1	0.0131362889983579	2.9429123583512395	ImmGen	NK.27+11b+.Sp	6.37	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
 mouse	M05_GSE313334_Abaumannii	resting	mock	T_NK	NK|NKT|T	1	0.0131362889983579	2.9429123583512395	ImmGen	NK.27+11b-.Sp	1.54	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
 mouse	M05_GSE313334_Abaumannii	resting	mock	other	Doublet	1	0.0121654501216545	2.650939667913005	ImmGen	none available (no sorted bulk for this class)			
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	dendritic_cell	dendritic_cell	2	0.0374331550802139	2.7932932677150566	ImmGen	DC.103p11bnsiglecFn.Lu	197.75	ImmGen normalized count (1.00 = 0 reads), replicate mean	3.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	dendritic_cell	dendritic_cell	2	0.0374331550802139	2.7932932677150566	ImmGen	DC.103n11bpsiglecFn.Lu	149.46	ImmGen normalized count (1.00 = 0 reads), replicate mean	3.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	dendritic_cell	dendritic_cell	2	0.0374331550802139	2.7932932677150566	ImmGen	DC.pDC.Sp	29.59	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	fibroblast_mesenchymal	fibroblast_mesenchymal	2	0.0413930789707187	2.5121438720373077	ImmGen	none available (no sorted bulk for this class)			
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	airway_epithelial	airway_epithelial	2	0.0358851674641148	2.009647290746181	ImmGen	none available (no sorted bulk for this class)			
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	B_plasma	B_plasma	2	0.0092592592592592	1.232889599478178	ImmGen	B.Fo.Sp	20.54	ImmGen normalized count (1.00 = 0 reads), replicate mean	4.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	B_plasma	B_plasma	2	0.0092592592592592	1.232889599478178	ImmGen	B.MZ.Sp	46.77	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	endothelial	endothelial	2	0.0103844526189003	1.9203174645968284	ImmGen	none available (no sorted bulk for this class)			
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	neutrophil	neutrophil	2	0.0132439263981681	1.6724473821877002	ImmGen	GN.BM	47.37	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	neutrophil	neutrophil	2	0.0132439263981681	1.6724473821877002	ImmGen	GN.Sp	109.48	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0106221668901232	0.9851154313880648	ImmGen	T.4.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0106221668901232	0.9851154313880648	ImmGen	T.8.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0106221668901232	0.9851154313880648	ImmGen	Treg.4.25hi.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0106221668901232	0.9851154313880648	ImmGen	MAIT.Lu	2.25	ImmGen normalized count (1.00 = 0 reads), replicate mean	3.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0106221668901232	0.9851154313880648	ImmGen	NK.27+11b+.Sp	6.37	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0106221668901232	0.9851154313880648	ImmGen	NK.27+11b-.Sp	1.54	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	endothelial	endothelial	2	0.027969026607865	3.4705547485467427	ImmGen	none available (no sorted bulk for this class)			
+mouse	M06_GSE280364_LPS_ALI	resting	control	B_plasma	B_plasma	2	0.0191578015676637	2.551933935144828	ImmGen	B.Fo.Sp	20.54	ImmGen normalized count (1.00 = 0 reads), replicate mean	4.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	B_plasma	B_plasma	2	0.0191578015676637	2.551933935144828	ImmGen	B.MZ.Sp	46.77	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	AT2	AT2	2	0.0464743589743589	2.695372475201414	ImmGen	none available (no sorted bulk for this class)			
+mouse	M06_GSE280364_LPS_ALI	resting	control	T_NK	T_NK	2	0.0226087396770876	2.2761551119353847	ImmGen	T.4.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	T_NK	T_NK	2	0.0226087396770876	2.2761551119353847	ImmGen	T.8.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	T_NK	T_NK	2	0.0226087396770876	2.2761551119353847	ImmGen	Treg.4.25hi.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	T_NK	T_NK	2	0.0226087396770876	2.2761551119353847	ImmGen	MAIT.Lu	2.25	ImmGen normalized count (1.00 = 0 reads), replicate mean	3.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	T_NK	T_NK	2	0.0226087396770876	2.2761551119353847	ImmGen	NK.27+11b+.Sp	6.37	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	T_NK	T_NK	2	0.0226087396770876	2.2761551119353847	ImmGen	NK.27+11b-.Sp	1.54	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M06_GSE280364_LPS_ALI	resting	control	other	other:mast_basophil	2	0.0104166666666666	1.5273866938468394	ImmGen	none available (no sorted bulk for this class)			
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	airway_epithelial	airway_epithelial	2	0.0275606917193215	3.6605064868927	ImmGen	none available (no sorted bulk for this class)			
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0114735475494969	1.0101407170295715	ImmGen	T.4.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0114735475494969	1.0101407170295715	ImmGen	T.8.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0114735475494969	1.0101407170295715	ImmGen	Treg.4.25hi.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0114735475494969	1.0101407170295715	ImmGen	MAIT.Lu	2.25	ImmGen normalized count (1.00 = 0 reads), replicate mean	3.0
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0114735475494969	1.0101407170295715	ImmGen	NK.27+11b+.Sp	6.37	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	T_NK	T_NK	2	0.0114735475494969	1.0101407170295715	ImmGen	NK.27+11b-.Sp	1.54	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	lps_ali	LPS	endothelial	endothelial	2	0.0227272727272727	1.2354656457901	ImmGen	none available (no sorted bulk for this class)			
+mouse	M07_GSE280611_LPS_ALI	resting	untreated	endothelial	endothelial	2	0.0225720200103501	3.761934161186218	ImmGen	none available (no sorted bulk for this class)			
+mouse	M07_GSE280611_LPS_ALI	resting	untreated	T_NK	T_NK	2	0.0159560316817758	1.2737662196159365	ImmGen	T.4.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	resting	untreated	T_NK	T_NK	2	0.0159560316817758	1.2737662196159365	ImmGen	T.8.Nve.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	resting	untreated	T_NK	T_NK	2	0.0159560316817758	1.2737662196159365	ImmGen	Treg.4.25hi.Sp	1.0	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	resting	untreated	T_NK	T_NK	2	0.0159560316817758	1.2737662196159365	ImmGen	MAIT.Lu	2.25	ImmGen normalized count (1.00 = 0 reads), replicate mean	3.0
+mouse	M07_GSE280611_LPS_ALI	resting	untreated	T_NK	T_NK	2	0.0159560316817758	1.2737662196159365	ImmGen	NK.27+11b+.Sp	6.37	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0
+mouse	M07_GSE280611_LPS_ALI	resting	untreated	T_NK	T_NK	2	0.0159560316817758	1.2737662196159365	ImmGen	NK.27+11b-.Sp	1.54	ImmGen normalized count (1.00 = 0 reads), replicate mean	2.0

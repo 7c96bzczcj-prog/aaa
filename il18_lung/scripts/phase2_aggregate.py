@@ -67,6 +67,7 @@ def main():
         pb["accession"], pb["source_layer"], pb["species"] = e["accession"], e["source_layer"], e["species"]
         pb["tissue"], pb["platform"] = e["tissue"], e["platform"]
         pb["ambient_uncorrected"] = not (eid == "H03_TabulaSapiens_lung" or e["platform"] in PLATE_BASED)
+        pb["self_annotated"] = bool(e.get("x_self_annotated", False))
         pb["normalized_only"] = False
         pb["gene_id_unavailable"] = bool(c.gene_id_unavailable.any())
         n_small = int((pb.n_cells < MIN_CELLS).sum())
@@ -83,7 +84,7 @@ def main():
 
     cols = ["dataset_id", "accession", "source_layer", "species", "condition", "condition_detail", "tissue",
             "platform", "donor_id", "celltype", "celltype_original", "n_cells", "n_cells_IL18_pos",
-            "pct_expressing", "mean_logcpm", "rank_within_dataset", "ambient_uncorrected", "normalized_only",
+            "pct_expressing", "mean_logcpm", "rank_within_dataset", "ambient_uncorrected", "self_annotated", "normalized_only",
             "gene_id_unavailable"]
     main_tab = main_tab.sort_values(["species", "dataset_id", "condition", "condition_detail", "donor_id", "celltype"])
     write_tsv(main_tab[cols + ["celltype_key"]].rename(columns={"celltype_key": "celltype_row_key"}),
@@ -93,7 +94,7 @@ def main():
     v = main_tab.dropna(subset=["mean_logcpm"])
     q = lambda p: (lambda x: np.nanpercentile(x, p))
     summ = v.groupby(["species", "dataset_id", "tissue", "platform", "condition", "condition_detail", "celltype",
-                      "celltype_key", "ambient_uncorrected"], observed=True).agg(
+                      "celltype_key", "ambient_uncorrected", "self_annotated"], observed=True).agg(
         n_donors=("donor_id", "nunique"), n_cells_total=("n_cells", "sum"),
         pct_median=("pct_expressing", "median"), pct_q1=("pct_expressing", q(25)), pct_q3=("pct_expressing", q(75)),
         logcpm_median=("mean_logcpm", "median"), logcpm_q1=("mean_logcpm", q(25)), logcpm_q3=("mean_logcpm", q(75)),
