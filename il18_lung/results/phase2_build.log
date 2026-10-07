@@ -54,3 +54,9 @@ H12_Grant_BAL: wrote 77146 cells, 10 donors, conditions {'sars_cov_2': 77146}
 7c497c66-c2e2-4291-8b96-339e5e65f314: Census var hit ENSG00000150782 -> IL18; 76298 primary lung cells
 H13_Wu_exvivo_SARS2: 17706 cells with unmapped condition key dropped: ['SA']
 H13_Wu_exvivo_SARS2: wrote 366424 cells, 4 donors, conditions {'resting': 207748, 'sars_cov_2': 158676}
+2ac76f1b-43ef-4271-8686-2f165570989f: Census var hit ENSG00000150782 -> IL18; 48226 primary lung cells
+7f7faf6b-f11d-4f07-bc1c-188a4472748d: Census var hit ENSG00000150782 -> IL18; 134076 primary lung cells
+7b55fe5c-d5c8-48e0-a1a3-54c5b9074f3f: Census var hit ENSG00000150782 -> IL18; 125530 primary lung cells
+7c497c66-c2e2-4291-8b96-339e5e65f314: Census var hit ENSG00000150782 -> IL18; 76298 primary lung cells
+H13_Wu_exvivo_SARS2: 113095 cells with unmapped condition key dropped: ['None', 'SA']
+H13_Wu_exvivo_SARS2: wrote 271035 cells, 4 donors, conditions {'sars_cov_2': 158676, 'resting': 112359}
