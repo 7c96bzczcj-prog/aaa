@@ -1,0 +1,707 @@
+# celltype_map.tsv — one explicit row per (entry_id, author label). No pattern matching (spec §4.2).
+# 'other' keeps the author label in the main table. Monocytes, interstitial macrophages, mast cells,
+# ILCs, transitional/rare epithelia, mesothelium and doublets are 'other' by design (not among the 11 classes).
+entry_id	celltype_original	celltype	note
+H01_HLCA_core	Alveolar macrophages	alveolar_macrophage	
+H01_HLCA_core	Alveolar Mph CCL3+	alveolar_macrophage	
+H01_HLCA_core	Alveolar Mph MT-positive	alveolar_macrophage	
+H01_HLCA_core	Alveolar Mph proliferating	alveolar_macrophage	
+H01_HLCA_core	Monocyte-derived Mph	monocyte_derived_macrophage	
+H01_HLCA_core	Interstitial Mph perivascular	other	interstitial macrophage
+H01_HLCA_core	Classical monocytes	other	monocyte
+H01_HLCA_core	Non-classical monocytes	other	monocyte
+H01_HLCA_core	DC1	dendritic_cell	
+H01_HLCA_core	DC2	dendritic_cell	
+H01_HLCA_core	Migratory DCs	dendritic_cell	
+H01_HLCA_core	Plasmacytoid DCs	dendritic_cell	
+H01_HLCA_core	CD4 T cells	T_NK	
+H01_HLCA_core	CD8 T cells	T_NK	
+H01_HLCA_core	NK cells	T_NK	
+H01_HLCA_core	T cells proliferating	T_NK	
+H01_HLCA_core	B cells	B_plasma	
+H01_HLCA_core	Plasma cells	B_plasma	
+H01_HLCA_core	Mast cells	other	mast cell
+H01_HLCA_core	Hematopoietic stem cells	other	
+H01_HLCA_core	AT1	AT1	
+H01_HLCA_core	AT2	AT2	
+H01_HLCA_core	AT2 proliferating	AT2	
+H01_HLCA_core	AT0	other	transitional alveolar epithelium
+H01_HLCA_core	Basal resting	airway_epithelial	basal
+H01_HLCA_core	Suprabasal	airway_epithelial	basal
+H01_HLCA_core	Multiciliated (non-nasal)	airway_epithelial	ciliated
+H01_HLCA_core	Deuterosomal	airway_epithelial	ciliated precursor
+H01_HLCA_core	Club (non-nasal)	airway_epithelial	secretory
+H01_HLCA_core	Goblet (bronchial)	airway_epithelial	secretory
+H01_HLCA_core	Goblet (subsegmental)	airway_epithelial	secretory
+H01_HLCA_core	pre-TB secretory	airway_epithelial	secretory
+H01_HLCA_core	Hillock-like	other	rare airway epithelium
+H01_HLCA_core	Ionocyte	other	rare airway epithelium
+H01_HLCA_core	Tuft	other	rare airway epithelium
+H01_HLCA_core	Neuroendocrine	other	rare airway epithelium
+H01_HLCA_core	Goblet (nasal)	other	nasal
+H01_HLCA_core	Club (nasal)	other	nasal
+H01_HLCA_core	Multiciliated (nasal)	other	nasal
+H01_HLCA_core	SMG serous (nasal)	other	nasal gland
+H01_HLCA_core	SMG serous (bronchial)	other	submucosal gland
+H01_HLCA_core	SMG mucous	other	submucosal gland
+H01_HLCA_core	SMG duct	other	submucosal gland
+H01_HLCA_core	EC general capillary	endothelial	
+H01_HLCA_core	EC aerocyte capillary	endothelial	
+H01_HLCA_core	EC arterial	endothelial	
+H01_HLCA_core	EC venous systemic	endothelial	
+H01_HLCA_core	EC venous pulmonary	endothelial	
+H01_HLCA_core	Lymphatic EC mature	endothelial	
+H01_HLCA_core	Lymphatic EC differentiating	endothelial	
+H01_HLCA_core	Lymphatic EC proliferating	endothelial	
+H01_HLCA_core	Adventitial fibroblasts	fibroblast_mesenchymal	
+H01_HLCA_core	Alveolar fibroblasts	fibroblast_mesenchymal	
+H01_HLCA_core	Peribronchial fibroblasts	fibroblast_mesenchymal	
+H01_HLCA_core	Subpleural fibroblasts	fibroblast_mesenchymal	
+H01_HLCA_core	Myofibroblasts	fibroblast_mesenchymal	
+H01_HLCA_core	Pericytes	fibroblast_mesenchymal	
+H01_HLCA_core	Smooth muscle	fibroblast_mesenchymal	
+H01_HLCA_core	SM activated stress response	fibroblast_mesenchymal	
+H01_HLCA_core	Smooth muscle FAM83D+	fibroblast_mesenchymal	
+H01_HLCA_core	Mesothelium	other	mesothelium
+H04_Travaglini_10x	Macrophage	alveolar_macrophage	authors' own CL term = alveolar macrophage
+H04_Travaglini_10x	Proliferating Macrophage	other	authors' CL term = macrophage (AM/MDM not resolved)
+H04_Travaglini_10x	Classical Monocyte	other	monocyte
+H04_Travaglini_10x	OLR1+ Classical Monocyte	other	monocyte
+H04_Travaglini_10x	Intermediate Monocyte	other	monocyte
+H04_Travaglini_10x	Nonclassical Monocyte	other	monocyte
+H04_Travaglini_10x	Myeloid Dendritic Type 1	dendritic_cell	
+H04_Travaglini_10x	Myeloid Dendritic Type 2	dendritic_cell	
+H04_Travaglini_10x	IGSF21+ Dendritic	dendritic_cell	
+H04_Travaglini_10x	EREG+ Dendritic	dendritic_cell	
+H04_Travaglini_10x	TREM2+ Dendritic	dendritic_cell	
+H04_Travaglini_10x	Plasmacytoid Dendritic	dendritic_cell	
+H04_Travaglini_10x	Natural Killer	T_NK	
+H04_Travaglini_10x	Natural Killer T	T_NK	
+H04_Travaglini_10x	CD4+ Memory/Effector T	T_NK	
+H04_Travaglini_10x	CD4+ Naive T	T_NK	
+H04_Travaglini_10x	CD8+ Memory/Effector T	T_NK	
+H04_Travaglini_10x	CD8+ Naive T	T_NK	
+H04_Travaglini_10x	Proliferating NK/T	T_NK	
+H04_Travaglini_10x	B	B_plasma	
+H04_Travaglini_10x	Plasma	B_plasma	
+H04_Travaglini_10x	Basophil/Mast 1	other	basophil/mast
+H04_Travaglini_10x	Basophil/Mast 2	other	basophil/mast
+H04_Travaglini_10x	Platelet/Megakaryocyte	other	
+H04_Travaglini_10x	Alveolar Epithelial Type 1	AT1	
+H04_Travaglini_10x	Alveolar Epithelial Type 2	AT2	
+H04_Travaglini_10x	Signaling Alveolar Epithelial Type 2	AT2	
+H04_Travaglini_10x	Basal	airway_epithelial	basal
+H04_Travaglini_10x	Proximal Basal	airway_epithelial	basal
+H04_Travaglini_10x	Differentiating Basal	airway_epithelial	basal
+H04_Travaglini_10x	Proliferating Basal	airway_epithelial	basal
+H04_Travaglini_10x	Ciliated	airway_epithelial	ciliated
+H04_Travaglini_10x	Proximal Ciliated	airway_epithelial	ciliated
+H04_Travaglini_10x	Club	airway_epithelial	secretory
+H04_Travaglini_10x	Goblet	airway_epithelial	secretory
+H04_Travaglini_10x	Mucous	airway_epithelial	secretory
+H04_Travaglini_10x	Serous	other	submucosal gland
+H04_Travaglini_10x	Ionocyte	other	rare airway epithelium
+H04_Travaglini_10x	Neuroendocrine	other	rare airway epithelium
+H04_Travaglini_10x	Capillary	endothelial	
+H04_Travaglini_10x	Capillary Aerocyte	endothelial	
+H04_Travaglini_10x	Capillary Intermediate 1	endothelial	
+H04_Travaglini_10x	Capillary Intermediate 2	endothelial	
+H04_Travaglini_10x	Artery	endothelial	
+H04_Travaglini_10x	Vein	endothelial	
+H04_Travaglini_10x	Bronchial Vessel 1	endothelial	
+H04_Travaglini_10x	Bronchial Vessel 2	endothelial	
+H04_Travaglini_10x	Lymphatic	endothelial	
+H04_Travaglini_10x	Alveolar Fibroblast	fibroblast_mesenchymal	
+H04_Travaglini_10x	Adventitial Fibroblast	fibroblast_mesenchymal	
+H04_Travaglini_10x	Lipofibroblast	fibroblast_mesenchymal	
+H04_Travaglini_10x	Myofibroblast	fibroblast_mesenchymal	
+H04_Travaglini_10x	Fibromyocyte	fibroblast_mesenchymal	
+H04_Travaglini_10x	Pericyte	fibroblast_mesenchymal	
+H04_Travaglini_10x	Airway Smooth Muscle	fibroblast_mesenchymal	
+H04_Travaglini_10x	Vascular Smooth Muscle	fibroblast_mesenchymal	
+H04_Travaglini_10x	Mesothelial	other	mesothelium
+M01_TMS_10x_lung	alveolar macrophage	alveolar_macrophage	
+M01_TMS_10x_lung	lung macrophage	other	authors' free_annotation = Interstitial Macrophage
+M01_TMS_10x_lung	classical monocyte	other	monocyte
+M01_TMS_10x_lung	intermediate monocyte	other	monocyte
+M01_TMS_10x_lung	non-classical monocyte	other	monocyte
+M01_TMS_10x_lung	myeloid dendritic cell	dendritic_cell	
+M01_TMS_10x_lung	dendritic cell	dendritic_cell	
+M01_TMS_10x_lung	plasmacytoid dendritic cell	dendritic_cell	
+M01_TMS_10x_lung	neutrophil	neutrophil	
+M01_TMS_10x_lung	basophil	other	
+M01_TMS_10x_lung	natural killer cell	T_NK	
+M01_TMS_10x_lung	mature NK T cell	T_NK	
+M01_TMS_10x_lung	T cell	T_NK	
+M01_TMS_10x_lung	CD4-positive, alpha-beta T cell	T_NK	
+M01_TMS_10x_lung	CD8-positive, alpha-beta T cell	T_NK	
+M01_TMS_10x_lung	regulatory T cell	T_NK	
+M01_TMS_10x_lung	B cell	B_plasma	
+M01_TMS_10x_lung	plasma cell	B_plasma	
+M01_TMS_10x_lung	pulmonary alveolar type 2 cell	AT2	
+M01_TMS_10x_lung	multiciliated columnar cell of tracheobronchial tree	airway_epithelial	ciliated
+M01_TMS_10x_lung	club cell	airway_epithelial	mouse club cell (spec §5)
+M01_TMS_10x_lung	pulmonary neuroendocrine cell	other	rare airway epithelium
+M01_TMS_10x_lung	vein endothelial cell	endothelial	
+M01_TMS_10x_lung	endothelial cell of lymphatic vessel	endothelial	
+M01_TMS_10x_lung	fibroblast of lung	fibroblast_mesenchymal	
+M01_TMS_10x_lung	pulmonary interstitial fibroblast	fibroblast_mesenchymal	
+M01_TMS_10x_lung	adventitial cell	fibroblast_mesenchymal	
+M01_TMS_10x_lung	bronchial smooth muscle cell	fibroblast_mesenchymal	
+M01_TMS_10x_lung	smooth muscle cell of the pulmonary artery	fibroblast_mesenchymal	
+M01_TMS_10x_lung	pericyte	fibroblast_mesenchymal	
+M02_TMS_SS2_lung	lung macrophage	other	interstitial macrophage (TMS CL term)
+M02_TMS_SS2_lung	classical monocyte	other	monocyte
+M02_TMS_SS2_lung	intermediate monocyte	other	monocyte
+M02_TMS_SS2_lung	non-classical monocyte	other	monocyte
+M02_TMS_SS2_lung	myeloid dendritic cell	dendritic_cell	
+M02_TMS_SS2_lung	dendritic cell	dendritic_cell	
+M02_TMS_SS2_lung	plasmacytoid dendritic cell	dendritic_cell	
+M02_TMS_SS2_lung	neutrophil	neutrophil	
+M02_TMS_SS2_lung	leukocyte	other	
+M02_TMS_SS2_lung	lymphocyte	other	
+M02_TMS_SS2_lung	natural killer cell	T_NK	
+M02_TMS_SS2_lung	mature NK T cell	T_NK	
+M02_TMS_SS2_lung	T cell	T_NK	
+M02_TMS_SS2_lung	CD4-positive, alpha-beta T cell	T_NK	
+M02_TMS_SS2_lung	CD8-positive, alpha-beta T cell	T_NK	
+M02_TMS_SS2_lung	regulatory T cell	T_NK	
+M02_TMS_SS2_lung	B cell	B_plasma	
+M02_TMS_SS2_lung	plasma cell	B_plasma	
+M02_TMS_SS2_lung	pulmonary alveolar type 1 cell	AT1	
+M02_TMS_SS2_lung	pulmonary alveolar type 2 cell	AT2	
+M02_TMS_SS2_lung	respiratory basal cell	airway_epithelial	basal
+M02_TMS_SS2_lung	multiciliated columnar cell of tracheobronchial tree	airway_epithelial	ciliated
+M02_TMS_SS2_lung	club cell	airway_epithelial	mouse club cell (spec §5)
+M02_TMS_SS2_lung	pulmonary neuroendocrine cell	other	rare airway epithelium
+M02_TMS_SS2_lung	vein endothelial cell	endothelial	
+M02_TMS_SS2_lung	endothelial cell of lymphatic vessel	endothelial	
+M02_TMS_SS2_lung	fibroblast of lung	fibroblast_mesenchymal	
+M02_TMS_SS2_lung	pulmonary interstitial fibroblast	fibroblast_mesenchymal	
+M02_TMS_SS2_lung	adventitial cell	fibroblast_mesenchymal	
+M02_TMS_SS2_lung	bronchial smooth muscle cell	fibroblast_mesenchymal	
+M02_TMS_SS2_lung	smooth muscle cell of the pulmonary artery	fibroblast_mesenchymal	
+M02_TMS_SS2_lung	pericyte	fibroblast_mesenchymal	
+M03_PostFlu_timeseries	aMAC	alveolar_macrophage	
+M03_PostFlu_timeseries	iMAC	other	interstitial macrophage (author label; origin not resolved)
+M03_PostFlu_timeseries	cMON	other	monocyte
+M03_PostFlu_timeseries	iMON	other	monocyte
+M03_PostFlu_timeseries	pMON	other	monocyte
+M03_PostFlu_timeseries	cDC1	dendritic_cell	
+M03_PostFlu_timeseries	cDC2	dendritic_cell	
+M03_PostFlu_timeseries	maDC	dendritic_cell	
+M03_PostFlu_timeseries	Neutrophil	neutrophil	
+M03_PostFlu_timeseries	T_lymphocyte	T_NK	
+M03_PostFlu_timeseries	NK_cell	T_NK	
+M03_PostFlu_timeseries	B_lymphocyte	B_plasma	
+M03_PostFlu_timeseries	Plasma_cell	B_plasma	
+M03_PostFlu_timeseries	AT1	AT1	
+M03_PostFlu_timeseries	AT2	AT2	
+M03_PostFlu_timeseries	AT1_AT2	other	transitional alveolar epithelium
+M03_PostFlu_timeseries	Alveolar_transitional	other	transitional alveolar epithelium
+M03_PostFlu_timeseries	Krt5	other	post-injury Krt5+ pods (dysplastic)
+M03_PostFlu_timeseries	Ciliated	airway_epithelial	ciliated
+M03_PostFlu_timeseries	Secretory	airway_epithelial	secretory (mouse club)
+M03_PostFlu_timeseries	CAP1	endothelial	
+M03_PostFlu_timeseries	CAP2	endothelial	
+M03_PostFlu_timeseries	Venous_endothelium	endothelial	
+M03_PostFlu_timeseries	Arterial_endothelium	endothelial	
+M03_PostFlu_timeseries	Lymphatic_endothelium	endothelial	
+M03_PostFlu_timeseries	AF1	fibroblast_mesenchymal	
+M03_PostFlu_timeseries	AF2	fibroblast_mesenchymal	
+M03_PostFlu_timeseries	Adventitial_fibroblast	fibroblast_mesenchymal	
+M03_PostFlu_timeseries	Peribronchial_fibroblast	fibroblast_mesenchymal	
+M03_PostFlu_timeseries	VSMC	fibroblast_mesenchymal	
+M03_PostFlu_timeseries	Mesothelium	other	mesothelium
+M04_GSE236342_Spn	alveolar macrophages	alveolar_macrophage	
+M04_GSE236342_Spn	monocytes	other	monocyte
+M04_GSE236342_Spn	DCs	dendritic_cell	
+M04_GSE236342_Spn	neutrophils	neutrophil	
+M04_GSE236342_Spn	NK cells	T_NK	
+M04_GSE236342_Spn	T cells	T_NK	
+M04_GSE236342_Spn	ILCs	other	ILC (sorted and spiked back in)
+M04_GSE236342_Spn	B cells	B_plasma	
+M04_GSE236342_Spn	AECI	AT1	
+M04_GSE236342_Spn	AECII	AT2	
+M04_GSE236342_Spn	ciliated cells	airway_epithelial	ciliated
+M04_GSE236342_Spn	endothelial cells	endothelial	
+M04_GSE236342_Spn	fibroblasts	fibroblast_mesenchymal	
+M04_GSE236342_Spn	smooth muscle cells	fibroblast_mesenchymal	
+M04_GSE236342_Spn	pericytes	fibroblast_mesenchymal	
+M04_GSE236342_Spn	mesenthelial cells	other	mesothelium (author spelling)
+M04_GSE236342_Spn	cycling cells	other	
+M05_GSE313334_Abaumannii	AM	alveolar_macrophage	
+M05_GSE313334_Abaumannii	IM	other	interstitial macrophage
+M05_GSE313334_Abaumannii	Monocyte	other	monocyte
+M05_GSE313334_Abaumannii	Myeloid Dendritic Type I	dendritic_cell	
+M05_GSE313334_Abaumannii	Myeloid Dendritic Type II	dendritic_cell	
+M05_GSE313334_Abaumannii	Plasmacytoid Dendritic	dendritic_cell	
+M05_GSE313334_Abaumannii	Neutrophil	neutrophil	
+M05_GSE313334_Abaumannii	T	T_NK	
+M05_GSE313334_Abaumannii	Regulatory T	T_NK	
+M05_GSE313334_Abaumannii	NK	T_NK	
+M05_GSE313334_Abaumannii	NKT	T_NK	
+M05_GSE313334_Abaumannii	B	B_plasma	
+M05_GSE313334_Abaumannii	Doublet	other	author-flagged doublet
+M05_GSE313334_Abaumannii	Unknown	other	
+H02_IPF_atlas_controls	Macrophage_Alveolar	alveolar_macrophage	
+H02_IPF_atlas_controls	Macrophage	other	authors' non-alveolar 'Macrophage' cluster; AM/MDM origin not resolved
+H02_IPF_atlas_controls	cMonocyte	other	monocyte
+H02_IPF_atlas_controls	ncMonocyte	other	monocyte
+H02_IPF_atlas_controls	cDC1	dendritic_cell	
+H02_IPF_atlas_controls	cDC2	dendritic_cell	
+H02_IPF_atlas_controls	DC_Mature	dendritic_cell	
+H02_IPF_atlas_controls	DC_Langerhans	dendritic_cell	
+H02_IPF_atlas_controls	pDC	dendritic_cell	
+H02_IPF_atlas_controls	T	T_NK	
+H02_IPF_atlas_controls	T_Cytotoxic	T_NK	
+H02_IPF_atlas_controls	T_Regulatory	T_NK	
+H02_IPF_atlas_controls	NK	T_NK	
+H02_IPF_atlas_controls	ILC_A	other	ILC
+H02_IPF_atlas_controls	ILC_B	other	ILC
+H02_IPF_atlas_controls	B	B_plasma	
+H02_IPF_atlas_controls	B_Plasma	B_plasma	
+H02_IPF_atlas_controls	Mast	other	mast cell
+H02_IPF_atlas_controls	ATI	AT1	
+H02_IPF_atlas_controls	ATII	AT2	
+H02_IPF_atlas_controls	Basal	airway_epithelial	basal
+H02_IPF_atlas_controls	Ciliated	airway_epithelial	ciliated
+H02_IPF_atlas_controls	Club	airway_epithelial	secretory
+H02_IPF_atlas_controls	Goblet	airway_epithelial	secretory
+H02_IPF_atlas_controls	PNEC	other	rare airway epithelium
+H02_IPF_atlas_controls	Ionocyte	other	rare airway epithelium
+H02_IPF_atlas_controls	VE_Capillary_A	endothelial	
+H02_IPF_atlas_controls	VE_Capillary_B	endothelial	
+H02_IPF_atlas_controls	VE_Arterial	endothelial	
+H02_IPF_atlas_controls	VE_Venous	endothelial	
+H02_IPF_atlas_controls	VE_Peribronchial	endothelial	
+H02_IPF_atlas_controls	Lymphatic	endothelial	
+H02_IPF_atlas_controls	Fibroblast	fibroblast_mesenchymal	
+H02_IPF_atlas_controls	Myofibroblast	fibroblast_mesenchymal	
+H02_IPF_atlas_controls	SMC	fibroblast_mesenchymal	
+H02_IPF_atlas_controls	Pericyte	fibroblast_mesenchymal	
+H02_IPF_atlas_controls	Mesothelial	other	mesothelium
+H03_TabulaSapiens_lung	macrophage	other	authors' label 'macrophage' does not separate AM from MDM (spec §5)
+H03_TabulaSapiens_lung	classical monocyte	other	monocyte
+H03_TabulaSapiens_lung	intermediate monocyte	other	monocyte
+H03_TabulaSapiens_lung	non-classical monocyte	other	monocyte
+H03_TabulaSapiens_lung	monocyte	other	monocyte
+H03_TabulaSapiens_lung	myeloid dendritic cell	dendritic_cell	
+H03_TabulaSapiens_lung	plasmacytoid dendritic cell	dendritic_cell	
+H03_TabulaSapiens_lung	neutrophil	neutrophil	
+H03_TabulaSapiens_lung	basophil	other	
+H03_TabulaSapiens_lung	mast cell	other	mast cell
+H03_TabulaSapiens_lung	CD4-positive, alpha-beta T cell	T_NK	
+H03_TabulaSapiens_lung	CD8-positive, alpha-beta T cell	T_NK	
+H03_TabulaSapiens_lung	natural killer cell	T_NK	
+H03_TabulaSapiens_lung	mature NK T cell	T_NK	
+H03_TabulaSapiens_lung	B cell	B_plasma	
+H03_TabulaSapiens_lung	plasma cell	B_plasma	
+H03_TabulaSapiens_lung	pulmonary alveolar type 1 cell	AT1	
+H03_TabulaSapiens_lung	pulmonary alveolar type 2 cell	AT2	
+H03_TabulaSapiens_lung	basal cell	airway_epithelial	basal
+H03_TabulaSapiens_lung	lung multiciliated epithelial cell	airway_epithelial	ciliated
+H03_TabulaSapiens_lung	club cell	airway_epithelial	secretory
+H03_TabulaSapiens_lung	respiratory tract goblet cell	airway_epithelial	secretory
+H03_TabulaSapiens_lung	serous cell of epithelium of bronchus	other	submucosal gland
+H03_TabulaSapiens_lung	pulmonary ionocyte	other	rare airway epithelium
+H03_TabulaSapiens_lung	capillary endothelial cell	endothelial	
+H03_TabulaSapiens_lung	endothelial cell of artery	endothelial	
+H03_TabulaSapiens_lung	vein endothelial cell	endothelial	
+H03_TabulaSapiens_lung	endothelial cell of lymphatic vessel	endothelial	
+H03_TabulaSapiens_lung	alveolar adventitial fibroblast	fibroblast_mesenchymal	
+H03_TabulaSapiens_lung	adventitial cell	fibroblast_mesenchymal	
+H03_TabulaSapiens_lung	pericyte	fibroblast_mesenchymal	
+H03_TabulaSapiens_lung	bronchial smooth muscle cell	fibroblast_mesenchymal	
+H03_TabulaSapiens_lung	vascular associated smooth muscle cell	fibroblast_mesenchymal	
+H03_TabulaSapiens_lung	mesothelial cell	other	mesothelium
+H05_CrossTissueImmune_lung	Alveolar macrophages	alveolar_macrophage	
+H05_CrossTissueImmune_lung	Intermediate macrophages	other	authors' intermediate (monocyte-to-macrophage) state; not resolved as MDM
+H05_CrossTissueImmune_lung	Erythrophagocytic macrophages	other	
+H05_CrossTissueImmune_lung	Intestinal macrophages	other	
+H05_CrossTissueImmune_lung	Classical monocytes	other	monocyte
+H05_CrossTissueImmune_lung	Nonclassical monocytes	other	monocyte
+H05_CrossTissueImmune_lung	DC1	dendritic_cell	
+H05_CrossTissueImmune_lung	DC2	dendritic_cell	
+H05_CrossTissueImmune_lung	migDC	dendritic_cell	
+H05_CrossTissueImmune_lung	pDC	dendritic_cell	
+H05_CrossTissueImmune_lung	NK_CD16+	T_NK	
+H05_CrossTissueImmune_lung	NK_CD56bright_CD16-	T_NK	
+H05_CrossTissueImmune_lung	Trm_Th1/Th17	T_NK	
+H05_CrossTissueImmune_lung	Teffector/EM_CD4	T_NK	
+H05_CrossTissueImmune_lung	Tem/emra_CD8	T_NK	
+H05_CrossTissueImmune_lung	Trm/em_CD8	T_NK	
+H05_CrossTissueImmune_lung	Trm_gut_CD8	T_NK	
+H05_CrossTissueImmune_lung	Tregs	T_NK	
+H05_CrossTissueImmune_lung	T_CD4/CD8	T_NK	
+H05_CrossTissueImmune_lung	Cycling T&NK	T_NK	
+H05_CrossTissueImmune_lung	Tnaive/CM_CD4	T_NK	
+H05_CrossTissueImmune_lung	Tnaive/CM_CD4_activated	T_NK	
+H05_CrossTissueImmune_lung	Tnaive/CM_CD8	T_NK	
+H05_CrossTissueImmune_lung	Tgd_CRTAM+	T_NK	
+H05_CrossTissueImmune_lung	Trm_Tgd	T_NK	
+H05_CrossTissueImmune_lung	MAIT	T_NK	
+H05_CrossTissueImmune_lung	Tfh	T_NK	
+H05_CrossTissueImmune_lung	ILC3	other	ILC
+H05_CrossTissueImmune_lung	Memory B cells	B_plasma	
+H05_CrossTissueImmune_lung	Naive B cells	B_plasma	
+H05_CrossTissueImmune_lung	ABCs	B_plasma	
+H05_CrossTissueImmune_lung	GC_B (I)	B_plasma	
+H05_CrossTissueImmune_lung	Plasmablasts	B_plasma	
+H05_CrossTissueImmune_lung	Plasma cells	B_plasma	
+H05_CrossTissueImmune_lung	Mast cells	other	mast cell
+H05_CrossTissueImmune_lung	Progenitor	other	
+H05_CrossTissueImmune_lung	Cycling	other	
+H05_CrossTissueImmune_lung	MNP/T doublets	other	author-flagged doublet
+H05_CrossTissueImmune_lung	T/B doublets	other	author-flagged doublet
+H05_CrossTissueImmune_lung	MNP/B doublets	other	author-flagged doublet
+H06_LungMAP_CellRef	AM	alveolar_macrophage	
+H06_LungMAP_CellRef	IM	other	interstitial macrophage
+H06_LungMAP_CellRef	iMON	other	monocyte
+H06_LungMAP_CellRef	pMON	other	monocyte
+H06_LungMAP_CellRef	cDC1	dendritic_cell	
+H06_LungMAP_CellRef	cDC2	dendritic_cell	
+H06_LungMAP_CellRef	maDC	dendritic_cell	
+H06_LungMAP_CellRef	pDC	dendritic_cell	
+H06_LungMAP_CellRef	Neutrophil	neutrophil	
+H06_LungMAP_CellRef	NK	T_NK	
+H06_LungMAP_CellRef	CD4 T	T_NK	
+H06_LungMAP_CellRef	CD8 T	T_NK	
+H06_LungMAP_CellRef	Treg	T_NK	
+H06_LungMAP_CellRef	ILC	other	ILC
+H06_LungMAP_CellRef	B	B_plasma	
+H06_LungMAP_CellRef	Plasma	B_plasma	
+H06_LungMAP_CellRef	Mast/Basophil	other	
+H06_LungMAP_CellRef	Megakaryocyte/Platelet	other	
+H06_LungMAP_CellRef	AT1	AT1	
+H06_LungMAP_CellRef	AT2	AT2	
+H06_LungMAP_CellRef	RAS	other	respiratory airway secretory (terminal airway); transitional
+H06_LungMAP_CellRef	Basal	airway_epithelial	basal
+H06_LungMAP_CellRef	Suprabasal	airway_epithelial	basal
+H06_LungMAP_CellRef	Ciliated	airway_epithelial	ciliated
+H06_LungMAP_CellRef	Secretory	airway_epithelial	secretory
+H06_LungMAP_CellRef	Goblet	airway_epithelial	secretory
+H06_LungMAP_CellRef	Mucous	other	submucosal gland
+H06_LungMAP_CellRef	Serous	other	submucosal gland
+H06_LungMAP_CellRef	SMG Basal/Duct	other	submucosal gland
+H06_LungMAP_CellRef	MEC	other	myoepithelial (gland)
+H06_LungMAP_CellRef	PNEC	other	rare airway epithelium
+H06_LungMAP_CellRef	Ionocyte	other	rare airway epithelium
+H06_LungMAP_CellRef	Tuft	other	rare airway epithelium
+H06_LungMAP_CellRef	CAP1	endothelial	
+H06_LungMAP_CellRef	CAP2	endothelial	
+H06_LungMAP_CellRef	AEC	endothelial	
+H06_LungMAP_CellRef	VEC	endothelial	
+H06_LungMAP_CellRef	SVEC	endothelial	
+H06_LungMAP_CellRef	LEC	endothelial	
+H06_LungMAP_CellRef	AF1	fibroblast_mesenchymal	
+H06_LungMAP_CellRef	AF2	fibroblast_mesenchymal	
+H06_LungMAP_CellRef	SCMF	fibroblast_mesenchymal	
+H06_LungMAP_CellRef	Pericyte	fibroblast_mesenchymal	
+H06_LungMAP_CellRef	VSMC	fibroblast_mesenchymal	
+H06_LungMAP_CellRef	ASMC	fibroblast_mesenchymal	
+H06_LungMAP_CellRef	Chondrocyte	other	
+H06_LungMAP_CellRef	Mesothelial	other	mesothelium
+H07_Melms_COVID_autopsy	Alveolar macrophages	alveolar_macrophage	
+H07_Melms_COVID_autopsy	Monocyte-derived macrophages	monocyte_derived_macrophage	
+H07_Melms_COVID_autopsy	Transitioning MDM	monocyte_derived_macrophage	
+H07_Melms_COVID_autopsy	Monocytes	other	monocyte
+H07_Melms_COVID_autopsy	Dendritic cells	dendritic_cell	
+H07_Melms_COVID_autopsy	CD4+ T cells	T_NK	
+H07_Melms_COVID_autopsy	CD8+ T cells	T_NK	
+H07_Melms_COVID_autopsy	Tregs	T_NK	
+H07_Melms_COVID_autopsy	NK cells	T_NK	
+H07_Melms_COVID_autopsy	Cycling NK/T cells	T_NK	
+H07_Melms_COVID_autopsy	B cells	B_plasma	
+H07_Melms_COVID_autopsy	Activated B cells	B_plasma	
+H07_Melms_COVID_autopsy	Plasma cells	B_plasma	
+H07_Melms_COVID_autopsy	Mast cells	other	mast cell
+H07_Melms_COVID_autopsy	AT1	AT1	
+H07_Melms_COVID_autopsy	AT2	AT2	
+H07_Melms_COVID_autopsy	Airway basal	airway_epithelial	basal
+H07_Melms_COVID_autopsy	Airway ciliated	airway_epithelial	ciliated
+H07_Melms_COVID_autopsy	Airway club	airway_epithelial	secretory
+H07_Melms_COVID_autopsy	Airway goblet	airway_epithelial	secretory
+H07_Melms_COVID_autopsy	Airway mucous	airway_epithelial	secretory
+H07_Melms_COVID_autopsy	Tuft-like	other	rare airway epithelium
+H07_Melms_COVID_autopsy	ECM-high epithelial	other	disease-state epithelium
+H07_Melms_COVID_autopsy	Cycling epithelial	other	
+H07_Melms_COVID_autopsy	Endothelial cells (general)	endothelial	
+H07_Melms_COVID_autopsy	Capillary endothelial cells	endothelial	
+H07_Melms_COVID_autopsy	Arterial endothelial cells	endothelial	
+H07_Melms_COVID_autopsy	Systemic venous endothelial cells	endothelial	
+H07_Melms_COVID_autopsy	Pulmonary venous endothelial cells	endothelial	
+H07_Melms_COVID_autopsy	Inflamed endothelial cells	endothelial	
+H07_Melms_COVID_autopsy	Endothelial cells (other)	endothelial	
+H07_Melms_COVID_autopsy	Alveolar FB	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Adventitial FB	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Intermediate pathological FB	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Pathological FB	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Other FB	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Airway smooth muscle	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Vascular smooth muscle	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Pericytes	fibroblast_mesenchymal	
+H07_Melms_COVID_autopsy	Mesothelial FB	other	mesothelium
+H07_Melms_COVID_autopsy	Neuronal cells	other	
+H08_Delorey_COVID_autopsy	Macrophage PPARGhi CD5Lhi	alveolar_macrophage	author label names AM-identity genes (PPARG, CD5L)
+H08_Delorey_COVID_autopsy	Macrophage VCANhi FCN1hi	monocyte_derived_macrophage	author label names monocyte-origin genes (VCAN, FCN1)
+H08_Delorey_COVID_autopsy	Macrophage CD163hi MERTKhi	other	origin not resolved by label
+H08_Delorey_COVID_autopsy	Macrophage metabolically active	other	origin not resolved by label
+H08_Delorey_COVID_autopsy	Macrophage LDB2hi OSMRhi YAP1hi	other	origin not resolved by label
+H08_Delorey_COVID_autopsy	Inflammatory monocytes CD14hiCD16hi	other	monocyte
+H08_Delorey_COVID_autopsy	CD4+ Treg	T_NK	
+H08_Delorey_COVID_autopsy	CD4+ T cells metabolically active	T_NK	
+H08_Delorey_COVID_autopsy	CD8+ T cells	T_NK	
+H08_Delorey_COVID_autopsy	NK/NKT	T_NK	
+H08_Delorey_COVID_autopsy	NK cells	T_NK	
+H08_Delorey_COVID_autopsy	B cells	B_plasma	
+H08_Delorey_COVID_autopsy	Plasma cells PRDM1/BLIMP hi	B_plasma	
+H08_Delorey_COVID_autopsy	Plasma cells PRDM1/BLIMP int	B_plasma	
+H08_Delorey_COVID_autopsy	Plasmablasts	B_plasma	
+H08_Delorey_COVID_autopsy	MAST	other	mast cell
+H08_Delorey_COVID_autopsy	RBC	other	
+H08_Delorey_COVID_autopsy	AT1	AT1	
+H08_Delorey_COVID_autopsy	AT2	AT2	
+H08_Delorey_COVID_autopsy	KRT8+ PATS/ADI/DATPs	other	transitional alveolar epithelium
+H08_Delorey_COVID_autopsy	Ciliated	airway_epithelial	ciliated
+H08_Delorey_COVID_autopsy	Secretory	airway_epithelial	secretory
+H08_Delorey_COVID_autopsy	Epithelial	other	unresolved epithelium
+H08_Delorey_COVID_autopsy	Capillary 1	endothelial	
+H08_Delorey_COVID_autopsy	Capillary 2	endothelial	
+H08_Delorey_COVID_autopsy	Capillary Aerocytes	endothelial	
+H08_Delorey_COVID_autopsy	Artery EC	endothelial	
+H08_Delorey_COVID_autopsy	Vein EC	endothelial	
+H08_Delorey_COVID_autopsy	Lymphatic EC	endothelial	
+H08_Delorey_COVID_autopsy	Fibroblast	fibroblast_mesenchymal	
+H08_Delorey_COVID_autopsy	Myofibroblast	fibroblast_mesenchymal	
+H08_Delorey_COVID_autopsy	Proliferative fibroblast	fibroblast_mesenchymal	
+H08_Delorey_COVID_autopsy	Pericytes/ Smooth Muscle	fibroblast_mesenchymal	
+H08_Delorey_COVID_autopsy	Mesothelial	other	mesothelium
+H08_Delorey_COVID_autopsy	Mixed populations	other	
+H09_Bharat_COVID_autopsy	TRAM-1	alveolar_macrophage	tissue-resident AM
+H09_Bharat_COVID_autopsy	TRAM-2	alveolar_macrophage	tissue-resident AM
+H09_Bharat_COVID_autopsy	TRAM-3	alveolar_macrophage	tissue-resident AM
+H09_Bharat_COVID_autopsy	MoAM-1	monocyte_derived_macrophage	monocyte-derived AM
+H09_Bharat_COVID_autopsy	MoAM-2	monocyte_derived_macrophage	monocyte-derived AM
+H09_Bharat_COVID_autopsy	MoAM-3	monocyte_derived_macrophage	monocyte-derived AM
+H09_Bharat_COVID_autopsy	MoAM-4	monocyte_derived_macrophage	monocyte-derived AM
+H09_Bharat_COVID_autopsy	Macrophages	other	origin not resolved by label
+H09_Bharat_COVID_autopsy	DCs	dendritic_cell	
+H09_Bharat_COVID_autopsy	T cells	T_NK	
+H09_Bharat_COVID_autopsy	B cells	B_plasma	
+H09_Bharat_COVID_autopsy	Plasma cells	B_plasma	
+H09_Bharat_COVID_autopsy	Mast cells	other	mast cell
+H09_Bharat_COVID_autopsy	Erythrocytes	other	
+H09_Bharat_COVID_autopsy	AT1	AT1	
+H09_Bharat_COVID_autopsy	AT2-1	AT2	
+H09_Bharat_COVID_autopsy	AT2-2	AT2	
+H09_Bharat_COVID_autopsy	Transitional AT2	other	transitional alveolar epithelium
+H09_Bharat_COVID_autopsy	Basal 1	airway_epithelial	basal
+H09_Bharat_COVID_autopsy	Basal 2	airway_epithelial	basal
+H09_Bharat_COVID_autopsy	Basal 3	airway_epithelial	basal
+H09_Bharat_COVID_autopsy	Ciliated	airway_epithelial	ciliated
+H09_Bharat_COVID_autopsy	Club	airway_epithelial	secretory
+H09_Bharat_COVID_autopsy	Capillary	endothelial	
+H09_Bharat_COVID_autopsy	Artery	endothelial	
+H09_Bharat_COVID_autopsy	Bronchial vessel	endothelial	
+H09_Bharat_COVID_autopsy	Endothelial-1	endothelial	
+H09_Bharat_COVID_autopsy	Endothelial-2	endothelial	
+H09_Bharat_COVID_autopsy	Lymphatic	endothelial	
+H09_Bharat_COVID_autopsy	Fibroblasts-1	fibroblast_mesenchymal	
+H09_Bharat_COVID_autopsy	Fibroblasts-2, SCARA5	fibroblast_mesenchymal	
+H09_Bharat_COVID_autopsy	Fibroblasts-3	fibroblast_mesenchymal	
+H09_Bharat_COVID_autopsy	Fibroblasts-4	fibroblast_mesenchymal	
+H09_Bharat_COVID_autopsy	Smooth muscle-1	fibroblast_mesenchymal	
+H09_Bharat_COVID_autopsy	Smooth muscle-2	fibroblast_mesenchymal	
+H09_Bharat_COVID_autopsy	Mesothelial-1	other	mesothelium
+H09_Bharat_COVID_autopsy	Mesothelial-2	other	mesothelium
+H10_Liao_BAL	Macrophages	other	BAL macrophages; AM/MDM not resolved by label
+H10_Liao_BAL	mDC	dendritic_cell	
+H10_Liao_BAL	pDC	dendritic_cell	
+H10_Liao_BAL	Neutrophil	neutrophil	
+H10_Liao_BAL	CD8 T	T_NK	
+H10_Liao_BAL	CCR7+ T	T_NK	
+H10_Liao_BAL	Proliferating T	T_NK	
+H10_Liao_BAL	Treg	T_NK	
+H10_Liao_BAL	innate T	T_NK	
+H10_Liao_BAL	T cell	T_NK	
+H10_Liao_BAL	NK	T_NK	
+H10_Liao_BAL	B cell	B_plasma	
+H10_Liao_BAL	Plasma	B_plasma	
+H10_Liao_BAL	Mast cells	other	mast cell
+H10_Liao_BAL	Ciliated	airway_epithelial	ciliated
+H10_Liao_BAL	Secretory	airway_epithelial	secretory
+H11_Wauters_BAL	Alveolar_macrophage	alveolar_macrophage	
+H11_Wauters_BAL	Md_macrophage	monocyte_derived_macrophage	
+H11_Wauters_BAL	Monocyte	other	monocyte
+H11_Wauters_BAL	cDC	dendritic_cell	
+H11_Wauters_BAL	pDC	dendritic_cell	
+H11_Wauters_BAL	Neutrophil	neutrophil	
+H11_Wauters_BAL	CD4_Tcell	T_NK	
+H11_Wauters_BAL	CD8_Tcell	T_NK	
+H11_Wauters_BAL	NK	T_NK	
+H11_Wauters_BAL	B_cell	B_plasma	
+H11_Wauters_BAL	Plasma_cell	B_plasma	
+H11_Wauters_BAL	Mast_cell	other	mast cell
+H11_Wauters_BAL	Inflammatory	other	unresolved
+H11_Wauters_BAL	AT2	AT2	
+H11_Wauters_BAL	Basal	airway_epithelial	basal
+H11_Wauters_BAL	Ciliated	airway_epithelial	ciliated
+H11_Wauters_BAL	Secretory	airway_epithelial	secretory
+H11_Wauters_BAL	Squamous_KRT13	other	squamous epithelium
+H12_Grant_BAL	TRAM1	alveolar_macrophage	tissue-resident AM
+H12_Grant_BAL	TRAM2	alveolar_macrophage	tissue-resident AM
+H12_Grant_BAL	Prolif. AM	alveolar_macrophage	
+H12_Grant_BAL	MoAM1	monocyte_derived_macrophage	monocyte-derived AM
+H12_Grant_BAL	MoAM2	monocyte_derived_macrophage	monocyte-derived AM
+H12_Grant_BAL	MoAM3	monocyte_derived_macrophage	monocyte-derived AM
+H12_Grant_BAL	MoAM4	monocyte_derived_macrophage	monocyte-derived AM
+H12_Grant_BAL	Mixed myeloid	other	
+H12_Grant_BAL	DC1	dendritic_cell	
+H12_Grant_BAL	DC2	dendritic_cell	
+H12_Grant_BAL	Migratory DC	dendritic_cell	
+H12_Grant_BAL	pDC	dendritic_cell	
+H12_Grant_BAL	CD4 CM T cells	T_NK	
+H12_Grant_BAL	CD4 cytotoxic T cells	T_NK	
+H12_Grant_BAL	CD4 prolif. T cells	T_NK	
+H12_Grant_BAL	CD8 cytotoxic T cells	T_NK	
+H12_Grant_BAL	CD8 cytotoxic TRM T cells	T_NK	
+H12_Grant_BAL	CD8 prolif. T cells	T_NK	
+H12_Grant_BAL	Treg	T_NK	
+H12_Grant_BAL	iNKT cells	T_NK	
+H12_Grant_BAL	B cells	B_plasma	
+H12_Grant_BAL	Plasma cells	B_plasma	
+H12_Grant_BAL	Mast cells	other	mast cell
+H12_Grant_BAL	AT2, AT1 cells	other	mixed AT1/AT2 label
+H12_Grant_BAL	Infected AT2, AT1 cells	other	mixed AT1/AT2 label
+H12_Grant_BAL	Club, Basal cells	airway_epithelial	secretory + basal
+H12_Grant_BAL	Ciliated cells	airway_epithelial	ciliated
+H12_Grant_BAL	Ionocytes	other	rare airway epithelium
+H13_Wu_exvivo_SARS2	Alveolar Macrophage	alveolar_macrophage	
+H13_Wu_exvivo_SARS2	Myeloid Dendritic 1	dendritic_cell	
+H13_Wu_exvivo_SARS2	Myeloid Dendritic 2	dendritic_cell	
+H13_Wu_exvivo_SARS2	Mature Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	IGSF21+ Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	Proliferating IGSF21+ Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	EREG+ Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	TREM2+ Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	CLEC9A+ Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	Plasmacytoid Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	Proliferating Dendritic	dendritic_cell	
+H13_Wu_exvivo_SARS2	Neutrophil	neutrophil	
+H13_Wu_exvivo_SARS2	Activated Neutrophil	neutrophil	
+H13_Wu_exvivo_SARS2	Developing Neutrophil	neutrophil	
+H13_Wu_exvivo_SARS2	Proliferating Developing Neutrophil	neutrophil	
+H13_Wu_exvivo_SARS2	Natural Killer	T_NK	
+H13_Wu_exvivo_SARS2	XCL1+ Natural Killer	T_NK	
+H13_Wu_exvivo_SARS2	CCL4+ Natural Killer	T_NK	
+H13_Wu_exvivo_SARS2	Proliferating Natural Killer	T_NK	
+H13_Wu_exvivo_SARS2	Natural Killer T	T_NK	
+H13_Wu_exvivo_SARS2	NKT	T_NK	
+H13_Wu_exvivo_SARS2	Proliferating Natural Killer/T	T_NK	
+H13_Wu_exvivo_SARS2	CD4+ Memory/Effector T	T_NK	
+H13_Wu_exvivo_SARS2	CD4+ Effector/Memory T	T_NK	
+H13_Wu_exvivo_SARS2	CD4+ Naive T	T_NK	
+H13_Wu_exvivo_SARS2	CD4+ T	T_NK	
+H13_Wu_exvivo_SARS2	CD4+ GNLY+ T	T_NK	
+H13_Wu_exvivo_SARS2	CD8+ Effector/Memory T	T_NK	
+H13_Wu_exvivo_SARS2	CD8+ Memory/Effector T	T_NK	
+H13_Wu_exvivo_SARS2	CD8+ GZMK+ T	T_NK	
+H13_Wu_exvivo_SARS2	CD8+ Naive T	T_NK	
+H13_Wu_exvivo_SARS2	CD8+ tissue resident memory T	T_NK	
+H13_Wu_exvivo_SARS2	CD8+ Tissue Resident Memory T	T_NK	
+H13_Wu_exvivo_SARS2	Regulatory T	T_NK	
+H13_Wu_exvivo_SARS2	Proliferating Regulatory T	T_NK	
+H13_Wu_exvivo_SARS2	Gamma Delta T	T_NK	
+H13_Wu_exvivo_SARS2	B	B_plasma	
+H13_Wu_exvivo_SARS2	Naive B	B_plasma	
+H13_Wu_exvivo_SARS2	Memory B	B_plasma	
+H13_Wu_exvivo_SARS2	Plasma	B_plasma	
+H13_Wu_exvivo_SARS2	Plasmablast	B_plasma	
+H13_Wu_exvivo_SARS2	IgG+ Plasma	B_plasma	
+H13_Wu_exvivo_SARS2	IgA+ Plasma	B_plasma	
+H13_Wu_exvivo_SARS2	Proliferating IgG+ Plasma	B_plasma	
+H13_Wu_exvivo_SARS2	Alveolar Epithelial Type 1	AT1	
+H13_Wu_exvivo_SARS2	Alveoar Epithalial Type 1	AT1	author label typo kept verbatim
+H13_Wu_exvivo_SARS2	Alveolar Epithelial Type 2	AT2	
+H13_Wu_exvivo_SARS2	Alveoar Epithalial Type 2	AT2	author label typo kept verbatim
+H13_Wu_exvivo_SARS2	Signaling Alveolar Epithelial Type 2	AT2	
+H13_Wu_exvivo_SARS2	Proliferating Alveolar Epithelial Type 2	AT2	
+H13_Wu_exvivo_SARS2	Basal	airway_epithelial	
+H13_Wu_exvivo_SARS2	Differentiating Basal	airway_epithelial	
+H13_Wu_exvivo_SARS2	Proliferating Basal	airway_epithelial	
+H13_Wu_exvivo_SARS2	Ciliated	airway_epithelial	
+H13_Wu_exvivo_SARS2	Club	airway_epithelial	
+H13_Wu_exvivo_SARS2	Goblet	airway_epithelial	
+H13_Wu_exvivo_SARS2	Mucous	airway_epithelial	
+H13_Wu_exvivo_SARS2	General Capillary	endothelial	
+H13_Wu_exvivo_SARS2	Capillary Aerocyte	endothelial	
+H13_Wu_exvivo_SARS2	Artery	endothelial	
+H13_Wu_exvivo_SARS2	Vein	endothelial	
+H13_Wu_exvivo_SARS2	Lymphatic	endothelial	
+H13_Wu_exvivo_SARS2	Bronchial Vessel 1	endothelial	
+H13_Wu_exvivo_SARS2	HSP+ Capillary	endothelial	
+H13_Wu_exvivo_SARS2	TXNRD1+ Capillary	endothelial	
+H13_Wu_exvivo_SARS2	NXN+ Capillary	endothelial	
+H13_Wu_exvivo_SARS2	ITGA1+ Capillary	endothelial	
+H13_Wu_exvivo_SARS2	SOCS3+ CDKN1A+ General Capillary	endothelial	
+H13_Wu_exvivo_SARS2	IRF1+ Capillary Aerocyte	endothelial	
+H13_Wu_exvivo_SARS2	SLC6A6+ Capillary	endothelial	
+H13_Wu_exvivo_SARS2	FABP4+ Capillary	endothelial	
+H13_Wu_exvivo_SARS2	KLF6+ Endothelial	endothelial	
+H13_Wu_exvivo_SARS2	THBS1+ Endothelial	endothelial	
+H13_Wu_exvivo_SARS2	ACKR1+ Endothelial	endothelial	
+H13_Wu_exvivo_SARS2	Alveolar Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Adventitial Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	SCARA3+ Adventitial Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Lipofibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Activated Lipofibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Myofibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Activated Myofibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	HSPA5+ Myofibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Fibromyocyte	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Pericyte	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Airway Smooth Muscle	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Vascular Smooth Muscle	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	TIMP1+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	CEBPB+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	GBP1+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	GADD45B+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	PAG1+ Alveolar Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	PAG1+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	COL6A3+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	EDNRB+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	SET1+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	SET+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	TFP1+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	HSPA1A+ Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Proliferating Fibroblast	fibroblast_mesenchymal	
+H13_Wu_exvivo_SARS2	Classical Monocyte	other	monocyte
+H13_Wu_exvivo_SARS2	Intermediate Monocyte	other	monocyte
+H13_Wu_exvivo_SARS2	Nonclassical Monocyte	other	monocyte
+H13_Wu_exvivo_SARS2	CCL2+ Monocyte	other	monocyte
+H13_Wu_exvivo_SARS2	Proliferating Classical Monocyte	other	monocyte
+H13_Wu_exvivo_SARS2	Interstitial Macrophage	other	interstitial macrophage
+H13_Wu_exvivo_SARS2	Activated Interstitial Macrophage	other	interstitial macrophage
+H13_Wu_exvivo_SARS2	Proliferating Macrophage	other	AM/MDM not resolved
+H13_Wu_exvivo_SARS2	Mast/Basophil	other	mast cell
+H13_Wu_exvivo_SARS2	Red Blood Cell	other	
+H13_Wu_exvivo_SARS2	Proliferating Red Blood Cell	other	
+H13_Wu_exvivo_SARS2	Megakaryocyte/Platelet	other	
+H13_Wu_exvivo_SARS2	Proliferating Megakaryocyte/Platelet	other	
+H13_Wu_exvivo_SARS2	Mesothelial	other	mesothelium
+H13_Wu_exvivo_SARS2	Mucinous	other	unresolved epithelium
+H13_Wu_exvivo_SARS2	Dying Fibroblast	other	author-flagged dying
+H13_Wu_exvivo_SARS2	Dying Infected Cells	other	author-flagged dying
+H13_Wu_exvivo_SARS2	Low Quality Alveolar Macrophage	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Activated Interstitial Macrophage	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality CD4+ T	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Capillary	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Endothelial	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Epithelial	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Fibroblast	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality General Capillary	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Immune	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Infected	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Natural Killer/T	other	author-flagged low quality
+H13_Wu_exvivo_SARS2	Low Quality Stromal	other	author-flagged low quality

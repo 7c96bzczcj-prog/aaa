@@ -1,0 +1,367 @@
+# datasets.yaml — candidate list for Phase 2 (spec §3), version 1.0, 2026-10-07
+#
+# Gate: only entries listed here are processed; entries with accession_verified: false are skipped.
+# Confirmation: the user instructed "开始整理吧" after the §9 report; this list is v1.0 under that
+# instruction. Any later change bumps the version.
+#
+# Spec fields as in §3, plus execution fields (prefixed x_) that tell the pipeline how to read each entry:
+#   x_source:      census | geo_10x_mtx | geo_10x_h5
+#   x_census_ids:  CELLxGENE dataset_id(s) (Census LTS 2025-11-08)
+#   x_annotation:  author annotation column used as celltype_original
+#   x_subset:      pandas query applied to the joined author obs (selects condition / tissue)
+#   x_split_by:    obs column that defines separate sub-studies (HLCA only; avoids cross-study pooling)
+#   x_condition_detail: obs column describing the time point / arm within the condition
+#   x_ambient:     how ambient RNA was handled
+#
+# Census accessions verified by: dataset_id present in census_info/datasets of Census 2025-11-08 and
+# collection DOI matching the citation. GEO accessions verified by fetching the GEO series and
+# sample SOFT text plus the FTP supplementary listing in this session (2026-10-07).
+
+version: "1.1"   # 1.1: H13 resting arm restricted to cultured mock (uncultured arm removed)
+datasets:
+
+# ---------------- human, resting ----------------
+- id: H01_HLCA_core
+  accession: "CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479 (HLCA full; core healthy subset)"
+  source_layer: B1
+  species: human
+  condition: resting
+  tissue: lung_parenchyma
+  platform: 10x_3p   # mixed 10x 3'/5' and Drop-seq per study; recorded per study in run_log.md
+  n_donors: 0        # filled in run_log.md after subsetting
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: Sikkema 2023 Nat Med
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08 datasets table, collection DOI 10.1038/s41591-023-02327-2 (Sikkema et al. Nat Med 2023)
+  x_source: census
+  x_census_ids: [9f222629-9e39-47d0-b83f-e08d610c7479]
+  x_annotation: ann_finest_level
+  x_subset: "core_or_extension == 'core' and lung_condition == 'Healthy' and tissue_sampling_method in ['donor_lung', 'surgical_resection']"
+  x_split_by: study
+  x_ambient: none (raw counts as submitted)
+
+- id: H02_IPF_atlas_controls
+  accession: "CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479 (HLCA study Kaminski_2020, healthy donor lungs)"
+  source_layer: B4
+  species: human
+  condition: resting
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "HLCA study label Kaminski_2020 (IPF Cell Atlas source; as cited in Sikkema 2023)"
+  accession_verified: true
+  verified_how: HLCA obs column study == Kaminski_2020 with lung_condition Healthy; Census 2025-11-08
+  x_source: census
+  x_census_ids: [9f222629-9e39-47d0-b83f-e08d610c7479]
+  x_annotation: original_ann_nonharmonized
+  x_subset: "study == 'Kaminski_2020' and lung_condition == 'Healthy'"
+  x_ambient: none (raw counts as submitted)
+
+- id: H03_TabulaSapiens_lung
+  accession: "CELLxGENE 53d208b0-2cfd-4366-9866-c3c6114081bc (Tabula Sapiens, lung, 10x only)"
+  source_layer: B5
+  species: human
+  condition: resting
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 4
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: Tabula Sapiens Consortium 2022 Science
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1126/science.abl4896
+  x_source: census
+  x_census_ids: [53d208b0-2cfd-4366-9866-c3c6114081bc]
+  x_annotation: cell_type
+  x_subset: "assay == \"10x 3' v3\""
+  x_ambient: author decontX layer (decontXcounts) used instead of raw counts
+
+- id: H04_Travaglini_10x
+  accession: "CELLxGENE 8c42cfd0-0b0a-46d5-910c-fc833d83c45e (Krasnow Lab HLCA, 10x)"
+  source_layer: B2
+  species: human
+  condition: resting
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 3
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: Travaglini 2020 Nature
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1038/s41586-020-2922-4
+  x_source: census
+  x_census_ids: [8c42cfd0-0b0a-46d5-910c-fc833d83c45e]
+  x_annotation: free_annotation
+  x_ambient: none (raw counts as submitted)
+
+- id: H05_CrossTissueImmune_lung
+  accession: "CELLxGENE 1b9d8702-5af8-4142-85ed-020eb06ec4f6 (Global; lung cells)"
+  source_layer: C1
+  species: human
+  condition: resting
+  tissue: lung_parenchyma
+  platform: 10x_5p
+  n_donors: 10
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: Dominguez Conde 2022 Science
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1126/science.abl5197
+  x_source: census
+  x_census_ids: [1b9d8702-5af8-4142-85ed-020eb06ec4f6]
+  x_annotation: Manually_curated_celltype
+  x_ambient: none (raw counts as submitted)
+
+- id: H06_LungMAP_CellRef
+  accession: "CELLxGENE eb499fd8-7000-419f-8854-926b9b61b11f (Human CellCards CellRef 1.0)"
+  source_layer: B3
+  species: human
+  condition: resting
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 21
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "Nat Commun 2023, DOI 10.1038/s41467-023-40173-5"
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1038/s41467-023-40173-5
+  x_source: census
+  x_census_ids: [eb499fd8-7000-419f-8854-926b9b61b11f]
+  x_annotation: celltype_level3
+  x_ambient: none (raw counts as submitted)
+
+# ---------------- human, SARS-CoV-2 (with in-study controls where available) ----------------
+- id: H07_Melms_COVID_autopsy
+  accession: "CELLxGENE d8da613f-e681-4c69-b463-e94f5e66847f"
+  source_layer: D
+  species: human
+  condition: sars_cov_2   # also contains 7 control lungs, processed as resting arm of the same study
+  tissue: lung_parenchyma
+  platform: 10x_3p        # single-nucleus
+  n_donors: 26
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: Melms 2021 Nature
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1038/s41586-021-03569-1
+  x_source: census
+  x_census_ids: [d8da613f-e681-4c69-b463-e94f5e66847f]
+  x_annotation: cell_type_fine
+  x_condition_from: {"normal": resting, "COVID-19": sars_cov_2}
+  x_ambient: not verified (paper full text not retrievable); flagged uncorrected
+
+- id: H08_Delorey_COVID_autopsy
+  accession: "CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479 (HLCA study Regev_2021)"
+  source_layer: D
+  species: human
+  condition: sars_cov_2
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "HLCA study label Regev_2021 (autopsy; original publication as cited in Sikkema 2023)"
+  accession_verified: true
+  verified_how: HLCA obs study == Regev_2021, tissue_sampling_method autopsy, lung_condition COVID-19
+  x_source: census
+  x_census_ids: [9f222629-9e39-47d0-b83f-e08d610c7479]
+  x_annotation: original_ann_nonharmonized
+  x_subset: "study == 'Regev_2021'"
+  x_condition_from: {"COVID-19": sars_cov_2}
+  x_ambient: none (raw counts as submitted)
+
+- id: H09_Bharat_COVID_autopsy
+  accession: "CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479 (HLCA study Budinger_2020)"
+  source_layer: D
+  species: human
+  condition: sars_cov_2
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "HLCA study label Budinger_2020 (original publication as cited in Sikkema 2023)"
+  accession_verified: true
+  verified_how: HLCA obs study == Budinger_2020, tissue_sampling_method autopsy
+  x_source: census
+  x_census_ids: [9f222629-9e39-47d0-b83f-e08d610c7479]
+  x_annotation: original_ann_nonharmonized
+  x_subset: "study == 'Budinger_2020'"
+  x_condition_from: {"COVID-19": sars_cov_2}
+  x_ambient: none (raw counts as submitted)
+
+- id: H10_Liao_BAL
+  accession: "CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479 (HLCA study Zhang_2021)"
+  source_layer: D
+  species: human
+  condition: sars_cov_2   # with healthy BAL controls in the same study
+  tissue: bal
+  platform: 10x_5p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "HLCA study label Zhang_2021 (BALF; original publication as cited in Sikkema 2023)"
+  accession_verified: true
+  verified_how: HLCA obs study == Zhang_2021, tissue_sampling_method balf, Healthy / COVID-19 moderate / severe
+  x_source: census
+  x_census_ids: [9f222629-9e39-47d0-b83f-e08d610c7479]
+  x_annotation: original_ann_nonharmonized
+  x_subset: "study == 'Zhang_2021'"
+  x_condition_from: {"normal": resting, "COVID-19": sars_cov_2}
+  x_condition_detail: lung_condition
+  x_ambient: none (raw counts as submitted)
+
+- id: H11_Wauters_BAL
+  accession: "CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479 (HLCA study Lambrechts_2021)"
+  source_layer: D
+  species: human
+  condition: sars_cov_2   # also non-COVID pneumonia, aetiology not given per donor -> condition pneumonia_unspecified
+  tissue: bal
+  platform: 10x_5p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "HLCA study label Lambrechts_2021 (BALF; original publication as cited in Sikkema 2023)"
+  accession_verified: true
+  verified_how: HLCA obs study == Lambrechts_2021, balf, COVID-19 and 'Pneumonia non-COVID'
+  x_source: census
+  x_census_ids: [9f222629-9e39-47d0-b83f-e08d610c7479]
+  x_annotation: original_ann_nonharmonized
+  x_subset: "study == 'Lambrechts_2021'"
+  x_condition_from: {"COVID-19": sars_cov_2, "pneumonia": pneumonia_unspecified}
+  x_ambient: none (raw counts as submitted)
+
+- id: H12_Grant_BAL
+  accession: "CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479 (HLCA study Wunderink_2021)"
+  source_layer: D
+  species: human
+  condition: sars_cov_2
+  tissue: bal
+  platform: 10x_5p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "HLCA study label Wunderink_2021 (BALF; original publication as cited in Sikkema 2023)"
+  accession_verified: true
+  verified_how: HLCA obs study == Wunderink_2021, balf, COVID-19
+  x_source: census
+  x_census_ids: [9f222629-9e39-47d0-b83f-e08d610c7479]
+  x_annotation: original_ann_nonharmonized
+  x_subset: "study == 'Wunderink_2021'"
+  x_condition_from: {"COVID-19": sars_cov_2}
+  x_ambient: none (raw counts as submitted)
+
+- id: H13_Wu_exvivo_SARS2
+  accession: "CELLxGENE 2ac76f1b / 7f7faf6b / 7b55fe5c / 7c497c66 (infections 1-4)"
+  source_layer: D
+  species: human
+  condition: sars_cov_2   # ex vivo infected lung slices (WA1) vs mock-infected slices from the same 4 donors
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 4
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "J Exp Med 2024, DOI 10.1084/jem.20232192"
+  accession_verified: true
+  verified_how: dataset_ids in Census 2025-11-08, collection DOI 10.1084/jem.20232192
+  x_source: census
+  x_census_ids: [2ac76f1b-43ef-4271-8686-2f165570989f, 7f7faf6b-f11d-4f07-bc1c-188a4472748d, 7b55fe5c-d5c8-48e0-a1a3-54c5b9074f3f, 7c497c66-c2e2-4291-8b96-339e5e65f314]
+  x_annotation: free_annotation
+  x_condition_from_col: virus_strain
+  x_condition_from: {"Mock": resting, "WA1": sars_cov_2}   # uncultured (None) and strain SA arms excluded: resting = cultured mock, same donors
+  x_condition_detail: virus_strain
+  x_ambient: none (raw counts as submitted)
+
+# ---------------- mouse ----------------
+- id: M01_TMS_10x_lung
+  accession: "CELLxGENE 48b37086-25f7-4ecd-be66-f5bb378e3aea (Tabula Muris Senis 10x; lung)"
+  source_layer: B6
+  species: mouse
+  condition: resting
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 16
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: Tabula Muris Consortium 2020 Nature
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1038/s41586-020-2496-1
+  x_source: census
+  x_census_ids: [48b37086-25f7-4ecd-be66-f5bb378e3aea]
+  x_annotation: cell_type
+  x_ambient: none (raw counts as submitted)
+
+- id: M02_TMS_SS2_lung
+  accession: "CELLxGENE 98e5ea9f-16d6-47ec-a529-686e76515e39 (Tabula Muris Senis Smart-seq2; lung)"
+  source_layer: B6
+  species: mouse
+  condition: resting
+  tissue: lung_parenchyma
+  platform: smartseq2
+  n_donors: 14
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: Tabula Muris Consortium 2020 Nature
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1038/s41586-020-2496-1
+  x_source: census
+  x_census_ids: [98e5ea9f-16d6-47ec-a529-686e76515e39]
+  x_annotation: cell_type
+  x_ambient: not applicable (plate-based)
+
+- id: M03_PostFlu_timeseries
+  accession: "CELLxGENE 89840cec-5734-455d-b68e-34d27650e148 (Mouse Post-Flu Time Series)"
+  source_layer: D
+  species: mouse
+  condition: influenza    # PR8 H1N1, days 6-366; 2 uninfected homeostasis lungs in the same study
+  tissue: lung_parenchyma
+  platform: 10x_3p
+  n_donors: 25
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "Cell Stem Cell 2025, DOI 10.1016/j.stem.2024.12.002, PMID 39818203"
+  accession_verified: true
+  verified_how: dataset_id in Census 2025-11-08, collection DOI 10.1016/j.stem.2024.12.002 (PMID 39818203)
+  x_source: census
+  x_census_ids: [89840cec-5734-455d-b68e-34d27650e148]
+  x_annotation: author_cell_type
+  x_condition_from: {"normal": resting, "influenza": influenza}
+  x_condition_detail: sacrifice_day
+  x_ambient: none (raw counts as submitted)
+
+- id: M04_GSE236342_Spn
+  accession: GSE236342
+  source_layer: D
+  species: mouse
+  condition: bacterial    # S. pneumoniae; WT PBS, 12 hpi, 36 hpi (60 hpi has no annotation); 1 mouse per arm
+  tissue: lung_parenchyma # whole-lung digest with sorted ILCs spiked back
+  platform: 10x_3p
+  n_donors: 1
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: "PMID 38781213 (GEO title: IL-33 controls IL-22-dependent antibacterial defense by modulating the microbiota [scRNA-seq])"
+  accession_verified: true
+  verified_how: GEO series + 8 GSM SOFT records fetched 2026-10-07; Mus musculus, lung, S.pn. vs PBS, 10x; GSE236342_cell_annotation.csv.gz present
+  x_source: geo_10x_mtx
+  x_samples: {wtctrl: [resting, "PBS"], wt12: [bacterial, "Spn 12hpi"], wt36: [bacterial, "Spn 36hpi"]}
+  x_ambient: filtered matrices only; uncorrected
+
+- id: M05_GSE313334_Abaumannii
+  accession: GSE313334
+  source_layer: D
+  species: mouse
+  condition: bacterial    # A. baumannii vs mock, no antibiotics; 1 mouse per arm; immune cells only in annotation
+  tissue: lung_parenchyma
+  platform: 10x_5p
+  n_donors: 1
+  has_raw_counts: true
+  author_celltype_annotation: true
+  citation: GSE313334 (PMID 42012958)
+  accession_verified: true
+  verified_how: GEO series + 4 GSM SOFT records fetched 2026-10-07; Mus musculus, lung, infected vs non-infected; GSE313334_cell_metadata.csv.gz present
+  x_source: geo_10x_h5
+  x_samples: {ES1_CTRL_NT: [resting, "mock"], 6489_ES3_INF_NT: [bacterial, "A. baumannii"]}
+  x_ambient: filtered matrices only; uncorrected

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>DICE Database </title>
+
+        <script>
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+
+
+          ga('create', 'UA-106218976-1', {'siteSpeedSampleRate': 100});
+
+          ga('send', 'pageview');
+
+        </script>
+
+        <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xly3sbztji");
+</script>
+
+<!--        <script src="/static/js/jquery.min.js"></script>-->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="/static/js/d3.js"></script>
+        <script type="text/javascript" src="/static/js/typeahead.jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/bloodhound.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/js/main.js"></script>
+
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/css/tools_base.css" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="/static/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/buttons.jqueryui.min.css">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+
+<!--        <script type="text/javascript" language="javascript" src="/static/js/jquery.dataTables.min.js"></script>-->
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" language="javascript" src="/static/js/dataTables.jqueryui.min.js"></script>
+        <script type="text/javascript" language="javascript" src="/static/js/scientific.js"></script>
+        <script type="text/javascript" language="javascript" src="/static/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" language="javascript" src="/static/js/buttons.jqueryui.min.js"></script>
+        <script type="text/javascript" language="javascript" src="/static/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" language="javascript" src="/static/js/buttons.print.min.js"></script>
+        <script type="text/javascript" language="javascript" src="/static/js/dataTables.bootstrap.min.js"></script>
+        <link href="/static/css/bootstrap_table.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="/static/css/academicons.min.css">
+
+
+        
+
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="150">
+        <div class="content-container">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="header">
+
+
+                    <div class="title col-md-4">
+                        <a href="/landing"><h1>Downloads</h1></a>
+                    </div>
+
+<div class="col-md-4 toggle-box">
+                        <label class="toggle">
+                        <span class="toggle-label">Immune cells from: </span>
+                          <span class="toggle-label">Blood</span>
+                          <input class="toggle-checkbox" type="checkbox" >
+                          <div class="toggle-switch"></div>
+                          <span class="toggle-label">Lung <i style="color: red;">(beta)</i></span>
+                        </label>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="/landing">
+                            <img height=50px src="/static/logo.svg">
+                        </a>
+                    </div>
+
+
+                </div>
+                <div class="container-fluid form-bar">
+                    <div class="inputs col-md-4">
+                    <!--<form class="input_items" action="javascript:displayDataText()">-->
+                        
+
+                        
+                    </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav col-md-8">
+                            <li style="font-weight:bold">
+                                <a href="#info_anchor">
+                                
+                                    Info
+                                
+                                </a>
+                            </li>
+                            
+<li class="nav-item"><a href="#changelog_anchor">Changelog</a></li>
+<li class="nav-item"><a href="#dbgap">Protected data</a></li>
+<li class="nav-item"><a href="#expression_download">Expression</a></li>
+<li class="nav-item"><a href="#eqtl_download">eQTLs</a></li>
+<li class="nav-item"><a href="#license">License</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--<div class="spacer" style="height:150px"></div>-->
+            <span class="anchor" id="info_anchor"></span>
+            <div class="chart_container">
+                <div class="info_bar row" >
+                    
+<h1>Build Information</h1>
+<hr>
+<p class="col-sm-3 gene_labels">Reference Genome</p>
+<p class="col-sm-9">GRCh37.p19</p>
+<p class="col-sm-3 gene_labels">Build Date</p>
+<p class="col-sm-9">2.23.2022</p>
+<p class="col-sm-3 gene_labels">DICE Build ID</p>
+<p class="col-sm-9">DICE-DB 1</p>
+<p class="col-sm-3 gene_labels">Funding</p>
+<div class="col-sm-9">
+    <p>NIH R24AI108564</p>
+</div>
+
+                </div>
+            </div>
+
+
+            <div class="charts">
+                
+
+<span class="anchor" id="changelog_anchor"></span>
+
+<div class="chart_container changelog">
+    <h1>Changelog </h1>
+
+    <hr>
+    <h4>2022-02-25</h4>
+    <ul>
+        <li style="text-align: left;">Added single cell dataset to database</li>
+        <li style="text-align: left;">Added single cell expression visualizations to gene page</li>
+        <li style="text-align: left;">Added single cell eqtls to gene page</li>
+        <li style="text-align: left;">Added single cell cluster pages</li>
+        <li style="text-align: left;">Added top 10 markers per single cell cluster</li>
+        <li style="text-align: left;">Fixed issue with downloads including unused samples</li>
+    </ul>
+    <h4>2021</h4>
+    <ul>
+
+        <li style="text-align: left;">Introducing pieQTLs</li>
+    </ul>
+    <h4>2019-06-07</h4>
+    <ul>
+        <li style="text-align: left;">Added downloads for eQTL's without P value and TPM filter.</li>
+    </ul>
+    <h4>2019-04-01</h4>
+    <ul>
+        <li style="text-align: left;">Added ANOVA statistic from MatrixEQTL to VCF files. </li>
+        <li style="text-align: left;">Added FDR from MatrixEQTL to VCF files. </li>
+    </ul>
+</div>
+
+
+<span class="anchor" id="dbgap"></span>
+<div class="chart_container">
+    <h1>Protected data</h1>
+    <hr>
+    <p>To comply with HIPA regulations, you can apply for access to raw data through
+        <a href="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001703.v3.p1">dbGaP</a>.
+    </p>
+
+</div>
+
+
+<span class="anchor" id="expression_download"></span>
+<div class="chart_container">
+    <h1>Gene Expression</h1>
+    <hr>
+    <p style="text-align: left">
+        These files contain RNA expression data for each cell type reported as transcripts per million (TPM).
+        Each row contains the expression value for the gene indicated in column A, and starting in column D are
+        individual replicates from different donors. Replicates from the
+        same donor are not necessarily in the same column.
+    </p>
+
+    <div class="list-group" style="text-align: left;">
+        
+        <a class="list-group-item list-group-item-action" href="/download/B_CELL_NAIVE_TPM.csv">B cell, naive</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/MONOCYTES_TPM.csv">Monocyte, classical</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/M2_TPM.csv">Monocyte, non-classical</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/NK_TPM.csv">NK cell, CD56dim CD16+</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/TREG_MEM_TPM.csv">T cell, CD4, memory TREG</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/CD4_NAIVE_TPM.csv">T cell, CD4, naive</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/CD4_STIM_TPM.csv">T cell, CD4, naive [activated]</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/TREG_NAIVE_TPM.csv">T cell, CD4, naive TREG</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/TFH_TPM.csv">T cell, CD4, TFH</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/TH1_TPM.csv">T cell, CD4, TH1</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/THSTAR_TPM.csv">T cell, CD4, TH1/17</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/TH17_TPM.csv">T cell, CD4, TH17</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/TH2_TPM.csv">T cell, CD4, TH2</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/CD8_NAIVE_TPM.csv">T cell, CD8, naive</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/CD8_STIM_TPM.csv">T cell, CD8, naive [activated]</a>
+        
+    </div>
+
+    <div class="list-group" style="text-align: left;">
+        <a href="/download/mean_tpm_merged.csv" class="list-group-item list-group-item-action">All cell types (Mean
+            TPM)</a>
+    </div>
+
+
+</div>
+<span class="anchor" id="eqtl_download"></span>
+<div class="chart_container">
+    <h1>DICE eQTLs</h1>
+    <hr>
+    <p style="text-align: left">
+        These files contain eQTL data in VCF format, which list genetic polymorphisms that have a significant
+        association with the expression of a nearby gene. The following thresholds were applied: Adj.
+        P value < 0.05, raw P value < 0.0001 and TPM > 1.0. If the expression of more than one gene is associated
+        with a given SNP, there will be an entry (row) for each polymorphism:gene combination (multiple rows per SNP).
+    </p>
+
+    <div class="list-group" style="text-align: left;">
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/B_CELL_NAIVE.vcf">B cell, naive</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/MONOCYTES.vcf">Monocyte, classical</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/M2.vcf">Monocyte, non-classical</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/NK.vcf">NK cell, CD56dim CD16+</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/TREG_MEM.vcf">T cell, CD4, memory TREG</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/CD4_NAIVE.vcf">T cell, CD4, naive</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/CD4_STIM.vcf">T cell, CD4, naive [activated]</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/TREG_NAIVE.vcf">T cell, CD4, naive TREG</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/TFH.vcf">T cell, CD4, TFH</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/TH1.vcf">T cell, CD4, TH1</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/THSTAR.vcf">T cell, CD4, TH1/17</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/TH17.vcf">T cell, CD4, TH17</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/TH2.vcf">T cell, CD4, TH2</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/CD8_NAIVE.vcf">T cell, CD8, naive</a>
+        
+        <a class="list-group-item list-group-item-action" href="/download/eqtls/CD8_STIM.vcf">T cell, CD8, naive [activated]</a>
+        
+    </div>
+    <h3 style="text-align: left;">Unfiltered</h3>
+    <p style="text-align: left;">
+        These files contain eQTL data in VCF format, which list genetic polymorphisms that have a significant
+        association with the expression of a nearby gene.
+    </p>
+    <div class="list-group" style="text-align: left;">
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/B_CELL_NAIVE.vcf.gz" target="_blank" >B cell, naive -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/MONOCYTES.vcf.gz" target="_blank" >Monocyte, classical -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/M2.vcf.gz" target="_blank" >Monocyte, non-classical -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/NK.vcf.gz" target="_blank" >NK cell, CD56dim CD16+ -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/TREG_MEM.vcf.gz" target="_blank" >T cell, CD4, memory TREG -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/CD4_NAIVE.vcf.gz" target="_blank" >T cell, CD4, naive -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/CD4_STIM.vcf.gz" target="_blank" >T cell, CD4, naive [activated] -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/TREG_NAIVE.vcf.gz" target="_blank" >T cell, CD4, naive TREG -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/TFH.vcf.gz" target="_blank" >T cell, CD4, TFH -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/TH1.vcf.gz" target="_blank" >T cell, CD4, TH1 -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/THSTAR.vcf.gz" target="_blank" >T cell, CD4, TH1/17 -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/TH17.vcf.gz" target="_blank" >T cell, CD4, TH17 -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/TH2.vcf.gz" target="_blank" >T cell, CD4, TH2 -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/CD8_NAIVE.vcf.gz" target="_blank" >T cell, CD8, naive -
+            unfiltered</a>
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://downloads.dice-database.org/downloads/DICE_DB_1/eqtl/unfiltered/CD8_STIM.vcf.gz" target="_blank" >T cell, CD8, naive [activated] -
+            unfiltered</a>
+        
+    </div>
+</div>
+
+
+<span class="anchor" id="license"></span>
+
+<div class="chart_container">
+    <h1>Licensing</h1>
+    <hr>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</div>
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="descriptions">
+            <div class="text">
+                <p></p>
+            </div>
+        </div>
+
+        <div style="display: none">
+            <img id="hidden_img" src="" alt="">
+        </div>
+
+        <div id="modal_container">
+            <div id="modal_content_container">
+                <span class="close" onclick="document.getElementById('modal_container').style.display='none'">&times;</span>
+                <img id="modal_image" src="" alt="">
+                <canvas></canvas>
+                <img id="png_image" src="" alt="">
+
+            </div>
+        </div>
+
+        
+<div class="footer">
+    <div class="footer-container row">
+        <!--<div class="footer-element col-md-4">-->
+            <!--<div class="footer-element-content">-->
+                <!--<p><strong>Learn More</strong></p>-->
+                <!--<ul>-->
+                    <!--<li><a href="http://lji.org">La Jolla Institute for Allergy and Immunology</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="footer-element col-md-3">
+            <div class="footer-element-content">
+                <h3><strong>Get help</strong></h3>
+                <ul>
+                    <li><a href="/help">FAQs</a></li>
+                    <li><a href="mailto:help@dice-database.org">Submit help request</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="footer-element col-md-3">
+            <div class="footer-element-content">
+                <h3>Dataset</h3>
+                <ul>
+                    <li><p><strong>Latest Build: </strong>Feb 25, 2022</p></li>
+                    <li><a href="/downloads">Downloads</a></li>
+                    <li><a href="https://tools.dice-database.org">DICE Tools</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-element col-md-3">
+            <div class="footer-element-content">
+                <h3><a href="/publications">Publications</a></h3>
+                <ul>
+                    <li><a href="https://doi.org/10.1016/j.cell.2018.10.022">Cell 2018</a> <a href="https://www.ncbi.nlm.nih.gov/pubmed/30449622"><i class="ai ai-pubmed ai-2x"></i></a></li>
+                    <li><a href="https://pubmed.ncbi.nlm.nih.gov/33349701">Nature Genetics 2021</a> <a href="https://pubmed.ncbi.nlm.nih.gov/33349701"><i class="ai ai-pubmed ai-2x"></i></a></li>
+                    <li><a href="/publications">More</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-element col-md-3">
+            <p style="text-align:left"><a href="http://www.lji.org"><img width="100%" src="/static/liai_logo_white.png" alt=""></a></p>
+        </div>
+    </div>
+    <hr>
+    <p style="text-align:center">&copy;2026 <a href="http://www.lji.org">La Jolla Institute for Immunology</a></p>
+    <p style="text-align:center" class="footer_text">Supported by a grant from the <a href="http://www.niaid.nih.gov/" target="_blank">National Institute of Allergy and Infectious Diseases</a>, a component of the National Institutes of Health in the Department of Health and Human Services.</p>
+</div>
+        
+        
+
+    </body>
+</html>

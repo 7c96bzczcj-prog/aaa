@@ -1,0 +1,56 @@
+8c42cfd0-0b0a-46d5-910c-fc833d83c45e: Census var hit ENSG00000150782 -> IL18; 60993 primary lung cells
+H04_Travaglini_10x: wrote 60993 cells, 3 donors, conditions {'resting': 60993}
+48b37086-25f7-4ecd-be66-f5bb378e3aea: Census var hit ENSMUSG00000039217 -> Il18; 24540 primary lung cells
+M01_TMS_10x_lung: wrote 24540 cells, 16 donors, conditions {'resting': 24540}
+98e5ea9f-16d6-47ec-a529-686e76515e39: Census var hit ENSMUSG00000039217 -> Il18; 5218 primary lung cells
+M02_TMS_SS2_lung: wrote 5218 cells, 14 donors, conditions {'resting': 5218}
+89840cec-5734-455d-b68e-34d27650e148: Census var hit ENSMUSG00000039217 -> Il18; 123154 primary lung cells
+M03_PostFlu_timeseries: wrote 123154 cells, 25 donors, conditions {'influenza': 111920, 'resting': 11234}
+M04_GSE236342_Spn/wtctrl: features hit ENSMUSG00000039217 -> Il18
+M04_GSE236342_Spn/wtctrl: 2760 barcodes, 2700 with author annotation
+M04_GSE236342_Spn/wt12: features hit ENSMUSG00000039217 -> Il18
+M04_GSE236342_Spn/wt12: 2683 barcodes, 2644 with author annotation
+M04_GSE236342_Spn/wt36: features hit ENSMUSG00000039217 -> Il18
+M04_GSE236342_Spn/wt36: 10939 barcodes, 10726 with author annotation
+M04_GSE236342_Spn: wrote 16070 cells, 3 donors, conditions {'bacterial': 13370, 'resting': 2700}
+M05_GSE313334_Abaumannii/GSM9366391_6489-ES-1_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii/GSM9366392_6498-ES-2_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii/GSM9366393_6498-ES-3_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii/GSM9366394_6498-ES-4_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii: 3189 cells matched to author metadata ({'ES1_CTRL_NT': 3189}); per-file origin {'GSM9366391_6489-ES-1_filtered_feature_bc_matrix.h5': array(['ES1_CTRL_NT'], dtype=object)}
+M05_GSE313334_Abaumannii: wrote 3189 cells, 1 donors, conditions {'resting': 3189}
+M05_GSE313334_Abaumannii/GSM9366391_6489-ES-1_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii/GSM9366392_6498-ES-2_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii/GSM9366393_6498-ES-3_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii/GSM9366394_6498-ES-4_filtered_feature_bc_matrix.h5: features hit ENSMUSG00000039217 -> Il18
+M05_GSE313334_Abaumannii: 8541 cells matched to author metadata ({'6489_ES3_INF_NT': 1272, '6489_ES4_INF_VANC': 1826, 'ES1_CTRL_NT': 3189, 'ES2_CTRL_VANC': 2254}); per-file origin {'GSM9366391_6489-ES-1_filtered_feature_bc_matrix.h5': array(['ES1_CTRL_NT'], dtype=object), 'GSM9366392_6498-ES-2_filtered_feature_bc_matrix.h5': array(['ES2_CTRL_VANC'], dtype=object), 'GSM9366393_6498-ES-3_filtered_feature_bc_matrix.h5': array(['6489_ES3_INF_NT'], dtype=object), 'GSM9366394_6498-ES-4_filtered_feature_bc_matrix.h5': array(['6489_ES4_INF_VANC'], dtype=object)}
+M05_GSE313334_Abaumannii: wrote 4461 cells, 2 donors, conditions {'resting': 3189, 'bacterial': 1272}
+53d208b0-2cfd-4366-9866-c3c6114081bc: Census var hit ENSG00000150782 -> IL18; 65847 primary lung cells
+H03_TabulaSapiens_lung: decontX layer joined for 62954/62954 cells; raw counts replaced by decontXcounts
+H03_TabulaSapiens_lung: wrote 62954 cells, 4 donors, conditions {'resting': 62954}
+9f222629-9e39-47d0-b83f-e08d610c7479: Census var hit ENSG00000150782 -> IL18; 1525043 primary lung cells
+H01_HLCA_core: wrote 254952 cells, 60 donors, conditions {'resting': 254952}
+9f222629-9e39-47d0-b83f-e08d610c7479: Census var hit ENSG00000150782 -> IL18; 1525043 primary lung cells
+H02_IPF_atlas_controls: wrote 95303 cells, 28 donors, conditions {'resting': 95303}
+1b9d8702-5af8-4142-85ed-020eb06ec4f6: Census var hit ENSG00000150782 -> IL18; 35419 primary lung cells
+H05_CrossTissueImmune_lung: wrote 35419 cells, 10 donors, conditions {'resting': 35419}
+eb499fd8-7000-419f-8854-926b9b61b11f: Census var hit ENSG00000150782 -> IL18; 122445 primary lung cells
+H06_LungMAP_CellRef: wrote 122445 cells, 21 donors, conditions {'resting': 122445}
+d8da613f-e681-4c69-b463-e94f5e66847f: Census var hit ENSG00000150782 -> IL18; 116313 primary lung cells
+H07_Melms_COVID_autopsy: wrote 116313 cells, 27 donors, conditions {'sars_cov_2': 79636, 'resting': 36677}
+9f222629-9e39-47d0-b83f-e08d610c7479: Census var hit ENSG00000150782 -> IL18; 1525043 primary lung cells
+H08_Delorey_COVID_autopsy: wrote 96060 cells, 16 donors, conditions {'sars_cov_2': 96060}
+9f222629-9e39-47d0-b83f-e08d610c7479: Census var hit ENSG00000150782 -> IL18; 1525043 primary lung cells
+H09_Bharat_COVID_autopsy: wrote 91980 cells, 3 donors, conditions {'sars_cov_2': 91980}
+9f222629-9e39-47d0-b83f-e08d610c7479: Census var hit ENSG00000150782 -> IL18; 1525043 primary lung cells
+H10_Liao_BAL: wrote 62469 cells, 12 donors, conditions {'sars_cov_2': 43332, 'resting': 19137}
+9f222629-9e39-47d0-b83f-e08d610c7479: Census var hit ENSG00000150782 -> IL18; 1525043 primary lung cells
+H11_Wauters_BAL: wrote 65166 cells, 35 donors, conditions {'sars_cov_2': 33243, 'pneumonia_unspecified': 31923}
+9f222629-9e39-47d0-b83f-e08d610c7479: Census var hit ENSG00000150782 -> IL18; 1525043 primary lung cells
+H12_Grant_BAL: wrote 77146 cells, 10 donors, conditions {'sars_cov_2': 77146}
+2ac76f1b-43ef-4271-8686-2f165570989f: Census var hit ENSG00000150782 -> IL18; 48226 primary lung cells
+7f7faf6b-f11d-4f07-bc1c-188a4472748d: Census var hit ENSG00000150782 -> IL18; 134076 primary lung cells
+7b55fe5c-d5c8-48e0-a1a3-54c5b9074f3f: Census var hit ENSG00000150782 -> IL18; 125530 primary lung cells
+7c497c66-c2e2-4291-8b96-339e5e65f314: Census var hit ENSG00000150782 -> IL18; 76298 primary lung cells
+H13_Wu_exvivo_SARS2: 17706 cells with unmapped condition key dropped: ['SA']
+H13_Wu_exvivo_SARS2: wrote 366424 cells, 4 donors, conditions {'resting': 207748, 'sars_cov_2': 158676}
