@@ -5,3 +5,7 @@ phase1_registry/raw_meta/*.tar.gz
 phase1_registry/raw_meta/ab48/
 *.mtx
 phase1_registry/rescan/*.xml
+
+# 实验原始数据文件夹始终提交（见 CLAUDE.md）
+!/*实验原始数据/
+!/*实验原始数据/**
