@@ -50,11 +50,11 @@ def main():
             sp_.set_visible(False)
         ax.set_title(ds, fontsize=9, color=INK, loc="left")
         cb = fig.colorbar(sc, ax=ax, fraction=0.03, pad=0.02)
-        cb.set_label("donor-median log2(CPM+1)", fontsize=7, color=MUTED)
+        cb.set_label("IL18 transcript (pro-IL-18)\ndonor-median log2(CPM+1)", fontsize=7, color=MUTED)
         cb.ax.tick_params(labelsize=7)
         for p in [0.1, 0.3, 0.6]:
             ax.scatter([], [], s=20 + 600 * p, color=MUTED, label=f"{int(p * 100)}%")
-        ax.legend(title="% cells IL18+", fontsize=7, title_fontsize=7, frameon=False,
+        ax.legend(title="% cells\nIL18 transcript+", fontsize=7, title_fontsize=7, frameon=False,
                   loc="upper left", bbox_to_anchor=(1.12, 1), labelspacing=1.2)
         out = ROOT / "figures" / sp
         out.mkdir(parents=True, exist_ok=True)

@@ -77,11 +77,11 @@ def build(species, path):
     for sp in ax.spines.values():
         sp.set_visible(False)
     cb = fig.colorbar(sc, ax=ax, fraction=0.025, pad=0.015)
-    cb.set_label("rank within dataset  (1 = highest IL18)", fontsize=7.5, color=MUTED)
+    cb.set_label("IL18 transcript (pro-IL-18)\nrank within dataset  (1 = highest)", fontsize=7.5, color=MUTED)
     cb.ax.tick_params(labelsize=7, length=0); cb.outline.set_visible(False)
     for p in [0.1, 0.3, 0.6]:
         ax.scatter([], [], s=10 + 430 * p, color="#9ba7b4", label=f"{int(p*100)}%")
-    ax.legend(title="% cells IL18+", fontsize=7.5, title_fontsize=7.5, frameon=False,
+    ax.legend(title="% cells\nIL18 transcript+", fontsize=7.5, title_fontsize=7.5, frameon=False,
               loc="upper left", bbox_to_anchor=(1.09, 1.0), labelspacing=1.3, borderpad=0)
     fig.savefig(path, dpi=200, bbox_inches="tight")
     plt.close(fig)
