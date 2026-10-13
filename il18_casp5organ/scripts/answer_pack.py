@@ -229,6 +229,29 @@ def draw_answer_figure(out, species=("human", "mouse"), out_name="answer_v2.png"
     plt.close(fig)
 
 
+# Human cortex scRNA (Allen HVS, 78 donors) — ALL 18 author labels in that stratum, candidates and
+# non-candidates alike, so the panel is read as a whole stratum rather than a shortlist.
+HUMAN_BRAIN_ROWS = [
+    ("microglial cell", "小胶质"),
+    ("L5 extratelencephalic projecting glutamatergic cortical neuron", "L5 ET 投射神经元"),
+    ("pvalb GABAergic cortical interneuron", "PV 中间神经元"),
+    ("chandelier pvalb GABAergic cortical interneuron", "枝形 PV 中间神经元"),
+    ("corticothalamic-projecting glutamatergic cortical neuron", "L6 CT 投射神经元"),
+    ("near-projecting glutamatergic cortical neuron", "L5/6 NP 近程投射神经元"),
+    ("L6b glutamatergic cortical neuron", "L6b 神经元"),
+    ("L2/3-6 intratelencephalic projecting glutamatergic neuron", "L2/3-6 IT 神经元"),
+    ("sst GABAergic cortical interneuron", "SST 中间神经元"),
+    ("caudal ganglionic eminence derived cortical interneuron", "CGE 源中间神经元"),
+    ("lamp5 GABAergic cortical interneuron", "LAMP5 中间神经元"),
+    ("sncg GABAergic cortical interneuron", "SNCG 中间神经元"),
+    ("VIP GABAergic cortical interneuron", "VIP 中间神经元"),
+    ("vascular leptomeningeal cell", "血管软脑膜细胞"),
+    ("astrocyte of the cerebral cortex", "星形胶质"),
+    ("oligodendrocyte precursor cell", "少突胶质前体 OPC"),
+    ("cerebral cortex endothelial cell", "内皮细胞"),
+    ("oligodendrocyte", "少突胶质"),
+]
+
 BRAIN_ROWS = [   # mouse brain, scRNA, author labels — explicit, no regex, no re-annotation
     ("astrocyte", "星形胶质"),
     ("oligodendrocyte", "少突胶质"),
@@ -243,7 +266,8 @@ BRAIN_ROWS = [   # mouse brain, scRNA, author labels — explicit, no regex, no 
 ]
 
 
-def draw_brain_dotplot():
+def draw_brain_dotplot(entry_id="M_brain_cell", spec_rows=None, out_name="mouse/brain_cell_dots.png",
+                       verdicts=None, species="mouse", width=13.6, row_h=0.46):
     """Mouse brain (scRNA) dot plot: rows = cell type, columns = IL18 / CASP1 / CASP3.
 
     Dot area = pooled detection rate (same definition as everywhere else), colour = pseudobulk
@@ -260,9 +284,11 @@ def draw_brain_dotplot():
     cmap = LinearSegmentedColormap.from_list(
         "seq", ["#DCE9F8", "#9EC5F4", "#5E9AE8", "#2E6FC6", "#17457F"])
 
-    c = pd.read_parquet(ROOT / "data" / "cells" / "M_brain_cell.parquet")
+    spec_rows = spec_rows if spec_rows is not None else BRAIN_ROWS
+    verdicts = verdicts or {}
+    c = pd.read_parquet(ROOT / "data" / "cells" / f"{entry_id}.parquet")
     stats = {}
-    for label, _ in BRAIN_ROWS:
+    for label, _ in spec_rows:
         sub = c[c.celltype_original == label]
         keep = [d for d, x in sub.groupby("donor_id") if len(x) >= MIN_CELLS_PER_DONOR]
         s = sub[sub.donor_id.isin(keep)]
@@ -273,11 +299,11 @@ def draw_brain_dotplot():
                             float(np.log2(s[g].sum() / lib * 1e6 + 1)) if lib > 0 else 0.0,
                             int((s[g] >= 1).sum()), len(s))
                         for g in ("IL18", "CASP1", "CASP3")}
-    rows = [(lab, cn) for lab, cn in BRAIN_ROWS if lab in stats]
+    rows = [(lab, cn) for lab, cn in spec_rows if lab in stats]
     rows = sorted(rows, key=lambda r: stats[r[0]]["IL18"][0], reverse=True)
     n = len(rows)
 
-    fig, axes = plt.subplots(1, 3, figsize=(13.6, 0.46 * n + 2.0), sharey=True,
+    fig, axes = plt.subplots(1, 3, figsize=(width, row_h * n + 2.0), sharey=True,
                              gridspec_kw={"wspace": 0.12})
     for ax, gene in zip(axes, ("IL18", "CASP1", "CASP3")):
         vals = [stats[lab][gene] for lab, _ in rows]
@@ -300,17 +326,26 @@ def draw_brain_dotplot():
             s_.set_visible(False)
     axes[0].set_yticks(range(n), [cn for _, cn in rows], fontsize=10.2)
     axes[0].tick_params(axis="y", length=0)
+    # colour the row label by this cell type's verdict, so all three classes are visible at once
+    for tick, (lab, _) in zip(axes[0].get_yticklabels(), rows):
+        tick.set_color(VERDICT_COL.get(verdicts.get((species, lab)), "#1A1A1A"))
     for p in (0.05, 0.25, 0.55):
         axes[2].scatter([], [], s=40 + 1100 * p, color="#8A8A8A", label=f"{int(p*100)}%")
     axes[2].legend(title="点面积 = 检出率", fontsize=9, title_fontsize=9, frameon=False,
                    loc="center left", bbox_to_anchor=(1.0, 0.5), labelspacing=1.5, borderpad=1.0)
-    fig.text(0.012, 0.025,
+    fig.text(0.012, 0.042,
              "颜色深浅 = log2(CPM+1)，三个基因各自独立色标（量级相差太大，不可共用一套色标，也不可跨基因比颜色）；"
              "每个点右侧为该基因的检出率与「阳性细胞/分析细胞」。",
              fontsize=9, color="#666666")
-    fig.subplots_adjust(left=0.165, right=0.885, top=0.895, bottom=0.085)
-    fig.savefig(FIG / "mouse" / "brain_cell_dots.png", dpi=170)
-    print("wrote figures/mouse/brain_cell_dots.png", fig.get_size_inches() * 170)
+    fig.text(0.012, 0.012,
+             "左侧细胞类型名的颜色 = 该细胞类型的判定：绿 = 确定，蓝 = 可能，红 = 相反，黑 = 未进入候选。"
+             "本页为同一个分层内的全部细胞类型，不论判定如何一律列出。",
+             fontsize=9, color="#666666")
+    fig.subplots_adjust(left=0.165, right=0.885, top=0.905, bottom=0.105)
+    (FIG / out_name).parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIG / out_name, dpi=170)
+    print(f"wrote figures/{out_name}", fig.get_size_inches() * 170)
+    plt.close(fig)
 
 
 def main():
@@ -381,7 +416,12 @@ def main():
     draw_answer_figure(out)                                              # combined, for the report
     draw_answer_figure(out, ("human",), "answer_human.png", row_h=0.42, collapse=True)   # one slide each
     draw_answer_figure(out, ("mouse",), "answer_mouse.png", row_h=0.42, collapse=True)
-    draw_brain_dotplot()
+    # keyed by (species, author label): the two species share label strings such as "oligodendrocyte",
+    # and a species-blind map would paint one species' verdict onto the other's row
+    vmap = {(r.species, r.celltype): r.verdict for r in out.itertuples()}
+    draw_brain_dotplot("H_brain_cell_hvs", HUMAN_BRAIN_ROWS, "human/brain_cell_dots.png", vmap,
+                       "human", width=18.6, row_h=0.40)   # 18 rows: widen so it fills a slide
+    draw_brain_dotplot("M_brain_cell", BRAIN_ROWS, "mouse/brain_cell_dots.png", vmap, "mouse")
 
     # ---- json for deck/report ----------------------------------------------------------------------
     js = [{"verdict": r.verdict, "verdict_note": VERDICT_NOTE[r.verdict],
