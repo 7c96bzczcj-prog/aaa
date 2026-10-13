@@ -1,0 +1,322 @@
+# celltype_map.tsv — explicit per-label lineage mapping (§6.2, §7.1); no regex.
+# resident_macrophage lumps alveolar mac / Kupffer / microglia; cite level-2 (celltype_original) for any claim about these (§7.1).
+entry_id	celltype_original	lineage
+H_brain_nucleus	endothelial cell	endothelial
+H_brain_nucleus	astrocyte	glia
+H_brain_nucleus	oligodendrocyte	glia
+H_brain_nucleus	oligodendrocyte precursor cell	glia
+H_brain_nucleus	fibroblast	mesenchymal
+H_brain_nucleus	pericyte	mesenchymal
+H_brain_nucleus	vascular associated smooth muscle cell	mesenchymal
+H_brain_nucleus	neuron	neuron
+H_brain_nucleus	leukocyte	other
+H_brain_nucleus	central nervous system macrophage	resident_macrophage
+H_liver_cell	conventional dendritic cell	dendritic_cell
+H_liver_cell	plasmacytoid dendritic cell	dendritic_cell
+H_liver_cell	endothelial cell	endothelial
+H_liver_cell	basophil	granulocyte
+H_liver_cell	neutrophil	granulocyte
+H_liver_cell	B cell	lymphoid
+H_liver_cell	T cell	lymphoid
+H_liver_cell	natural killer cell	lymphoid
+H_liver_cell	plasma cell	lymphoid
+H_liver_cell	fibroblast	mesenchymal
+H_liver_cell	macrophage	monocyte_derived_myeloid
+H_liver_cell	monocyte	monocyte_derived_myeloid
+H_liver_cell	cholangiocyte	parenchymal_epithelial
+H_liver_cell	hepatocyte	parenchymal_epithelial
+H_liver_nucleus	blood vessel endothelial cell	endothelial
+H_liver_nucleus	endothelial cell of pericentral hepatic sinusoid	endothelial
+H_liver_nucleus	B cell	lymphoid
+H_liver_nucleus	natural killer cell	lymphoid
+H_liver_nucleus	hepatic stellate cell	mesenchymal
+H_liver_nucleus	inflammatory macrophage	monocyte_derived_myeloid
+H_liver_nucleus	erythroid lineage cell	other
+H_liver_nucleus	centrilobular region hepatocyte	parenchymal_epithelial
+H_liver_nucleus	cholangiocyte	parenchymal_epithelial
+H_liver_nucleus	midzonal region hepatocyte	parenchymal_epithelial
+H_liver_nucleus	periportal region hepatocyte	parenchymal_epithelial
+H_liver_nucleus	Kupffer cell	resident_macrophage
+H_lung_cell	CD1c-positive myeloid dendritic cell	dendritic_cell
+H_lung_cell	conventional dendritic cell	dendritic_cell
+H_lung_cell	dendritic cell	dendritic_cell
+H_lung_cell	plasmacytoid dendritic cell	dendritic_cell
+H_lung_cell	capillary endothelial cell	endothelial
+H_lung_cell	endothelial cell of lymphatic vessel	endothelial
+H_lung_cell	pulmonary artery endothelial cell	endothelial
+H_lung_cell	vein endothelial cell	endothelial
+H_lung_cell	mast cell	granulocyte
+H_lung_cell	B cell	lymphoid
+H_lung_cell	CD4-positive, alpha-beta T cell	lymphoid
+H_lung_cell	CD8-positive, alpha-beta T cell	lymphoid
+H_lung_cell	T cell	lymphoid
+H_lung_cell	natural killer cell	lymphoid
+H_lung_cell	plasma cell	lymphoid
+H_lung_cell	alveolar adventitial fibroblast	mesenchymal
+H_lung_cell	alveolar type 1 fibroblast cell	mesenchymal
+H_lung_cell	bronchus fibroblast of lung	mesenchymal
+H_lung_cell	fibroblast	mesenchymal
+H_lung_cell	lung pericyte	mesenchymal
+H_lung_cell	myofibroblast cell	mesenchymal
+H_lung_cell	smooth muscle cell	mesenchymal
+H_lung_cell	stromal cell	mesenchymal
+H_lung_cell	tracheobronchial smooth muscle cell	mesenchymal
+H_lung_cell	classical monocyte	monocyte_derived_myeloid
+H_lung_cell	elicited macrophage	monocyte_derived_myeloid
+H_lung_cell	lung macrophage	monocyte_derived_myeloid
+H_lung_cell	non-classical monocyte	monocyte_derived_myeloid
+H_lung_cell	hematopoietic stem cell	other
+H_lung_cell	mesothelial cell	other
+H_lung_cell	unknown	other
+H_lung_cell	acinar cell	parenchymal_epithelial
+H_lung_cell	bronchial goblet cell	parenchymal_epithelial
+H_lung_cell	brush cell of tracheobronchial tree	parenchymal_epithelial
+H_lung_cell	club cell	parenchymal_epithelial
+H_lung_cell	epithelial cell of lower respiratory tract	parenchymal_epithelial
+H_lung_cell	ionocyte	parenchymal_epithelial
+H_lung_cell	mucus secreting cell	parenchymal_epithelial
+H_lung_cell	multiciliated columnar cell of tracheobronchial tree	parenchymal_epithelial
+H_lung_cell	multiciliated epithelial cell	parenchymal_epithelial
+H_lung_cell	nasal mucosa goblet cell	parenchymal_epithelial
+H_lung_cell	pulmonary alveolar epithelial cell	parenchymal_epithelial
+H_lung_cell	pulmonary alveolar type 1 cell	parenchymal_epithelial
+H_lung_cell	pulmonary alveolar type 2 cell	parenchymal_epithelial
+H_lung_cell	pulmonary neuroendocrine cell	parenchymal_epithelial
+H_lung_cell	respiratory basal cell	parenchymal_epithelial
+H_lung_cell	respiratory tract hillock cell	parenchymal_epithelial
+H_lung_cell	serous secreting cell	parenchymal_epithelial
+H_lung_cell	tracheobronchial goblet cell	parenchymal_epithelial
+H_lung_cell	tracheobronchial serous cell	parenchymal_epithelial
+H_lung_cell	alveolar macrophage	resident_macrophage
+H_lung_nucleus	dendritic cell	dendritic_cell
+H_lung_nucleus	blood vessel endothelial cell	endothelial
+H_lung_nucleus	endothelial cell	endothelial
+H_lung_nucleus	endothelial cell of artery	endothelial
+H_lung_nucleus	vein endothelial cell	endothelial
+H_lung_nucleus	mast cell	granulocyte
+H_lung_nucleus	B cell	lymphoid
+H_lung_nucleus	T cell	lymphoid
+H_lung_nucleus	natural killer cell	lymphoid
+H_lung_nucleus	chondrocyte	mesenchymal
+H_lung_nucleus	fibroblast	mesenchymal
+H_lung_nucleus	myofibroblast cell	mesenchymal
+H_lung_nucleus	pericyte	mesenchymal
+H_lung_nucleus	smooth muscle cell	mesenchymal
+H_lung_nucleus	vascular associated smooth muscle cell	mesenchymal
+H_lung_nucleus	macrophage	monocyte_derived_myeloid
+H_lung_nucleus	monocyte	monocyte_derived_myeloid
+H_lung_nucleus	enucleate erythrocyte	other
+H_lung_nucleus	unknown	other
+H_lung_nucleus	basal cell	parenchymal_epithelial
+H_lung_nucleus	ciliated cell	parenchymal_epithelial
+H_lung_nucleus	club cell	parenchymal_epithelial
+H_lung_nucleus	epithelial cell	parenchymal_epithelial
+H_lung_nucleus	goblet cell	parenchymal_epithelial
+H_lung_nucleus	pulmonary alveolar type 1 cell	parenchymal_epithelial
+H_lung_nucleus	pulmonary alveolar type 2 cell	parenchymal_epithelial
+H_lung_nucleus	pulmonary neuroendocrine cell	parenchymal_epithelial
+H_lung_nucleus	alveolar macrophage	resident_macrophage
+H_pancreas_cell	endothelial cell	endothelial
+H_pancreas_cell	mast cell	granulocyte
+H_pancreas_cell	neutrophil	granulocyte
+H_pancreas_cell	B cell	lymphoid
+H_pancreas_cell	CD4-positive, alpha-beta T cell	lymphoid
+H_pancreas_cell	CD8-positive, alpha-beta T cell	lymphoid
+H_pancreas_cell	T cell	lymphoid
+H_pancreas_cell	mature NK T cell	lymphoid
+H_pancreas_cell	natural killer cell	lymphoid
+H_pancreas_cell	plasma cell	lymphoid
+H_pancreas_cell	fibroblast	mesenchymal
+H_pancreas_cell	pancreatic stellate cell	mesenchymal
+H_pancreas_cell	classical monocyte	monocyte_derived_myeloid
+H_pancreas_cell	intermediate monocyte	monocyte_derived_myeloid
+H_pancreas_cell	macrophage	monocyte_derived_myeloid
+H_pancreas_cell	monocyte	monocyte_derived_myeloid
+H_pancreas_cell	non-classical monocyte	monocyte_derived_myeloid
+H_pancreas_cell	pancreatic A cell	parenchymal_epithelial
+H_pancreas_cell	pancreatic D cell	parenchymal_epithelial
+H_pancreas_cell	pancreatic PP cell	parenchymal_epithelial
+H_pancreas_cell	pancreatic acinar cell	parenchymal_epithelial
+H_pancreas_cell	pancreatic ductal cell	parenchymal_epithelial
+H_pancreas_cell	type B pancreatic cell	parenchymal_epithelial
+H_pancreas_nucleus	endothelial cell	endothelial
+H_pancreas_nucleus	pancreatic stellate cell	mesenchymal
+H_pancreas_nucleus	macrophage	monocyte_derived_myeloid
+H_pancreas_nucleus	pancreatic A cell	parenchymal_epithelial
+H_pancreas_nucleus	pancreatic D cell	parenchymal_epithelial
+H_pancreas_nucleus	pancreatic PP cell	parenchymal_epithelial
+H_pancreas_nucleus	pancreatic acinar cell	parenchymal_epithelial
+H_pancreas_nucleus	pancreatic ductal cell	parenchymal_epithelial
+H_pancreas_nucleus	type B pancreatic cell	parenchymal_epithelial
+H_spinal_nucleus	endothelial cell	endothelial
+H_spinal_nucleus	Bergmann glial cell	glia
+H_spinal_nucleus	astrocyte	glia
+H_spinal_nucleus	ependymal cell	glia
+H_spinal_nucleus	oligodendrocyte	glia
+H_spinal_nucleus	oligodendrocyte precursor cell	glia
+H_spinal_nucleus	fibroblast	mesenchymal
+H_spinal_nucleus	pericyte	mesenchymal
+H_spinal_nucleus	vascular associated smooth muscle cell	mesenchymal
+H_spinal_nucleus	neuron	neuron
+H_spinal_nucleus	choroid plexus epithelial cell	other
+H_spinal_nucleus	leukocyte	other
+H_spinal_nucleus	central nervous system macrophage	resident_macrophage
+M_brain_cell	endothelial cell	endothelial
+M_brain_cell	astrocyte	glia
+M_brain_cell	oligodendrocyte	glia
+M_brain_cell	pericyte	mesenchymal
+M_brain_cell	vascular leptomeningeal cell (Mmus)	mesenchymal
+M_brain_cell	Cajal-Retzius cell	neuron
+M_brain_cell	L2/3 intratelencephalic projecting glutamatergic neuron of the primary motor cortex	neuron
+M_brain_cell	L2/3-6 intratelencephalic projecting glutamatergic neuron	neuron
+M_brain_cell	L4/5 intratelencephalic projecting glutamatergic neuron of the primary motor cortex	neuron
+M_brain_cell	L5 extratelencephalic projecting glutamatergic cortical neuron	neuron
+M_brain_cell	L5/6 near-projecting glutamatergic neuron of the primary motor cortex	neuron
+M_brain_cell	L6 corticothalamic-projecting glutamatergic cortical neuron	neuron
+M_brain_cell	L6 intratelencephalic projecting glutamatergic neuron of the primary motor cortex	neuron
+M_brain_cell	L6b glutamatergic cortical neuron	neuron
+M_brain_cell	VIP GABAergic cortical interneuron	neuron
+M_brain_cell	cortical interneuron	neuron
+M_brain_cell	corticothalamic-projecting glutamatergic cortical neuron	neuron
+M_brain_cell	glutamatergic neuron	neuron
+M_brain_cell	hippocampal neuron	neuron
+M_brain_cell	lamp5 GABAergic cortical interneuron	neuron
+M_brain_cell	meis2 expressing cortical GABAergic cell	neuron
+M_brain_cell	pvalb GABAergic cortical interneuron	neuron
+M_brain_cell	pyramidal neuron	neuron
+M_brain_cell	sncg GABAergic cortical interneuron	neuron
+M_brain_cell	sst GABAergic cortical interneuron	neuron
+M_brain_cell	sst chodl GABAergic cortical interneuron	neuron
+M_brain_cell	central nervous system macrophage	resident_macrophage
+M_brain_nucleus	endothelial cell	endothelial
+M_brain_nucleus	astrocyte	glia
+M_brain_nucleus	oligodendrocyte	glia
+M_brain_nucleus	oligodendrocyte precursor cell	glia
+M_brain_nucleus	pericyte	mesenchymal
+M_brain_nucleus	smooth muscle cell	mesenchymal
+M_brain_nucleus	vascular leptomeningeal cell	mesenchymal
+M_brain_nucleus	L2/3 intratelencephalic projecting glutamatergic neuron	neuron
+M_brain_nucleus	L4/5 intratelencephalic projecting glutamatergic neuron	neuron
+M_brain_nucleus	L5 extratelencephalic projecting glutamatergic cortical neuron	neuron
+M_brain_nucleus	L5 intratelencephalic projecting glutamatergic neuron	neuron
+M_brain_nucleus	L5/6 near-projecting glutamatergic neuron	neuron
+M_brain_nucleus	L6 corticothalamic-projecting glutamatergic cortical neuron	neuron
+M_brain_nucleus	L6 intratelencephalic projecting glutamatergic neuron	neuron
+M_brain_nucleus	L6b glutamatergic cortical neuron	neuron
+M_brain_nucleus	VIP GABAergic cortical interneuron	neuron
+M_brain_nucleus	lamp5 GABAergic cortical interneuron	neuron
+M_brain_nucleus	pvalb GABAergic cortical interneuron	neuron
+M_brain_nucleus	sncg GABAergic cortical interneuron	neuron
+M_brain_nucleus	sst GABAergic cortical interneuron	neuron
+M_brain_nucleus	microglial cell	resident_macrophage
+M_brain_nucleus	perivascular macrophage	resident_macrophage
+M_liver_cell	plasmacytoid dendritic cell	dendritic_cell
+M_liver_cell	endothelial cell of hepatic sinusoid	endothelial
+M_liver_cell	B cell	lymphoid
+M_liver_cell	natural killer cell	lymphoid
+M_liver_cell	hepatic stellate cell	mesenchymal
+M_liver_cell	myeloid leukocyte	monocyte_derived_myeloid
+M_liver_cell	duct epithelial cell	parenchymal_epithelial
+M_liver_cell	hepatocyte	parenchymal_epithelial
+M_liver_cell	Kupffer cell	resident_macrophage
+M_lung_cell	dendritic cell	dendritic_cell
+M_lung_cell	myeloid dendritic cell	dendritic_cell
+M_lung_cell	plasmacytoid dendritic cell	dendritic_cell
+M_lung_cell	endothelial cell of lymphatic vessel	endothelial
+M_lung_cell	vein endothelial cell	endothelial
+M_lung_cell	basophil	granulocyte
+M_lung_cell	neutrophil	granulocyte
+M_lung_cell	B cell	lymphoid
+M_lung_cell	CD4-positive, alpha-beta T cell	lymphoid
+M_lung_cell	CD8-positive, alpha-beta T cell	lymphoid
+M_lung_cell	T cell	lymphoid
+M_lung_cell	mature NK T cell	lymphoid
+M_lung_cell	natural killer cell	lymphoid
+M_lung_cell	plasma cell	lymphoid
+M_lung_cell	regulatory T cell	lymphoid
+M_lung_cell	adventitial cell	mesenchymal
+M_lung_cell	bronchial smooth muscle cell	mesenchymal
+M_lung_cell	fibroblast of lung	mesenchymal
+M_lung_cell	pericyte	mesenchymal
+M_lung_cell	pulmonary interstitial fibroblast	mesenchymal
+M_lung_cell	smooth muscle cell of the pulmonary artery	mesenchymal
+M_lung_cell	classical monocyte	monocyte_derived_myeloid
+M_lung_cell	intermediate monocyte	monocyte_derived_myeloid
+M_lung_cell	lung macrophage	monocyte_derived_myeloid
+M_lung_cell	non-classical monocyte	monocyte_derived_myeloid
+M_lung_cell	club cell	parenchymal_epithelial
+M_lung_cell	multiciliated columnar cell of tracheobronchial tree	parenchymal_epithelial
+M_lung_cell	pulmonary alveolar type 2 cell	parenchymal_epithelial
+M_lung_cell	pulmonary neuroendocrine cell	parenchymal_epithelial
+M_lung_cell	alveolar macrophage	resident_macrophage
+M_pancreas_cell	endothelial cell	endothelial
+M_pancreas_cell	pancreatic stellate cell	mesenchymal
+M_pancreas_cell	leukocyte	other
+M_pancreas_cell	pancreatic A cell	parenchymal_epithelial
+M_pancreas_cell	pancreatic D cell	parenchymal_epithelial
+M_pancreas_cell	pancreatic PP cell	parenchymal_epithelial
+M_pancreas_cell	pancreatic acinar cell	parenchymal_epithelial
+M_pancreas_cell	pancreatic ductal cell	parenchymal_epithelial
+M_pancreas_cell	type B pancreatic cell	parenchymal_epithelial
+M_pancreas_islet_cell	endothelial cell	endothelial
+M_pancreas_islet_cell	Schwann cell	glia
+M_pancreas_islet_cell	pancreatic stellate cell	mesenchymal
+M_pancreas_islet_cell	cell	other
+M_pancreas_islet_cell	hematopoietic cell	other
+M_pancreas_islet_cell	unknown	other
+M_pancreas_islet_cell	pancreatic A cell	parenchymal_epithelial
+M_pancreas_islet_cell	pancreatic D cell	parenchymal_epithelial
+M_pancreas_islet_cell	pancreatic PP cell	parenchymal_epithelial
+M_pancreas_islet_cell	pancreatic acinar cell	parenchymal_epithelial
+M_pancreas_islet_cell	pancreatic ductal cell	parenchymal_epithelial
+M_pancreas_islet_cell	pancreatic endocrine cell	parenchymal_epithelial
+M_pancreas_islet_cell	type B pancreatic cell	parenchymal_epithelial
+M_spinal_nucleus	endo/vascular	endothelial
+M_spinal_nucleus	OPC	glia
+M_spinal_nucleus	Oligos	glia
+M_spinal_nucleus	astrocytes	glia
+M_spinal_nucleus	DE-1	neuron
+M_spinal_nucleus	DE-10	neuron
+M_spinal_nucleus	DE-11	neuron
+M_spinal_nucleus	DE-13	neuron
+M_spinal_nucleus	DE-14	neuron
+M_spinal_nucleus	DE-15	neuron
+M_spinal_nucleus	DE-16	neuron
+M_spinal_nucleus	DE-2	neuron
+M_spinal_nucleus	DE-3	neuron
+M_spinal_nucleus	DE-4	neuron
+M_spinal_nucleus	DE-5	neuron
+M_spinal_nucleus	DE-6	neuron
+M_spinal_nucleus	DE-7	neuron
+M_spinal_nucleus	DE-8	neuron
+M_spinal_nucleus	DE-9	neuron
+M_spinal_nucleus	DE12	neuron
+M_spinal_nucleus	DI-1	neuron
+M_spinal_nucleus	DI-2	neuron
+M_spinal_nucleus	DI-3	neuron
+M_spinal_nucleus	DI-4	neuron
+M_spinal_nucleus	DI-5	neuron
+M_spinal_nucleus	DI-6	neuron
+M_spinal_nucleus	DI-7	neuron
+M_spinal_nucleus	DI-8	neuron
+M_spinal_nucleus	DI-9	neuron
+M_spinal_nucleus	ME-1	neuron
+M_spinal_nucleus	MI-1	neuron
+M_spinal_nucleus	MI-2	neuron
+M_spinal_nucleus	MI-3	neuron
+M_spinal_nucleus	MI-4	neuron
+M_spinal_nucleus	VC-1	neuron
+M_spinal_nucleus	VC-2	neuron
+M_spinal_nucleus	VE-1	neuron
+M_spinal_nucleus	VE-2	neuron
+M_spinal_nucleus	VE-3	neuron
+M_spinal_nucleus	VE-4	neuron
+M_spinal_nucleus	VI-1	neuron
+M_spinal_nucleus	VI-3	neuron
+M_spinal_nucleus	VI-4	neuron
+M_spinal_nucleus	VI-5	neuron
+M_spinal_nucleus	VM-1	neuron
+M_spinal_nucleus	VM-2	neuron
+M_spinal_nucleus	neurons	neuron
+M_spinal_nucleus	meninges/schwann	other
+M_spinal_nucleus	microglia	resident_macrophage
