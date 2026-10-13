@@ -82,6 +82,7 @@ M = {
  "keratinocyte":EPI,"epithelial cell of nephron":EPI,
  # neuron
  "GABAergic neuron":NEU,"caudal ganglionic eminence derived cortical interneuron":NEU,
+ "L6b glutamatergic neuron of the primary motor cortex":NEU,
  "chandelier pvalb GABAergic cortical interneuron":NEU,"near-projecting glutamatergic cortical neuron":NEU,
  "cerebellar granule cell":NEU,"eurydendroid cell":NEU,
  # glia

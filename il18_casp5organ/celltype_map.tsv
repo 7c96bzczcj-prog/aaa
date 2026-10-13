@@ -29,6 +29,49 @@ H_brain_nucleus	vascular associated smooth muscle cell	mesenchymal
 H_brain_nucleus	neuron	neuron
 H_brain_nucleus	leukocyte	other
 H_brain_nucleus	central nervous system macrophage	resident_macrophage
+H_brain_nucleus_psychad	endothelial cell	endothelial
+H_brain_nucleus_psychad	astrocyte	glia
+H_brain_nucleus_psychad	oligodendrocyte	glia
+H_brain_nucleus_psychad	oligodendrocyte precursor cell	glia
+H_brain_nucleus_psychad	B cell	lymphoid
+H_brain_nucleus_psychad	T cell	lymphoid
+H_brain_nucleus_psychad	natural killer cell	lymphoid
+H_brain_nucleus_psychad	plasma cell	lymphoid
+H_brain_nucleus_psychad	pericyte	mesenchymal
+H_brain_nucleus_psychad	smooth muscle cell	mesenchymal
+H_brain_nucleus_psychad	vascular leptomeningeal cell	mesenchymal
+H_brain_nucleus_psychad	GABAergic neuron	neuron
+H_brain_nucleus_psychad	L2/3 intratelencephalic projecting glutamatergic neuron	neuron
+H_brain_nucleus_psychad	L2/3-6 intratelencephalic projecting glutamatergic neuron	neuron
+H_brain_nucleus_psychad	L5 extratelencephalic projecting glutamatergic cortical neuron	neuron
+H_brain_nucleus_psychad	L5/6 near-projecting glutamatergic neuron	neuron
+H_brain_nucleus_psychad	L6 corticothalamic-projecting glutamatergic cortical neuron	neuron
+H_brain_nucleus_psychad	L6 intratelencephalic projecting glutamatergic neuron	neuron
+H_brain_nucleus_psychad	L6b glutamatergic neuron of the primary motor cortex	neuron
+H_brain_nucleus_psychad	VIP GABAergic cortical interneuron	neuron
+H_brain_nucleus_psychad	lamp5 GABAergic cortical interneuron	neuron
+H_brain_nucleus_psychad	pvalb GABAergic cortical interneuron	neuron
+H_brain_nucleus_psychad	sst GABAergic cortical interneuron	neuron
+H_brain_nucleus_psychad	microglial cell	resident_macrophage
+H_brain_nucleus_psychad	perivascular macrophage	resident_macrophage
+H_brain_nucleus_seaad_dlpfc	cerebral cortex endothelial cell	endothelial
+H_brain_nucleus_seaad_dlpfc	astrocyte of the cerebral cortex	glia
+H_brain_nucleus_seaad_dlpfc	oligodendrocyte	glia
+H_brain_nucleus_seaad_dlpfc	oligodendrocyte precursor cell	glia
+H_brain_nucleus_seaad_dlpfc	vascular leptomeningeal cell	mesenchymal
+H_brain_nucleus_seaad_dlpfc	L2/3-6 intratelencephalic projecting glutamatergic neuron	neuron
+H_brain_nucleus_seaad_dlpfc	L5 extratelencephalic projecting glutamatergic cortical neuron	neuron
+H_brain_nucleus_seaad_dlpfc	L6b glutamatergic cortical neuron	neuron
+H_brain_nucleus_seaad_dlpfc	VIP GABAergic cortical interneuron	neuron
+H_brain_nucleus_seaad_dlpfc	caudal ganglionic eminence derived cortical interneuron	neuron
+H_brain_nucleus_seaad_dlpfc	chandelier pvalb GABAergic cortical interneuron	neuron
+H_brain_nucleus_seaad_dlpfc	corticothalamic-projecting glutamatergic cortical neuron	neuron
+H_brain_nucleus_seaad_dlpfc	lamp5 GABAergic cortical interneuron	neuron
+H_brain_nucleus_seaad_dlpfc	near-projecting glutamatergic cortical neuron	neuron
+H_brain_nucleus_seaad_dlpfc	pvalb GABAergic cortical interneuron	neuron
+H_brain_nucleus_seaad_dlpfc	sncg GABAergic cortical interneuron	neuron
+H_brain_nucleus_seaad_dlpfc	sst GABAergic cortical interneuron	neuron
+H_brain_nucleus_seaad_dlpfc	microglial cell	resident_macrophage
 H_brain_nucleus_seaad_mtg	cerebral cortex endothelial cell	endothelial
 H_brain_nucleus_seaad_mtg	astrocyte of the cerebral cortex	glia
 H_brain_nucleus_seaad_mtg	oligodendrocyte	glia
