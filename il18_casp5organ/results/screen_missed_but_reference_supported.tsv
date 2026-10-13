@@ -1,0 +1,11 @@
+# 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
+# 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
+# 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+#
+# 【列定义】pct_<基因> = 检出率 = 分子/分母：分母 = 该分层(数据集×器官×suspension)内、该供体、该细胞类型所含的细胞个数；分子 = 其中该基因原始计数 >= 1 的细胞个数。汇总表中再对该分层内各供体取中位数。
+#   即「有多少比例的细胞里测得到这个基因」，不是表达量占比、不是相对最高值的百分比、也不是读段占比。
+# logcpm_<基因> = 伪bulk 表达量 = log2( 该格子内该基因计数之和 / 该格子内文库大小之和 * 1e6 + 1 )。
+# rank_<基因> = 该细胞类型在同一分层内按 logcpm 的排名，1 = 最高。排名只在分层内有意义。
+dataset_id	species	tissue	suspension_type	celltype	n_donors	pct_IL18	pct_CASP1	rank_IL18	rank_CASP1	n_ct_stratum	excluded_because	ref_label	n_ref_sources_supporting	best_ref
+H_lung_cell	human	lung	cell	pulmonary alveolar type 1 cell	56	0.2763636363636363	0.0350821795806007	3.0	20.0	39.0	CASP1 未进分层内最低三分位（相对规则）	lung AT1	1	HumanProteinAtlas[nCPM] IL18=214/CASP1=7.9 ratio=27.1
+H_lung_nucleus	human	lung	nucleus	pulmonary alveolar type 1 cell	9	0.4649122807017544	0.0181405895691609	1.0	10.0	23.0	CASP1 未进分层内最低三分位（相对规则）	lung AT1	1	HumanProteinAtlas[nCPM] IL18=214/CASP1=7.9 ratio=27.1
