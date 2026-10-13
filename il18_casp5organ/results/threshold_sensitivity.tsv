@@ -1,14 +1,34 @@
 # 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
 # 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
 # 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+#
+# 【列定义】pct_<基因> = 检出率 = 分子/分母：分母 = 该分层(数据集×器官×suspension)内、该供体、该细胞类型所含的细胞个数；分子 = 其中该基因原始计数 >= 1 的细胞个数。汇总表中再对该分层内各供体取中位数。
+#   即「有多少比例的细胞里测得到这个基因」，不是表达量占比、不是相对最高值的百分比、也不是读段占比。
+# logcpm_<基因> = 伪bulk 表达量 = log2( 该格子内该基因计数之和 / 该格子内文库大小之和 * 1e6 + 1 )。
+# rank_<基因> = 该细胞类型在同一分层内按 logcpm 的排名，1 = 最高。排名只在分层内有意义。
 level	dataset_id	celltype	baseline(1/3,1/3,20%)	quartile(1/4,1/4,20%)	casp3_10%	casp3_30%
 lineage	H_lung_cell	granulocyte	True	True	True	True
+lineage	H_panc_islet_48	granulocyte	True	True	True	True
 lineage	M_brain_cell	glia	True	True	True	True
 lineage	M_brain_cell	resident_macrophage	True	True	True	True
 lineage	M_lung_cell	resident_macrophage	True	False	True	False
+author	H_brain_cell_hvs	L5 extratelencephalic projecting glutamatergic cortical neuron	True	True	True	True
+author	H_brain_cell_hvs	chandelier pvalb GABAergic cortical interneuron	True	True	True	True
+author	H_brain_cell_hvs	pvalb GABAergic cortical interneuron	True	True	True	True
+author	H_brain_nucleus_psychad	pvalb GABAergic cortical interneuron	True	True	True	True
+author	H_brain_nucleus_psychad	vascular leptomeningeal cell	True	True	True	True
+author	H_brain_nucleus_seaad_dlpfc	L5 extratelencephalic projecting glutamatergic cortical neuron	True	True	True	True
+author	H_brain_nucleus_seaad_dlpfc	caudal ganglionic eminence derived cortical interneuron	True	True	True	False
+author	H_brain_nucleus_seaad_mtg	L5 extratelencephalic projecting glutamatergic cortical neuron	True	True	True	True
 author	H_liver_cell	basophil	True	False	True	True
+author	H_liver_cell_full	megakaryocyte-erythroid progenitor cell	True	True	True	True
+author	H_liver_cell_global	CD16-negative, CD56-bright natural killer cell, human	True	True	True	True
 author	H_lung_cell	mast cell	True	True	True	True
 author	H_lung_cell	multiciliated columnar cell of tracheobronchial tree	True	False	True	True
+author	H_lung_cell_cellref	alveolar adventitial fibroblast	True	False	True	True
+author	H_lung_cell_cellref	ciliated cell	True	False	True	True
+author	H_lung_cell_cellref	mast cell	True	False	True	True
+author	H_lung_cell_distal	lung multiciliated epithelial cell	True	True	True	True
 author	H_lung_nucleus	ciliated cell	True	False	True	True
 author	H_lung_nucleus	dendritic cell	True	True	True	True
 author	M_brain_cell	Cajal-Retzius cell	True	True	True	True

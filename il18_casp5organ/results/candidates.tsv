@@ -1,13 +1,33 @@
 # 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
 # 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
 # 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+#
+# 【列定义】pct_<基因> = 检出率 = 分子/分母：分母 = 该分层(数据集×器官×suspension)内、该供体、该细胞类型所含的细胞个数；分子 = 其中该基因原始计数 >= 1 的细胞个数。汇总表中再对该分层内各供体取中位数。
+#   即「有多少比例的细胞里测得到这个基因」，不是表达量占比、不是相对最高值的百分比、也不是读段占比。
+# logcpm_<基因> = 伪bulk 表达量 = log2( 该格子内该基因计数之和 / 该格子内文库大小之和 * 1e6 + 1 )。
+# rank_<基因> = 该细胞类型在同一分层内按 logcpm 的排名，1 = 最高。排名只在分层内有意义。
 dataset_id	level	species	tissue	suspension_type	celltype	n_donors	pct_IL18	pct_CASP1	pct_CASP3	logcpm_IL18	logcpm_CASP1	logcpm_CASP3	rank_IL18	rank_CASP1	rank_CASP3	casp3_floor_skipped	priority_casp3_rank	passed
+H_brain_cell_hvs	author	human	brain	cell	pvalb GABAergic cortical interneuron	78	0.2677595628415301	0.0	0.27577101816645544	4.386770415790816	0.0	4.406035339917583	3.0	5.0	4.0	False	4.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_brain_cell_hvs	author	human	brain	cell	L5 extratelencephalic projecting glutamatergic cortical neuron	7	0.375	0.0	0.3	4.706120832020482	0.0	4.148532083700723	2.0	5.0	6.0	False	6.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_brain_cell_hvs	author	human	brain	cell	chandelier pvalb GABAergic cortical interneuron	37	0.17857142857142858	0.0	0.2	4.218201305465379	0.0	4.125060579469038	4.0	5.0	7.0	False	7.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_brain_nucleus_seaad_mtg	author	human	brain	nucleus	L5 extratelencephalic projecting glutamatergic cortical neuron	33	0.35714285714285715	0.0	0.5862068965517241	3.106308181474146	0.0	4.258386912458527	2.0	6.0	5.0	False	5.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_brain_nucleus_seaad_dlpfc	author	human	brain	nucleus	L5 extratelencephalic projecting glutamatergic cortical neuron	42	0.3547667342799189	0.0	0.6339712918660287	3.0747451652857176	0.0	4.312658998563325	2.0	11.0	6.0	False	6.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_brain_nucleus_psychad	author	human	brain	nucleus	pvalb GABAergic cortical interneuron	234	0.22110323886639677	0.0	0.3105122196183462	3.816832262461035	0.0	4.413120832604984	5.0	10.0	7.0	False	7.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_brain_nucleus_psychad	author	human	brain	nucleus	vascular leptomeningeal cell	52	0.28285714285714286	0.0	0.06672850958565243	6.716612542741966	0.0	4.013750010370604	3.0	10.0	14.0	False	14.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_brain_nucleus_seaad_dlpfc	author	human	brain	nucleus	caudal ganglionic eminence derived cortical interneuron	44	0.10192404426559357	0.0	0.2571878422782037	2.63840449408847	0.0	3.780157710919311	5.0	11.0	14.0	False	14.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_liver_cell_global	author	human	liver	cell	CD16-negative, CD56-bright natural killer cell, human	7	0.18421052631578946	0.2290748898678414	0.23371647509578544	5.662763070193921	6.249550465265772	5.845720151479958	2.0	11.0	1.0	False	1.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 H_liver_cell	author	human	liver	cell	basophil	6	0.14285714285714285	0.05277777777777778	0.04673913043478261	6.478848019142754	4.762305994168518	5.053682852526871	4.0	8.0	5.0	False	5.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_liver_cell_full	author	human	liver	cell	megakaryocyte-erythroid progenitor cell	13	0.23717948717948717	0.027522935779816515	0.39204545454545453	4.20789852850263	1.33666212538954	5.041028488249461	7.0	34.0	19.0	False	19.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_cell_cellref	author	human	lung	cell	ciliated cell	16	0.14590391492565408	0.04047229047229048	0.10840312846409657	5.354031032536715	3.2600840788387186	4.641338600845058	7.0	22.0	12.0	False	12.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_cell_cellref	author	human	lung	cell	mast cell	3	0.4927536231884058	0.02702702702702703	0.03333333333333333	7.921128937327107	3.3272115063162033	4.2462816068301015	1.0	21.0	16.0	False	16.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 H_lung_cell	author	human	lung	cell	multiciliated columnar cell of tracheobronchial tree	100	0.16239803896707664	0.032210903603093755	0.106071964017991	5.360967290704149	3.1208006489107643	4.452585058006027	13.0	28.0	17.0	False	17.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_cell_distal	author	human	lung	cell	lung multiciliated epithelial cell	8	0.23324916516633173	0.01851134161632281	0.26832651869158874	4.547166731871144	1.4453713452638952	4.963672902113018	3.0	37.0	17.0	False	17.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 H_lung_cell	author	human	lung	cell	mast cell	44	0.2596153846153846	0.0	0.039142273655547996	7.881443161837241	0.0	4.300500671913099	1.0	35.0	20.0	False	20.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_cell_cellref	author	human	lung	cell	alveolar adventitial fibroblast	14	0.11306179775280899	0.0339080459770115	0.07853618421052631	5.233436074222915	2.8615378039260104	3.8566594449694644	9.0	25.0	21.0	False	21.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 H_lung_cell	lineage	human	lung	cell	granulocyte	44	0.2596153846153846	0.0	0.039142273655547996	7.881443161837241	0.0	4.300500671913099	1.0	9.0	4.0	False	4.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 H_lung_nucleus	author	human	lung	nucleus	dendritic cell	5	0.11538461538461539	0.0	0.12	5.5369652659631985	0.0	5.506820596252594	6.0	18.0	3.0	False	3.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 H_lung_nucleus	author	human	lung	nucleus	ciliated cell	8	0.1837406015037594	0.0	0.09981617647058824	5.483171826250244	0.0	4.7210925105989086	7.0	18.0	8.0	False	8.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_panc_islet_48	lineage	human	pancreas	cell	granulocyte	3	0.35135135135135137	0.05405405405405406	0.15625	6.294884865756058	3.4442744089551254	5.313143750224336	1.0	4.0	1.0	True	1.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 M_brain_cell	author	mouse	brain	cell	Cajal-Retzius cell	4	0.12451612903225806	0.0	0.413469387755102	5.125982415501877	0.0	7.055528203043352	4.0	12.0	1.0	False	1.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 M_brain_cell	author	mouse	brain	cell	oligodendrocyte	55	0.27419354838709675	0.0	0.07228915662650602	6.523696710623469	0.0	4.706763640752508	2.0	12.0	2.0	False	2.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
 M_brain_cell	author	mouse	brain	cell	central nervous system macrophage	20	0.18301435406698563	0.0	0.04880952380952381	6.494030278185808	0.0	4.516508828827638	3.0	12.0	3.0	False	3.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok

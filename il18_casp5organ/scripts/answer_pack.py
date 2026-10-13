@@ -24,21 +24,59 @@ from evidence_integrate import MIN_CELLS_PER_DONOR, pooled_stats
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "figures"
 
-# explicit display names (no regex, no inference)
-CN = {
-    ("mouse", "brain", "oligodendrocyte"): ("小鼠", "脑", "少突胶质"),
-    ("mouse", "brain", "astrocyte"): ("小鼠", "脑", "星形胶质"),
-    ("mouse", "brain", "central nervous system macrophage"): ("小鼠", "脑", "小胶质/CNS巨噬"),
-    ("mouse", "brain", "Cajal-Retzius cell"): ("小鼠", "脑", "Cajal-Retzius 神经元"),
-    ("mouse", "lung", "alveolar macrophage"): ("小鼠", "肺", "肺泡巨噬"),
-    ("mouse", "pancreas", "pancreatic D cell"): ("小鼠", "胰", "胰岛 D(δ) 细胞"),
-    ("mouse", "pancreas", "pancreatic ductal cell"): ("小鼠", "胰", "胰导管细胞"),
-    ("human", "lung", "mast cell"): ("人", "肺", "肥大细胞"),
-    ("human", "lung", "dendritic cell"): ("人", "肺", "树突状细胞"),
-    ("human", "lung", "ciliated cell"): ("人", "肺", "纤毛上皮"),
-    ("human", "lung", "multiciliated columnar cell of tracheobronchial tree"): ("人", "肺", "气道多纤毛上皮"),
-    ("human", "lung", "pulmonary alveolar type 1 cell"): ("人", "肺", "AT1 肺泡上皮"),
-    ("human", "liver", "basophil"): ("人", "肝", "嗜碱粒细胞"),
+# explicit display names (no regex, no inference). Keyed by (species, tissue, author label).
+SP_CN = {"human": "人", "mouse": "小鼠"}
+TISSUE_CN = {"lung": "肺", "liver": "肝", "pancreas": "胰", "brain": "脑", "spinal_cord": "脊髓"}
+CT_CN = {
+    # mouse
+    ("mouse", "brain", "oligodendrocyte"): "少突胶质",
+    ("mouse", "brain", "astrocyte"): "星形胶质",
+    ("mouse", "brain", "central nervous system macrophage"): "小胶质/CNS巨噬",
+    ("mouse", "brain", "Cajal-Retzius cell"): "Cajal-Retzius 神经元",
+    ("mouse", "lung", "alveolar macrophage"): "肺泡巨噬",
+    ("mouse", "pancreas", "pancreatic D cell"): "胰岛 D(δ) 细胞",
+    ("mouse", "pancreas", "pancreatic ductal cell"): "胰导管细胞",
+    # human — brain (new in expansion batch v0.2)
+    ("human", "brain", "pvalb GABAergic cortical interneuron"): "PV 中间神经元",
+    ("human", "brain", "chandelier pvalb GABAergic cortical interneuron"): "枝形 PV 中间神经元",
+    ("human", "brain", "L5 extratelencephalic projecting glutamatergic cortical neuron"): "L5 ET 投射神经元",
+    ("human", "brain", "caudal ganglionic eminence derived cortical interneuron"): "CGE 源中间神经元",
+    ("human", "brain", "vascular leptomeningeal cell"): "血管软脑膜细胞",
+    ("human", "brain", "astrocyte of the cerebral cortex"): "星形胶质",
+    ("human", "brain", "oligodendrocyte"): "少突胶质",
+    ("human", "brain", "microglial cell"): "小胶质",
+    # human — lung
+    ("human", "lung", "mast cell"): "肥大细胞",
+    ("human", "lung", "dendritic cell"): "树突状细胞",
+    ("human", "lung", "ciliated cell"): "纤毛上皮",
+    ("human", "lung", "multiciliated columnar cell of tracheobronchial tree"): "气道多纤毛上皮",
+    ("human", "lung", "lung multiciliated epithelial cell"): "气道多纤毛上皮",
+    ("human", "lung", "pulmonary alveolar type 1 cell"): "AT1 肺泡上皮",
+    ("human", "lung", "alveolar adventitial fibroblast"): "肺泡外膜成纤维",
+    # human — liver
+    ("human", "liver", "basophil"): "嗜碱粒细胞",
+    ("human", "liver", "cholangiocyte"): "胆管细胞",
+    ("human", "liver", "CD16-negative, CD56-bright natural killer cell, human"): "CD56bright NK",
+    ("human", "liver", "megakaryocyte-erythroid progenitor cell"): "巨核-红系祖细胞",
+    # human — pancreas
+    ("human", "pancreas", "pancreatic acinar cell"): "胰腺腺泡细胞",
+    ("human", "pancreas", "type B pancreatic cell"): "胰岛 β 细胞",
+    ("human", "pancreas", "pancreatic D cell"): "胰岛 D(δ) 细胞",
+    ("human", "pancreas", "mast cell"): "肥大细胞",
+}
+# short dataset tags — the same cell type now appears in several strata, so the row label must say which
+DS_CN = {
+    "H_lung_cell": "HLCA", "H_lung_cell_cellref": "CellRef", "H_lung_cell_distal": "Distal",
+    "H_lung_nucleus": "肺单核", "H_liver_cell": "Guilliams", "H_liver_cell_full": "肝 full",
+    "H_liver_cell_global": "肝 global", "H_liver_nucleus": "肝单核",
+    "H_pancreas_cell": "TabulaSapiens", "H_pancreas_nucleus": "胰单核",
+    "H_panc_islet_mo": "胰岛 multiomics", "H_panc_islet_48": "胰岛 48-donor", "H_panc_islet_xs": "胰岛 x-species",
+    "H_brain_nucleus": "Siletti MTG", "H_brain_cell_hvs": "HVS 皮层", "H_brain_nucleus_seaad_mtg": "SEA-AD MTG",
+    "H_brain_nucleus_seaad_dlpfc": "SEA-AD DLPFC", "H_brain_nucleus_psychad": "PsychAD",
+    "H_spinal_nucleus": "Siletti 脊髓", "H_spinal_nucleus_wm": "脊髓白质",
+    "M_lung_cell": "TMS 10x", "M_lung_cell_ss2": "TMS SS2", "M_liver_cell": "TMS 10x",
+    "M_liver_cell_ss2": "TMS SS2", "M_pancreas_cell": "TMS 全胰", "M_pancreas_islet_cell": "小鼠胰岛图谱",
+    "M_brain_cell": "Yao 皮层+海马", "M_brain_nucleus": "皮层单核", "M_spinal_nucleus": "GSE103892",
 }
 SUSP = {"cell": "单细胞", "nucleus": "单核"}
 TIER_CN = {
@@ -60,10 +98,16 @@ VERDICT = {
     "A_supported": "确定",                   # >= 2 independent references agree CASP1 is at/near zero
     "B_potential": "可能",                   # exactly one reference supports it
     "B_potential_screen_missed": "可能",     # reference-supported, excluded only by the relative rule
-    "E_no_matched_reference": "可能",        # own data is consistent, no external reference exists yet
+    "E_no_matched_reference": "可能",        # no reference — resolved against the row's OWN data below
     "C_casp1_present": "相反",               # CASP1 is demonstrably present alongside IL18
     "D_refuted": "相反",                     # CASP1 >= IL18 in the reference layer
 }
+# A row with no matched reference cannot be judged against one, but it can still be judged against
+# itself. When its own pooled CASP1 is within RATIO_WEAK (3x) of its own IL18, the direction the screen
+# assumes is contradicted by the row's own data, and calling it 可能 would overstate it — human liver
+# CD56-bright NK cells detect CASP1 in 25.2% of cells against IL18 in 19.1%. Reference-judged rows are
+# untouched; this only resolves the no-reference case.
+OWN_DATA_RATIO_WEAK = 3.0
 VERDICT_ORDER = ["确定", "可能", "相反"]
 VERDICT_COL = {"确定": "#1B7A43", "可能": "#1F5FA8", "相反": "#9A2B2B"}
 VERDICT_NOTE = {
@@ -74,17 +118,17 @@ VERDICT_NOTE = {
 
 
 def name_of(sp, ti, ct, dataset_id):
-    sp_cn, ti_cn, ct_cn = CN[(sp, ti, ct)]
-    if (sp, ti, ct) == ("mouse", "pancreas", "pancreatic D cell"):
-        ct_cn += "（全胰）" if dataset_id == "M_pancreas_cell" else "（分选胰岛）"
-    return sp_cn, ti_cn, ct_cn
+    """Display name for one screen row. KeyError here is deliberate: a new author label must be given a
+    name by hand rather than falling back to the raw ontology string."""
+    return SP_CN[sp], TISSUE_CN[ti], CT_CN[(sp, ti, str(ct))], DS_CN.get(dataset_id, dataset_id)
 
 
 ZERO_SLOT = 0.0018   # where a true zero (0 positive cells) is drawn on the log axis
 XMIN, XMAX = 0.0011, 150.0
 
 
-def draw_answer_figure(out):
+def draw_answer_figure(out, species=("human", "mouse"), out_name="answer_v2.png", row_h=0.34,
+                       collapse=False):
     """One figure, one shared log detection-rate axis, both genes on the SAME row.
 
     Why this shape: the question is "IL18 high AND CASP1 low", so the two genes have to be readable
@@ -108,11 +152,20 @@ def draw_answer_figure(out):
                          "axes.spines.top": False, "axes.spines.right": False,
                          "axes.spines.left": False})
 
-    groups = [("人", out[out.species == "human"]), ("小鼠", out[out.species == "mouse"])]
+    if collapse:
+        # One row per cell type instead of per stratum: keep the stratum with the most analysed donors as
+        # the representative and let the "xN 数据集" tag carry the replication. Nothing is pooled across
+        # strata — the numbers shown are still one stratum's own numbers.
+        out = (out.sort_values("n_donors_analysed", ascending=False)
+                  .drop_duplicates(["species", "tissue", "celltype"])
+                  .sort_values(["verdict_rank_fig", "pooled_pct_IL18"], ascending=[True, False]))
+    groups = [(SP_CN[sp], out[out.species == sp]) for sp in species]
+    groups = [(k, g) for k, g in groups if len(g)]
     counts = [len(g) for _, g in groups]
     n_all = sum(counts)
-    fig, axes = plt.subplots(2, 1, figsize=(17.0, 0.40 * n_all + 2.2),
+    fig, axes = plt.subplots(len(groups), 1, figsize=(17.0, row_h * n_all + 2.4), squeeze=False,
                              gridspec_kw={"height_ratios": counts, "hspace": 0.26})
+    axes = axes[:, 0]
 
     for ax, (sp, g) in zip(axes, groups):
         d = g.iloc[::-1].reset_index(drop=True)      # bottom-up so 确定 lands on top
@@ -126,28 +179,35 @@ def draw_answer_figure(out):
             ax.vlines(100.0 / r.n_cells_analysed, i - .26, i + .26, color="#B5B5B5", lw=1.0, zorder=2)
             ax.scatter([x_c], [i], s=66, facecolors="white", edgecolors=col, linewidths=2.1, zorder=4)
             ax.scatter([il18], [i], s=78, color=col, zorder=4)
-            ax.text(il18 * 1.22, i, f"{il18:.1f}%", va="center", fontsize=9.8, color=col, weight="bold")
-            ax.text(x_c / 1.28, i, "0" if not r.n_cells_CASP1_pos else f"{casp1:.2f}%",
-                    va="center", ha="right", fontsize=9.3, color=col)
-            ax.text(1.006, i, f"{r.n_cells_CASP1_pos} · {r.n_cells_IL18_pos} / {r.n_cells_analysed}",
+            c_txt = "0" if not r.n_cells_CASP1_pos else f"{casp1:.2f}%"
+            if x_c <= il18:
+                ax.text(il18 * 1.22, i, f"{il18:.1f}%", va="center", fontsize=9.8, color=col, weight="bold")
+                ax.text(x_c / 1.28, i, c_txt, va="center", ha="right", fontsize=9.3, color=col)
+            else:                                   # CASP1 above IL18 — swap the sides so labels never collide
+                ax.text(x_c * 1.22, i, c_txt, va="center", fontsize=9.3, color=col)
+                ax.text(il18 / 1.28, i, f"{il18:.1f}%", va="center", ha="right", fontsize=9.8,
+                        color=col, weight="bold")
+            rep = f"  ×{r.n_strata} 数据集" if r.n_strata > 1 else ""
+            ax.text(1.006, i, f"{r.n_cells_CASP1_pos} · {r.n_cells_IL18_pos} / {r.n_cells_analysed}{rep}",
                     transform=ax.get_yaxis_transform(), va="center", ha="left",
                     fontsize=8.9, color="#555555")
         ax.set_xscale("log")
         ax.set_xlim(XMIN, XMAX)
-        ax.set_yticks(np.arange(n), [f"{r.tissue_cn} {r.celltype_cn}（{SUSP[r.suspension_type]}）"
-                                     for r in d.itertuples()], fontsize=9.9)
+        ax.set_yticks(np.arange(n), [f"{r.tissue_cn} {r.celltype_cn}（{SUSP[r.suspension_type]}·{r.dataset_cn}）"
+                                     for r in d.itertuples()], fontsize=9.4)
         ax.tick_params(axis="y", length=0)
         ax.set_ylim(-0.72, n - 0.28)
         ax.grid(axis="x", color="#ECECEC", lw=.7)
         ax.set_axisbelow(True)
         ax.text(-0.235, 1.0, sp, transform=ax.transAxes, ha="left", va="bottom",
                 fontsize=15, weight="bold", color="#1A1A1A")
-        ax.text(1.006, 1.0, "CASP1 · IL18 阳性细胞 / 分析细胞", transform=ax.transAxes,
+        ax.text(1.006, 1.0, "CASP1 · IL18 阳性细胞 / 分析细胞\n×n = 在几个独立数据集里重复", transform=ax.transAxes,
                 ha="left", va="bottom", fontsize=8.9, color="#555555")
         ax.set_xticks([0.01, 0.1, 1, 10, 100], ["0.01%", "0.1%", "1%", "10%", "100%"], fontsize=9.6)
 
-    axes[0].tick_params(axis="x", labelbottom=False, length=0)
-    axes[1].set_xlabel("检出率（对数轴）= 该基因原始计数 ≥1 的细胞数 ÷ 分析细胞数（全部供体合并）", fontsize=10.6)
+    for ax in axes[:-1]:
+        ax.tick_params(axis="x", labelbottom=False, length=0)
+    axes[-1].set_xlabel("检出率（对数轴）= 该基因原始计数 ≥1 的细胞数 ÷ 分析细胞数（全部供体合并）", fontsize=10.6)
 
     marks = [Line2D([], [], marker="o", ls="", ms=8.6, color="#444"),
              Line2D([], [], marker="o", ls="", ms=8.6, mfc="white", mec="#444", mew=2.1),
@@ -163,9 +223,10 @@ def draw_answer_figure(out):
              "分子 = 其中该基因原始计数 ≥1 的细胞数。不是表达量占比、不是相对最高值的百分比、不是读段占比。"
              "人与小鼠、单细胞与单核之间不作定量比较。",
              fontsize=8.9, color="#666666")
-    fig.subplots_adjust(left=0.185, right=0.845, top=0.862, bottom=0.105)
-    fig.savefig(FIG / "answer_v2.png", dpi=170)
-    print("wrote figures/answer_v2.png", fig.get_size_inches() * 170)
+    fig.subplots_adjust(left=0.205, right=0.825, top=0.885, bottom=0.085)
+    fig.savefig(FIG / out_name, dpi=170)
+    print(f"wrote figures/{out_name}", fig.get_size_inches() * 170)
+    plt.close(fig)
 
 
 BRAIN_ROWS = [   # mouse brain, scRNA, author labels — explicit, no regex, no re-annotation
@@ -259,10 +320,10 @@ def main():
 
     rows = []
     for _, r in ev.iterrows():
-        sp_cn, ti_cn, ct_cn = name_of(r.species, r.tissue, r.celltype, r.dataset_id)
+        sp_cn, ti_cn, ct_cn, ds_cn = name_of(r.species, r.tissue, r.celltype, r.dataset_id)
         rows.append({"tier": r.evidence_tier, "species": r.species, "tissue": r.tissue,
                      "suspension_type": r.suspension_type, "celltype": r.celltype,
-                     "sp_cn": sp_cn, "tissue_cn": ti_cn, "celltype_cn": ct_cn,
+                     "sp_cn": sp_cn, "tissue_cn": ti_cn, "celltype_cn": ct_cn, "dataset_cn": ds_cn,
                      "dataset_id": r.dataset_id, "level": r.level,
                      "n_cells_analysed": r.n_cells_analysed, "n_donors_analysed": r.n_donors_analysed,
                      "median_cells_per_donor": r.median_cells_per_donor,
@@ -278,10 +339,10 @@ def main():
     miss = pd.read_csv(ROOT / "results" / "screen_missed_but_reference_supported.tsv", sep="\t", comment="#")
     for _, r in miss.iterrows():
         ps = pooled_stats(r.dataset_id, "author_label", r.celltype, cmap)
-        sp_cn, ti_cn, ct_cn = name_of(r.species, r.tissue, r.celltype, r.dataset_id)
+        sp_cn, ti_cn, ct_cn, ds_cn = name_of(r.species, r.tissue, r.celltype, r.dataset_id)
         rows.append({"tier": "B_potential_screen_missed", "species": r.species, "tissue": r.tissue,
                      "suspension_type": r.suspension_type, "celltype": r.celltype,
-                     "sp_cn": sp_cn, "tissue_cn": ti_cn, "celltype_cn": ct_cn,
+                     "sp_cn": sp_cn, "tissue_cn": ti_cn, "celltype_cn": ct_cn, "dataset_cn": ds_cn,
                      "dataset_id": r.dataset_id, "level": "author_label",
                      **{k: ps[k] for k in ("n_cells_analysed", "n_donors_analysed", "median_cells_per_donor",
                                            "n_cells_IL18_pos", "pooled_pct_IL18", "donors_with_IL18_pos",
@@ -294,16 +355,32 @@ def main():
                      "screen_status": "未进候选（CASP1 未进最低三分位）"})
 
     out = pd.DataFrame(rows)
+    # Replication is its own evidence axis, separate from the reference layer: the same cell type found
+    # in several INDEPENDENT strata (different datasets, different donors) is harder to explain away as
+    # one atlas's annotation or batch quirk. Counted over distinct rows only, never pooled across strata.
+    # `out` already excludes the lineage re-aggregation rows (ev is filtered on duplicate_of above).
+    rep = out.groupby(["species", "tissue", "celltype"]).dataset_id.nunique()
+    out["n_strata"] = [int(rep.get((r.species, r.tissue, r.celltype), 1)) for r in out.itertuples()]
     out["tier_cn"] = out.tier.map(TIER_CN)
     out["verdict"] = out.tier.map(VERDICT)
+    no_ref = out.tier == "E_no_matched_reference"
+    own_ratio = out.pooled_pct_IL18 / out.pooled_pct_CASP1.replace(0, np.nan)
+    out.loc[no_ref & (own_ratio < OWN_DATA_RATIO_WEAK), "verdict"] = "相反"
+    out.loc[no_ref, "tier_reason"] = out.loc[no_ref].apply(
+        lambda r: ("参考层中没有对应群体；按本行自身数据判断，CASP1 与 IL18 同量级"
+                   f"（IL18 {r.pooled_pct_IL18*100:.2f}% vs CASP1 {r.pooled_pct_CASP1*100:.2f}%），方向与前提相反"
+                   if r.pooled_pct_CASP1 > 0 and r.pooled_pct_IL18 / r.pooled_pct_CASP1 < OWN_DATA_RATIO_WEAK
+                   else "参考层中没有对应群体，无法外部核对；本行自身数据方向符合前提"), axis=1)
     out["verdict_rank"] = out.verdict.map({v: i for i, v in enumerate(VERDICT_ORDER)})
-    out = out.sort_values(["verdict_rank", "pooled_pct_IL18"],
-                          ascending=[True, False]).drop(columns="verdict_rank")
-    cols = ["verdict", "tier", "tier_cn"] + [c for c in out.columns if c not in ("verdict", "tier", "tier_cn")]
-    out = out[cols]
-    write_tsv(out, ROOT / "results" / "answer_table.tsv")
+    out = out.sort_values(["verdict_rank", "pooled_pct_IL18"], ascending=[True, False])
+    out = out.rename(columns={"verdict_rank": "verdict_rank_fig"})
+    tsv = out.drop(columns=["verdict_rank_fig"])
+    cols = ["verdict", "tier", "tier_cn", "n_strata"] + [c for c in tsv.columns if c not in ("verdict", "tier", "tier_cn", "n_strata")]
+    write_tsv(tsv[cols], ROOT / "results" / "answer_table.tsv")
 
-    draw_answer_figure(out)
+    draw_answer_figure(out)                                              # combined, for the report
+    draw_answer_figure(out, ("human",), "answer_human.png", row_h=0.42, collapse=True)   # one slide each
+    draw_answer_figure(out, ("mouse",), "answer_mouse.png", row_h=0.42, collapse=True)
     draw_brain_dotplot()
 
     # ---- json for deck/report ----------------------------------------------------------------------
@@ -313,6 +390,7 @@ def main():
            "il18": round(r.pooled_pct_IL18 * 100, 2), "il18_pos": int(r.n_cells_IL18_pos),
            "casp1": round(r.pooled_pct_CASP1 * 100, 3), "casp1_pos": int(r.n_cells_CASP1_pos),
            "n_cells": int(r.n_cells_analysed), "n_donors": int(r.n_donors_analysed),
+           "n_strata": int(r.n_strata), "dataset_cn": r.dataset_cn,
            "casp1_donors": int(r.donors_with_CASP1_pos),
            "med_casp1": round(r.donor_median_pct_CASP1 * 100, 2),
            "ratio": ("" if pd.isna(r.ref_ratio_IL18_over_CASP1) else str(r.ref_ratio_IL18_over_CASP1)),

@@ -36,9 +36,15 @@ EXTRA = {
  ("mouse","lung","lung macrophage"):"lung interstitial macrophage",
 }
 s = pd.read_csv(ROOT/"results"/"il18_casp_summary.tsv", sep="\t", comment="#")
-miss = s[(s.IL18_top == True) & (s.is_candidate != True) & (s.n_donors >= 3) & (s.level == "author")]
+# detect_ok (pct_IL18 >= 10%) is required here too. A cell type that fails the detection floor was not
+# "missed by the relative CASP1 rule" — it simply does not express enough IL18 to be a candidate, and
+# listing it as a near-miss would overstate it (human islet beta cell: IL18 detected in 1.0% of cells).
+miss = s[(s.IL18_top == True) & (s.detect_ok == True) & (s.is_candidate != True)
+         & (s.n_donors >= 3) & (s.level == "author")]
 rows=[]
 for _, r in miss.iterrows():
+    why = "CASP1 未进分层内最低三分位（相对规则）" if r.CASP3_ok == True else \
+          "CASP1 未进分层内最低三分位，且 CASP3 处于分层内最低 20%"
     lab = EXTRA.get((r.species, r.tissue, str(r.celltype)))
     if not lab: continue
     sub = ref[(ref.species==r.species)&(ref.cell_type_screen==lab)]
@@ -51,7 +57,7 @@ for _, r in miss.iterrows():
                  "suspension_type":r.suspension_type,"celltype":r.celltype,"n_donors":int(r.n_donors),
                  "pct_IL18":r.pct_IL18,"pct_CASP1":r.pct_CASP1,
                  "rank_IL18":r.rank_IL18,"rank_CASP1":r.rank_CASP1,"n_ct_stratum":r.n_ct_stratum,
-                 "excluded_because":"CASP1 未进分层内最低三分位（相对规则）",
+                 "excluded_because":why,
                  "ref_label":lab,"n_ref_sources_supporting":len({g['source'] for g in good}),
                  "best_ref":f"{best['source']}[{best['unit'][:18]}] IL18={best['il18']:.3g}/CASP1={best['casp1']:.3g} ratio={best['ratio']:.3g}"})
 out=pd.DataFrame(rows).sort_values(["species","tissue"])

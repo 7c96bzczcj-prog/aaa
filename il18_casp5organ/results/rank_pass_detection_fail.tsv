@@ -1,9 +1,30 @@
 # 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
 # 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
 # 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+#
+# 【列定义】pct_<基因> = 检出率 = 分子/分母：分母 = 该分层(数据集×器官×suspension)内、该供体、该细胞类型所含的细胞个数；分子 = 其中该基因原始计数 >= 1 的细胞个数。汇总表中再对该分层内各供体取中位数。
+#   即「有多少比例的细胞里测得到这个基因」，不是表达量占比、不是相对最高值的百分比、也不是读段占比。
+# logcpm_<基因> = 伪bulk 表达量 = log2( 该格子内该基因计数之和 / 该格子内文库大小之和 * 1e6 + 1 )。
+# rank_<基因> = 该细胞类型在同一分层内按 logcpm 的排名，1 = 最高。排名只在分层内有意义。
 dataset_id	level	species	tissue	suspension_type	celltype	n_donors	pct_IL18	logcpm_IL18	logcpm_CASP1	logcpm_CASP3
 H_brain_nucleus	lineage	human	brain	nucleus	mesenchymal	3	0.04081632653061224	4.927707152644031	0.0	4.2012247759613155
+H_brain_nucleus_psychad	lineage	human	brain	nucleus	mesenchymal	181	0.07142857142857142	4.501659389805609	0.0	4.203011774759411
+H_brain_nucleus_seaad_dlpfc	lineage	human	brain	nucleus	mesenchymal	40	0.036105318039624607	2.7933683114044263	0.0	4.4758203375450645
+H_brain_nucleus_seaad_mtg	lineage	human	brain	nucleus	mesenchymal	39	0.034482758620689655	3.0085877636081495	0.0	4.18637378976182
+H_panc_islet_mo	lineage	human	pancreas	cell	parenchymal_epithelial	19	0.025755879059350503	1.6683878871565834	0.2176465080481644	3.6156077690853032
+H_panc_islet_xs	lineage	human	pancreas	cell	parenchymal_epithelial	5	0.005398773006134969	0.43241697801209134	0.07977692299235337	4.173911278802596
 M_pancreas_islet_cell	lineage	mouse	pancreas	cell	glia	5	0.02564102564102564	3.201298809148303	0.0	1.9359092770351793
+H_brain_nucleus_psychad	author	human	brain	nucleus	smooth muscle cell	8	0.041666666666666664	3.596159188303263	0.0	4.362789099977075
+H_brain_nucleus_seaad_dlpfc	author	human	brain	nucleus	chandelier pvalb GABAergic cortical interneuron	44	0.0862288752913753	2.50667925628027	0.0	4.297142750276393
+H_brain_nucleus_seaad_dlpfc	author	human	brain	nucleus	vascular leptomeningeal cell	40	0.036105318039624607	2.7933683114044263	0.0	4.4758203375450645
+H_brain_nucleus_seaad_mtg	author	human	brain	nucleus	caudal ganglionic eminence derived cortical interneuron	43	0.06321839080459771	1.9468106589952416	0.0	3.7690377867413813
+H_brain_nucleus_seaad_mtg	author	human	brain	nucleus	pvalb GABAergic cortical interneuron	46	0.0942504958557556	2.5008381804462214	0.0	4.32969505210618
+H_brain_nucleus_seaad_mtg	author	human	brain	nucleus	vascular leptomeningeal cell	39	0.034482758620689655	3.0085877636081495	0.0	4.18637378976182
+H_liver_cell_full	author	human	liver	cell	granulocyte	11	0.058823529411764705	3.3141953953157506	3.8248233802853213	4.995893060792599
+H_lung_cell_distal	author	human	lung	cell	epithelial cell of lung	9	0.012336719883889695	0.81109232513712	0.06136991575120681	4.4924420434558066
+H_lung_cell_distal	author	human	lung	cell	pulmonary alveolar type 2 cell	4	0.04523809523809524	2.8815487918394584	0.0	4.127492903913646
+H_lung_cell_distal	author	human	lung	cell	respiratory tract epithelial cell	6	0.00512165569636834	0.5696977187904793	0.0	4.853719047041933
+H_spinal_nucleus_wm	author	human	spinal_cord	nucleus	oligodendrocyte	19	0.0013550135501355014	0.31518619856636243	0.0	5.022288632286475
 M_brain_cell	author	mouse	brain	cell	hippocampal neuron	9	0.060790273556231005	3.2962961962815873	0.0	2.3098704391667266
 M_brain_nucleus	author	mouse	brain	nucleus	pericyte	10	0.03732856290995826	4.201773844049065	0.0	2.9261389058812872
 M_lung_cell	author	mouse	lung	cell	basophil	3	0.043478260869565216	3.659470806694882	4.712738246481943	3.5072151406426118

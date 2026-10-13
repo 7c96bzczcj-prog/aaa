@@ -48,10 +48,37 @@ SCREEN_TO_REF = {
     ("mouse", "brain", "resident_macrophage"): "brain microglia",
     ("mouse", "pancreas", "pancreatic D cell"): "islet delta cell",
     ("mouse", "pancreas", "pancreatic ductal cell"): "pancreas ductal cell",
+    # --- expansion batch v0.2 ---
+    # Human cortical neuron subtypes. The reference layer resolves human CNS only to "neuron"
+    # (sorted/purified bulk is not available per interneuron subclass), so all four map to that row and
+    # the judgement they get is a neuron-level one, not a subclass-level one. Flagged in tier_reason.
+    ("human", "brain", "pvalb GABAergic cortical interneuron"): "CNS neuron",
+    ("human", "brain", "chandelier pvalb GABAergic cortical interneuron"): "CNS neuron",
+    ("human", "brain", "L5 extratelencephalic projecting glutamatergic cortical neuron"): "CNS neuron",
+    ("human", "brain", "caudal ganglionic eminence derived cortical interneuron"): "CNS neuron",
+    ("human", "brain", "neuron"): "CNS neuron",
+    ("human", "brain", "astrocyte of the cerebral cortex"): "CNS astrocyte",
+    ("human", "brain", "oligodendrocyte"): "CNS oligodendrocyte",
+    ("human", "brain", "microglial cell"): "CNS microglia",
+    # Human lung epithelium — the two atlases use different labels for the same population.
+    ("human", "lung", "lung multiciliated epithelial cell"): "lung multiciliated/ciliated epithelial cell",
+    ("human", "lung", "pulmonary alveolar type 1 cell"): "lung AT1",
+    # Human liver / pancreas
+    ("human", "liver", "cholangiocyte"): "liver cholangiocyte",
+    ("human", "pancreas", "pancreatic D cell"): "islet delta cell",
+    ("human", "pancreas", "pancreatic ductal cell"): "pancreas ductal cell",
+    ("human", "pancreas", "pancreatic acinar cell"): "pancreas acinar cell",
+    ("human", "pancreas", "mast cell"): "lung mast cell",   # only sorted human mast-cell bulk available
+    # Human spinal cord白质 — the reference layer has no spinal-cord-specific sorted bulk, so CNS rows
+    # are used; the organ differs from where the reference was measured and that is a real caveat.
+    ("human", "spinal_cord", "astrocyte"): "CNS astrocyte",
+    ("human", "spinal_cord", "oligodendrocyte"): "CNS oligodendrocyte",
+    ("human", "spinal_cord", "microglial cell"): "CNS microglia",
 }
 # which candidate rows are re-aggregations of another row (so counts are not inflated)
 DUPLICATE_OF = {
     ("human", "lung", "granulocyte"): "mast cell",
+    ("human", "pancreas", "granulocyte"): "mast cell",   # islet lineage row = the mast cells re-aggregated
     ("mouse", "lung", "resident_macrophage"): "alveolar macrophage",
     ("mouse", "brain", "resident_macrophage"): "central nervous system macrophage",
     ("mouse", "brain", "glia"): "astrocyte + oligodendrocyte",
