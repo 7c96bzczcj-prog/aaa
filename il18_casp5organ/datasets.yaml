@@ -242,3 +242,231 @@ datasets:
                 raw count matrix (24 MB) + per-cell cell.type annotation (112 KB) present; naive baseline samples present
   x_source: geo
   x_baseline_samples: [f1, m1, M4, M5, F3, F4]   # cell.type annotation prefixes to keep (naive lumbar spinal cord)
+
+# ======================================================================================================
+# 扩充批次 v0.2（2026-10-13，用户指示「把能加的都加上」）
+# 目的：人侧除肺以外的器官原本分层太窄，三分位规则跑不动——人脑只有 5 个可分析细胞类型、人胰单细胞 0 个、
+# 人脊髓只有 1 位供体。下列条目全部由本次会话内的 Census obs 查询确认（物种/器官/suspension/normal/供体数/
+# 细胞类型数/关键细胞类型的细胞数），未经查询的一律不写。
+# ======================================================================================================
+
+# ---------------- 人 · 胰腺（补上人胰岛 δ(D) 细胞——小鼠侧的「可能」在人侧原本完全无法对照） ----------------
+- id: H_panc_islet_mo
+  accession: CELLxGENE 37b21763-7f0f-41ae-9001-60bad6e2841d
+  source_layer: B
+  species: human
+  tissue: pancreas
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 19
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Multiomics single-cell analysis of human pancreatic islets; DOI 10.1038/s42255-022-00531-x"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：tissue=islet of Langerhans / tissue_general=pancreas，assay 10x 3' v2+v3，suspension=cell，normal，19 供体 47245 细胞 10 类；pancreatic D cell 1217 细胞 / 19 供体"
+
+- id: H_panc_islet_48
+  accession: CELLxGENE e51bae9a-c747-4b64-904a-4da7cda218ab
+  source_layer: B
+  species: human
+  tissue: pancreas
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 17
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "A pancreatic islet scRNA-seq atlas from non-diabetic donors; DOI 10.1101/2025.01.17.633590"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：pancreas/cell/normal，17 供体 88521 细胞 12 类；pancreatic D cell 4677 细胞 / 17 供体"
+
+- id: H_panc_islet_xs
+  accession: CELLxGENE 3294d050-6eeb-4a00-b24c-71aacc9b777f
+  source_layer: B
+  species: human
+  tissue: pancreas
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 5
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "A transcriptional cross-species map of pancreatic islet cells; DOI 10.1016/j.molmet.2022.101595"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：pancreas/cell/normal，5 供体 26474 细胞 4 类；pancreatic D cell 2889 细胞 / 5 供体"
+
+# ---------------- 人 · 脑（补上此前判定为「不存在」的成年正常单细胞 scRNA） ----------------
+- id: H_brain_cell_hvs
+  accession: 'CELLxGENE collection HVS Human variation study — 24 dataset_id，见 x_dataset_ids'
+  source_layer: B
+  species: human
+  tissue: brain
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 78
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Jorstad 2023 Science, Human variation study (neocortex); DOI 10.1126/science.adf2359"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：assay 10x 3' v3，suspension=cell（真·单细胞，非单核），development_stage 全为 adult stage，78 供体 379330 细胞 18 类；astrocyte of the cerebral cortex 16319/78、oligodendrocyte 57855/78、microglial cell 3934/61"
+  x_note: "CELLxGENE 把这一个研究按细胞类型拆成 24 个 dataset_id 分发，每个只含 1 类细胞。若按 dataset_id 分层，每层只有 1 个细胞类型，分层内排序无从谈起。故此处把同一 collection 的 24 个 id 合并为一个分层——这是重组同一研究（同 collection、同供体、同 assay、同组织），不是跨数据集整合。"
+  x_dataset_ids: ['0087cde2-967d-4f7c-8e6e-40e4c9ad1891', '0de831e0-a525-4ec5-b717-df56f2de2bf0', '149b2c3f-ee11-47a7-984b-923570280bd7', '171b03c9-516b-499c-a434-fa4f70191988', '1a974af7-8b4b-4abb-8aba-23e2979d9518', '1fc48734-35ee-4372-885c-95fd2674c75a', '3079e9b0-c6db-45c8-b998-a4555a73968e', '31285bcd-9a28-48ce-8cc0-543af80261d3', '34229bdc-a895-4394-8820-574e4028d8c6', '390b376d-8857-4b4b-991f-0d7326938172', '4859642c-d155-437b-adf5-83ca6c1bef67', '4e374783-0152-423e-bcb6-b87cc232f64d', '5e7fff82-b8eb-4220-bf65-c6feb6765ea1', '6929d6d1-6f81-44d7-bd35-5a580259af81', '78f40dd6-ed22-470d-8547-6fb5746c25da', '93091496-be48-4122-b945-9af9c22a7535', '9ea52f85-a35e-4b5b-9207-e2f1de7dbbcd', 'a30db232-08a6-48f0-ab9f-ad6977b8a6b1', 'b6e502d7-0d07-408e-a291-91b63af0a40a', 'd5a2d011-3765-4dad-ac36-3fff087589fe', 'e2a325e2-5633-4950-ae46-ebff70979e3b', 'e34f3f89-3a48-4173-a06a-9e9803f2e2b9', 'ea95cdd5-cf7e-4d5d-a0bd-032776d32ae5', 'f9cfac8d-bff6-47a2-a1f6-503827d375f5']
+
+- id: H_brain_nucleus_seaad_mtg
+  accession: CELLxGENE c2876b1b-06d8-4d96-a56b-5304f815b99a
+  source_layer: B
+  species: human
+  tissue: brain
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 46
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "SEA-AD (Seattle Alzheimer's Disease Brain Cell Atlas), MTG — 仅取 disease == normal 的对照供体"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：brain/nucleus/normal，46 供体 764299 细胞 18 类"
+
+- id: H_brain_nucleus_seaad_dlpfc
+  accession: CELLxGENE 6f7fd0f1-a2ed-4ff1-80d3-33dde731cbc3
+  source_layer: B
+  species: human
+  tissue: brain
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 44
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "SEA-AD (Seattle Alzheimer's Disease Brain Cell Atlas), DLPFC — 仅取 disease == normal 的对照供体"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：brain/nucleus/normal，44 供体 796768 细胞 18 类"
+
+- id: H_brain_nucleus_psychad
+  accession: CELLxGENE 37a17b78-4864-4a42-b67b-31c00962795a
+  source_layer: B
+  species: human
+  tissue: brain
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 261
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "PsychAD MSSM cohort（人脑前额叶单核图谱）— 仅取 disease == normal 的供体"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：brain/nucleus/normal，261 供体 1049809 细胞 25 类"
+
+# ---------------- 人 · 脊髓（原本只有 1 位供体，整个器官无结论） ----------------
+- id: H_spinal_nucleus_wm
+  accession: CELLxGENE c05e6940-729c-47bd-a2a6-6ce3730c4919
+  source_layer: B
+  species: human
+  tissue: spinal_cord
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 19
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Brain matters: region/age contributions to CNS white matter; DOI 10.1186/s40478-023-01568-z"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：tissue=cervical spinal cord white matter / tissue_general=spinal cord，assay 10x 3' v3，nucleus，normal，19 供体 19650 细胞 15 类"
+  x_caveat: "仅颈段白质，不含灰质与运动神经元；结论只能覆盖白质细胞群。"
+
+# ---------------- 人 · 肝（把分层从 11 个可分析类型拓宽） ----------------
+- id: H_liver_cell_full
+  accession: CELLxGENE fd072bc3-2dfb-46f8-b4e3-467cb3223182
+  source_layer: B
+  species: human
+  tissue: liver
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 14
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Full single-cell RNA-seq profiles of human liver"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：liver/cell/normal，14 供体 219296 细胞 63 类"
+
+- id: H_liver_cell_global
+  accession: CELLxGENE 1b9d8702-5af8-4142-85ed-020eb06ec4f6
+  source_layer: B
+  species: human
+  tissue: liver
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 7
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Human liver global single-cell dataset"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：liver/cell/normal，7 供体 13368 细胞 34 类"
+
+# ---------------- 人 · 肺（已很深，补两套细胞类型更全的） ----------------
+- id: H_lung_cell_cellref
+  accession: CELLxGENE eb499fd8-7000-419f-8854-926b9b61b11f
+  source_layer: B
+  species: human
+  tissue: lung
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 21
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Human CellCards Multi-Study CellRef 1.0 Atlas"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：lung/cell/normal，21 供体 122445 细胞 46 类"
+
+- id: H_lung_cell_distal
+  accession: CELLxGENE 3dc61ca1-ce40-46b6-8337-f27260fd9a03
+  source_layer: B
+  species: human
+  tissue: lung
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 12
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Human lung all-cells dataset（细胞类型最全的一套）"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：lung/cell/normal，12 供体 71752 细胞 77 类"
+
+# ---------------- 小鼠 · 补 Tabula Muris Senis 的 Smart-seq2（FACS）一路 ----------------
+- id: M_lung_cell_ss2
+  accession: CELLxGENE 98e5ea9f-16d6-47ec-a529-686e76515e39
+  source_layer: B
+  species: mouse
+  tissue: lung
+  suspension_type: cell
+  platform: smartseq2
+  n_donors: 14
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Tabula Muris Senis（Smart-seq2 / FACS 一路）"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：lung/cell/normal，assay Smart-seq2，14 供体 5218 细胞 32 类"
+  x_caveat: "Smart-seq2 为全长、每细胞检出率远高于 10x，仅可在本分层内比较，不得与 10x 分层比检出率。"
+
+- id: M_liver_cell_ss2
+  accession: CELLxGENE 98e5ea9f-16d6-47ec-a529-686e76515e39
+  source_layer: B
+  species: mouse
+  tissue: liver
+  suspension_type: cell
+  platform: smartseq2
+  n_donors: 9
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: "Tabula Muris Senis（Smart-seq2 / FACS 一路）"
+  accession_verified: true
+  verified_how: "Census obs 查询 2026-10-13：liver/cell/normal，assay Smart-seq2，9 供体 2859 细胞 11 类"
+  x_caveat: "同上，Smart-seq2 不可与 10x 分层比检出率。"

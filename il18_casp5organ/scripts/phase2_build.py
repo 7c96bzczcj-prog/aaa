@@ -26,8 +26,14 @@ def build_census(census, e):
     org = ORG[e["species"]]
     gids = GENES[org]
     tis = e["tissue"].replace("_", " ")
-    did = e["accession"].split()[-1]
-    flt = (f"dataset_id == '{did}' and tissue_general == '{tis}' and is_primary_data == True "
+    # Normally one stratum = one dataset_id. The single exception is a study that CELLxGENE distributes
+    # split into one dataset per cell type (Allen HVS): those ids are listed in x_dataset_ids and read
+    # together, because each on its own holds a single cell type and no within-stratum ranking is possible.
+    # This re-assembles one study — same collection, donors, assay and tissue — not a cross-dataset merge.
+    dids = e.get("x_dataset_ids") or [e["accession"].split()[-1]]
+    sel = (f"dataset_id == '{dids[0]}'" if len(dids) == 1
+           else "dataset_id in ['%s']" % "','".join(dids))
+    flt = (f"{sel} and tissue_general == '{tis}' and is_primary_data == True "
            f"and disease == 'normal' and suspension_type == '{e['suspension_type']}'")
     ad = cc.get_anndata(census, organism=org, X_name="raw", obs_value_filter=flt,
                         var_value_filter="feature_id in ['%s']" % "','".join(gids.values()),
@@ -43,7 +49,7 @@ def build_census(census, e):
         df[g] = X[g].values if g in present else np.nan
     df["gene_missing"] = len(present) < 3
     df["gene_id_unavailable"] = False
-    LOG.append(f"{e['id']}: Census {did}/{tis}/{e['suspension_type']} genes={present} "
+    LOG.append(f"{e['id']}: Census {len(dids)} dataset_id(s)/{tis}/{e['suspension_type']} genes={present} "
                f"{len(df)} normal cells, {df.donor_id.nunique()} donors")
     return df
 
