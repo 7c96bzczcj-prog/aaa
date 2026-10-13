@@ -61,6 +61,93 @@ def name_of(sp, ti, ct, dataset_id):
     return sp_cn, ti_cn, ct_cn
 
 
+ZERO_SLOT = 0.0018   # where a true zero (0 positive cells) is drawn on the log axis
+XMIN, XMAX = 0.0011, 150.0
+
+
+def draw_answer_figure(out):
+    """One figure, one shared log detection-rate axis, both genes on the SAME row.
+
+    Why this shape: the question is "IL18 high AND CASP1 low", so the two genes have to be readable
+    against each other per cell type, not in two separate panels. A filled dot (IL18) and a hollow dot
+    (CASP1) sit on one log axis; the segment between them IS the gap. The log axis is required — CASP1
+    spans 0.02%-13.3%, and on a linear axis everything under ~1% collapses onto the spine, which is
+    exactly the "it all reads as 0" failure this figure exists to undo.
+
+    Species go in separate stacked panels, never interleaved: human/mouse and scRNA/snRNA are not
+    quantitatively comparable, so the figure must not invite a cross-species ranking.
+
+    The grey tick on each row is 1/n — the smallest non-zero rate that row could possibly show. A CASP1
+    dot sitting on it, or a true zero in a row whose 1/n is high, is weakly powered, and the reader can
+    see that without being told.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    plt.rcParams.update({"font.family": "WenQuanYi Zen Hei", "axes.unicode_minus": False,
+                         "axes.spines.top": False, "axes.spines.right": False,
+                         "axes.spines.left": False})
+
+    groups = [("人", out[out.species == "human"]), ("小鼠", out[out.species == "mouse"])]
+    counts = [len(g) for _, g in groups]
+    n_all = sum(counts)
+    fig, axes = plt.subplots(2, 1, figsize=(17.0, 0.40 * n_all + 2.2),
+                             gridspec_kw={"height_ratios": counts, "hspace": 0.26})
+
+    for ax, (sp, g) in zip(axes, groups):
+        d = g.iloc[::-1].reset_index(drop=True)      # bottom-up so the A tier lands on top
+        n = len(d)
+        for i, r in enumerate(d.itertuples()):
+            col = TIER_COL[r.tier]
+            il18 = r.pooled_pct_IL18 * 100
+            casp1 = r.pooled_pct_CASP1 * 100
+            x_c = casp1 if r.n_cells_CASP1_pos else ZERO_SLOT
+            ax.plot([x_c, il18], [i, i], color=col, lw=3.0, alpha=.22, solid_capstyle="round", zorder=1)
+            ax.vlines(100.0 / r.n_cells_analysed, i - .26, i + .26, color="#B5B5B5", lw=1.0, zorder=2)
+            ax.scatter([x_c], [i], s=66, facecolors="white", edgecolors=col, linewidths=2.1, zorder=4)
+            ax.scatter([il18], [i], s=78, color=col, zorder=4)
+            ax.text(il18 * 1.22, i, f"{il18:.1f}%", va="center", fontsize=9.8, color=col, weight="bold")
+            ax.text(x_c / 1.28, i, "0" if not r.n_cells_CASP1_pos else f"{casp1:.2f}%",
+                    va="center", ha="right", fontsize=9.3, color=col)
+            ax.text(1.006, i, f"{r.n_cells_CASP1_pos} · {r.n_cells_IL18_pos} / {r.n_cells_analysed}",
+                    transform=ax.get_yaxis_transform(), va="center", ha="left",
+                    fontsize=8.9, color="#555555")
+        ax.set_xscale("log")
+        ax.set_xlim(XMIN, XMAX)
+        ax.set_yticks(np.arange(n), [f"{r.tissue_cn} {r.celltype_cn}（{SUSP[r.suspension_type]}）"
+                                     for r in d.itertuples()], fontsize=9.9)
+        ax.tick_params(axis="y", length=0)
+        ax.set_ylim(-0.72, n - 0.28)
+        ax.grid(axis="x", color="#ECECEC", lw=.7)
+        ax.set_axisbelow(True)
+        ax.text(-0.235, 1.0, sp, transform=ax.transAxes, ha="left", va="bottom",
+                fontsize=15, weight="bold", color="#1A1A1A")
+        ax.text(1.006, 1.0, "CASP1 · IL18 阳性细胞 / 分析细胞", transform=ax.transAxes,
+                ha="left", va="bottom", fontsize=8.9, color="#555555")
+        ax.set_xticks([0.01, 0.1, 1, 10, 100], ["0.01%", "0.1%", "1%", "10%", "100%"], fontsize=9.6)
+
+    axes[0].tick_params(axis="x", labelbottom=False, length=0)
+    axes[1].set_xlabel("检出率（对数轴）= 该基因原始计数 ≥1 的细胞数 ÷ 分析细胞数（全部供体合并）", fontsize=10.6)
+
+    marks = [Line2D([], [], marker="o", ls="", ms=8.6, color="#444"),
+             Line2D([], [], marker="o", ls="", ms=8.6, mfc="white", mec="#444", mew=2.1),
+             Line2D([], [], marker="|", ls="", ms=9, mew=1.4, color="#B5B5B5")]
+    tiers = [t for t in TIER_ORDER if t in set(out.tier)]
+    handles = marks + [Line2D([], [], marker="s", ls="", ms=8, color=TIER_COL[t]) for t in tiers]
+    names = ["IL18（pro-IL-18 转录本）", "CASP1", "该行可检出的最低非零值 1/n"] + [TIER_CN[t] for t in tiers]
+    axes[0].legend(handles, names, loc="lower left", bbox_to_anchor=(-0.235, 1.07), ncol=3,
+                   frameon=False, fontsize=9.5, handletextpad=.5, columnspacing=1.8)
+    fig.text(0.012, 0.012,
+             "分母 = 该细胞类型在该分层（数据集 × 器官 × 单细胞/单核）内、每位供体 ≥20 个细胞后进入分析的细胞总数；"
+             "分子 = 其中该基因原始计数 ≥1 的细胞数。不是表达量占比、不是相对最高值的百分比、不是读段占比。"
+             "人与小鼠、单细胞与单核之间不作定量比较。",
+             fontsize=8.9, color="#666666")
+    fig.subplots_adjust(left=0.185, right=0.845, top=0.862, bottom=0.105)
+    fig.savefig(FIG / "answer_v2.png", dpi=170)
+    print("wrote figures/answer_v2.png", fig.get_size_inches() * 170)
+
+
 def main():
     ev = pd.read_csv(ROOT / "results" / "il18_casp1_evidence.tsv", sep="\t", comment="#")
     ev = ev[ev.duplicate_of.isna() | (ev.duplicate_of == "")].copy()
@@ -108,65 +195,7 @@ def main():
     out["tier_cn"] = out.tier.map(TIER_CN)
     write_tsv(out, ROOT / "results" / "answer_table.tsv")
 
-    # ---- figure: two aligned panels, pooled rates, counts on the bars -------------------------------
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    plt.rcParams.update({"font.family": "WenQuanYi Zen Hei", "axes.unicode_minus": False,
-                         "axes.spines.top": False, "axes.spines.right": False})
-
-    df = out.iloc[::-1].reset_index(drop=True)      # bottom-up so A ends up on top
-    n = len(df)
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15.2, 0.40 * n + 1.9), sharey=True,
-                                   gridspec_kw={"width_ratios": [1.0, 1.0], "wspace": 0.34})
-    ypos = np.arange(n)
-    cols = [TIER_COL[t] for t in df.tier]
-    labels = [f"{r.sp_cn}·{r.tissue_cn} {r.celltype_cn}\n{SUSP[r.suspension_type]}" for r in df.itertuples()]
-
-    ax1.barh(ypos, df.pooled_pct_IL18 * 100, color=cols, height=0.58)
-    for i, r in enumerate(df.itertuples()):
-        ax1.text(r.pooled_pct_IL18 * 100 + 0.8, i,
-                 f"{r.pooled_pct_IL18*100:.1f}%  ({r.n_cells_IL18_pos}/{r.n_cells_analysed} 细胞, "
-                 f"{r.donors_with_IL18_pos}/{r.n_donors_analysed} 供体)",
-                 va="center", fontsize=9.2, color="#333333")
-    ax1.set_yticks(ypos, labels, fontsize=9.6)
-    ax1.set_xlim(0, 160)
-    ax1.set_xticks([0, 20, 40, 60, 80, 100], ["0", "20", "40", "60", "80", "100%"], fontsize=9)
-    ax1.set_xlabel("IL18 检出率 = 原始计数≥1 的细胞数 ÷ 分析细胞数（合并全部供体）", fontsize=10.2)
-    ax1.set_title("IL18（pro-IL-18 转录本）", fontsize=13, loc="left")
-
-    pc = df.pooled_pct_CASP1 * 100
-    ax2.barh(ypos, pc.clip(lower=1e-3), color=cols, height=0.58)
-    ax2.set_xscale("symlog", linthresh=0.01, linscale=0.4)
-    ax2.set_xlim(0, 30000)
-    ax2.set_xticks([0, 0.01, 0.1, 1, 10], ["0", "0.01%", "0.1%", "1%", "10%"], fontsize=9)
-    for i, r in enumerate(df.itertuples()):
-        v = r.pooled_pct_CASP1 * 100
-        txt = (f"{v:.2f}%  ({r.n_cells_CASP1_pos}/{r.n_cells_analysed} 细胞, "
-               f"{r.donors_with_CASP1_pos}/{r.n_donors_analysed} 供体)" if r.n_cells_CASP1_pos
-               else f"0  (0/{r.n_cells_analysed} 细胞)")
-        if r.donor_median_pct_CASP1 == 0 and r.n_cells_CASP1_pos:
-            txt += "，供体中位数=0"
-        ax2.text(max(v, 1e-3) * 1.7 if v > 0 else 0.0017, i, txt, va="center", fontsize=9.2, color="#333333")
-    ax2.set_xlabel("CASP1 检出率（同一分母；对数轴，故 0.02% 与 2.6% 可区分）", fontsize=10.2)
-    ax2.set_title("CASP1", fontsize=13, loc="left")
-
-    for ax in (ax1, ax2):
-        ax.set_ylim(-0.7, n - 0.3)
-        ax.grid(axis="x", color="#E6E6E6", lw=0.7)
-        ax.set_axisbelow(True)
-    handles = [plt.Rectangle((0, 0), 1, 1, color=TIER_COL[t]) for t in TIER_ORDER if t in set(df.tier)]
-    names = [TIER_CN[t] for t in TIER_ORDER if t in set(df.tier)]
-    ax1.legend(handles, names, loc="lower right", frameon=False, fontsize=9.6)
-    fig.suptitle("IL18 高 / CASP1 低 候选：合并检出率与证据级别", fontsize=15, x=0.055, ha="left",
-                 y=0.995, weight="bold")
-    fig.text(0.055, 0.012,
-             "分母 = 该细胞类型在该分层（数据集×器官×单细胞/单核）内、每位供体 ≥20 个细胞后进入分析的细胞总数；"
-             "分子 = 其中该基因原始计数 ≥1 的细胞数。不是表达量占比、不是相对最高值的百分比、不是读段占比。",
-             fontsize=8.8, color="#666666")
-    fig.subplots_adjust(left=0.158, right=0.997, top=0.885, bottom=0.125)
-    fig.savefig(FIG / "answer_v2.png", dpi=170)
-    print("wrote figures/answer_v2.png", fig.get_size_inches() * 170)
+    draw_answer_figure(out)
 
     # ---- json for deck/report ----------------------------------------------------------------------
     js = [{"tier": r.tier, "tier_cn": TIER_CN[r.tier], "sp": r.sp_cn, "organ": r.tissue_cn,

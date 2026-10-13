@@ -88,10 +88,10 @@ K.push(tbl(["证据级别", "物种·器官", "类型", "细胞类型", "IL18 �
   [1650, 780, 560, 1950, 1500, 1550, 820, 700, 540], 0));
 K.push(P("检出率为单细胞/单核数据的合并值（分母见第〇节）；参考比值为参考层同源同单位的 IL18:CASP1。最后一行 Cajal-Retzius 神经元无匹配参考，仅作记录。", { size: 15, color: MU }));
 
-K.push(new Paragraph({ spacing: { before: 200, after: 100 }, children: [run("图：候选总览（左 IL18、右 CASP1，同一分母；CASP1 为对数轴）", { bold: true, size: 17 })] }));
+K.push(new Paragraph({ spacing: { before: 200, after: 100 }, children: [run("图：候选总览——每行一个细胞类型，实心点 = IL18、空心点 = CASP1，同一条对数检出率轴；灰色短竖线 = 该行可检出的最低非零值 1/n；人与小鼠分开绘制", { bold: true, size: 17 })] }));
 K.push(new Paragraph({
   spacing: { after: 160 },
-  children: [new ImageRun({ data: fs.readFileSync(ROOT + "/figures/answer_v2.png"), transformation: { width: 620, height: 322 } })]
+  children: [new ImageRun({ data: fs.readFileSync(ROOT + "/figures/answer_v2.png"), transformation: { width: 630, height: 304 } })]
 }));
 
 // ---- 3. tier by tier -----------------------------------------------------------------------------
