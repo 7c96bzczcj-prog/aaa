@@ -1,0 +1,229 @@
+# datasets.yaml — candidate list for Phase 2 (spec v3.0 §5.2), version 0.1 (DRAFT, awaiting user confirmation)
+#
+# One entry per stratum = dataset_id × tissue × suspension_type (§8.1). All are NORMAL / adult / author-
+# annotated reference atlases from CELLxGENE Census LTS 2025-11-08. Human and mouse kept separate; cell and
+# nucleus kept separate (§2, §3). accession_verified: true means the dataset_id, tissue, suspension_type and
+# normal-cell presence were confirmed by direct Census obs query on 2026-10-13.
+#
+# Ambient-RNA note: Census source matrices are author-filtered (no empty droplets) and this environment has
+# no GPU, so SoupX/CellBender cannot be run here. Per the user-approved decision ①B, candidates are computed
+# on ambient-uncorrected data and flagged ambient_uncorrected=TRUE as provisional (see README).
+
+version: "0.1-draft"
+datasets:
+
+# ---------------- HUMAN ----------------
+- id: H_lung_cell
+  accession: CELLxGENE 9f222629-9e39-47d0-b83f-e08d610c7479
+  source_layer: B
+  species: human
+  tissue: lung
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0            # filled after subsetting
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Sikkema 2023 Nat Med (Human Lung Cell Atlas)
+  accession_verified: true
+  verified_how: Census obs query — lung, cell, normal present; collection DOI 10.1038/s41591-023-02327-2
+
+- id: H_lung_nucleus
+  accession: CELLxGENE 3de0ad6d-4378-4f62-b37b-ec0b75a50d94
+  source_layer: B
+  species: human
+  tissue: lung
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: LungMAP human broad-age healthy (eLife 2022)
+  accession_verified: true
+  verified_how: Census obs query — lung, nucleus, normal (46,500 cells)
+
+- id: H_liver_cell
+  accession: CELLxGENE e84f2780-51e8-4cfa-8aa0-13bbfef677c7
+  source_layer: B
+  species: human
+  tissue: liver
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Guilliams 2022 Cell (liver macrophage niche atlas)
+  accession_verified: true
+  verified_how: Census obs query — liver, cell, normal (152,535 cells)
+
+- id: H_liver_nucleus
+  accession: CELLxGENE ddb22b3d-a75c-4dd1-9730-dff7fc8ca530
+  source_layer: B
+  species: human
+  tissue: liver
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Healthy human liver integrated (single-cell/nucleus/spatial)
+  accession_verified: true
+  verified_how: Census obs query — liver, nucleus, normal (43,863 cells)
+
+- id: H_pancreas_cell
+  accession: CELLxGENE 53d208b0-2cfd-4366-9866-c3c6114081bc
+  source_layer: B
+  species: human
+  tissue: pancreas
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Tabula Sapiens 2022 Science (whole pancreas — acinar/ductal/islet)
+  accession_verified: true
+  verified_how: Census obs query — pancreas, cell, normal (14,140 cells); covers exocrine+endocrine
+
+- id: H_pancreas_nucleus
+  accession: CELLxGENE 31f657dc-1875-4c4b-a5ca-ce63b3ef3a82
+  source_layer: A1
+  species: human
+  tissue: pancreas
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Pancreas cross-study harmonized reference (nucleus)
+  accession_verified: true
+  verified_how: Census obs query — pancreas, nucleus, normal (79,367 cells)
+
+- id: H_brain_nucleus
+  accession: CELLxGENE e1f595f6-ba2c-495e-9bee-7056f116b1e4
+  source_layer: B
+  species: human
+  tissue: brain
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Siletti 2023 Science (Human Brain Cell Atlas v1.0 — Middle Temporal Gyrus dissection)
+  accession_verified: true
+  verified_how: Census obs query — brain, nucleus, normal; Human Brain Cell Atlas v1.0. Note human adult brain
+                is nucleus-only in Census (no normal-adult 'cell' brain dataset) — documented gap for cell.
+
+- id: H_spinal_nucleus
+  accession: CELLxGENE 090da8ea-46e8-40df-bffc-1f78e1538d27
+  source_layer: B
+  species: human
+  tissue: spinal_cord
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Siletti 2023 Science (Human Brain Cell Atlas v1.0 — Spinal cord dissection)
+  accession_verified: true
+  verified_how: Census obs query — spinal cord, nucleus, normal (24,190 cells); same atlas/annotation as brain
+
+# ---------------- MOUSE ----------------
+- id: M_lung_cell
+  accession: CELLxGENE 48b37086-25f7-4ecd-be66-f5bb378e3aea
+  source_layer: B
+  species: mouse
+  tissue: lung
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Tabula Muris Senis 2020 Nature (10x)
+  accession_verified: true
+  verified_how: Census obs query — lung, cell, normal (24,540). Mouse lung is cell-only in Census (no nucleus)
+
+- id: M_liver_cell
+  accession: CELLxGENE 48b37086-25f7-4ecd-be66-f5bb378e3aea
+  source_layer: B
+  species: mouse
+  tissue: liver
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Tabula Muris Senis 2020 Nature (10x)
+  accession_verified: true
+  verified_how: Census obs query — liver, cell, normal (7,294). Mouse liver is cell-only in Census
+
+- id: M_pancreas_cell
+  accession: CELLxGENE 48b37086-25f7-4ecd-be66-f5bb378e3aea
+  source_layer: B
+  species: mouse
+  tissue: pancreas
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Tabula Muris Senis 2020 Nature (10x; whole pancreas incl. acinar)
+  accession_verified: true
+  verified_how: Census obs query — pancreas, cell, normal (6,201). Mouse pancreas cell-only in Census
+
+- id: M_pancreas_islet_cell
+  accession: CELLxGENE 49e4ffcc-5444-406d-bdee-577127404ba8
+  source_layer: A1
+  species: mouse
+  tissue: pancreas
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Mouse pancreatic islet scRNA-seq atlas (endocrine depth; complements TMS whole-pancreas)
+  accession_verified: true
+  verified_how: Census obs query — pancreas, cell, normal (134,590). Islet-enriched (little exocrine)
+
+- id: M_brain_cell
+  accession: CELLxGENE d7291f04-fbbb-4d65-990a-f01fa44e915b
+  source_layer: B
+  species: mouse
+  tissue: brain
+  suspension_type: cell
+  platform: 10x_3p
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Yao 2023 Nature (Allen mouse CNS taxonomy — cortex+hippocampus, cell)
+  accession_verified: true
+  verified_how: Census obs query — brain, cell, normal (1,169,213; 27 cell types)
+
+- id: M_brain_nucleus
+  accession: CELLxGENE 1229ecc2-b067-4664-91da-0251aec31574
+  source_layer: B
+  species: mouse
+  tissue: brain
+  suspension_type: nucleus
+  platform: snRNA_10x
+  n_donors: 0
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]
+  citation: Mouse cortex single-nucleus (WT/control arm)
+  accession_verified: true
+  verified_how: Census obs query — brain, nucleus, normal (205,722; 22 cell types)
+
+# mouse spinal cord: NO qualifying data in Census. GEO verification in progress; if none qualifies,
+# recorded as "no qualifying data" per §2.1 (no substitution with brain / DRG / brainstem).
