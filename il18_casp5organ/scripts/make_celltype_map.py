@@ -67,6 +67,63 @@ M = {
  # other / unresolved
  "unknown":OTH,"leukocyte":OTH,"hematopoietic stem cell":OTH,"hematopoietic cell":OTH,"erythroid lineage cell":OTH,
  "enucleate erythrocyte":OTH,"mesothelial cell":OTH,"choroid plexus epithelial cell":OTH,"meninges/schwann":OTH,"cell":OTH,
+
+ # ---- expansion batch v0.2 (new strata: human islets / Allen HVS brain / spinal white matter /
+ # wider liver + lung atlases / Tabula Muris Senis Smart-seq2). Rule used for the blood labels:
+ # mature B / T / NK / ILC go to lymphoid; haematopoietic progenitors and precursors, anucleate cells
+ # and megakaryocytes go to other, because they are developmental stages rather than a resident lineage
+ # of the organ being screened. Each label is still assigned one by one, as §6.2 requires.
+ # epithelial
+ "PP cell":EPI,"pancreatic epsilon cell":EPI,"enteroendocrine cell":EPI,
+ "airway submucosal gland collecting duct epithelial cell":EPI,"epithelial cell of lung":EPI,
+ "lung multiciliated epithelial cell":EPI,"lung secretory cell":EPI,"secretory cell":EPI,
+ "mucus secreting cell of tracheobronchial tree submucosal gland":EPI,"respiratory tract epithelial cell":EPI,
+ "respiratory tract suprabasal cell":EPI,"squamous epithelial cell":EPI,"myoepithelial cell":EPI,
+ "keratinocyte":EPI,"epithelial cell of nephron":EPI,
+ # neuron
+ "GABAergic neuron":NEU,"caudal ganglionic eminence derived cortical interneuron":NEU,
+ "chandelier pvalb GABAergic cortical interneuron":NEU,"near-projecting glutamatergic cortical neuron":NEU,
+ "cerebellar granule cell":NEU,"eurydendroid cell":NEU,
+ # glia
+ "astrocyte of the cerebral cortex":GLIA,"glial cell":GLIA,"committed oligodendrocyte precursor":GLIA,
+ "Schwann cell precursor":GLIA,"immature Schwann cell":GLIA,
+ # monocyte-derived myeloid
+ "lung interstitial macrophage":MMY,"osteoclast":MMY,
+ # dendritic
+ "dendritic cell, human":DC,"Langerhans cell":DC,"mature conventional dendritic cell":DC,
+ "pre-conventional dendritic cell":DC,
+ # lymphoid — mature B / T / NK / ILC
+ "B-1 B cell":LYM,"B-1a B cell":LYM,"B-1b B cell":LYM,"B-2 B cell":LYM,"naive B cell":LYM,"mature B cell":LYM,
+ "memory B cell":LYM,"immature B cell":LYM,"germinal center B cell":LYM,"plasmablast":LYM,"lymphocyte":LYM,
+ "alpha-beta T cell":LYM,"gamma-delta T cell":LYM,"helper T cell":LYM,"CD4-positive helper T cell":LYM,
+ "T follicular helper cell":LYM,"T-helper 17 cell":LYM,"mucosal invariant T cell":LYM,
+ "CD8-positive, alpha-beta cytotoxic T cell":LYM,"CD8-positive, alpha-beta memory T cell":LYM,
+ "CD8-positive, alpha-beta memory T cell, CD45RO-positive":LYM,
+ "CD8-alpha-alpha-positive, alpha-beta intraepithelial T cell":LYM,
+ "effector memory CD4-positive, alpha-beta T cell":LYM,
+ "effector memory CD8-positive, alpha-beta T cell, terminally differentiated":LYM,
+ "naive thymus-derived CD4-positive, alpha-beta T cell":LYM,"naive thymus-derived CD8-positive, alpha-beta T cell":LYM,
+ "thymocyte":LYM,"double negative thymocyte":LYM,"double-positive, alpha-beta thymocyte":LYM,
+ "CD16-negative, CD56-bright natural killer cell, human":LYM,"CD16-positive, CD56-dim natural killer cell, human":LYM,
+ "innate lymphoid cell":LYM,"group 2 innate lymphoid cell":LYM,"group 3 innate lymphoid cell":LYM,
+ "CD34-positive, CD56-positive, CD117-positive common innate lymphoid precursor, human":LYM,
+ # granulocyte
+ "eosinophil":GRAN,"granulocyte":GRAN,
+ # endothelial
+ "alveolar capillary type 1 endothelial cell":ENDO,"alveolar capillary type 2 endothelial cell":ENDO,
+ "cerebral cortex endothelial cell":ENDO,"endothelial cell of respiratory system lymphatic vessel":ENDO,
+ "vein endothelial cell of respiratory system":ENDO,
+ # mesenchymal
+ "mural cell":MES,"mesenchymal cell":MES,"secondary crest myofibroblast":MES,"interstitial cell of Cajal":MES,
+ "cell of skeletal muscle":MES,"skeletal muscle satellite cell":MES,
+ # other — progenitors, precursors, anucleate cells, serosal lining
+ "bone marrow cell":OTH,"progenitor cell":OTH,"neural progenitor cell":OTH,
+ "hematopoietic multipotent progenitor cell":OTH,"common myeloid progenitor":OTH,"common dendritic progenitor":OTH,
+ "granulocyte monocyte progenitor cell":OTH,"megakaryocyte-erythroid progenitor cell":OTH,"early lymphoid progenitor":OTH,
+ "fraction A pre-pro B cell":OTH,"pro-B cell":OTH,"late pro-B cell":OTH,"precursor B cell":OTH,"pre-B-I cell":OTH,
+ "large pre-B-II cell":OTH,"small pre-B-II cell":OTH,"promonocyte":OTH,"promyelocyte":OTH,"myelocyte":OTH,
+ "megakaryocyte":OTH,"lung megakaryocyte":OTH,"platelet":OTH,"erythroblast":OTH,"erythrocyte":OTH,
+ "reticulocyte":OTH,"primitive red blood cell":OTH,"mesothelial cell of pleura":OTH,
 }
 # GSE103892 fine neuron subtypes DE-/DI-/VE-/VI-/VC-/VM-/ME-/MI- (+ 'DE12') -> neuron (each listed explicitly below)
 for pre,rng in [("DE",range(1,17)),("DI",range(1,10)),("VE",range(1,5)),("VI",range(1,6)),("VC",range(1,3)),("VM",range(1,3)),("ME",range(1,2)),("MI",range(1,5))]:
