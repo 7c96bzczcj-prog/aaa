@@ -91,8 +91,8 @@
   "casp1_donors": 3,
   "med_casp1": 2.7,
   "ratio": "29.9",
-  "src": 3,
-  "why": "1 个来源支持 CASP1 near-absent/低（单一来源）",
+  "src": 4,
+  "why": "1 个来源支持 CASP1 near-absent/低；另有 2 个来源显示 CASP1 可测到、仅比 IL18 低 3.82–4.48 倍",
   "status": "进入候选"
  },
  {
@@ -187,8 +187,8 @@
   "casp1_donors": 21,
   "med_casp1": 0.0,
   "ratio": "29.9",
-  "src": 3,
-  "why": "1 个来源支持 CASP1 near-absent/低（单一来源）",
+  "src": 4,
+  "why": "1 个来源支持 CASP1 near-absent/低；另有 2 个来源显示 CASP1 可测到、仅比 IL18 低 3.82–4.48 倍",
   "status": "进入候选"
  },
  {
@@ -404,7 +404,7 @@
   "med_casp1": 0.0,
   "ratio": "inf",
   "src": 3,
-  "why": "1 个来源支持 CASP1 near-absent/低（单一来源）",
+  "why": "1 个来源支持 CASP1 near-absent/低；另有 1 个来源显示 CASP1 可测到、仅比 IL18 低 5.64–5.64 倍",
   "status": "进入候选"
  },
  {
@@ -524,7 +524,7 @@
   "med_casp1": 0.0,
   "ratio": "inf",
   "src": 3,
-  "why": "1 个来源支持 CASP1 near-absent/低（单一来源）",
+  "why": "1 个来源支持 CASP1 near-absent/低；另有 1 个来源显示 CASP1 可测到、仅比 IL18 低 5.64–5.64 倍",
   "status": "进入候选"
  },
  {

@@ -161,12 +161,19 @@ def tier(rs, has_ref):
         return "E_no_matched_reference", "无可用的静息态参考值（IL18 在该源亦不可测）"
     good = [r for r in use if r["casp1_absent"] or r["ratio"] >= RATIO_STRONG]
     contra = [r for r in use if r["ratio"] < RATIO_WEAK]
-    n_src = len({r["source"] for r in good})
-    if n_src >= MIN_SOURCES_FOR_A and not contra:
+    # Sources in the 3x-20x band support neither side: CASP1 is clearly measurable but still well below
+    # IL18. They were previously invisible in the verdict text, which let a source showing CASP1 only
+    # 4.5x below IL18 sit silently behind a "supported" call. They are now always reported.
+    mid = [r for r in use if not (r["casp1_absent"] or r["ratio"] >= RATIO_STRONG) and r["ratio"] >= RATIO_WEAK]
+    n_src, n_mid = len({r["source"] for r in good}), len({r["source"] for r in mid})
+    mid_txt = (f"；另有 {n_mid} 个来源显示 CASP1 可测到、仅比 IL18 低 "
+               f"{min(r['ratio'] for r in mid):.3g}–{max(r['ratio'] for r in mid):.3g} 倍" if mid else "")
+    if n_src >= MIN_SOURCES_FOR_A and not contra and not mid:
         return "A_supported", f"{n_src} 个独立来源显示 CASP1 处于零底线或比 IL18 低 >={RATIO_STRONG:.0f} 倍，无反向来源"
     if n_src >= 1:
-        extra = f"，但另有 {len(contra)} 个来源显示 CASP1 与 IL18 同量级" if contra else "（单一来源）"
-        return "B_potential", f"{n_src} 个来源支持 CASP1 near-absent/低{extra}"
+        extra = f"，但另有 {len(contra)} 个来源显示 CASP1 与 IL18 同量级" if contra else \
+                ("" if mid else "（单一来源）")
+        return "B_potential", f"{n_src} 个来源支持 CASP1 near-absent/低{extra}{mid_txt}"
     mid = [r for r in use if RATIO_WEAK <= r["ratio"] < RATIO_STRONG]
     if mid:
         lo, hi = min(r["ratio"] for r in mid), max(r["ratio"] for r in mid)
