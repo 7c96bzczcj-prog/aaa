@@ -141,7 +141,7 @@ def main():
             print(f"  other      {j}  samples={r['samples_count']:>7} cov={r['coverage_sum']:>10}  {what}")
 
     key_cols = (["SMTSD", "SMTS"] if args.instance == "gtexv2"
-                else ["study", "study_title", "sample_name", "library_name"])
+                else ["study", "study_title"])
     ids = set(inc) | set(exc)
     meta = sample_meta(args.instance, ids, work / f"{args.instance}_samples.json", key_cols)
 
@@ -152,7 +152,10 @@ def main():
         if i + e < MIN_READS:
             continue
         m = meta.get(sid, {})
-        label = m.get(key_cols[0]) or m.get(key_cols[1]) or "(unlabelled)"
+        if args.instance == "gtexv2":
+            label = m.get("SMTSD") or m.get("SMTS") or "(unlabelled)"
+        else:   # SRA: the study accession alone says nothing — carry the title, which is the finding
+            label = f"{m.get('study') or '(?)'} — {(m.get('study_title') or '')[:90]}"
         g = groups[label]
         g["n"] += 1
         g["inc"] += i
