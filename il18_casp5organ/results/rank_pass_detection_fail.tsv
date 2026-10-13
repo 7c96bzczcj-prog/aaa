@@ -1,0 +1,9 @@
+# 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
+# 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
+# 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+dataset_id	level	species	tissue	suspension_type	celltype	n_donors	pct_IL18	logcpm_IL18	logcpm_CASP1	logcpm_CASP3
+H_brain_nucleus	lineage	human	brain	nucleus	mesenchymal	3	0.04081632653061224	4.927707152644031	0.0	4.2012247759613155
+M_pancreas_islet_cell	lineage	mouse	pancreas	cell	glia	5	0.02564102564102564	3.201298809148303	0.0	1.9359092770351793
+M_brain_cell	author	mouse	brain	cell	hippocampal neuron	9	0.060790273556231005	3.2962961962815873	0.0	2.3098704391667266
+M_brain_nucleus	author	mouse	brain	nucleus	pericyte	10	0.03732856290995826	4.201773844049065	0.0	2.9261389058812872
+M_lung_cell	author	mouse	lung	cell	basophil	3	0.043478260869565216	3.659470806694882	4.712738246481943	3.5072151406426118

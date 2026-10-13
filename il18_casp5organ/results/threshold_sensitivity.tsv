@@ -1,0 +1,21 @@
+# 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
+# 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
+# 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+level	dataset_id	celltype	baseline(1/3,1/3,20%)	quartile(1/4,1/4,20%)	casp3_10%	casp3_30%
+lineage	H_lung_cell	granulocyte	True	True	True	True
+lineage	M_brain_cell	glia	True	True	True	True
+lineage	M_brain_cell	resident_macrophage	True	True	True	True
+lineage	M_lung_cell	resident_macrophage	True	False	True	False
+author	H_liver_cell	basophil	True	False	True	True
+author	H_lung_cell	mast cell	True	True	True	True
+author	H_lung_cell	multiciliated columnar cell of tracheobronchial tree	True	False	True	True
+author	H_lung_nucleus	ciliated cell	True	False	True	True
+author	H_lung_nucleus	dendritic cell	True	True	True	True
+author	M_brain_cell	Cajal-Retzius cell	True	True	True	True
+author	M_brain_cell	astrocyte	True	True	True	True
+author	M_brain_cell	central nervous system macrophage	True	True	True	True
+author	M_brain_cell	oligodendrocyte	True	True	True	True
+author	M_lung_cell	alveolar macrophage	True	False	True	True
+author	M_pancreas_cell	pancreatic D cell	True	True	True	True
+author	M_pancreas_islet_cell	pancreatic D cell	True	True	True	True
+author	M_pancreas_islet_cell	pancreatic ductal cell	True	True	True	True

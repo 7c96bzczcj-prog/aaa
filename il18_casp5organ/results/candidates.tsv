@@ -1,0 +1,21 @@
+# 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
+# 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
+# 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+dataset_id	level	species	tissue	suspension_type	celltype	n_donors	pct_IL18	pct_CASP1	pct_CASP3	logcpm_IL18	logcpm_CASP1	logcpm_CASP3	rank_IL18	rank_CASP1	rank_CASP3	casp3_floor_skipped	priority_casp3_rank	passed
+H_liver_cell	author	human	liver	cell	basophil	6	0.14285714285714285	0.05277777777777778	0.04673913043478261	6.478848019142754	4.762305994168518	5.053682852526871	4.0	8.0	5.0	False	5.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_cell	author	human	lung	cell	multiciliated columnar cell of tracheobronchial tree	100	0.16239803896707664	0.032210903603093755	0.106071964017991	5.360967290704149	3.1208006489107643	4.452585058006027	13.0	28.0	17.0	False	17.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_cell	author	human	lung	cell	mast cell	44	0.2596153846153846	0.0	0.039142273655547996	7.881443161837241	0.0	4.300500671913099	1.0	35.0	20.0	False	20.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_cell	lineage	human	lung	cell	granulocyte	44	0.2596153846153846	0.0	0.039142273655547996	7.881443161837241	0.0	4.300500671913099	1.0	9.0	4.0	False	4.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_nucleus	author	human	lung	nucleus	dendritic cell	5	0.11538461538461539	0.0	0.12	5.5369652659631985	0.0	5.506820596252594	6.0	18.0	3.0	False	3.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+H_lung_nucleus	author	human	lung	nucleus	ciliated cell	8	0.1837406015037594	0.0	0.09981617647058824	5.483171826250244	0.0	4.7210925105989086	7.0	18.0	8.0	False	8.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_brain_cell	author	mouse	brain	cell	Cajal-Retzius cell	4	0.12451612903225806	0.0	0.413469387755102	5.125982415501877	0.0	7.055528203043352	4.0	12.0	1.0	False	1.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_brain_cell	author	mouse	brain	cell	oligodendrocyte	55	0.27419354838709675	0.0	0.07228915662650602	6.523696710623469	0.0	4.706763640752508	2.0	12.0	2.0	False	2.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_brain_cell	author	mouse	brain	cell	central nervous system macrophage	20	0.18301435406698563	0.0	0.04880952380952381	6.494030278185808	0.0	4.516508828827638	3.0	12.0	3.0	False	3.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_brain_cell	author	mouse	brain	cell	astrocyte	40	0.554093567251462	0.0	0.027046783625730993	8.307285505317168	0.0	3.305122619354412	1.0	12.0	12.0	False	12.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_brain_cell	lineage	mouse	brain	cell	resident_macrophage	20	0.18301435406698563	0.0	0.04880952380952381	6.494030278185808	0.0	4.516508828827638	2.0	2.0	1.0	True	1.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_brain_cell	lineage	mouse	brain	cell	glia	55	0.3333333333333333	0.0	0.05855855855855856	7.068421892967702	0.0	4.502124439620243	1.0	2.0	2.0	True	2.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_lung_cell	author	mouse	lung	cell	alveolar macrophage	14	0.7467948717948718	0.15343137254901962	0.01033670902405986	8.564192871531633	5.169456014267601	1.4668997293076722	1.0	12.0	10.0	False	10.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_lung_cell	lineage	mouse	lung	cell	resident_macrophage	14	0.7467948717948718	0.15343137254901962	0.01033670902405986	8.564192871531633	5.169456014267601	1.4668997293076722	1.0	6.0	6.0	False	6.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_pancreas_cell	author	mouse	pancreas	cell	pancreatic D cell	4	0.21354166666666669	0.0	0.028071205007824725	4.648173104495125	0.0	1.7763541436642742	1.0	4.0	3.0	True	3.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_pancreas_islet_cell	author	mouse	pancreas	cell	pancreatic ductal cell	9	0.11838790931989925	0.0	0.3	3.7714652356784395	0.0	5.307124712207846	3.0	5.0	3.0	False	3.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
+M_pancreas_islet_cell	author	mouse	pancreas	cell	pancreatic D cell	24	0.11161616161616161	0.0	0.2354735802719194	3.8131434226783014	0.0	4.880726460730262	2.0	5.0	4.0	False	4.0	IL18_top & CASP1_bot & CASP3_ok & detect_ok
