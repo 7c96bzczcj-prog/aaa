@@ -1,0 +1,21 @@
+# 本分析是底物充足且经典加工酶缺失的交集筛选（IL18 高 + CASP1 低），用途是为后续蛋白与功能验证挑选器官和细胞类型的优先级，不是任何机制结论的证据。CASP3 仅用于排除最低档与排序，不参与候选集定义。
+# 转录本丰度 ≠ 前体蛋白储量；CASP3 mRNA ≠ caspase-3 酶活性；本分析为静息基线，不反映刺激后 CASP1 诱导。
+# 脑/脊髓以单核测序为主、其余器官以单细胞为主，snRNA 与 scRNA 不可混比；跨器官只比候选名单，不比表达量。
+dataset_id	level	species	tissue	suspension_type	celltype	lineage	sc_pct_CASP1	sc_logcpm_CASP1	reference_source	ref_population_CASP1	ref_CASP1_level	verdict	note
+H_liver_cell	author	human	liver	cell	basophil	granulocyte	0.0527777777777777	4.762305994168518	DICE	blood immune (mono 301 / NK 112 / B 38 / T 37-48 TPM)	clearly expressed	dropout_likely	免疫细胞 CASP1 bulk 普遍强表达 → 单细胞零多为 dropout
+H_lung_cell	author	human	lung	cell	multiciliated columnar cell of tracheobronchial tree	parenchymal_epithelial	0.0322109036030937	3.1208006489107643	none	no_sorted_reference	-	no_sorted_reference	实质上皮/间质无同等分选对照（§9.5），该候选 CASP1 低的真伪无法判定，结论降级
+H_lung_cell	author	human	lung	cell	mast cell	granulocyte	0.0	0.0	DICE	blood immune (mono 301 / NK 112 / B 38 / T 37-48 TPM)	clearly expressed	dropout_likely	免疫细胞 CASP1 bulk 普遍强表达 → 单细胞零多为 dropout
+H_lung_cell	lineage	human	lung	cell	granulocyte	granulocyte	0.0	0.0	DICE	blood immune (mono 301 / NK 112 / B 38 / T 37-48 TPM)	clearly expressed	dropout_likely	免疫细胞 CASP1 bulk 普遍强表达 → 单细胞零多为 dropout
+H_lung_nucleus	author	human	lung	nucleus	dendritic cell	dendritic_cell	0.0	0.0	DICE	blood immune (mono 301 / NK 112 / B 38 / T 37-48 TPM)	clearly expressed	dropout_likely	免疫细胞 CASP1 bulk 普遍强表达 → 单细胞零多为 dropout
+H_lung_nucleus	author	human	lung	nucleus	ciliated cell	parenchymal_epithelial	0.0	0.0	none	no_sorted_reference	-	no_sorted_reference	实质上皮/间质无同等分选对照（§9.5），该候选 CASP1 低的真伪无法判定，结论降级
+M_brain_cell	author	mouse	brain	cell	Cajal-Retzius cell	neuron	0.0	0.0	brainrnaseq	mouse neuron 0.64 FPKM	truly very low	true_low_likely	神经元 CASP1 bulk 真低 → 单核零多为真零，CASP1 低可信
+M_brain_cell	author	mouse	brain	cell	oligodendrocyte	glia	0.0	0.0	brainrnaseq	mouse astro 1.13 / oligo 0.1-0.12 / OPC 0.66 FPKM	truly very low	true_low_likely	星胶/少突/OPC CASP1 bulk 真低 → CASP1 低可信（注意小胶质不在此列）
+M_brain_cell	author	mouse	brain	cell	central nervous system macrophage	resident_macrophage	0.0	0.0	ImmGen/brainrnaseq	microglia 216-304 / 4.2 FPKM	clearly expressed	dropout_likely	小胶质/CNS 巨噬 CASP1 确有表达 → 单核中的零多为 dropout，CASP1 低不可信
+M_brain_cell	author	mouse	brain	cell	astrocyte	glia	0.0	0.0	brainrnaseq	mouse astro 1.13 / oligo 0.1-0.12 / OPC 0.66 FPKM	truly very low	true_low_likely	星胶/少突/OPC CASP1 bulk 真低 → CASP1 低可信（注意小胶质不在此列）
+M_brain_cell	lineage	mouse	brain	cell	resident_macrophage	resident_macrophage	0.0	0.0	ImmGen/brainrnaseq	microglia 216-304 / 4.2 FPKM	clearly expressed	dropout_likely	小胶质/CNS 巨噬 CASP1 确有表达 → 单核中的零多为 dropout，CASP1 低不可信
+M_brain_cell	lineage	mouse	brain	cell	glia	glia	0.0	0.0	brainrnaseq	mouse astro 1.13 / oligo 0.1-0.12 / OPC 0.66 FPKM	truly very low	true_low_likely	星胶/少突/OPC CASP1 bulk 真低 → CASP1 低可信（注意小胶质不在此列）
+M_lung_cell	author	mouse	lung	cell	alveolar macrophage	resident_macrophage	0.1534313725490196	5.169456014267601	ImmGen	alveolar MF 511 (1.00=zero)	clearly expressed	dropout_likely	肺泡巨噬 CASP1 bulk 强表达 → 其“CASP1 低”为相对/技术性，不可作真低
+M_lung_cell	lineage	mouse	lung	cell	resident_macrophage	resident_macrophage	0.1534313725490196	5.169456014267601	ImmGen	alveolar MF 511 (1.00=zero)	clearly expressed	dropout_likely	肺泡巨噬 CASP1 bulk 强表达 → 其“CASP1 低”为相对/技术性，不可作真低
+M_pancreas_cell	author	mouse	pancreas	cell	pancreatic D cell	parenchymal_epithelial	0.0	0.0	none	no_sorted_reference	-	no_sorted_reference	实质上皮/间质无同等分选对照（§9.5），该候选 CASP1 低的真伪无法判定，结论降级
+M_pancreas_islet_cell	author	mouse	pancreas	cell	pancreatic ductal cell	parenchymal_epithelial	0.0	0.0	none	no_sorted_reference	-	no_sorted_reference	实质上皮/间质无同等分选对照（§9.5），该候选 CASP1 低的真伪无法判定，结论降级
+M_pancreas_islet_cell	author	mouse	pancreas	cell	pancreatic D cell	parenchymal_epithelial	0.0	0.0	none	no_sorted_reference	-	no_sorted_reference	实质上皮/间质无同等分选对照（§9.5），该候选 CASP1 低的真伪无法判定，结论降级
