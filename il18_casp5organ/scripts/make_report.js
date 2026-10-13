@@ -9,11 +9,14 @@ const ROOT = "/home/user/aaa/il18_casp5organ";
 const R = JSON.parse(fs.readFileSync(ROOT + "/results/answer_table.json", "utf8"));
 const F = "Microsoft YaHei", INK = "1A1A1A", MU = "666666", HD = "EEF1F5";
 const A = "1B7A43", B = "1F5FA8", D = "9A2B2B";
-const COL = { "确定": A, "可能": B, "相反": D };   // the only three classes shown to the reader
+// colour by direction + evidence; the label column carries the actual observation
+const COL = { "符合·多源一致": A, "符合·多源有分歧": "2E8B57", "符合·单一来源": B,
+              "符合·无参考可查": "4C87C4", "不符合·多源一致": D, "不符合·无参考可查": "B5564E" };
 const one = (sp, name) => R.find(r => r.sp === sp && r.name.startsWith(name));
 const pick = (sp, name, ds) => R.find(r => r.sp === sp && r.name.startsWith(name) && r.dataset_cn === ds);
 const pct = v => (v >= 1 ? v.toFixed(1) : v.toFixed(2)) + "%";
-const nV = v => R.filter(r => r.verdict === v).length;
+const nDE = (d, e) => R.filter(r => r.direction === d && r.evidence === e).length;
+const nD = d => R.filter(r => r.direction === d).length;
 
 const P = (t, o = {}) => new Paragraph({
   spacing: { after: o.after ?? 120, before: o.before ?? 0, line: 288 },
@@ -77,18 +80,20 @@ K.push(tbl(["器官 / 物种", "新增数据", "供体", "细胞", "细胞类型
 K.push(P([run("一处必须说明的例外：", { bold: true }), run("CELLxGENE 把 Allen HVS 这一个研究按细胞类型拆成 24 个 dataset_id 分发，每个只含 1 类细胞。若按 dataset_id 分层，每层只有一个细胞类型，分层内排序无从谈起。故把同一 collection 的 24 个 id 合并为一个分层——这是重组同一研究（同 collection、同供体、同 assay、同组织），不是跨数据集整合。该例外写在 datasets.yaml 与代码注释里。")], { size: 18 }));
 
 // ---- 2. the answer --------------------------------------------------------------------------------
-K.push(H("二、明确答案：确定 / 可能 / 相反"));
-K.push(P([run("只分三类：", { bold: true }),
-run(`确定 = ≥2 个独立参考来源一致显示 CASP1 处于零底线或比 IL18 低 ≥20 倍（${nV("确定")} 行）；可能 = 只有单一参考来源支持，或本数据一致但尚无匹配参考（${nV("可能")} 行）；相反 = 参考层显示 CASP1 确实存在，或方向与「CASP1 低」这一前提相反（${nV("相反")} 行）。末列「细分依据」保留六档内部判读，仅作留痕，不改变上述三分。`)]));
+K.push(H("二、明确答案：方向 × 证据"));
+K.push(P([run("不用一个形容词下判断，分两个轴看。", { bold: true }),
+run(`「方向」回答这个细胞类型是否符合「IL18 高 + CASP1 低」这一前提：符合 ${nD("符合")} 行，不符合 ${nD("不符合")} 行。「证据」回答支持该方向的独立参考来源有多少、彼此是否一致：多源一致 ${nDE("符合", "多源一致")} 行、多源有分歧 ${nDE("符合", "多源有分歧")} 行、单一来源 ${nDE("符合", "单一来源")} 行、无参考可查 ${nDE("符合", "无参考可查")} 行（以符合方向计）。两者分开的原因是：此前把强度与方向压进「确定/可能/相反」一个三选一，结果「证据很强地指向不符合」与「证据很弱地指向不符合」同名，而「有一个来源支持」与「从没人测过这个细胞类型」也同名。`)]));
+K.push(P([run("「观察到的事实」一列是本表的主判据，", { bold: true }),
+run("它直接写出观察结果与来源数，不用形容词。末列「细分依据」保留六档内部判读，仅作留痕。")], { size: 18 }));
 K.push(P([run("「×n」一列是重复性：", { bold: true }),
 run("同一细胞类型在几个相互独立的分层（不同数据集、不同供体）里都成为候选。这是与参考层相互独立的另一条证据轴——在四套数据里重复出现，比一套数据里的注释偏差或批次效应更难解释掉。但重复不等于参考层支持，二者分开记。")], { size: 18 }));
-K.push(tbl(["判定", "物种·器官", "细胞类型", "数据集", "类型", "IL18 检出（阳性/分析细胞）", "CASP1 检出（阳性/分析细胞）", "CASP1 阳性供体", "×n", "参考比值", "细分依据"],
+K.push(tbl(["方向", "证据", "物种·器官", "细胞类型", "数据集", "观察到的事实", "IL18 检出（阳性/分析细胞）", "CASP1 检出（阳性/分析细胞）", "×n", "参考比值", "细分依据"],
   R.map(r => ({
-    tier: r.verdict, cells: [r.verdict, r.sp + "·" + r.organ, r.name, r.dataset_cn, r.susp,
-    `${pct(r.il18)}（${r.il18_pos}/${r.n_cells}）`, `${pct(r.casp1)}（${r.casp1_pos}/${r.n_cells}）`,
-    `${r.casp1_donors}/${r.n_donors}`, r.n_strata > 1 ? "×" + r.n_strata : "", (r.ratio || "—"), r.tier_cn]
+    tier: r.verdict, cells: [r.direction, r.evidence, r.sp + "·" + r.organ, r.name, r.dataset_cn,
+    r.label, `${pct(r.il18)}（${r.il18_pos}/${r.n_cells}）`, `${pct(r.casp1)}（${r.casp1_pos}/${r.n_cells}）`,
+    r.n_strata > 1 ? "×" + r.n_strata : "", (r.ratio || "—"), r.tier_cn]
   })),
-  [620, 700, 1500, 1200, 500, 1380, 1400, 760, 380, 620, 1380], 0));
+  [540, 760, 700, 1420, 1100, 2100, 1240, 1260, 360, 560, 1160], 0));
 K.push(P("检出率为单细胞/单核数据的合并值（分母见第〇节）；参考比值为参考层同源同单位的 IL18:CASP1，inf 表示该来源中 CASP1 处于零底线，— 表示无匹配参考。", { size: 15, color: MU }));
 
 K.push(new Paragraph({ spacing: { before: 200, after: 100 }, children: [run("图：候选总览——每行一个细胞类型，实心点 = IL18、空心点 = CASP1，同一条对数检出率轴；灰色短竖线 = 该行可检出的最低非零值 1/n；人与小鼠分开绘制", { bold: true, size: 17 })] }));

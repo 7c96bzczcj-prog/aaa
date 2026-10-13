@@ -91,36 +91,62 @@ TIER_COL = {"A_supported": "#1B7A43", "B_potential": "#1F5FA8", "B_potential_scr
             "C_casp1_present": "#B07A00", "D_refuted": "#9A2B2B", "E_no_matched_reference": "#8A8A8A"}
 TIER_ORDER = list(TIER_CN)
 
-# Everything the reader sees collapses the six internal tiers into three verdicts. The six-way tier
-# stays in the TSVs as the audit trail (it records WHY a row landed where it did), but no figure, slide
-# or report table uses more than these three.
-VERDICT = {
-    "A_supported": "确定",                   # >= 2 independent references agree CASP1 is at/near zero
-    "B_potential": "可能",                   # exactly one reference supports it
-    "B_potential_screen_missed": "可能",     # reference-supported, excluded only by the relative rule
-    "E_no_matched_reference": "可能",        # no reference — resolved against the row's OWN data below
-    "C_casp1_present": "相反",               # CASP1 is demonstrably present alongside IL18
-    "D_refuted": "相反",                     # CASP1 >= IL18 in the reference layer
+# What the reader sees is TWO axes, not one adjective.
+#
+# The earlier 确定 / 可能 / 相反 scheme mixed them: 确定-vs-可能 was about how many independent sources
+# agree, while 相反 was about which way the evidence points. Collapsing both into one three-way label
+# meant "strongly shown not to fit" and "weakly shown not to fit" became the same word, and "one source
+# supports it" shared a label with "nobody has ever measured this cell type". It also read as a claim
+# about certainty that transcript-level screening data cannot carry.
+#
+# So每行 now gets:
+#   direction  符合 / 不符合      — does this cell type fit the premise (IL18 high AND CASP1 low)?
+#   evidence   多源一致 / 单一来源 / 无参考可查   — how much external evidence is behind that direction
+#   label      a sentence stating what was actually observed, with the source count in it
+DIRECTION = {
+    "A_supported": "符合", "B_potential": "符合", "B_potential_screen_missed": "符合",
+    "C_casp1_present": "不符合", "D_refuted": "不符合",
+    "E_no_matched_reference": None,      # resolved from the row's own data below
 }
-# A row with no matched reference cannot be judged against one, but it can still be judged against
-# itself. When its own pooled CASP1 is within RATIO_WEAK (3x) of its own IL18, the direction the screen
-# assumes is contradicted by the row's own data, and calling it 可能 would overstate it — human liver
-# CD56-bright NK cells detect CASP1 in 25.2% of cells against IL18 in 19.1%. Reference-judged rows are
-# untouched; this only resolves the no-reference case.
-OWN_DATA_RATIO_WEAK = 3.0
-VERDICT_ORDER = ["确定", "可能", "相反"]
-VERDICT_COL = {"确定": "#1B7A43", "可能": "#1F5FA8", "相反": "#9A2B2B"}
-VERDICT_NOTE = {
-    "确定": "≥2 个独立参考来源一致：CASP1 处于零底线或比 IL18 低 ≥20 倍",
-    "可能": "单一参考来源支持，或本数据一致但尚无匹配参考",
-    "相反": "参考层显示 CASP1 确实存在，或方向与前提相反",
-}
+# 证据 is not just "how many" — "four sources, one of them dissenting" is a different state from
+# "four sources, all agreeing", and the earlier wording collapsed them into 单一来源, which was wrong.
+# colour carries direction + strength: green = fits with several sources, blue = fits but thin evidence,
+# red = does not fit. Same three colours as before, but the label now says which is which.
+LABEL_COL = {"符合·多源一致": "#1B7A43", "符合·多源有分歧": "#2E8B57", "符合·单一来源": "#1F5FA8",
+             "符合·无参考可查": "#4C87C4", "不符合·多源一致": "#9A2B2B", "不符合·无参考可查": "#B5564E"}
+OWN_DATA_RATIO_WEAK = 3.0   # for rows with no matched reference, judge direction from their own data
+
+
+def classify(tier, n_sup, n_dis, pooled_il18, pooled_casp1, screen_missed=False):
+    """Return (direction, evidence, label). The label states the observation, not a verdict adjective."""
+    if tier == "E_no_matched_reference":
+        own = (pooled_il18 / pooled_casp1) if pooled_casp1 > 0 else float("inf")
+        if own < OWN_DATA_RATIO_WEAK:
+            return ("不符合", "无参考可查",
+                    f"无参考可查；本数据 CASP1 与 IL18 同量级（{pooled_casp1*100:.2f}% vs {pooled_il18*100:.1f}%）")
+        return ("符合", "无参考可查",
+                f"无参考可查；仅本数据方向相符（CASP1 {pooled_casp1*100:.2f}%）")
+    if tier == "A_supported":
+        return "符合", "多源一致", f"CASP1 多源确认近零（{n_sup} 个独立来源，无分歧）"
+    if tier in ("B_potential", "B_potential_screen_missed"):
+        tail = "；被分层内相对规则漏掉" if screen_missed else ""
+        if n_dis:
+            return ("符合", "多源有分歧",
+                    f"{n_sup} 个来源支持 CASP1 近零，另有 {n_dis} 个来源显示 CASP1 可测{tail}")
+        return "符合", "单一来源", f"CASP1 近零，仅 {n_sup} 个来源支持{tail}"
+    if tier == "C_casp1_present":
+        return "不符合", "多源一致", "参考层 CASP1 可测到，仅比 IL18 低 3–20 倍"
+    return "不符合", "多源一致", "参考层 CASP1 ≥ IL18（方向相反）"
 
 
 def name_of(sp, ti, ct, dataset_id):
     """Display name for one screen row. KeyError here is deliberate: a new author label must be given a
     name by hand rather than falling back to the raw ontology string."""
     return SP_CN[sp], TISSUE_CN[ti], CT_CN[(sp, ti, str(ct))], DS_CN.get(dataset_id, dataset_id)
+
+
+DIR_ORDER = ["符合", "不符合"]
+EVI_ORDER = ["多源一致", "多源有分歧", "单一来源", "无参考可查"]
 
 
 ZERO_SLOT = 0.0018   # where a true zero (0 positive cells) is drawn on the log axis
@@ -171,7 +197,7 @@ def draw_answer_figure(out, species=("human", "mouse"), out_name="answer_v2.png"
         d = g.iloc[::-1].reset_index(drop=True)      # bottom-up so 确定 lands on top
         n = len(d)
         for i, r in enumerate(d.itertuples()):
-            col = VERDICT_COL[r.verdict]
+            col = LABEL_COL[r.verdict]
             il18 = r.pooled_pct_IL18 * 100
             casp1 = r.pooled_pct_CASP1 * 100
             x_c = casp1 if r.n_cells_CASP1_pos else ZERO_SLOT
@@ -212,10 +238,10 @@ def draw_answer_figure(out, species=("human", "mouse"), out_name="answer_v2.png"
     marks = [Line2D([], [], marker="o", ls="", ms=8.6, color="#444"),
              Line2D([], [], marker="o", ls="", ms=8.6, mfc="white", mec="#444", mew=2.1),
              Line2D([], [], marker="|", ls="", ms=9, mew=1.4, color="#B5B5B5")]
-    vs = [v for v in VERDICT_ORDER if v in set(out.verdict)]
-    handles = marks + [Line2D([], [], marker="s", ls="", ms=8, color=VERDICT_COL[v]) for v in vs]
+    seen = list(dict.fromkeys(out.sort_values("verdict_rank_fig").verdict))
+    handles = marks + [Line2D([], [], marker="s", ls="", ms=8, color=LABEL_COL[v]) for v in seen]
     names = ["IL18（pro-IL-18 转录本）", "CASP1", "该行可检出的最低非零值 1/n"] + \
-            [f"{v}：{VERDICT_NOTE[v]}" for v in vs]
+            [v.replace("·", " / ") for v in seen]
     axes[0].legend(handles, names, loc="lower left", bbox_to_anchor=(-0.235, 1.07), ncol=3,
                    frameon=False, fontsize=9.5, handletextpad=.5, columnspacing=1.8)
     fig.text(0.012, 0.012,
@@ -328,7 +354,7 @@ def draw_brain_dotplot(entry_id="M_brain_cell", spec_rows=None, out_name="mouse/
     axes[0].tick_params(axis="y", length=0)
     # colour the row label by this cell type's verdict, so all three classes are visible at once
     for tick, (lab, _) in zip(axes[0].get_yticklabels(), rows):
-        tick.set_color(VERDICT_COL.get(verdicts.get((species, lab)), "#1A1A1A"))
+        tick.set_color(LABEL_COL.get(verdicts.get((species, lab)), "#1A1A1A"))
     for p in (0.05, 0.25, 0.55):
         axes[2].scatter([], [], s=40 + 1100 * p, color="#8A8A8A", label=f"{int(p*100)}%")
     axes[2].legend(title="点面积 = 检出率", fontsize=9, title_fontsize=9, frameon=False,
@@ -338,7 +364,8 @@ def draw_brain_dotplot(entry_id="M_brain_cell", spec_rows=None, out_name="mouse/
              "每个点右侧为该基因的检出率与「阳性细胞/分析细胞」。",
              fontsize=9, color="#666666")
     fig.text(0.012, 0.012,
-             "左侧细胞类型名的颜色 = 该细胞类型的判定：绿 = 确定，蓝 = 可能，红 = 相反，黑 = 未进入候选。"
+             "左侧细胞类型名的颜色 = 方向/证据：绿 = 符合·多源一致，深蓝 = 符合·单一来源，"
+             "浅蓝 = 符合·无参考可查，红 = 不符合，黑 = 未进入候选。"
              "本页为同一个分层内的全部细胞类型，不论判定如何一律列出。",
              fontsize=9, color="#666666")
     fig.subplots_adjust(left=0.165, right=0.885, top=0.905, bottom=0.105)
@@ -367,7 +394,9 @@ def main():
                      "n_cells_CASP1_pos": r.n_cells_CASP1_pos, "pooled_pct_CASP1": r.pooled_pct_CASP1,
                      "donors_with_CASP1_pos": r.donors_with_CASP1_pos, "donor_median_pct_CASP1": r.sc_pct_CASP1,
                      "ref_ratio_IL18_over_CASP1": r.best_ratio_IL18_over_CASP1,
-                     "n_ref_sources": r.n_ref_sources, "tier_reason": r.tier_reason,
+                     "n_ref_sources": r.n_ref_sources,
+                     "n_sources_supporting": r.n_sources_supporting,
+                     "n_sources_dissenting": r.n_sources_dissenting, "tier_reason": r.tier_reason,
                      "screen_status": "进入候选"})
 
     # AT1: passed IL18 but was excluded by the within-stratum relative CASP1 rule (§8), reference-supported
@@ -385,6 +414,7 @@ def main():
                      "donor_median_pct_IL18": r.pct_IL18, "donor_median_pct_CASP1": r.pct_CASP1,
                      "ref_ratio_IL18_over_CASP1": r.best_ref.split("ratio=")[-1],
                      "n_ref_sources": r.n_ref_sources_supporting,
+                     "n_sources_supporting": r.n_ref_sources_supporting, "n_sources_dissenting": 0,
                      "tier_reason": f"IL18 分层内排名 {int(r.rank_IL18)}/{int(r.n_ct_stratum)}，"
                                     f"参考层支持 CASP1 低；{r.excluded_because}",
                      "screen_status": "未进候选（CASP1 未进最低三分位）"})
@@ -397,20 +427,22 @@ def main():
     rep = out.groupby(["species", "tissue", "celltype"]).dataset_id.nunique()
     out["n_strata"] = [int(rep.get((r.species, r.tissue, r.celltype), 1)) for r in out.itertuples()]
     out["tier_cn"] = out.tier.map(TIER_CN)
-    out["verdict"] = out.tier.map(VERDICT)
-    no_ref = out.tier == "E_no_matched_reference"
-    own_ratio = out.pooled_pct_IL18 / out.pooled_pct_CASP1.replace(0, np.nan)
-    out.loc[no_ref & (own_ratio < OWN_DATA_RATIO_WEAK), "verdict"] = "相反"
-    out.loc[no_ref, "tier_reason"] = out.loc[no_ref].apply(
-        lambda r: ("参考层中没有对应群体；按本行自身数据判断，CASP1 与 IL18 同量级"
-                   f"（IL18 {r.pooled_pct_IL18*100:.2f}% vs CASP1 {r.pooled_pct_CASP1*100:.2f}%），方向与前提相反"
-                   if r.pooled_pct_CASP1 > 0 and r.pooled_pct_IL18 / r.pooled_pct_CASP1 < OWN_DATA_RATIO_WEAK
-                   else "参考层中没有对应群体，无法外部核对；本行自身数据方向符合前提"), axis=1)
-    out["verdict_rank"] = out.verdict.map({v: i for i, v in enumerate(VERDICT_ORDER)})
+    cls = [classify(r.tier, int(r.n_sources_supporting or 0), int(r.n_sources_dissenting or 0),
+                    r.pooled_pct_IL18, r.pooled_pct_CASP1,
+                    r.tier == "B_potential_screen_missed") for r in out.itertuples()]
+    out["direction"] = [c[0] for c in cls]
+    out["evidence"] = [c[1] for c in cls]
+    out["label"] = [c[2] for c in cls]
+    out["verdict"] = out.direction + "·" + out.evidence     # the colour key, and the sort key
+    out.loc[out.tier == "E_no_matched_reference", "tier_reason"] = out.loc[out.tier == "E_no_matched_reference", "label"]
+    rank = {f"{d}·{e}": i * 10 + j for i, d in enumerate(DIR_ORDER) for j, e in enumerate(EVI_ORDER)}
+    out["verdict_rank"] = out.verdict.map(rank)
     out = out.sort_values(["verdict_rank", "pooled_pct_IL18"], ascending=[True, False])
     out = out.rename(columns={"verdict_rank": "verdict_rank_fig"})
-    tsv = out.drop(columns=["verdict_rank_fig"])
-    cols = ["verdict", "tier", "tier_cn", "n_strata"] + [c for c in tsv.columns if c not in ("verdict", "tier", "tier_cn", "n_strata")]
+    tsv = out.drop(columns=["verdict_rank_fig", "verdict"])
+    front = ["direction", "evidence", "label", "n_sources_supporting", "n_sources_dissenting",
+             "n_strata", "tier", "tier_cn"]
+    cols = front + [c for c in tsv.columns if c not in front]
     write_tsv(tsv[cols], ROOT / "results" / "answer_table.tsv")
 
     draw_answer_figure(out)                                              # combined, for the report
@@ -424,7 +456,8 @@ def main():
     draw_brain_dotplot("M_brain_cell", BRAIN_ROWS, "mouse/brain_cell_dots.png", vmap, "mouse")
 
     # ---- json for deck/report ----------------------------------------------------------------------
-    js = [{"verdict": r.verdict, "verdict_note": VERDICT_NOTE[r.verdict],
+    js = [{"direction": r.direction, "evidence": r.evidence, "label": r.label,
+           "n_sup": int(r.n_sources_supporting or 0), "verdict": r.verdict,
            "tier": r.tier, "tier_cn": TIER_CN[r.tier], "sp": r.sp_cn, "organ": r.tissue_cn,
            "susp": SUSP[r.suspension_type], "name": r.celltype_cn,
            "il18": round(r.pooled_pct_IL18 * 100, 2), "il18_pos": int(r.n_cells_IL18_pos),

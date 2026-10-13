@@ -63,26 +63,32 @@ s = p.addSlide(); head(s, "小鼠脑（单细胞）：IL18 / CASP1 / CASP3 三�
 fig(s, `${FIG}/mouse/brain_cell_dots.png`, 2312, 1122, 1.3, 6.6);
 cap(s, "星形胶质 IL18 56.7% 而 CASP1 仅 2/3766；小胶质 IL18 20.5% 但 CASP1 15/818 = 1.83%，是全脑最高的一档。");
 
-// ---- 6. conclusions ------------------------------------------------------------------------------
+// ---- 6. conclusions: two axes, factual labels -----------------------------------------------------
 s = p.addSlide();
-s.addText("结论", { isTextBox: true, x: .7, y: .45, w: 12, h: .7, fontFace: F, fontSize: 26, color: INK, bold: true });
-const L = (y, txt, sub) => {
-  s.addText(txt, { isTextBox: true, x: .8, y, w: 11.7, h: .36, fontFace: F, fontSize: 15.5, color: INK, bold: true, valign: "top" });
-  if (sub) s.addText(sub, { isTextBox: true, x: .8, y: y + .33, w: 11.7, h: .3, fontFace: F, fontSize: 11, color: MU, valign: "top" });
+s.addText("结论", { isTextBox: true, x: .7, y: .4, w: 6, h: .6, fontFace: F, fontSize: 26, color: INK, bold: true });
+s.addText("「方向」= 是否符合「IL18 高 + CASP1 低」这一前提；「证据」= 支持该方向的独立参考来源有多少、是否一致。两者分开看。",
+  { isTextBox: true, x: .7, y: 1.0, w: 12, h: .35, fontFace: F, fontSize: 12, color: MU });
+const G = (dir, evi) => uniq(R.filter(r => r.direction === dir && r.evidence === evi)
+  .map(r => r.sp + r.organ + " " + r.name.replace(/（[^）]*）$/, "")));
+const BLK = (y, dir, evi, col, note) => {
+  const items = G(dir, evi);
+  if (!items.length) return y;
+  const one = R.find(r => r.direction === dir && r.evidence === evi);
+  s.addText(`${dir} · ${evi}`, { isTextBox: true, x: .8, y, w: 3.1, h: .3, fontFace: F, fontSize: 13.5, color: col, bold: true });
+  s.addText(note, { isTextBox: true, x: .8, y: y + .28, w: 3.1, h: .5, fontFace: F, fontSize: 9.5, color: MU, valign: "top", lineSpacingMultiple: 1.1 });
+  s.addText(items.join(" · "), { isTextBox: true, x: 4.1, y: y - .04, w: 8.5, h: .72, fontFace: F, fontSize: 12.5, color: INK, valign: "top", lineSpacingMultiple: 1.15 });
+  return y + .82;
 };
-s.addText("确定 —— 两个以上独立参考来源一致", { isTextBox: true, x: .8, y: 1.25, w: 11.7, h: .3, fontFace: F, fontSize: 12.5, color: A, bold: true });
-L(1.62, "人脑皮层 PV 中间神经元  IL18 高、CASP1 近零", "HVS 单细胞 78 供体 + PsychAD 单核 234 供体；参考层 sFANS 分选核 566 倍、Allen SMART-seq 358 倍");
-L(2.28, "人脑皮层 L5 ET 投射神经元  IL18 高、CASP1 近零", "HVS + SEA-AD MTG + SEA-AD DLPFC 三套；参考层 Betz 细胞 275 倍、von Economo 神经元 384 倍");
-L(2.94, "小鼠皮层与海马 星形胶质  Il18 高、Casp1 近零", "4 个来源；但仅限皮层与海马——小脑 Bergmann 胶质与脊髓星形胶质 Casp1 明确表达");
-L(3.60, "小鼠脑 少突胶质  Il18 高、Casp1 近零", "3 个来源；RiboTag 中 Casp1 比配对全组织更低，是去除而非带入");
-L(4.26, "小鼠胰岛 D(δ) 细胞  Il18 可检、Casp1 近零", "6 个来源；GSE269616 九个文库 Casp1 零条读段。但人胰岛 δ 细胞不成立");
-s.addText("可能 —— 单一来源支持，或尚无匹配参考", { isTextBox: true, x: .8, y: 5.0, w: 11.7, h: .3, fontFace: F, fontSize: 12.5, color: B, bold: true });
-s.addText("人肺 AT1 肺泡上皮 · 人肺 肥大细胞 · 人胰腺 腺泡细胞 · 小鼠胰 导管细胞 · 人脑 血管软脑膜细胞 · 小鼠脑 Cajal-Retzius 神经元",
-  { isTextBox: true, x: .8, y: 5.32, w: 11.7, h: .4, fontFace: F, fontSize: 13, color: INK });
-s.addText("相反 —— 参考层里 CASP1 确实可测，不满足「缺少经典加工酶」这一前提", { isTextBox: true, x: .8, y: 5.85, w: 11.7, h: .3, fontFace: F, fontSize: 12.5, color: D, bold: true });
-s.addText("小鼠肺 肺泡巨噬 · 小鼠脑 小胶质 · 人肺 气道/纤毛上皮 · 人脑 CGE 源中间神经元 · 人肝 嗜碱粒细胞 · 人肝 CD56bright NK · 人肺 树突状细胞",
-  { isTextBox: true, x: .8, y: 6.17, w: 11.7, h: .4, fontFace: F, fontSize: 13, color: INK });
-s.addText("检出率 = 原始计数 ≥1 的细胞数 ÷ 分析细胞数（合并全部供体）。29 个分层，人与小鼠分开，静息基线。",
-  { isTextBox: true, x: .8, y: 6.75, w: 11.7, h: .35, fontFace: F, fontSize: 11, color: FA });
+let yy = 1.42;
+yy = BLK(yy, "符合", "多源一致", A, "≥2 个独立来源，无一例外");
+yy = BLK(yy, "符合", "多源有分歧", "2E8B57", "多数来源支持，但有来源测到 CASP1");
+yy = BLK(yy, "符合", "单一来源", B, "仅 1 个来源支持");
+yy = BLK(yy, "符合", "无参考可查", "4C87C4", "无分选参考，仅本数据方向相符");
+yy = BLK(yy, "不符合", "多源一致", D, "参考层 CASP1 确实可测或 ≥ IL18");
+yy = BLK(yy, "不符合", "无参考可查", "B5564E", "无参考，本数据自身即方向相反");
+s.addText("两条必须一起说的边界：小鼠星形胶质的结论仅限皮层与海马（小脑 Bergmann 胶质与脊髓星形胶质 Casp1 明确表达）；人的 PV / L5 ET 神经元结论在小鼠没有对应物（小鼠这两类 Casp1 同样近零，但 Il18 不高）。",
+  { isTextBox: true, x: .8, y: 6.25, w: 11.8, h: .6, fontFace: F, fontSize: 11.5, color: INK, lineSpacingMultiple: 1.2 });
+s.addText("检出率 = 原始计数 ≥1 的细胞数 ÷ 分析细胞数（合并全部供体）。29 个分层，人与小鼠分开，静息基线；未做环境 RNA 校正。",
+  { isTextBox: true, x: .8, y: 6.95, w: 11.8, h: .35, fontFace: F, fontSize: 10.5, color: FA });
 
 p.writeFile({ fileName: ROOT + "/IL18_CASP_五器官筛选.pptx" }).then(f => console.log("wrote", f));

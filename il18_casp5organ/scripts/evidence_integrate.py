@@ -156,19 +156,26 @@ def tier(rs, has_ref):
     possibility that one reference supports. C = CASP1 clearly present alongside IL18. D = no matched
     reference. Thresholds are declared engineering choices, not biology."""
     if not has_ref:
-        return "E_no_matched_reference", "参考层中没有对应群体，无法判读"
+        return "E_no_matched_reference", "参考层中没有对应群体，无法判读", (0, 0)
     # Non-steady states are excluded. The marker token has to be removed first: CELLxGENE rows carry the
     # state "normal donors only (disease=normal)", which a bare "disease" substring test reads as a
     # DISEASE row and silently drops. That dropped every CELLxGENE row from every verdict — it only
     # became visible once another source was retired and the count fell below the tier-A threshold.
     def is_steady(state):
-        s = str(state).lower().replace("disease=normal", "").replace("disease = normal", "")
+        # Negated forms have to be stripped before keyword matching, or the marker word inside them
+        # flips the test. "normal donors only (disease=normal)" is not a disease sample, and
+        # "unstimulated" / "no stimulation" are exactly the steady states we want to keep — matching a
+        # bare "disease" or "stimulat" substring silently discarded both.
+        s = str(state).lower()
+        for neg in ("disease=normal", "disease = normal", "unstimulated", "un-stimulated",
+                    "no stimulation", "without stimulation", "not stimulated"):
+            s = s.replace(neg, "")
         return not any(k in s for k in ("challenge", "disease", "tumour", "tumor", "psoria", "stimulat"))
 
     steady = [r for r in rs if is_steady(r["state"])]
     use = steady or rs
     if not use:
-        return "E_no_matched_reference", "无可用的静息态参考值（IL18 在该源亦不可测）"
+        return "E_no_matched_reference", "无可用的静息态参考值（IL18 在该源亦不可测）", (0, 0)
     good = [r for r in use if r["casp1_absent"] or r["ratio"] >= RATIO_STRONG]
     contra = [r for r in use if r["ratio"] < RATIO_WEAK]
     # Sources in the 3x-20x band support neither side: CASP1 is clearly measurable but still well below
@@ -176,24 +183,25 @@ def tier(rs, has_ref):
     # 4.5x below IL18 sit silently behind a "supported" call. They are now always reported.
     mid = [r for r in use if not (r["casp1_absent"] or r["ratio"] >= RATIO_STRONG) and r["ratio"] >= RATIO_WEAK]
     n_src, n_mid = len({r["source"] for r in good}), len({r["source"] for r in mid})
+    n_dis = len({r["source"] for r in mid} | {r["source"] for r in contra})
     mid_txt = (f"；另有 {n_mid} 个来源显示 CASP1 可测到、仅比 IL18 低 "
                f"{min(r['ratio'] for r in mid):.3g}–{max(r['ratio'] for r in mid):.3g} 倍" if mid else "")
     if n_src >= MIN_SOURCES_FOR_A and not contra and not mid:
-        return "A_supported", f"{n_src} 个独立来源显示 CASP1 处于零底线或比 IL18 低 >={RATIO_STRONG:.0f} 倍，无反向来源"
+        return "A_supported", f"{n_src} 个独立来源显示 CASP1 处于零底线或比 IL18 低 >={RATIO_STRONG:.0f} 倍，无反向来源", (n_src, 0)
     if n_src >= 1:
         extra = f"，但另有 {len(contra)} 个来源显示 CASP1 与 IL18 同量级" if contra else \
                 ("" if mid else "（单一来源）")
-        return "B_potential", f"{n_src} 个来源支持 CASP1 near-absent/低{extra}{mid_txt}"
+        return "B_potential", f"{n_src} 个来源支持 CASP1 near-absent/低{extra}{mid_txt}", (n_src, n_dis)
     mid = [r for r in use if RATIO_WEAK <= r["ratio"] < RATIO_STRONG]
     if mid:
         lo, hi = min(r["ratio"] for r in mid), max(r["ratio"] for r in mid)
         return "C_casp1_present", (f"CASP1 可测到，比 IL18 低 {lo:.3g}–{hi:.3g} 倍：IL18 仍是主导转录本，"
-                                   f"但不满足“加工酶缺失”前提")
+                                   f"但不满足“加工酶缺失”前提"), (0, 0)
     inv = [r for r in use if r["ratio"] < 1.0]
     if inv:
-        return "D_refuted", f"CASP1 >= IL18（最低比值 {min(r['ratio'] for r in inv):.2g}），与筛选前提方向相反"
+        return "D_refuted", f"CASP1 >= IL18（最低比值 {min(r['ratio'] for r in inv):.2g}），与筛选前提方向相反", (0, 0)
     return "D_refuted", (f"CASP1 与 IL18 同量级（比值 {min(r['ratio'] for r in use):.2g}–"
-                         f"{max(r['ratio'] for r in use):.2g}）")
+                         f"{max(r['ratio'] for r in use):.2g}）"), (0, 0)
 
 
 
@@ -234,7 +242,7 @@ def main():
         ref_label = SCREEN_TO_REF.get(key)
         sub = ref[(ref.species == c.species) & (ref.cell_type_screen == ref_label)] if ref_label else ref.iloc[0:0]
         rs = ratios_for(sub) if len(sub) else []
-        t, why = tier(rs, bool(len(sub)))
+        t, why, (n_sup, n_dis) = tier(rs, bool(len(sub)))
         best = max(rs, key=lambda r: r["ratio"]) if rs else None
         ps = pooled_stats(c.dataset_id, c.level, c.celltype, cmap)
         rows.append({
@@ -248,13 +256,13 @@ def main():
             "ref_label": ref_label or "", "n_ref_sources": len(rs),
             "ref_sources": "; ".join(f"{r['source'][:34]}[{r['unit'][:14]}] IL18={r['il18']:.3g}/CASP1={r['casp1']:.3g} ratio={r['ratio']:.3g}" for r in rs),
             "best_ratio_IL18_over_CASP1": (f"{best['ratio']:.3g}" if best else ""),
-            "evidence_tier": t, "tier_reason": why,
+            "evidence_tier": t, "tier_reason": why, "n_sources_supporting": n_sup, "n_sources_dissenting": n_dis,
         })
     out = pd.DataFrame(rows)
     front = ["dataset_id", "level", "species", "tissue", "suspension_type", "celltype", "duplicate_of",
              "evidence_tier", "n_cells_analysed", "n_donors_analysed", "median_cells_per_donor",
              "n_cells_IL18_pos", "pooled_pct_IL18", "donors_with_IL18_pos",
-             "n_cells_CASP1_pos", "pooled_pct_CASP1", "donors_with_CASP1_pos"]
+             "n_cells_CASP1_pos", "pooled_pct_CASP1", "donors_with_CASP1_pos", "n_sources_supporting", "n_sources_dissenting"]
     out = out[[c for c in front if c in out.columns] + [c for c in out.columns if c not in front]]
     out = out.sort_values(["evidence_tier", "species", "tissue"])
     write_tsv(out, ROOT / "results" / "il18_casp1_evidence.tsv")
