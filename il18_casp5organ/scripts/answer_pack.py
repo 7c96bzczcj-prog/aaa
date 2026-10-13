@@ -63,6 +63,87 @@ CT_CN = {
     ("human", "pancreas", "type B pancreatic cell"): "胰岛 β 细胞",
     ("human", "pancreas", "pancreatic D cell"): "胰岛 D(δ) 细胞",
     ("human", "pancreas", "mast cell"): "肥大细胞",
+    # ---- remaining labels of the ten per-organ three-gene panels -----------------------------------
+    # Only straight renderings of the ontology term; nothing is merged, split or re-interpreted here.
+    ("human", "lung", "pulmonary alveolar type 2 cell"): "AT2 肺泡上皮",
+    ("human", "lung", "epithelial cell of lower respiratory tract"): "下呼吸道上皮",
+    ("human", "lung", "respiratory basal cell"): "气道基底细胞",
+    ("human", "lung", "respiratory tract hillock cell"): "气道 hillock 细胞",
+    ("human", "lung", "nasal mucosa goblet cell"): "鼻黏膜杯状细胞",
+    ("human", "lung", "multiciliated epithelial cell"): "多纤毛上皮",
+    ("human", "lung", "mesothelial cell"): "间皮细胞",
+    ("human", "lung", "fibroblast"): "成纤维细胞",
+    ("human", "lung", "alveolar macrophage"): "肺泡巨噬",
+    ("human", "lung", "lung macrophage"): "肺巨噬细胞",
+    ("human", "lung", "elicited macrophage"): "募集型巨噬细胞",
+    ("human", "lung", "CD1c-positive myeloid dendritic cell"): "CD1c+ 髓系树突状",
+    ("human", "lung", "plasmacytoid dendritic cell"): "浆细胞样树突状",
+    ("human", "lung", "classical monocyte"): "经典单核细胞",
+    ("human", "lung", "non-classical monocyte"): "非经典单核细胞",
+    ("human", "lung", "unknown"): "未注释细胞群",
+    ("human", "liver", "macrophage"): "巨噬细胞",
+    ("human", "liver", "monocyte"): "单核细胞",
+    ("human", "liver", "conventional dendritic cell"): "经典树突状细胞",
+    ("human", "liver", "plasmacytoid dendritic cell"): "浆细胞样树突状",
+    ("human", "liver", "neutrophil"): "中性粒细胞",
+    ("human", "liver", "natural killer cell"): "NK 细胞",
+    ("human", "liver", "T cell"): "T 细胞",
+    ("human", "liver", "B cell"): "B 细胞",
+    ("human", "liver", "plasma cell"): "浆细胞",
+    ("human", "liver", "endothelial cell"): "内皮细胞",
+    ("human", "pancreas", "pancreatic ductal cell"): "胰导管细胞",
+    ("human", "pancreas", "pancreatic stellate cell"): "胰星状细胞",
+    ("human", "pancreas", "pancreatic A cell"): "胰岛 α 细胞",
+    ("human", "pancreas", "pancreatic PP cell"): "胰岛 PP(γ) 细胞",
+    ("human", "pancreas", "endothelial cell"): "内皮细胞",
+    ("human", "pancreas", "leukocyte"): "白细胞",
+    ("human", "spinal_cord", "astrocyte"): "星形胶质",
+    ("human", "spinal_cord", "oligodendrocyte"): "少突胶质",
+    ("human", "spinal_cord", "oligodendrocyte precursor cell"): "少突胶质前体 OPC",
+    ("human", "spinal_cord", "microglial cell"): "小胶质",
+    ("human", "spinal_cord", "GABAergic neuron"): "GABA 能神经元",
+    ("human", "spinal_cord", "glutamatergic neuron"): "谷氨酸能神经元",
+    ("human", "spinal_cord", "cerebellar granule cell"): "颗粒细胞（原注释如此）",
+    ("human", "spinal_cord", "capillary endothelial cell"): "毛细血管内皮",
+    ("human", "spinal_cord", "endothelial cell of artery"): "动脉内皮",
+    ("human", "spinal_cord", "mural cell"): "血管壁细胞",
+    ("human", "spinal_cord", "leukocyte"): "白细胞",
+    ("mouse", "lung", "fibroblast of lung"): "肺成纤维细胞",
+    ("mouse", "lung", "adventitial cell"): "外膜细胞",
+    ("mouse", "lung", "bronchial smooth muscle cell"): "支气管平滑肌",
+    ("mouse", "lung", "vein endothelial cell"): "静脉内皮",
+    ("mouse", "lung", "myeloid dendritic cell"): "髓系树突状细胞",
+    ("mouse", "lung", "classical monocyte"): "经典单核细胞",
+    ("mouse", "lung", "intermediate monocyte"): "中间型单核细胞",
+    ("mouse", "lung", "non-classical monocyte"): "非经典单核细胞",
+    ("mouse", "lung", "neutrophil"): "中性粒细胞",
+    ("mouse", "lung", "basophil"): "嗜碱粒细胞",
+    ("mouse", "lung", "natural killer cell"): "NK 细胞",
+    ("mouse", "lung", "mature NK T cell"): "NKT 细胞",
+    ("mouse", "lung", "T cell"): "T 细胞",
+    ("mouse", "lung", "CD4-positive, alpha-beta T cell"): "CD4+ T 细胞",
+    ("mouse", "lung", "CD8-positive, alpha-beta T cell"): "CD8+ T 细胞",
+    ("mouse", "lung", "B cell"): "B 细胞",
+    ("mouse", "liver", "Kupffer cell"): "Kupffer 细胞",
+    ("mouse", "liver", "myeloid leukocyte"): "髓系白细胞",
+    ("mouse", "liver", "hepatocyte"): "肝细胞",
+    ("mouse", "liver", "endothelial cell of hepatic sinusoid"): "肝窦内皮",
+    ("mouse", "liver", "natural killer cell"): "NK 细胞",
+    ("mouse", "liver", "B cell"): "B 细胞",
+    ("mouse", "pancreas", "type B pancreatic cell"): "胰岛 β 细胞",
+    ("mouse", "pancreas", "pancreatic A cell"): "胰岛 α 细胞",
+    ("mouse", "pancreas", "pancreatic PP cell"): "胰岛 PP(γ) 细胞",
+    ("mouse", "pancreas", "pancreatic endocrine cell"): "胰岛内分泌细胞",
+    ("mouse", "pancreas", "pancreatic stellate cell"): "胰星状细胞",
+    ("mouse", "pancreas", "hematopoietic cell"): "造血来源细胞",
+    ("mouse", "pancreas", "Schwann cell"): "施万细胞",
+    ("mouse", "pancreas", "endothelial cell"): "内皮细胞",
+    ("mouse", "pancreas", "unknown"): "未注释细胞群",
+    ("mouse", "spinal_cord", "astrocytes"): "星形胶质",
+    ("mouse", "spinal_cord", "Oligos"): "少突胶质",
+    ("mouse", "spinal_cord", "neurons"): "神经元",
+    ("mouse", "spinal_cord", "meninges/schwann"): "脑膜/施万细胞",
+    ("mouse", "spinal_cord", "endo/vascular"): "内皮/血管",
 }
 # short dataset tags — the same cell type now appears in several strata, so the row label must say which
 DS_CN = {
@@ -292,8 +373,74 @@ BRAIN_ROWS = [   # mouse brain, scRNA, author labels — explicit, no regex, no 
 ]
 
 
+# one three-gene panel per species × organ, in the order the deck shows them. Entry chosen per organ
+# as the stratum with the most analysable cell types at the author level (see run_log.md).
+PANEL_STRATA = [
+    ("H_lung_cell", "human", "lung", "human/lung_dots.png"),
+    ("H_liver_cell", "human", "liver", "human/liver_dots.png"),
+    ("H_panc_islet_48", "human", "pancreas", "human/pancreas_dots.png"),
+    ("H_spinal_nucleus_wm", "human", "spinal_cord", "human/spinal_dots.png"),
+    ("M_lung_cell", "mouse", "lung", "mouse/lung_dots.png"),
+    ("M_liver_cell", "mouse", "liver", "mouse/liver_dots.png"),
+    ("M_pancreas_islet_cell", "mouse", "pancreas", "mouse/pancreas_dots.png"),
+    ("M_spinal_nucleus", "mouse", "spinal_cord", "mouse/spinal_dots.png"),
+]
+# panels whose underlying stratum carries a caveat that must travel with the figure
+PANEL_NOTE = {
+    "mouse/spinal_dots.png": "本分层（GSE103892）的矩阵只带基因符号、无 Ensembl ID，"
+                             "按 §1.2 标 gene_id_unavailable，仅作参考，不进候选判定。",
+    "human/spinal_dots.png": "本分层为颈段脊髓白质（19 供体），不含灰质与运动神经元；"
+                             "另一套人脊髓数据（Siletti）只有 1 位供体，按 §10.3 不产候选，故不在此作图。",
+}
+
+
+def wrap_cjk(s, width_in, fontsize=9.0, margin=0.06):
+    """Wrap a Chinese caption to a figure width. textwrap can't: CJK has no spaces to break on.
+
+    Widths are counted in em (1 for CJK/full-width, ~0.55 for ASCII) and lines are broken after a
+    punctuation mark where one is within reach, so a break never lands inside a number or a gene name.
+    """
+    budget = (width_in * (1 - 2 * margin)) * 72 / fontsize
+    brk = "，。；：）」、,;)"
+    lines, cur, w = [], "", 0.0
+    for ch in s:
+        cur += ch
+        w += 1.0 if ord(ch) > 0x2E80 else 0.55
+        if w >= budget:
+            cut = max((cur.rfind(b) for b in brk), default=-1)
+            if cut >= len(cur) * 0.55:                     # only honour a break point near the end
+                lines.append(cur[:cut + 1])
+                cur = cur[cut + 1:]
+                w = sum(1.0 if ord(c) > 0x2E80 else 0.55 for c in cur)
+            else:
+                lines.append(cur)
+                cur, w = "", 0.0
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def rows_for_stratum(entry_id, species, tissue, max_rows=20):
+    """Every author label in one stratum that cleared the donor floor, ranked by IL18 detection.
+
+    Used so an organ panel shows the whole stratum rather than a hand-picked shortlist. Chinese names
+    are used where one has been assigned by hand; otherwise the ontology label is kept verbatim, which
+    is precise and traceable — inventing a name for a label nobody has reviewed would be worse.
+    """
+    s = pd.read_csv(ROOT / "results" / "il18_casp_summary.tsv", sep="\t", comment="#")
+    d = s[(s.dataset_id == entry_id) & (s.level == "author") & (s.n_donors >= 3)]
+    d = d.sort_values("pct_IL18", ascending=False)
+    labs = list(d.celltype)[:max_rows]
+    return [(l, CT_CN.get((species, tissue, l), l)) for l in labs], len(d)
+
+
+PANEL_IN = (11.93, 5.30)   # the image box left on a 13.33 × 7.5 slide once title and caption are placed
+PANEL_FS = 8.0             # every point size below is what the reader actually sees on that slide
+
+
 def draw_brain_dotplot(entry_id="M_brain_cell", spec_rows=None, out_name="mouse/brain_cell_dots.png",
-                       verdicts=None, species="mouse", width=13.6, row_h=0.46):
+                       verdicts=None, species="mouse", tissue="brain",
+                       n_total=None, extra_note=""):
     """Mouse brain (scRNA) dot plot: rows = cell type, columns = IL18 / CASP1 / CASP3.
 
     Dot area = pooled detection rate (same definition as everywhere else), colour = pseudobulk
@@ -329,49 +476,63 @@ def draw_brain_dotplot(entry_id="M_brain_cell", spec_rows=None, out_name="mouse/
     rows = sorted(rows, key=lambda r: stats[r[0]]["IL18"][0], reverse=True)
     n = len(rows)
 
-    fig, axes = plt.subplots(1, 3, figsize=(width, row_h * n + 2.0), sharey=True,
-                             gridspec_kw={"wspace": 0.12})
+    # The canvas is exactly the image box of the slide, so a point size here is the point size the
+    # reader sees. Earlier these were drawn large and let the deck shrink them, which put 20-row panels
+    # on screen at under 5 pt. Row pitch and dot size follow from the row count instead of the reverse.
+    fw, fh = PANEL_IN
+    scope = ("本页为同一个分层内的全部细胞类型，不论判定如何一律列出。" if n_total is None or n_total <= n
+             else f"该分层共 {n_total} 个细胞类型达到 ≥3 供体，本页按 IL18 检出率取前 {n} 个；"
+                  f"其余 {n_total - n} 个 IL18 更低，不论判定如何均见 answer_table.tsv。")
+    foot = (wrap_cjk("颜色深浅 = log2(CPM+1)，三个基因各自独立色标（量级相差太大，不可共用一套色标，"
+                     "也不可跨基因比颜色）；每个点右侧为该基因的检出率与「阳性细胞/分析细胞」。",
+                     fw, PANEL_FS - 1.2, margin=0.012)
+            + wrap_cjk("左侧细胞类型名的颜色 = 方向/证据：绿 = 符合·多源一致，深蓝 = 符合·单一来源，"
+                       "浅蓝 = 符合·无参考可查，红 = 不符合，黑 = 未进入候选。" + scope + extra_note,
+                       fw, PANEL_FS - 1.2, margin=0.012))
+    top_in, line_in = 0.42, 0.145
+    foot_in = line_in * len(foot) + 0.10
+    row_pt = (fh - top_in - foot_in) / n * 72                 # vertical pitch of one row, in points
+    dmax = min(0.68 * row_pt, 26.0)                           # keep the largest dot inside its row
+    smax, smin = (dmax / 2) ** 2 * np.pi, 3.0
+
+    fig, axes = plt.subplots(1, 3, figsize=(fw, fh), sharey=True, gridspec_kw={"wspace": 0.12})
     for ax, gene in zip(axes, ("IL18", "CASP1", "CASP3")):
         vals = [stats[lab][gene] for lab, _ in rows]
         hi = max(v[1] for v in vals) or 1.0
         for i, (pct_, lcpm, pos, ntot) in enumerate(vals):
-            ax.scatter([0.30], [i], s=40 + 1100 * pct_, c=[lcpm], cmap=cmap, vmin=0, vmax=hi,
-                       edgecolors="white", linewidths=1.0, zorder=3)
+            ax.scatter([0.30], [i], s=smin + (smax - smin) * pct_, c=[lcpm], cmap=cmap, vmin=0,
+                       vmax=hi, edgecolors="white", linewidths=0.7, zorder=3)
             ax.text(0.50, i, f"{pct_*100:.2f}%" if pct_ < 0.1 else f"{pct_*100:.1f}%",
-                    va="center", fontsize=9.4, color="#1A1A1A")
-            ax.text(1.06, i, f"{pos}/{ntot}", va="center", ha="right", fontsize=8.6, color="#777777")
+                    va="center", fontsize=PANEL_FS, color="#1A1A1A")
+            ax.text(1.06, i, f"{pos}/{ntot}", va="center", ha="right", fontsize=PANEL_FS - 1.1,
+                    color="#777777")
         ax.set_xlim(0, 1.09)
         ax.set_xticks([])
         ax.tick_params(axis="y", length=0)
         ax.set_ylim(n - 0.5, -0.6)
         ax.set_title(f"{gene}（pro-IL-18 转录本）" if gene == "IL18" else gene,
-                     fontsize=13, loc="left", pad=10)
+                     fontsize=PANEL_FS + 1.8, loc="left", pad=7)
         ax.grid(axis="y", color="#F0F0F0", lw=.7)
         ax.set_axisbelow(True)
         for s_ in ax.spines.values():
             s_.set_visible(False)
-    axes[0].set_yticks(range(n), [cn for _, cn in rows], fontsize=10.2)
+    axes[0].set_yticks(range(n), [cn for _, cn in rows], fontsize=PANEL_FS)
     axes[0].tick_params(axis="y", length=0)
     # colour the row label by this cell type's verdict, so all three classes are visible at once
     for tick, (lab, _) in zip(axes[0].get_yticklabels(), rows):
-        tick.set_color(LABEL_COL.get(verdicts.get((species, lab)), "#1A1A1A"))
+        tick.set_color(LABEL_COL.get(verdicts.get((species, tissue, lab)), "#1A1A1A"))
     for p in (0.05, 0.25, 0.55):
-        axes[2].scatter([], [], s=40 + 1100 * p, color="#8A8A8A", label=f"{int(p*100)}%")
-    axes[2].legend(title="点面积 = 检出率", fontsize=9, title_fontsize=9, frameon=False,
-                   loc="center left", bbox_to_anchor=(1.0, 0.5), labelspacing=1.5, borderpad=1.0)
-    fig.text(0.012, 0.042,
-             "颜色深浅 = log2(CPM+1)，三个基因各自独立色标（量级相差太大，不可共用一套色标，也不可跨基因比颜色）；"
-             "每个点右侧为该基因的检出率与「阳性细胞/分析细胞」。",
-             fontsize=9, color="#666666")
-    fig.text(0.012, 0.012,
-             "左侧细胞类型名的颜色 = 方向/证据：绿 = 符合·多源一致，深蓝 = 符合·单一来源，"
-             "浅蓝 = 符合·无参考可查，红 = 不符合，黑 = 未进入候选。"
-             "本页为同一个分层内的全部细胞类型，不论判定如何一律列出。",
-             fontsize=9, color="#666666")
-    fig.subplots_adjust(left=0.165, right=0.885, top=0.905, bottom=0.105)
+        axes[2].scatter([], [], s=smin + (smax - smin) * p, color="#8A8A8A", label=f"{int(p*100)}%")
+    axes[2].legend(title="点面积 = 检出率", fontsize=PANEL_FS - 0.6, title_fontsize=PANEL_FS - 0.6,
+                   frameon=False, loc="center left", bbox_to_anchor=(1.0, 0.5),
+                   labelspacing=1.4, borderpad=0.8)
+    for i, line in enumerate(foot):
+        fig.text(0.012, (line_in * (len(foot) - i) - 0.045) / fh, line,
+                 fontsize=PANEL_FS - 1.2, color="#666666")
+    fig.subplots_adjust(left=1.62 / fw, right=1 - 1.30 / fw, top=1 - top_in / fh, bottom=foot_in / fh)
     (FIG / out_name).parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIG / out_name, dpi=170)
-    print(f"wrote figures/{out_name}", fig.get_size_inches() * 170)
+    fig.savefig(FIG / out_name, dpi=240)
+    print(f"wrote figures/{out_name}", (fig.get_size_inches() * 240).astype(int))
     plt.close(fig)
 
 
@@ -448,12 +609,27 @@ def main():
     draw_answer_figure(out)                                              # combined, for the report
     draw_answer_figure(out, ("human",), "answer_human.png", row_h=0.42, collapse=True)   # one slide each
     draw_answer_figure(out, ("mouse",), "answer_mouse.png", row_h=0.42, collapse=True)
-    # keyed by (species, author label): the two species share label strings such as "oligodendrocyte",
-    # and a species-blind map would paint one species' verdict onto the other's row
-    vmap = {(r.species, r.celltype): r.verdict for r in out.itertuples()}
+    # keyed by (species, tissue, author label): both species share label strings such as
+    # "oligodendrocyte", and so do organs ("macrophage", "endothelial cell", "mast cell") — a map
+    # missing either key paints one row's verdict onto an unrelated row
+    # when one cell type appears in several strata of the same organ, keep the stratum with the most
+    # donors — the same tie-break the collapsed overview figure uses, so the two agree
+    vmap = {(r.species, r.tissue, r.celltype): r.verdict
+            for r in out.sort_values("n_donors_analysed").itertuples()}
     draw_brain_dotplot("H_brain_cell_hvs", HUMAN_BRAIN_ROWS, "human/brain_cell_dots.png", vmap,
-                       "human", width=18.6, row_h=0.40)   # 18 rows: widen so it fills a slide
-    draw_brain_dotplot("M_brain_cell", BRAIN_ROWS, "mouse/brain_cell_dots.png", vmap, "mouse")
+                       "human", "brain")
+    draw_brain_dotplot("M_brain_cell", BRAIN_ROWS, "mouse/brain_cell_dots.png", vmap, "mouse", "brain")
+    # the other four organs, same treatment — the brain-only pair was an accident of how the page was
+    # first built, not a decision; the screen covers five organs in both species
+    for eid, sp, tis, fname in PANEL_STRATA:
+        rws, total = rows_for_stratum(eid, sp, tis)
+        if not rws:
+            print(f"skip {fname}: no cell type clears the donor floor")
+            continue
+        draw_brain_dotplot(eid, rws, fname, vmap, sp, tis, n_total=total,
+                           extra_note=PANEL_NOTE.get(fname, ""))
+        if len(rws) < total:
+            print(f"   note: {fname} shows the top {len(rws)} of {total} cell types by IL18 detection")
 
     # ---- json for deck/report ----------------------------------------------------------------------
     js = [{"direction": r.direction, "evidence": r.evidence, "label": r.label,

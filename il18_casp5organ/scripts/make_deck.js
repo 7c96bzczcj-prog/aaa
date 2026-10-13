@@ -15,7 +15,10 @@ const INK = "1A1A1A", MU = "6B6B6B", FA = "9AA0A6";
 const A = "1B7A43", B = "1F5FA8", D = "9A2B2B";
 const fit = (iw, ih, bw, bh) => { const r = Math.min(bw / iw, bh / ih); return { w: iw * r, h: ih * r }; };
 const head = (s, t) => s.addText(t, { isTextBox: true, x: .7, y: .45, w: 12, h: .7, fontFace: F, fontSize: 24, color: INK, bold: true });
-const cap = (s, t) => s.addText(t, { isTextBox: true, x: .7, y: H - .55, w: 12, h: .38, fontFace: F, fontSize: 10.5, color: MU });
+// captions run to three lines on the organ pages, so the box is sized for three and the figure stops
+// above it; a one-line caption just leaves white space rather than colliding with the image
+const cap = (s, t) => s.addText(t, { isTextBox: true, x: .7, y: H - 1.0, w: 11.95, h: .86, fontFace: F,
+                                     fontSize: 10.5, color: MU, valign: "top", lineSpacingMultiple: 1.2 });
 const fig = (s, path, iw, ih, top, bot) => { const d = fit(iw, ih, W - 1.4, bot - top); s.addImage({ path, x: (W - d.w) / 2, y: top + (bot - top - d.h) / 2, w: d.w, h: d.h }); };
 const pct = v => (v >= 1 ? v.toFixed(1) : v.toFixed(2)) + "%";
 const ast = one("小鼠", "星形胶质"), oli = one("小鼠", "少突胶质"), amac = one("小鼠", "肺泡巨噬");
@@ -47,21 +50,45 @@ s.addText("统一参考表 1714 行，每条带来源、单位、状态与匹配
 
 // ---- 2-3. per-species overview figures ----------------------------------------------------------
 s = p.addSlide(); head(s, "人：同一条检出率轴上看 IL18 与 CASP1");
-fig(s, `${FIG}/answer_human.png`, 2890, 1550, 1.15, 7.0);
+fig(s, `${FIG}/answer_human.png`, 2890, 1550, 1.15, H - 1.05);
 cap(s, "每行一个细胞类型：实心点 = IL18，空心点 = CASP1，两点距离即差距；同一细胞类型在多个数据集重复时取供体最多的一套，右侧标 ×n。");
 
 s = p.addSlide(); head(s, "小鼠：同一条检出率轴上看 IL18 与 CASP1");
 fig(s, `${FIG}/answer_mouse.png`, 2890, 908, 1.4, 6.3);
 cap(s, "人与小鼠分开绘制，不作跨物种定量比较。");
 
-// ---- 4-5. three-gene panels, human first then mouse ---------------------------------------------
-s = p.addSlide(); head(s, "人脑（单细胞）：IL18 / CASP1 / CASP3 三基因");
-fig(s, `${FIG}/human/brain_cell_dots.png`, 3162, 1564, 1.15, 7.0);
-cap(s, "Allen HVS 真单细胞、78 供体；该分层全部 18 个细胞类型一律列出。PV 与 L5 ET 的 CASP1 近零而 CASP3 为 27.9% 与 34.3%，即不满足「CASP3 最低档」这一排除项。");
-
-s = p.addSlide(); head(s, "小鼠脑（单细胞）：IL18 / CASP1 / CASP3 三基因");
-fig(s, `${FIG}/mouse/brain_cell_dots.png`, 2312, 1122, 1.3, 6.6);
-cap(s, "星形胶质 IL18 56.7% 而 CASP1 仅 2/3766；小胶质 IL18 20.5% 但 CASP1 15/818 = 1.83%，是全脑最高的一档。");
+// ---- 4-13. three-gene panels: five organs × two species -------------------------------------------
+// Earlier drafts carried brain only. That was an artefact of which page got built first, not a
+// decision — the screen covers five organs, so every organ gets the same page, including the ones
+// where nothing qualifies. Each page lists every cell type of one stratum, whatever its verdict.
+const PANEL = [
+  ["人肺（HLCA 单细胞）", "human/lung_dots.png",
+   "肥大细胞 IL18 34.9% 而 CASP1 2.60%（138/5299），是人肺唯一两项都成立的一档。IL18 最高的三类反而不符合：CD1c+ 树突状 52.8% 对 CASP1 32.3%、间皮 51.8% 对 18.3%、肺泡巨噬 50.7% 对 57.9%。该分层 39 个细胞类型，本页按 IL18 取前 20。"],
+  ["人肝（Guilliams 单细胞）", "human/liver_dots.png",
+   "11 个细胞类型无一符合。IL18 最高的巨噬 53.1% 对 CASP1 38.5%，浆细胞样树突状 37.7% 对 42.8%，单核 20.9% 对 52.3%——肝的 IL18 信号集中在髓系，而髓系正是 CASP1 最高的一类。"],
+  ["人胰（48 供体胰岛单细胞）", "human/pancreas_dots.png",
+   "胰腺腺泡细胞 IL18 30.3%（1301/4288）而 CASP1 3.45%，是人胰唯一方向相符者，且被分层内相对规则漏掉、由参考层补回。同页肥大细胞 IL18 34.9% 但此分层 CASP1 10.4%，与人肺的肥大细胞不是同一回事。"],
+  ["人脑（Allen HVS 单细胞）", "human/brain_cell_dots.png",
+   "78 供体真单细胞，该分层全部 18 类一律列出。PV 与 L5 ET 的 CASP1 近零而 CASP3 为 27.9% 与 34.3%，即不满足「CASP3 最低档」这一排除项。"],
+  ["人脊髓（颈段白质单核）", "human/spinal_dots.png",
+   "11 类全部不符合：小胶质 IL18 52.3% 但 CASP1 11.8%（215/1829），其余 10 类 IL18 均 ≤3.2%。人脊髓白质在转录本层面是明确的否定，不是「数据不足」。"],
+  ["小鼠肺（Tabula Muris Senis 10x）", "mouse/lung_dots.png",
+   "肺泡巨噬 IL18 71.6% 为全器官最高，但 CASP1 13.3%（178/1341），参考层亦确认可测，判为不符合；其余 16 类 IL18 均 ≤18.5%。"],
+  ["小鼠肝（Tabula Muris Senis 10x）", "mouse/liver_dots.png",
+   "Kupffer 细胞 IL18 74.2% 对 CASP1 51.9%。肝细胞 IL18 11.2% 而 CASP1 0.34% 方向相符，但 IL18 未进该分层最高三分位，按 §8 不入候选——这一条列在此处是为了让落选理由可见。"],
+  ["小鼠胰（小鼠胰岛图谱单细胞）", "mouse/pancreas_dots.png",
+   "胰岛 D(δ) 细胞与胰导管细胞是本器官的两个方向相符项。胰岛内分泌细胞 IL18 19.5% 而 CASP1 0.09%，CASP3 33.3%。同一位置的人胰岛 δ 细胞 IL18 仅 0.17%（8/4677），该发现在人不复现。"],
+  ["小鼠脑（Yao 皮层+海马单细胞）", "mouse/brain_cell_dots.png",
+   "星形胶质 IL18 56.7% 而 CASP1 仅 2/3766；小胶质 IL18 20.5% 但 CASP1 15/818 = 1.83%，是全脑最高的一档。"],
+  ["小鼠脊髓（GSE103892 单核）", "mouse/spinal_dots.png",
+   "本页不产候选。星形胶质 IL18 21.0% 而 CASP1 0/404、少突胶质 1/707，方向看似相符，但该分层矩阵只带基因符号（gene_id_unavailable，§1.2），细胞数又少；而参考层的 RiboTag 分选脊髓星形胶质明确测到 Casp1。故小鼠星形胶质的结论只覆盖皮层与海马，不含脊髓。"],
+];
+// placed 1:1 — answer_pack.py draws these at exactly 11.93 × 5.30 in so 8 pt in the figure is 8 pt here
+PANEL.forEach(([title, f, c]) => {
+  s = p.addSlide(); head(s, title + "：IL18 / CASP1 / CASP3 三基因");
+  s.addImage({ path: `${FIG}/${f}`, x: (W - 11.93) / 2, y: 1.15, w: 11.93, h: 5.30 });
+  cap(s, c);
+});
 
 // ---- 6. conclusions: two axes, factual labels -----------------------------------------------------
 s = p.addSlide();
