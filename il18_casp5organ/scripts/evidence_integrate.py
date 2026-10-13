@@ -52,9 +52,12 @@ SCREEN_TO_REF = {
     # Human cortical neuron subtypes. The reference layer resolves human CNS only to "neuron"
     # (sorted/purified bulk is not available per interneuron subclass), so all four map to that row and
     # the judgement they get is a neuron-level one, not a subclass-level one. Flagged in tier_reason.
-    ("human", "brain", "pvalb GABAergic cortical interneuron"): "CNS neuron",
-    ("human", "brain", "chandelier pvalb GABAergic cortical interneuron"): "CNS neuron",
-    ("human", "brain", "L5 extratelencephalic projecting glutamatergic cortical neuron"): "CNS neuron",
+    # Subclass-level references exist for these two (reference batch v4), so they no longer fall back
+    # to the pan-neuron class — which turned out to be heterogeneous for CASP1 and is why the
+    # neuron-level reference looked internally inconsistent.
+    ("human", "brain", "pvalb GABAergic cortical interneuron"): "CNS PV interneuron",
+    ("human", "brain", "chandelier pvalb GABAergic cortical interneuron"): "CNS PV interneuron",
+    ("human", "brain", "L5 extratelencephalic projecting glutamatergic cortical neuron"): "CNS L5 ET neuron",
     ("human", "brain", "caudal ganglionic eminence derived cortical interneuron"): "CNS neuron",
     ("human", "brain", "neuron"): "CNS neuron",
     ("human", "brain", "astrocyte of the cerebral cortex"): "CNS astrocyte",
@@ -154,8 +157,15 @@ def tier(rs, has_ref):
     reference. Thresholds are declared engineering choices, not biology."""
     if not has_ref:
         return "E_no_matched_reference", "参考层中没有对应群体，无法判读"
-    steady = [r for r in rs if not any(k in str(r["state"]).lower()
-                                       for k in ("challenge", "disease", "tumour", "tumor", "psoria"))]
+    # Non-steady states are excluded. The marker token has to be removed first: CELLxGENE rows carry the
+    # state "normal donors only (disease=normal)", which a bare "disease" substring test reads as a
+    # DISEASE row and silently drops. That dropped every CELLxGENE row from every verdict — it only
+    # became visible once another source was retired and the count fell below the tier-A threshold.
+    def is_steady(state):
+        s = str(state).lower().replace("disease=normal", "").replace("disease = normal", "")
+        return not any(k in s for k in ("challenge", "disease", "tumour", "tumor", "psoria", "stimulat"))
+
+    steady = [r for r in rs if is_steady(r["state"])]
     use = steady or rs
     if not use:
         return "E_no_matched_reference", "无可用的静息态参考值（IL18 在该源亦不可测）"

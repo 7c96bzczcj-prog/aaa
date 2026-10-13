@@ -18,45 +18,48 @@ const head = (s, t) => s.addText(t, { isTextBox: true, x: .7, y: .45, w: 12, h: 
 const cap = (s, t) => s.addText(t, { isTextBox: true, x: .7, y: H - .55, w: 12, h: .38, fontFace: F, fontSize: 10.5, color: MU });
 const fig = (s, path, iw, ih, top, bot) => { const d = fit(iw, ih, W - 1.4, bot - top); s.addImage({ path, x: (W - d.w) / 2, y: top + (bot - top - d.h) / 2, w: d.w, h: d.h }); };
 const pct = v => (v >= 1 ? v.toFixed(1) : v.toFixed(2)) + "%";
+const ast = one("小鼠", "星形胶质"), oli = one("小鼠", "少突胶质"), amac = one("小鼠", "肺泡巨噬");
 
-// ---- 1. answer -----------------------------------------------------------------------------------
+// ---- 1. one-line conclusions ---------------------------------------------------------------------
 let s = p.addSlide();
-s.addText("哪些细胞 IL18 高且 CASP1 低", { isTextBox: true, x: .7, y: 1.75, w: 12, h: 1.0, fontFace: F, fontSize: 33, color: INK, bold: true, valign: "middle" });
-s.addText("人与小鼠 · 肺 肝 胰 脑 脊髓 · 静息基线 · 29 个分层 · 以供体为统计单位", { isTextBox: true, x: .7, y: 2.75, w: 12, h: .5, fontFace: F, fontSize: 16, color: MU });
-s.addText([
-  { text: "答案分三类。", options: { bold: true } },
-  { text: "确定：", options: { bold: true, color: A } },
-  { text: "小鼠脑星形胶质、少突胶质。　", options: {} },
-  { text: "可能：", options: { bold: true, color: B } },
-  { text: "人脑皮层 PV 中间神经元与 L5 ET 投射神经元（3–4 套独立数据集重复）、人肺 AT1 与肥大细胞、人胰腺腺泡细胞、小鼠胰岛 D(δ) 细胞与胰导管细胞。　", options: {} },
-  { text: "相反：", options: { bold: true, color: D } },
-  { text: "小鼠肺泡巨噬与小胶质、人肺气道/纤毛上皮、人肝嗜碱粒细胞与 CD56bright NK、人肺树突状细胞——CASP1 在它们之中确实被检出。", options: {} },
-], { isTextBox: true, x: .7, y: 3.85, w: 12, h: 2.0, fontFace: F, fontSize: 16.5, color: INK, lineSpacingMultiple: 1.3 });
-s.addText("检出率 = 原始计数 ≥1 的细胞数 ÷ 分析细胞数（合并全部供体），每个数字都标注阳性细胞数。",
-  { isTextBox: true, x: .7, y: 6.2, w: 12, h: .4, fontFace: F, fontSize: 12.5, color: FA });
+s.addText("结论", { isTextBox: true, x: .7, y: .45, w: 12, h: .7, fontFace: F, fontSize: 26, color: INK, bold: true });
+const L = (y, color, txt, sub) => {
+  s.addText(txt, { isTextBox: true, x: .8, y, w: 11.7, h: .36, fontFace: F, fontSize: 15.5, color, bold: true, valign: "top" });
+  if (sub) s.addText(sub, { isTextBox: true, x: .8, y: y + .33, w: 11.7, h: .3, fontFace: F, fontSize: 11, color: MU, valign: "top" });
+};
+s.addText("确定 —— 两个以上独立参考来源一致", { isTextBox: true, x: .8, y: 1.25, w: 11.7, h: .3, fontFace: F, fontSize: 12.5, color: A, bold: true });
+L(1.62, INK, "人脑皮层 PV 中间神经元  IL18 高、CASP1 近零", "HVS 单细胞 78 供体 + PsychAD 单核 234 供体；参考层 sFANS 分选核 566 倍、Allen SMART-seq 358 倍");
+L(2.28, INK, "人脑皮层 L5 ET 投射神经元  IL18 高、CASP1 近零", "HVS + SEA-AD MTG + SEA-AD DLPFC 三套；参考层 Betz 细胞 275 倍、von Economo 神经元 384 倍");
+L(2.94, INK, "小鼠皮层与海马 星形胶质  Il18 高、Casp1 近零", "4 个来源；但仅限皮层与海马——小脑 Bergmann 胶质与脊髓星形胶质 Casp1 明确表达");
+L(3.60, INK, "小鼠脑 少突胶质  Il18 高、Casp1 近零", "3 个来源；RiboTag 中 Casp1 比配对全组织更低，是去除而非带入");
+L(4.26, INK, "小鼠胰岛 D(δ) 细胞  Il18 可检、Casp1 近零", "6 个来源；GSE269616 九个文库 Casp1 零条读段。但人胰岛 δ 细胞不成立");
+s.addText("可能 —— 单一来源支持，或尚无匹配参考", { isTextBox: true, x: .8, y: 5.0, w: 11.7, h: .3, fontFace: F, fontSize: 12.5, color: B, bold: true });
+s.addText("人肺 AT1 肺泡上皮 · 人肺 肥大细胞 · 人胰腺 腺泡细胞 · 小鼠胰 导管细胞 · 人脑 血管软脑膜细胞 · 小鼠脑 Cajal-Retzius 神经元",
+  { isTextBox: true, x: .8, y: 5.32, w: 11.7, h: .4, fontFace: F, fontSize: 13, color: INK });
+s.addText("相反 —— CASP1 在其中确实被检出，不是测不准", { isTextBox: true, x: .8, y: 5.85, w: 11.7, h: .3, fontFace: F, fontSize: 12.5, color: D, bold: true });
+s.addText("小鼠肺 肺泡巨噬 · 小鼠脑 小胶质 · 人肺 气道/纤毛上皮 · 人肝 嗜碱粒细胞 · 人肝 CD56bright NK · 人肺 树突状细胞",
+  { isTextBox: true, x: .8, y: 6.17, w: 11.7, h: .4, fontFace: F, fontSize: 13, color: INK });
+s.addText("检出率 = 原始计数 ≥1 的细胞数 ÷ 分析细胞数（合并全部供体）。29 个分层，人与小鼠分开，静息基线。",
+  { isTextBox: true, x: .8, y: 6.75, w: 11.7, h: .35, fontFace: F, fontSize: 11, color: FA });
 
-// ---- 2. the three verdicts -----------------------------------------------------------------------
-s = p.addSlide(); head(s, "三类答案");
-const amac = one("小鼠", "肺泡巨噬"), ast = one("小鼠", "星形胶质"), oli = one("小鼠", "少突胶质");
-const rows = [
-  ["确定", A, "≥2 个独立参考来源一致", "小鼠脑 星形胶质 · 小鼠脑 少突胶质",
-    "Allen Brain Map + CELLxGENE + brainrnaseq/Zhang 三源一致：Il18 明确存在而 Casp1 处于零底线（星形胶质 115.1 vs 1.13 FPKM）。本数据 Casp1 阳性细胞仅 "
-    + ast.casp1_pos + "/" + ast.n_cells + " 与 " + oli.casp1_pos + "/" + oli.n_cells + "，样本量足够大，近零是真的近零。"],
-  ["可能", B, "单一来源支持，或本数据一致但尚无匹配参考", names("可能", "人") + " · " + names("可能", "小鼠"),
-    "人脑皮层 PV 中间神经元（HVS 单细胞 78 供体 + PsychAD 单核 234 供体）与 L5 ET 投射神经元（HVS + SEA-AD MTG + SEA-AD DLPFC）CASP1 合并检出 0.07–0.22%，在 3–4 套独立数据集里重复；"
-    + "人肺 AT1 在 3 套数据集被同一条相对规则漏掉；小鼠胰岛 D(δ) 有 FACS 分选证据（13.16 vs 0.016 RPKM）。"],
-  ["相反", D, "参考层显示 CASP1 确实存在，或方向与前提相反", names("相反", "人") + " · " + names("相反", "小鼠"),
-    "小鼠肺泡巨噬 IL18 " + pct(amac.il18) + " 为全部最高，但 CASP1 也是最高的 " + pct(amac.casp1) + "（" + amac.casp1_pos + "/" + amac.n_cells + "，14/14 供体），ImmGen 分选 Casp1=511；"
-    + "人肝 CD56bright NK 的 CASP1 检出 25.2% 反而高于 IL18 的 19.1%。排除理由是 CASP1 被检出，不是测不准。"],
-];
-let y = 1.5;
-rows.forEach(([tag, col, def, who, why]) => {
-  s.addText([{ text: tag + "\n", options: { fontSize: 19, bold: true } }, { text: def, options: { fontSize: 10.5, color: MU } }],
-    { isTextBox: true, x: .7, y, w: 2.9, h: 1.6, fontFace: F, color: col, valign: "top", lineSpacingMultiple: 1.15 });
-  s.addText([{ text: who + "\n", options: { bold: true } }, { text: why, options: { color: MU } }],
-    { isTextBox: true, x: 3.85, y, w: 8.8, h: 1.85, fontFace: F, fontSize: 11.5, color: INK, valign: "top", lineSpacingMultiple: 1.15 });
-  y += 1.87;
-});
+// ---- 2. short IL-18 ------------------------------------------------------------------------------
+s = p.addSlide(); head(s, "关于「短 IL-18」：转录本层面是明确的否定");
+s.addText([{ text: "人任何正常组织、任何正常细胞类型都不显著使用短 IL18 转录本。", options: { bold: true, color: D } }],
+  { isTextBox: true, x: .8, y: 1.35, w: 11.7, h: .4, fontFace: F, fontSize: 16, color: INK });
+s.addText("长短异构体差一个内含框盒式外显子 E4（chr11:112150072-112150206，135 bp = 45 个密码子）：跳过它 193 aa → 148 aa。所有相关剪接连接共用同一受体位点，因此可直接算同一位点上的竞争比例。",
+  { isTextBox: true, x: .8, y: 1.9, w: 11.7, h: .7, fontFace: F, fontSize: 13, color: MU, lineSpacingMultiple: 1.2 });
+s.addTable([[{ text: "数据源" }, { text: "短异构体占比" }, { text: "说明" }].map(c => ({ ...c, options: { bold: true, fill: "EEF1F5" } }))].concat([
+  ["GTEx 全组织（6792 样本）", "0.09%", "最高的组织也只有 0.65%，无任何组织富集"],
+  ["SRA（50790 样本）", "0.20%", "占比最高的几个研究全是剪接机器被破坏的实验或癌细胞系"],
+  ["U2AF1 敲低（HFF 原代）", "11.1%", "U2AF1 是 3' 剪接位点识别的核心因子"],
+  ["Tra2 敲低（MDA-MB-231）", "13.5%", "Tra2 为剪接因子"],
+  ["CLK2 抑制剂 CC-671（Cal-51）", "4.2%", "125 个样本、84 个检出；CLK 磷酸化 SR 蛋白"]]),
+  { x: .8, y: 2.75, w: 11.7, colW: [4.0, 2.2, 5.5], fontFace: F, fontSize: 12.5, color: INK,
+    border: { pt: .5, color: "D8DBE0" }, rowH: .4, valign: "middle" });
+s.addText([{ text: "所以短 IL18 转录本是剪接噪声，不是受调控的细胞类型特异异构体。", options: { bold: true } },
+{ text: "若要追「短 IL-18」，正确的落点是蛋白层面的非经典切割（caspase-3、糜蛋白酶、蛋白酶-3、granzyme B 产物与 caspase-1 不同），转录组看不见，只能做蛋白实验。", options: {} }],
+  { isTextBox: true, x: .8, y: 5.55, w: 11.7, h: .9, fontFace: F, fontSize: 13.5, color: INK, lineSpacingMultiple: 1.2 });
+cap(s, "数据源 Snaptron（服务 recount/SRA 与 GTEx 的逐样本剪接连接计数）；坐标由 Ensembl 转录本结构推出并与 Snaptron 标注连接核对。");
 
 // ---- 3-4. per-species figures --------------------------------------------------------------------
 s = p.addSlide(); head(s, "人：同一条检出率轴上看 IL18 与 CASP1");
