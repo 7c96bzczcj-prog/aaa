@@ -225,5 +225,20 @@ datasets:
   accession_verified: true
   verified_how: Census obs query — brain, nucleus, normal (205,722; 22 cell types)
 
-# mouse spinal cord: NO qualifying data in Census. GEO verification in progress; if none qualifies,
-# recorded as "no qualifying data" per §2.1 (no substitution with brain / DRG / brainstem).
+- id: M_spinal_nucleus
+  accession: GSE103892
+  source_layer: B
+  species: mouse
+  tissue: spinal_cord
+  suspension_type: nucleus
+  platform: snRNA_dropseq      # DroNc-seq / Drop-Seq single-nucleus
+  n_donors: 6                  # naive baseline lumbar samples: f1, m1, M4, M5, F3, F4 (exclude *cx cortex, formalin, rotarod)
+  has_raw_counts: true
+  author_celltype_annotation: true
+  gene_hits: [IL18, CASP1, CASP3]   # to be confirmed against the GEO feature list at build time
+  citation: Sathyamurthy 2018 Cell Reports (PMID 29466745; lumbar spinal cord snRNA-seq)
+  accession_verified: true
+  verified_how: GEO SOFT + FTP suppl fetched 2026-10-13; Mus musculus, lumbar spinal cord, single-nucleus;
+                raw count matrix (24 MB) + per-cell cell.type annotation (112 KB) present; naive baseline samples present
+  x_source: geo
+  x_baseline_samples: [f1, m1, M4, M5, F3, F4]   # cell.type annotation prefixes to keep (naive lumbar spinal cord)

@@ -62,11 +62,11 @@ def scan_dataset(census, org, tissue, did):
         return None
     X = pd.DataFrame(np.asarray(ad.X.todense()), columns=[hit[c] for c in ad.var.feature_id])
     obs = ad.obs.reset_index(drop=True)
+    for g in GENE_ORDER:               # attach genes while obs and X are aligned (before any filter)
+        obs[g] = X[g].values if g in X.columns else np.nan
     n_total = len(obs)
     obs = obs[obs.disease == "normal"].copy()
     excl = n_total - len(obs)
-    for g in GENE_ORDER:
-        obs[g] = X[g].values if g in X.columns else np.nan
     obs["lib"] = obs.pop("raw_sum").astype(float)
     keys = ["dataset_id", "tissue", "suspension_type", "donor_id", "cell_type", "assay"]
     rows = []
