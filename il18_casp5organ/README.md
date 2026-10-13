@@ -38,7 +38,9 @@
 
 | 列 | 定义 |
 |---|---|
-| `pct_IL18` / `pct_CASP1` / `pct_CASP3` | **检出率**。分母 = 某分层（数据集 × 器官 × suspension）内、**某一位供体、某一个细胞类型所含的细胞个数**；分子 = 这些细胞中**该基因原始计数 ≥ 1 的细胞个数**。汇总表再对该分层内各供体取**中位数**。即「有多少比例的细胞里测得到这个基因」——**不是**表达量占比，**不是**相对最高值的百分比，**不是**读段占比。 |
+| `pct_IL18` / `pct_CASP1` / `pct_CASP3` | **检出率（供体中位数口径）**。分母 = 某分层（数据集 × 器官 × suspension）内、**某一位供体、某一个细胞类型所含的细胞个数**；分子 = 这些细胞中**该基因原始计数 ≥ 1 的细胞个数**。汇总表再对该分层内各供体取**中位数**。即「有多少比例的细胞里测得到这个基因」——**不是**表达量占比，**不是**相对最高值的百分比，**不是**读段占比。 |
+| `pooled_pct_IL18` / `pooled_pct_CASP1` | **检出率（合并口径，对外展示一律用这个）**。分母 = 该细胞类型在该分层内、**每位供体 ≥20 细胞后进入分析的全部细胞**；分子 = 其中原始计数 ≥1 的细胞数。与上一行同一个意思，只是不先按供体取中位数。<br>**为什么必须并列给出**：每位供体只有数十到上百个该类型细胞，当真实检出率低于约 1/细胞数 时，半数以上供体恰好 0 个阳性细胞，**供体中位数被截断为 0**。例：人肺肥大细胞 CASP1 合并 138/5299 = 2.60%（21/44 供体有阳性），小鼠脑少突胶质 CASP1 合并 2/8987 = 0.02%，两者的供体中位数都写作 0.00%，真实值却差一百倍以上。 |
+| `n_cells_IL18_pos` / `n_cells_CASP1_pos`、`n_cells_analysed`、`donors_with_*_pos`、`n_donors_analysed` | 合并检出率的分子与分母本身，以及有阳性细胞的供体数 / 进入分析的供体数。图表与报告中的每个百分比都带这两个原始计数，便于判断「0%」是真低还是样本不足。 |
 | `logcpm_IL18` 等 | **表达量**（伪bulk）。= log2( 该格子内该基因计数之和 ÷ 该格子内文库大小之和 × 10⁶ + 1 )。 |
 | `rank_IL18` 等 | 该细胞类型在**同一分层内**按 logcpm 的排名，1 = 最高。排名只在分层内有意义，不跨分层/物种比较。 |
 | `n_cells` | 该「供体 × 细胞类型」格子的细胞个数（<20 时 pct 与 logcpm 置 NA）。 |
@@ -60,6 +62,8 @@
 
 ## 交付物
 
-`census_scan.tsv`（阶段一扫描，定位用，不进判定）· `datasets.yaml`（15 分层）· `celltype_map.tsv`（319 行逐条映射）· `il18_casp_celltype_table.tsv`（主表）· `il18_casp_summary.tsv`（供体为单位汇总，谱系级+作者级）· `candidates.tsv`（候选）· `rank_pass_detection_fail.tsv` · `casp1_zero_check.tsv`（对照 DICE/ImmGen/brainrnaseq）· `threshold_sensitivity.tsv` · `run_log.md` · `figures/`（每 物种×器官×suspension 一张，IL18/CASP1/CASP3 三联点图，人鼠/器官/suspension 全部分开，无装饰）。
+`census_scan.tsv`（阶段一扫描，定位用，不进判定）· `datasets.yaml`（15 分层）· `celltype_map.tsv`（319 行逐条映射）· `il18_casp_celltype_table.tsv`（主表）· `il18_casp_summary.tsv`（供体为单位汇总，谱系级+作者级）· `candidates.tsv`（候选）· `rank_pass_detection_fail.tsv` · `threshold_sensitivity.tsv` · `reference/ext/unified_reference.tsv`（统一参考层，1624 行，带 exact/close/tissue_level/extrapolated 匹配质量）· `il18_casp1_evidence.tsv`（参考层整合判读 + 合并检出率）· `screen_missed_but_reference_supported.tsv`（被分层内相对规则漏掉但有参考支持者，如人肺 AT1）· `answer_table.tsv` / `answer_table.json`（对外答案表，两套检出率口径并列）· `run_log.md` · `figures/`（每 物种×器官×suspension 一张三联点图，外加 `answer_v2.png` 候选总览）· `IL18_CASP_五器官筛选.pptx` / `…报告.docx`。
 
-代码在 `scripts/`，可重跑：`phase1/derive_census_scan → phase2_build → make_celltype_map → phase2_aggregate → zero_check → plot_dots`。
+`casp1_zero_check.tsv` 为**已废弃**的旧判读产物，保留仅作留痕：生成它的 `scripts/zero_check.py` 从未读取过参考文件、也从未使用候选自身的 CASP1 值，判读结果是细胞谱系标签的纯函数。请改用 `il18_casp1_evidence.tsv`。
+
+代码在 `scripts/`，可重跑：`phase1/derive_census_scan → phase2_build → make_celltype_map → phase2_aggregate → evidence_integrate → screen_missed → answer_pack → plot_dots`，文档由 `make_deck.js` / `make_report.js` 生成（读 `results/answer_table.json`）。

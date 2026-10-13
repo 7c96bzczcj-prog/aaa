@@ -28,6 +28,7 @@ REF = ROOT / "reference" / "ext" / "unified_reference.tsv"
 RATIO_STRONG = 20.0   # IL18 >= 20x CASP1 within one source/unit -> CASP1 "near-absent" relative to IL18
 RATIO_WEAK = 3.0      # IL18 >= 3x CASP1 -> CASP1 "low relative to IL18"
 MIN_SOURCES_FOR_A = 2  # tier A needs >= 2 independent sources agreeing
+MIN_CELLS_PER_DONOR = 20  # §10.2 — the per-donor cell floor; cells that actually entered the analysis
 
 # map each screen cell type to the reference table's cell_type_screen label (explicit, no regex matching)
 SCREEN_TO_REF = {
@@ -151,8 +152,36 @@ def tier(rs, has_ref):
                          f"{max(r['ratio'] for r in use):.2g}）")
 
 
+
+def pooled_stats(entry_id, level, celltype, cmap):
+    """Pooled detection across ALL analysed cells, plus donor support. The donor-MEDIAN detection rate
+    censors to 0 whenever fewer than half the donors have a positive cell, which with ~25-180 cells per
+    donor happens for any true rate below roughly 1/n. The pooled rate is therefore reported alongside it."""
+    c = pd.read_parquet(ROOT / "data" / "cells" / f"{entry_id}.parquet")
+    if level == "lineage":
+        m = cmap[cmap.entry_id == entry_id].set_index("celltype_original")["lineage"]
+        sub = c[c.celltype_original.map(m) == celltype]
+    else:
+        sub = c[c.celltype_original == str(celltype)]
+    if not len(sub):
+        return {}
+    ok = [d for d, x in sub.groupby("donor_id") if len(x) >= MIN_CELLS_PER_DONOR]
+    s = sub[sub.donor_id.isin(ok)]
+    if not len(s):
+        return {}
+    out = {"n_cells_analysed": len(s), "n_donors_analysed": len(ok),
+           "median_cells_per_donor": int(np.median([len(x) for _, x in s.groupby("donor_id")]))}
+    for g in ("IL18", "CASP1"):
+        pos = int((s[g] >= 1).sum())
+        out[f"n_cells_{g}_pos"] = pos
+        out[f"pooled_pct_{g}"] = pos / len(s)
+        out[f"donors_with_{g}_pos"] = sum(1 for _, x in s.groupby("donor_id") if (x[g] >= 1).any())
+    return out
+
+
 def main():
     cand = pd.read_csv(ROOT / "results" / "candidates.tsv", sep="\t", comment="#")
+    cmap = pd.read_csv(ROOT / "celltype_map.tsv", sep="\t", comment="#")
     ref = pd.read_csv(REF, sep="\t")
     ref = ref[ref.match_quality.isin(["exact", "close"])]
     rows = []
@@ -163,7 +192,9 @@ def main():
         rs = ratios_for(sub) if len(sub) else []
         t, why = tier(rs, bool(len(sub)))
         best = max(rs, key=lambda r: r["ratio"]) if rs else None
+        ps = pooled_stats(c.dataset_id, c.level, c.celltype, cmap)
         rows.append({
+            **ps,
             "dataset_id": c.dataset_id, "level": c.level, "species": c.species, "tissue": c.tissue,
             "suspension_type": c.suspension_type, "celltype": c.celltype,
             "duplicate_of": DUPLICATE_OF.get(key, ""),
@@ -175,14 +206,25 @@ def main():
             "best_ratio_IL18_over_CASP1": (f"{best['ratio']:.3g}" if best else ""),
             "evidence_tier": t, "tier_reason": why,
         })
-    out = pd.DataFrame(rows).sort_values(["evidence_tier", "species", "tissue"])
+    out = pd.DataFrame(rows)
+    front = ["dataset_id", "level", "species", "tissue", "suspension_type", "celltype", "duplicate_of",
+             "evidence_tier", "n_cells_analysed", "n_donors_analysed", "median_cells_per_donor",
+             "n_cells_IL18_pos", "pooled_pct_IL18", "donors_with_IL18_pos",
+             "n_cells_CASP1_pos", "pooled_pct_CASP1", "donors_with_CASP1_pos"]
+    out = out[[c for c in front if c in out.columns] + [c for c in out.columns if c not in front]]
+    out = out.sort_values(["evidence_tier", "species", "tissue"])
     write_tsv(out, ROOT / "results" / "il18_casp1_evidence.tsv")
     print(out.evidence_tier.value_counts().to_string())
-    print("\n--- distinct populations (duplicates excluded) ---")
+    print("\n--- distinct populations (duplicates excluded); 检出率 = 阳性细胞数/分析细胞数（合并），"
+          "括号内为供体中位数（会把低真值压成 0） ---")
     d = out[out.duplicate_of == ""]
     for _, r in d.iterrows():
-        print(f"  {r.evidence_tier:24} {r.species:6} {r.tissue:9} {str(r.celltype)[:38]:38} "
-              f"IL18检出={r.sc_pct_IL18:.2f} CASP1检出={r.sc_pct_CASP1:.3f} ratio={r.best_ratio_IL18_over_CASP1}")
+        print(f"  {r.evidence_tier:24} {r.species:6} {r.tissue:9} {str(r.celltype)[:36]:36} "
+              f"IL18 {r.n_cells_IL18_pos:>5}/{r.n_cells_analysed:<5}={r.pooled_pct_IL18*100:5.2f}% "
+              f"(中位数 {r.sc_pct_IL18*100:5.2f}%) | "
+              f"CASP1 {r.n_cells_CASP1_pos:>5}/{r.n_cells_analysed:<5}={r.pooled_pct_CASP1*100:5.2f}% "
+              f"(中位数 {r.sc_pct_CASP1*100:5.2f}%, 阳性供体 {r.donors_with_CASP1_pos}/{r.n_donors_analysed}) "
+              f"| ref ratio={r.best_ratio_IL18_over_CASP1}")
 
 
 if __name__ == "__main__":
