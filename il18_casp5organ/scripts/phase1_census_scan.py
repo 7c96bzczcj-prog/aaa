@@ -55,12 +55,12 @@ def scan_dataset(census, org, tissue, did):
                                          f"and is_primary_data == True",
                         var_value_filter="feature_id in ['%s']" % "','".join(gids.values()),
                         obs_column_names=OBS_COLS + ["raw_sum"])
-    hit = {r.feature_id: r.feature_name for r in ad.var.itertuples()}
-    present = [g for g, fid in gids.items() if fid in hit]
+    fid_to_key = {fid: g for g, fid in gids.items()}
+    present = [g for g, fid in gids.items() if fid in set(ad.var.feature_id)]
     if not present:
         LOG.append(f"{org}/{tissue}/{did}: no target gene in var — skipped")
         return None
-    X = pd.DataFrame(np.asarray(ad.X.todense()), columns=[hit[c] for c in ad.var.feature_id])
+    X = pd.DataFrame(np.asarray(ad.X.todense()), columns=[fid_to_key[c] for c in ad.var.feature_id])
     obs = ad.obs.reset_index(drop=True)
     for g in GENE_ORDER:               # attach genes while obs and X are aligned (before any filter)
         obs[g] = X[g].values if g in X.columns else np.nan

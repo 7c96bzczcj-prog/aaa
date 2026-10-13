@@ -32,9 +32,9 @@ def build_census(census, e):
     ad = cc.get_anndata(census, organism=org, X_name="raw", obs_value_filter=flt,
                         var_value_filter="feature_id in ['%s']" % "','".join(gids.values()),
                         obs_column_names=["donor_id", "cell_type", "suspension_type", "assay", "raw_sum"])
-    hit = {r.feature_id: r.feature_name for r in ad.var.itertuples()}
-    present = [g for g, fid in gids.items() if fid in hit]
-    X = pd.DataFrame(np.asarray(ad.X.todense()), columns=[hit[c] for c in ad.var.feature_id])
+    fid_to_key = {fid: g for g, fid in gids.items()}   # Ensembl id -> canonical gene key (IL18/CASP1/CASP3)
+    present = [g for g, fid in gids.items() if fid in set(ad.var.feature_id)]
+    X = pd.DataFrame(np.asarray(ad.X.todense()), columns=[fid_to_key[c] for c in ad.var.feature_id])
     obs = ad.obs.reset_index(drop=True)
     df = pd.DataFrame({"donor_id": obs.donor_id.astype(str).values,
                        "celltype_original": obs.cell_type.astype(str).values,
