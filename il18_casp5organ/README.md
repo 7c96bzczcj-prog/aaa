@@ -60,6 +60,16 @@
 
 三分位/20% 为工程取值，无生物学依据。阈值敏感性（§9.6）：候选数在 基线17 → 四分位12 → CASP3-10%:17 → CASP3-30%:16。候选集内部按 CASP3 分层内排序从高到低排优先级（§8.5，仅工程排队，非生物学强度）。
 
+## 判定分类（对外只用三类）
+
+| 判定 | 含义 | 本次结果 |
+|---|---|---|
+| **确定** | ≥2 个独立参考来源一致显示 CASP1 处于零底线或比 IL18 低 ≥20 倍 | 2 个：小鼠脑星形胶质、少突胶质 |
+| **可能** | 只有单一参考来源支持，或本数据一致但尚无匹配参考 | 7 个：人肺 AT1（单细胞+单核）、人肺肥大细胞、小鼠胰岛 D(δ)（两套数据）、小鼠胰导管细胞、小鼠脑 Cajal-Retzius 神经元 |
+| **相反** | 参考层显示 CASP1 确实存在，或方向与「CASP1 低」前提相反 | 6 个：小鼠肺泡巨噬、小鼠脑小胶质、人肺气道多纤毛上皮与纤毛上皮、人肝嗜碱粒细胞、人肺树突状细胞 |
+
+`answer_table.tsv` 的 `tier` / `tier_cn` 与 `il18_casp1_evidence.tsv` 的 `evidence_tier` 保留六档内部判读（A/B/B′/C/D/E）作为留痕，说明每一行为何落入上述三类之一；图、PPT、报告结论一律只用三类。
+
 ## 交付物
 
 `census_scan.tsv`（阶段一扫描，定位用，不进判定）· `datasets.yaml`（15 分层）· `celltype_map.tsv`（319 行逐条映射）· `il18_casp_celltype_table.tsv`（主表）· `il18_casp_summary.tsv`（供体为单位汇总，谱系级+作者级）· `candidates.tsv`（候选）· `rank_pass_detection_fail.tsv` · `threshold_sensitivity.tsv` · `reference/ext/unified_reference.tsv`（统一参考层，1624 行，带 exact/close/tissue_level/extrapolated 匹配质量）· `il18_casp1_evidence.tsv`（参考层整合判读 + 合并检出率）· `screen_missed_but_reference_supported.tsv`（被分层内相对规则漏掉但有参考支持者，如人肺 AT1）· `answer_table.tsv` / `answer_table.json`（对外答案表，两套检出率口径并列）· `run_log.md` · `figures/`（每 物种×器官×suspension 一张三联点图，外加 `answer_v2.png` 候选总览）· `IL18_CASP_五器官筛选.pptx` / `…报告.docx`。

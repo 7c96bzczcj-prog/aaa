@@ -4,8 +4,10 @@
 const pptxgen = require("pptxgenjs"), fs = require("fs");
 const ROOT = "/home/user/aaa/il18_casp5organ", FIG = ROOT + "/figures";
 const R = JSON.parse(fs.readFileSync(ROOT + "/results/answer_table.json", "utf8"));
-const by = t => R.filter(r => r.tier === t);
+const by = v => R.filter(r => r.verdict === v);          // 确定 / 可能 / 相反 — the only split shown
 const one = (sp, name) => R.find(r => r.sp === sp && r.name.startsWith(name));
+const names = v => by(v).map(r => r.sp + r.organ + " " + r.name.replace(/（[^）]*）$/, ""))
+  .filter((x, i, a) => a.indexOf(x) === i).join(" · ");
 
 const p = new pptxgen(); p.layout = "LAYOUT_WIDE";
 const W = 13.33, H = 7.5, F = "Microsoft YaHei";
@@ -22,37 +24,38 @@ let s = p.addSlide();
 s.addText("哪些细胞 IL18 高且 CASP1 低", { isTextBox: true, x: .7, y: 1.9, w: 12, h: 1.0, fontFace: F, fontSize: 33, color: INK, bold: true, valign: "middle" });
 s.addText("人与小鼠 · 肺 肝 胰 脑 脊髓 · 静息基线 · 以供体为统计单位", { isTextBox: true, x: .7, y: 2.9, w: 12, h: .5, fontFace: F, fontSize: 16, color: MU });
 s.addText([
-  { text: "答案：", options: { bold: true } },
-  { text: "多源参考一致支持的是 ", options: {} },
-  { text: "小鼠脑星形胶质与少突胶质", options: { bold: true, color: A } },
-  { text: "；有单一来源支持、值得优先验证的潜在可能是 ", options: {} },
-  { text: "人肺肥大细胞、小鼠胰岛 D(δ) 细胞、小鼠胰导管细胞，以及被相对规则漏掉的人肺 AT1", options: { bold: true, color: B } },
-  { text: "。肺泡巨噬、小胶质等不入选，是因为 CASP1 在它们之中确实被检出（肺泡巨噬 178/1341 = 13.3%），不是因为测不准。", options: {} },
-], { isTextBox: true, x: .7, y: 4.15, w: 12, h: 1.6, fontFace: F, fontSize: 17, color: INK, lineSpacingMultiple: 1.3 });
+  { text: "答案分三类。", options: { bold: true } },
+  { text: "确定：", options: { bold: true, color: A } },
+  { text: "小鼠脑星形胶质、少突胶质。　", options: {} },
+  { text: "可能：", options: { bold: true, color: B } },
+  { text: "人肺 AT1 与肥大细胞、小鼠胰岛 D(δ) 细胞与胰导管细胞、小鼠脑 Cajal-Retzius 神经元。　", options: {} },
+  { text: "相反：", options: { bold: true, color: D } },
+  { text: "小鼠肺泡巨噬与小胶质、人肺气道/纤毛上皮、人肝嗜碱粒细胞、人肺树突状细胞——它们不入选，是因为 CASP1 确实被检出（肺泡巨噬 178/1341 = 13.3%，14/14 供体），不是因为测不准。", options: {} },
+], { isTextBox: true, x: .7, y: 4.05, w: 12, h: 1.8, fontFace: F, fontSize: 17, color: INK, lineSpacingMultiple: 1.3 });
 s.addText("检出率 = 原始计数 ≥1 的细胞数 ÷ 分析细胞数（合并全部供体）；本版全部标注阳性细胞数与阳性供体数。",
   { isTextBox: true, x: .7, y: 6.15, w: 12, h: .4, fontFace: F, fontSize: 12.5, color: FA });
 
 // ---- 2. tiers ------------------------------------------------------------------------------------
-s = p.addSlide(); head(s, "分级答案");
+s = p.addSlide(); head(s, "三类答案");
 const amac = one("小鼠", "肺泡巨噬"), mast = one("人", "肥大细胞"), at1 = R.filter(r => r.name.startsWith("AT1"));
 const rows = [
-  ["A 多源一致支持", A, by("A_supported").map(r => r.sp + r.organ + " " + r.name).join(" · "),
-    "Allen Brain Map + CELLxGENE + brainrnaseq/Zhang 三源一致：Il18 明确存在而 Casp1 处于零底线（星形胶质 115.1 vs 1.13 FPKM）。本数据中 Casp1 阳性细胞 2/3766 与 2/8987。"],
-  ["B 潜在可能", B, by("B_potential").map(r => r.sp + r.organ + " " + r.name.replace(/（.*/, "")).filter((v, i, a) => a.indexOf(v) === i).join(" · "),
-    "肥大细胞 HPA IL18 331.5 nCPM 为人肺最高、CASP1 11.1（约 30 倍），本数据 CASP1 " + mast.casp1_pos + "/" + mast.n_cells + " = " + pct(mast.casp1) + "；胰岛 δ 细胞有 FACS 分选证据（13.16 vs 0.016 RPKM），两套独立数据同向。"],
-  ["B 潜在（相对规则漏掉）", B2, "人肺 AT1 肺泡上皮（单细胞 + 单核）",
-    "IL18 分层内排名 3/39（单细胞）与 1/23（单核），HPA IL18 214.1 vs CASP1 7.9 nCPM（27 倍）。未进候选只因该分层另有三分之一细胞类型 CASP1 更低；其自身 CASP1 检出 " + at1.map(r => r.susp + " " + pct(r.casp1)).join(" / ") + "，并不算低，故列为需复核的潜在项。"],
-  ["C CASP1 确实存在", C, by("C_casp1_present").map(r => r.sp + r.organ + " " + r.name).join(" · "),
-    "肺泡巨噬 IL18 检出 " + pct(amac.il18) + " 为全部候选最高，但 ImmGen 分选 Casp1=511（比值 4.7），本数据 CASP1 " + amac.casp1_pos + "/" + amac.n_cells + " = " + pct(amac.casp1) + "，14/14 供体均有阳性。排除理由是 CASP1 被检出。"],
-  ["D 方向相反，排除", D, by("D_refuted").map(r => r.sp + r.organ + " " + r.name).join(" · "),
-    "人肝嗜碱粒细胞参考层 CASP1 60–234 nTPM vs IL18 4.7–14.8（比值 0.085）；人肺树突状细胞 2.0 倍。"],
+  ["确定", A, "≥2 个独立参考来源一致", names("确定"),
+    "Allen Brain Map + CELLxGENE + brainrnaseq/Zhang 三源一致：Il18 明确存在而 Casp1 处于零底线（星形胶质 115.1 vs 1.13 FPKM）。本数据 Casp1 阳性细胞仅 2/3766 与 2/8987，样本量足够大，近零是真的近零。"],
+  ["可能", B, "单一来源支持，或本数据一致但尚无匹配参考", names("可能"),
+    "肥大细胞 HPA IL18 331.5 nCPM 为人肺最高、CASP1 11.1（约 30 倍），本数据 CASP1 " + mast.casp1_pos + "/" + mast.n_cells + " = " + pct(mast.casp1) + "；"
+    + "胰岛 D(δ) 有 FACS 分选证据（13.16 vs 0.016 RPKM），两套独立数据同向；AT1 被分层内相对规则漏掉（IL18 排名 3/39 与 1/23），其自身 CASP1 " + at1.map(r => r.susp + " " + pct(r.casp1)).join(" / ") + " 并不算低；"
+    + "Cajal-Retzius 神经元 CASP1 0/136，但该行最低只能看到 0.74%，且无匹配参考。"],
+  ["相反", D, "参考层显示 CASP1 确实存在，或方向与前提相反", names("相反"),
+    "肺泡巨噬 IL18 检出 " + pct(amac.il18) + " 为全部最高，但 CASP1 也是最高的 " + amac.casp1_pos + "/" + amac.n_cells + " = " + pct(amac.casp1) + "（14/14 供体均有阳性），ImmGen 分选 Casp1=511（比值 4.7）；"
+    + "小胶质 3.4 倍、气道上皮 11.9 倍；人肝嗜碱粒细胞参考层 CASP1 60–234 nTPM vs IL18 4.7–14.8（比值 0.085），方向相反。"],
 ];
-let y = 1.6;
-rows.forEach(([tag, col, who, why]) => {
-  s.addText(tag, { isTextBox: true, x: .7, y, w: 2.75, h: 1.0, fontFace: F, fontSize: 13.5, color: col, bold: true, valign: "top" });
+let y = 1.55;
+rows.forEach(([tag, col, def, who, why]) => {
+  s.addText([{ text: tag + "\n", options: { fontSize: 19, bold: true } }, { text: def, options: { fontSize: 10.5, color: MU } }],
+    { isTextBox: true, x: .7, y, w: 2.95, h: 1.5, fontFace: F, color: col, valign: "top", lineSpacingMultiple: 1.15 });
   s.addText([{ text: who + "\n", options: { bold: true } }, { text: why, options: { color: MU } }],
-    { isTextBox: true, x: 3.6, y, w: 9.05, h: 1.1, fontFace: F, fontSize: 12, color: INK, valign: "top", lineSpacingMultiple: 1.12 });
-  y += 1.1;
+    { isTextBox: true, x: 3.9, y, w: 8.75, h: 1.75, fontFace: F, fontSize: 12.5, color: INK, valign: "top", lineSpacingMultiple: 1.15 });
+  y += 1.78;
 });
 
 // ---- 3. figure -----------------------------------------------------------------------------------
@@ -78,9 +81,9 @@ s.addText("同样显示「0.0%」的两行，真实检出率相差一百倍以�
 cap(s, "分母 = 该细胞类型在该分层内、每位供体 ≥20 个细胞后进入分析的细胞总数；分子 = 其中原始计数 ≥1 的细胞数。不是表达量占比、不是相对最高值的百分比、不是读段占比。");
 
 // ---- 5. scatter ----------------------------------------------------------------------------------
-s = p.addSlide(); head(s, "小鼠脑（单细胞）：胶质 IL18 可检、CASP1 处于零底线");
-fig(s, `${FIG}/mouse/brain_cell.png`, 1856, 362, 2.3, 5.3);
-cap(s, "点大小 = 检出率，颜色 = log2(CPM+1)，三基因各自色标。astrocyte / oligodendrocyte 归入 glia 谱系。");
+s = p.addSlide(); head(s, "小鼠脑（单细胞）：胶质 IL18 可检、CASP1 近乎测不到");
+fig(s, `${FIG}/mouse/brain_cell_dots.png`, 2312, 1122, 1.22, 6.92);
+cap(s, "星形胶质 IL18 56.7% 而 CASP1 仅 2/3766；小胶质 IL18 20.5% 但 CASP1 15/818 = 1.83%，是全脑最高的一档。");
 
 // ---- 6. species ----------------------------------------------------------------------------------
 s = p.addSlide(); head(s, "必须注明的物种差异");

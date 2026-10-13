@@ -19,7 +19,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import write_tsv
-from evidence_integrate import pooled_stats
+from evidence_integrate import MIN_CELLS_PER_DONOR, pooled_stats
 
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "figures"
@@ -52,6 +52,25 @@ TIER_CN = {
 TIER_COL = {"A_supported": "#1B7A43", "B_potential": "#1F5FA8", "B_potential_screen_missed": "#4C87C4",
             "C_casp1_present": "#B07A00", "D_refuted": "#9A2B2B", "E_no_matched_reference": "#8A8A8A"}
 TIER_ORDER = list(TIER_CN)
+
+# Everything the reader sees collapses the six internal tiers into three verdicts. The six-way tier
+# stays in the TSVs as the audit trail (it records WHY a row landed where it did), but no figure, slide
+# or report table uses more than these three.
+VERDICT = {
+    "A_supported": "确定",                   # >= 2 independent references agree CASP1 is at/near zero
+    "B_potential": "可能",                   # exactly one reference supports it
+    "B_potential_screen_missed": "可能",     # reference-supported, excluded only by the relative rule
+    "E_no_matched_reference": "可能",        # own data is consistent, no external reference exists yet
+    "C_casp1_present": "相反",               # CASP1 is demonstrably present alongside IL18
+    "D_refuted": "相反",                     # CASP1 >= IL18 in the reference layer
+}
+VERDICT_ORDER = ["确定", "可能", "相反"]
+VERDICT_COL = {"确定": "#1B7A43", "可能": "#1F5FA8", "相反": "#9A2B2B"}
+VERDICT_NOTE = {
+    "确定": "≥2 个独立参考来源一致：CASP1 处于零底线或比 IL18 低 ≥20 倍",
+    "可能": "单一参考来源支持，或本数据一致但尚无匹配参考",
+    "相反": "参考层显示 CASP1 确实存在，或方向与前提相反",
+}
 
 
 def name_of(sp, ti, ct, dataset_id):
@@ -96,10 +115,10 @@ def draw_answer_figure(out):
                              gridspec_kw={"height_ratios": counts, "hspace": 0.26})
 
     for ax, (sp, g) in zip(axes, groups):
-        d = g.iloc[::-1].reset_index(drop=True)      # bottom-up so the A tier lands on top
+        d = g.iloc[::-1].reset_index(drop=True)      # bottom-up so 确定 lands on top
         n = len(d)
         for i, r in enumerate(d.itertuples()):
-            col = TIER_COL[r.tier]
+            col = VERDICT_COL[r.verdict]
             il18 = r.pooled_pct_IL18 * 100
             casp1 = r.pooled_pct_CASP1 * 100
             x_c = casp1 if r.n_cells_CASP1_pos else ZERO_SLOT
@@ -133,9 +152,10 @@ def draw_answer_figure(out):
     marks = [Line2D([], [], marker="o", ls="", ms=8.6, color="#444"),
              Line2D([], [], marker="o", ls="", ms=8.6, mfc="white", mec="#444", mew=2.1),
              Line2D([], [], marker="|", ls="", ms=9, mew=1.4, color="#B5B5B5")]
-    tiers = [t for t in TIER_ORDER if t in set(out.tier)]
-    handles = marks + [Line2D([], [], marker="s", ls="", ms=8, color=TIER_COL[t]) for t in tiers]
-    names = ["IL18（pro-IL-18 转录本）", "CASP1", "该行可检出的最低非零值 1/n"] + [TIER_CN[t] for t in tiers]
+    vs = [v for v in VERDICT_ORDER if v in set(out.verdict)]
+    handles = marks + [Line2D([], [], marker="s", ls="", ms=8, color=VERDICT_COL[v]) for v in vs]
+    names = ["IL18（pro-IL-18 转录本）", "CASP1", "该行可检出的最低非零值 1/n"] + \
+            [f"{v}：{VERDICT_NOTE[v]}" for v in vs]
     axes[0].legend(handles, names, loc="lower left", bbox_to_anchor=(-0.235, 1.07), ncol=3,
                    frameon=False, fontsize=9.5, handletextpad=.5, columnspacing=1.8)
     fig.text(0.012, 0.012,
@@ -146,6 +166,90 @@ def draw_answer_figure(out):
     fig.subplots_adjust(left=0.185, right=0.845, top=0.862, bottom=0.105)
     fig.savefig(FIG / "answer_v2.png", dpi=170)
     print("wrote figures/answer_v2.png", fig.get_size_inches() * 170)
+
+
+BRAIN_ROWS = [   # mouse brain, scRNA, author labels — explicit, no regex, no re-annotation
+    ("astrocyte", "星形胶质"),
+    ("oligodendrocyte", "少突胶质"),
+    ("central nervous system macrophage", "小胶质/CNS巨噬"),
+    ("Cajal-Retzius cell", "Cajal-Retzius 神经元"),
+    ("VIP GABAergic cortical interneuron", "VIP 中间神经元"),
+    ("hippocampal neuron", "海马神经元"),
+    ("L2/3-6 intratelencephalic projecting glutamatergic neuron", "L2/3-6 谷氨酸能神经元"),
+    ("sst GABAergic cortical interneuron", "SST 中间神经元"),
+    ("pvalb GABAergic cortical interneuron", "PV 中间神经元"),
+    ("endothelial cell", "内皮细胞"),
+]
+
+
+def draw_brain_dotplot():
+    """Mouse brain (scRNA) dot plot: rows = cell type, columns = IL18 / CASP1 / CASP3.
+
+    Dot area = pooled detection rate (same definition as everywhere else), colour = pseudobulk
+    log2(CPM+1) with a separate scale per gene, because the three genes differ by orders of magnitude
+    and one shared colour scale would render CASP1 uniformly blank. Every dot carries its own number,
+    so the figure is readable without decoding dot area.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import LinearSegmentedColormap
+
+    plt.rcParams.update({"font.family": "WenQuanYi Zen Hei", "axes.unicode_minus": False})
+    cmap = LinearSegmentedColormap.from_list(
+        "seq", ["#DCE9F8", "#9EC5F4", "#5E9AE8", "#2E6FC6", "#17457F"])
+
+    c = pd.read_parquet(ROOT / "data" / "cells" / "M_brain_cell.parquet")
+    stats = {}
+    for label, _ in BRAIN_ROWS:
+        sub = c[c.celltype_original == label]
+        keep = [d for d, x in sub.groupby("donor_id") if len(x) >= MIN_CELLS_PER_DONOR]
+        s = sub[sub.donor_id.isin(keep)]
+        if not len(s):
+            continue
+        lib = s.lib.sum()
+        stats[label] = {g: ((s[g] >= 1).mean(),
+                            float(np.log2(s[g].sum() / lib * 1e6 + 1)) if lib > 0 else 0.0,
+                            int((s[g] >= 1).sum()), len(s))
+                        for g in ("IL18", "CASP1", "CASP3")}
+    rows = [(lab, cn) for lab, cn in BRAIN_ROWS if lab in stats]
+    rows = sorted(rows, key=lambda r: stats[r[0]]["IL18"][0], reverse=True)
+    n = len(rows)
+
+    fig, axes = plt.subplots(1, 3, figsize=(13.6, 0.46 * n + 2.0), sharey=True,
+                             gridspec_kw={"wspace": 0.12})
+    for ax, gene in zip(axes, ("IL18", "CASP1", "CASP3")):
+        vals = [stats[lab][gene] for lab, _ in rows]
+        hi = max(v[1] for v in vals) or 1.0
+        for i, (pct_, lcpm, pos, ntot) in enumerate(vals):
+            ax.scatter([0.30], [i], s=40 + 1100 * pct_, c=[lcpm], cmap=cmap, vmin=0, vmax=hi,
+                       edgecolors="white", linewidths=1.0, zorder=3)
+            ax.text(0.50, i, f"{pct_*100:.2f}%" if pct_ < 0.1 else f"{pct_*100:.1f}%",
+                    va="center", fontsize=9.4, color="#1A1A1A")
+            ax.text(1.06, i, f"{pos}/{ntot}", va="center", ha="right", fontsize=8.6, color="#777777")
+        ax.set_xlim(0, 1.09)
+        ax.set_xticks([])
+        ax.tick_params(axis="y", length=0)
+        ax.set_ylim(n - 0.5, -0.6)
+        ax.set_title(f"{gene}（pro-IL-18 转录本）" if gene == "IL18" else gene,
+                     fontsize=13, loc="left", pad=10)
+        ax.grid(axis="y", color="#F0F0F0", lw=.7)
+        ax.set_axisbelow(True)
+        for s_ in ax.spines.values():
+            s_.set_visible(False)
+    axes[0].set_yticks(range(n), [cn for _, cn in rows], fontsize=10.2)
+    axes[0].tick_params(axis="y", length=0)
+    for p in (0.05, 0.25, 0.55):
+        axes[2].scatter([], [], s=40 + 1100 * p, color="#8A8A8A", label=f"{int(p*100)}%")
+    axes[2].legend(title="点面积 = 检出率", fontsize=9, title_fontsize=9, frameon=False,
+                   loc="center left", bbox_to_anchor=(1.0, 0.5), labelspacing=1.5, borderpad=1.0)
+    fig.text(0.012, 0.025,
+             "颜色深浅 = log2(CPM+1)，三个基因各自独立色标（量级相差太大，不可共用一套色标，也不可跨基因比颜色）；"
+             "每个点右侧为该基因的检出率与「阳性细胞/分析细胞」。",
+             fontsize=9, color="#666666")
+    fig.subplots_adjust(left=0.165, right=0.885, top=0.895, bottom=0.085)
+    fig.savefig(FIG / "mouse" / "brain_cell_dots.png", dpi=170)
+    print("wrote figures/mouse/brain_cell_dots.png", fig.get_size_inches() * 170)
 
 
 def main():
@@ -190,15 +294,21 @@ def main():
                      "screen_status": "未进候选（CASP1 未进最低三分位）"})
 
     out = pd.DataFrame(rows)
-    out["tier_rank"] = out.tier.map({t: i for i, t in enumerate(TIER_ORDER)})
-    out = out.sort_values(["tier_rank", "pooled_pct_IL18"], ascending=[True, False]).drop(columns="tier_rank")
     out["tier_cn"] = out.tier.map(TIER_CN)
+    out["verdict"] = out.tier.map(VERDICT)
+    out["verdict_rank"] = out.verdict.map({v: i for i, v in enumerate(VERDICT_ORDER)})
+    out = out.sort_values(["verdict_rank", "pooled_pct_IL18"],
+                          ascending=[True, False]).drop(columns="verdict_rank")
+    cols = ["verdict", "tier", "tier_cn"] + [c for c in out.columns if c not in ("verdict", "tier", "tier_cn")]
+    out = out[cols]
     write_tsv(out, ROOT / "results" / "answer_table.tsv")
 
     draw_answer_figure(out)
+    draw_brain_dotplot()
 
     # ---- json for deck/report ----------------------------------------------------------------------
-    js = [{"tier": r.tier, "tier_cn": TIER_CN[r.tier], "sp": r.sp_cn, "organ": r.tissue_cn,
+    js = [{"verdict": r.verdict, "verdict_note": VERDICT_NOTE[r.verdict],
+           "tier": r.tier, "tier_cn": TIER_CN[r.tier], "sp": r.sp_cn, "organ": r.tissue_cn,
            "susp": SUSP[r.suspension_type], "name": r.celltype_cn,
            "il18": round(r.pooled_pct_IL18 * 100, 2), "il18_pos": int(r.n_cells_IL18_pos),
            "casp1": round(r.pooled_pct_CASP1 * 100, 3), "casp1_pos": int(r.n_cells_CASP1_pos),

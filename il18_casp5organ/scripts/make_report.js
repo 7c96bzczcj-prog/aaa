@@ -9,7 +9,7 @@ const ROOT = "/home/user/aaa/il18_casp5organ";
 const R = JSON.parse(fs.readFileSync(ROOT + "/results/answer_table.json", "utf8"));
 const F = "Microsoft YaHei", INK = "1A1A1A", MU = "666666", HD = "EEF1F5";
 const A = "1B7A43", B = "1F5FA8", B2 = "2F6FB4", C = "B07A00", D = "9A2B2B", E = "6B6B6B";
-const COL = { A_supported: A, B_potential: B, B_potential_screen_missed: B2, C_casp1_present: C, D_refuted: D, E_no_matched_reference: E };
+const COL = { "确定": A, "可能": B, "相反": D };   // the only three classes shown to the reader
 const one = (sp, name) => R.find(r => r.sp === sp && r.name.startsWith(name));
 const pct = v => (v >= 1 ? v.toFixed(1) : v.toFixed(2)) + "%";
 
@@ -74,19 +74,17 @@ K.push(P([run("（3）参考层扩展。", { bold: true }), run("从 3 个来源
 K.push(P([run("（4）检出率口径更正。", { bold: true }), run("见上一节。")]));
 
 // ---- 2. the answer -------------------------------------------------------------------------------
-K.push(H("二、明确答案：按证据强度分级"));
-const tierName = {
-  A_supported: "A 多源一致支持", B_potential: "B 潜在可能", B_potential_screen_missed: "B 潜在（相对规则漏掉）",
-  C_casp1_present: "C CASP1 确实存在", D_refuted: "D 方向相反，排除", E_no_matched_reference: "E 仍无匹配参考"
-};
-K.push(tbl(["证据级别", "物种·器官", "类型", "细胞类型", "IL18 检出（阳性/分析细胞）", "CASP1 检出（阳性/分析细胞）", "有 CASP1 阳性的供体", "参考比值", "参考源数"],
+K.push(H("二、明确答案：确定 / 可能 / 相反"));
+K.push(P([run("只分三类：", { bold: true }),
+run("确定 = ≥2 个独立参考来源一致显示 CASP1 处于零底线或比 IL18 低 ≥20 倍；可能 = 只有单一参考来源支持，或本数据一致但尚无匹配参考；相反 = 参考层显示 CASP1 确实存在，或方向与「CASP1 低」这一前提相反。末列「细分依据」保留六档内部判读，仅作留痕，不改变上述三分。")]));
+K.push(tbl(["判定", "物种·器官", "类型", "细胞类型", "IL18 检出（阳性/分析细胞）", "CASP1 检出（阳性/分析细胞）", "有 CASP1 阳性的供体", "参考比值", "细分依据"],
   R.map(r => ({
-    tier: r.tier, cells: [tierName[r.tier], r.sp + "·" + r.organ, r.susp, r.name,
+    tier: r.verdict, cells: [r.verdict, r.sp + "·" + r.organ, r.susp, r.name,
     `${pct(r.il18)}（${r.il18_pos}/${r.n_cells}）`, `${pct(r.casp1)}（${r.casp1_pos}/${r.n_cells}）`,
-    `${r.casp1_donors}/${r.n_donors}`, (r.ratio || "—"), String(r.src)]
+    `${r.casp1_donors}/${r.n_donors}`, (r.ratio || "—"), r.tier_cn]
   })),
-  [1650, 780, 560, 1950, 1500, 1550, 820, 700, 540], 0));
-K.push(P("检出率为单细胞/单核数据的合并值（分母见第〇节）；参考比值为参考层同源同单位的 IL18:CASP1。最后一行 Cajal-Retzius 神经元无匹配参考，仅作记录。", { size: 15, color: MU }));
+  [700, 780, 560, 1900, 1480, 1520, 800, 680, 1630], 0));
+K.push(P("检出率为单细胞/单核数据的合并值（分母见第〇节）；参考比值为参考层同源同单位的 IL18:CASP1，inf 表示该来源中 CASP1 处于零底线，— 表示无匹配参考。", { size: 15, color: MU }));
 
 K.push(new Paragraph({ spacing: { before: 200, after: 100 }, children: [run("图：候选总览——每行一个细胞类型，实心点 = IL18、空心点 = CASP1，同一条对数检出率轴；灰色短竖线 = 该行可检出的最低非零值 1/n；人与小鼠分开绘制", { bold: true, size: 17 })] }));
 K.push(new Paragraph({
@@ -94,28 +92,37 @@ K.push(new Paragraph({
   children: [new ImageRun({ data: fs.readFileSync(ROOT + "/figures/answer_v2.png"), transformation: { width: 630, height: 304 } })]
 }));
 
-// ---- 3. tier by tier -----------------------------------------------------------------------------
+// ---- 3. verdict by verdict -----------------------------------------------------------------------
 const ast = one("小鼠", "星形胶质"), oli = one("小鼠", "少突胶质"), mast = one("人", "肥大细胞"),
   amac = one("小鼠", "肺泡巨噬"), mg = one("小鼠", "小胶质"), at1 = R.filter(r => r.name.startsWith("AT1")),
-  dIslet = R.find(r => r.name.indexOf("分选胰岛") > -1), duct = one("小鼠", "胰导管");
-K.push(H("三、逐级说明"));
-K.push(P([run("A 级 — 小鼠脑 星形胶质、少突胶质。", { bold: true, color: A }),
-run(`Allen Brain Map、CELLxGENE、brainrnaseq/Zhang 三个独立来源一致：Il18 明确存在而 Casp1 处于零底线（Zhang：星形胶质 Il18 115.1 vs Casp1 1.13 FPKM，约 102 倍；少突胶质 24.7 vs 0.12）。本数据中星形胶质 IL18 ${pct(ast.il18)}（${ast.il18_pos}/${ast.n_cells} 细胞、${ast.n_donors}/${ast.n_donors} 供体），CASP1 仅 ${ast.casp1_pos}/${ast.n_cells}；少突胶质 IL18 ${pct(oli.il18)}（${oli.il18_pos}/${oli.n_cells}），CASP1 ${oli.casp1_pos}/${oli.n_cells}。样本量足够大，近零是真的近零，不是统计截断。`)]));
-K.push(P([run("B 级 — 人肺肥大细胞。", { bold: true, color: B }),
-run(`HPA 单细胞（n=1237）IL18 331.5 nCPM 为人肺所有细胞类型中最高，CASP1 仅 11.1 nCPM（约 30 倍）。本数据 IL18 ${pct(mast.il18)}（${mast.il18_pos}/${mast.n_cells}），CASP1 ${pct(mast.casp1)}（${mast.casp1_pos}/${mast.n_cells}，${mast.casp1_donors}/${mast.n_donors} 供体有阳性）——CASP1 低但确有检出，另有来源显示 CASP1 可测到，故列为潜在而非确证。`)]));
-K.push(P([run("B 级 — 小鼠胰岛 D(δ) 细胞、胰导管细胞。", { bold: true, color: B }),
-run(`前一版因「无分选对照」判为无法判读；本次检索到 FACS 分选数据（GSE80673）：Il18 13.16 RPKM vs Casp1 0.016 RPKM。两套独立单细胞数据集同向：分选胰岛 δ 细胞 IL18 ${pct(dIslet.il18)}（${dIslet.il18_pos}/${dIslet.n_cells}）而 CASP1 仅 ${dIslet.casp1_pos}/${dIslet.n_cells}；胰导管细胞 IL18 ${pct(duct.il18)} 而 CASP1 ${duct.casp1_pos}/${duct.n_cells}。`)]));
-K.push(P([run("B 级 — 人肺 AT1（被筛选的相对规则漏掉）。", { bold: true, color: B2 }),
-run(`AT1 在人肺单细胞分层 IL18 排名 3/39、单核分层排名 1/23，HPA 给出 IL18 214.1 vs CASP1 7.9 nCPM（27 倍）。它未进候选，仅因该分层另有三分之一的细胞类型 CASP1 比它更低——这是「分层内最低三分位」这一相对排序规则的结构性盲点，不是证据不足。需注意其自身 CASP1 检出并不低（${at1.map(r => r.susp + " " + pct(r.casp1) + "，" + r.casp1_pos + "/" + r.n_cells).join("；")}），故列为需复核的潜在项而非确证。`)]));
-K.push(P([run("C 级 — CASP1 确实存在，不满足「加工酶缺失」前提。", { bold: true, color: C }),
-run(`小鼠肺泡巨噬 IL18 检出 ${pct(amac.il18)}（${amac.il18_pos}/${amac.n_cells}）为全部候选最高，但其 CASP1 同样是全部候选中最高的 ${pct(amac.casp1)}（${amac.casp1_pos}/${amac.n_cells}，${amac.casp1_donors}/${amac.n_donors} 供体全部有阳性），ImmGen 分选 Casp1 = 511（Il18 2384，比值仅 4.7）。小鼠脑小胶质 CASP1 ${pct(mg.casp1)}（${mg.casp1_pos}/${mg.n_cells}），参考比值 3.4。人肺纤毛上皮参考比值 11.9–13.3。它们被排除，是因为 CASP1 被检出，不是因为测不准。`)]));
-K.push(P([run("D 级 — 方向相反。", { bold: true, color: D }),
-run("人肝嗜碱粒细胞参考层 CASP1 60–234 nTPM 而 IL18 仅 4.7–14.8（比值 0.085）；人肺树突状细胞参考比值 2.0。两者在参考层中 CASP1 不低于或接近 IL18，与筛选前提方向相反。")]));
+  dIslet = R.find(r => r.name.indexOf("分选胰岛") > -1), duct = one("小鼠", "胰导管"),
+  cr = one("小鼠", "Cajal-Retzius");
+K.push(H("三、三类逐条说明"));
+
+K.push(H("确定（2 个）", HeadingLevel.HEADING_2));
+K.push(P([run("小鼠脑 星形胶质、少突胶质。", { bold: true, color: A }),
+run(`Allen Brain Map、CELLxGENE、brainrnaseq/Zhang 三个独立来源一致：Il18 明确存在而 Casp1 处于零底线（Zhang：星形胶质 Il18 115.1 vs Casp1 1.13 FPKM，约 102 倍；少突胶质 24.7 vs 0.12）。本数据星形胶质 IL18 ${pct(ast.il18)}（${ast.il18_pos}/${ast.n_cells} 细胞、${ast.n_donors} 位供体全部有阳性），CASP1 仅 ${ast.casp1_pos}/${ast.n_cells}；少突胶质 IL18 ${pct(oli.il18)}（${oli.il18_pos}/${oli.n_cells}），CASP1 ${oli.casp1_pos}/${oli.n_cells}。样本量足够大，近零是真的近零，不是统计截断。`)]));
+
+K.push(H("可能（7 个）", HeadingLevel.HEADING_2));
+K.push(P([run("人肺 肥大细胞。", { bold: true, color: B }),
+run(`HPA 单细胞（n=1237）IL18 331.5 nCPM 为人肺所有细胞类型中最高，CASP1 仅 11.1 nCPM（约 30 倍）。本数据 IL18 ${pct(mast.il18)}（${mast.il18_pos}/${mast.n_cells}），CASP1 ${pct(mast.casp1)}（${mast.casp1_pos}/${mast.n_cells}，${mast.casp1_donors}/${mast.n_donors} 供体有阳性）——CASP1 低但确有检出，且只有单一来源支持，故为可能而非确定。`)]));
+K.push(P([run("小鼠 胰岛 D(δ) 细胞、胰导管细胞。", { bold: true, color: B }),
+run(`前一版因「无分选对照」判为无法判读；本次检索到 FACS 分选数据（GSE80673）：Il18 13.16 RPKM vs Casp1 0.016 RPKM。两套独立单细胞数据集同向：分选胰岛 D(δ) 细胞 IL18 ${pct(dIslet.il18)}（${dIslet.il18_pos}/${dIslet.n_cells}）而 CASP1 仅 ${dIslet.casp1_pos}/${dIslet.n_cells}；胰导管细胞 IL18 ${pct(duct.il18)} 而 CASP1 ${duct.casp1_pos}/${duct.n_cells}。`)]));
+K.push(P([run("人肺 AT1 肺泡上皮（单细胞与单核）。", { bold: true, color: B }),
+run(`AT1 在人肺单细胞分层 IL18 排名 3/39、单核分层排名 1/23，HPA 给出 IL18 214.1 vs CASP1 7.9 nCPM（27 倍）。它未进候选，仅因该分层另有三分之一的细胞类型 CASP1 比它更低——这是「分层内最低三分位」这一相对排序规则的结构性盲点，不是证据不足。但其自身 CASP1 检出并不低（${at1.map(r => r.susp + " " + pct(r.casp1) + "，" + r.casp1_pos + "/" + r.n_cells).join("；")}），故只能列为需复核的可能项。`)]));
+K.push(P([run("小鼠脑 Cajal-Retzius 神经元。", { bold: true, color: B }),
+run(`本数据 IL18 ${pct(cr.il18)}（${cr.il18_pos}/${cr.n_cells}），CASP1 ${cr.casp1_pos}/${cr.n_cells}，方向符合前提；但参考层中没有对应的分选群体可供核对，且该行只有 ${cr.n_cells} 个细胞——能看到的最低非零检出率是 ${(100 / cr.n_cells).toFixed(2)}%，所以这个「0」的分辨力有限。列为可能，不列为确定。`)]));
+
+K.push(H("相反（6 个）", HeadingLevel.HEADING_2));
+K.push(P([run("小鼠肺 肺泡巨噬、小鼠脑 小胶质、人肺 气道多纤毛上皮与纤毛上皮。", { bold: true, color: D }),
+run(`CASP1 确实存在，不满足「加工酶缺失」前提。肺泡巨噬 IL18 检出 ${pct(amac.il18)}（${amac.il18_pos}/${amac.n_cells}）为全部最高，但其 CASP1 同样是全部中最高的 ${pct(amac.casp1)}（${amac.casp1_pos}/${amac.n_cells}，${amac.casp1_donors}/${amac.n_donors} 供体全部有阳性），ImmGen 分选 Casp1 = 511（Il18 2384，比值仅 4.7）。小鼠脑小胶质 CASP1 ${pct(mg.casp1)}（${mg.casp1_pos}/${mg.n_cells}），参考比值 3.4；人肺气道/纤毛上皮参考比值 11.9–13.3。它们被排除，是因为 CASP1 被检出，不是因为测不准。`)]));
+K.push(P([run("人肝 嗜碱粒细胞、人肺 树突状细胞。", { bold: true, color: D }),
+run("参考层中 CASP1 不低于或接近 IL18，方向与前提相反：嗜碱粒细胞 CASP1 60–234 nTPM 而 IL18 仅 4.7–14.8（比值 0.085）；树突状细胞参考比值 2.0。")]));
 
 // ---- 4. species ----------------------------------------------------------------------------------
 K.push(H("四、必须注明的物种差异"));
-K.push(P([run("A 级结论为小鼠特异，不可外推到人。", { bold: true, color: D }),
-run("HPA 人脑单核数据显示 IL18 压倒性集中于小胶质（338.5 nCPM），星形胶质仅 3.7、少突胶质 2.6 nCPM。即小鼠 CNS 胶质的「IL18 高 / CASP1 低」在人脑并不成立：人脑该表型属于小胶质，而人小胶质 CASP1 为 41.2 nCPM（比值 8.2），不满足前提。人脑目前没有对应的 A 级候选。")]));
+K.push(P([run("「确定」一类为小鼠特异，不可外推到人。", { bold: true, color: D }),
+run("HPA 人脑单核数据显示 IL18 压倒性集中于小胶质（338.5 nCPM），星形胶质仅 3.7、少突胶质 2.6 nCPM。即小鼠 CNS 胶质的「IL18 高 / CASP1 低」在人脑并不成立：人脑该表型属于小胶质，而人小胶质 CASP1 为 41.2 nCPM（比值 8.2），不满足前提。人脑目前没有对应的「确定」候选。")]));
 
 // ---- 5. limits -----------------------------------------------------------------------------------
 K.push(H("五、限制"));
@@ -127,9 +134,9 @@ K.push(H("五、限制"));
 ].forEach(t => K.push(P("• " + t)));
 
 K.push(H("六、建议的后续验证优先级"));
-K.push(P("1. 小鼠脑星形胶质与少突胶质（A 级，多源一致）——蛋白层面检测 pro-IL-18 与 pro-caspase-1。"));
-K.push(P("2. 小鼠胰岛 D(δ) 细胞与胰导管细胞、人肺肥大细胞、人肺 AT1（B 级，单一来源支持或被相对规则漏掉）——先用带空液滴的原始矩阵做环境 RNA 校正复核，再进蛋白层面。"));
-K.push(P("3. 人脑：无 A 级候选；若要在人体系统中找同类表型，需另行筛选而非沿用小鼠结论。"));
+K.push(P("1. 小鼠脑星形胶质与少突胶质（确定，多源一致）——蛋白层面检测 pro-IL-18 与 pro-caspase-1。"));
+K.push(P("2. 小鼠胰岛 D(δ) 细胞与胰导管细胞、人肺肥大细胞、人肺 AT1、小鼠脑 Cajal-Retzius 神经元（可能，单一来源支持、被相对规则漏掉或尚无匹配参考）——先用带空液滴的原始矩阵做环境 RNA 校正复核，再进蛋白层面。"));
+K.push(P("3. 人脑：无「确定」候选；若要在人体系统中找同类表型，需另行筛选而非沿用小鼠结论。"));
 
 K.push(H("附：交付物"));
 K.push(P("answer_table.tsv / answer_table.json（本报告的答案表，含合并检出率与供体中位数两套口径）、il18_casp1_evidence.tsv（参考层整合判读）、screen_missed_but_reference_supported.tsv（被相对规则漏掉者）、reference/ext/unified_reference.tsv（统一参考表，含匹配质量标注）、candidates.tsv、il18_casp_summary.tsv、il18_casp_celltype_table.tsv、census_scan.tsv、threshold_sensitivity.tsv、celltype_map.tsv、datasets.yaml、run_log.md、README.md、figures/。", { size: 16, color: MU }));
