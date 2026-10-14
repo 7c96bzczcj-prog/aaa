@@ -90,32 +90,79 @@ PANEL.forEach(([title, f, c]) => {
   cap(s, c);
 });
 
-// ---- 6. conclusions: two axes, factual labels -----------------------------------------------------
-s = p.addSlide();
-s.addText("结论", { isTextBox: true, x: .7, y: .4, w: 6, h: .6, fontFace: F, fontSize: 26, color: INK, bold: true });
-s.addText("「方向」= 是否符合「IL18 高 + CASP1 低」这一前提；「证据」= 支持该方向的独立参考来源有多少、是否一致。两者分开看。",
-  { isTextBox: true, x: .7, y: 1.0, w: 12, h: .35, fontFace: F, fontSize: 12, color: MU });
-const G = (dir, evi) => uniq(R.filter(r => r.direction === dir && r.evidence === evi)
-  .map(r => r.sp + r.organ + " " + r.name.replace(/（[^）]*）$/, "")));
-const BLK = (y, dir, evi, col, note) => {
-  const items = G(dir, evi);
-  if (!items.length) return y;
-  const one = R.find(r => r.direction === dir && r.evidence === evi);
-  s.addText(`${dir} · ${evi}`, { isTextBox: true, x: .8, y, w: 3.1, h: .3, fontFace: F, fontSize: 13.5, color: col, bold: true });
-  s.addText(note, { isTextBox: true, x: .8, y: y + .28, w: 3.1, h: .5, fontFace: F, fontSize: 9.5, color: MU, valign: "top", lineSpacingMultiple: 1.1 });
-  s.addText(items.join(" · "), { isTextBox: true, x: 4.1, y: y - .04, w: 8.5, h: .72, fontFace: F, fontSize: 12.5, color: INK, valign: "top", lineSpacingMultiple: 1.15 });
-  return y + .82;
+// ---- 14-15. conclusions ---------------------------------------------------------------------------
+// The previous version listed every cell type under six near-identical bucket names and carried no
+// numbers: a classification table, not a conclusion — the reader learned which bucket each row fell
+// into but not what the screen found. Replaced with declarative sentences, each one checkable on its
+// own. Two slides, because the boundary conditions (§0.2) appeared nowhere else in the deck.
+//
+// Lead with the myeloid rule rather than the hit list: it is a co-expression pattern, not a near-zero
+// claim, so it survives the two limitations that bite every other line here — uncorrected ambient RNA
+// and the detection floor.
+const CJK = s_ => [...s_].reduce((n, ch) => n + (ch.codePointAt(0) > 0x2E80 ? 1 : 0.55), 0);
+const LW = 12.5, GUT = 3.35, BODY_W = 12.58 - GUT;   // gutter label | body column
+// a line's height from how many times it wraps, so blocks never overlap however long a sentence runs
+const linesOf = t => Math.max(1, Math.ceil(CJK(t) / (BODY_W * 72 / LW - 0.5)));
+const SEC = (sl, y, head, note, lines, col) => {
+  sl.addText(head, { isTextBox: true, x: .75, y, w: GUT - .25, h: .3, fontFace: F, fontSize: 13, color: col, bold: true });
+  if (note) sl.addText(note, { isTextBox: true, x: .75, y: y + .27, w: GUT - .25, h: .62, fontFace: F,
+                               fontSize: 9.5, color: MU, valign: "top", lineSpacingMultiple: 1.12 });
+  let yy2 = y - .035;
+  for (const t of lines) {
+    const h = linesOf(t) * .238 + .07;
+    sl.addText(t, { isTextBox: true, x: GUT, y: yy2, w: BODY_W, h, fontFace: F, fontSize: LW,
+                    color: INK, valign: "top", lineSpacingMultiple: 1.16 });
+    yy2 += h;
+  }
+  return Math.max(yy2 + .17, y + (note ? .95 : .5));
 };
-let yy = 1.42;
-yy = BLK(yy, "符合", "多源一致", A, "≥2 个独立来源，无一例外");
-yy = BLK(yy, "符合", "多源有分歧", "2E8B57", "多数来源支持，但有来源测到 CASP1");
-yy = BLK(yy, "符合", "单一来源", B, "仅 1 个来源支持");
-yy = BLK(yy, "符合", "无参考可查", "4C87C4", "无分选参考，仅本数据方向相符");
-yy = BLK(yy, "不符合", "多源一致", D, "参考层 CASP1 确实可测或 ≥ IL18");
-yy = BLK(yy, "不符合", "无参考可查", "B5564E", "无参考，本数据自身即方向相反");
-s.addText("两条必须一起说的边界：小鼠星形胶质的结论仅限皮层与海马（小脑 Bergmann 胶质与脊髓星形胶质 Casp1 明确表达）；人的 PV / L5 ET 神经元结论在小鼠没有对应物（小鼠这两类 Casp1 同样近零，但 Il18 不高）。",
-  { isTextBox: true, x: .8, y: 6.25, w: 11.8, h: .6, fontFace: F, fontSize: 11.5, color: INK, lineSpacingMultiple: 1.2 });
-s.addText("检出率 = 原始计数 ≥1 的细胞数 ÷ 分析细胞数（合并全部供体）。29 个分层，人与小鼠分开，静息基线；未做环境 RNA 校正。",
-  { isTextBox: true, x: .8, y: 6.95, w: 11.8, h: .35, fontFace: F, fontSize: 10.5, color: FA });
+
+s = p.addSlide();
+s.addText("结论", { isTextBox: true, x: .7, y: .38, w: 6, h: .55, fontFace: F, fontSize: 26, color: INK, bold: true });
+s.addText("每行都是可自行核对的观察，不是判定标签。括号内为「阳性细胞 / 分析细胞」，均为合并全部供体的检出率。",
+  { isTextBox: true, x: .7, y: .95, w: 12, h: .3, fontFace: F, fontSize: 11, color: MU });
+let yy = 1.38;
+yy = SEC(s, yy, "一条通则", "不依赖环境 RNA 校正与检出下限", [
+  "髓系（巨噬 / 单核 / 树突状 / 小胶质 / 粒细胞）在两物种五器官共 62 个「细胞类型 × 分层」，方向符合的是 0 个：IL18 检出最高的细胞，同时也是 CASP1 检出最高的。",
+  "这是共表达模式而不是「近零」断言，因此是本页最不吃边界条件的一条。",
+], D);
+yy = SEC(s, yy, "小鼠：胶质在顶", "Yao 皮层+海马，真单细胞", [
+  "星形胶质 IL18 2135/3766 = 56.7%（40 供体，分层内 1/24），CASP1 仅 2/3766，4 个参考来源无分歧；少突胶质 27.3%（2452/8987，55 供体），CASP1 2/8987。",
+  "同为真单细胞的人皮层（78 供体）里这两类只有 4.8%（782/16319）与 1.4%（838/57855）——小鼠这一组在人不成立。",
+], A);
+yy = SEC(s, yy, "人：神经元在顶", "Allen HVS 单细胞 + 三套单核复现", [
+  "PV 中间神经元 IL18 5286/19711 = 26.8%（78 供体），CASP1 24/19711；另一套 234 供体数据复现 24.9%。L5 ET 在三套数据 31.8%–43.3%，CASP1 为 0/201、3/1358、5/2443。",
+  "小鼠同名神经元 Casp1 同样近零，但 Il18 只有 2.2%（684/30434）与 5.5%（1333/24181）——人这一组在小鼠不成立。两条物种差异方向相反。",
+], B);
+yy = SEC(s, yy, "脑外 7 个", "证据都只到单一来源或有分歧", [
+  "人肺肥大细胞 34.9%（1851/5299，44 供体）、CASP1 2.60%：4 个参考来源里只有 HPA 组织图谱支持近零（29.9 倍），两个 ex vivo 分选来源都测到 CASP1（3.82 与 4.48 倍）。",
+  "人肺 AT1 与人胰腺腺泡各只有 1 个参考来源，且都写明「未进候选（CASP1 未进最低三分位）」——靠参考层补回，不是通过了筛选。小鼠胰岛 δ 细胞 6 个来源中 4 支持、1 分歧；人胰岛 δ 细胞 IL18 仅 8/4677，不复现。",
+  "另 4 类（人脑血管软脑膜、人肝巨核-红系祖、人肺泡外膜成纤维、小鼠 Cajal-Retzius）参考层查不到（n_ref_sources = 0）。",
+], "4C87C4");
+s.addText("32 行判定按「同一细胞类型跨分层」折叠为 22 个类型：15 个方向符合（人 10 / 小鼠 5，两边零重合），7 个不符合。完整 32 行见 results/answer_table.tsv。",
+  { isTextBox: true, x: .75, y: H - .52, w: 11.9, h: .34, fontFace: F, fontSize: 10.5, color: FA });
+
+s = p.addSlide();
+s.addText("这份名单怎么用，以及它不是什么", { isTextBox: true, x: .7, y: .38, w: 9, h: .55, fontFace: F, fontSize: 26, color: INK, bold: true });
+let zz = 1.18;
+zz = SEC(s, zz, "弱在哪里", "是没人分选测过，不是检出率低", [
+  "8 行「符合 × 多源一致」全部在脑，不等于脑的信号更强：人肺 AT1 与人胰腺腺泡各只有 1 个参考来源，另有 4 类一个都没有，而小鼠星形胶质有 4 个。",
+  "要把一格从单一来源推到多源一致，缺的是具体一次测量：人肺肥大细胞 / AT1 / 人胰腺腺泡各缺一次新鲜原代分选后的 CASP1 定量；小鼠胰岛 δ 缺的是复核那一个分歧来源（比值 5.64）。",
+], B);
+zz = SEC(s, zz, "「近零」相对于什么", "同一测法下的标尺与阳性对照", [
+  "阳性对照：同一分选、同一供体、同一建库下，L5a IT 锥体神经元 CASP1 = 8.34 CPM（25 个文库 24 个非零）——不是测不出来，是亚类特异的。",
+  "标尺：静息小鼠小胶质 Casp1 约 50–61 CPM / 17% 细胞。小鼠 CNS 里「髓系高」与「零底线」相差约 50 倍，不是 1000 倍。",
+], A);
+zz = SEC(s, zz, "四条不能省的边界", "规格 §0.2", [
+  "IL18 转录本即 pro-IL-18 的转录信号，但 pro-IL-18 是储备型蛋白，转录水平与细胞内前体储量不成线性关系。",
+  "CASP1 是可诱导基因。本分析是静息基线筛选，静息近零不预测刺激后能否诱导——这一条只能靠带刺激的数据或实验解决。",
+  "CASP3 的 mRNA 不反映 caspase-3 酶活性（酶原活化与 XIAP 抑制都在转录后）。本分析仅用它排除最低档，不是三重阳性门。",
+  "未做环境 RNA 校正；人鼠之间、数据集之间、单核与单细胞之间只比名单不比数值。小鼠星形胶质的结论只覆盖皮层与海马：小脑 Bergmann 胶质 22.4 CPM、脊髓星形胶质 12.5–16.7 CPM 都测到 Casp1。",
+], D);
+zz = SEC(s, zz, "名单有多硬", "阈值与用途", [
+  "三分位与「CASP3 最低 20%」是工程取值、无生物学依据：换成四分位，候选数从 17 掉到 12。",
+  "短 IL-18 转录本在人正常组织不被显著使用：GTEx v8 6792 个样本 707/791471 跨接读段 = 0.09%（SRA v3h 的 0.20% 来自全人类 RNA-seq 汇编，含癌系与剪接因子敲低样本，不能称作正常组织）。",
+  "本名单用于给蛋白与功能层面的验证排优先级。进名单不代表 pro-IL-18 真被加工，不进也不代表不会。",
+], MU);
 
 p.writeFile({ fileName: ROOT + "/IL18_CASP_五器官筛选.pptx" }).then(f => console.log("wrote", f));
