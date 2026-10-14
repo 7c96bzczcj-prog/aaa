@@ -547,6 +547,7 @@ def main():
                      "donors_with_IL18_pos": r.donors_with_IL18_pos, "donor_median_pct_IL18": r.sc_pct_IL18,
                      "n_cells_CASP1_pos": r.n_cells_CASP1_pos, "pooled_pct_CASP1": r.pooled_pct_CASP1,
                      "donors_with_CASP1_pos": r.donors_with_CASP1_pos, "donor_median_pct_CASP1": r.sc_pct_CASP1,
+                     "n_cells_CASP3_pos": r.n_cells_CASP3_pos, "pooled_pct_CASP3": r.pooled_pct_CASP3,
                      "ref_ratio_IL18_over_CASP1": r.best_ratio_IL18_over_CASP1,
                      "n_ref_sources": r.n_ref_sources,
                      "n_sources_supporting": r.n_sources_supporting,
@@ -564,7 +565,8 @@ def main():
                      "dataset_id": r.dataset_id, "level": "author_label",
                      **{k: ps[k] for k in ("n_cells_analysed", "n_donors_analysed", "median_cells_per_donor",
                                            "n_cells_IL18_pos", "pooled_pct_IL18", "donors_with_IL18_pos",
-                                           "n_cells_CASP1_pos", "pooled_pct_CASP1", "donors_with_CASP1_pos")},
+                                           "n_cells_CASP1_pos", "pooled_pct_CASP1", "donors_with_CASP1_pos",
+                                           "n_cells_CASP3_pos", "pooled_pct_CASP3")},
                      "donor_median_pct_IL18": r.pct_IL18, "donor_median_pct_CASP1": r.pct_CASP1,
                      "ref_ratio_IL18_over_CASP1": r.best_ref.split("ratio=")[-1],
                      "n_ref_sources": r.n_ref_sources_supporting,
@@ -574,6 +576,13 @@ def main():
                      "screen_status": "未进候选（CASP1 未进最低三分位）"})
 
     out = pd.DataFrame(rows)
+    # CASP3 never defines the candidate set (§0.2); it only excludes the stratum's lowest tier and
+    # orders what is left. Carry the flag so a row sitting in that lowest tier can be marked rather
+    # than silently presented as having cleared it.
+    su = pd.read_csv(ROOT / "results" / "il18_casp_summary.tsv", sep="\t", comment="#")
+    su = su[su.level == "author"].drop_duplicates(["dataset_id", "celltype"]).set_index(["dataset_id", "celltype"])
+    out["casp3_floor"] = [not bool(su.CASP3_ok.get((d, c), True))
+                          for d, c in zip(out.dataset_id, out.celltype)]
     # Replication is its own evidence axis, separate from the reference layer: the same cell type found
     # in several INDEPENDENT strata (different datasets, different donors) is harder to explain away as
     # one atlas's annotation or batch quirk. Counted over distinct rows only, never pooled across strata.
@@ -631,6 +640,8 @@ def main():
            "susp": SUSP[r.suspension_type], "name": r.celltype_cn,
            "il18": round(r.pooled_pct_IL18 * 100, 2), "il18_pos": int(r.n_cells_IL18_pos),
            "casp1": round(r.pooled_pct_CASP1 * 100, 3), "casp1_pos": int(r.n_cells_CASP1_pos),
+           "casp3": round(r.pooled_pct_CASP3 * 100, 3), "casp3_pos": int(r.n_cells_CASP3_pos),
+           "casp3_floor": bool(r.casp3_floor),
            "n_cells": int(r.n_cells_analysed), "n_donors": int(r.n_donors_analysed),
            "n_strata": int(r.n_strata), "dataset_cn": r.dataset_cn,
            "casp1_donors": int(r.donors_with_CASP1_pos),

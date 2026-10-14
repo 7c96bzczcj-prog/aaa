@@ -223,7 +223,7 @@ def pooled_stats(entry_id, level, celltype, cmap):
         return {}
     out = {"n_cells_analysed": len(s), "n_donors_analysed": len(ok),
            "median_cells_per_donor": int(np.median([len(x) for _, x in s.groupby("donor_id")]))}
-    for g in ("IL18", "CASP1"):
+    for g in ("IL18", "CASP1", "CASP3"):
         pos = int((s[g] >= 1).sum())
         out[f"n_cells_{g}_pos"] = pos
         out[f"pooled_pct_{g}"] = pos / len(s)
@@ -262,7 +262,9 @@ def main():
     front = ["dataset_id", "level", "species", "tissue", "suspension_type", "celltype", "duplicate_of",
              "evidence_tier", "n_cells_analysed", "n_donors_analysed", "median_cells_per_donor",
              "n_cells_IL18_pos", "pooled_pct_IL18", "donors_with_IL18_pos",
-             "n_cells_CASP1_pos", "pooled_pct_CASP1", "donors_with_CASP1_pos", "n_sources_supporting", "n_sources_dissenting"]
+             "n_cells_CASP1_pos", "pooled_pct_CASP1", "donors_with_CASP1_pos",
+             "n_cells_CASP3_pos", "pooled_pct_CASP3", "donors_with_CASP3_pos",
+             "n_sources_supporting", "n_sources_dissenting"]
     out = out[[c for c in front if c in out.columns] + [c for c in out.columns if c not in front]]
     out = out.sort_values(["evidence_tier", "species", "tissue"])
     write_tsv(out, ROOT / "results" / "il18_casp1_evidence.tsv")

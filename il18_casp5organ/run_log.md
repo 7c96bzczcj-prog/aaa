@@ -269,3 +269,11 @@ IL18 在两边都排第 1，CASP1 却差约 90 倍，单核那一层不入候选
 同时：删去「限制与后续」页；第 1 页只保留查阅的数据库列表。
 
 顺带修一处口径错误：原先用 `n_ref_sources − n_sources_supporting` 推算分歧来源数，这不成立——参考表里既不支持也不反对的行（同一来源的重复条目、比值落在 3–20 倍带内未被计入任一侧的行）也算在 n_ref_sources 里。人肺肥大细胞因此被写成「另 3 个分歧」（实为 2），小鼠胰导管细胞被写成「另 1 个分歧」（实为 0）。已改为直接输出 `n_sources_dissenting`，answer_table.json 新增 `n_dis` 字段。
+
+### 结论表加入 CASP3（2026-10-14）
+
+CASP3 此前只出现在十张器官点图里，答案表与结论页都没有。已在 `pooled_stats()` 中把 CASP3 一并合并（原先只算 IL18 与 CASP1），`il18_casp1_evidence.tsv` 与 `answer_table.tsv` / `.json` 新增 `n_cells_CASP3_pos` / `pooled_pct_CASP3`，结论表增列 CASP3 检出。
+
+加列时发现一处会被误读的地方：15 行里有 1 行（人胰 胰腺腺泡细胞，胰岛 multiomics 分层）的 `CASP3_ok = False`，即 CASP3 在该分层内排 9/9、处于最低档。按 §0.2，CASP3 本就不参与候选集定义（只排除最低档并给候选内部排序），所以表头原先写的「符合 IL18 高 + CASP1 低 + CASP3 非最低档」是错的，已改回「符合 IL18 高 + CASP1 低」，并新增 `casp3_floor` 字段，该行在表中标 ▽、页脚说明其含义。
+
+注：同一细胞类型跨分层折叠时取供体最多者，胰腺腺泡细胞因此显示的是 multiomics 分层（18 供体）而非 48-donor 分层（17 供体），后者 CASP3 未处最低档。

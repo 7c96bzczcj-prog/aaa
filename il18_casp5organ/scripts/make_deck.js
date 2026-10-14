@@ -93,13 +93,14 @@ s = p.addSlide();
 s.addText("结论", { isTextBox: true, x: .7, y: .36, w: 6, h: .5, fontFace: F, fontSize: 24, color: INK, bold: true });
 s.addText("符合「IL18 高 + CASP1 低」的细胞类型，按参考层支持由强到弱。支持 / 分歧 = 参考层中显示 CASP1 近零 / 可测的独立来源数",
   { isTextBox: true, x: .7, y: .88, w: 11.9, h: .3, fontFace: F, fontSize: 12, color: MU });
-const HEAD = ["物种 · 器官", "细胞类型", "IL18 检出", "CASP1 检出", "供体", "支持", "分歧"];
+const HEAD = ["物种 · 器官", "细胞类型", "IL18 检出", "CASP1 检出", "CASP3 检出", "供体", "支持", "分歧"];
 s.addTable([HEAD.map(c => ({ text: c, options: { bold: true, fill: "EEF1F5", color: "3C3C3C" } }))].concat(
   HIT.map(r => [`${r.sp} · ${r.organ}`, r.name + (r.n_strata > 1 ? ` ×${r.n_strata}` : ""),
                 `${pc(r.il18)}　${r.il18_pos}/${r.n_cells}`,
-                `${pc(r.casp1)}　${r.casp1_pos}/${r.n_cells}`, `${r.n_donors}`,
+                `${pc(r.casp1)}　${r.casp1_pos}/${r.n_cells}`,
+                `${pc(r.casp3)}　${r.casp3_pos}/${r.n_cells}${r.casp3_floor ? "  ▽" : ""}`, `${r.n_donors}`,
                 r.n_sup ? `${r.n_sup}` : "—", r.n_dis ? `${r.n_dis}` : "—"])),
-  { x: .7, y: 1.26, w: 11.93, colW: [1.55, 3.35, 2.4, 2.4, .73, .75, .75], fontFace: F, fontSize: 10.5,
+  { x: .7, y: 1.26, w: 11.93, colW: [1.38, 2.72, 2.14, 2.14, 2.14, .55, .46, .40], fontFace: F, fontSize: 10,
     color: INK, border: { pt: .5, color: "E2E5E9" }, rowH: .225, valign: "middle", autoPage: false });
 s.addText([
   { text: "明确阴性：", options: { bold: true } },
@@ -109,7 +110,7 @@ s.addText([
   { text: "物种不互通：", options: { bold: true } },
   { text: "人皮层星形胶质 IL18 4.8%（782/16319）；小鼠皮层 PV 中间神经元 Casp1 同样近零，但 Il18 仅 2.2%（684/30434）。" }],
   { isTextBox: true, x: .7, y: H - .86, w: 11.93, h: .4, fontFace: F, fontSize: 12, color: INK, valign: "top", lineSpacingMultiple: 1.2 });
-s.addText("检出率为合并口径（原始计数 ≥1 的细胞数 ÷ 分析细胞数）。同一细胞类型见于多个分层时取供体最多者，×n 为分层数。静息基线，未做环境 RNA 校正。",
+s.addText("检出率为合并口径（原始计数 ≥1 的细胞数 ÷ 分析细胞数）。同一细胞类型见于多个分层时取供体最多者，×n 为分层数。CASP3 不参与候选定义，仅用于排除分层内最低档，▽ 为处于该分层 CASP3 最低档者。静息基线，未做环境 RNA 校正。",
   { isTextBox: true, x: .7, y: H - .44, w: 11.93, h: .3, fontFace: F, fontSize: 10, color: FA });
 
 p.writeFile({ fileName: ROOT + "/IL18_CASP_五器官筛选.pptx" }).then(f => console.log("wrote", f));
