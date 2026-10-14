@@ -102,7 +102,7 @@ PANEL.forEach(([title, f, c]) => {
 const CJK = s_ => [...s_].reduce((n, ch) => n + (ch.codePointAt(0) > 0x2E80 ? 1 : 0.55), 0);
 const LW = 12.5, GUT = 3.35, BODY_W = 12.58 - GUT;   // gutter label | body column
 // a line's height from how many times it wraps, so blocks never overlap however long a sentence runs
-const linesOf = t => Math.max(1, Math.ceil(CJK(t) / (BODY_W * 72 / LW - 0.5)));
+const linesOf = t => Math.max(1, Math.ceil(CJK(t) / (BODY_W * 72 / LW * 0.86)));   // 0.86: PowerPoint adds space at every CJK/Latin boundary, so a line holds fewer glyphs than width/size implies
 const SEC = (sl, y, head, note, lines, col) => {
   sl.addText(head, { isTextBox: true, x: .75, y, w: GUT - .25, h: .3, fontFace: F, fontSize: 13, color: col, bold: true });
   if (note) sl.addText(note, { isTextBox: true, x: .75, y: y + .27, w: GUT - .25, h: .62, fontFace: F,
@@ -127,24 +127,26 @@ yy = SEC(s, yy, "一条通则", "不依赖环境 RNA 校正与检出下限", [
   "这是共表达模式而不是「近零」断言，因此是本页最不吃边界条件的一条。",
 ], D);
 yy = SEC(s, yy, "小鼠：胶质在顶", "Yao 皮层+海马，真单细胞", [
-  "星形胶质 IL18 2135/3766 = 56.7%（40 供体，分层内 1/24），CASP1 仅 2/3766，4 个参考来源无分歧；少突胶质 27.3%（2452/8987，55 供体），CASP1 2/8987。",
+  "星形胶质 IL18 2135/3766 = 56.7%（40 供体，分层内 1/24），CASP1 仅 2/3766；少突胶质 27.3%（2452/8987，55 供体），CASP1 2/8987。星形胶质的 4 个参考来源无分歧，但其中只有 3 个是独立纯化测量（RiboTag、TMS FACS、brainrnaseq），第 4 个是 CELLxGENE 汇总、与本筛选同出一个数据家族。",
+  "小鼠脑的另一个分层（单核，10 供体）不复现：星形胶质 IL18 仍排第 1（14579/21878 = 66.6%），CASP1 却是 1018/21878 = 4.65%。单核与单细胞不可定量混比，但「是否入选」这一层的分歧必须写出来——这条最硬的结论在两个可用的小鼠脑分层里只成立于一个。",
   "同为真单细胞的人皮层（78 供体）里这两类只有 4.8%（782/16319）与 1.4%（838/57855）——小鼠这一组在人不成立。",
 ], A);
 yy = SEC(s, yy, "人：神经元在顶", "Allen HVS 单细胞 + 三套单核复现", [
   "PV 中间神经元 IL18 5286/19711 = 26.8%（78 供体），CASP1 24/19711；另一套 234 供体数据复现 24.9%。L5 ET 在三套数据 31.8%–43.3%，CASP1 为 0/201、3/1358、5/2443。",
+  "但同属皮层中间神经元的 CGE 源中间神经元是全表最弱的一条「符合」：IL18 12.1%（618/5096，44 供体），5 个参考来源里 1 个支持、3 个反对，其中 2 个显示 CASP1 与 IL18 同量级。人侧这条线不像名单看上去那么齐。",
   "小鼠同名神经元 Casp1 同样近零，但 Il18 只有 2.2%（684/30434）与 5.5%（1333/24181）——人这一组在小鼠不成立。两条物种差异方向相反。",
 ], B);
-yy = SEC(s, yy, "脑外 7 个", "证据都只到单一来源或有分歧", [
-  "人肺肥大细胞 34.9%（1851/5299，44 供体）、CASP1 2.60%：4 个参考来源里只有 HPA 组织图谱支持近零（29.9 倍），两个 ex vivo 分选来源都测到 CASP1（3.82 与 4.48 倍）。",
-  "人肺 AT1 与人胰腺腺泡各只有 1 个参考来源，且都写明「未进候选（CASP1 未进最低三分位）」——靠参考层补回，不是通过了筛选。小鼠胰岛 δ 细胞 6 个来源中 4 支持、1 分歧；人胰岛 δ 细胞 IL18 仅 8/4677，不复现。",
-  "另 4 类（人脑血管软脑膜、人肝巨核-红系祖、人肺泡外膜成纤维、小鼠 Cajal-Retzius）参考层查不到（n_ref_sources = 0）。",
-], "4C87C4");
 s.addText("32 行判定按「同一细胞类型跨分层」折叠为 22 个类型：15 个方向符合（人 10 / 小鼠 5，两边零重合），7 个不符合。完整 32 行见 results/answer_table.tsv。",
   { isTextBox: true, x: .75, y: H - .52, w: 11.9, h: .34, fontFace: F, fontSize: 10.5, color: FA });
 
 s = p.addSlide();
-s.addText("这份名单怎么用，以及它不是什么", { isTextBox: true, x: .7, y: .38, w: 9, h: .55, fontFace: F, fontSize: 26, color: INK, bold: true });
+s.addText("脑外的 7 个，以及名单弱在哪里", { isTextBox: true, x: .7, y: .38, w: 9, h: .55, fontFace: F, fontSize: 26, color: INK, bold: true });
 let zz = 1.18;
+zz = SEC(s, zz, "脑外 7 个", "证据都只到单一来源或有分歧", [
+  "人肺肥大细胞 34.9%（1851/5299，44 供体）、CASP1 2.60%：4 个参考来源里只有 HPA 组织图谱支持近零（29.9 倍），两个 ex vivo 分选来源都测到 CASP1（3.82 与 4.48 倍）——纯化得越干净，CASP1 反而越测得到。",
+  "人肺 AT1 与人胰腺腺泡各只有 1 个参考来源，且都写明「未进候选（CASP1 未进最低三分位）」——靠参考层补回，不是通过了筛选。小鼠胰岛 δ 细胞 6 个来源中 4 支持、1 分歧；人胰岛 δ 细胞 IL18 仅 8/4677，不复现。",
+  "另 4 类（人脑血管软脑膜、人肝巨核-红系祖、人肺泡外膜成纤维、小鼠 Cajal-Retzius）参考层查不到（n_ref_sources = 0）。",
+], "4C87C4");
 zz = SEC(s, zz, "弱在哪里", "是没人分选测过，不是检出率低", [
   "8 行「符合 × 多源一致」全部在脑，不等于脑的信号更强：人肺 AT1 与人胰腺腺泡各只有 1 个参考来源，另有 4 类一个都没有，而小鼠星形胶质有 4 个。",
   "要把一格从单一来源推到多源一致，缺的是具体一次测量：人肺肥大细胞 / AT1 / 人胰腺腺泡各缺一次新鲜原代分选后的 CASP1 定量；小鼠胰岛 δ 缺的是复核那一个分歧来源（比值 5.64）。",
@@ -153,6 +155,9 @@ zz = SEC(s, zz, "「近零」相对于什么", "同一测法下的标尺与阳�
   "阳性对照：同一分选、同一供体、同一建库下，L5a IT 锥体神经元 CASP1 = 8.34 CPM（25 个文库 24 个非零）——不是测不出来，是亚类特异的。",
   "标尺：静息小鼠小胶质 Casp1 约 50–61 CPM / 17% 细胞。小鼠 CNS 里「髓系高」与「零底线」相差约 50 倍，不是 1000 倍。",
 ], A);
+s = p.addSlide();
+s.addText("四条不能省的边界，以及这份名单有多硬", { isTextBox: true, x: .7, y: .38, w: 11, h: .55, fontFace: F, fontSize: 26, color: INK, bold: true });
+zz = 1.18;
 zz = SEC(s, zz, "四条不能省的边界", "规格 §0.2", [
   "IL18 转录本即 pro-IL-18 的转录信号，但 pro-IL-18 是储备型蛋白，转录水平与细胞内前体储量不成线性关系。",
   "CASP1 是可诱导基因。本分析是静息基线筛选，静息近零不预测刺激后能否诱导——这一条只能靠带刺激的数据或实验解决。",
