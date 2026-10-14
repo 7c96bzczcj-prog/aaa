@@ -387,10 +387,8 @@ PANEL_STRATA = [
 ]
 # panels whose underlying stratum carries a caveat that must travel with the figure
 PANEL_NOTE = {
-    "mouse/spinal_dots.png": "本分层（GSE103892）的矩阵只带基因符号、无 Ensembl ID，"
-                             "按 §1.2 标 gene_id_unavailable，仅作参考，不进候选判定。",
-    "human/spinal_dots.png": "本分层为颈段脊髓白质（19 供体），不含灰质与运动神经元；"
-                             "另一套人脊髓数据（Siletti）只有 1 位供体，按 §10.3 不产候选，故不在此作图。",
+    "mouse/spinal_dots.png": "GSE103892 仅带基因符号（gene_id_unavailable），不进候选判定。",
+    "human/spinal_dots.png": "颈段白质，不含灰质与运动神经元。",
 }
 
 
@@ -480,15 +478,10 @@ def draw_brain_dotplot(entry_id="M_brain_cell", spec_rows=None, out_name="mouse/
     # reader sees. Earlier these were drawn large and let the deck shrink them, which put 20-row panels
     # on screen at under 5 pt. Row pitch and dot size follow from the row count instead of the reverse.
     fw, fh = PANEL_IN
-    scope = ("本页为同一个分层内的全部细胞类型，不论判定如何一律列出。" if n_total is None or n_total <= n
-             else f"该分层共 {n_total} 个细胞类型达到 ≥3 供体，本页按 IL18 检出率取前 {n} 个；"
-                  f"其余 {n_total - n} 个 IL18 更低，不论判定如何均见 answer_table.tsv。")
-    foot = (wrap_cjk("颜色深浅 = log2(CPM+1)，三个基因各自独立色标（量级相差太大，不可共用一套色标，"
-                     "也不可跨基因比颜色）；每个点右侧为该基因的检出率与「阳性细胞/分析细胞」。",
-                     fw, PANEL_FS - 1.2, margin=0.012)
-            + wrap_cjk("左侧细胞类型名的颜色 = 方向/证据：绿 = 符合·多源一致，深蓝 = 符合·单一来源，"
-                       "浅蓝 = 符合·无参考可查，红 = 不符合，黑 = 未进入候选。" + scope + extra_note,
-                       fw, PANEL_FS - 1.2, margin=0.012))
+    scope = "" if n_total is None or n_total <= n else f"本分层 {n_total} 类，按 IL18 取前 {n}。"
+    foot = wrap_cjk("点面积 = 检出率，右侧为阳性细胞/分析细胞；颜色 = log2(CPM+1)，三基因各自独立色标。"
+                    "行名颜色 = 判定方向（绿/蓝 = 符合，红 = 不符合，黑 = 未进候选）。" + scope + extra_note,
+                    fw, PANEL_FS - 1.2, margin=0.012)
     top_in, line_in = 0.42, 0.145
     foot_in = line_in * len(foot) + 0.10
     row_pt = (fh - top_in - foot_in) / n * 72                 # vertical pitch of one row, in points
