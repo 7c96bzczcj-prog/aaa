@@ -27,18 +27,67 @@ const ast = one("小鼠", "星形胶质"), oli = one("小鼠", "少突胶质"), 
 // comments applied: the short-IL-18 page is cut down to data sources only, and the "four questions"
 // page is removed. A human three-gene panel is added immediately before the mouse one.
 
-// ---- 1. the libraries consulted -----------------------------------------------------------------
-let s = p.addSlide(); head(s, "查阅的数据库");
-[["单细胞 / 单核", "CZ CELLxGENE Census LTS 2025-11-08（29 个分层）· Allen Human Variation Study · SEA-AD · PsychAD · Tabula Muris Senis · Tabula Sapiens · HLCA · CellRef · GEO GSE103892"],
- ["分选 / 纯化 bulk", "ImmGen（RNA-seq + 微阵列）· brainrnaseq/Zhang · Pressl 2024 sFANS 分选核 · Allen Human Cortex SMART-seq · RiboTag / TRAP 系列 · LCM 分选 · 多套 GEO FACS 分选"],
- ["组织 bulk / 蛋白", "GTEx v8 · Human Protein Atlas v25（RNA + IHC 蛋白）· Monaco 2019 · Haemopedia"],
- ["剪接连接", "Snaptron（recount3 / SRA / GTEx v8）"],
- ["基因模型", "Ensembl REST"],
-].forEach(([k, v], i) => {
-  s.addText(k, { isTextBox: true, x: .8, y: 1.55 + i * 1.02, w: 2.5, h: .5, fontFace: F, fontSize: 13.5, color: MU, bold: true, valign: "top" });
-  s.addText(v, { isTextBox: true, x: 3.5, y: 1.55 + i * 1.02, w: 9.1, h: .92, fontFace: F, fontSize: 13, color: INK, valign: "top", lineSpacingMultiple: 1.2 });
-});
-s.addText("统一参考表 1714 行，每条带来源、单位、状态与匹配质量标注。", { isTextBox: true, x: .8, y: H - .55, w: 11.7, h: .3, fontFace: F, fontSize: 10.5, color: FA });
+// ---- 1-2. the libraries consulted ----------------------------------------------------------------
+// Every citation below was resolved against NCBI E-utilities in-session (PMID printed by
+// scratchpad/cite*.py); none is written from memory.
+const REFS = [
+  ["单细胞 / 单核", [
+    ["CZ CELLxGENE Discover（Census LTS 2025-11-08）", "Nucleic Acids Res. 2025 Jan 6;53(D1):D886-D900."],
+    ["Allen Human Variation Study（人皮层单细胞）", "Science. 2023 Oct 13;382(6667):eadf2359."],
+    ["Allen SEA-AD（MTG / DLPFC 单核）", "Nat Neurosci. 2024 Dec;27(12):2366-2383."],
+    ["PsychAD（人前额叶单核）", "Nature. 2026 Sep;657(8133):1003-1015."],
+    ["Siletti 人脑细胞图谱（MTG、脊髓）", "Science. 2023 Oct 13;382(6667):eadd7046."],
+    ["Yao 小鼠全脑图谱（皮层+海马）", "Nature. 2023 Dec;624(7991):317-332."],
+    ["Human Lung Cell Atlas", "Nat Med. 2023 Jun;29(6):1563-1577."],
+    ["LungMAP CellRef（人肺参考）", "Nat Commun. 2023 Jul 29;14(1):4566."],
+    ["Guilliams 人肝图谱", "Cell. 2022 Jan 20;185(2):379-396.e38."],
+    ["Tabula Sapiens（人全器官）", "Science. 2022 May 13;376(6594):eabl4896."],
+    ["Tabula Muris Senis（小鼠全器官）", "Nature. 2020 Jul;583(7817):590-595."],
+    ["人胰岛多组学", "Nat Metab. 2022 Feb;4(2):284-299."],
+    ["小鼠胰岛跨物种图谱", "Mol Metab. 2022 Dec;66:101595."],
+    ["人颈段脊髓白质单核", "Acta Neuropathol Commun. 2023 May 22;11(1):84."],
+    ["小鼠腰段脊髓单核（GSE103892）", "Cell Rep. 2018 Feb 20;22(8):2216-2225."],
+  ]],
+];
+const REFS2 = [
+  ["分选 / 纯化 bulk", [
+    ["ImmGen（小鼠免疫细胞，GSE109125）", "Cell. 2019 Feb 7;176(4):897-912.e20."],
+    ["brainrnaseq 小鼠皮层分选", "J Neurosci. 2014 Sep 3;34(36):11929-47."],
+    ["brainrnaseq 人星形胶质分选", "Neuron. 2016 Jan 6;89(1):37-53."],
+    ["Pressl sFANS 分选核（人皮层 L5a）", "Neuron. 2024 Mar 20;112(6):924-941.e10."],
+    ["Allen 人皮层 SMART-seq", "Nature. 2019 Sep;573(7772):61-68."],
+  ]],
+  ["组织 bulk / 蛋白", [
+    ["GTEx v8", "Science. 2020 Sep 11;369(6509):1318-1330."],
+    ["Human Protein Atlas（RNA + IHC 蛋白）", "Science. 2015 Jan 23;347(6220):1260419."],
+    ["Monaco 人免疫细胞绝对定量", "Cell Rep. 2019 Feb 5;26(6):1627-1640.e7."],
+    ["Haemopedia（造血谱系）", "Nucleic Acids Res. 2019 Jan 8;47(D1):D780-D785."],
+  ]],
+  ["剪接连接", [
+    ["Snaptron", "Bioinformatics. 2018 Jan 1;34(1):114-116."],
+    ["recount3", "Genome Biol. 2021 Nov 29;22(1):323."],
+  ]],
+  ["基因模型", [
+    ["Ensembl", "Nucleic Acids Res. 2025 Jan 6;53(D1):D948-D957."],
+  ]],
+];
+const refPage = (groups, title, foot) => {
+  const sl = p.addSlide(); head(sl, title);
+  let y = 1.35;
+  for (const [cat, items] of groups) {
+    sl.addText(cat, { isTextBox: true, x: .75, y, w: 2.3, h: .3, fontFace: F, fontSize: 12.5, color: MU, bold: true });
+    for (const [name, cit] of items) {
+      sl.addText(name, { isTextBox: true, x: 3.05, y, w: 5.35, h: .28, fontFace: F, fontSize: 11.5, color: INK, valign: "top" });
+      sl.addText(cit, { isTextBox: true, x: 8.45, y, w: 4.2, h: .28, fontFace: F, fontSize: 11.5, color: "3C3C3C", valign: "top" });
+      y += .292;
+    }
+    y += .17;
+  }
+  if (foot) sl.addText(foot, { isTextBox: true, x: .75, y: H - .52, w: 11.9, h: .3, fontFace: F, fontSize: 10, color: FA });
+};
+let s;
+refPage(REFS, "查阅的数据库（一）：单细胞 / 单核", "本筛选从 CELLxGENE Census 取 29 个分层。全部引文经 NCBI E-utilities 逐条核对。");
+refPage(REFS2, "查阅的数据库（二）：参考层", "统一参考表 1714 行，每条带来源、单位、状态与匹配质量标注。");
 
 // ---- 2-3. per-species overview figures ----------------------------------------------------------
 s = p.addSlide(); head(s, "人：同一条检出率轴上看 IL18 与 CASP1");

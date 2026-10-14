@@ -277,3 +277,43 @@ CASP3 此前只出现在十张器官点图里，答案表与结论页都没有�
 加列时发现一处会被误读的地方：15 行里有 1 行（人胰 胰腺腺泡细胞，胰岛 multiomics 分层）的 `CASP3_ok = False`，即 CASP3 在该分层内排 9/9、处于最低档。按 §0.2，CASP3 本就不参与候选集定义（只排除最低档并给候选内部排序），所以表头原先写的「符合 IL18 高 + CASP1 低 + CASP3 非最低档」是错的，已改回「符合 IL18 高 + CASP1 低」，并新增 `casp3_floor` 字段，该行在表中标 ▽、页脚说明其含义。
 
 注：同一细胞类型跨分层折叠时取供体最多者，胰腺腺泡细胞因此显示的是 multiomics 分层（18 供体）而非 48-donor 分层（17 供体），后者 CASP3 未处最低档。
+
+### 引文核对（2026-10-14）
+
+用户要求把数据来源写成标准期刊引文格式。按既定规则，引文与登录号一律不得凭记忆书写，全部经 NCBI E-utilities（esearch + esummary）在会话内逐条解析，期刊、年、卷、期、页码均取自 PubMed 返回字段。脚本见 `scripts/cite2.py`–`cite6.py`，每条带 PMID。
+
+两处值得记录：标题精确匹配检索在 PubMed 上很脆（长标题、特殊字符、冒号都会落空），改用作者 + 期刊 + 年份 + 关键词后才稳定；E-utilities 无 API key 时会限流，需退避重试。
+
+解析结果（PMID → 引文）：
+
+| 来源 | PMID | 引文 |
+|---|---|---|
+| CZ CELLxGENE Discover | 39607691 | Nucleic Acids Res. 2025 Jan 6;53(D1):D886-D900. |
+| Allen Human Variation Study | 37824649 | Science. 2023 Oct 13;382(6667):eadf2359. |
+| Allen SEA-AD | 39402379 | Nat Neurosci. 2024 Dec;27(12):2366-2383. |
+| PsychAD | 42778698 | Nature. 2026 Sep;657(8133):1003-1015. |
+| Siletti 人脑图谱 | 37824663 | Science. 2023 Oct 13;382(6667):eadd7046. |
+| Yao 小鼠全脑图谱 | 38092916 | Nature. 2023 Dec;624(7991):317-332. |
+| Human Lung Cell Atlas | 37291214 | Nat Med. 2023 Jun;29(6):1563-1577. |
+| LungMAP CellRef | 37516747 | Nat Commun. 2023 Jul 29;14(1):4566. |
+| Guilliams 人肝图谱 | 35021063 | Cell. 2022 Jan 20;185(2):379-396.e38. |
+| Tabula Sapiens | 35549404 | Science. 2022 May 13;376(6594):eabl4896. |
+| Tabula Muris Senis | 32669714 | Nature. 2020 Jul;583(7817):590-595. |
+| 人胰岛多组学 | 35228745 | Nat Metab. 2022 Feb;4(2):284-299. |
+| 小鼠胰岛跨物种图谱 | 36113773 | Mol Metab. 2022 Dec;66:101595. |
+| 人颈段脊髓白质单核 | 37217978 | Acta Neuropathol Commun. 2023 May 22;11(1):84. |
+| 小鼠腰段脊髓单核 GSE103892 | 29466745 | Cell Rep. 2018 Feb 20;22(8):2216-2225. |
+| ImmGen GSE109125 | 30686579 | Cell. 2019 Feb 7;176(4):897-912.e20. |
+| brainrnaseq 小鼠 | 25186741 | J Neurosci. 2014 Sep 3;34(36):11929-47. |
+| brainrnaseq 人 | 26687838 | Neuron. 2016 Jan 6;89(1):37-53. |
+| Pressl sFANS | 38237588 | Neuron. 2024 Mar 20;112(6):924-941.e10. |
+| Allen 人皮层 SMART-seq | 31435019 | Nature. 2019 Sep;573(7772):61-68. |
+| GTEx v8 | 32913098 | Science. 2020 Sep 11;369(6509):1318-1330. |
+| Human Protein Atlas | 25613900 | Science. 2015 Jan 23;347(6220):1260419. |
+| Monaco 2019 | 30726743 | Cell Rep. 2019 Feb 5;26(6):1627-1640.e7. |
+| Haemopedia | 30395284 | Nucleic Acids Res. 2019 Jan 8;47(D1):D780-D785. |
+| Snaptron | 28968689 | Bioinformatics. 2018 Jan 1;34(1):114-116. |
+| recount3 | 34844637 | Genome Biol. 2021 Nov 29;22(1):323. |
+| Ensembl | 39656687 | Nucleic Acids Res. 2025 Jan 6;53(D1):D948-D957. |
+
+数据来源页因此由 1 页拆为 2 页（单细胞/单核、参考层），全片 15 页。
