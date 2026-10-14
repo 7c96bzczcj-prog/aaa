@@ -57,7 +57,7 @@ CT_CN = {
     ("human", "liver", "basophil"): "嗜碱粒细胞",
     ("human", "liver", "cholangiocyte"): "胆管细胞",
     ("human", "liver", "CD16-negative, CD56-bright natural killer cell, human"): "CD56bright NK",
-    ("human", "liver", "megakaryocyte-erythroid progenitor cell"): "巨核-红系祖细胞",
+    ("human", "liver", "megakaryocyte-erythroid progenitor cell"): "巨核红系祖细胞",
     # human — pancreas
     ("human", "pancreas", "pancreatic acinar cell"): "胰腺腺泡细胞",
     ("human", "pancreas", "type B pancreatic cell"): "胰岛 β 细胞",
@@ -626,7 +626,7 @@ def main():
 
     # ---- json for deck/report ----------------------------------------------------------------------
     js = [{"direction": r.direction, "evidence": r.evidence, "label": r.label,
-           "n_sup": int(r.n_sources_supporting or 0), "verdict": r.verdict,
+           "n_sup": int(r.n_sources_supporting or 0), "n_dis": int(r.n_sources_dissenting or 0), "verdict": r.verdict,
            "tier": r.tier, "tier_cn": TIER_CN[r.tier], "sp": r.sp_cn, "organ": r.tissue_cn,
            "susp": SUSP[r.suspension_type], "name": r.celltype_cn,
            "il18": round(r.pooled_pct_IL18 * 100, 2), "il18_pos": int(r.n_cells_IL18_pos),

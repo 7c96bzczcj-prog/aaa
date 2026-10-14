@@ -27,26 +27,18 @@ const ast = one("小鼠", "星形胶质"), oli = one("小鼠", "少突胶质"), 
 // comments applied: the short-IL-18 page is cut down to data sources only, and the "four questions"
 // page is removed. A human three-gene panel is added immediately before the mouse one.
 
-// ---- 1. short IL-18: data sources only (per comment on this page) --------------------------------
-let s = p.addSlide(); head(s, "关于「短 IL-18」：转录本层面是明确的否定");
-s.addText("人任何正常组织、任何正常细胞类型都不显著使用短 IL18 转录本。",
-  { isTextBox: true, x: .8, y: 1.35, w: 11.7, h: .45, fontFace: F, fontSize: 17, color: D, bold: true });
-s.addTable([[{ text: "数据源" }, { text: "内容" }, { text: "短异构体占比" }].map(c => ({ ...c, options: { bold: true, fill: "EEF1F5" } }))].concat([
-  ["Ensembl REST", "IL18 转录本结构与异构体蛋白长度（人 193 aa vs 148 / 144 aa）", "—"],
-  ["Snaptron（GTEx v8）", "逐样本剪接连接计数，54 个组织、6792 个样本", "0.09%"],
-  ["Snaptron（recount / SRA v3h）", "逐样本剪接连接计数，50790 个样本", "0.20%"]]),
-  { x: .8, y: 2.05, w: 11.7, colW: [3.0, 6.4, 2.3], fontFace: F, fontSize: 13, color: INK,
-    border: { pt: .5, color: "D8DBE0" }, rowH: .44, valign: "middle" });
-s.addText("本分析的全部参考数据库", { isTextBox: true, x: .8, y: 4.0, w: 11.7, h: .32, fontFace: F, fontSize: 13.5, color: INK, bold: true });
-[["单细胞/单核", "CZ CELLxGENE Census LTS 2025-11-08（29 个分层）· Allen Human Variation Study · SEA-AD · PsychAD · Tabula Muris Senis · Tabula Sapiens · HLCA · CellRef"],
+// ---- 1. the libraries consulted -----------------------------------------------------------------
+let s = p.addSlide(); head(s, "查阅的数据库");
+[["单细胞 / 单核", "CZ CELLxGENE Census LTS 2025-11-08（29 个分层）· Allen Human Variation Study · SEA-AD · PsychAD · Tabula Muris Senis · Tabula Sapiens · HLCA · CellRef · GEO GSE103892"],
  ["分选 / 纯化 bulk", "ImmGen（RNA-seq + 微阵列）· brainrnaseq/Zhang · Pressl 2024 sFANS 分选核 · Allen Human Cortex SMART-seq · RiboTag / TRAP 系列 · LCM 分选 · 多套 GEO FACS 分选"],
  ["组织 bulk / 蛋白", "GTEx v8 · Human Protein Atlas v25（RNA + IHC 蛋白）· Monaco 2019 · Haemopedia"],
- ["剪接连接", "Snaptron（recount3 / SRA / GTEx）"]
+ ["剪接连接", "Snaptron（recount3 / SRA / GTEx v8）"],
+ ["基因模型", "Ensembl REST"],
 ].forEach(([k, v], i) => {
-  s.addText(k, { isTextBox: true, x: .8, y: 4.4 + i * .62, w: 2.3, h: .55, fontFace: F, fontSize: 12, color: MU, bold: true, valign: "top" });
-  s.addText(v, { isTextBox: true, x: 3.2, y: 4.4 + i * .62, w: 9.3, h: .58, fontFace: F, fontSize: 11.5, color: INK, valign: "top", lineSpacingMultiple: 1.1 });
+  s.addText(k, { isTextBox: true, x: .8, y: 1.55 + i * 1.02, w: 2.5, h: .5, fontFace: F, fontSize: 13.5, color: MU, bold: true, valign: "top" });
+  s.addText(v, { isTextBox: true, x: 3.5, y: 1.55 + i * 1.02, w: 9.1, h: .92, fontFace: F, fontSize: 13, color: INK, valign: "top", lineSpacingMultiple: 1.2 });
 });
-s.addText("统一参考表 1714 行，每条带来源、单位、状态与匹配质量标注。", { isTextBox: true, x: .8, y: 6.95, w: 11.7, h: .3, fontFace: F, fontSize: 11, color: FA });
+s.addText("统一参考表 1714 行，每条带来源、单位、状态与匹配质量标注。", { isTextBox: true, x: .8, y: H - .55, w: 11.7, h: .3, fontFace: F, fontSize: 10.5, color: FA });
 
 // ---- 2-3. per-species overview figures ----------------------------------------------------------
 s = p.addSlide(); head(s, "人：同一条检出率轴上看 IL18 与 CASP1");
@@ -90,44 +82,34 @@ PANEL.forEach(([title, f, c]) => {
   cap(s, c);
 });
 
-// ---- 14-15. conclusions and limits ----------------------------------------------------------------
-const CJK = s_ => [...s_].reduce((n, ch) => n + (ch.codePointAt(0) > 0x2E80 ? 1 : 0.55), 0);
-// 0.86: PowerPoint adds space at every CJK/Latin boundary, so a line holds fewer glyphs than width/size
-const wraps = (t_, w, fs) => Math.max(1, Math.ceil(CJK(t_) / (w * 72 / fs * 0.86)));
-const LIST = (sl, y, items, fs, w, x) => {
-  for (const it of items) {
-    const h = wraps(it, w, fs) * (fs / 50) + .10;
-    sl.addText(it, { isTextBox: true, x, y, w, h, fontFace: F, fontSize: fs, color: INK,
-                     valign: "top", lineSpacingMultiple: 1.2, bullet: { characterCode: "2022", indent: 15 } });
-    y += h + .13;
-  }
-  return y;
-};
+// ---- 14. conclusion: the cell types the screen returns, ordered by reference support -------------
+const HIT = R.filter(r => r.direction === "符合")
+  .sort((a, b) => b.n_donors - a.n_donors)
+  .filter((r, i, arr) => arr.findIndex(x => x.sp === r.sp && x.organ === r.organ && x.name === r.name) === i)
+  .sort((a, b) => b.n_sup - a.n_sup || b.il18 - a.il18);
+const pc = v => (v >= 10 ? v.toFixed(1) : v.toFixed(2)) + "%";
 
 s = p.addSlide();
-s.addText("结论", { isTextBox: true, x: .7, y: .42, w: 6, h: .55, fontFace: F, fontSize: 26, color: INK, bold: true });
-LIST(s, 1.40, [
-  "髓系细胞不满足筛选前提：两物种五器官 62 个「细胞类型 × 分层」中无一符合，IL18 检出率最高者同时也是 CASP1 检出率最高者。",
-  "小鼠命中胶质：皮层与海马星形胶质 IL18 56.7%（2135/3766，40 供体）、CASP1 2/3766；少突胶质 27.3%、CASP1 2/8987。单核分层中星形胶质 CASP1 为 4.65%，不复现。",
-  "人命中皮层神经元亚类：PV 中间神经元 IL18 26.8%（5286/19711，78 供体）、CASP1 24/19711，另一 234 供体队列复现；L5 ET 三个分层 IL18 31.8%–43.3%。",
-  "两组命中不跨物种：人皮层星形胶质 IL18 4.8%，小鼠皮层 PV 中间神经元 Il18 2.2%。",
-  "脑外 7 个细胞类型方向符合，证据均为单一来源或存在分歧；最高者人肺肥大细胞 IL18 34.9%（1851/5299，44 供体）、CASP1 2.60%。",
-  "人肝与人脊髓白质各 11 类，无符合者。",
-  "短 IL-18 转录本在人正常组织不被显著使用：GTEx v8 6792 个样本中占 0.09%。",
-], 14.5, 11.5, .95);
-s.addText("检出率为合并口径（原始计数 ≥1 的细胞数 ÷ 分析细胞数）。29 个分层，静息基线。完整判定见 results/answer_table.tsv。",
-  { isTextBox: true, x: .95, y: H - .52, w: 11.7, h: .34, fontFace: F, fontSize: 10.5, color: FA });
-
-s = p.addSlide();
-s.addText("限制与后续", { isTextBox: true, x: .7, y: .42, w: 6, h: .55, fontFace: F, fontSize: 26, color: INK, bold: true });
-LIST(s, 1.40, [
-  "静息基线，未做环境 RNA 校正。CASP1 为可诱导基因，静息态近零不预测刺激后；CASP3 的 mRNA 不反映 caspase-3 酶活性，仅用于排除最低档。",
-  "物种之间、数据集之间、单核与单细胞之间仅比较候选名单，不比较数值。",
-  "参考层覆盖不均：人肺 AT1 与人胰腺腺泡各 1 个参考来源，4 个细胞类型无来源，小鼠星形胶质 4 个。证据分级在相当程度上反映覆盖差异。",
-  "零值标尺：静息小鼠小胶质 Casp1 约 50–61 CPM、17% 细胞。阳性对照 L5a IT 锥体神经元 8.34 CPM（25 个文库中 24 个非零）。",
-  "小鼠星形胶质结论限皮层与海马：小脑 Bergmann 胶质 22.4 CPM、脊髓星形胶质 12.5–16.7 CPM 均测到 Casp1。",
-  "三分位与「CASP3 最低 20%」为工程取值：改用四分位后候选数由 17 降至 12。",
-  "待补测量：人肺肥大细胞、人肺 AT1、人胰腺腺泡各需一次原代分选后的 CASP1 定量；小鼠胰岛 δ 细胞需复核比值 5.64 的分歧来源。",
-], 14.5, 11.5, .95);
+s.addText("结论", { isTextBox: true, x: .7, y: .36, w: 6, h: .5, fontFace: F, fontSize: 24, color: INK, bold: true });
+s.addText("符合「IL18 高 + CASP1 低」的细胞类型，按参考层支持由强到弱。支持 / 分歧 = 参考层中显示 CASP1 近零 / 可测的独立来源数",
+  { isTextBox: true, x: .7, y: .88, w: 11.9, h: .3, fontFace: F, fontSize: 12, color: MU });
+const HEAD = ["物种 · 器官", "细胞类型", "IL18 检出", "CASP1 检出", "供体", "支持", "分歧"];
+s.addTable([HEAD.map(c => ({ text: c, options: { bold: true, fill: "EEF1F5", color: "3C3C3C" } }))].concat(
+  HIT.map(r => [`${r.sp} · ${r.organ}`, r.name + (r.n_strata > 1 ? ` ×${r.n_strata}` : ""),
+                `${pc(r.il18)}　${r.il18_pos}/${r.n_cells}`,
+                `${pc(r.casp1)}　${r.casp1_pos}/${r.n_cells}`, `${r.n_donors}`,
+                r.n_sup ? `${r.n_sup}` : "—", r.n_dis ? `${r.n_dis}` : "—"])),
+  { x: .7, y: 1.26, w: 11.93, colW: [1.55, 3.35, 2.4, 2.4, .73, .75, .75], fontFace: F, fontSize: 10.5,
+    color: INK, border: { pt: .5, color: "E2E5E9" }, rowH: .225, valign: "middle", autoPage: false });
+s.addText([
+  { text: "明确阴性：", options: { bold: true } },
+  { text: "髓系 62 个「细胞类型 × 分层」0 个符合；人肝 11 类、人脊髓白质 11 类 0 个符合；短 IL-18 转录本占 GTEx v8 6792 个样本的 0.09%。" }],
+  { isTextBox: true, x: .7, y: H - 1.24, w: 11.93, h: .4, fontFace: F, fontSize: 12, color: INK, valign: "top", lineSpacingMultiple: 1.2 });
+s.addText([
+  { text: "物种不互通：", options: { bold: true } },
+  { text: "人皮层星形胶质 IL18 4.8%（782/16319）；小鼠皮层 PV 中间神经元 Casp1 同样近零，但 Il18 仅 2.2%（684/30434）。" }],
+  { isTextBox: true, x: .7, y: H - .86, w: 11.93, h: .4, fontFace: F, fontSize: 12, color: INK, valign: "top", lineSpacingMultiple: 1.2 });
+s.addText("检出率为合并口径（原始计数 ≥1 的细胞数 ÷ 分析细胞数）。同一细胞类型见于多个分层时取供体最多者，×n 为分层数。静息基线，未做环境 RNA 校正。",
+  { isTextBox: true, x: .7, y: H - .44, w: 11.93, h: .3, fontFace: F, fontSize: 10, color: FA });
 
 p.writeFile({ fileName: ROOT + "/IL18_CASP_五器官筛选.pptx" }).then(f => console.log("wrote", f));
